@@ -26,6 +26,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   // Gather the theme data //
 
+  final double iconSize = EzConfig.get(iconSizeKey);
   final double margin = EzConfig.get(marginKey);
   final double spacing = EzConfig.get(spacingKey);
 
@@ -130,9 +131,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
                     // Capture
                     Positioned(
-                      bottom: spargin,
+                      bottom: spargin + spacing,
+                      left: widthOf(context) * 0.5,
                       child: EzIconButton(
-                        icon: const Icon(Icons.circle_outlined),
+                        icon: Icon(
+                          Icons.circle_outlined,
+                          size: iconSize * 2,
+                        ),
                         onPressed: () async {
                           try {
                             final XFile image = await controller.takePicture();
