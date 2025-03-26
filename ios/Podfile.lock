@@ -1,7 +1,11 @@
 PODS:
+  - camera_avfoundation (0.0.1):
+    - Flutter
   - file_saver (0.0.1):
     - Flutter
   - Flutter (1.0.0)
+  - flutter_native_splash (2.4.3):
+    - Flutter
   - image_picker_ios (0.0.1):
     - Flutter
   - integration_test (0.0.1):
@@ -21,8 +25,10 @@ PODS:
     - FlutterMacOS
 
 DEPENDENCIES:
+  - camera_avfoundation (from `.symlinks/plugins/camera_avfoundation/ios`)
   - file_saver (from `.symlinks/plugins/file_saver/ios`)
   - Flutter (from `Flutter`)
+  - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
@@ -32,10 +38,14 @@ DEPENDENCIES:
   - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/darwin`)
 
 EXTERNAL SOURCES:
+  camera_avfoundation:
+    :path: ".symlinks/plugins/camera_avfoundation/ios"
   file_saver:
     :path: ".symlinks/plugins/file_saver/ios"
   Flutter:
     :path: Flutter
+  flutter_native_splash:
+    :path: ".symlinks/plugins/flutter_native_splash/ios"
   image_picker_ios:
     :path: ".symlinks/plugins/image_picker_ios/ios"
   integration_test:
@@ -52,8 +62,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/video_player_avfoundation/darwin"
 
 SPEC CHECKSUMS:
+  camera_avfoundation: 04b44aeb14070126c6529e5ab82cc7c9fca107cf
   file_saver: 6cdbcddd690cb02b0c1a0c225b37cd805c2bf8b6
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_native_splash: c32d145d68aeda5502d5f543ee38c192065986cf
   image_picker_ios: 7fe1ff8e34c1790d6fff70a32484959f563a928a
   integration_test: 4a889634ef21a45d28d50d622cf412dc6d9f586e
   path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
