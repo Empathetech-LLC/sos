@@ -13,6 +13,9 @@ class SosScaffold extends StatelessWidget {
   /// [AppBar.title] passthrough (via [Text] widget)
   final String title;
 
+  /// Whether to include [AppBar] in the [Scaffold]
+  final bool showAppBar;
+
   /// Whether to include [SettingsButton] in the [MenuAnchor]
   final bool showSettings;
 
@@ -26,6 +29,7 @@ class SosScaffold extends StatelessWidget {
   const SosScaffold({
     super.key,
     this.title = appTitle,
+    this.showAppBar = true,
     this.showSettings = true,
     required this.body,
     this.fab,
@@ -69,25 +73,27 @@ class SosScaffold extends StatelessWidget {
     final Widget theBuild = SelectionArea(
       child: Scaffold(
         // AppBar
-        appBar: PreferredSize(
-          preferredSize: Size(double.infinity, toolbarHeight),
-          child: AppBar(
-            excludeHeaderSemantics: true,
-            toolbarHeight: toolbarHeight,
+        appBar: showAppBar
+            ? PreferredSize(
+                preferredSize: Size(double.infinity, toolbarHeight),
+                child: AppBar(
+                  excludeHeaderSemantics: true,
+                  toolbarHeight: toolbarHeight,
 
-            // Leading (aka left)
-            leading: isLefty ? options : const EzBackAction(),
-            leadingWidth: toolbarHeight,
+                  // Leading (aka left)
+                  leading: isLefty ? options : const EzBackAction(),
+                  leadingWidth: toolbarHeight,
 
-            // Title
-            title: Text(title, textAlign: TextAlign.center),
-            centerTitle: true,
-            titleSpacing: 0,
+                  // Title
+                  title: Text(title, textAlign: TextAlign.center),
+                  centerTitle: true,
+                  titleSpacing: 0,
 
-            // Actions (aka trailing aka right)
-            actions: <Widget>[isLefty ? const EzBackAction() : options],
-          ),
-        ),
+                  // Actions (aka trailing aka right)
+                  actions: <Widget>[isLefty ? const EzBackAction() : options],
+                ),
+              )
+            : null,
 
         // Body
         body: body,
