@@ -28,7 +28,9 @@ dependencies:
 
 dev_dependencies:
   dependency_validator: ^5.0.2
+  flutter_launcher_icons: ^0.14.3
   flutter_lints: ^5.0.0
+  flutter_native_splash: ^2.4.5
   flutter_test:
     sdk: flutter
   integration_test:
@@ -37,3 +39,41 @@ dev_dependencies:
 flutter:
   generate: true
   uses-material-design: true
+
+  assets:
+    - assets/fonts/
+    - assets/fonts/Roboto-Black.ttf
+    - assets/fonts/Roboto-BlackItalic.ttf
+    - assets/fonts/Roboto-Bold.ttf
+    - assets/fonts/Roboto-BoldItalic.ttf
+    - assets/fonts/Roboto-Italic.ttf
+    - assets/fonts/Roboto-Light.ttf
+    - assets/fonts/Roboto-LightItalic.ttf
+    - assets/fonts/Roboto-Medium.ttf
+    - assets/fonts/Roboto-MediumItalic.ttf
+    - assets/fonts/Roboto-Regular.ttf
+    - assets/fonts/Roboto-Thin.ttf
+    - assets/fonts/Roboto-ThinItalic.ttf
+    - assets/images/
+    - assets/images/logo.png
+
+flutter_launcher_icons:
+  image_path: assets/images/logo.png
+  adaptive_icon_foreground: assets/images/logo.png
+  adaptive_icon_background: "#A520DA"
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  web:
+    generate: false
+  windows:
+    generate: false
+  macos:
+    generate: false
+
+flutter_native_splash:
+  image: assets/images/logo.png
+  color: "#A520DA"
+  android: true
+  ios: true
+  web: false
