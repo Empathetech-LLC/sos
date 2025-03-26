@@ -39,6 +39,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   late CameraController camControl;
   late Future<void> camStatus;
 
+  bool recording = false;
+
   // Define custom functions //
 
   Future<void> initCamera() async {
@@ -165,23 +167,35 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                               size: iconSize * 2,
                               color: Colors.red,
                             ),
-                            onPressed: () async {
-                              try {
-                                await camControl.startVideoRecording();
+                            onPressed: !recording
+                                ? () async {
+                                    try {
+                                      await camControl.startVideoRecording();
+                                      setState(() => recording = true);
+                                    } catch (e) {
+                                      if (context.mounted) {
+                                        ezLogAlert(context,
+                                            message: e.toString());
+                                      }
+                                    }
+                                  }
+                                : () async {
+                                    try {
+                                      final XFile video =
+                                          await camControl.stopVideoRecording();
+                                      setState(() => recording = false);
 
-                                final XFile video =
-                                    await camControl.stopVideoRecording();
-
-                                await Share.shareXFiles(
-                                  <XFile>[video],
-                                  text: await getCoordinates(),
-                                );
-                              } catch (e) {
-                                if (context.mounted) {
-                                  ezLogAlert(context, message: e.toString());
-                                }
-                              }
-                            },
+                                      await Share.shareXFiles(
+                                        <XFile>[video],
+                                        text: await getCoordinates(),
+                                      );
+                                    } catch (e) {
+                                      if (context.mounted) {
+                                        ezLogAlert(context,
+                                            message: e.toString());
+                                      }
+                                    }
+                                  },
                           ),
                         ],
                       ),
