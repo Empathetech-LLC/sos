@@ -4,7 +4,6 @@
  */
 
 import 'package:sos/main.dart';
-import 'package:sos/utils/export.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -19,7 +18,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final Map<String, Object> testConfig = <String, Object>{
-    ...sosConfig,
+    ...empathetechConfig,
     isDarkThemeKey: true,
   };
 
@@ -38,8 +37,8 @@ void main() async {
     'Generated tests',
     () {
       testWidgets('Test randomizer', (WidgetTester tester) async {
-        ezLog('Loading Sos');
-        await tester.pumpWidget(const Sos());
+        ezLog('Loading SOS');
+        await tester.pumpWidget(const SOS());
         await tester.pumpAndSettle();
       });
     },

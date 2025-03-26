@@ -34,7 +34,7 @@ void main() async {
   EzConfig.init(
     assetPaths: <String>{},
     preferences: prefs,
-    defaults: sosConfig,
+    defaults: empathetechConfig,
   );
 
   // Run the app //
@@ -70,7 +70,7 @@ void main() async {
       EmpathetechFeedbackLocalizationsDelegate(),
     ],
     localeOverride: EzConfig.getLocale(),
-    child: const Sos(),
+    child: const SOS(),
   ));
 }
 
@@ -141,8 +141,8 @@ final GoRouter router = GoRouter(
   ],
 );
 
-class Sos extends StatelessWidget {
-  const Sos({super.key});
+class SOS extends StatelessWidget {
+  const SOS({super.key});
 
   @override
   Widget build(BuildContext context) {
