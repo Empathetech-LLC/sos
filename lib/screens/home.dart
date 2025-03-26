@@ -132,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     Positioned(
                       bottom: spargin,
                       child: EzIconButton(
-                        icon: Icon(PlatformIcons(context).photoCamera),
+                        icon: const Icon(Icons.circle_outlined),
                         onPressed: () async {
                           try {
                             final XFile image = await controller.takePicture();
