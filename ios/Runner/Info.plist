@@ -46,10 +46,12 @@
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
 		<key>NSCameraUsageDescription</key>
-		<string>your usage description here</string>
+		<string>SOS needs access to your camera to share photos/videos with your emergency contacts.</string>
 		<key>NSMicrophoneUsageDescription</key>
-		<string>your usage description here</string>
+		<string>SOS needs access to your microphone to record videos with audio.</string>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>SOS needs access to your location to share it with your emergency contacts.</string>
 	</dict>
 </plist>
