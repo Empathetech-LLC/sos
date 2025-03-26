@@ -13,7 +13,7 @@
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundleName</key>
-		<string>sos</string>
+		<string>SnapOS</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
@@ -46,12 +46,14 @@
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
 		<key>NSCameraUsageDescription</key>
-		<string>SOS needs access to your camera to share photos/videos with your emergency contacts.</string>
+		<string>SnapOS needs access to your camera to share photos/videos with your emergency contacts.</string>
 		<key>NSMicrophoneUsageDescription</key>
-		<string>SOS needs access to your microphone to record videos with audio.</string>
+		<string>SnapOS needs access to your microphone to record videos with audio.</string>
 		<key>UIStatusBarHidden</key>
 		<false/>
 		<key>NSLocationWhenInUseUsageDescription</key>
-		<string>SOS needs access to your location to share it with your emergency contacts.</string>
+		<string>SnapOS needs access to your location to share it with your emergency contacts.</string>
+		<key>NSContactsUsageDescription</key>
+    <string>SnapOS needs to be able to save your emergency contacts.</string>
 	</dict>
 </plist>
