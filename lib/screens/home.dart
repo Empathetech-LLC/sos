@@ -83,7 +83,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       return 'Cannot access location (denied)';
     }
 
-    return Geolocator.getCurrentPosition().toString();
+    final Position pos = await Geolocator.getCurrentPosition();
+    return pos.toString();
   }
 
   // Init //
