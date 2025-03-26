@@ -6,6 +6,7 @@
 import '../utils/export.dart';
 import '../widgets/export.dart';
 
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
@@ -16,19 +17,12 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  // Gather the theme data //
-
-  late final Lang l10n = Lang.of(context)!;
-
-  late final TextTheme textTheme = Theme.of(context).textTheme;
-  late final TextStyle? subTitle = ezSubTitleStyle(textTheme);
-
+class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   // Define the build data //
 
-  int count = 0;
+  late CameraController controller;
 
-  // Set the page title //
+  // Init //
 
   @override
   void didChangeDependencies() {
@@ -36,32 +30,54 @@ class _HomeScreenState extends State<HomeScreen> {
     ezWindowNamer(context, appTitle);
   }
 
+  @override
+  void initState() {
+    super.initState();
+    getCamera();
+  }
+
+  void getCamera() async {
+    final List<CameraDescription> cameras = await availableCameras();
+
+    controller = CameraController(cameras.first, ResolutionPreset.max);
+    controller.initialize().then((_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {});
+    }).catchError((Object e) {
+      if (e is CameraException) {
+        switch (e.code) {
+          case 'CameraAccessDenied':
+            // Handle access errors here.
+            break;
+          default:
+            // Handle other errors here.
+            break;
+        }
+      }
+    });
+  }
+
   // Return the build //
 
   @override
   Widget build(BuildContext context) {
     return SosScaffold(
+      showAppBar: false,
       title: appTitle,
-      body: EzScreen(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                l10n.hsCounterLabel,
-                style: subTitle,
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                count.toString(),
-                style: textTheme.headlineLarge,
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
-      ),
-      fab: CountFAB(() => setState(() => count += 1)),
+      body: EzScreen(child: CameraPreview(controller)),
     );
+  }
+
+  // Cleanup //
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {}
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 }
