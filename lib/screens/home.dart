@@ -11,6 +11,8 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:efui_bios/efui_bios.dart';
 import 'package:go_router/go_router.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
@@ -25,6 +27,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   // Gather the theme data //
 
   final double margin = EzConfig.get(marginKey);
+  final double spacing = EzConfig.get(spacingKey);
+
+  late final double spargin = margin + spacing;
 
   final bool isLefty = EzConfig.get(isLeftyKey);
 
@@ -35,13 +40,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   late CameraController controller;
   late Future<void> cameraStatus;
 
-  // Init //
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ezWindowNamer(context, appTitle);
-  }
+  // Define custom functions //
 
   Future<void> initCamera() async {
     final List<CameraDescription> cameras = await availableCameras();
@@ -67,6 +66,33 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     });
   }
 
+  Future<String> getPos() async {
+    final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) return 'Cannot access location (disabled)';
+
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return 'Cannot access location (denied)';
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return 'Cannot access location (denied)';
+    }
+
+    return Geolocator.getCurrentPosition().toString();
+  }
+
+  // Init //
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    ezWindowNamer(context, appTitle);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -88,14 +114,39 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               return EzScreen(
                 child: Stack(
                   children: <Widget>[
+                    // Preview
                     Positioned.fill(child: CameraPreview(controller)),
+
+                    // Settings
                     Positioned(
-                      top: margin,
-                      right: isLefty ? null : margin,
-                      left: isLefty ? margin : null,
+                      top: spargin,
+                      right: isLefty ? null : spargin,
+                      left: isLefty ? spargin : null,
                       child: EzIconButton(
                         icon: Icon(PlatformIcons(context).settings),
                         onPressed: () => context.goNamed(settingsHomePath),
+                      ),
+                    ),
+
+                    // Capture
+                    Positioned(
+                      bottom: spargin,
+                      child: EzIconButton(
+                        icon: Icon(PlatformIcons(context).photoCamera),
+                        onPressed: () async {
+                          try {
+                            final XFile image = await controller.takePicture();
+
+                            await Share.shareXFiles(
+                              <XFile>[image],
+                              text: await getPos(),
+                            );
+                          } catch (e) {
+                            if (context.mounted) {
+                              ezLogAlert(context, message: e.toString());
+                            }
+                          }
+                        },
                       ),
                     ),
                   ],
