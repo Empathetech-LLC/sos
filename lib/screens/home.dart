@@ -30,25 +30,23 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   final double margin = EzConfig.get(marginKey);
   final double spacing = EzConfig.get(spacingKey);
 
-  late final double spargin = margin + spacing;
-
   final bool isLefty = EzConfig.get(isLeftyKey);
 
   late final EFUILang el10n = EFUILang.of(context)!;
 
   // Define the build data //
 
-  late CameraController controller;
-  late Future<void> cameraStatus;
+  late CameraController camControl;
+  late Future<void> camStatus;
 
   // Define custom functions //
 
   Future<void> initCamera() async {
     final List<CameraDescription> cameras = await availableCameras();
 
-    controller = CameraController(cameras.first, ResolutionPreset.max);
+    camControl = CameraController(cameras.first, ResolutionPreset.max);
 
-    cameraStatus = controller.initialize().then((_) {
+    camStatus = camControl.initialize().then((_) {
       if (!mounted) {
         return;
       }
@@ -67,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     });
   }
 
-  Future<String> getPos() async {
+  Future<String> getCoordinates() async {
     final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) return 'Cannot access location (disabled)';
 
@@ -77,9 +75,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       if (permission == LocationPermission.denied) {
         return 'Cannot access location (denied)';
       }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
+    } else if (permission == LocationPermission.deniedForever) {
       return 'Cannot access location (denied)';
     }
 
@@ -109,50 +105,85 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       showAppBar: false,
       title: appTitle,
       body: FutureBuilder<void>(
-        future: cameraStatus,
+        future: camStatus,
         builder: (_, AsyncSnapshot<void> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
-              return EzScreen(
+              return SafeArea(
                 child: Stack(
                   children: <Widget>[
                     // Preview
-                    Positioned.fill(child: CameraPreview(controller)),
+                    Positioned.fill(child: CameraPreview(camControl)),
 
                     // Settings
                     Positioned(
-                      top: spargin,
-                      right: isLefty ? null : spargin,
-                      left: isLefty ? spargin : null,
+                      top: margin,
+                      right: isLefty ? null : margin,
+                      left: isLefty ? margin : null,
                       child: EzIconButton(
                         icon: Icon(PlatformIcons(context).settings),
                         onPressed: () => context.goNamed(settingsHomePath),
                       ),
                     ),
 
-                    // Capture
+                    // Controls
                     Positioned(
-                      bottom: spargin + spacing,
-                      left: widthOf(context) * 0.5,
-                      child: EzIconButton(
-                        icon: Icon(
-                          Icons.circle_outlined,
-                          size: iconSize * 2,
-                        ),
-                        onPressed: () async {
-                          try {
-                            final XFile image = await controller.takePicture();
+                      bottom: margin + spacing,
+                      left: 0,
+                      right: 0,
+                      child: EzRow(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          // Capture
+                          EzIconButton(
+                            icon: Icon(
+                              PlatformIcons(context).photoCamera,
+                              size: iconSize * 1.5,
+                            ),
+                            onPressed: () async {
+                              try {
+                                final XFile image =
+                                    await camControl.takePicture();
 
-                            await Share.shareXFiles(
-                              <XFile>[image],
-                              text: await getPos(),
-                            );
-                          } catch (e) {
-                            if (context.mounted) {
-                              ezLogAlert(context, message: e.toString());
-                            }
-                          }
-                        },
+                                await Share.shareXFiles(
+                                  <XFile>[image],
+                                  text: await getCoordinates(),
+                                );
+                              } catch (e) {
+                                if (context.mounted) {
+                                  ezLogAlert(context, message: e.toString());
+                                }
+                              }
+                            },
+                          ),
+                          const EzSeparator(),
+
+                          // Record
+                          EzIconButton(
+                            icon: Icon(
+                              Icons.circle,
+                              size: iconSize * 2,
+                              color: Colors.red,
+                            ),
+                            onPressed: () async {
+                              try {
+                                await camControl.startVideoRecording();
+
+                                final XFile video =
+                                    await camControl.stopVideoRecording();
+
+                                await Share.shareXFiles(
+                                  <XFile>[video],
+                                  text: await getCoordinates(),
+                                );
+                              } catch (e) {
+                                if (context.mounted) {
+                                  ezLogAlert(context, message: e.toString());
+                                }
+                              }
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -180,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    controller.dispose();
+    camControl.dispose();
     super.dispose();
   }
 }
