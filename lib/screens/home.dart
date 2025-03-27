@@ -3,9 +3,6 @@
  * See LICENSE for distribution and usage details.
  */
 
-// ignore_for_file: dead_code
-// The exit(0) confuses the linter for some reason... it only runs on a button press
-
 import '../screens/export.dart';
 import '../utils/export.dart';
 import '../widgets/export.dart';
@@ -37,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   final bool isLefty = EzConfig.get(isLeftyKey);
 
   late final EFUILang el10n = EFUILang.of(context)!;
+  late final TextStyle? labelStyle = Theme.of(context).textTheme.labelLarge;
 
   // Define the build data //
 
@@ -140,9 +138,26 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             builder: (_, AsyncSnapshot<int> snapshot) {
                               final Duration elapsed =
                                   Duration(seconds: snapshot.data ?? 0);
-                              return EzText(elapsed.toString());
+                              return EzText(
+                                elapsed.toString().split('.').first,
+                                style: labelStyle,
+                              );
                             },
                           ),
+                        ),
+                      ),
+                    ),
+
+                    // Broadcast button
+                    Positioned(
+                      top: margin + spacing,
+                      left: 0,
+                      right: 0,
+                      child: Center(
+                        child: EzIconButton(
+                          icon: const Icon(Icons.sos),
+                          iconSize: iconSize * 1.5,
+                          onPressed: doNothing,
                         ),
                       ),
                     ),
@@ -167,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         visible: notifyOnClose,
                         child: EzIconButton(
                           icon: Icon(PlatformIcons(context).thumbUp),
-                          onPressed: exit(0),
+                          onPressed: () => exit(0),
                         ),
                       ),
                     ),
