@@ -24,6 +24,7 @@ dependencies:
     path: ../efui_bios
   empathetech_flutter_ui: 
     path: ../empathetech_flutter_ui
+  permission_handler: ^11.4.0
   feedback: ^3.1.0
   flutter_localized_locales: ^2.0.5
   flutter_platform_widgets: ^8.0.0
