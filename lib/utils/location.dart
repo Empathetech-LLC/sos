@@ -3,6 +3,7 @@
  * See LICENSE for distribution and usage details.
  */
 
+import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 
 Future<String> getCoordinates() async {
@@ -21,4 +22,13 @@ Future<String> getCoordinates() async {
 
   final Position pos = await Geolocator.getCurrentPosition();
   return pos.toString();
+}
+
+const MethodChannel _channel = MethodChannel('sos');
+
+void sendSOS() async {
+  return _channel.invokeMethod('sendSMS', <String, String>{
+    'message': await getCoordinates(),
+    'recipients': 'NUMBER'
+  }).then((dynamic value) => value ?? 'Error sending sms');
 }
