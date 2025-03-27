@@ -10,6 +10,8 @@ import '../widgets/export.dart';
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:feedback/feedback.dart';
 import 'package:efui_bios/efui_bios.dart';
 import 'package:go_router/go_router.dart';
 import 'package:geolocator/geolocator.dart';
@@ -170,6 +172,35 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       child: EzIconButton(
                         icon: Icon(PlatformIcons(context).settings),
                         onPressed: () => context.goNamed(settingsHomePath),
+                        onLongPress: () async {
+                          await Clipboard.setData(
+                              const ClipboardData(text: empathSupport));
+
+                          if (context.mounted) {
+                            await ezSnackBar(
+                              context: context,
+                              message:
+                                  '${el10n.gOpeningFeedback}\n${el10n.gClipboard(el10n.gSupportEmail)}',
+                            ).closed;
+                          }
+
+                          if (context.mounted) {
+                            BetterFeedback.of(context).show(
+                              (UserFeedback feedback) async {
+                                await Share.shareXFiles(
+                                  <XFile>[
+                                    XFile.fromData(
+                                      feedback.screenshot,
+                                      name: 'screenshot.png',
+                                      mimeType: 'image/png',
+                                    )
+                                  ],
+                                  text: feedback.text,
+                                );
+                              },
+                            );
+                          }
+                        },
                       ),
                     ),
 
