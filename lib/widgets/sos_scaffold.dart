@@ -59,11 +59,10 @@ class SosScaffold extends StatelessWidget {
         icon: const Icon(Icons.more_vert),
       ),
       menuChildren: <Widget>[
-        (showSettings) ? SettingsButton(context) : EFUICredits(context),
         EzFeedbackMenuButton(
           parentContext: context,
           appName: appTitle,
-          supportEmail: 'support@empathetech.net',
+          supportEmail: empathSupport,
         ),
       ],
     );
