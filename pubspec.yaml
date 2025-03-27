@@ -27,6 +27,7 @@ dependencies:
   feedback: ^3.1.0
   flutter_localized_locales: ^2.0.5
   flutter_platform_widgets: ^8.0.0
+  flutter_sms: ^2.3.3
   geolocator: ^13.0.3
   share_plus: ^10.1.4
 
