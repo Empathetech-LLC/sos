@@ -3,5 +3,14 @@
 
 
 
-  "hsCounterLabel": "You have pushed the button this many times:"
+  "hsSOSHint": "Share location with EMC",
+  "hsSafeCloseHint": "All clear\nClose the app without notifying EMC",
+  "hsCameraHint": "Take a photo",
+  "hsRecordHint": "Record a video",
+
+
+
+  "ssNotifyOnOpen": "Notify EMC on open",
+  "ssNotifyOnClose": "Notify EMC on close",
+  "ssNotifyOnSOS": "SOS when recording is interrupted"
 }

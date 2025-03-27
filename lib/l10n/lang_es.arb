@@ -3,5 +3,14 @@
 
 
 
-  "hsCounterLabel": "Has pulsado el botón muchas veces:"
+  "hsSOSHint": "Compartir ubicación con el CME",
+  "hsSafeCloseHint": "Todo claro\nCerrar la aplicación sin notificar al CME",
+  "hsCameraHint": "Tomar una foto",
+  "hsRecordHint": "Grabar un video",
+
+
+
+  "ssNotifyOnOpen": "Notificar al CME al abrir",
+  "ssNotifyOnClose": "Notificar al CME al cerrar",
+  "ssNotifyOnSOS": "SOS cuando se interrumpe la grabación"
 }

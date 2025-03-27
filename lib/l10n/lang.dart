@@ -98,11 +98,47 @@ abstract class Lang {
     Locale('fr')
   ];
 
-  /// No description provided for @hsCounterLabel.
+  /// No description provided for @hsSOSHint.
   ///
   /// In en, this message translates to:
-  /// **'You have pushed the button this many times:'**
-  String get hsCounterLabel;
+  /// **'Share location with EMC'**
+  String get hsSOSHint;
+
+  /// No description provided for @hsSafeCloseHint.
+  ///
+  /// In en, this message translates to:
+  /// **'All clear\nClose the app without notifying EMC'**
+  String get hsSafeCloseHint;
+
+  /// No description provided for @hsCameraHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a photo'**
+  String get hsCameraHint;
+
+  /// No description provided for @hsRecordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Record a video'**
+  String get hsRecordHint;
+
+  /// No description provided for @ssNotifyOnOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Notify EMC on open'**
+  String get ssNotifyOnOpen;
+
+  /// No description provided for @ssNotifyOnClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Notify EMC on close'**
+  String get ssNotifyOnClose;
+
+  /// No description provided for @ssNotifyOnSOS.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS when recording is interrupted'**
+  String get ssNotifyOnSOS;
 }
 
 class _LangDelegate extends LocalizationsDelegate<Lang> {
