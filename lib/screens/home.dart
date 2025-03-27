@@ -104,11 +104,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 child: Stack(
                   children: <Widget>[
                     // Preview
-                    Positioned.fill(child: CameraPreview(camControl)),
+                    Center(child: CameraPreview(camControl)),
 
                     // Record timer
                     Positioned(
-                      top: spargin * 0.5,
+                      top: 0,
                       left: 0,
                       right: 0,
                       child: Visibility(
