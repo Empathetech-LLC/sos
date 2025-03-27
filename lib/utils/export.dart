@@ -5,6 +5,5 @@
 
 export 'consts.dart';
 export 'location.dart';
-export 'messaging.dart';
 
 export '../l10n/lang.dart';
