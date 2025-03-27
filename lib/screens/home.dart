@@ -35,13 +35,18 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   final bool isLefty = EzConfig.get(isLeftyKey);
 
+  final Color recordColor = Color(EzConfig.get(recordColorKey) ?? 0xFFFF0000);
+  late final Color recordTextColor = getTextColor(recordColor);
+
   late final EFUILang el10n = EFUILang.of(context)!;
   late final TextStyle? labelStyle = Theme.of(context).textTheme.labelLarge;
 
+  static const EzSeparator separator = EzSeparator();
+
   // Define the build data //
 
-  late CameraController camControl;
   late Future<void> camStatus;
+  late CameraController camControl;
 
   bool recording = false;
   final Stopwatch watch = Stopwatch();
@@ -55,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
     camControl = CameraController(cameras.first, ResolutionPreset.max);
 
-    camStatus = camControl.initialize().then((_) {
+    camControl.initialize().then((_) {
       if (!mounted) {
         return;
       }
@@ -85,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    initCamera();
+    camStatus = initCamera();
   }
 
   // Return the build //
@@ -124,9 +129,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                   Duration(seconds: snapshot.data ?? 0);
                               return EzText(
                                 elapsed.toString().split('.').first,
-                                backgroundColor: Colors.red,
+                                backgroundColor: recordColor,
                                 style: labelStyle?.copyWith(
-                                  color: Colors.white,
+                                  color: recordTextColor,
                                 ),
                               );
                             },
@@ -215,10 +220,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         children: <Widget>[
                           // Capture
                           EzIconButton(
-                            icon: Icon(
-                              PlatformIcons(context).photoCamera,
-                              size: iconSize * 1.5,
-                            ),
+                            icon: Icon(PlatformIcons(context).photoCamera),
                             enabled: !recording,
                             onPressed: () async {
                               try {
@@ -236,14 +238,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                               }
                             },
                           ),
-                          const EzSeparator(),
+                          separator,
 
                           // Record
                           EzIconButton(
                             icon: Icon(
                               recording ? Icons.stop : Icons.circle,
                               size: iconSize * 2,
-                              color: Colors.red,
+                              color: recordColor,
                             ),
                             onPressed: !recording
                                 ? () async {
@@ -279,6 +281,36 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                       }
                                     }
                                   },
+                          ),
+                          separator,
+
+                          // Flash
+                          EzIconButton(
+                            icon: switch (camControl.value.flashMode) {
+                              FlashMode.off => const Icon(Icons.flash_off),
+                              FlashMode.auto => const Icon(Icons.flash_auto),
+                              FlashMode.always => const Icon(Icons.flash_on),
+                              FlashMode.torch =>
+                                const Icon(Icons.flashlight_on),
+                            },
+                            onPressed: () async {
+                              switch (camControl.value.flashMode) {
+                                case FlashMode.off:
+                                  await camControl.setFlashMode(FlashMode.auto);
+                                  break;
+                                case FlashMode.auto:
+                                  await camControl
+                                      .setFlashMode(FlashMode.always);
+                                  break;
+                                case FlashMode.always:
+                                  await camControl.setFlashMode(FlashMode.off);
+                                  break;
+                                case FlashMode.torch:
+                                  await camControl.setFlashMode(FlashMode.off);
+                                  break;
+                              }
+                              setState(() {});
+                            },
                           ),
                         ],
                       ),
