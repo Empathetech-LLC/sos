@@ -3,6 +3,7 @@
  * See LICENSE for distribution and usage details.
  */
 
+import '../../utils/export.dart';
 import '../../widgets/export.dart';
 
 import 'package:flutter/material.dart';
@@ -17,7 +18,23 @@ class ColorSettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) => SosScaffold(
         title: EFUILang.of(context)!.csPageTitle,
         showSettings: false,
-        body: EzColorSettings(target: target),
+        body: EzColorSettings(
+          target: target,
+          lightStarterSet: const <String>[
+            recordColorKey,
+            lightPrimaryKey,
+            lightSurfaceKey,
+            lightOnSurfaceKey,
+            lightSurfaceContainerKey,
+          ],
+          darkStarterSet: const <String>[
+            recordColorKey,
+            darkPrimaryKey,
+            darkSurfaceKey,
+            darkOnSurfaceKey,
+            darkSurfaceContainerKey,
+          ],
+        ),
         fab: EzBackFAB(context),
       );
 }
