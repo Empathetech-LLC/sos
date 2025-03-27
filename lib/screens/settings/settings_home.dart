@@ -17,11 +17,17 @@ class SettingsHomeScreen extends StatelessWidget {
         title: EFUILang.of(context)!.ssPageTitle,
         showSettings: false,
         body: const EzSettingsHome(
+          notFun: true,
+          additionalSettings: <Widget>[
+            EzText('Notify EMC on open'),
+            EzSpacer(),
+            EzText('Notify EMC on close'),
+          ],
           textSettingsPath: textSettingsPath,
           layoutSettingsPath: layoutSettingsPath,
           colorSettingsPath: colorSettingsPath,
           imageSettingsPath: null,
-          allowRandom: true,                                
+          allowRandom: false,
         ),
       );
 }
