@@ -21,14 +21,14 @@ class ColorSettingsScreen extends StatelessWidget {
         body: EzColorSettings(
           target: target,
           lightStarterSet: const <String>[
-            recordColorKey,
+            videoColorKey,
             lightPrimaryKey,
             lightSurfaceKey,
             lightOnSurfaceKey,
             lightSurfaceContainerKey,
           ],
           darkStarterSet: const <String>[
-            recordColorKey,
+            videoColorKey,
             darkPrimaryKey,
             darkSurfaceKey,
             darkOnSurfaceKey,

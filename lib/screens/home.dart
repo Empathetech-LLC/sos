@@ -35,8 +35,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   final bool isLefty = EzConfig.get(isLeftyKey);
 
-  final Color recordColor = Color(EzConfig.get(recordColorKey) ?? 0xFFFF0000);
-  late final Color recordTextColor = getTextColor(recordColor);
+  final Color videoColor = Color(EzConfig.get(videoColorKey) ?? 0xFFFF0000);
+  late final Color recordTextColor = getTextColor(videoColor);
 
   late final EFUILang el10n = EFUILang.of(context)!;
   late final TextStyle? labelStyle = Theme.of(context).textTheme.labelLarge;
@@ -129,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                   Duration(seconds: snapshot.data ?? 0);
                               return EzText(
                                 elapsed.toString().split('.').first,
-                                backgroundColor: recordColor,
+                                backgroundColor: videoColor,
                                 style: labelStyle?.copyWith(
                                   color: recordTextColor,
                                 ),
@@ -245,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             icon: Icon(
                               recording ? Icons.stop : Icons.circle,
                               size: iconSize * 2,
-                              color: recordColor,
+                              color: videoColor,
                             ),
                             onPressed: !recording
                                 ? () async {

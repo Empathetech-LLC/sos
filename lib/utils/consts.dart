@@ -8,8 +8,8 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 /// 'SnapOS'
 const String appTitle = 'SnapOS';
 
-/// 'recordColor'
-const String recordColorKey = 'recordColor';
+/// 'Video'
+const String videoColorKey = 'Video';
 
 /// 'notifyOnOpen'
 const String onOpenKey = 'notifyOnOpen';
@@ -22,7 +22,7 @@ const String onInterruptKey = 'sosOnInterrupt';
 
 const Map<String, dynamic> sosConfig = <String, dynamic>{
   ...empathetechConfig,
-  recordColorKey: 0xFFFF0000,
+  videoColorKey: 0xFFFF0000,
   onOpenKey: false,
   onCloseKey: false,
   onInterruptKey: true,
