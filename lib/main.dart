@@ -10,15 +10,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:feedback/feedback.dart';
 import 'package:go_router/go_router.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 
+void requestPermissions() async {
+  await Permission.camera.request();
+  await Permission.microphone.request();
+  await Permission.location.request();
+}
+
 void main() async {
   // Setup the app //
 
   WidgetsFlutterBinding.ensureInitialized();
+
+  requestPermissions();
 
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
