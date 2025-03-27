@@ -3,10 +3,14 @@
  * See LICENSE for distribution and usage details.
  */
 
+// ignore_for_file: dead_code
+// The exit(0) confuses the linter for some reason... it only runs on a button press
+
 import '../screens/export.dart';
 import '../utils/export.dart';
 import '../widgets/export.dart';
 
+import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:efui_bios/efui_bios.dart';
@@ -40,6 +44,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   late Future<void> camStatus;
 
   bool recording = false;
+  final Stopwatch watch = Stopwatch();
+
+  final bool notifyOnClose = EzConfig.get(onCloseKey) ?? false;
 
   // Define custom functions //
 
@@ -117,6 +124,29 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // Preview
                     Positioned.fill(child: CameraPreview(camControl)),
 
+                    // Record timer
+                    Positioned(
+                      top: margin,
+                      left: 0,
+                      right: 0,
+                      child: Visibility(
+                        visible: recording,
+                        child: Center(
+                          child: StreamBuilder<int>(
+                            stream: Stream<int>.periodic(
+                              const Duration(seconds: 1),
+                              (_) => watch.elapsed.inSeconds,
+                            ),
+                            builder: (_, AsyncSnapshot<int> snapshot) {
+                              final Duration elapsed =
+                                  Duration(seconds: snapshot.data ?? 0);
+                              return EzText(elapsed.toString());
+                            },
+                          ),
+                        ),
+                      ),
+                    ),
+
                     // Settings
                     Positioned(
                       top: margin,
@@ -125,6 +155,20 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       child: EzIconButton(
                         icon: Icon(PlatformIcons(context).settings),
                         onPressed: () => context.goNamed(settingsHomePath),
+                      ),
+                    ),
+
+                    // Safe close - iff notifyOnClose is true
+                    Positioned(
+                      top: margin,
+                      right: isLefty ? margin : null,
+                      left: isLefty ? null : margin,
+                      child: Visibility(
+                        visible: notifyOnClose,
+                        child: EzIconButton(
+                          icon: Icon(PlatformIcons(context).thumbUp),
+                          onPressed: exit(0),
+                        ),
                       ),
                     ),
 
@@ -171,7 +215,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 ? () async {
                                     try {
                                       await camControl.startVideoRecording();
+
                                       setState(() => recording = true);
+                                      watch.start();
                                     } catch (e) {
                                       if (context.mounted) {
                                         ezLogAlert(context,
@@ -183,7 +229,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                     try {
                                       final XFile video =
                                           await camControl.stopVideoRecording();
+
                                       setState(() => recording = false);
+                                      watch.stop();
+                                      watch.reset();
 
                                       await Share.shareXFiles(
                                         <XFile>[video],
