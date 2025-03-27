@@ -14,7 +14,6 @@ import 'package:flutter/services.dart';
 import 'package:feedback/feedback.dart';
 import 'package:efui_bios/efui_bios.dart';
 import 'package:go_router/go_router.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
@@ -32,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   final double iconSize = EzConfig.get(iconSizeKey);
   final double margin = EzConfig.get(marginKey);
   final double spacing = EzConfig.get(spacingKey);
+  late final double spargin = margin + spacing;
 
   final bool isLefty = EzConfig.get(isLeftyKey);
 
@@ -74,24 +74,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     });
   }
 
-  Future<String> getCoordinates() async {
-    final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) return 'Cannot access location (disabled)';
-
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return 'Cannot access location (denied)';
-      }
-    } else if (permission == LocationPermission.deniedForever) {
-      return 'Cannot access location (denied)';
-    }
-
-    final Position pos = await Geolocator.getCurrentPosition();
-    return pos.toString();
-  }
-
   // Init //
 
   @override
@@ -126,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
                     // Record timer
                     Positioned(
-                      top: margin,
+                      top: spargin * 0.5,
                       left: 0,
                       right: 0,
                       child: Visibility(
@@ -142,7 +124,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                   Duration(seconds: snapshot.data ?? 0);
                               return EzText(
                                 elapsed.toString().split('.').first,
-                                style: labelStyle,
+                                backgroundColor: Colors.red,
+                                style: labelStyle?.copyWith(
+                                  color: Colors.white,
+                                ),
                               );
                             },
                           ),
@@ -152,14 +137,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
                     // Broadcast button
                     Positioned(
-                      top: margin + spacing,
+                      top: spargin,
                       left: 0,
                       right: 0,
                       child: Center(
                         child: EzIconButton(
                           icon: const Icon(Icons.sos),
                           iconSize: iconSize * 1.5,
-                          onPressed: doNothing,
+                          onPressed: sendSOS,
                         ),
                       ),
                     ),
@@ -171,6 +156,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       left: isLefty ? margin : null,
                       child: EzIconButton(
                         icon: Icon(PlatformIcons(context).settings),
+                        enabled: !recording,
                         onPressed: () => context.goNamed(settingsHomePath),
                         onLongPress: () async {
                           await Clipboard.setData(
@@ -213,6 +199,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         visible: notifyOnClose,
                         child: EzIconButton(
                           icon: Icon(PlatformIcons(context).thumbUp),
+                          enabled: !recording,
                           onPressed: () => exit(0),
                         ),
                       ),
@@ -220,7 +207,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
                     // Controls
                     Positioned(
-                      bottom: margin + spacing,
+                      bottom: spargin,
                       left: 0,
                       right: 0,
                       child: EzRow(
@@ -232,6 +219,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                               PlatformIcons(context).photoCamera,
                               size: iconSize * 1.5,
                             ),
+                            enabled: !recording,
                             onPressed: () async {
                               try {
                                 final XFile image =
@@ -253,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                           // Record
                           EzIconButton(
                             icon: Icon(
-                              Icons.circle,
+                              recording ? Icons.stop : Icons.circle,
                               size: iconSize * 2,
                               color: Colors.red,
                             ),
