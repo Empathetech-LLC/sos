@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:feedback/feedback.dart';
 import 'package:go_router/go_router.dart';
+import 'package:workmanager/workmanager.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
@@ -24,12 +25,22 @@ void requestPermissions() async {
   await Permission.location.request();
 }
 
+@pragma('vm:entry-point')
+void callbackDispatcher() {
+  Workmanager().executeTask((String task, Map<String, dynamic>? inputData) {
+    sendSOS();
+    return Future<bool>.value(true);
+  });
+}
+
 void main() async {
   // Setup the app //
 
   WidgetsFlutterBinding.ensureInitialized();
 
   requestPermissions();
+
+  Workmanager().initialize(callbackDispatcher);
 
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
