@@ -17,6 +17,7 @@ import 'package:efui_bios/efui_bios.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:workmanager/workmanager.dart';
+import 'package:after_layout/after_layout.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
@@ -28,7 +29,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
+class _HomeScreenState extends State<HomeScreen>
+    with WidgetsBindingObserver, AfterLayoutMixin<HomeScreen> {
   // Gather the theme data //
 
   final double iconSize = EzConfig.get(iconSizeKey);
@@ -88,8 +90,23 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   void gatherEMC() async {
     if (emc == null || emc!.isEmpty) {
-      final Contact? contact = await FlutterContacts.openExternalPick();
+      Contact? contact;
 
+      while (true) {
+        contact = await FlutterContacts.openExternalPick();
+
+        if (contact == null ||
+            (contact.phones.isEmpty || contact.phones.first.number.isEmpty)) {
+          if (mounted) {
+            await ezSnackBar(
+              context: context,
+              message: 'Contact does not have a phone number',
+            ).closed;
+          }
+        } else {
+          break;
+        }
+      }
       debugPrint('CAW! ${contact.toString()}');
     }
   }
@@ -106,8 +123,12 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     camStatus = initCamera();
-    showTutorial(context);
-    gatherEMC(); // Cleanup
+  }
+
+  @override
+  void afterFirstLayout(_) {
+    gatherEMC();
+    // showTutorial(context);
   }
 
   // Return the build //
