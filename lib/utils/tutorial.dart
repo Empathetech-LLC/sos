@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-void showTutorial(BuildContext context) async {
+Future<dynamic> firstEMCMsg(BuildContext context) async {
   final (
     List<EzMaterialAction> materialActions,
     List<EzCupertinoAction> cupertinoActions
@@ -17,11 +17,13 @@ void showTutorial(BuildContext context) async {
     onDeny: Navigator.of(context).pop,
   );
 
-  showPlatformDialog(
+  return showPlatformDialog(
     context: context,
     builder: (_) => EzAlertDialog(
-      title: const Text('Tutorial'),
-      content: const Text('Are you not entertained?'),
+      title: const Text('Welcome to SOS'),
+      content: const Text(
+        'This app is designed to share your evidence and location with emergency contacts in a moment of crisis.\nPlease choose your first emergency contact. The contact must have a phone number.\nJust one for now, you can add more later.',
+      ),
       materialActions: materialActions,
       cupertinoActions: cupertinoActions,
       needsClose: false,
