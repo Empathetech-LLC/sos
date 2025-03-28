@@ -36,8 +36,11 @@ class _HomeScreenState extends State<HomeScreen>
 
   final double iconSize = EzConfig.get(iconSizeKey);
   final double margin = EzConfig.get(marginKey);
+  final double padding = EzConfig.get(paddingKey);
   final double spacing = EzConfig.get(spacingKey);
+
   late final double spargin = margin + spacing;
+  late final double spadding = padding + spacing;
 
   final bool isLefty = EzConfig.get(isLeftyKey);
 
@@ -54,7 +57,6 @@ class _HomeScreenState extends State<HomeScreen>
   late Future<void> camStatus;
   late CameraController camControl;
 
-  bool showTutorial = EzConfig.get(tutorialKey) ?? false;
   final OverlayPortalController broadcastOverlay =
       OverlayPortalController(debugLabel: 'broadcast');
   final OverlayPortalController settingsOverlay =
@@ -149,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen>
     // Populate emc
     gatherEMC();
 
-    if (showTutorial) broadcastOverlay.show();
+    if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
   }
 
   // Return the build //
@@ -207,12 +209,35 @@ class _HomeScreenState extends State<HomeScreen>
                       child: Center(
                         child: OverlayPortal(
                           controller: broadcastOverlay,
-                          overlayChildBuilder: (_) => IconButton(
-                            icon: const Icon(Icons.thumb_up),
-                            onPressed: () {
-                              broadcastOverlay.hide();
-                              settingsOverlay.show();
-                            },
+                          overlayChildBuilder: (_) => Positioned(
+                            top: spargin + iconSize * 1.5 + spadding,
+                            left: 0,
+                            right: 0,
+                            child: EzAlertDialog(
+                              content: const Text(
+                                'Activate SOS to text your EMC your exact location every minute.\n\nIt will continue when the phone is locked.\nDe-activate SOS or fully close the app to stop broadcasting.',
+                                textAlign: TextAlign.center,
+                              ),
+                              materialActions: <EzMaterialAction>[
+                                EzMaterialAction(
+                                  text: 'Ok',
+                                  onPressed: () {
+                                    broadcastOverlay.hide();
+                                    settingsOverlay.show();
+                                  },
+                                )
+                              ],
+                              cupertinoActions: <EzCupertinoAction>[
+                                EzCupertinoAction(
+                                  text: 'Ok',
+                                  onPressed: () {
+                                    broadcastOverlay.hide();
+                                    settingsOverlay.show();
+                                  },
+                                )
+                              ],
+                              needsClose: false,
+                            ),
                           ),
                           child: EzIconButton(
                             icon: broadcasting
@@ -246,12 +271,35 @@ class _HomeScreenState extends State<HomeScreen>
                       left: isLefty ? margin : null,
                       child: OverlayPortal(
                         controller: settingsOverlay,
-                        overlayChildBuilder: (_) => IconButton(
-                          icon: const Icon(Icons.thumb_down),
-                          onPressed: () {
-                            settingsOverlay.hide();
-                            recordOverlay.show();
-                          },
+                        overlayChildBuilder: (_) => Positioned(
+                          top: margin,
+                          right: isLefty ? null : margin + iconSize + spadding,
+                          left: isLefty ? margin + iconSize + spadding : null,
+                          child: EzAlertDialog(
+                            content: const Text(
+                              'You can customize your SOS message, add more EMC, set the app to auto-SOS, update the appearance, and more in the settings.',
+                              textAlign: TextAlign.center,
+                            ),
+                            materialActions: <EzMaterialAction>[
+                              EzMaterialAction(
+                                text: 'Ok',
+                                onPressed: () {
+                                  settingsOverlay.hide();
+                                  recordOverlay.show();
+                                },
+                              )
+                            ],
+                            cupertinoActions: <EzCupertinoAction>[
+                              EzCupertinoAction(
+                                text: 'Ok',
+                                onPressed: () {
+                                  settingsOverlay.hide();
+                                  recordOverlay.show();
+                                },
+                              )
+                            ],
+                            needsClose: false,
+                          ),
                         ),
                         child: EzIconButton(
                           icon: Icon(PlatformIcons(context).settings),
@@ -339,13 +387,35 @@ class _HomeScreenState extends State<HomeScreen>
                           // Record
                           OverlayPortal(
                             controller: recordOverlay,
-                            overlayChildBuilder: (_) => IconButton(
-                              icon: const Icon(Icons.handshake),
-                              onPressed: () async {
-                                recordOverlay.hide();
-                                showTutorial = false;
-                                await EzConfig.setBool(tutorialKey, false);
-                              },
+                            overlayChildBuilder: (_) => Positioned(
+                              bottom: spargin + iconSize * 2 + spadding,
+                              right: 0,
+                              left: 0,
+                              child: EzAlertDialog(
+                                content: const Text(
+                                  'When you take a picture or finish a recording, it will auto-save to your gallery.\nThen, you can choose to share it (and your location) with the native sharing options.\n\nIf a video is interrupted, SOS will auto-activate.\nThis can be changed in the settings.',
+                                  textAlign: TextAlign.center,
+                                ),
+                                materialActions: <EzMaterialAction>[
+                                  EzMaterialAction(
+                                    text: 'Ok',
+                                    onPressed: () {
+                                      settingsOverlay.hide();
+                                      recordOverlay.show();
+                                    },
+                                  )
+                                ],
+                                cupertinoActions: <EzCupertinoAction>[
+                                  EzCupertinoAction(
+                                    text: 'Ok',
+                                    onPressed: () {
+                                      settingsOverlay.hide();
+                                      recordOverlay.show();
+                                    },
+                                  )
+                                ],
+                                needsClose: false,
+                              ),
                             ),
                             child: EzIconButton(
                               icon: Icon(
