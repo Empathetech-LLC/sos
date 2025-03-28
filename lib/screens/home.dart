@@ -16,6 +16,7 @@ import 'package:feedback/feedback.dart';
 import 'package:efui_bios/efui_bios.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:workmanager/workmanager.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
@@ -51,6 +52,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   bool recording = false;
   final Stopwatch watch = Stopwatch();
+
+  bool broadcasting = false;
 
   final bool notifyOnClose = EzConfig.get(onCloseKey) ?? false;
 
@@ -148,9 +151,24 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       right: 0,
                       child: Center(
                         child: EzIconButton(
-                          icon: const Icon(Icons.sos),
+                          icon: broadcasting
+                              ? const Icon(Icons.sos)
+                              : const Icon(Icons.notifications),
                           iconSize: iconSize * 1.5,
-                          onPressed: sendSOS,
+                          onPressed: () async {
+                            if (broadcasting) {
+                              await Workmanager()
+                                  .cancelByUniqueName('sos_broadcast');
+                              setState(() => broadcasting = false);
+                            } else {
+                              await Workmanager().registerPeriodicTask(
+                                'sos_broadcast',
+                                'SOS',
+                                frequency: const Duration(minutes: 1),
+                              );
+                              setState(() => broadcasting = true);
+                            }
+                          },
                         ),
                       ),
                     ),
