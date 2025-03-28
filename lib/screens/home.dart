@@ -17,6 +17,7 @@ import 'package:efui_bios/efui_bios.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:workmanager/workmanager.dart';
+import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
@@ -49,6 +50,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   late Future<void> camStatus;
   late CameraController camControl;
+
+  List<String>? emc = EzConfig.get(emcKey);
 
   bool recording = false;
   final Stopwatch watch = Stopwatch();
@@ -83,6 +86,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     });
   }
 
+  void gatherEMC() async {
+    if (emc == null || emc!.isEmpty) {
+      final Contact? contact = await FlutterContacts.openExternalPick();
+
+      debugPrint('CAW! ${contact.toString()}');
+    }
+  }
+
   // Init //
 
   @override
@@ -95,6 +106,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     camStatus = initCamera();
+    showTutorial(context);
+    gatherEMC(); // Cleanup
   }
 
   // Return the build //
