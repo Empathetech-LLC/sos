@@ -230,7 +230,7 @@ packages:
       path: "../empathetech_flutter_ui"
       relative: true
     source: path
-    version: "8.0.1"
+    version: "8.0.2"
   fake_async:
     dependency: transitive
     description:
