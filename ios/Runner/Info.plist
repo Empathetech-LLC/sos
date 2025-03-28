@@ -54,7 +54,7 @@
 		<key>NSLocationWhenInUseUsageDescription</key>
 		<string>SnapOS needs access to your location to share it with your emergency contacts.</string>
 		<key>NSContactsUsageDescription</key>
-    <string>SnapOS needs to be able to save your emergency contacts.</string>
+		<string>SnapOS needs to be able to save your emergency contacts.</string>
 		<key>NSPhotoLibraryAddUsageDescription</key>
 		<string>SnapOS needs access to your photo library to save photos/videos.</string>
 	</dict>
