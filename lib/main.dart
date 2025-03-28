@@ -114,6 +114,11 @@ final GoRouter router = GoRouter(
           path: settingsHomePath,
           name: settingsHomePath,
           builder: (_, __) => const SettingsHomeScreen(),
+        ),
+        GoRoute(
+          path: ezSettingsHomePath,
+          name: ezSettingsHomePath,
+          builder: (_, __) => const EzSettingsHomeScreen(),
           routes: <RouteBase>[
             GoRoute(
               path: textSettingsPath,
