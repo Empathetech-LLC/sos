@@ -90,6 +90,8 @@ class _HomeScreenState extends State<HomeScreen>
 
   void gatherEMC() async {
     if (emc == null || emc!.isEmpty) {
+      await firstEMCMsg(context);
+
       Contact? contact;
 
       while (true) {
@@ -107,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen>
           break;
         }
       }
-      debugPrint('CAW! ${contact.toString()}');
+      EzConfig.setStringList(emcKey, <String>[contact.phones.first.number]);
     }
   }
 
@@ -128,7 +130,6 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void afterFirstLayout(_) {
     gatherEMC();
-    // showTutorial(context);
   }
 
   // Return the build //
