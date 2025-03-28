@@ -31,7 +31,7 @@ Future<String> getCoordinates() async {
 // const MethodChannel _channel = MethodChannel('sos');
 
 void sendSOS() async {
-  debugPrint('SOS');
+  debugPrint('CAW SOS CAW');
 
   // final String sos = EzConfig.get(customSOSKey) ?? 'SOS';
   // final String pos = await getCoordinates();
