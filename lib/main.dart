@@ -6,6 +6,7 @@
 import './screens/export.dart';
 import './utils/export.dart';
 
+import 'package:gal/gal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:feedback/feedback.dart';
@@ -19,6 +20,7 @@ import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 void requestPermissions() async {
   await Permission.camera.request();
   await Permission.microphone.request();
+  await Gal.requestAccess();
   await Permission.location.request();
 }
 
