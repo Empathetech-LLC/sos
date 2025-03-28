@@ -12,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:feedback/feedback.dart';
 import 'package:go_router/go_router.dart';
 import 'package:workmanager/workmanager.dart';
+import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
@@ -23,6 +24,7 @@ void requestPermissions() async {
   await Permission.microphone.request();
   await Gal.requestAccess();
   await Permission.location.request();
+  await FlutterContacts.requestPermission(readonly: true);
 }
 
 @pragma('vm:entry-point')
