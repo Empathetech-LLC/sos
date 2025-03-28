@@ -8,6 +8,7 @@ import '../utils/export.dart';
 import '../widgets/export.dart';
 
 import 'dart:io';
+import 'package:gal/gal.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -227,6 +228,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 final XFile image =
                                     await camControl.takePicture();
 
+                                await Gal.putImage(image.path);
                                 await Share.shareXFiles(
                                   <XFile>[image],
                                   text: await getCoordinates(),
@@ -270,6 +272,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                       watch.stop();
                                       watch.reset();
 
+                                      await Gal.putVideo(video.path);
                                       await Share.shareXFiles(
                                         <XFile>[video],
                                         text: await getCoordinates(),
