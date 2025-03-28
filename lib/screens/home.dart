@@ -54,6 +54,14 @@ class _HomeScreenState extends State<HomeScreen>
   late Future<void> camStatus;
   late CameraController camControl;
 
+  bool showTutorial = EzConfig.get(tutorialKey) ?? false;
+  final OverlayPortalController broadcastOverlay =
+      OverlayPortalController(debugLabel: 'broadcast');
+  final OverlayPortalController settingsOverlay =
+      OverlayPortalController(debugLabel: 'settings');
+  final OverlayPortalController recordOverlay =
+      OverlayPortalController(debugLabel: 'record');
+
   List<String>? emc = EzConfig.get(emcKey);
 
   bool recording = false;
@@ -140,6 +148,8 @@ class _HomeScreenState extends State<HomeScreen>
 
     // Populate emc
     gatherEMC();
+
+    if (showTutorial) broadcastOverlay.show();
   }
 
   // Return the build //
@@ -195,26 +205,36 @@ class _HomeScreenState extends State<HomeScreen>
                       left: 0,
                       right: 0,
                       child: Center(
-                        child: EzIconButton(
-                          icon: broadcasting
-                              ? const Icon(Icons.notifications)
-                              : const Icon(Icons.sos),
-                          iconSize: iconSize * 1.5,
-                          highlightColor: Colors.red,
-                          onPressed: () async {
-                            if (broadcasting) {
-                              await Workmanager()
-                                  .cancelByUniqueName('sos_broadcast');
-                              setState(() => broadcasting = false);
-                            } else {
-                              await Workmanager().registerPeriodicTask(
-                                'sos_broadcast',
-                                'sos_broadcast',
-                                frequency: const Duration(seconds: 3),
-                              );
-                              setState(() => broadcasting = true);
-                            }
-                          },
+                        child: OverlayPortal(
+                          controller: broadcastOverlay,
+                          overlayChildBuilder: (_) => IconButton(
+                            icon: const Icon(Icons.thumb_up),
+                            onPressed: () {
+                              broadcastOverlay.hide();
+                              settingsOverlay.show();
+                            },
+                          ),
+                          child: EzIconButton(
+                            icon: broadcasting
+                                ? const Icon(Icons.notifications)
+                                : const Icon(Icons.sos),
+                            iconSize: iconSize * 1.5,
+                            highlightColor: Colors.red,
+                            onPressed: () async {
+                              if (broadcasting) {
+                                await Workmanager()
+                                    .cancelByUniqueName('sos_broadcast');
+                                setState(() => broadcasting = false);
+                              } else {
+                                await Workmanager().registerPeriodicTask(
+                                  'sos_broadcast',
+                                  'sos_broadcast',
+                                  frequency: const Duration(seconds: 3),
+                                );
+                                setState(() => broadcasting = true);
+                              }
+                            },
+                          ),
                         ),
                       ),
                     ),
@@ -224,39 +244,49 @@ class _HomeScreenState extends State<HomeScreen>
                       top: margin,
                       right: isLefty ? null : margin,
                       left: isLefty ? margin : null,
-                      child: EzIconButton(
-                        icon: Icon(PlatformIcons(context).settings),
-                        enabled: !recording,
-                        onPressed: () => context.goNamed(settingsHomePath),
-                        onLongPress: () async {
-                          await Clipboard.setData(
-                              const ClipboardData(text: empathSupport));
+                      child: OverlayPortal(
+                        controller: settingsOverlay,
+                        overlayChildBuilder: (_) => IconButton(
+                          icon: const Icon(Icons.thumb_down),
+                          onPressed: () {
+                            settingsOverlay.hide();
+                            recordOverlay.show();
+                          },
+                        ),
+                        child: EzIconButton(
+                          icon: Icon(PlatformIcons(context).settings),
+                          enabled: !recording,
+                          onPressed: () => context.goNamed(settingsHomePath),
+                          onLongPress: () async {
+                            await Clipboard.setData(
+                                const ClipboardData(text: empathSupport));
 
-                          if (context.mounted) {
-                            await ezSnackBar(
-                              context: context,
-                              message:
-                                  '${el10n.gOpeningFeedback}\n${el10n.gClipboard(el10n.gSupportEmail)}',
-                            ).closed;
-                          }
+                            if (context.mounted) {
+                              await ezSnackBar(
+                                context: context,
+                                message:
+                                    '${el10n.gOpeningFeedback}\n${el10n.gClipboard(el10n.gSupportEmail)}',
+                              ).closed;
+                            }
 
-                          if (context.mounted) {
-                            BetterFeedback.of(context).show(
-                              (UserFeedback feedback) async {
-                                await Share.shareXFiles(
-                                  <XFile>[
-                                    XFile.fromData(
-                                      feedback.screenshot,
-                                      name: 'screenshot.png',
-                                      mimeType: 'image/png',
-                                    )
-                                  ],
-                                  text: feedback.text,
-                                );
-                              },
-                            );
-                          }
-                        },
+                            if (context.mounted) {
+                              BetterFeedback.of(context).show(
+                                (UserFeedback feedback) async {
+                                  await Share.shareXFiles(
+                                    <XFile>[
+                                      XFile.fromData(
+                                        feedback.screenshot,
+                                        name: 'screenshot.png',
+                                        mimeType: 'image/png',
+                                      )
+                                    ],
+                                    text: feedback.text,
+                                  );
+                                },
+                              );
+                            }
+                          },
+                        ),
                       ),
                     ),
 
@@ -307,47 +337,58 @@ class _HomeScreenState extends State<HomeScreen>
                           separator,
 
                           // Record
-                          EzIconButton(
-                            icon: Icon(
-                              recording ? Icons.stop : Icons.circle,
-                              size: iconSize * 2,
-                              color: videoColor,
+                          OverlayPortal(
+                            controller: recordOverlay,
+                            overlayChildBuilder: (_) => IconButton(
+                              icon: const Icon(Icons.handshake),
+                              onPressed: () async {
+                                recordOverlay.hide();
+                                showTutorial = false;
+                                await EzConfig.setBool(tutorialKey, false);
+                              },
                             ),
-                            onPressed: !recording
-                                ? () async {
-                                    try {
-                                      await camControl.startVideoRecording();
+                            child: EzIconButton(
+                              icon: Icon(
+                                recording ? Icons.stop : Icons.circle,
+                                size: iconSize * 2,
+                                color: videoColor,
+                              ),
+                              onPressed: !recording
+                                  ? () async {
+                                      try {
+                                        await camControl.startVideoRecording();
 
-                                      setState(() => recording = true);
-                                      watch.start();
-                                    } catch (e) {
-                                      if (context.mounted) {
-                                        ezLogAlert(context,
-                                            message: e.toString());
+                                        setState(() => recording = true);
+                                        watch.start();
+                                      } catch (e) {
+                                        if (context.mounted) {
+                                          ezLogAlert(context,
+                                              message: e.toString());
+                                        }
                                       }
                                     }
-                                  }
-                                : () async {
-                                    try {
-                                      final XFile video =
-                                          await camControl.stopVideoRecording();
+                                  : () async {
+                                      try {
+                                        final XFile video = await camControl
+                                            .stopVideoRecording();
 
-                                      setState(() => recording = false);
-                                      watch.stop();
-                                      watch.reset();
+                                        setState(() => recording = false);
+                                        watch.stop();
+                                        watch.reset();
 
-                                      await Gal.putVideo(video.path);
-                                      await Share.shareXFiles(
-                                        <XFile>[video],
-                                        text: await getCoordinates(),
-                                      );
-                                    } catch (e) {
-                                      if (context.mounted) {
-                                        ezLogAlert(context,
-                                            message: e.toString());
+                                        await Gal.putVideo(video.path);
+                                        await Share.shareXFiles(
+                                          <XFile>[video],
+                                          text: await getCoordinates(),
+                                        );
+                                      } catch (e) {
+                                        if (context.mounted) {
+                                          ezLogAlert(context,
+                                              message: e.toString());
+                                        }
                                       }
-                                    }
-                                  },
+                                    },
+                            ),
                           ),
                           separator,
 
