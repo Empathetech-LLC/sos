@@ -215,7 +215,7 @@ class _HomeScreenState extends State<HomeScreen>
                             right: 0,
                             child: EzAlertDialog(
                               content: const Text(
-                                'Activate SOS to text your EMC your exact location every minute.\n\nIt will continue when the phone is locked.\nDe-activate SOS or fully close the app to stop broadcasting.',
+                                'Activate SOS to text your EMC your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDe-activate SOS or fully close the app to stop broadcasting.',
                                 textAlign: TextAlign.center,
                               ),
                               materialActions: <EzMaterialAction>[
@@ -277,7 +277,14 @@ class _HomeScreenState extends State<HomeScreen>
                           left: isLefty ? margin + iconSize + spadding : null,
                           child: EzAlertDialog(
                             content: const Text(
-                              'You can customize your SOS message, add more EMC, set the app to auto-SOS, update the appearance, and more in the settings.',
+                              '''You can...
+
+- Add more EMC
+- Customize your SOS message
+- Set the app to auto-SOS
+- Update the appearance
+
+and more in the settings.''',
                               textAlign: TextAlign.center,
                             ),
                             materialActions: <EzMaterialAction>[
@@ -393,24 +400,26 @@ class _HomeScreenState extends State<HomeScreen>
                               left: 0,
                               child: EzAlertDialog(
                                 content: const Text(
-                                  'When you take a picture or finish a recording, it will auto-save to your gallery.\nThen, you can choose to share it (and your location) with the native sharing options.\n\nIf a video is interrupted, SOS will auto-activate.\nThis can be changed in the settings.',
+                                  'When you take a picture or finish a recording, it will auto-save to your gallery.\n\nYou can then share the file, and your location, with the native sharing options.\n\nBy default, if a video is interrupted, SOS will auto-activate.',
                                   textAlign: TextAlign.center,
                                 ),
                                 materialActions: <EzMaterialAction>[
                                   EzMaterialAction(
                                     text: 'Ok',
-                                    onPressed: () {
-                                      settingsOverlay.hide();
-                                      recordOverlay.show();
+                                    onPressed: () async {
+                                      recordOverlay.hide();
+                                      await EzConfig.setBool(
+                                          tutorialKey, false);
                                     },
                                   )
                                 ],
                                 cupertinoActions: <EzCupertinoAction>[
                                   EzCupertinoAction(
                                     text: 'Ok',
-                                    onPressed: () {
-                                      settingsOverlay.hide();
-                                      recordOverlay.show();
+                                    onPressed: () async {
+                                      recordOverlay.hide();
+                                      await EzConfig.setBool(
+                                          tutorialKey, false);
                                     },
                                   )
                                 ],
