@@ -6,27 +6,19 @@
 import './screens/export.dart';
 import './utils/export.dart';
 
-import 'package:gal/gal.dart';
+import 'dart:isolate';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:feedback/feedback.dart';
 import 'package:go_router/go_router.dart';
 import 'package:workmanager/workmanager.dart';
-import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 
-void requestPermissions() async {
-  await Permission.camera.request();
-  await Permission.microphone.request();
-  await Gal.requestAccess();
-  await Permission.location.request();
-  await FlutterContacts.requestPermission(readonly: true);
-}
-
+/// Entry point (separate [Isolate]) version of [sendSOS]
 @pragma('vm:entry-point')
 void callbackDispatcher() {
   Workmanager().executeTask((String task, Map<String, dynamic>? inputData) {
@@ -40,8 +32,11 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  requestPermissions();
+  // First wave of permissions
+  await Permission.camera.request();
+  await Permission.microphone.request();
 
+  // Enable background tasks
   Workmanager().initialize(callbackDispatcher);
 
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
@@ -178,20 +173,13 @@ class SOS extends StatelessWidget {
     return EzAppProvider(
       app: PlatformApp.router(
         debugShowCheckedModeBanner: false,
-
-        // Language handlers
         localizationsDelegates: <LocalizationsDelegate<dynamic>>{
           const LocaleNamesLocalizationsDelegate(),
           ...EFUILang.localizationsDelegates,
           ...Lang.localizationsDelegates,
         },
-
-        // Supported languages
         supportedLocales: Lang.supportedLocales,
-
-        // Current language
         locale: EzConfig.getLocale(),
-
         title: appTitle,
         routerConfig: router,
       ),
