@@ -11,11 +11,17 @@ const String appTitle = 'SnapOS';
 /// 'Video'
 const String videoColorKey = 'Video';
 
+/// 'emc'
+const String emcKey = 'emc';
+
+/// 'customSOS'
+const String customSOSKey = 'customSOS';
+
 /// 'notifyOnOpen'
-const String onOpenKey = 'notifyOnOpen';
+const String onOpenKey = 'sosOnOpen';
 
 /// 'notifyOnClose'
-const String onCloseKey = 'notifyOnClose';
+const String onCloseKey = 'sosOnClose';
 
 /// 'sosOnInterrupt'
 const String onInterruptKey = 'sosOnInterrupt';
@@ -23,6 +29,8 @@ const String onInterruptKey = 'sosOnInterrupt';
 const Map<String, dynamic> sosConfig = <String, dynamic>{
   ...empathetechConfig,
   videoColorKey: 0xFFFF0000,
+  emcKey: null,
+  customSOSKey: null,
   onOpenKey: false,
   onCloseKey: false,
   onInterruptKey: true,
