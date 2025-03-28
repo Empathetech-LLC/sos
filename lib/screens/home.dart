@@ -155,6 +155,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                               ? const Icon(Icons.notifications)
                               : const Icon(Icons.sos),
                           iconSize: iconSize * 1.5,
+                          highlightColor: Colors.red,
                           onPressed: () async {
                             if (broadcasting) {
                               await Workmanager()
@@ -163,8 +164,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             } else {
                               await Workmanager().registerPeriodicTask(
                                 'sos_broadcast',
-                                'SOS',
-                                frequency: const Duration(minutes: 1),
+                                'sos_broadcast',
+                                frequency: const Duration(seconds: 3),
                               );
                               setState(() => broadcasting = true);
                             }
