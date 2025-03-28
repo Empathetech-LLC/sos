@@ -19,6 +19,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:after_layout/after_layout.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
@@ -109,7 +110,10 @@ class _HomeScreenState extends State<HomeScreen>
           break;
         }
       }
-      EzConfig.setStringList(emcKey, <String>[contact.phones.first.number]);
+
+      final List<String> toSave = <String>[contact.phones.first.number];
+      await EzConfig.setStringList(emcKey, toSave);
+      emc = toSave;
     }
   }
 
@@ -128,7 +132,13 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   @override
-  void afterFirstLayout(_) {
+  void afterFirstLayout(_) async {
+    // Finalize permissions
+    await Gal.requestAccess();
+    await Permission.location.request();
+    await FlutterContacts.requestPermission(readonly: true);
+
+    // Populate emc
     gatherEMC();
   }
 
