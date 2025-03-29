@@ -57,9 +57,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   // Define the build data //
 
-  // Camera
-  late Future<void> cameraStatus;
-  late CameraController camera;
+  CameraController? camera;
 
   // Tutorial
   final OverlayPortalController broadcastOverlay =
@@ -72,10 +70,8 @@ class _HomeScreenState extends State<HomeScreen>
   /// EMergency Contacts; [List] of phone number [String]s
   List<String>? emc = EzConfig.get(emcKey);
 
-  /// Whether [sendSOS] should be running
   bool broadcasting = false;
 
-  // Video
   bool recording = false;
   final Stopwatch watch = Stopwatch();
 
@@ -85,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   // Define custom functions //
 
-  /// Register [sendSOS] with [Workmanager]
+  /// Register [broadcastTask] (aka [sendSOS]) with [Workmanager]
   Future<dynamic> startBroadcast() {
     return Workmanager().registerPeriodicTask(
       broadcastTask,
@@ -94,33 +90,35 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  /// Check [onOpenKey]'s value
-  /// [startBroadcast] iff true
-  void startupChecks() async {
-    if (EzConfig.get(onOpenKey) == true) {
-      await startBroadcast();
-    }
-  }
-
   /// Initialize the [camera]
-  Future<void> initCamera() async {
+  Future<bool> initCamera() async {
+    if (camera != null) return true;
+
+    final PermissionStatus status = await Permission.camera.request();
+
+    if (status == PermissionStatus.denied ||
+        status == PermissionStatus.permanentlyDenied) {
+      return false;
+    }
+
     final List<CameraDescription> cameras = await availableCameras();
     camera = CameraController(cameras.first, ResolutionPreset.max);
 
     try {
-      camera.initialize().then((_) {
-        if (!mounted) {
-          return;
-        }
+      camera!.initialize().then((_) {
+        if (!mounted) return false;
         setState(() {});
+        return true;
       });
     } catch (e) {
-      if (e is CameraException && e.code == 'CameraAccessDenied') {
-        // TODO: Handle access errors
-      } else {
-        // TODO: Handle other errors
+      if (e is! CameraException || e.code != 'CameraAccessDenied') {
+        if (mounted) {
+          ezLogAlert(context, message: e.toString());
+        }
       }
     }
+
+    return false;
   }
 
   /// Users must select at least one emergency contact to use the app
@@ -163,16 +161,33 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
-    cameraStatus = initCamera();
+    if (EzConfig.get(onOpenKey) == true) startBroadcast();
+    initCamera();
   }
 
   @override
   void afterFirstLayout(BuildContext context) async {
-    // Finalize permissions
-    await Permission.microphone.request();
-    await Gal.requestAccess();
     await Permission.location.request();
-    await FlutterContacts.requestPermission(readonly: true);
+
+    if (!await FlutterContacts.requestPermission(readonly: true)) {
+      final (List<EzMaterialAction>, List<EzCupertinoAction>) actions = (
+        <EzMaterialAction>[
+          EzMaterialAction(text: l10n.gOk, onPressed: () => exit(0))
+        ],
+        <EzCupertinoAction>[
+          EzCupertinoAction(text: l10n.gOk, onPressed: () => exit(0))
+        ]
+      );
+
+      if (context.mounted) {
+        ezLogAlert(
+          context,
+          title: el10n.gError,
+          message: l10n.hsNeedContacts,
+          customActions: actions,
+        );
+      }
+    }
 
     // Populate emc
     await gatherEMC();
@@ -191,20 +206,12 @@ class _HomeScreenState extends State<HomeScreen>
           children: <Widget>[
             // Preview (or loading)
             Center(
-              child: FutureBuilder<void>(
-                future: cameraStatus,
-                builder: (_, AsyncSnapshot<void> snapshot) {
-                  switch (snapshot.connectionState) {
-                    case ConnectionState.done:
-                      return CameraPreview(camera);
-                    default:
-                      return EmpathetechLoadingAnimation(
-                        height: heightOf(context) * 0.333,
-                        semantics: el10n.gLoadingAnim,
-                      );
-                  }
-                },
-              ),
+              child: camera == null
+                  ? EmpathetechLoadingAnimation(
+                      height: heightOf(context) * 0.333,
+                      semantics: el10n.gLoadingAnim,
+                    )
+                  : CameraPreview(camera!),
             ),
 
             // Video timer
@@ -398,9 +405,15 @@ class _HomeScreenState extends State<HomeScreen>
                     icon: Icon(PlatformIcons(context).photoCamera),
                     enabled: !recording,
                     onPressed: () async {
-                      try {
-                        final XFile image = await camera.takePicture();
+                      if (camera == null) {
+                        final bool askAgain = await initCamera();
+                        if (!askAgain) return;
+                      }
 
+                      try {
+                        final XFile image = await camera!.takePicture();
+
+                        await Gal.requestAccess();
                         await Gal.putImage(image.path);
                         await Share.shareXFiles(
                           <XFile>[image],
@@ -458,12 +471,13 @@ class _HomeScreenState extends State<HomeScreen>
                             onPressed: () async {
                               try {
                                 final XFile video =
-                                    await camera.stopVideoRecording();
+                                    await camera!.stopVideoRecording();
 
                                 setState(() => recording = false);
                                 watch.stop();
                                 watch.reset();
 
+                                await Gal.requestAccess();
                                 await Gal.putVideo(video.path);
                                 await Share.shareXFiles(
                                   <XFile>[video],
@@ -483,8 +497,14 @@ class _HomeScreenState extends State<HomeScreen>
                               color: videoColor,
                             ),
                             onPressed: () async {
+                              if (camera == null) {
+                                final bool askAgain = await initCamera();
+                                if (!askAgain) return;
+                              }
+                              await Permission.microphone.request();
+
                               try {
-                                await camera.startVideoRecording();
+                                await camera!.startVideoRecording();
 
                                 setState(() => recording = true);
                                 watch.start();
@@ -499,31 +519,37 @@ class _HomeScreenState extends State<HomeScreen>
                   separator,
 
                   // Flash
-                  EzIconButton(
-                    icon: switch (camera.value.flashMode) {
-                      FlashMode.off => const Icon(Icons.flash_off),
-                      FlashMode.auto => const Icon(Icons.flash_auto),
-                      FlashMode.always => const Icon(Icons.flash_on),
-                      FlashMode.torch => const Icon(Icons.flashlight_on),
-                    },
-                    onPressed: () async {
-                      switch (camera.value.flashMode) {
-                        case FlashMode.off:
-                          await camera.setFlashMode(FlashMode.auto);
-                          break;
-                        case FlashMode.auto:
-                          await camera.setFlashMode(FlashMode.always);
-                          break;
-                        case FlashMode.always:
-                          await camera.setFlashMode(FlashMode.off);
-                          break;
-                        case FlashMode.torch:
-                          await camera.setFlashMode(FlashMode.off);
-                          break;
-                      }
-                      setState(() {});
-                    },
-                  ),
+                  camera != null
+                      ? EzIconButton(
+                          icon: switch (camera!.value.flashMode) {
+                            FlashMode.off => const Icon(Icons.flash_off),
+                            FlashMode.auto => const Icon(Icons.flash_auto),
+                            FlashMode.always => const Icon(Icons.flash_on),
+                            FlashMode.torch => const Icon(Icons.flashlight_on),
+                          },
+                          onPressed: () async {
+                            switch (camera!.value.flashMode) {
+                              case FlashMode.off:
+                                await camera!.setFlashMode(FlashMode.auto);
+                                break;
+                              case FlashMode.auto:
+                                await camera!.setFlashMode(FlashMode.always);
+                                break;
+                              case FlashMode.always:
+                                await camera!.setFlashMode(FlashMode.off);
+                                break;
+                              case FlashMode.torch:
+                                await camera!.setFlashMode(FlashMode.off);
+                                break;
+                            }
+                            setState(() {});
+                          },
+                        )
+                      : const EzIconButton(
+                          icon: Icon(Icons.flash_off),
+                          enabled: false,
+                          onPressed: doNothing,
+                        ),
                 ],
               ),
             ),
@@ -548,7 +574,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void dispose() {
-    camera.dispose();
+    camera?.dispose();
     super.dispose();
   }
 }
