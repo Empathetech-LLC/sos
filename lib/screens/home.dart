@@ -250,12 +250,12 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             onPressed: () async {
                               if (broadcasting) {
                                 await Workmanager()
-                                    .cancelByUniqueName('sos_broadcast');
+                                    .cancelByUniqueName(broadcastTask);
                                 setState(() => broadcasting = false);
                               } else {
                                 await Workmanager().registerPeriodicTask(
-                                  'sos_broadcast',
-                                  'sos_broadcast',
+                                  broadcastTask,
+                                  broadcastTask,
                                   frequency: const Duration(seconds: 3),
                                 );
                                 setState(() => broadcasting = true);
@@ -522,8 +522,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             state == AppLifecycleState.paused)) {
       sosOnClose
           ? Workmanager().registerPeriodicTask(
-              'sos_broadcast',
-              'sos_broadcast',
+              broadcastTask,
+              broadcastTask,
               frequency: const Duration(seconds: 3),
             )
           : sendSOS();
