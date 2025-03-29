@@ -16,8 +16,8 @@ class EzSettingsHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SosScaffold(
       title: EFUILang.of(context)!.ssPageTitle,
-      showSettings: false,
       body: const EzSettingsHome(
+        useImageDecoration: false,
         notFun: true,
         textSettingsPath: textSettingsPath,
         layoutSettingsPath: layoutSettingsPath,

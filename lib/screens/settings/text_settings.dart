@@ -16,8 +16,7 @@ class TextSettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SosScaffold(
         title: EFUILang.of(context)!.tsPageTitle,
-        showSettings: false,
-        body: EzTextSettings(target: target),
+        body: EzTextSettings(useImageDecoration: false, target: target),
         fab: EzBackFAB(context),
       );
 }

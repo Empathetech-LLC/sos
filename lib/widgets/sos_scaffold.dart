@@ -3,7 +3,6 @@
  * See LICENSE for distribution and usage details.
  */
 
-import './export.dart';
 import '../utils/export.dart';
 
 import 'package:flutter/material.dart';
@@ -16,9 +15,6 @@ class SosScaffold extends StatelessWidget {
   /// Whether to include [AppBar] in the [Scaffold]
   final bool showAppBar;
 
-  /// Whether to include [SettingsButton] in the [MenuAnchor]
-  final bool showSettings;
-
   /// [Scaffold.body] passthrough
   final Widget body;
 
@@ -30,7 +26,6 @@ class SosScaffold extends StatelessWidget {
     super.key,
     this.title = appTitle,
     this.showAppBar = true,
-    this.showSettings = true,
     required this.body,
     this.fab,
   });
