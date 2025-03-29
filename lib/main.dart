@@ -22,7 +22,7 @@ import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 @pragma('vm:entry-point')
 void callbackDispatcher() {
   Workmanager().executeTask((String task, Map<String, dynamic>? inputData) {
-    sendSOS();
+    if (task == broadcastTask) sendSOS();
     return Future<bool>.value(true);
   });
 }
@@ -34,7 +34,10 @@ void main() async {
   await Permission.camera.request();
 
   // Enable background tasks
-  Workmanager().initialize(callbackDispatcher);
+  Workmanager().initialize(
+    callbackDispatcher,
+    isInDebugMode: true,
+  );
 
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
