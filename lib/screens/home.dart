@@ -17,7 +17,6 @@ import 'package:efui_bios/efui_bios.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:workmanager/workmanager.dart';
-import 'package:after_layout/after_layout.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
@@ -30,8 +29,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
-    with WidgetsBindingObserver, AfterLayoutMixin<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   // Gather the theme data //
 
   final double iconSize = EzConfig.get(iconSizeKey);
@@ -54,8 +52,8 @@ class _HomeScreenState extends State<HomeScreen>
 
   // Define the build data //
 
-  late Future<void> camStatus;
-  late CameraController camControl;
+  late Future<void> cameraStatus;
+  late CameraController camera;
 
   final OverlayPortalController broadcastOverlay =
       OverlayPortalController(debugLabel: 'broadcast');
@@ -77,26 +75,33 @@ class _HomeScreenState extends State<HomeScreen>
 
   Future<void> initCamera() async {
     final List<CameraDescription> cameras = await availableCameras();
+    camera = CameraController(cameras.first, ResolutionPreset.max);
 
-    camControl = CameraController(cameras.first, ResolutionPreset.max);
-
-    camControl.initialize().then((_) {
-      if (!mounted) {
-        return;
-      }
-      setState(() {});
-    }).catchError((Object e) {
-      if (e is CameraException) {
-        switch (e.code) {
-          case 'CameraAccessDenied':
-            // Handle access errors here.
-            break;
-          default:
-            // Handle other errors here.
-            break;
+    try {
+      camera.initialize().then((_) {
+        if (!mounted) {
+          return;
         }
+        setState(() {});
+      });
+    } catch (e) {
+      if (e is CameraException && e.code == 'CameraAccessDenied') {
+        // TODO: Handle access errors
+      } else {
+        // TODO: Handle other errors
       }
-    });
+    }
+
+    // Finalize permissions
+    await Permission.microphone.request();
+    await Gal.requestAccess();
+    await Permission.location.request();
+    await FlutterContacts.requestPermission(readonly: true);
+
+    // Populate emc
+    await gatherEMC();
+
+    if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
   }
 
   Future<void> gatherEMC() async {
@@ -138,20 +143,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
-    camStatus = initCamera();
-  }
-
-  @override
-  void afterFirstLayout(_) async {
-    // Finalize permissions
-    await Gal.requestAccess();
-    await Permission.location.request();
-    await FlutterContacts.requestPermission(readonly: true);
-
-    // Populate emc
-    await gatherEMC();
-
-    if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
+    cameraStatus = initCamera();
   }
 
   // Return the build //
@@ -162,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen>
       showAppBar: false,
       title: appTitle,
       body: FutureBuilder<void>(
-        future: camStatus,
+        future: cameraStatus,
         builder: (_, AsyncSnapshot<void> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
@@ -170,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen>
                 child: Stack(
                   children: <Widget>[
                     // Preview
-                    Center(child: CameraPreview(camControl)),
+                    Center(child: CameraPreview(camera)),
 
                     // Record timer
                     Positioned(
@@ -374,8 +366,7 @@ and more in the settings.''',
                             enabled: !recording,
                             onPressed: () async {
                               try {
-                                final XFile image =
-                                    await camControl.takePicture();
+                                final XFile image = await camera.takePicture();
 
                                 await Gal.putImage(image.path);
                                 await Share.shareXFiles(
@@ -435,7 +426,7 @@ and more in the settings.''',
                               onPressed: !recording
                                   ? () async {
                                       try {
-                                        await camControl.startVideoRecording();
+                                        await camera.startVideoRecording();
 
                                         setState(() => recording = true);
                                         watch.start();
@@ -448,8 +439,8 @@ and more in the settings.''',
                                     }
                                   : () async {
                                       try {
-                                        final XFile video = await camControl
-                                            .stopVideoRecording();
+                                        final XFile video =
+                                            await camera.stopVideoRecording();
 
                                         setState(() => recording = false);
                                         watch.stop();
@@ -473,7 +464,7 @@ and more in the settings.''',
 
                           // Flash
                           EzIconButton(
-                            icon: switch (camControl.value.flashMode) {
+                            icon: switch (camera.value.flashMode) {
                               FlashMode.off => const Icon(Icons.flash_off),
                               FlashMode.auto => const Icon(Icons.flash_auto),
                               FlashMode.always => const Icon(Icons.flash_on),
@@ -481,19 +472,18 @@ and more in the settings.''',
                                 const Icon(Icons.flashlight_on),
                             },
                             onPressed: () async {
-                              switch (camControl.value.flashMode) {
+                              switch (camera.value.flashMode) {
                                 case FlashMode.off:
-                                  await camControl.setFlashMode(FlashMode.auto);
+                                  await camera.setFlashMode(FlashMode.auto);
                                   break;
                                 case FlashMode.auto:
-                                  await camControl
-                                      .setFlashMode(FlashMode.always);
+                                  await camera.setFlashMode(FlashMode.always);
                                   break;
                                 case FlashMode.always:
-                                  await camControl.setFlashMode(FlashMode.off);
+                                  await camera.setFlashMode(FlashMode.off);
                                   break;
                                 case FlashMode.torch:
-                                  await camControl.setFlashMode(FlashMode.off);
+                                  await camera.setFlashMode(FlashMode.off);
                                   break;
                               }
                               setState(() {});
@@ -527,7 +517,7 @@ and more in the settings.''',
 
   @override
   void dispose() {
-    camControl.dispose();
+    camera.dispose();
     super.dispose();
   }
 }
