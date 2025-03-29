@@ -17,8 +17,8 @@ class ColorSettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SosScaffold(
         title: EFUILang.of(context)!.csPageTitle,
-        showSettings: false,
         body: EzColorSettings(
+          useImageDecoration: false,
           target: target,
           lightStarterSet: const <String>[
             videoColorKey,
