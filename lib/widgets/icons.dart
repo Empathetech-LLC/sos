@@ -4,7 +4,6 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class SOSIcon extends StatefulWidget {
   const SOSIcon({super.key});
@@ -15,13 +14,10 @@ class SOSIcon extends StatefulWidget {
 
 class _PulsingIconWidgetState extends State<SOSIcon>
     with SingleTickerProviderStateMixin {
-  // Define the build data //
+  // Define the animation data //
 
-  late AnimationController _controller;
-  late Animation<double> _animation;
-
-  final IconData inactive = Icons.notifications;
-  final IconData active = Icons.notifications_active;
+  late AnimationController controller;
+  late Animation<double> breathe;
 
   // Init //
 
@@ -29,25 +25,29 @@ class _PulsingIconWidgetState extends State<SOSIcon>
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
+    controller = AnimationController(
       duration: const Duration(seconds: 4),
       vsync: this,
-    )..repeat(reverse: true);
+    );
 
-    _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
+    breathe = Tween<double>(begin: 0, end: 1).animate(controller);
 
-    _controller.addListener(() => setState(() {}));
+    controller.repeat(reverse: true);
   }
 
   // Return the build //
 
   @override
-  Widget build(BuildContext context) =>
-      EzIcon(_animation.value < 0.5 ? inactive : active);
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: breathe,
+        builder: (_, __) => Icon(breathe.value < 0.5
+            ? Icons.notifications
+            : Icons.notifications_active),
+      );
 
   @override
   void dispose() {
-    _controller.dispose();
+    controller.dispose();
     super.dispose();
   }
 }
