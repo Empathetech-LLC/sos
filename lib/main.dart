@@ -31,10 +31,7 @@ void main() async {
   // Setup the app //
 
   WidgetsFlutterBinding.ensureInitialized();
-
-  // First wave of permissions
   await Permission.camera.request();
-  await Permission.microphone.request();
 
   // Enable background tasks
   Workmanager().initialize(callbackDispatcher);
