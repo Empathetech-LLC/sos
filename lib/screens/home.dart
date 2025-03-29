@@ -161,13 +161,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     return SosScaffold(
       showAppBar: false,
       title: appTitle,
-      body: FutureBuilder<void>(
-        future: cameraStatus,
-        builder: (_, AsyncSnapshot<void> snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.done:
-              return SafeArea(
-                child: Stack(
+      body: SafeArea(
+        child: FutureBuilder<void>(
+          future: cameraStatus,
+          builder: (_, AsyncSnapshot<void> snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.done:
+                return Stack(
                   children: <Widget>[
                     // Preview
                     Center(child: CameraPreview(camera)),
@@ -494,19 +494,17 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       ),
                     ),
                   ],
-                ),
-              );
+                );
 
-            default:
-              // Replace with a CircularProgressIndicator if you don't have access to efui_bios
-              return Center(
-                child: EmpathetechLoadingAnimation(
+              default:
+                // Replace with a CircularProgressIndicator if you don't have access to efui_bios
+                return EmpathetechLoadingAnimation(
                   height: heightOf(context) * 0.333,
                   semantics: el10n.gLoadingAnim,
-                ),
-              );
-          }
-        },
+                );
+            }
+          },
+        ),
       ),
     );
   }
@@ -514,7 +512,18 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   // Cleanup //
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {}
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (recording && state == AppLifecycleState.detached ||
+        state == AppLifecycleState.hidden ||
+        state == AppLifecycleState.inactive ||
+        state == AppLifecycleState.paused) {
+      Workmanager().registerPeriodicTask(
+        'sos_broadcast',
+        'sos_broadcast',
+        frequency: const Duration(seconds: 3),
+      );
+    }
+  }
 
   @override
   void dispose() {
