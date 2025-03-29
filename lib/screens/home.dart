@@ -77,6 +77,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   bool recording = false;
   final Stopwatch watch = Stopwatch();
 
+  /// true == indefinite
+  /// false == once
   final bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
 
   // Define custom functions //
@@ -513,15 +515,18 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (recording && state == AppLifecycleState.detached ||
-        state == AppLifecycleState.hidden ||
-        state == AppLifecycleState.inactive ||
-        state == AppLifecycleState.paused) {
-      Workmanager().registerPeriodicTask(
-        'sos_broadcast',
-        'sos_broadcast',
-        frequency: const Duration(seconds: 3),
-      );
+    if (recording &&
+        (state == AppLifecycleState.detached ||
+            state == AppLifecycleState.hidden ||
+            state == AppLifecycleState.inactive ||
+            state == AppLifecycleState.paused)) {
+      sosOnClose
+          ? Workmanager().registerPeriodicTask(
+              'sos_broadcast',
+              'sos_broadcast',
+              frequency: const Duration(seconds: 3),
+            )
+          : sendSOS();
     }
   }
 
