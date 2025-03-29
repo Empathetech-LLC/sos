@@ -12,7 +12,6 @@ import 'package:flutter/services.dart';
 import 'package:feedback/feedback.dart';
 import 'package:go_router/go_router.dart';
 import 'package:workmanager/workmanager.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
@@ -31,13 +30,8 @@ void main() async {
   // Setup the app //
 
   WidgetsFlutterBinding.ensureInitialized();
-  await Permission.camera.request();
 
-  // Enable background tasks
-  Workmanager().initialize(
-    callbackDispatcher,
-    isInDebugMode: true,
-  );
+  Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
 
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
