@@ -12,11 +12,10 @@ class LangEs extends Lang {
   String get gOk => 'Ok';
 
   @override
-  String get hsSOSHint => 'Compartir ubicación con tu CDE';
+  String get hsSOSHint => 'Comience a compartir la ubicación';
 
   @override
-  String get hsSafeCloseHint =>
-      'Todo claro\nCerrar la aplicación sin activar SOS';
+  String get hsSafeCloseHint => 'Todo claro\nCierra la aplicación sin SOS';
 
   @override
   String get hsCameraHint => 'Tomar una foto';
@@ -26,15 +25,15 @@ class LangEs extends Lang {
 
   @override
   String get hsBTutorial =>
-      'Activate SOS to text your EMC your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDe-activate SOS or fully close the app to stop broadcasting.';
+      'Activate SOS to text your emergency contacts your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDeactivate SOS or fully close the app to stop the texts.';
 
   @override
   String get hsSTutorial =>
-      'You can...\n\n- Add more EMC\n- Customize your SOS message\n- Set the app to auto-SOS\n- Update the appearance\n\nand more in the settings.';
+      'You can...\n\n- Add more emergency contacts\n- Customize the SOS message\n- Enable automatic SOS\n- Change the app\'s appearance\n\nand more in the settings.';
 
   @override
   String get hsRTutorial =>
-      'When you take a picture or finish a recording, it will auto-save to your gallery.\n\nYou can then share the file, and your location, with the native sharing options.\n\nBy default, if a video is interrupted, SOS will auto-activate.';
+      'When you take a picture or finish a video, you will be asked to share it.\n\nIf a video is interrupted, SOS will activate automatically.';
 
   @override
   String get hsNoNumber => 'El contacto no tiene un número de teléfono';
