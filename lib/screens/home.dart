@@ -241,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                           ),
                           child: EzIconButton(
                             icon: broadcasting
-                                ? const Icon(Icons.notifications)
+                                ? const SOSIcon()
                                 : const Icon(Icons.sos),
                             iconSize: iconSize * 1.5,
                             highlightColor: Colors.red,
