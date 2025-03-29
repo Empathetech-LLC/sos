@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen>
     });
   }
 
-  void gatherEMC() async {
+  Future<void> gatherEMC() async {
     if (emc == null || emc!.isEmpty) {
       await firstEMCMsg(context);
 
@@ -149,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen>
     await FlutterContacts.requestPermission(readonly: true);
 
     // Populate emc
-    gatherEMC();
+    await gatherEMC();
 
     if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
   }
