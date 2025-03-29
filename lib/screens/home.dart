@@ -105,11 +105,8 @@ class _HomeScreenState extends State<HomeScreen>
     camera = CameraController(cameras.first, ResolutionPreset.max);
 
     try {
-      camera!.initialize().then((_) {
-        if (!mounted) return false;
-        setState(() {});
-        return true;
-      });
+      await camera!.initialize();
+      return true;
     } catch (e) {
       if (e is! CameraException || e.code != 'CameraAccessDenied') {
         if (mounted) {
@@ -150,6 +147,17 @@ class _HomeScreenState extends State<HomeScreen>
     }
   }
 
+  // Define custom Widgets //
+
+  late final (List<EzMaterialAction>, List<EzCupertinoAction>) exitActions = (
+    <EzMaterialAction>[
+      EzMaterialAction(text: l10n.gOk, onPressed: () => exit(0))
+    ],
+    <EzCupertinoAction>[
+      EzCupertinoAction(text: l10n.gOk, onPressed: () => exit(0))
+    ]
+  );
+
   // Init //
 
   @override
@@ -159,35 +167,43 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   @override
-  void initState() {
-    super.initState();
-    if (EzConfig.get(onOpenKey) == true) startBroadcast();
-    initCamera();
-  }
-
-  @override
   void afterFirstLayout(BuildContext context) async {
-    await Permission.location.request();
+    // Confirm location access
+    final PermissionStatus locationStatus = await Permission.location.request();
 
-    if (!await FlutterContacts.requestPermission(readonly: true)) {
-      final (List<EzMaterialAction>, List<EzCupertinoAction>) actions = (
-        <EzMaterialAction>[
-          EzMaterialAction(text: l10n.gOk, onPressed: () => exit(0))
-        ],
-        <EzCupertinoAction>[
-          EzCupertinoAction(text: l10n.gOk, onPressed: () => exit(0))
-        ]
-      );
+    if (locationStatus == PermissionStatus.denied ||
+        locationStatus == PermissionStatus.permanentlyDenied) {
+      if (context.mounted) {
+        ezLogAlert(
+          context,
+          title: el10n.gError,
+          message: l10n.hsNeedLocation,
+          customActions: exitActions,
+        );
+      }
+    }
 
+    // Check for auto-SOS
+    // (can't be setup without contact access already being granted)
+    if (EzConfig.get(onOpenKey) == true) startBroadcast();
+
+    // Confirm contacts access
+    final bool contactsGranted =
+        await FlutterContacts.requestPermission(readonly: true);
+
+    if (!contactsGranted) {
       if (context.mounted) {
         ezLogAlert(
           context,
           title: el10n.gError,
           message: l10n.hsNeedContacts,
-          customActions: actions,
+          customActions: exitActions,
         );
       }
     }
+
+    // Setup the camera
+    await initCamera();
 
     // Populate emc
     await gatherEMC();
@@ -205,14 +221,12 @@ class _HomeScreenState extends State<HomeScreen>
         child: Stack(
           children: <Widget>[
             // Preview (or loading)
-            Center(
-              child: camera == null
-                  ? EmpathetechLoadingAnimation(
-                      height: heightOf(context) * 0.333,
-                      semantics: el10n.gLoadingAnim,
-                    )
-                  : CameraPreview(camera!),
-            ),
+            camera == null
+                ? EmpathetechLoadingAnimation(
+                    height: heightOf(context) * 0.333,
+                    semantics: el10n.gLoadingAnim,
+                  )
+                : Center(child: CameraPreview(camera!)),
 
             // Video timer
             Positioned(
@@ -406,8 +420,8 @@ class _HomeScreenState extends State<HomeScreen>
                     enabled: !recording,
                     onPressed: () async {
                       if (camera == null) {
-                        final bool askAgain = await initCamera();
-                        if (!askAgain) return;
+                        final bool worksNow = await initCamera();
+                        if (worksNow) return;
                       }
 
                       try {
