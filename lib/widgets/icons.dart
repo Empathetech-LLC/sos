@@ -26,7 +26,7 @@ class _PulsingIconWidgetState extends State<SOSIcon>
     super.initState();
 
     controller = AnimationController(
-      duration: const Duration(seconds: 4),
+      duration: const Duration(seconds: 3),
       vsync: this,
     );
 
