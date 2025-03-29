@@ -20,6 +20,7 @@ dependencies:
   url_launcher: ^6.3.1
 
   # Community
+  after_layout: ^1.2.0
   efui_bios:
     path: ../efui_bios
   empathetech_flutter_ui: 
