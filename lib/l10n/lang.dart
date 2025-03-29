@@ -98,16 +98,22 @@ abstract class Lang {
     Locale('fr')
   ];
 
+  /// No description provided for @gOk.
+  ///
+  /// In en, this message translates to:
+  /// **'Ok'**
+  String get gOk;
+
   /// No description provided for @hsSOSHint.
   ///
   /// In en, this message translates to:
-  /// **'Share location with EMC'**
+  /// **'Share location with your EMC'**
   String get hsSOSHint;
 
   /// No description provided for @hsSafeCloseHint.
   ///
   /// In en, this message translates to:
-  /// **'All clear\nClose the app without notifying EMC'**
+  /// **'All clear\nClose the app without activating SOS'**
   String get hsSafeCloseHint;
 
   /// No description provided for @hsCameraHint.
@@ -122,23 +128,65 @@ abstract class Lang {
   /// **'Record a video'**
   String get hsRecordHint;
 
-  /// No description provided for @ssNotifyOnOpen.
+  /// No description provided for @hsBTutorial.
   ///
   /// In en, this message translates to:
-  /// **'Notify EMC on open'**
-  String get ssNotifyOnOpen;
+  /// **'Activate SOS to text your EMC your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDe-activate SOS or fully close the app to stop broadcasting.'**
+  String get hsBTutorial;
 
-  /// No description provided for @ssNotifyOnClose.
+  /// No description provided for @hsSTutorial.
   ///
   /// In en, this message translates to:
-  /// **'Notify EMC on close'**
-  String get ssNotifyOnClose;
+  /// **'You can...\n\n- Add more EMC\n- Customize your SOS message\n- Set the app to auto-SOS\n- Update the appearance\n\nand more in the settings.'**
+  String get hsSTutorial;
 
-  /// No description provided for @ssNotifyOnSOS.
+  /// No description provided for @hsRTutorial.
   ///
   /// In en, this message translates to:
-  /// **'SOS when recording is interrupted'**
-  String get ssNotifyOnSOS;
+  /// **'When you take a picture or finish a recording, it will auto-save to your gallery.\n\nYou can then share the file, and your location, with the native sharing options.\n\nBy default, if a video is interrupted, SOS will auto-activate.'**
+  String get hsRTutorial;
+
+  /// No description provided for @hsNoNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact does not have a phone number'**
+  String get hsNoNumber;
+
+  /// No description provided for @ssSOSOnOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto SOS on open'**
+  String get ssSOSOnOpen;
+
+  /// No description provided for @ssSOSOnClose.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto SOS on close'**
+  String get ssSOSOnClose;
+
+  /// No description provided for @ssVideoSOS.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto SOS on interrupted recording'**
+  String get ssVideoSOS;
+
+  /// No description provided for @ssSOSFrequency.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS Frequency'**
+  String get ssSOSFrequency;
+
+  /// No description provided for @ssSOSMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS Message'**
+  String get ssSOSMessage;
+
+  /// No description provided for @ssEMC.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency contacts'**
+  String get ssEMC;
 }
 
 class _LangDelegate extends LocalizationsDelegate<Lang> {

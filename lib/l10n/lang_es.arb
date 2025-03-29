@@ -3,14 +3,29 @@
 
 
 
-  "hsSOSHint": "Compartir ubicación con el CME",
-  "hsSafeCloseHint": "Todo claro\nCerrar la aplicación sin notificar al CME",
+  "gOk": "Ok",
+
+
+
+  "hsSOSHint": "Compartir ubicación con tu CDE",
+  "hsSafeCloseHint": "Todo claro\nCerrar la aplicación sin activar SOS",
   "hsCameraHint": "Tomar una foto",
   "hsRecordHint": "Grabar un video",
 
+  "hsBTutorial": "Activate SOS to text your EMC your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDe-activate SOS or fully close the app to stop broadcasting.",
+  "hsSTutorial": "You can...\n\n- Add more EMC\n- Customize your SOS message\n- Set the app to auto-SOS\n- Update the appearance\n\nand more in the settings.",
+  "hsRTutorial": "When you take a picture or finish a recording, it will auto-save to your gallery.\n\nYou can then share the file, and your location, with the native sharing options.\n\nBy default, if a video is interrupted, SOS will auto-activate.",
+
+  "hsNoNumber": "El contacto no tiene un número de teléfono",
 
 
-  "ssNotifyOnOpen": "Notificar al CME al abrir",
-  "ssNotifyOnClose": "Notificar al CME al cerrar",
-  "ssNotifyOnSOS": "SOS cuando se interrumpe la grabación"
+
+  "ssSOSOnOpen": "SOS automático al abrir",
+  "ssSOSOnClose": "SOS automático al cerrar",
+  "ssVideoSOS": "SOS automático en caso de grabación interrumpida",
+
+  "ssSOSFrequency": "Frecuencia SOS",
+  "ssSOSMessage": "Mensaje SOS",
+
+  "ssEMC": "Contactos de emergencia"
 }
