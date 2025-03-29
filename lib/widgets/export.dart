@@ -3,6 +3,6 @@
  * See LICENSE for distribution and usage details.
  */
 
-export 'fabulous.dart';
+export 'icons.dart';
 export 'menu_buttons.dart';
 export 'sos_scaffold.dart';
