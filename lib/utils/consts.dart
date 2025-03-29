@@ -8,6 +8,8 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 /// 'SnapOS'
 const String appTitle = 'SnapOS';
 
+const String broadcastTask = 'sos_broadcast';
+
 /// 'showTutorial'
 const String tutorialKey = 'showTutorial';
 
