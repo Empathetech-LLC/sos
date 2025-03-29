@@ -6,7 +6,9 @@
   "gOk": "Ok",
 
 
+
   "hsNeedContacts": "SOS necesita acceso a sus contactos para funcionar correctamente.",
+  "hsNeedLocation": "SOS necesita acceso a su ubicación para funcionar correctamente.",
 
   "hsSOSHint": "Comience a compartir la ubicación",
   "hsSafeCloseHint": "Todo claro\nCierra la aplicación sin SOS",
@@ -24,9 +26,6 @@
   "ssSOSOnOpen": "SOS automático al abrir",
   "ssSOSOnClose": "SOS automático al cerrar",
   "ssVideoSOS": "SOS automático en caso de grabación interrumpida",
-
-  "ssSOSFrequency": "Frecuencia SOS",
-  "ssSOSMessage": "Mensaje SOS",
 
   "ssEMC": "Contactos de emergencia"
 }

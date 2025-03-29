@@ -16,6 +16,10 @@ class LangEs extends Lang {
       'SOS necesita acceso a sus contactos para funcionar correctamente.';
 
   @override
+  String get hsNeedLocation =>
+      'SOS necesita acceso a su ubicación para funcionar correctamente.';
+
+  @override
   String get hsSOSHint => 'Comience a compartir la ubicación';
 
   @override
@@ -50,12 +54,6 @@ class LangEs extends Lang {
 
   @override
   String get ssVideoSOS => 'SOS automático en caso de grabación interrumpida';
-
-  @override
-  String get ssSOSFrequency => 'Frecuencia SOS';
-
-  @override
-  String get ssSOSMessage => 'Mensaje SOS';
 
   @override
   String get ssEMC => 'Contactos de emergencia';

@@ -16,6 +16,10 @@ class LangEn extends Lang {
       'SOS needs access to your contacts to function properly.';
 
   @override
+  String get hsNeedLocation =>
+      'SOS needs access to your location to function properly.';
+
+  @override
   String get hsSOSHint => 'Start sharing location';
 
   @override
@@ -33,7 +37,7 @@ class LangEn extends Lang {
 
   @override
   String get hsSTutorial =>
-      'You can...\n\n- Add more emergency contacts\n- Customize the SOS message\n- Enable automatic SOS\n- Change the app\'s appearance\n\nand more in the settings.';
+      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s appearance\n\n in the settings.';
 
   @override
   String get hsRTutorial =>
@@ -50,12 +54,6 @@ class LangEn extends Lang {
 
   @override
   String get ssVideoSOS => 'Auto SOS on interrupted recording';
-
-  @override
-  String get ssSOSFrequency => 'SOS Frequency';
-
-  @override
-  String get ssSOSMessage => 'SOS Message';
 
   @override
   String get ssEMC => 'Emergency contacts';

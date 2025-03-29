@@ -110,6 +110,12 @@ abstract class Lang {
   /// **'SOS needs access to your contacts to function properly.'**
   String get hsNeedContacts;
 
+  /// No description provided for @hsNeedLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS needs access to your location to function properly.'**
+  String get hsNeedLocation;
+
   /// No description provided for @hsSOSHint.
   ///
   /// In en, this message translates to:
@@ -143,7 +149,7 @@ abstract class Lang {
   /// No description provided for @hsSTutorial.
   ///
   /// In en, this message translates to:
-  /// **'You can...\n\n- Add more emergency contacts\n- Customize the SOS message\n- Enable automatic SOS\n- Change the app\'s appearance\n\nand more in the settings.'**
+  /// **'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s appearance\n\n in the settings.'**
   String get hsSTutorial;
 
   /// No description provided for @hsRTutorial.
@@ -175,18 +181,6 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'Auto SOS on interrupted recording'**
   String get ssVideoSOS;
-
-  /// No description provided for @ssSOSFrequency.
-  ///
-  /// In en, this message translates to:
-  /// **'SOS Frequency'**
-  String get ssSOSFrequency;
-
-  /// No description provided for @ssSOSMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'SOS Message'**
-  String get ssSOSMessage;
 
   /// No description provided for @ssEMC.
   ///

@@ -6,7 +6,9 @@
   "gOk": "Ok",
 
 
+
   "hsNeedContacts": "SOS needs access to your contacts to function properly.",
+  "hsNeedLocation": "SOS needs access to your location to function properly.",
 
   "hsSOSHint": "Start sharing location",
   "hsSafeCloseHint": "All clear\nClose the app without SOS",
@@ -14,7 +16,7 @@
   "hsRecordHint": "Record a video",
 
   "hsBTutorial": "Activate SOS to text your emergency contacts your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDeactivate SOS or fully close the app to stop the texts.",
-  "hsSTutorial": "You can...\n\n- Add more emergency contacts\n- Customize the SOS message\n- Enable automatic SOS\n- Change the app's appearance\n\nand more in the settings.",
+  "hsSTutorial": "You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app's appearance\n\n in the settings.",
   "hsRTutorial": "When you take a picture or finish a video, you will be asked to share it.\n\nIf a video is interrupted, SOS will activate automatically.",
 
   "hsNoNumber": "Contact does not have a phone number",
@@ -24,9 +26,6 @@
   "ssSOSOnOpen": "Auto SOS on open",
   "ssSOSOnClose": "Auto SOS on close",
   "ssVideoSOS": "Auto SOS on interrupted recording",
-
-  "ssSOSFrequency": "SOS Frequency",
-  "ssSOSMessage": "SOS Message",
 
   "ssEMC": "Emergency contacts"
 }
