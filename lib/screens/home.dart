@@ -32,6 +32,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   // Gather the theme data //
 
+  // Layout
   final double iconSize = EzConfig.get(iconSizeKey);
   final double margin = EzConfig.get(marginKey);
   final double padding = EzConfig.get(paddingKey);
@@ -40,21 +41,25 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   late final double spargin = margin + spacing;
   late final double spadding = padding + spacing;
 
+  static const EzSeparator separator = EzSeparator();
+
   final bool isLefty = EzConfig.get(isLeftyKey);
 
+  // Color
   final Color videoColor = Color(EzConfig.get(videoColorKey) ?? 0xFFFF0000);
-  late final Color recordTextColor = getTextColor(videoColor);
 
+  // Text
+  late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = EFUILang.of(context)!;
   late final TextStyle? labelStyle = Theme.of(context).textTheme.labelLarge;
 
-  static const EzSeparator separator = EzSeparator();
-
   // Define the build data //
 
+  // Camera
   late Future<void> cameraStatus;
   late CameraController camera;
 
+  // Tutorial
   final OverlayPortalController broadcastOverlay =
       OverlayPortalController(debugLabel: 'broadcast');
   final OverlayPortalController settingsOverlay =
@@ -62,14 +67,17 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   final OverlayPortalController recordOverlay =
       OverlayPortalController(debugLabel: 'record');
 
+  /// EMergency Contacts; [List] of phone number [String]s
   List<String>? emc = EzConfig.get(emcKey);
 
+  /// Whether [sendSOS] should be running
+  bool broadcasting = false;
+
+  // Video
   bool recording = false;
   final Stopwatch watch = Stopwatch();
 
-  bool broadcasting = false;
-
-  final bool notifyOnClose = EzConfig.get(onCloseKey) ?? false;
+  final bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
 
   // Define custom functions //
 
@@ -118,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           if (mounted) {
             await ezSnackBar(
               context: context,
-              message: 'Contact does not have a phone number',
+              message: l10n.hsNoNumber,
             ).closed;
           }
         } else {
@@ -184,7 +192,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 elapsed.toString().split('.').first,
                                 backgroundColor: videoColor,
                                 style: labelStyle?.copyWith(
-                                  color: recordTextColor,
+                                  color: getTextColor(videoColor),
                                 ),
                               );
                             },
@@ -206,13 +214,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             left: 0,
                             right: 0,
                             child: EzAlertDialog(
-                              content: const Text(
-                                'Activate SOS to text your EMC your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDe-activate SOS or fully close the app to stop broadcasting.',
+                              content: Text(
+                                l10n.hsBTutorial,
                                 textAlign: TextAlign.center,
                               ),
                               materialActions: <EzMaterialAction>[
                                 EzMaterialAction(
-                                  text: 'Ok',
+                                  text: l10n.gOk,
                                   onPressed: () {
                                     broadcastOverlay.hide();
                                     settingsOverlay.show();
@@ -221,7 +229,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                               ],
                               cupertinoActions: <EzCupertinoAction>[
                                 EzCupertinoAction(
-                                  text: 'Ok',
+                                  text: l10n.gOk,
                                   onPressed: () {
                                     broadcastOverlay.hide();
                                     settingsOverlay.show();
@@ -268,20 +276,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                           right: isLefty ? null : margin + iconSize + spadding,
                           left: isLefty ? margin + iconSize + spadding : null,
                           child: EzAlertDialog(
-                            content: const Text(
-                              '''You can...
-
-- Add more EMC
-- Customize your SOS message
-- Set the app to auto-SOS
-- Update the appearance
-
-and more in the settings.''',
+                            content: Text(
+                              l10n.hsSTutorial,
                               textAlign: TextAlign.center,
                             ),
                             materialActions: <EzMaterialAction>[
                               EzMaterialAction(
-                                text: 'Ok',
+                                text: l10n.gOk,
                                 onPressed: () {
                                   settingsOverlay.hide();
                                   recordOverlay.show();
@@ -290,7 +291,7 @@ and more in the settings.''',
                             ],
                             cupertinoActions: <EzCupertinoAction>[
                               EzCupertinoAction(
-                                text: 'Ok',
+                                text: l10n.gOk,
                                 onPressed: () {
                                   settingsOverlay.hide();
                                   recordOverlay.show();
@@ -337,13 +338,13 @@ and more in the settings.''',
                       ),
                     ),
 
-                    // Safe close - iff notifyOnClose is true
+                    // Safe close - iff sosOnClose is true
                     Positioned(
                       top: margin,
                       right: isLefty ? margin : null,
                       left: isLefty ? null : margin,
                       child: Visibility(
-                        visible: notifyOnClose,
+                        visible: sosOnClose,
                         child: EzIconButton(
                           icon: Icon(PlatformIcons(context).thumbUp),
                           enabled: !recording,
@@ -390,13 +391,13 @@ and more in the settings.''',
                               right: 0,
                               left: 0,
                               child: EzAlertDialog(
-                                content: const Text(
-                                  'When you take a picture or finish a recording, it will auto-save to your gallery.\n\nYou can then share the file, and your location, with the native sharing options.\n\nBy default, if a video is interrupted, SOS will auto-activate.',
+                                content: Text(
+                                  l10n.hsRTutorial,
                                   textAlign: TextAlign.center,
                                 ),
                                 materialActions: <EzMaterialAction>[
                                   EzMaterialAction(
-                                    text: 'Ok',
+                                    text: l10n.gOk,
                                     onPressed: () async {
                                       recordOverlay.hide();
                                       await EzConfig.setBool(
@@ -406,7 +407,7 @@ and more in the settings.''',
                                 ],
                                 cupertinoActions: <EzCupertinoAction>[
                                   EzCupertinoAction(
-                                    text: 'Ok',
+                                    text: l10n.gOk,
                                     onPressed: () async {
                                       recordOverlay.hide();
                                       await EzConfig.setBool(
