@@ -12,6 +12,10 @@ class LangEn extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get hsNeedContacts =>
+      'SOS needs access to your contacts to function properly.';
+
+  @override
   String get hsSOSHint => 'Start sharing location';
 
   @override

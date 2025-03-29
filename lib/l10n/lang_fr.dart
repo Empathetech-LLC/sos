@@ -12,6 +12,10 @@ class LangFr extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get hsNeedContacts =>
+      'SOS a besoin d\'accéder à vos contacts pour fonctionner correctement.';
+
+  @override
   String get hsSOSHint => 'Commencer à partager la position';
 
   @override

@@ -104,6 +104,12 @@ abstract class Lang {
   /// **'Ok'**
   String get gOk;
 
+  /// No description provided for @hsNeedContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS needs access to your contacts to function properly.'**
+  String get hsNeedContacts;
+
   /// No description provided for @hsSOSHint.
   ///
   /// In en, this message translates to:
