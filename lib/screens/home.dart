@@ -75,6 +75,8 @@ class _HomeScreenState extends State<HomeScreen>
   bool recording = false;
   final Stopwatch watch = Stopwatch();
 
+  bool showRights = false;
+
   /// true == indefinite
   /// false == once
   final bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
@@ -181,6 +183,7 @@ class _HomeScreenState extends State<HomeScreen>
           customActions: exitActions,
         );
       }
+      return;
     }
 
     // Check for auto-SOS
@@ -200,10 +203,12 @@ class _HomeScreenState extends State<HomeScreen>
           customActions: exitActions,
         );
       }
+      return;
     }
 
     // Setup the camera
-    await initCamera();
+    final bool hasCamera = await initCamera();
+    setState(hasCamera ? () {} : () => showRights = true);
 
     // Populate emc
     await gatherEMC();
@@ -221,12 +226,23 @@ class _HomeScreenState extends State<HomeScreen>
         child: Stack(
           children: <Widget>[
             // Preview (or loading)
-            camera == null
-                ? EmpathetechLoadingAnimation(
-                    height: heightOf(context) * 0.333,
-                    semantics: el10n.gLoadingAnim,
-                  )
-                : Center(child: CameraPreview(camera!)),
+            SizedBox(
+              height: double.infinity,
+              width: double.infinity,
+              child: camera == null
+                  ? showRights
+                      ? EzScrollView(
+                          child: Text(
+                            l10n.rsGHeader,
+                            textAlign: TextAlign.center,
+                          ),
+                        )
+                      : EmpathetechLoadingAnimation(
+                          height: heightOf(context) * 0.25,
+                          semantics: el10n.gLoadingAnim,
+                        )
+                  : Center(child: CameraPreview(camera!)),
+            ),
 
             // Video timer
             Positioned(
@@ -414,32 +430,34 @@ class _HomeScreenState extends State<HomeScreen>
               child: EzRow(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  // Capture
-                  EzIconButton(
-                    icon: Icon(PlatformIcons(context).photoCamera),
-                    enabled: !recording,
-                    onPressed: () async {
-                      if (camera == null) {
-                        final bool worksNow = await initCamera();
-                        if (worksNow) return;
-                      }
+                  // Capture/Know your rights
+                  (camera == null || recording)
+                      ? EzIconButton(
+                          icon: showRights
+                              ? Icon(PlatformIcons(context).eyeSlash)
+                              : const Icon(Icons.gavel),
+                          onPressed: () =>
+                              setState(() => showRights = !showRights),
+                        )
+                      : EzIconButton(
+                          icon: Icon(PlatformIcons(context).photoCamera),
+                          onPressed: () async {
+                            try {
+                              final XFile image = await camera!.takePicture();
 
-                      try {
-                        final XFile image = await camera!.takePicture();
-
-                        await Gal.requestAccess();
-                        await Gal.putImage(image.path);
-                        await Share.shareXFiles(
-                          <XFile>[image],
-                          text: await getCoordinates(),
-                        );
-                      } catch (e) {
-                        if (context.mounted) {
-                          ezLogAlert(context, message: e.toString());
-                        }
-                      }
-                    },
-                  ),
+                              await Gal.requestAccess();
+                              await Gal.putImage(image.path);
+                              await Share.shareXFiles(
+                                <XFile>[image],
+                                text: await getCoordinates(),
+                              );
+                            } catch (e) {
+                              if (context.mounted) {
+                                ezLogAlert(context, message: e.toString());
+                              }
+                            }
+                          },
+                        ),
                   separator,
 
                   // Record
@@ -512,8 +530,12 @@ class _HomeScreenState extends State<HomeScreen>
                             ),
                             onPressed: () async {
                               if (camera == null) {
-                                final bool askAgain = await initCamera();
-                                if (!askAgain) return;
+                                final bool worksNow = await initCamera();
+                                if (worksNow) {
+                                  setState(() {});
+                                } else {
+                                  return;
+                                }
                               }
                               await Permission.microphone.request();
 
