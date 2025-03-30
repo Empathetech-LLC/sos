@@ -23,6 +23,23 @@
 
 
 
+  "rsGHeader": "Tienes derecho a...",
+  "rsGFingerprint": "Negarse a ser fichado por ICE a menos que esté bajo arresto.",
+
+  "rsWLeave": "Irse si no está bajo arresto.",
+
+  "rsCSearch": "Negarse a una búsqueda de su automóvil.",
+  "rsCPockets": "Negarse a una búsqueda de sus bolsillos. ICE puede hacer un registro superficial, pero no una búsqueda.",
+  "rsCWarrant": "Preguntar si los oficiales tienen una orden. Tienes derecho a verla si la tienen.",
+  "rsCID": "Negarse a proporcionar identificación como pasajero. Solo el conductor está obligado a proporcionar identificación.",
+  "rsCQuestion": "Hacer preguntas. Averigua por qué te están deteniendo.",
+  "rsCLeave": "Irse si no está bajo arresto.",
+  "rsCRemainSilent": "Permanecer en silencio. No tienes que responder a sus preguntas.\nNo puedes mentir o resistirte al arresto, pero no tienes que decirles nada.",
+
+  "rsHWarrant": "Mantén la puerta cerrada. Si tienen una orden, pídeles que se la pasen por debajo de la puerta primero.",
+  
+
+  
   "ssSOSOnOpen": "SOS automático al abrir",
   "ssSOSOnClose": "SOS automático al cerrar",
   "ssVideoSOS": "SOS automático en caso de grabación interrumpida",

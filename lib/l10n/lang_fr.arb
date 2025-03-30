@@ -23,6 +23,23 @@
 
 
   
+  "rsGHeader": "Vous avez le droit de...",
+  "rsGFingerprint": "Refuser d'être fiché par ICE à moins que vous ne soyez arrêté.",
+
+  "rsWLeave": "Partir si vous n'êtes pas arrêté.",
+
+  "rsCSearch": "Refuser une fouille de votre voiture.",
+  "rsCPockets": "Refuser une fouille de vos poches. ICE peut faire une palpation, mais pas une fouille.",
+  "rsCWarrant": "Demander si les agents ont un mandat. Vous avez le droit de le voir s'ils en ont.",
+  "rsCID": "Refuser de fournir une pièce d'identité en tant que passager. Seul le conducteur est tenu de fournir une pièce d'identité.",
+  "rsCQuestion": "Poser des questions. Découvrez pourquoi vous êtes arrêté.",
+  "rsCLeave": "Partir si vous n'êtes pas arrêté.",
+  "rsCRemainSilent": "Rester silencieux. Vous n'avez pas à répondre à leurs questions.\nVous ne pouvez pas mentir ou résister à l'arrestation, mais vous n'avez pas à leur dire quoi que ce soit.",
+
+  "rsHWarrant": "Gardez votre porte fermée. S'ils ont un mandat, demandez-leur de le glisser sous la porte d'abord.",
+
+
+
   "ssSOSOnOpen": "SOS automatique à l'ouverture",
   "ssSOSOnClose": "SOS automatique à la fermeture",
   "ssVideoSOS": "SOS automatique en cas d'enregistrement interrompu",

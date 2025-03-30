@@ -48,6 +48,46 @@ class LangFr extends Lang {
   String get hsNoNumber => 'Le contact n\'a pas de numéro de téléphone';
 
   @override
+  String get rsGHeader => 'Vous avez le droit de...';
+
+  @override
+  String get rsGFingerprint =>
+      'Refuser d\'être fiché par ICE à moins que vous ne soyez arrêté.';
+
+  @override
+  String get rsWLeave => 'Partir si vous n\'êtes pas arrêté.';
+
+  @override
+  String get rsCSearch => 'Refuser une fouille de votre voiture.';
+
+  @override
+  String get rsCPockets =>
+      'Refuser une fouille de vos poches. ICE peut faire une palpation, mais pas une fouille.';
+
+  @override
+  String get rsCWarrant =>
+      'Demander si les agents ont un mandat. Vous avez le droit de le voir s\'ils en ont.';
+
+  @override
+  String get rsCID =>
+      'Refuser de fournir une pièce d\'identité en tant que passager. Seul le conducteur est tenu de fournir une pièce d\'identité.';
+
+  @override
+  String get rsCQuestion =>
+      'Poser des questions. Découvrez pourquoi vous êtes arrêté.';
+
+  @override
+  String get rsCLeave => 'Partir si vous n\'êtes pas arrêté.';
+
+  @override
+  String get rsCRemainSilent =>
+      'Rester silencieux. Vous n\'avez pas à répondre à leurs questions.\nVous ne pouvez pas mentir ou résister à l\'arrestation, mais vous n\'avez pas à leur dire quoi que ce soit.';
+
+  @override
+  String get rsHWarrant =>
+      'Gardez votre porte fermée. S\'ils ont un mandat, demandez-leur de le glisser sous la porte d\'abord.';
+
+  @override
   String get ssSOSOnOpen => 'SOS automatique à l\'ouverture';
 
   @override

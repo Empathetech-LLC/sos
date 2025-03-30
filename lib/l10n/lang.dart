@@ -164,6 +164,72 @@ abstract class Lang {
   /// **'Contact does not have a phone number'**
   String get hsNoNumber;
 
+  /// No description provided for @rsGHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'You have the right to...'**
+  String get rsGHeader;
+
+  /// No description provided for @rsGFingerprint.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuse to be fingerprinted by ICE unless you are under arrest.'**
+  String get rsGFingerprint;
+
+  /// No description provided for @rsWLeave.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave if you are not under arrest.'**
+  String get rsWLeave;
+
+  /// No description provided for @rsCSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuse a search of your car.'**
+  String get rsCSearch;
+
+  /// No description provided for @rsCPockets.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuse a search of your pockets. ICE can give a pat-down, but not a search.'**
+  String get rsCPockets;
+
+  /// No description provided for @rsCWarrant.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask if the officers have a warrant. You have the right to see it if they do.'**
+  String get rsCWarrant;
+
+  /// No description provided for @rsCID.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuse to provide ID as a passenger. Only the driver is required to provide ID'**
+  String get rsCID;
+
+  /// No description provided for @rsCQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask questions. Find out why you are being stopped.'**
+  String get rsCQuestion;
+
+  /// No description provided for @rsCLeave.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave if you are not under arrest.'**
+  String get rsCLeave;
+
+  /// No description provided for @rsCRemainSilent.
+  ///
+  /// In en, this message translates to:
+  /// **'Remain silent. You do not have to answer of their questions.\nYou cannot lie or resist arrest, but you do not have to tell them anything.'**
+  String get rsCRemainSilent;
+
+  /// No description provided for @rsHWarrant.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep you door shut. If they have a warrant, ask them to slip in under the door first.'**
+  String get rsHWarrant;
+
   /// No description provided for @ssSOSOnOpen.
   ///
   /// In en, this message translates to:

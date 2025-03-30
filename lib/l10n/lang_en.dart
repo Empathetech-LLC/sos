@@ -47,6 +47,46 @@ class LangEn extends Lang {
   String get hsNoNumber => 'Contact does not have a phone number';
 
   @override
+  String get rsGHeader => 'You have the right to...';
+
+  @override
+  String get rsGFingerprint =>
+      'Refuse to be fingerprinted by ICE unless you are under arrest.';
+
+  @override
+  String get rsWLeave => 'Leave if you are not under arrest.';
+
+  @override
+  String get rsCSearch => 'Refuse a search of your car.';
+
+  @override
+  String get rsCPockets =>
+      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
+
+  @override
+  String get rsCWarrant =>
+      'Ask if the officers have a warrant. You have the right to see it if they do.';
+
+  @override
+  String get rsCID =>
+      'Refuse to provide ID as a passenger. Only the driver is required to provide ID';
+
+  @override
+  String get rsCQuestion =>
+      'Ask questions. Find out why you are being stopped.';
+
+  @override
+  String get rsCLeave => 'Leave if you are not under arrest.';
+
+  @override
+  String get rsCRemainSilent =>
+      'Remain silent. You do not have to answer of their questions.\nYou cannot lie or resist arrest, but you do not have to tell them anything.';
+
+  @override
+  String get rsHWarrant =>
+      'Keep you door shut. If they have a warrant, ask them to slip in under the door first.';
+
+  @override
   String get ssSOSOnOpen => 'Auto SOS on open';
 
   @override
