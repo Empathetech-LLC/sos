@@ -41,7 +41,7 @@ class LangEn extends Lang {
 
   @override
   String get hsRecTutorial =>
-      'When you take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.';
+      'When you take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows you your rights.';
 
   @override
   String get hsRightTutorial =>
@@ -88,7 +88,7 @@ class LangEn extends Lang {
 
   @override
   String get rsHWarrant =>
-      '- Keep you door shut. If they have a warrant, ask them to slip in under the door first.';
+      '- Keep you door shut. If they have a warrant, ask them to slip it under the door first.';
 
   @override
   String get ssSOSOnOpen => 'Auto SOS on open';
