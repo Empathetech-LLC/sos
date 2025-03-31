@@ -3,12 +3,8 @@
  * See LICENSE for distribution and usage details.
  */
 
-// import './export.dart';
-
-// import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
-// import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 Future<String> getCoordinates() async {
   final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
@@ -28,19 +24,4 @@ Future<String> getCoordinates() async {
   return pos.toString();
 }
 
-// const MethodChannel _channel = MethodChannel('sos');
-
-void sendSOS() async {
-  debugPrint('CAW SOS CAW');
-
-  // final String sos = EzConfig.get(customSOSKey) ?? 'SOS';
-  // final String pos = await getCoordinates();
-
-  // final List<String> emc = EzConfig.get('recipients') ??
-  //     <String>['NUMBER']; // Change to exit on null when ready
-
-  // await _channel.invokeMethod('sendSMS', <String, String>{
-  //   'message': '$sos\n$pos',
-  //   'recipients': emc.join(','),
-  // });
-}
+void sendSOS() => debugPrint('CAW SOS CAW');
