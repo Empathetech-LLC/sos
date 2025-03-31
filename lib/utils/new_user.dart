@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-Future<dynamic> firstEMCMsg(BuildContext context) async {
+Future<dynamic> firstContactMsg(BuildContext context) async {
   final Lang l10n = Lang.of(context)!;
   final EFUILang el10n = EFUILang.of(context)!;
 
@@ -37,7 +37,7 @@ Future<dynamic> firstEMCMsg(BuildContext context) async {
   );
 }
 
-Future<dynamic> cameraMsg(BuildContext context) async {
+Future<dynamic> permissionsMsg(BuildContext context) async {
   final Lang l10n = Lang.of(context)!;
   final EFUILang el10n = EFUILang.of(context)!;
 
@@ -47,9 +47,9 @@ Future<dynamic> cameraMsg(BuildContext context) async {
   ) = ezActionPairs(
     context: context,
     onConfirm: () => Navigator.of(context).pop(true),
-    confirmMsg: el10n.gContinue,
+    confirmMsg: l10n.gOk,
     onDeny: () => Navigator.of(context).pop(false),
-    denyMsg: el10n.gCancel,
+    denyMsg: el10n.gNo,
   );
 
   return showPlatformDialog(

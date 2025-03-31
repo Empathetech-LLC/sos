@@ -6,6 +6,6 @@
 export 'consts.dart';
 export 'contacts.dart';
 export 'location.dart';
-export 'tutorial.dart';
+export 'new_user.dart';
 
 export '../l10n/lang.dart';

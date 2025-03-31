@@ -19,7 +19,7 @@ Future<List<String>?> addEMC(BuildContext context, List<String>? curr) async {
   // Check for first run
   if (curr == null || curr.isEmpty) {
     curr = <String>[];
-    await firstEMCMsg(context);
+    await firstContactMsg(context);
   }
 
   // Check contact permissions
