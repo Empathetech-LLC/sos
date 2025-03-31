@@ -13,7 +13,6 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:feedback/feedback.dart';
-import 'package:efui_bios/efui_bios.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:workmanager/workmanager.dart';
@@ -165,25 +164,24 @@ class _HomeScreenState extends State<HomeScreen>
           children: <Widget>[
             // Preview (or loading) and rights view
             Center(
-              child: camera == null
-                  ? SizedBox(
-                      height: heightOf(context) * 0.667,
-                      width: double.infinity,
-                      child: showRights
-                          ? const RightsView()
-                          : EmpathetechLoadingAnimation(
-                              semantics: el10n.gLoadingAnim),
-                    )
-                  : Stack(children: <Widget>[
-                      CameraPreview(camera!),
-                      Visibility(
-                        visible: showRights,
-                        child: Container(
-                          color: rightsBackgroundColor,
-                          child: const RightsView(),
+              child: SizedBox(
+                height: heightOf(context) * 0.667,
+                width: double.infinity,
+                child: camera == null
+                    ? const RightsView()
+                    : Stack(children: <Widget>[
+                        CameraPreview(camera!),
+                        Visibility(
+                          visible: showRights,
+                          child: Container(
+                            height: double.infinity,
+                            width: double.infinity,
+                            color: rightsBackgroundColor,
+                            child: const RightsView(),
+                          ),
                         ),
-                      ),
-                    ]),
+                      ]),
+              ),
             ),
 
             // Video timer
@@ -340,6 +338,7 @@ class _HomeScreenState extends State<HomeScreen>
                           icon: showRights
                               ? Icon(PlatformIcons(context).eyeSlash)
                               : const Icon(Icons.gavel),
+                          enabled: camera != null,
                           onPressed: () =>
                               setState(() => showRights = !showRights),
                         )
