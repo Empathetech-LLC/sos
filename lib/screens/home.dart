@@ -104,6 +104,9 @@ class _HomeScreenState extends State<HomeScreen>
       return false;
     }
 
+    await Permission.microphone.request();
+    await Gal.requestAccess();
+
     final List<CameraDescription> cameras = await availableCameras();
     camera = CameraController(cameras.first, ResolutionPreset.max);
 
@@ -230,6 +233,7 @@ class _HomeScreenState extends State<HomeScreen>
                           icon: const SOSIcon(),
                           iconSize: iconSize * 1.5,
                           onPressed: () async {
+                            // Error handling?
                             await Workmanager()
                                 .cancelByUniqueName(broadcastTask);
                             setState(() => broadcasting = false);
@@ -239,6 +243,7 @@ class _HomeScreenState extends State<HomeScreen>
                           icon: const Icon(Icons.sos),
                           iconSize: iconSize * 1.5,
                           onPressed: () async {
+                            // Error handling?
                             await startBroadcast();
                             setState(() => broadcasting = true);
                           },
@@ -337,15 +342,28 @@ class _HomeScreenState extends State<HomeScreen>
                           icon: Icon(PlatformIcons(context).photoCamera),
                           onPressed: () async {
                             try {
+                              // Take a picture
                               final XFile image = await camera!.takePicture();
 
-                              await Gal.requestAccess();
-                              await Gal.putImage(image.path);
+                              // Attempt to save the image
+                              final bool galAccess = await Gal.requestAccess();
+                              if (galAccess) {
+                                try {
+                                  await Gal.putImage(image.path);
+                                } catch (e) {
+                                  // If this fails, it's likely the user has bigger problems at hand
+                                  // We can still try to share the file without saving it to the gallery
+                                  ezLog(e.toString());
+                                }
+                              }
+
+                              // Attempt to share the image
                               await Share.shareXFiles(
                                 <XFile>[image],
                                 text: await getCoordinates(),
                               );
                             } catch (e) {
+                              // More granularity?
                               if (context.mounted) {
                                 ezLogAlert(context, message: e.toString());
                               }
@@ -394,18 +412,20 @@ class _HomeScreenState extends State<HomeScreen>
                                 if (galAccess) {
                                   try {
                                     await Gal.putVideo(video.path);
-                                  } catch (_) {
-                                    // If it fails, it's likely the user has bigger problems at hand
+                                  } catch (e) {
+                                    // If this fails, it's likely the user has bigger problems at hand
                                     // We can still try to share the file without saving it to the gallery
+                                    ezLog(e.toString());
                                   }
                                 }
 
-                                // Share the video
+                                // Attempt to share the video
                                 await Share.shareXFiles(
                                   <XFile>[video],
                                   text: await getCoordinates(),
                                 );
                               } catch (e) {
+                                // More granularity?
                                 if (context.mounted) {
                                   ezLogAlert(context, message: e.toString());
                                 }
