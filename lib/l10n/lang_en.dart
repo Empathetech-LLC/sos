@@ -36,7 +36,7 @@ class LangEn extends Lang {
 
   @override
   String get hsAppTutorial =>
-      'It shares your location with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.';
+      'It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.';
 
   @override
   String get hsCameraTutorial =>

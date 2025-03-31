@@ -149,7 +149,7 @@ abstract class Lang {
   /// No description provided for @hsAppTutorial.
   ///
   /// In en, this message translates to:
-  /// **'It shares your location with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.'**
+  /// **'It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.'**
   String get hsAppTutorial;
 
   /// No description provided for @hsCameraTutorial.
