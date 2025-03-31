@@ -229,24 +229,18 @@ class _HomeScreenState extends State<HomeScreen>
         child: Stack(
           children: <Widget>[
             // Preview (or loading)
-            SizedBox(
-              height: double.infinity,
-              width: double.infinity,
-              child: camera == null
-                  ? showRights
-                      ? Center(
-                          child: SizedBox(
-                            height: heightOf(context) * 0.667,
-                            width: double.infinity,
-                            child: const RightsView(),
-                          ),
-                        )
-                      : EmpathetechLoadingAnimation(
-                          height: heightOf(context) * 0.25,
-                          semantics: el10n.gLoadingAnim,
-                        )
-                  : Center(child: CameraPreview(camera!)),
-            ),
+            camera == null
+                ? Center(
+                    child: SizedBox(
+                      height: heightOf(context) * 0.667,
+                      width: double.infinity,
+                      child: showRights
+                          ? const RightsView()
+                          : EmpathetechLoadingAnimation(
+                              semantics: el10n.gLoadingAnim),
+                    ),
+                  )
+                : Center(child: CameraPreview(camera!)),
 
             // Video timer
             Positioned(
