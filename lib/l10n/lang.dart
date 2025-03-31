@@ -62,7 +62,8 @@ import 'lang_fr.dart' deferred as lang_fr;
 /// be consistent with the languages listed in the Lang.supportedLocales
 /// property.
 abstract class Lang {
-  Lang(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  Lang(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -82,7 +83,8 @@ abstract class Lang {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -322,26 +324,27 @@ class _LangDelegate extends LocalizationsDelegate<Lang> {
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'es', 'fr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'es', 'fr'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_LangDelegate old) => false;
 }
 
 Future<Lang> lookupLang(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return lang_en.loadLibrary().then((dynamic _) => lang_en.LangEn());
-    case 'es': return lang_es.loadLibrary().then((dynamic _) => lang_es.LangEs());
-    case 'fr': return lang_fr.loadLibrary().then((dynamic _) => lang_fr.LangFr());
+    case 'en':
+      return lang_en.loadLibrary().then((dynamic _) => lang_en.LangEn());
+    case 'es':
+      return lang_es.loadLibrary().then((dynamic _) => lang_es.LangEs());
+    case 'fr':
+      return lang_fr.loadLibrary().then((dynamic _) => lang_fr.LangFr());
   }
 
   throw FlutterError(
-    'Lang.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+      'Lang.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }
