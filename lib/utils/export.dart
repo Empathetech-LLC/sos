@@ -4,6 +4,7 @@
  */
 
 export 'consts.dart';
+export 'contacts.dart';
 export 'location.dart';
 export 'tutorial.dart';
 

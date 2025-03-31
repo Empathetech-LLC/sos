@@ -18,7 +18,6 @@ import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:after_layout/after_layout.dart';
-import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
@@ -124,62 +123,6 @@ class _HomeScreenState extends State<HomeScreen>
     return false;
   }
 
-  /// Checks if [emc] is null/empty
-  /// If so, prompt the user to save their first contact
-  /// Users must select at least one emergency contact to use the app
-  Future<void> gatherEMC() async {
-    if (emc == null || emc!.isEmpty) {
-      // App tutorial message
-      await firstEMCMsg(context);
-
-      // Request contact permissions
-      final bool contactsGranted =
-          await FlutterContacts.requestPermission(readonly: true);
-
-      // If denied: re-iterate that SOS is useless without contacts, and exit
-      if (!contactsGranted) {
-        if (mounted) {
-          ezLogAlert(
-            context,
-            title: el10n.gAttention,
-            message: l10n.hsNeedContacts,
-            customActions: (
-              <EzMaterialAction>[
-                EzMaterialAction(text: l10n.gOk, onPressed: () => exit(0))
-              ],
-              <EzCupertinoAction>[
-                EzCupertinoAction(text: l10n.gOk, onPressed: () => exit(0))
-              ],
-            ),
-          );
-        }
-        return;
-      }
-
-      // Save the first emergency contact
-      Contact? contact;
-      while (true) {
-        contact = await FlutterContacts.openExternalPick();
-
-        if (contact == null ||
-            (contact.phones.isEmpty || contact.phones.first.number.isEmpty)) {
-          if (mounted) {
-            await ezSnackBar(
-              context: context,
-              message: l10n.hsNoNumber,
-            ).closed;
-          }
-        } else {
-          break;
-        }
-      }
-
-      final List<String> toSave = <String>[contact.phones.first.number];
-      await EzConfig.setStringList(emcKey, toSave);
-      emc = toSave;
-    }
-  }
-
   // Init //
 
   @override
@@ -190,18 +133,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void afterFirstLayout(BuildContext context) async {
-    // Check for auto-SOS
-    final PermissionStatus locationStatus = await Permission.location.request();
-
-    if (locationStatus != PermissionStatus.denied &&
-        locationStatus != PermissionStatus.permanentlyDenied) {
-      // SOS on open can't be setup without contact access already being granted
-      if (EzConfig.get(onOpenKey) == true) startBroadcast();
-    }
-
-    // Gather the emergency contacts
-    // Checks are in the function (only runs if needed)
-    await gatherEMC();
+    emc = await addEMC(context, emc);
 
     // Setup the camera (and preview)
     final bool hasCamera = await initCamera();
@@ -542,7 +474,7 @@ class _HomeScreenState extends State<HomeScreen>
                   camera != null
                       ? FlashButton(
                           camera: camera!,
-                          stateCallback: setState(() {}),
+                          stateCallback: () => setState(() {}),
                         )
                       : const EzIconButton(
                           icon: Icon(Icons.flash_off),
