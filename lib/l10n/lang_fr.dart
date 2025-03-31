@@ -37,7 +37,7 @@ class LangFr extends Lang {
 
   @override
   String get hsATutorial =>
-      'This app is designed to share your evidence and location with emergency contacts in a moment of crisis.\n\nPlease choose your first emergency contact.\nThey must have a phone number.\n\nJust one for now, you can add more later.';
+      'This app is designed to share your location with emergency contacts in a moment of crisis.\n\nPlease choose your first emergency contact.\nThey must have a phone number.\n\nJust one for now, you can add more later.';
 
   @override
   String get hsBTutorial =>
