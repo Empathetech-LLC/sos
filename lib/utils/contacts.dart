@@ -43,7 +43,7 @@ Future<List<String>?> addEMC(BuildContext context, List<String>? curr) async {
         ),
       );
     }
-    return null;
+    return curr;
   }
 
   // Save the first emergency contact
