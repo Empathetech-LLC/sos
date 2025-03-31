@@ -78,7 +78,7 @@ class _RightsViewState extends State<RightsView> {
 
   Text rightsBlock(String text) => Text(
         '$text\n',
-        textAlign: TextAlign.center,
+        textAlign: TextAlign.start,
         style: textTheme.bodyLarge,
       );
 
