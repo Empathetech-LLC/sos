@@ -18,7 +18,7 @@
   "hsWelcome": "Welcome to SOS",
   "hsATutorial": "This app is designed to share your location with emergency contacts in a moment of crisis.\n\nPlease choose your first emergency contact.\nThey must have a phone number.\n\nJust one for now, you can add more later.",
   "hsBTutorial": "Activate SOS to text your emergency contacts your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDeactivate SOS or fully close the app to stop the texts.",
-  "hsSTutorial": "You can...\n\n- Add more emergency contacts\n- Customize the SOS message\n- Enable automatic SOS\n- Change the app's appearance\n\nand more in the settings.",
+  "hsSTutorial": "You can...\n\n- Add more emergency contacts\n- Customize the SOS message\n- Enable automatic SOS\n- Change the app's appearance\n\nand more in the settings.\n\nHold the settings button to give feedback for the app.",
   "hsRecTutorial": "When you take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows you your rights.",
   "hsRightTutorial": "While the camera is disabled, you can still hide/show a list of your rights.\n\nIf you enable the camera, and take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.",
 

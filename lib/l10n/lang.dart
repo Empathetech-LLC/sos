@@ -161,7 +161,7 @@ abstract class Lang {
   /// No description provided for @hsSTutorial.
   ///
   /// In en, this message translates to:
-  /// **'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s appearance\n\n in the settings.'**
+  /// **'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s appearance\n\n in the settings.\n\nHold the settings button to give feedback for the app.'**
   String get hsSTutorial;
 
   /// No description provided for @hsRecTutorial.

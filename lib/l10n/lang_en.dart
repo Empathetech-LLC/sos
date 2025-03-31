@@ -44,7 +44,7 @@ class LangEn extends Lang {
 
   @override
   String get hsSTutorial =>
-      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s appearance\n\n in the settings.';
+      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s appearance\n\n in the settings.\n\nHold the settings button to give feedback for the app.';
 
   @override
   String get hsRecTutorial =>
