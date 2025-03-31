@@ -16,36 +16,39 @@
   "hsRecordHint": "Enregistrer une vidéo",
 
   "hsWelcome": "Welcome to SOS",
-  "hsATutorial": "This app is designed to share your location with emergency contacts in a moment of crisis.\n\nPlease choose your first emergency contact.\nThey must have a phone number.\n\nJust one for now, you can add more later.",
-  "hsBTutorial": "Activate SOS to text your emergency contacts your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDeactivate SOS or fully close the app to stop the texts.",
-  "hsSTutorial": "You can...\n\n- Add more emergency contacts\n- Customize the SOS message\n- Enable automatic SOS\n- Change the app's appearance\n\nand more in the settings.\n\nHold the settings button to give feedback for the app.",
-  "hsRecTutorial": "When you take a picture or finish a record, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows you your rights.",
-  "hsRightTutorial": "While the camera is disabled, you can still hide/show a list of your rights.\n\nIf you enable the camera, and take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.",
+  "hsAppTutorial": "This app is designed to share your location with emergency contacts in a moment of crisis.\n\nPlease choose your first emergency contact.\nThey must have a phone number.\n\nJust one for now, you can add more later.",
+  "hsCameraTutorial": "SOS can also help share evidence.\n\nThe app will ask you for camera, microphone, and gallery access so it can take and save photos and videos.\n\nThis is recommended, but optional.",
+  "hsBroadcastTutorial": "Activate SOS to text your emergency contacts your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDeactivate SOS or fully close the app to stop the texts.",
+  "hsSettingsTutorial": "You can...\n\n- Add more emergency contacts\n- Customize the SOS message\n- Enable automatic SOS\n- Change the app's appearance\n\nand more in the settings.\n\nHold the settings button to give feedback for the app.",
+  "hsVideoTutorial": "When you take a picture or finish a record, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows you your rights.",
+  "hsRightsTutorial": "While the camera is disabled, you can still hide/show a list of your rights.\n\nIf you enable the camera, and take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.",
 
   "hsNoNumber": "Le contact n'a pas de numéro de téléphone",
 
 
   
-  "rsGHeader": "Vous avez le droit de...",
-  "rsGFingerprint": "- Refuser d'être fiché par ICE à moins que vous ne soyez arrêté.",
+  "rsSharedHeader": "Vous avez le droit de...",
+  "rsSharedFingerprint": "- Refuser d'être fiché par ICE à moins que vous ne soyez arrêté.",
 
-  "rsWLeave": "- Partir si vous n'êtes pas arrêté.",
+  "rsWalkLeave": "- Partir si vous n'êtes pas arrêté.",
 
-  "rsCSearch": "- Refuser une fouille de votre voiture.",
-  "rsCPockets": "- Refuser une fouille de vos poches. ICE peut faire une palpation, mais pas une fouille.",
-  "rsCWarrant": "- Demander si les agents ont un mandat. Vous avez le droit de le voir s'ils en ont.",
-  "rsCID": "- Refuser de fournir une pièce d'identité en tant que passager. Seul le conducteur est tenu de fournir une pièce d'identité.",
-  "rsCQuestion": "- Poser des questions. Découvrez pourquoi vous êtes arrêté.",
-  "rsCLeave": "- Partir si vous n'êtes pas arrêté.",
-  "rsCRemainSilent": "- Rester silencieux. Vous n'avez pas à répondre à leurs questions.\nVous ne pouvez pas mentir ou résister à l'arrestation, mais vous n'avez pas à leur dire quoi que ce soit.",
+  "rsDriveSearch": "- Refuser une fouille de votre voiture.",
+  "rsDrivePockets": "- Refuser une fouille de vos poches. ICE peut faire une palpation, mais pas une fouille.",
+  "rsDriveWarrant": "- Demander si les agents ont un mandat. Vous avez le droit de le voir s'ils en ont.",
+  "rsDriveID": "- Refuser de fournir une pièce d'identité en tant que passager. Seul le conducteur est tenu de fournir une pièce d'identité.",
+  "rsDriveQuestion": "- Poser des questions. Découvrez pourquoi vous êtes arrêté.",
+  "rsDriveLeave": "- Partir si vous n'êtes pas arrêté.",
+  "rsDriveRemainSilent": "- Rester silencieux. Vous n'avez pas à répondre à leurs questions.\nVous ne pouvez pas mentir ou résister à l'arrestation, mais vous n'avez pas à leur dire quoi que ce soit.",
 
-  "rsHWarrant": "- Gardez votre porte fermée. S'ils ont un mandat, demandez-leur de le glisser sous la porte d'abord.",
+  "rsHomeWarrant": "- Gardez votre porte fermée. S'ils ont un mandat, demandez-leur de le glisser sous la porte d'abord.",
 
 
 
   "ssSOSOnOpen": "SOS automatique à l'ouverture",
   "ssSOSOnClose": "SOS automatique à la fermeture",
+  "ssSOSOnCloseHint": "Lorsque cette option est activée, un bouton de fermeture sécurisé sera affiché en face des paramètres.",
   "ssVideoSOS": "SOS automatique en cas d'enregistrement interrompu",
+  "ssVideoSOSHint": "Activer pour des messages continus, désactiver pour un seul message.",
 
   "ssEMC": "Contacts d'urgence"
 }

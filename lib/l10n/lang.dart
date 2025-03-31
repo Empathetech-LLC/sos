@@ -146,35 +146,41 @@ abstract class Lang {
   /// **'Welcome to SOS'**
   String get hsWelcome;
 
-  /// No description provided for @hsATutorial.
+  /// No description provided for @hsAppTutorial.
   ///
   /// In en, this message translates to:
   /// **'This app is designed to share your location with emergency contacts in a moment of crisis.\n\nPlease choose your first emergency contact.\nThey must have a phone number.\n\nJust one for now, you can add more later.'**
-  String get hsATutorial;
+  String get hsAppTutorial;
 
-  /// No description provided for @hsBTutorial.
+  /// No description provided for @hsCameraTutorial.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS can also help share evidence.\n\nThe app will ask you for camera, microphone, and gallery access so it can take and save photos and videos.\n\nThis is recommended, but optional.'**
+  String get hsCameraTutorial;
+
+  /// No description provided for @hsBroadcastTutorial.
   ///
   /// In en, this message translates to:
   /// **'Activate SOS to text your emergency contacts your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDeactivate SOS or fully close the app to stop the texts.'**
-  String get hsBTutorial;
+  String get hsBroadcastTutorial;
 
-  /// No description provided for @hsSTutorial.
+  /// No description provided for @hsSettingsTutorial.
   ///
   /// In en, this message translates to:
   /// **'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s appearance\n\n in the settings.\n\nHold the settings button to give feedback for the app.'**
-  String get hsSTutorial;
+  String get hsSettingsTutorial;
 
-  /// No description provided for @hsRecTutorial.
+  /// No description provided for @hsVideoTutorial.
   ///
   /// In en, this message translates to:
   /// **'When you take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows you your rights.'**
-  String get hsRecTutorial;
+  String get hsVideoTutorial;
 
-  /// No description provided for @hsRightTutorial.
+  /// No description provided for @hsRightsTutorial.
   ///
   /// In en, this message translates to:
   /// **'While the camera is disabled, you can still hide/show a list of your rights.\n\nIf you enable the camera, and take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.'**
-  String get hsRightTutorial;
+  String get hsRightsTutorial;
 
   /// No description provided for @hsNoNumber.
   ///
@@ -182,71 +188,71 @@ abstract class Lang {
   /// **'Contact does not have a phone number'**
   String get hsNoNumber;
 
-  /// No description provided for @rsGHeader.
+  /// No description provided for @rsSharedHeader.
   ///
   /// In en, this message translates to:
   /// **'You have the right to...'**
-  String get rsGHeader;
+  String get rsSharedHeader;
 
-  /// No description provided for @rsGFingerprint.
+  /// No description provided for @rsSharedFingerprint.
   ///
   /// In en, this message translates to:
   /// **'- Refuse to be fingerprinted by ICE unless you are under arrest.'**
-  String get rsGFingerprint;
+  String get rsSharedFingerprint;
 
-  /// No description provided for @rsWLeave.
+  /// No description provided for @rsWalkLeave.
   ///
   /// In en, this message translates to:
   /// **'- Leave if you are not under arrest.'**
-  String get rsWLeave;
+  String get rsWalkLeave;
 
-  /// No description provided for @rsCSearch.
+  /// No description provided for @rsDriveSearch.
   ///
   /// In en, this message translates to:
   /// **'- Refuse a search of your car.'**
-  String get rsCSearch;
+  String get rsDriveSearch;
 
-  /// No description provided for @rsCPockets.
+  /// No description provided for @rsDrivePockets.
   ///
   /// In en, this message translates to:
   /// **'- Refuse a search of your pockets. ICE can give a pat-down, but not a search.'**
-  String get rsCPockets;
+  String get rsDrivePockets;
 
-  /// No description provided for @rsCWarrant.
+  /// No description provided for @rsDriveWarrant.
   ///
   /// In en, this message translates to:
   /// **'- Ask if the officers have a warrant. You have the right to see it if they do.'**
-  String get rsCWarrant;
+  String get rsDriveWarrant;
 
-  /// No description provided for @rsCID.
+  /// No description provided for @rsDriveID.
   ///
   /// In en, this message translates to:
   /// **'- Refuse to provide ID as a passenger. Only the driver is required to provide ID'**
-  String get rsCID;
+  String get rsDriveID;
 
-  /// No description provided for @rsCQuestion.
+  /// No description provided for @rsDriveQuestion.
   ///
   /// In en, this message translates to:
   /// **'- Ask questions. Find out why you are being stopped.'**
-  String get rsCQuestion;
+  String get rsDriveQuestion;
 
-  /// No description provided for @rsCLeave.
+  /// No description provided for @rsDriveLeave.
   ///
   /// In en, this message translates to:
   /// **'- Leave if you are not under arrest.'**
-  String get rsCLeave;
+  String get rsDriveLeave;
 
-  /// No description provided for @rsCRemainSilent.
+  /// No description provided for @rsDriveRemainSilent.
   ///
   /// In en, this message translates to:
   /// **'- Remain silent. You do not have to answer of their questions.\nYou cannot lie or resist arrest, but you do not have to tell them anything.'**
-  String get rsCRemainSilent;
+  String get rsDriveRemainSilent;
 
-  /// No description provided for @rsHWarrant.
+  /// No description provided for @rsHomeWarrant.
   ///
   /// In en, this message translates to:
   /// **'- Keep you door shut. If they have a warrant, ask them to slip it under the door first.'**
-  String get rsHWarrant;
+  String get rsHomeWarrant;
 
   /// No description provided for @ssSOSOnOpen.
   ///
@@ -260,11 +266,23 @@ abstract class Lang {
   /// **'Auto SOS on close'**
   String get ssSOSOnClose;
 
+  /// No description provided for @ssSOSOnCloseHint.
+  ///
+  /// In en, this message translates to:
+  /// **'When enabled, a safe close button will be shown opposite the settings.'**
+  String get ssSOSOnCloseHint;
+
   /// No description provided for @ssVideoSOS.
   ///
   /// In en, this message translates to:
   /// **'Auto SOS on interrupted recording'**
   String get ssVideoSOS;
+
+  /// No description provided for @ssVideoSOSHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable for continuos texts, disable for a single text.'**
+  String get ssVideoSOSHint;
 
   /// No description provided for @ssEMC.
   ///

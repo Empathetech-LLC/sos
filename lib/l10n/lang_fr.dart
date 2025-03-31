@@ -36,66 +36,70 @@ class LangFr extends Lang {
   String get hsWelcome => 'Welcome to SOS';
 
   @override
-  String get hsATutorial =>
+  String get hsAppTutorial =>
       'This app is designed to share your location with emergency contacts in a moment of crisis.\n\nPlease choose your first emergency contact.\nThey must have a phone number.\n\nJust one for now, you can add more later.';
 
   @override
-  String get hsBTutorial =>
+  String get hsCameraTutorial =>
+      'SOS can also help share evidence.\n\nThe app will ask you for camera, microphone, and gallery access so it can take and save photos and videos.\n\nThis is recommended, but optional.';
+
+  @override
+  String get hsBroadcastTutorial =>
       'Activate SOS to text your emergency contacts your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDeactivate SOS or fully close the app to stop the texts.';
 
   @override
-  String get hsSTutorial =>
+  String get hsSettingsTutorial =>
       'You can...\n\n- Add more emergency contacts\n- Customize the SOS message\n- Enable automatic SOS\n- Change the app\'s appearance\n\nand more in the settings.\n\nHold the settings button to give feedback for the app.';
 
   @override
-  String get hsRecTutorial =>
+  String get hsVideoTutorial =>
       'When you take a picture or finish a record, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows you your rights.';
 
   @override
-  String get hsRightTutorial =>
+  String get hsRightsTutorial =>
       'While the camera is disabled, you can still hide/show a list of your rights.\n\nIf you enable the camera, and take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.';
 
   @override
   String get hsNoNumber => 'Le contact n\'a pas de numéro de téléphone';
 
   @override
-  String get rsGHeader => 'Vous avez le droit de...';
+  String get rsSharedHeader => 'Vous avez le droit de...';
 
   @override
-  String get rsGFingerprint =>
+  String get rsSharedFingerprint =>
       '- Refuser d\'être fiché par ICE à moins que vous ne soyez arrêté.';
 
   @override
-  String get rsWLeave => '- Partir si vous n\'êtes pas arrêté.';
+  String get rsWalkLeave => '- Partir si vous n\'êtes pas arrêté.';
 
   @override
-  String get rsCSearch => '- Refuser une fouille de votre voiture.';
+  String get rsDriveSearch => '- Refuser une fouille de votre voiture.';
 
   @override
-  String get rsCPockets =>
+  String get rsDrivePockets =>
       '- Refuser une fouille de vos poches. ICE peut faire une palpation, mais pas une fouille.';
 
   @override
-  String get rsCWarrant =>
+  String get rsDriveWarrant =>
       '- Demander si les agents ont un mandat. Vous avez le droit de le voir s\'ils en ont.';
 
   @override
-  String get rsCID =>
+  String get rsDriveID =>
       '- Refuser de fournir une pièce d\'identité en tant que passager. Seul le conducteur est tenu de fournir une pièce d\'identité.';
 
   @override
-  String get rsCQuestion =>
+  String get rsDriveQuestion =>
       '- Poser des questions. Découvrez pourquoi vous êtes arrêté.';
 
   @override
-  String get rsCLeave => '- Partir si vous n\'êtes pas arrêté.';
+  String get rsDriveLeave => '- Partir si vous n\'êtes pas arrêté.';
 
   @override
-  String get rsCRemainSilent =>
+  String get rsDriveRemainSilent =>
       '- Rester silencieux. Vous n\'avez pas à répondre à leurs questions.\nVous ne pouvez pas mentir ou résister à l\'arrestation, mais vous n\'avez pas à leur dire quoi que ce soit.';
 
   @override
-  String get rsHWarrant =>
+  String get rsHomeWarrant =>
       '- Gardez votre porte fermée. S\'ils ont un mandat, demandez-leur de le glisser sous la porte d\'abord.';
 
   @override
@@ -105,8 +109,16 @@ class LangFr extends Lang {
   String get ssSOSOnClose => 'SOS automatique à la fermeture';
 
   @override
+  String get ssSOSOnCloseHint =>
+      'Lorsque cette option est activée, un bouton de fermeture sécurisé sera affiché en face des paramètres.';
+
+  @override
   String get ssVideoSOS =>
       'SOS automatique en cas d\'enregistrement interrompu';
+
+  @override
+  String get ssVideoSOSHint =>
+      'Activer pour des messages continus, désactiver pour un seul message.';
 
   @override
   String get ssEMC => 'Contacts d\'urgence';
