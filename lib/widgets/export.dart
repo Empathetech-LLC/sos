@@ -7,3 +7,4 @@ export 'icons.dart';
 export 'buttons.dart';
 export 'rights_view.dart';
 export 'sos_scaffold.dart';
+export 'tutorial.dart';
