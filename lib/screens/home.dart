@@ -146,6 +146,8 @@ class _HomeScreenState extends State<HomeScreen>
       } else {
         cameraAccess = false;
       }
+    } else {
+      cameraAccess = await initCamera();
     }
     setState(cameraAccess ? () {} : () => showRights = true);
 
