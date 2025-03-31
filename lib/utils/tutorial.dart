@@ -56,7 +56,7 @@ Future<dynamic> cameraMsg(BuildContext context) async {
     context: context,
     builder: (_) => EzAlertDialog(
       title: Text(l10n.hsWelcome, textAlign: TextAlign.center),
-      content: Text(l10n.hsAppTutorial, textAlign: TextAlign.center),
+      content: Text(l10n.hsCameraTutorial, textAlign: TextAlign.center),
       materialActions: materialActions,
       cupertinoActions: cupertinoActions,
       needsClose: false,
