@@ -35,6 +35,5 @@ class ColorSettingsScreen extends StatelessWidget {
             darkSurfaceContainerKey,
           ],
         ),
-        fab: EzBackFAB(context),
       );
 }

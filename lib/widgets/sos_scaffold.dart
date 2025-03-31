@@ -18,16 +18,12 @@ class SosScaffold extends StatelessWidget {
   /// [Scaffold.body] passthrough
   final Widget body;
 
-  /// [FloatingActionButton]
-  final Widget? fab;
-
   /// Standardized [Scaffold] for all of the EFUI example app's screens
   const SosScaffold({
     super.key,
     this.title = appTitle,
     this.showAppBar = true,
     required this.body,
-    this.fab,
   });
 
   @override
@@ -37,7 +33,7 @@ class SosScaffold extends StatelessWidget {
     final bool isLefty = EzConfig.get(isLeftyKey) ?? false;
     final EFUILang l10n = EFUILang.of(context)!;
 
-    final double toolbarHeight = ezTextSize(
+    late final double toolbarHeight = ezTextSize(
           appTitle,
           style: Theme.of(context).appBarTheme.titleTextStyle,
           context: context,
@@ -92,17 +88,12 @@ class SosScaffold extends StatelessWidget {
         // Body
         body: body,
 
-        // FAB
-        floatingActionButton: fab,
-        floatingActionButtonLocation: isLefty
-            ? FloatingActionButtonLocation.startFloat
-            : FloatingActionButtonLocation.endFloat,
-
         // Prevents the keyboard from pushing the body up
         resizeToAvoidBottomInset: false,
       ),
     );
 
+    // SOS doesn't directly use the SwapScaffold, but the EzSettingsScreens do
     return EzSwapScaffold(
       small: theBuild,
       large: theBuild,
