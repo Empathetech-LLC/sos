@@ -41,7 +41,8 @@ class _HomeScreenState extends State<HomeScreen>
   final double spacing = EzConfig.get(spacingKey);
 
   late final double spargin = margin + spacing;
-  late final double spadding = padding + spacing;
+  late final double safeTop = MediaQuery.paddingOf(context).top;
+  late final double safeBottom = MediaQuery.paddingOf(context).bottom;
 
   static const EzSeparator separator = EzSeparator();
 
@@ -208,10 +209,12 @@ class _HomeScreenState extends State<HomeScreen>
 
     // Setup the camera
     final bool hasCamera = await initCamera();
-    setState(hasCamera ? () {} : () => showRights = true);
 
     // Populate emc
     await gatherEMC();
+
+    // User interaction is done, refresh the screen
+    setState(hasCamera ? () {} : () => showRights = true);
 
     if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
   }
@@ -231,10 +234,11 @@ class _HomeScreenState extends State<HomeScreen>
               width: double.infinity,
               child: camera == null
                   ? showRights
-                      ? EzScrollView(
-                          child: Text(
-                            l10n.rsGHeader,
-                            textAlign: TextAlign.center,
+                      ? Center(
+                          child: SizedBox(
+                            height: heightOf(context) * 0.667,
+                            width: double.infinity,
+                            child: const RightsView(),
                           ),
                         )
                       : EmpathetechLoadingAnimation(
@@ -282,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen>
                 child: OverlayPortal(
                   controller: broadcastOverlay,
                   overlayChildBuilder: (_) => Positioned(
-                    top: spargin + iconSize * 1.5 + spadding,
+                    top: safeTop + spargin + iconSize * 1.5 + spacing,
                     left: 0,
                     right: 0,
                     child: EzAlertDialog(
@@ -341,9 +345,9 @@ class _HomeScreenState extends State<HomeScreen>
               child: OverlayPortal(
                 controller: settingsOverlay,
                 overlayChildBuilder: (_) => Positioned(
-                  top: margin,
-                  right: isLefty ? null : margin + iconSize + spadding,
-                  left: isLefty ? margin + iconSize + spadding : null,
+                  top: safeTop + margin,
+                  right: isLefty ? null : margin + iconSize + spacing,
+                  left: isLefty ? margin + iconSize + spacing : null,
                   child: EzAlertDialog(
                     content: Text(
                       l10n.hsSTutorial,
@@ -464,12 +468,14 @@ class _HomeScreenState extends State<HomeScreen>
                   OverlayPortal(
                     controller: recordOverlay,
                     overlayChildBuilder: (_) => Positioned(
-                      bottom: spargin + iconSize * 2 + spadding,
+                      bottom: safeBottom + spargin + iconSize * 2 + spacing,
                       right: 0,
                       left: 0,
                       child: EzAlertDialog(
                         content: Text(
-                          l10n.hsRTutorial,
+                          camera == null
+                              ? l10n.hsRightTutorial
+                              : l10n.hsRecTutorial,
                           textAlign: TextAlign.center,
                         ),
                         materialActions: <EzMaterialAction>[
