@@ -36,19 +36,19 @@ class LangEn extends Lang {
 
   @override
   String get hsAppTutorial =>
-      'This app is designed to share your location with emergency contacts in a moment of crisis.\n\nPlease choose your first emergency contact.\nThey must have a phone number.\n\nJust one for now, you can add more later.';
+      'It shares your location with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.';
 
   @override
   String get hsCameraTutorial =>
-      'SOS can also help share evidence.\n\nThe app will ask you for camera, microphone, and gallery access so it can take and save photos and videos.\n\nThis is recommended, but optional.';
+      'SOS can also share evidence.\n\nIt will ask for camera, microphone, gallery, and location access to do so.\n\nThis is recommended, but optional.';
 
   @override
   String get hsBroadcastTutorial =>
-      'Activate SOS to text your emergency contacts your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDeactivate SOS or fully close the app to stop the texts.';
+      'Activate SOS to automatically text your emergency contacts every minute.\nIf SOS has access to your location, it will be included in the texts.\n\nThe broadcast will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.';
 
   @override
   String get hsSettingsTutorial =>
-      'You can...\n\n- add more emergency contacts\n- setup automatic SOS\n-change the app\'s language\n- and update the app\'s appearance\n\n...in the settings.\n\nHold the settings button to give feedback for the app.';
+      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s language\n- Update the app\'s appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.';
 
   @override
   String get hsVideoTutorial =>
@@ -59,7 +59,7 @@ class LangEn extends Lang {
       'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.';
 
   @override
-  String get hsNoNumber => 'Contact does not have a phone number';
+  String get hsNoNumber => 'The contact must have a phone number.';
 
   @override
   String get rsSharedHeader => 'You have the right to...';
