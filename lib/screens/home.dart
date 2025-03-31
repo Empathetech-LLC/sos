@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen>
   late final double safeTop =
       Platform.isIOS ? padding : MediaQuery.paddingOf(context).top;
   late final double safeBottom =
-      Platform.isIOS ? padding : MediaQuery.paddingOf(context).bottom;
+      Platform.isIOS ? margin : MediaQuery.paddingOf(context).bottom;
 
   static const EzSeparator separator = EzSeparator();
 
@@ -56,11 +56,18 @@ class _HomeScreenState extends State<HomeScreen>
   // Text
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = EFUILang.of(context)!;
-  late final TextStyle? labelStyle = Theme.of(context).textTheme.labelLarge;
 
   // Define the build data //
 
-  CameraController? camera;
+  // Core
+  /// EMergency Contacts; [List] of phone number [String]s
+  List<String>? emc = EzConfig.get(emcKey);
+
+  bool broadcasting = false;
+
+  /// true == indefinite
+  /// false == once
+  final bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
 
   // Tutorial
   final OverlayPortalController broadcastOverlay =
@@ -70,19 +77,13 @@ class _HomeScreenState extends State<HomeScreen>
   final OverlayPortalController recordOverlay =
       OverlayPortalController(debugLabel: 'record');
 
-  /// EMergency Contacts; [List] of phone number [String]s
-  List<String>? emc = EzConfig.get(emcKey);
-
-  bool broadcasting = false;
+  // Camera
+  CameraController? camera;
 
   bool recording = false;
   final Stopwatch watch = Stopwatch();
 
   bool showRights = false;
-
-  /// true == indefinite
-  /// false == once
-  final bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
 
   // Define custom functions //
 
@@ -123,15 +124,19 @@ class _HomeScreenState extends State<HomeScreen>
     return false;
   }
 
+  /// Checks if [emc] is null/empty
+  /// If so, prompt the user to save their first contact
   /// Users must select at least one emergency contact to use the app
   Future<void> gatherEMC() async {
     if (emc == null || emc!.isEmpty) {
+      // App tutorial message
       await firstEMCMsg(context);
 
-      // Confirm contacts access
+      // Request contact permissions
       final bool contactsGranted =
           await FlutterContacts.requestPermission(readonly: true);
 
+      // If denied: re-iterate that SOS is useless without contacts, and exit
       if (!contactsGranted) {
         if (mounted) {
           ezLogAlert(
@@ -151,8 +156,8 @@ class _HomeScreenState extends State<HomeScreen>
         return;
       }
 
+      // Save the first emergency contact
       Contact? contact;
-
       while (true) {
         contact = await FlutterContacts.openExternalPick();
 
@@ -174,8 +179,6 @@ class _HomeScreenState extends State<HomeScreen>
       emc = toSave;
     }
   }
-
-  // Define custom Widgets //
 
   // Init //
 
@@ -202,10 +205,9 @@ class _HomeScreenState extends State<HomeScreen>
 
     // Setup the camera (and preview)
     final bool hasCamera = await initCamera();
-
-    // User interaction is done, refresh the screen
     setState(hasCamera ? () {} : () => showRights = true);
 
+    // Check whether the tutorial has been finished
     if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
   }
 
@@ -251,9 +253,9 @@ class _HomeScreenState extends State<HomeScreen>
                       return EzText(
                         elapsed.toString().split('.').first,
                         backgroundColor: videoColor,
-                        style: labelStyle?.copyWith(
-                          color: getTextColor(videoColor),
-                        ),
+                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                              color: getTextColor(videoColor),
+                            ),
                       );
                     },
                   ),
@@ -538,30 +540,9 @@ class _HomeScreenState extends State<HomeScreen>
 
                   // Flash
                   camera != null
-                      ? EzIconButton(
-                          icon: switch (camera!.value.flashMode) {
-                            FlashMode.off => const Icon(Icons.flash_off),
-                            FlashMode.auto => const Icon(Icons.flash_auto),
-                            FlashMode.always => const Icon(Icons.flash_on),
-                            FlashMode.torch => const Icon(Icons.flashlight_on),
-                          },
-                          onPressed: () async {
-                            switch (camera!.value.flashMode) {
-                              case FlashMode.off:
-                                await camera!.setFlashMode(FlashMode.auto);
-                                break;
-                              case FlashMode.auto:
-                                await camera!.setFlashMode(FlashMode.always);
-                                break;
-                              case FlashMode.always:
-                                await camera!.setFlashMode(FlashMode.off);
-                                break;
-                              case FlashMode.torch:
-                                await camera!.setFlashMode(FlashMode.off);
-                                break;
-                            }
-                            setState(() {});
-                          },
+                      ? FlashButton(
+                          camera: camera!,
+                          stateCallback: setState(() {}),
                         )
                       : const EzIconButton(
                           icon: Icon(Icons.flash_off),
