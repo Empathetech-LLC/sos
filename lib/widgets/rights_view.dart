@@ -27,10 +27,10 @@ class RightsView extends StatefulWidget {
   const RightsView({super.key});
 
   @override
-  State<RightsView> createState() => _PulsingIconWidgetState();
+  State<RightsView> createState() => _RightsViewState();
 }
 
-class _PulsingIconWidgetState extends State<RightsView> {
+class _RightsViewState extends State<RightsView> {
   // Gather the theme data //
 
   late final Lang l10n = Lang.of(context)!;
