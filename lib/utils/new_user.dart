@@ -55,7 +55,8 @@ Future<dynamic> permissionsMsg(BuildContext context) async {
   return showPlatformDialog(
     context: context,
     builder: (_) => EzAlertDialog(
-      content: Text(l10n.hsCameraTutorial, textAlign: TextAlign.center),
+      title: Text(l10n.hsPermissionsTutorialTitle, textAlign: TextAlign.center),
+      content: Text(l10n.hsPermissionsTutorial, textAlign: TextAlign.center),
       materialActions: materialActions,
       cupertinoActions: cupertinoActions,
       needsClose: false,

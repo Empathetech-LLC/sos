@@ -152,17 +152,17 @@ abstract class Lang {
   /// **'It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.'**
   String get hsAppTutorial;
 
-  /// No description provided for @hsCameraTutorialTitle.
+  /// No description provided for @hsPermissionsTutorialTitle.
   ///
   /// In en, this message translates to:
   /// **'If you want'**
-  String get hsCameraTutorialTitle;
+  String get hsPermissionsTutorialTitle;
 
-  /// No description provided for @hsCameraTutorial.
+  /// No description provided for @hsPermissionsTutorial.
   ///
   /// In en, this message translates to:
   /// **'SOS can also share evidence.\n\nIt will ask for camera, microphone, gallery, and location access to do so.'**
-  String get hsCameraTutorial;
+  String get hsPermissionsTutorial;
 
   /// No description provided for @hsBroadcastTutorial.
   ///

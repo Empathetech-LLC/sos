@@ -39,10 +39,10 @@ class LangEn extends Lang {
       'It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.';
 
   @override
-  String get hsCameraTutorialTitle => 'If you want';
+  String get hsPermissionsTutorialTitle => 'If you want';
 
   @override
-  String get hsCameraTutorial =>
+  String get hsPermissionsTutorial =>
       'SOS can also share evidence.\n\nIt will ask for camera, microphone, gallery, and location access to do so.';
 
   @override
