@@ -167,19 +167,19 @@ abstract class Lang {
   /// No description provided for @hsSettingsTutorial.
   ///
   /// In en, this message translates to:
-  /// **'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s appearance\n\n in the settings.\n\nHold the settings button to give feedback for the app.'**
+  /// **'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n& Change the app\'s appearance\n\n in the settings.\n\nHold the settings button to give feedback for the app.'**
   String get hsSettingsTutorial;
 
   /// No description provided for @hsVideoTutorial.
   ///
   /// In en, this message translates to:
-  /// **'When you take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows you your rights.'**
+  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows you your rights.'**
   String get hsVideoTutorial;
 
   /// No description provided for @hsRightsTutorial.
   ///
   /// In en, this message translates to:
-  /// **'While the camera is disabled, you can still hide/show a list of your rights.\n\nIf you enable the camera, and take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.'**
+  /// **'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.'**
   String get hsRightsTutorial;
 
   /// No description provided for @hsNoNumber.

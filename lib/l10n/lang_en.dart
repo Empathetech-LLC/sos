@@ -48,15 +48,15 @@ class LangEn extends Lang {
 
   @override
   String get hsSettingsTutorial =>
-      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s appearance\n\n in the settings.\n\nHold the settings button to give feedback for the app.';
+      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n& Change the app\'s appearance\n\n in the settings.\n\nHold the settings button to give feedback for the app.';
 
   @override
   String get hsVideoTutorial =>
-      'When you take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows you your rights.';
+      'When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows you your rights.';
 
   @override
   String get hsRightsTutorial =>
-      'While the camera is disabled, you can still hide/show a list of your rights.\n\nIf you enable the camera, and take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.';
+      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.';
 
   @override
   String get hsNoNumber => 'Contact does not have a phone number';
