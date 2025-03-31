@@ -134,15 +134,20 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void afterFirstLayout(BuildContext context) async {
-    // Save for later
-    final bool cameraIntro = emc == null || emc!.isEmpty;
+    final bool newUser = emc == null || emc!.isEmpty;
 
-    // Gather the emergency contacts
-    emc = await addEMC(context, emc);
+    // Verify the emergency contacts
+    if (newUser) emc = await addEMC(context, emc);
 
     // Setup the camera/preview
-    if (cameraIntro && context.mounted) await cameraMsg(context);
-    final bool cameraAccess = await initCamera();
+    late final bool cameraAccess;
+    if (newUser && context.mounted) {
+      if (await cameraMsg(context) == true) {
+        cameraAccess = await initCamera();
+      } else {
+        cameraAccess = false;
+      }
+    }
     setState(cameraAccess ? () {} : () => showRights = true);
 
     // Run the tutorial (if unfinished)
@@ -261,8 +266,8 @@ class _HomeScreenState extends State<HomeScreen>
                 controller: settingsOverlay,
                 overlayChildBuilder: (_) => TutorialOverlay(
                   top: safeTop + margin,
-                  right: isLefty ? null : margin + iconSize + spacing,
-                  left: isLefty ? margin + iconSize + spacing : null,
+                  right: isLefty ? 0 : margin + iconSize + spacing,
+                  left: isLefty ? margin + iconSize + spacing : 0,
                   content: l10n.hsSettingsTutorial,
                   accept: () {
                     settingsOverlay.hide();
@@ -377,8 +382,8 @@ class _HomeScreenState extends State<HomeScreen>
                     controller: recordOverlay,
                     overlayChildBuilder: (_) => TutorialOverlay(
                       bottom: safeBottom + spargin + iconSize * 2 + spacing,
-                      right: 0,
                       left: 0,
+                      right: 0,
                       content: camera == null
                           ? l10n.hsRightsTutorial
                           : l10n.hsVideoTutorial,
