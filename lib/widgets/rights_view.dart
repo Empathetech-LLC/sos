@@ -16,9 +16,9 @@ extension Symbol on Location {
       case Location.walking:
         return Icons.directions_walk;
       case Location.driving:
-        return Icons.car_rental;
+        return Icons.drive_eta;
       case Location.home:
-        return Icons.car_rental;
+        return Icons.home;
     }
   }
 }
@@ -32,8 +32,6 @@ class RightsView extends StatefulWidget {
 
 class _PulsingIconWidgetState extends State<RightsView> {
   // Gather the theme data //
-
-  static const EzSpacer spacer = EzSpacer();
 
   late final Lang l10n = Lang.of(context)!;
   late final TextTheme textTheme = Theme.of(context).textTheme;
@@ -90,7 +88,7 @@ class _PulsingIconWidgetState extends State<RightsView> {
           textAlign: TextAlign.center,
           style: textTheme.titleLarge,
         ),
-        spacer,
+        const EzSpacer(),
 
         // Switcher
         SegmentedButton<Location>(
@@ -113,10 +111,10 @@ class _PulsingIconWidgetState extends State<RightsView> {
           onSelectionChanged: (Set<Location> selected) =>
               setState(() => currentTab = selected.first),
         ),
-        spacer,
+        const EzSeparator(),
 
         // Shared rights
-        rightsBlock(l10n.rsGHeader),
+        rightsBlock(l10n.rsGFingerprint),
 
         // Specific rights
         populateTab(),
