@@ -33,6 +33,13 @@ class LangFr extends Lang {
   String get hsRecordHint => 'Enregistrer une vidéo';
 
   @override
+  String get hsWelcome => 'Welcome to SOS';
+
+  @override
+  String get hsATutorial =>
+      'This app is designed to share your evidence and location with emergency contacts in a moment of crisis.\n\nPlease choose your first emergency contact.\nThey must have a phone number.\n\nJust one for now, you can add more later.';
+
+  @override
   String get hsBTutorial =>
       'Activate SOS to text your emergency contacts your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDeactivate SOS or fully close the app to stop the texts.';
 

@@ -140,6 +140,18 @@ abstract class Lang {
   /// **'Record a video'**
   String get hsRecordHint;
 
+  /// No description provided for @hsWelcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to SOS'**
+  String get hsWelcome;
+
+  /// No description provided for @hsATutorial.
+  ///
+  /// In en, this message translates to:
+  /// **'This app is designed to share your evidence and location with emergency contacts in a moment of crisis.\n\nPlease choose your first emergency contact.\nThey must have a phone number.\n\nJust one for now, you can add more later.'**
+  String get hsATutorial;
+
   /// No description provided for @hsBTutorial.
   ///
   /// In en, this message translates to:
