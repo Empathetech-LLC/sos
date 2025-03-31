@@ -67,7 +67,7 @@ class LangFr extends Lang {
 
   @override
   String get rsSharedRemainSilent =>
-      'Rester silencieux. Certains États peuvent exiger un nom, mais c\'est tout ce qu\'ils peuvent exiger.\nNe mentez pas et ne résistez pas à l\'arrestation, mais vous n\'avez pas à répondre aux questions.';
+      'Rester silencieux. Certains États peuvent exiger un nom, mais c\'est tout ce qu\'ils peuvent exiger. Ne mentez pas et ne résistez pas à l\'arrestation, mais vous n\'avez pas à répondre aux questions.';
 
   @override
   String get rsSharedDoubleSilence =>

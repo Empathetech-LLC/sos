@@ -48,7 +48,7 @@ class LangEn extends Lang {
 
   @override
   String get hsSettingsTutorial =>
-      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n& Change the app\'s appearance\n\n in the settings.\n\nHold the settings button to give feedback for the app.';
+      'You can...\n\n- add more emergency contacts\n- setup automatic SOS\n-change the app\'s language\n- and update the app\'s appearance\n\n...in the settings.\n\nHold the settings button to give feedback for the app.';
 
   @override
   String get hsVideoTutorial =>
@@ -66,7 +66,7 @@ class LangEn extends Lang {
 
   @override
   String get rsSharedRemainSilent =>
-      'Remain silent. Some states may require a name, but that is all they can require.\nDo not lie or resist arrest, but you do not have to answer questions.';
+      'Remain silent. Some states may require a name, but that is all they can require. Do not lie or resist arrest, but you do not have to answer questions.';
 
   @override
   String get rsSharedDoubleSilence =>
@@ -100,14 +100,14 @@ class LangEn extends Lang {
 
   @override
   String get rsDriveWarrant =>
-      'Ask if the officers have a warrant. You have the right to see it if they do.\nIf a \"warrant\" is not signed by a judge, it\'s not valid.';
+      'Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it\'s not valid.';
 
   @override
   String get rsDriveLeave => 'Leave if you are not under arrest.';
 
   @override
   String get rsHomeWarrant =>
-      'Keep you door shut. If they have a warrant, ask them to slip it under the door first.\nIf a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.';
+      'Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.';
 
   @override
   String get rsSharedFingerprint =>

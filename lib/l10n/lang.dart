@@ -167,7 +167,7 @@ abstract class Lang {
   /// No description provided for @hsSettingsTutorial.
   ///
   /// In en, this message translates to:
-  /// **'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n& Change the app\'s appearance\n\n in the settings.\n\nHold the settings button to give feedback for the app.'**
+  /// **'You can...\n\n- add more emergency contacts\n- setup automatic SOS\n-change the app\'s language\n- and update the app\'s appearance\n\n...in the settings.\n\nHold the settings button to give feedback for the app.'**
   String get hsSettingsTutorial;
 
   /// No description provided for @hsVideoTutorial.
@@ -197,7 +197,7 @@ abstract class Lang {
   /// No description provided for @rsSharedRemainSilent.
   ///
   /// In en, this message translates to:
-  /// **'Remain silent. Some states may require a name, but that is all they can require.\nDo not lie or resist arrest, but you do not have to answer questions.'**
+  /// **'Remain silent. Some states may require a name, but that is all they can require. Do not lie or resist arrest, but you do not have to answer questions.'**
   String get rsSharedRemainSilent;
 
   /// No description provided for @rsSharedDoubleSilence.
@@ -251,7 +251,7 @@ abstract class Lang {
   /// No description provided for @rsDriveWarrant.
   ///
   /// In en, this message translates to:
-  /// **'Ask if the officers have a warrant. You have the right to see it if they do.\nIf a \"warrant\" is not signed by a judge, it\'s not valid.'**
+  /// **'Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it\'s not valid.'**
   String get rsDriveWarrant;
 
   /// No description provided for @rsDriveLeave.
@@ -263,7 +263,7 @@ abstract class Lang {
   /// No description provided for @rsHomeWarrant.
   ///
   /// In en, this message translates to:
-  /// **'Keep you door shut. If they have a warrant, ask them to slip it under the door first.\nIf a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.'**
+  /// **'Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.'**
   String get rsHomeWarrant;
 
   /// No description provided for @rsSharedFingerprint.

@@ -19,7 +19,7 @@
   "hsAppTutorial": "This app is designed to share your location with emergency contacts in a moment of crisis.\n\nPlease choose your first emergency contact.\nThey must have a phone number.\n\nJust one for now, you can add more later.",
   "hsCameraTutorial": "SOS can also help share evidence.\n\nThe app will ask you for camera, microphone, and gallery access so it can take and save photos and videos.\n\nThis is recommended, but optional.",
   "hsBroadcastTutorial": "Activate SOS to text your emergency contacts your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDeactivate SOS or fully close the app to stop the texts.",
-  "hsSettingsTutorial": "You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n& Change the app's appearance\n\n in the settings.\n\nHold the settings button to give feedback for the app.",
+  "hsSettingsTutorial": "You can...\n\n- add more emergency contacts\n- setup automatic SOS\n-change the app's language\n- and update the app's appearance\n\n...in the settings.\n\nHold the settings button to give feedback for the app.",
   "hsVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows you your rights.",
   "hsRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.",
 
@@ -29,7 +29,7 @@
 
   "rsSharedHeader": "You have the right to...",
   
-  "rsSharedRemainSilent": "Remain silent. Some states may require a name, but that is all they can require.\nDo not lie or resist arrest, but you do not have to answer questions.",
+  "rsSharedRemainSilent": "Remain silent. Some states may require a name, but that is all they can require. Do not lie or resist arrest, but you do not have to answer questions.",
   "rsSharedDoubleSilence": "Be silent about your silence. You do not have to justify yourself.",
   "rsSharedDocument": "Document everything. You have the right to take pictures, record videos, and record audio.",
 
@@ -40,10 +40,10 @@
   "rsDrivePockets": "Refuse a search of your pockets. ICE can give a pat-down, but not a search.",
   "rsDriveID": "Refuse to provide ID as a passenger. Only the driver is required to provide ID.",
   "rsDriveQuestion": "Ask questions. Find out why you are being stopped.",
-  "rsDriveWarrant": "Ask if the officers have a warrant. You have the right to see it if they do.\nIf a \"warrant\" is not signed by a judge, it's not valid.",
+  "rsDriveWarrant": "Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it's not valid.",
   "rsDriveLeave": "Leave if you are not under arrest.",
   
-  "rsHomeWarrant": "Keep you door shut. If they have a warrant, ask them to slip it under the door first.\nIf a \"warrant\" is not signed by a judge, it's not valid. Keep your door shut.",
+  "rsHomeWarrant": "Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it's not valid. Keep your door shut.",
 
   "rsSharedFingerprint": "Refuse to be fingerprinted by ICE unless you are under arrest.",
   "rsSharedLawyer": "To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.",
