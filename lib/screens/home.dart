@@ -131,17 +131,15 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void afterFirstLayout(BuildContext context) async {
+    // Save for later
     final bool cameraIntro = emc == null || emc!.isEmpty;
-    late final bool cameraAccess;
 
+    // Gather the emergency contacts
     emc = await addEMC(context, emc);
 
-    // Setup the camera (and preview)
-    if (cameraIntro) {
-      cameraAccess = await blarg();
-    } else {
-      cameraAccess = await initCamera();
-    }
+    // Setup the camera/preview
+    if (cameraIntro && context.mounted) await cameraMsg(context);
+    final bool cameraAccess = await initCamera();
     setState(cameraAccess ? () {} : () => showRights = true);
 
     // Run the tutorial (if unfinished)
