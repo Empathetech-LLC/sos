@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen>
     // Setup the camera/preview
     late final bool cameraAccess;
     if (newUser && context.mounted) {
-      if (await cameraMsg(context) == true) {
+      if (await permissionsMsg(context) == true) {
         cameraAccess = await initCamera();
       } else {
         cameraAccess = false;
@@ -227,6 +227,7 @@ class _HomeScreenState extends State<HomeScreen>
                     top: safeTop + spargin + iconSize * 1.5 + spacing,
                     left: 0,
                     right: 0,
+                    title: '1/3',
                     content: l10n.hsBroadcastTutorial,
                     accept: () {
                       broadcastOverlay.hide();
@@ -268,6 +269,7 @@ class _HomeScreenState extends State<HomeScreen>
                   top: safeTop + margin,
                   right: isLefty ? 0 : margin + iconSize + spacing,
                   left: isLefty ? margin + iconSize + spacing : 0,
+                  title: '2/3',
                   content: l10n.hsSettingsTutorial,
                   accept: () {
                     settingsOverlay.hide();
@@ -385,6 +387,7 @@ class _HomeScreenState extends State<HomeScreen>
                       bottom: safeBottom + spargin + iconSize * 2 + spacing,
                       left: 0,
                       right: 0,
+                      title: '3/3',
                       content: camera == null
                           ? l10n.hsRightsTutorial
                           : l10n.hsVideoTutorial,
