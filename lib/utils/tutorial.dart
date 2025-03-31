@@ -29,7 +29,34 @@ Future<dynamic> firstEMCMsg(BuildContext context) async {
     context: context,
     builder: (_) => EzAlertDialog(
       title: Text(l10n.hsWelcome, textAlign: TextAlign.center),
-      content: Text(l10n.hsATutorial, textAlign: TextAlign.center),
+      content: Text(l10n.hsAppTutorial, textAlign: TextAlign.center),
+      materialActions: materialActions,
+      cupertinoActions: cupertinoActions,
+      needsClose: false,
+    ),
+  );
+}
+
+Future<dynamic> cameraMsg(BuildContext context) async {
+  final Lang l10n = Lang.of(context)!;
+  final EFUILang el10n = EFUILang.of(context)!;
+
+  final (
+    List<EzMaterialAction> materialActions,
+    List<EzCupertinoAction> cupertinoActions
+  ) = ezActionPairs(
+    context: context,
+    onConfirm: Navigator.of(context).pop,
+    confirmMsg: el10n.gContinue,
+    onDeny: () => exit(1),
+    denyMsg: el10n.gCancel,
+  );
+
+  return showPlatformDialog(
+    context: context,
+    builder: (_) => EzAlertDialog(
+      title: Text(l10n.hsWelcome, textAlign: TextAlign.center),
+      content: Text(l10n.hsAppTutorial, textAlign: TextAlign.center),
       materialActions: materialActions,
       cupertinoActions: cupertinoActions,
       needsClose: false,
