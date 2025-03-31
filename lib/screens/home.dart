@@ -168,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen>
                 height: heightOf(context) * 0.667,
                 width: double.infinity,
                 child: camera == null
-                    ? const RightsView()
+                    ? RightsView(hide: emc == null || emc!.isEmpty)
                     : Stack(children: <Widget>[
                         CameraPreview(camera!),
                         Visibility(
