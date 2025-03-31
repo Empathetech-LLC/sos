@@ -49,6 +49,7 @@ class _RightsViewState extends State<RightsView> {
       case Location.walking:
         return Column(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             rightsBlock(l10n.rsWalkPockets),
             rightsBlock(l10n.rsWalkLeave),
@@ -57,6 +58,7 @@ class _RightsViewState extends State<RightsView> {
       case Location.driving:
         return Column(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             rightsBlock(l10n.rsDriveSearch),
             rightsBlock(l10n.rsDrivePockets),
@@ -69,6 +71,7 @@ class _RightsViewState extends State<RightsView> {
       case Location.home:
         return Column(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             rightsBlock(l10n.rsHomeWarrant),
           ],
