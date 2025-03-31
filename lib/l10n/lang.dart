@@ -152,11 +152,17 @@ abstract class Lang {
   /// **'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s appearance\n\n in the settings.'**
   String get hsSTutorial;
 
-  /// No description provided for @hsRTutorial.
+  /// No description provided for @hsRecTutorial.
   ///
   /// In en, this message translates to:
-  /// **'When you take a picture or finish a video, you will be asked to share it.\n\nIf a video is interrupted, SOS will activate automatically.'**
-  String get hsRTutorial;
+  /// **'When you take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.'**
+  String get hsRecTutorial;
+
+  /// No description provided for @hsRightTutorial.
+  ///
+  /// In en, this message translates to:
+  /// **'While the camera is disabled, you can still hide/show a list of your rights.\n\nIf you enable the camera, and take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.'**
+  String get hsRightTutorial;
 
   /// No description provided for @hsNoNumber.
   ///
@@ -173,61 +179,61 @@ abstract class Lang {
   /// No description provided for @rsGFingerprint.
   ///
   /// In en, this message translates to:
-  /// **'Refuse to be fingerprinted by ICE unless you are under arrest.'**
+  /// **'- Refuse to be fingerprinted by ICE unless you are under arrest.'**
   String get rsGFingerprint;
 
   /// No description provided for @rsWLeave.
   ///
   /// In en, this message translates to:
-  /// **'Leave if you are not under arrest.'**
+  /// **'- Leave if you are not under arrest.'**
   String get rsWLeave;
 
   /// No description provided for @rsCSearch.
   ///
   /// In en, this message translates to:
-  /// **'Refuse a search of your car.'**
+  /// **'- Refuse a search of your car.'**
   String get rsCSearch;
 
   /// No description provided for @rsCPockets.
   ///
   /// In en, this message translates to:
-  /// **'Refuse a search of your pockets. ICE can give a pat-down, but not a search.'**
+  /// **'- Refuse a search of your pockets. ICE can give a pat-down, but not a search.'**
   String get rsCPockets;
 
   /// No description provided for @rsCWarrant.
   ///
   /// In en, this message translates to:
-  /// **'Ask if the officers have a warrant. You have the right to see it if they do.'**
+  /// **'- Ask if the officers have a warrant. You have the right to see it if they do.'**
   String get rsCWarrant;
 
   /// No description provided for @rsCID.
   ///
   /// In en, this message translates to:
-  /// **'Refuse to provide ID as a passenger. Only the driver is required to provide ID'**
+  /// **'- Refuse to provide ID as a passenger. Only the driver is required to provide ID'**
   String get rsCID;
 
   /// No description provided for @rsCQuestion.
   ///
   /// In en, this message translates to:
-  /// **'Ask questions. Find out why you are being stopped.'**
+  /// **'- Ask questions. Find out why you are being stopped.'**
   String get rsCQuestion;
 
   /// No description provided for @rsCLeave.
   ///
   /// In en, this message translates to:
-  /// **'Leave if you are not under arrest.'**
+  /// **'- Leave if you are not under arrest.'**
   String get rsCLeave;
 
   /// No description provided for @rsCRemainSilent.
   ///
   /// In en, this message translates to:
-  /// **'Remain silent. You do not have to answer of their questions.\nYou cannot lie or resist arrest, but you do not have to tell them anything.'**
+  /// **'- Remain silent. You do not have to answer of their questions.\nYou cannot lie or resist arrest, but you do not have to tell them anything.'**
   String get rsCRemainSilent;
 
   /// No description provided for @rsHWarrant.
   ///
   /// In en, this message translates to:
-  /// **'Keep you door shut. If they have a warrant, ask them to slip in under the door first.'**
+  /// **'- Keep you door shut. If they have a warrant, ask them to slip in under the door first.'**
   String get rsHWarrant;
 
   /// No description provided for @ssSOSOnOpen.

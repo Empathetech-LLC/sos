@@ -17,26 +17,27 @@
 
   "hsBTutorial": "Activate SOS to text your emergency contacts your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDeactivate SOS or fully close the app to stop the texts.",
   "hsSTutorial": "You can...\n\n- Add more emergency contacts\n- Customize the SOS message\n- Enable automatic SOS\n- Change the app's appearance\n\nand more in the settings.",
-  "hsRTutorial": "When you take a picture or finish a video, you will be asked to share it.\n\nIf a video is interrupted, SOS will activate automatically.",
+  "hsRecTutorial": "When you take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.",
+  "hsRightTutorial": "While the camera is disabled, you can still hide/show a list of your rights.\n\nIf you enable the camera, and take a picture or record a video, you will be asked to share it.\n\nIf a recording is interrupted, SOS will activate automatically.",
 
   "hsNoNumber": "El contacto no tiene un número de teléfono",
 
 
 
   "rsGHeader": "Tienes derecho a...",
-  "rsGFingerprint": "Negarse a ser fichado por ICE a menos que esté bajo arresto.",
+  "rsGFingerprint": "- Negarse a ser fichado por ICE a menos que esté bajo arresto.",
 
-  "rsWLeave": "Irse si no está bajo arresto.",
+  "rsWLeave": "- Irse si no está bajo arresto.",
 
-  "rsCSearch": "Negarse a una búsqueda de su automóvil.",
-  "rsCPockets": "Negarse a una búsqueda de sus bolsillos. ICE puede hacer un registro superficial, pero no una búsqueda.",
-  "rsCWarrant": "Preguntar si los oficiales tienen una orden. Tienes derecho a verla si la tienen.",
-  "rsCID": "Negarse a proporcionar identificación como pasajero. Solo el conductor está obligado a proporcionar identificación.",
-  "rsCQuestion": "Hacer preguntas. Averigua por qué te están deteniendo.",
-  "rsCLeave": "Irse si no está bajo arresto.",
-  "rsCRemainSilent": "Permanecer en silencio. No tienes que responder a sus preguntas.\nNo puedes mentir o resistirte al arresto, pero no tienes que decirles nada.",
+  "rsCSearch": "- Negarse a una búsqueda de su automóvil.",
+  "rsCPockets": "- Negarse a una búsqueda de sus bolsillos. ICE puede hacer un registro superficial, pero no una búsqueda.",
+  "rsCWarrant": "- Preguntar si los oficiales tienen una orden. Tienes derecho a verla si la tienen.",
+  "rsCID": "- Negarse a proporcionar identificación como pasajero. Solo el conductor está obligado a proporcionar identificación.",
+  "rsCQuestion": "- Hacer preguntas. Averigua por qué te están deteniendo.",
+  "rsCLeave": "- Irse si no está bajo arresto.",
+  "rsCRemainSilent": "- Permanecer en silencio. No tienes que responder a sus preguntas.\nNo puedes mentir o resistirte al arresto, pero no tienes que decirles nada.",
 
-  "rsHWarrant": "Mantén la puerta cerrada. Si tienen una orden, pídeles que se la pasen por debajo de la puerta primero.",
+  "rsHWarrant": "- Mantén la puerta cerrada. Si tienen una orden, pídeles que se la pasen por debajo de la puerta primero.",
   
 
   
