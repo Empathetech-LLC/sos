@@ -46,9 +46,9 @@ Future<dynamic> cameraMsg(BuildContext context) async {
     List<EzCupertinoAction> cupertinoActions
   ) = ezActionPairs(
     context: context,
-    onConfirm: Navigator.of(context).pop,
+    onConfirm: () => Navigator.of(context).pop(true),
     confirmMsg: el10n.gContinue,
-    onDeny: () => exit(1),
+    onDeny: () => Navigator.of(context).pop(false),
     denyMsg: el10n.gCancel,
   );
 
