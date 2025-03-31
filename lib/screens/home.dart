@@ -34,23 +34,30 @@ class _HomeScreenState extends State<HomeScreen>
   // Gather the theme data //
 
   // Layout
-  final double iconSize = EzConfig.get(iconSizeKey);
-  final double margin = EzConfig.get(marginKey);
-  final double padding = EzConfig.get(paddingKey);
-  final double spacing = EzConfig.get(spacingKey);
-
-  late final double spargin = margin + spacing;
   late final double safeTop =
       Platform.isIOS ? padding : MediaQuery.paddingOf(context).top;
   late final double safeBottom =
       Platform.isIOS ? margin : MediaQuery.paddingOf(context).bottom;
 
+  final double margin = EzConfig.get(marginKey);
+  final double padding = EzConfig.get(paddingKey);
+  final double spacing = EzConfig.get(spacingKey);
+
+  late final double spargin = margin + spacing;
+
   static const EzSeparator separator = EzSeparator();
 
+  final double iconSize = EzConfig.get(iconSizeKey);
   final bool isLefty = EzConfig.get(isLeftyKey);
 
   // Color
   final Color videoColor = Color(EzConfig.get(videoColorKey) ?? 0xFFFF0000);
+  late final Color videoTextColor = getTextColor(videoColor);
+  late final Color rightsBackgroundColor = Theme.of(context)
+      .textButtonTheme
+      .style!
+      .backgroundColor!
+      .resolve(<WidgetState>{WidgetState.focused})!;
 
   // Text
   late final Lang l10n = Lang.of(context)!;
@@ -85,15 +92,6 @@ class _HomeScreenState extends State<HomeScreen>
   bool showRights = false;
 
   // Define custom functions //
-
-  /// Register [broadcastTask] (aka [sendSOS]) with [Workmanager]
-  Future<dynamic> startBroadcast() {
-    return Workmanager().registerPeriodicTask(
-      broadcastTask,
-      broadcastTask,
-      frequency: const Duration(seconds: 3),
-    );
-  }
 
   /// Initialize the [camera]
   Future<bool> initCamera() async {
@@ -133,13 +131,20 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void afterFirstLayout(BuildContext context) async {
+    final bool cameraIntro = emc == null || emc!.isEmpty;
+    late final bool cameraAccess;
+
     emc = await addEMC(context, emc);
 
     // Setup the camera (and preview)
-    final bool hasCamera = await initCamera();
-    setState(hasCamera ? () {} : () => showRights = true);
+    if (cameraIntro) {
+      cameraAccess = await blarg();
+    } else {
+      cameraAccess = await initCamera();
+    }
+    setState(cameraAccess ? () {} : () => showRights = true);
 
-    // Check whether the tutorial has been finished
+    // Run the tutorial (if unfinished)
     if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
   }
 
@@ -152,19 +157,28 @@ class _HomeScreenState extends State<HomeScreen>
       body: SafeArea(
         child: Stack(
           children: <Widget>[
-            // Preview (or loading)
-            camera == null
-                ? Center(
-                    child: SizedBox(
+            // Preview (or loading) and rights view
+            Center(
+              child: camera == null
+                  ? SizedBox(
                       height: heightOf(context) * 0.667,
                       width: double.infinity,
                       child: showRights
                           ? const RightsView()
                           : EmpathetechLoadingAnimation(
                               semantics: el10n.gLoadingAnim),
-                    ),
-                  )
-                : Center(child: CameraPreview(camera!)),
+                    )
+                  : Stack(children: <Widget>[
+                      CameraPreview(camera!),
+                      Visibility(
+                        visible: showRights,
+                        child: Container(
+                          color: rightsBackgroundColor,
+                          child: const RightsView(),
+                        ),
+                      ),
+                    ]),
+            ),
 
             // Video timer
             Positioned(
@@ -186,7 +200,7 @@ class _HomeScreenState extends State<HomeScreen>
                         elapsed.toString().split('.').first,
                         backgroundColor: videoColor,
                         style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                              color: getTextColor(videoColor),
+                              color: videoTextColor,
                             ),
                       );
                     },
@@ -203,35 +217,15 @@ class _HomeScreenState extends State<HomeScreen>
               child: Center(
                 child: OverlayPortal(
                   controller: broadcastOverlay,
-                  overlayChildBuilder: (_) => Positioned(
+                  overlayChildBuilder: (_) => TutorialOverlay(
                     top: safeTop + spargin + iconSize * 1.5 + spacing,
                     left: 0,
                     right: 0,
-                    child: EzAlertDialog(
-                      content: Text(
-                        l10n.hsBTutorial,
-                        textAlign: TextAlign.center,
-                      ),
-                      materialActions: <EzMaterialAction>[
-                        EzMaterialAction(
-                          text: l10n.gOk,
-                          onPressed: () {
-                            broadcastOverlay.hide();
-                            settingsOverlay.show();
-                          },
-                        )
-                      ],
-                      cupertinoActions: <EzCupertinoAction>[
-                        EzCupertinoAction(
-                          text: l10n.gOk,
-                          onPressed: () {
-                            broadcastOverlay.hide();
-                            settingsOverlay.show();
-                          },
-                        )
-                      ],
-                      needsClose: false,
-                    ),
+                    content: l10n.hsBTutorial,
+                    accept: () {
+                      broadcastOverlay.hide();
+                      settingsOverlay.show();
+                    },
                   ),
                   child: broadcasting
                       ? EzIconButton(
@@ -262,35 +256,15 @@ class _HomeScreenState extends State<HomeScreen>
               left: isLefty ? margin : null,
               child: OverlayPortal(
                 controller: settingsOverlay,
-                overlayChildBuilder: (_) => Positioned(
+                overlayChildBuilder: (_) => TutorialOverlay(
                   top: safeTop + margin,
                   right: isLefty ? null : margin + iconSize + spacing,
                   left: isLefty ? margin + iconSize + spacing : null,
-                  child: EzAlertDialog(
-                    content: Text(
-                      l10n.hsSTutorial,
-                      textAlign: TextAlign.center,
-                    ),
-                    materialActions: <EzMaterialAction>[
-                      EzMaterialAction(
-                        text: l10n.gOk,
-                        onPressed: () {
-                          settingsOverlay.hide();
-                          recordOverlay.show();
-                        },
-                      )
-                    ],
-                    cupertinoActions: <EzCupertinoAction>[
-                      EzCupertinoAction(
-                        text: l10n.gOk,
-                        onPressed: () {
-                          settingsOverlay.hide();
-                          recordOverlay.show();
-                        },
-                      )
-                    ],
-                    needsClose: false,
-                  ),
+                  content: l10n.hsSTutorial,
+                  accept: () {
+                    settingsOverlay.hide();
+                    recordOverlay.show();
+                  },
                 ),
                 child: EzIconButton(
                   icon: Icon(PlatformIcons(context).settings),
@@ -385,56 +359,50 @@ class _HomeScreenState extends State<HomeScreen>
                   // Record
                   OverlayPortal(
                     controller: recordOverlay,
-                    overlayChildBuilder: (_) => Positioned(
+                    overlayChildBuilder: (_) => TutorialOverlay(
                       bottom: safeBottom + spargin + iconSize * 2 + spacing,
                       right: 0,
                       left: 0,
-                      child: EzAlertDialog(
-                        content: Text(
-                          camera == null
-                              ? l10n.hsRightTutorial
-                              : l10n.hsRecTutorial,
-                          textAlign: TextAlign.center,
-                        ),
-                        materialActions: <EzMaterialAction>[
-                          EzMaterialAction(
-                            text: l10n.gOk,
-                            onPressed: () async {
-                              recordOverlay.hide();
-                              await EzConfig.setBool(tutorialKey, false);
-                            },
-                          )
-                        ],
-                        cupertinoActions: <EzCupertinoAction>[
-                          EzCupertinoAction(
-                            text: l10n.gOk,
-                            onPressed: () async {
-                              recordOverlay.hide();
-                              await EzConfig.setBool(tutorialKey, false);
-                            },
-                          )
-                        ],
-                        needsClose: false,
-                      ),
+                      content: camera == null
+                          ? l10n.hsRightTutorial
+                          : l10n.hsRecTutorial,
+                      accept: () async {
+                        recordOverlay.hide();
+                        await EzConfig.setBool(tutorialKey, false);
+                      },
                     ),
                     child: recording
                         ? EzIconButton(
-                            icon: Icon(
-                              Icons.stop,
-                              size: iconSize * 2,
-                              color: videoColor,
+                            style: IconButton.styleFrom(
+                              foregroundColor: videoColor,
+                              side: BorderSide(color: videoTextColor),
                             ),
+                            icon: Icon(Icons.stop, size: iconSize * 2),
                             onPressed: () async {
                               try {
+                                // Stop recording
                                 final XFile video =
                                     await camera!.stopVideoRecording();
-
-                                setState(() => recording = false);
                                 watch.stop();
+
+                                // Update the UI
+                                setState(() => recording = false);
                                 watch.reset();
 
-                                await Gal.requestAccess();
-                                await Gal.putVideo(video.path);
+                                // Attempt to save the video
+                                final bool galAccess =
+                                    await Gal.requestAccess();
+
+                                if (galAccess) {
+                                  try {
+                                    await Gal.putVideo(video.path);
+                                  } catch (_) {
+                                    // If it fails, it's likely the user has bigger problems at hand
+                                    // We can still try to share the file without saving it to the gallery
+                                  }
+                                }
+
+                                // Share the video
                                 await Share.shareXFiles(
                                   <XFile>[video],
                                   text: await getCoordinates(),
@@ -447,19 +415,17 @@ class _HomeScreenState extends State<HomeScreen>
                             },
                           )
                         : EzIconButton(
-                            icon: Icon(
-                              Icons.circle,
-                              size: iconSize * 2,
-                              color: videoColor,
+                            style: IconButton.styleFrom(
+                              foregroundColor: videoColor,
+                              side: BorderSide(color: videoTextColor),
                             ),
+                            icon: Icon(Icons.circle, size: iconSize * 2),
                             onPressed: () async {
-                              await Permission.microphone.request();
-
                               try {
                                 await camera!.startVideoRecording();
+                                watch.start();
 
                                 setState(() => recording = true);
-                                watch.start();
                               } catch (e) {
                                 if (context.mounted) {
                                   ezLogAlert(context, message: e.toString());
@@ -471,15 +437,15 @@ class _HomeScreenState extends State<HomeScreen>
                   separator,
 
                   // Flash
-                  camera != null
-                      ? FlashButton(
-                          camera: camera!,
-                          stateCallback: () => setState(() {}),
-                        )
-                      : const EzIconButton(
+                  camera == null
+                      ? const EzIconButton(
                           icon: Icon(Icons.flash_off),
                           enabled: false,
                           onPressed: doNothing,
+                        )
+                      : FlashButton(
+                          camera: camera!,
+                          stateCallback: () => setState(() {}),
                         ),
                 ],
               ),
