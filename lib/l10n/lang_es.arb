@@ -28,20 +28,25 @@
 
 
   "rsSharedHeader": "Tienes derecho a...",
-  "rsSharedFingerprint": "- Negarse a ser fichado por ICE a menos que esté bajo arresto.",
+  "rsSharedRemainSilent": "Permanecer en silencio. Algunos estados pueden requerir un nombre, pero eso es todo lo que pueden exigir.\nNo mientas ni resistas el arresto, pero no tienes que responder preguntas.",
+  "rsSharedDoubleSilence": "Permanecer en silencio sobre tu silencio. No tienes que justificarte.",
+  "rsSharedDocument": "Documentar todo. Tienes derecho a tomar fotos, grabar videos y grabar audio.",
 
-  "rsWalkLeave": "- Irse si no está bajo arresto.",
+  "rsWalkPockets": "Negarse a una búsqueda de sus bolsillos. ICE puede hacer un registro superficial, pero no una búsqueda.",
+  "rsWalkLeave": "Irse si no está bajo arresto.",
 
-  "rsDriveSearch": "- Negarse a una búsqueda de su automóvil.",
-  "rsDrivePockets": "- Negarse a una búsqueda de sus bolsillos. ICE puede hacer un registro superficial, pero no una búsqueda.",
-  "rsDriveWarrant": "- Preguntar si los oficiales tienen una orden. Tienes derecho a verla si la tienen.",
-  "rsDriveID": "- Negarse a proporcionar identificación como pasajero. Solo el conductor está obligado a proporcionar identificación.",
-  "rsDriveQuestion": "- Hacer preguntas. Averigua por qué te están deteniendo.",
-  "rsDriveLeave": "- Irse si no está bajo arresto.",
-  "rsDriveRemainSilent": "- Permanecer en silencio. No tienes que responder a sus preguntas.\nNo puedes mentir o resistirte al arresto, pero no tienes que decirles nada.",
+  "rsDriveSearch": "Negarse a una búsqueda de su automóvil.",
+  "rsDrivePockets": "Negarse a una búsqueda de sus bolsillos. ICE puede hacer un registro superficial, pero no una búsqueda.",
+  "rsDriveID": "Negarse a proporcionar identificación como pasajero. Solo el conductor está obligado a proporcionar identificación.",
+  "rsDriveQuestion": "Hacer preguntas. Averigua por qué te están deteniendo.",
+  "rsDriveWarrant": "Preguntar si los oficiales tienen una orden. Tienes derecho a verla si la tienen.",
+  "rsDriveLeave": "Irse si no está bajo arresto.",
 
-  "rsHomeWarrant": "- Mantén la puerta cerrada. Si tienen una orden, pídeles que se la pasen por debajo de la puerta primero.",
+  "rsHomeWarrant": "Mantén la puerta cerrada. Si tienen una orden, pídeles que se la pasen por debajo de la puerta primero.",
   
+  "rsSharedFingerprint": "Negarse a ser fichado por ICE a menos que esté bajo arresto.",
+  "rsSharedLawyer": "Consultar a un abogado. Si has sido arrestado formalmente, tienes derecho a un abogado de oficio.",
+
 
   
   "ssSOSOnOpen": "SOS automático al abrir",

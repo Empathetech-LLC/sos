@@ -28,22 +28,28 @@
 
 
   "rsSharedHeader": "You have the right to...",
-  "rsSharedFingerprint": "- Refuse to be fingerprinted by ICE unless you are under arrest.",
-
-  "rsWalkLeave": "- Leave if you are not under arrest.",
-
-  "rsDriveSearch": "- Refuse a search of your car.",
-  "rsDrivePockets": "- Refuse a search of your pockets. ICE can give a pat-down, but not a search.",
-  "rsDriveWarrant": "- Ask if the officers have a warrant. You have the right to see it if they do.",
-  "rsDriveID": "- Refuse to provide ID as a passenger. Only the driver is required to provide ID",
-  "rsDriveQuestion": "- Ask questions. Find out why you are being stopped.",
-  "rsDriveLeave": "- Leave if you are not under arrest.",
-  "rsDriveRemainSilent": "- Remain silent. You do not have to answer of their questions.\nYou cannot lie or resist arrest, but you do not have to tell them anything.", 
   
-  "rsHomeWarrant": "- Keep you door shut. If they have a warrant, ask them to slip it under the door first.",
+  "rsSharedRemainSilent": "Remain silent. Some states may require a name, but that is all they can require.\nDo not lie or resist arrest, but you do not have to answer questions.",
+  "rsSharedDoubleSilence": "Be silent about your silence. You do not have to justify yourself.",
+  "rsSharedDocument": "Document everything. You have the right to take pictures, record videos, and record audio.",
+
+  "rsWalkPockets": "Refuse a search of your pockets. ICE can give a pat-down, but not a search.",
+  "rsWalkLeave": "Leave if you are not under arrest.",
+
+  "rsDriveSearch": "Refuse a search of your car.",
+  "rsDrivePockets": "Refuse a search of your pockets. ICE can give a pat-down, but not a search.",
+  "rsDriveID": "Refuse to provide ID as a passenger. Only the driver is required to provide ID.",
+  "rsDriveQuestion": "Ask questions. Find out why you are being stopped.",
+  "rsDriveWarrant": "Ask if the officers have a warrant. You have the right to see it if they do.\nIf a \"warrant\" is not signed by a judge, it's not valid.",
+  "rsDriveLeave": "Leave if you are not under arrest.",
   
+  "rsHomeWarrant": "Keep you door shut. If they have a warrant, ask them to slip it under the door first.\nIf a \"warrant\" is not signed by a judge, it's not valid. Keep your door shut.",
+
+  "rsSharedFingerprint": "Refuse to be fingerprinted by ICE unless you are under arrest.",
+  "rsSharedLawyer": "To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.",
 
 
+  
   "ssSOSOnOpen": "Auto SOS on open",
   "ssSOSOnClose": "Auto SOS on close",
   "ssSOSOnCloseHint": "When enabled, a safe close button will be shown opposite the settings.",

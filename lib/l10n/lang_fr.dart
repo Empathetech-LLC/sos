@@ -66,41 +66,57 @@ class LangFr extends Lang {
   String get rsSharedHeader => 'Vous avez le droit de...';
 
   @override
-  String get rsSharedFingerprint =>
-      '- Refuser d\'être fiché par ICE à moins que vous ne soyez arrêté.';
+  String get rsSharedRemainSilent =>
+      'Rester silencieux. Certains États peuvent exiger un nom, mais c\'est tout ce qu\'ils peuvent exiger.\nNe mentez pas et ne résistez pas à l\'arrestation, mais vous n\'avez pas à répondre aux questions.';
 
   @override
-  String get rsWalkLeave => '- Partir si vous n\'êtes pas arrêté.';
+  String get rsSharedDoubleSilence =>
+      'Rester silencieux sur votre silence. Vous n\'avez pas à vous justifier.';
 
   @override
-  String get rsDriveSearch => '- Refuser une fouille de votre voiture.';
+  String get rsSharedDocument =>
+      'Documenter tout. Vous avez le droit de prendre des photos, d\'enregistrer des vidéos et d\'enregistrer de l\'audio.';
+
+  @override
+  String get rsWalkPockets =>
+      'Refuser une fouille de vos poches. ICE peut faire une palpation, mais pas une fouille.';
+
+  @override
+  String get rsWalkLeave => 'Partir si vous n\'êtes pas arrêté.';
+
+  @override
+  String get rsDriveSearch => 'Refuser une fouille de votre voiture.';
 
   @override
   String get rsDrivePockets =>
-      '- Refuser une fouille de vos poches. ICE peut faire une palpation, mais pas une fouille.';
-
-  @override
-  String get rsDriveWarrant =>
-      '- Demander si les agents ont un mandat. Vous avez le droit de le voir s\'ils en ont.';
+      'Refuser une fouille de vos poches. ICE peut faire une palpation, mais pas une fouille.';
 
   @override
   String get rsDriveID =>
-      '- Refuser de fournir une pièce d\'identité en tant que passager. Seul le conducteur est tenu de fournir une pièce d\'identité.';
+      'Refuser de fournir une pièce d\'identité en tant que passager. Seul le conducteur est tenu de fournir une pièce d\'identité.';
 
   @override
   String get rsDriveQuestion =>
-      '- Poser des questions. Découvrez pourquoi vous êtes arrêté.';
+      'Poser des questions. Découvrez pourquoi vous êtes arrêté.';
 
   @override
-  String get rsDriveLeave => '- Partir si vous n\'êtes pas arrêté.';
+  String get rsDriveWarrant =>
+      'Demander si les agents ont un mandat. Vous avez le droit de le voir s\'ils en ont.';
 
   @override
-  String get rsDriveRemainSilent =>
-      '- Rester silencieux. Vous n\'avez pas à répondre à leurs questions.\nVous ne pouvez pas mentir ou résister à l\'arrestation, mais vous n\'avez pas à leur dire quoi que ce soit.';
+  String get rsDriveLeave => 'Partir si vous n\'êtes pas arrêté.';
 
   @override
   String get rsHomeWarrant =>
-      '- Gardez votre porte fermée. S\'ils ont un mandat, demandez-leur de le glisser sous la porte d\'abord.';
+      'Gardez votre porte fermée. S\'ils ont un mandat, demandez-leur de le glisser sous la porte d\'abord.';
+
+  @override
+  String get rsSharedFingerprint =>
+      'Refuser d\'être fiché par ICE à moins que vous ne soyez arrêté.';
+
+  @override
+  String get rsSharedLawyer =>
+      'Consulter un avocat. Si vous avez été formellement arrêté, vous avez droit à un avocat commis d\'office.';
 
   @override
   String get ssSOSOnOpen => 'SOS automatique à l\'ouverture';

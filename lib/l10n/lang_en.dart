@@ -65,41 +65,57 @@ class LangEn extends Lang {
   String get rsSharedHeader => 'You have the right to...';
 
   @override
-  String get rsSharedFingerprint =>
-      '- Refuse to be fingerprinted by ICE unless you are under arrest.';
+  String get rsSharedRemainSilent =>
+      'Remain silent. Some states may require a name, but that is all they can require.\nDo not lie or resist arrest, but you do not have to answer questions.';
 
   @override
-  String get rsWalkLeave => '- Leave if you are not under arrest.';
+  String get rsSharedDoubleSilence =>
+      'Be silent about your silence. You do not have to justify yourself.';
 
   @override
-  String get rsDriveSearch => '- Refuse a search of your car.';
+  String get rsSharedDocument =>
+      'Document everything. You have the right to take pictures, record videos, and record audio.';
+
+  @override
+  String get rsWalkPockets =>
+      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
+
+  @override
+  String get rsWalkLeave => 'Leave if you are not under arrest.';
+
+  @override
+  String get rsDriveSearch => 'Refuse a search of your car.';
 
   @override
   String get rsDrivePockets =>
-      '- Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
-
-  @override
-  String get rsDriveWarrant =>
-      '- Ask if the officers have a warrant. You have the right to see it if they do.';
+      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
 
   @override
   String get rsDriveID =>
-      '- Refuse to provide ID as a passenger. Only the driver is required to provide ID';
+      'Refuse to provide ID as a passenger. Only the driver is required to provide ID.';
 
   @override
   String get rsDriveQuestion =>
-      '- Ask questions. Find out why you are being stopped.';
+      'Ask questions. Find out why you are being stopped.';
 
   @override
-  String get rsDriveLeave => '- Leave if you are not under arrest.';
+  String get rsDriveWarrant =>
+      'Ask if the officers have a warrant. You have the right to see it if they do.\nIf a \"warrant\" is not signed by a judge, it\'s not valid.';
 
   @override
-  String get rsDriveRemainSilent =>
-      '- Remain silent. You do not have to answer of their questions.\nYou cannot lie or resist arrest, but you do not have to tell them anything.';
+  String get rsDriveLeave => 'Leave if you are not under arrest.';
 
   @override
   String get rsHomeWarrant =>
-      '- Keep you door shut. If they have a warrant, ask them to slip it under the door first.';
+      'Keep you door shut. If they have a warrant, ask them to slip it under the door first.\nIf a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.';
+
+  @override
+  String get rsSharedFingerprint =>
+      'Refuse to be fingerprinted by ICE unless you are under arrest.';
+
+  @override
+  String get rsSharedLawyer =>
+      'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.';
 
   @override
   String get ssSOSOnOpen => 'Auto SOS on open';

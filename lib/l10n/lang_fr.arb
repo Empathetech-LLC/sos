@@ -28,22 +28,27 @@
 
   
   "rsSharedHeader": "Vous avez le droit de...",
-  "rsSharedFingerprint": "- Refuser d'être fiché par ICE à moins que vous ne soyez arrêté.",
+  "rsSharedRemainSilent": "Rester silencieux. Certains États peuvent exiger un nom, mais c'est tout ce qu'ils peuvent exiger.\nNe mentez pas et ne résistez pas à l'arrestation, mais vous n'avez pas à répondre aux questions.",
+  "rsSharedDoubleSilence": "Rester silencieux sur votre silence. Vous n'avez pas à vous justifier.",
+  "rsSharedDocument": "Documenter tout. Vous avez le droit de prendre des photos, d'enregistrer des vidéos et d'enregistrer de l'audio.",
 
-  "rsWalkLeave": "- Partir si vous n'êtes pas arrêté.",
+  "rsWalkPockets": "Refuser une fouille de vos poches. ICE peut faire une palpation, mais pas une fouille.",
+  "rsWalkLeave": "Partir si vous n'êtes pas arrêté.",
 
-  "rsDriveSearch": "- Refuser une fouille de votre voiture.",
-  "rsDrivePockets": "- Refuser une fouille de vos poches. ICE peut faire une palpation, mais pas une fouille.",
-  "rsDriveWarrant": "- Demander si les agents ont un mandat. Vous avez le droit de le voir s'ils en ont.",
-  "rsDriveID": "- Refuser de fournir une pièce d'identité en tant que passager. Seul le conducteur est tenu de fournir une pièce d'identité.",
-  "rsDriveQuestion": "- Poser des questions. Découvrez pourquoi vous êtes arrêté.",
-  "rsDriveLeave": "- Partir si vous n'êtes pas arrêté.",
-  "rsDriveRemainSilent": "- Rester silencieux. Vous n'avez pas à répondre à leurs questions.\nVous ne pouvez pas mentir ou résister à l'arrestation, mais vous n'avez pas à leur dire quoi que ce soit.",
+  "rsDriveSearch": "Refuser une fouille de votre voiture.",
+  "rsDrivePockets": "Refuser une fouille de vos poches. ICE peut faire une palpation, mais pas une fouille.",
+  "rsDriveID": "Refuser de fournir une pièce d'identité en tant que passager. Seul le conducteur est tenu de fournir une pièce d'identité.",
+  "rsDriveQuestion": "Poser des questions. Découvrez pourquoi vous êtes arrêté.",
+  "rsDriveWarrant": "Demander si les agents ont un mandat. Vous avez le droit de le voir s'ils en ont.",
+  "rsDriveLeave": "Partir si vous n'êtes pas arrêté.",
 
-  "rsHomeWarrant": "- Gardez votre porte fermée. S'ils ont un mandat, demandez-leur de le glisser sous la porte d'abord.",
+  "rsHomeWarrant": "Gardez votre porte fermée. S'ils ont un mandat, demandez-leur de le glisser sous la porte d'abord.",
+
+  "rsSharedFingerprint": "Refuser d'être fiché par ICE à moins que vous ne soyez arrêté.",
+  "rsSharedLawyer": "Consulter un avocat. Si vous avez été formellement arrêté, vous avez droit à un avocat commis d'office.",
 
 
-
+  
   "ssSOSOnOpen": "SOS automatique à l'ouverture",
   "ssSOSOnClose": "SOS automatique à la fermeture",
   "ssSOSOnCloseHint": "Lorsque cette option est activée, un bouton de fermeture sécurisé sera affiché en face des paramètres.",

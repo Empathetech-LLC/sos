@@ -194,65 +194,89 @@ abstract class Lang {
   /// **'You have the right to...'**
   String get rsSharedHeader;
 
-  /// No description provided for @rsSharedFingerprint.
+  /// No description provided for @rsSharedRemainSilent.
   ///
   /// In en, this message translates to:
-  /// **'- Refuse to be fingerprinted by ICE unless you are under arrest.'**
-  String get rsSharedFingerprint;
+  /// **'Remain silent. Some states may require a name, but that is all they can require.\nDo not lie or resist arrest, but you do not have to answer questions.'**
+  String get rsSharedRemainSilent;
+
+  /// No description provided for @rsSharedDoubleSilence.
+  ///
+  /// In en, this message translates to:
+  /// **'Be silent about your silence. You do not have to justify yourself.'**
+  String get rsSharedDoubleSilence;
+
+  /// No description provided for @rsSharedDocument.
+  ///
+  /// In en, this message translates to:
+  /// **'Document everything. You have the right to take pictures, record videos, and record audio.'**
+  String get rsSharedDocument;
+
+  /// No description provided for @rsWalkPockets.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuse a search of your pockets. ICE can give a pat-down, but not a search.'**
+  String get rsWalkPockets;
 
   /// No description provided for @rsWalkLeave.
   ///
   /// In en, this message translates to:
-  /// **'- Leave if you are not under arrest.'**
+  /// **'Leave if you are not under arrest.'**
   String get rsWalkLeave;
 
   /// No description provided for @rsDriveSearch.
   ///
   /// In en, this message translates to:
-  /// **'- Refuse a search of your car.'**
+  /// **'Refuse a search of your car.'**
   String get rsDriveSearch;
 
   /// No description provided for @rsDrivePockets.
   ///
   /// In en, this message translates to:
-  /// **'- Refuse a search of your pockets. ICE can give a pat-down, but not a search.'**
+  /// **'Refuse a search of your pockets. ICE can give a pat-down, but not a search.'**
   String get rsDrivePockets;
-
-  /// No description provided for @rsDriveWarrant.
-  ///
-  /// In en, this message translates to:
-  /// **'- Ask if the officers have a warrant. You have the right to see it if they do.'**
-  String get rsDriveWarrant;
 
   /// No description provided for @rsDriveID.
   ///
   /// In en, this message translates to:
-  /// **'- Refuse to provide ID as a passenger. Only the driver is required to provide ID'**
+  /// **'Refuse to provide ID as a passenger. Only the driver is required to provide ID.'**
   String get rsDriveID;
 
   /// No description provided for @rsDriveQuestion.
   ///
   /// In en, this message translates to:
-  /// **'- Ask questions. Find out why you are being stopped.'**
+  /// **'Ask questions. Find out why you are being stopped.'**
   String get rsDriveQuestion;
+
+  /// No description provided for @rsDriveWarrant.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask if the officers have a warrant. You have the right to see it if they do.\nIf a \"warrant\" is not signed by a judge, it\'s not valid.'**
+  String get rsDriveWarrant;
 
   /// No description provided for @rsDriveLeave.
   ///
   /// In en, this message translates to:
-  /// **'- Leave if you are not under arrest.'**
+  /// **'Leave if you are not under arrest.'**
   String get rsDriveLeave;
-
-  /// No description provided for @rsDriveRemainSilent.
-  ///
-  /// In en, this message translates to:
-  /// **'- Remain silent. You do not have to answer of their questions.\nYou cannot lie or resist arrest, but you do not have to tell them anything.'**
-  String get rsDriveRemainSilent;
 
   /// No description provided for @rsHomeWarrant.
   ///
   /// In en, this message translates to:
-  /// **'- Keep you door shut. If they have a warrant, ask them to slip it under the door first.'**
+  /// **'Keep you door shut. If they have a warrant, ask them to slip it under the door first.\nIf a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.'**
   String get rsHomeWarrant;
+
+  /// No description provided for @rsSharedFingerprint.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuse to be fingerprinted by ICE unless you are under arrest.'**
+  String get rsSharedFingerprint;
+
+  /// No description provided for @rsSharedLawyer.
+  ///
+  /// In en, this message translates to:
+  /// **'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.'**
+  String get rsSharedLawyer;
 
   /// No description provided for @ssSOSOnOpen.
   ///

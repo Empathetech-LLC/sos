@@ -65,41 +65,57 @@ class LangEs extends Lang {
   String get rsSharedHeader => 'Tienes derecho a...';
 
   @override
-  String get rsSharedFingerprint =>
-      '- Negarse a ser fichado por ICE a menos que esté bajo arresto.';
+  String get rsSharedRemainSilent =>
+      'Permanecer en silencio. Algunos estados pueden requerir un nombre, pero eso es todo lo que pueden exigir.\nNo mientas ni resistas el arresto, pero no tienes que responder preguntas.';
 
   @override
-  String get rsWalkLeave => '- Irse si no está bajo arresto.';
+  String get rsSharedDoubleSilence =>
+      'Permanecer en silencio sobre tu silencio. No tienes que justificarte.';
 
   @override
-  String get rsDriveSearch => '- Negarse a una búsqueda de su automóvil.';
+  String get rsSharedDocument =>
+      'Documentar todo. Tienes derecho a tomar fotos, grabar videos y grabar audio.';
+
+  @override
+  String get rsWalkPockets =>
+      'Negarse a una búsqueda de sus bolsillos. ICE puede hacer un registro superficial, pero no una búsqueda.';
+
+  @override
+  String get rsWalkLeave => 'Irse si no está bajo arresto.';
+
+  @override
+  String get rsDriveSearch => 'Negarse a una búsqueda de su automóvil.';
 
   @override
   String get rsDrivePockets =>
-      '- Negarse a una búsqueda de sus bolsillos. ICE puede hacer un registro superficial, pero no una búsqueda.';
-
-  @override
-  String get rsDriveWarrant =>
-      '- Preguntar si los oficiales tienen una orden. Tienes derecho a verla si la tienen.';
+      'Negarse a una búsqueda de sus bolsillos. ICE puede hacer un registro superficial, pero no una búsqueda.';
 
   @override
   String get rsDriveID =>
-      '- Negarse a proporcionar identificación como pasajero. Solo el conductor está obligado a proporcionar identificación.';
+      'Negarse a proporcionar identificación como pasajero. Solo el conductor está obligado a proporcionar identificación.';
 
   @override
   String get rsDriveQuestion =>
-      '- Hacer preguntas. Averigua por qué te están deteniendo.';
+      'Hacer preguntas. Averigua por qué te están deteniendo.';
 
   @override
-  String get rsDriveLeave => '- Irse si no está bajo arresto.';
+  String get rsDriveWarrant =>
+      'Preguntar si los oficiales tienen una orden. Tienes derecho a verla si la tienen.';
 
   @override
-  String get rsDriveRemainSilent =>
-      '- Permanecer en silencio. No tienes que responder a sus preguntas.\nNo puedes mentir o resistirte al arresto, pero no tienes que decirles nada.';
+  String get rsDriveLeave => 'Irse si no está bajo arresto.';
 
   @override
   String get rsHomeWarrant =>
-      '- Mantén la puerta cerrada. Si tienen una orden, pídeles que se la pasen por debajo de la puerta primero.';
+      'Mantén la puerta cerrada. Si tienen una orden, pídeles que se la pasen por debajo de la puerta primero.';
+
+  @override
+  String get rsSharedFingerprint =>
+      'Negarse a ser fichado por ICE a menos que esté bajo arresto.';
+
+  @override
+  String get rsSharedLawyer =>
+      'Consultar a un abogado. Si has sido arrestado formalmente, tienes derecho a un abogado de oficio.';
 
   @override
   String get ssSOSOnOpen => 'SOS automático al abrir';
