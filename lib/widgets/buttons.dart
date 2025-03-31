@@ -29,7 +29,7 @@ class FlashButton extends StatelessWidget {
   final CameraController camera;
 
   /// setState((){})
-  final void stateCallback;
+  final void Function() stateCallback;
 
   /// [EzIconButton] for toggling the [camera]s [FlashMode]
   const FlashButton({
@@ -61,7 +61,7 @@ class FlashButton extends StatelessWidget {
               await camera.setFlashMode(FlashMode.off);
               break;
           }
-          stateCallback;
+          stateCallback.call();
         },
       );
 }
