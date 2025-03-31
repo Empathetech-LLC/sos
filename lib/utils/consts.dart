@@ -31,8 +31,10 @@ const String onCloseKey = 'sosOnClose';
 /// 'sosOnInterrupt'
 const String onInterruptKey = 'sosOnInterrupt';
 
-const Map<String, dynamic> sosConfig = <String, dynamic>{
+final Map<String, dynamic> sosConfig = <String, dynamic>{
   ...empathetechConfig,
+  darkTextBackgroundOpacityKey: 0.8,
+  lightTextBackgroundOpacityKey: 0.8,
   tutorialKey: true,
   videoColorKey: 0xFFFF0000,
   emcKey: <String>[],
