@@ -152,28 +152,34 @@ abstract class Lang {
   /// **'It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.'**
   String get hsAppTutorial;
 
+  /// No description provided for @hsCameraTutorialTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'If you want'**
+  String get hsCameraTutorialTitle;
+
   /// No description provided for @hsCameraTutorial.
   ///
   /// In en, this message translates to:
-  /// **'SOS can also share evidence.\n\nIt will ask for camera, microphone, gallery, and location access to do so.\n\nThis is recommended, but optional.'**
+  /// **'SOS can also share evidence.\n\nIt will ask for camera, microphone, gallery, and location access to do so.'**
   String get hsCameraTutorial;
 
   /// No description provided for @hsBroadcastTutorial.
   ///
   /// In en, this message translates to:
-  /// **'Activate SOS to automatically text your emergency contacts every minute.\nIf SOS has access to your location, it will be included in the texts.\n\nThe broadcast will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.'**
+  /// **'Activate SOS to automatically text your emergency contacts every minute.\n\nIf SOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.'**
   String get hsBroadcastTutorial;
 
   /// No description provided for @hsSettingsTutorial.
   ///
   /// In en, this message translates to:
-  /// **'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s language\n- Update the app\'s appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.'**
+  /// **'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s language, and\n- Update the app\'s appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.'**
   String get hsSettingsTutorial;
 
   /// No description provided for @hsVideoTutorial.
   ///
   /// In en, this message translates to:
-  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows you your rights.'**
+  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows your rights.'**
   String get hsVideoTutorial;
 
   /// No description provided for @hsRightsTutorial.

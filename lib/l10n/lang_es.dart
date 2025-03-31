@@ -39,6 +39,9 @@ class LangEs extends Lang {
       'This app is designed to share your location with emergency contacts in a moment of crisis.\n\nPlease choose your first emergency contact.\nThey must have a phone number.\n\nJust one for now, you can add more later.';
 
   @override
+  String get hsCameraTutorialTitle => 'If you want';
+
+  @override
   String get hsCameraTutorial =>
       'SOS can also help share evidence.\n\nThe app will ask you for camera, microphone, and gallery access so it can take and save photos and videos.\n\nThis is recommended, but optional.';
 
