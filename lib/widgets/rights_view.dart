@@ -88,51 +88,54 @@ class _RightsViewState extends State<RightsView> {
   Widget build(BuildContext context) {
     return Visibility(
       visible: !widget.hide,
-      child: EzScrollView(
-        // Header
-        children: <Widget>[
-          Text(
-            l10n.rsSharedHeader,
-            textAlign: TextAlign.center,
-            style: textTheme.titleLarge,
-          ),
-          const EzSpacer(),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: EzConfig.get(marginKey)),
+        child: EzScrollView(
+          // Header
+          children: <Widget>[
+            Text(
+              l10n.rsSharedHeader,
+              textAlign: TextAlign.center,
+              style: textTheme.titleLarge,
+            ),
+            const EzSpacer(),
 
-          // Switcher
-          SegmentedButton<Location>(
-            segments: <ButtonSegment<Location>>[
-              ButtonSegment<Location>(
-                value: Location.walking,
-                label: Icon(Location.walking.icon),
-              ),
-              ButtonSegment<Location>(
-                value: Location.driving,
-                label: Icon(Location.driving.icon),
-              ),
-              ButtonSegment<Location>(
-                value: Location.home,
-                label: Icon(Location.home.icon),
-              ),
-            ],
-            selected: <Location>{currentTab},
-            showSelectedIcon: false,
-            onSelectionChanged: (Set<Location> selected) =>
-                setState(() => currentTab = selected.first),
-          ),
-          const EzSeparator(),
+            // Switcher
+            SegmentedButton<Location>(
+              segments: <ButtonSegment<Location>>[
+                ButtonSegment<Location>(
+                  value: Location.walking,
+                  label: Icon(Location.walking.icon),
+                ),
+                ButtonSegment<Location>(
+                  value: Location.driving,
+                  label: Icon(Location.driving.icon),
+                ),
+                ButtonSegment<Location>(
+                  value: Location.home,
+                  label: Icon(Location.home.icon),
+                ),
+              ],
+              selected: <Location>{currentTab},
+              showSelectedIcon: false,
+              onSelectionChanged: (Set<Location> selected) =>
+                  setState(() => currentTab = selected.first),
+            ),
+            const EzSeparator(),
 
-          // Shared rights
-          rightsBlock(l10n.rsSharedRemainSilent),
-          rightsBlock(l10n.rsSharedDoubleSilence),
-          rightsBlock(l10n.rsSharedDocument),
+            // Shared rights
+            rightsBlock(l10n.rsSharedRemainSilent),
+            rightsBlock(l10n.rsSharedDoubleSilence),
+            rightsBlock(l10n.rsSharedDocument),
 
-          // Specific rights
-          populateTab(),
+            // Specific rights
+            populateTab(),
 
-          // Shared rights II
-          rightsBlock(l10n.rsSharedFingerprint),
-          rightsBlock(l10n.rsSharedLawyer),
-        ],
+            // Shared rights II
+            rightsBlock(l10n.rsSharedFingerprint),
+            rightsBlock(l10n.rsSharedLawyer),
+          ],
+        ),
       ),
     );
   }
