@@ -519,14 +519,6 @@ class _HomeScreenState extends State<HomeScreen>
                               color: videoColor,
                             ),
                             onPressed: () async {
-                              if (camera == null) {
-                                final bool worksNow = await initCamera();
-                                if (worksNow) {
-                                  setState(() {});
-                                } else {
-                                  return;
-                                }
-                              }
                               await Permission.microphone.request();
 
                               try {
