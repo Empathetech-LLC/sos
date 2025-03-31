@@ -51,7 +51,13 @@
 		<string>SnapOS needs access to your microphone to record videos with audio.</string>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<key>NSLocationUsageDescription</key>
+		<string>SnapOS needs access to your location to share it with your emergency contacts.</string>
 		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>SnapOS needs access to your location to share it with your emergency contacts.</string>
+		<key>NSLocationAlwaysUsageDescription</key>
+		<string>SnapOS needs access to your location to share it with your emergency contacts.</string>
+		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 		<string>SnapOS needs access to your location to share it with your emergency contacts.</string>
 		<key>NSContactsUsageDescription</key>
 		<string>SnapOS needs to be able to save your emergency contacts.</string>
