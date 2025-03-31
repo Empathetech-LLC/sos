@@ -41,8 +41,10 @@ class _HomeScreenState extends State<HomeScreen>
   final double spacing = EzConfig.get(spacingKey);
 
   late final double spargin = margin + spacing;
-  late final double safeTop = MediaQuery.paddingOf(context).top;
-  late final double safeBottom = MediaQuery.paddingOf(context).bottom;
+  late final double safeTop =
+      Platform.isIOS ? padding : MediaQuery.paddingOf(context).top;
+  late final double safeBottom =
+      Platform.isIOS ? padding : MediaQuery.paddingOf(context).bottom;
 
   static const EzSeparator separator = EzSeparator();
 
@@ -126,6 +128,29 @@ class _HomeScreenState extends State<HomeScreen>
     if (emc == null || emc!.isEmpty) {
       await firstEMCMsg(context);
 
+      // Confirm contacts access
+      final bool contactsGranted =
+          await FlutterContacts.requestPermission(readonly: true);
+
+      if (!contactsGranted) {
+        if (mounted) {
+          ezLogAlert(
+            context,
+            title: el10n.gAttention,
+            message: l10n.hsNeedContacts,
+            customActions: (
+              <EzMaterialAction>[
+                EzMaterialAction(text: l10n.gOk, onPressed: () => exit(0))
+              ],
+              <EzCupertinoAction>[
+                EzCupertinoAction(text: l10n.gOk, onPressed: () => exit(0))
+              ],
+            ),
+          );
+        }
+        return;
+      }
+
       Contact? contact;
 
       while (true) {
@@ -152,15 +177,6 @@ class _HomeScreenState extends State<HomeScreen>
 
   // Define custom Widgets //
 
-  late final (List<EzMaterialAction>, List<EzCupertinoAction>) exitActions = (
-    <EzMaterialAction>[
-      EzMaterialAction(text: l10n.gOk, onPressed: () => exit(0))
-    ],
-    <EzCupertinoAction>[
-      EzCupertinoAction(text: l10n.gOk, onPressed: () => exit(0))
-    ]
-  );
-
   // Init //
 
   @override
@@ -171,47 +187,21 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void afterFirstLayout(BuildContext context) async {
-    // Confirm location access
+    // Check for auto-SOS
     final PermissionStatus locationStatus = await Permission.location.request();
 
-    if (locationStatus == PermissionStatus.denied ||
-        locationStatus == PermissionStatus.permanentlyDenied) {
-      if (context.mounted) {
-        ezLogAlert(
-          context,
-          title: el10n.gError,
-          message: l10n.hsNeedLocation,
-          customActions: exitActions,
-        );
-      }
-      return;
+    if (locationStatus != PermissionStatus.denied &&
+        locationStatus != PermissionStatus.permanentlyDenied) {
+      // SOS on open can't be setup without contact access already being granted
+      if (EzConfig.get(onOpenKey) == true) startBroadcast();
     }
 
-    // Check for auto-SOS
-    // (can't be setup without contact access already being granted)
-    if (EzConfig.get(onOpenKey) == true) startBroadcast();
-
-    // Confirm contacts access
-    final bool contactsGranted =
-        await FlutterContacts.requestPermission(readonly: true);
-
-    if (!contactsGranted) {
-      if (context.mounted) {
-        ezLogAlert(
-          context,
-          title: el10n.gError,
-          message: l10n.hsNeedContacts,
-          customActions: exitActions,
-        );
-      }
-      return;
-    }
-
-    // Setup the camera
-    final bool hasCamera = await initCamera();
-
-    // Populate emc
+    // Gather the emergency contacts
+    // Checks are in the function (only runs if needed)
     await gatherEMC();
+
+    // Setup the camera (and preview)
+    final bool hasCamera = await initCamera();
 
     // User interaction is done, refresh the screen
     setState(hasCamera ? () {} : () => showRights = true);
