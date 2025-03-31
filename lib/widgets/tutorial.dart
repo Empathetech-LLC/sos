@@ -14,6 +14,7 @@ class TutorialOverlay extends StatelessWidget {
   final double? left;
   final double? right;
 
+  final String title;
   final String content;
   final void Function() accept;
 
@@ -23,6 +24,7 @@ class TutorialOverlay extends StatelessWidget {
     this.bottom,
     this.left,
     this.right,
+    required this.title,
     required this.content,
     required this.accept,
   });
@@ -34,6 +36,7 @@ class TutorialOverlay extends StatelessWidget {
         left: left,
         right: right,
         child: EzAlertDialog(
+          title: Text(title, textAlign: TextAlign.center),
           content: Text(content, textAlign: TextAlign.center),
           materialActions: <EzMaterialAction>[
             EzMaterialAction(text: Lang.of(context)!.gOk, onPressed: accept)
