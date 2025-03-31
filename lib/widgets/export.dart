@@ -4,6 +4,6 @@
  */
 
 export 'icons.dart';
-export 'menu_buttons.dart';
+export 'buttons.dart';
 export 'rights_view.dart';
 export 'sos_scaffold.dart';
