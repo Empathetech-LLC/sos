@@ -221,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen>
                     top: safeTop + spargin + iconSize * 1.5 + spacing,
                     left: 0,
                     right: 0,
-                    content: l10n.hsBTutorial,
+                    content: l10n.hsBroadcastTutorial,
                     accept: () {
                       broadcastOverlay.hide();
                       settingsOverlay.show();
@@ -260,7 +260,7 @@ class _HomeScreenState extends State<HomeScreen>
                   top: safeTop + margin,
                   right: isLefty ? null : margin + iconSize + spacing,
                   left: isLefty ? margin + iconSize + spacing : null,
-                  content: l10n.hsSTutorial,
+                  content: l10n.hsSettingsTutorial,
                   accept: () {
                     settingsOverlay.hide();
                     recordOverlay.show();
@@ -364,8 +364,8 @@ class _HomeScreenState extends State<HomeScreen>
                       right: 0,
                       left: 0,
                       content: camera == null
-                          ? l10n.hsRightTutorial
-                          : l10n.hsRecTutorial,
+                          ? l10n.hsRightsTutorial
+                          : l10n.hsVideoTutorial,
                       accept: () async {
                         recordOverlay.hide();
                         await EzConfig.setBool(tutorialKey, false);

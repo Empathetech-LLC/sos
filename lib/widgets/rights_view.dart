@@ -47,25 +47,25 @@ class _RightsViewState extends State<RightsView> {
       case Location.walking:
         return Column(
           mainAxisSize: MainAxisSize.min,
-          children: <Widget>[rightsBlock(l10n.rsWLeave)],
+          children: <Widget>[rightsBlock(l10n.rsWalkLeave)],
         );
       case Location.driving:
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            rightsBlock(l10n.rsCSearch),
-            rightsBlock(l10n.rsCPockets),
-            rightsBlock(l10n.rsCWarrant),
-            rightsBlock(l10n.rsCID),
-            rightsBlock(l10n.rsCQuestion),
-            rightsBlock(l10n.rsCLeave),
-            rightsBlock(l10n.rsCRemainSilent),
+            rightsBlock(l10n.rsDriveSearch),
+            rightsBlock(l10n.rsDrivePockets),
+            rightsBlock(l10n.rsDriveWarrant),
+            rightsBlock(l10n.rsDriveID),
+            rightsBlock(l10n.rsDriveQuestion),
+            rightsBlock(l10n.rsDriveLeave),
+            rightsBlock(l10n.rsDriveRemainSilent),
           ],
         );
       case Location.home:
         return Column(
           mainAxisSize: MainAxisSize.min,
-          children: <Widget>[rightsBlock(l10n.rsHWarrant)],
+          children: <Widget>[rightsBlock(l10n.rsHomeWarrant)],
         );
     }
   }
@@ -84,7 +84,7 @@ class _RightsViewState extends State<RightsView> {
       // Header
       children: <Widget>[
         Text(
-          l10n.rsGHeader,
+          l10n.rsSharedHeader,
           textAlign: TextAlign.center,
           style: textTheme.titleLarge,
         ),
@@ -114,7 +114,7 @@ class _RightsViewState extends State<RightsView> {
         const EzSeparator(),
 
         // Shared rights
-        rightsBlock(l10n.rsGFingerprint),
+        rightsBlock(l10n.rsSharedFingerprint),
 
         // Specific rights
         populateTab(),
