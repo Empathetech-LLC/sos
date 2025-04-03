@@ -17,6 +17,7 @@ import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:after_layout/after_layout.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
@@ -409,25 +410,35 @@ class _HomeScreenState extends State<HomeScreen>
                                 setState(() => recording = false);
                                 watch.reset();
 
+                                // Videos are saved as tmp files
+                                // We need to fix that before proceeding
+                                final File tmpFile = File(video.path);
+
+                                // Create a unique mp4 file path
+                                final Directory appDir =
+                                    await getApplicationDocumentsDirectory();
+                                final String mp4Path =
+                                    '${appDir.path}/${DateTime.now().millisecondsSinceEpoch}.mp4';
+
+                                // Copy the tmp file to the new mp4
+                                await tmpFile.copy(mp4Path);
+
                                 // Attempt to save the video
                                 final bool galAccess =
                                     await Gal.requestAccess();
 
                                 if (galAccess) {
                                   try {
-                                    await Gal.putVideo(video.path);
+                                    await Gal.putVideo(mp4Path);
                                   } catch (e) {
                                     // If this fails, it's likely the user has bigger problems at hand
-                                    // We can still try to share the file without saving it to the gallery
-                                    debugPrint('CAW!');
                                     ezLog(e.toString());
-                                    debugPrint('CAW!');
                                   }
                                 }
 
                                 // Attempt to share the video
                                 await Share.shareXFiles(
-                                  <XFile>[video],
+                                  <XFile>[XFile(mp4Path)],
                                   text: await getCoordinates(),
                                 );
                               } catch (e) {
