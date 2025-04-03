@@ -30,21 +30,56 @@ class TutorialOverlay extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => Positioned(
-        top: top,
-        bottom: bottom,
-        left: left,
-        right: right,
-        child: EzAlertDialog(
+  Widget build(BuildContext context) {
+    // Gather theme data //
+
+    final double margin = EzConfig.get(marginKey);
+    final double padding = EzConfig.get(paddingKey);
+    final double spacing = EzConfig.get(spacingKey);
+
+    final bool isLefty = EzConfig.get(isLeftyKey) ?? false;
+
+    // Return the build //
+
+    final List<Widget> actions = <Widget>[
+      EzMaterialAction(text: Lang.of(context)!.gOk, onPressed: accept)
+    ];
+
+    return Positioned(
+      top: top,
+      bottom: bottom,
+      left: left,
+      right: right,
+      child: SelectionArea(
+        child: AlertDialog(
+          // Title
           title: Text(title, textAlign: TextAlign.center),
+          titlePadding: EdgeInsets.only(
+            left: padding,
+            right: padding,
+            top: padding,
+            bottom: spacing / 2,
+          ),
+
+          // Content
           content: Text(content, textAlign: TextAlign.center),
-          materialActions: <EzMaterialAction>[
-            EzMaterialAction(text: Lang.of(context)!.gOk, onPressed: accept)
-          ],
-          cupertinoActions: <EzCupertinoAction>[
-            EzCupertinoAction(text: Lang.of(context)!.gOk, onPressed: accept)
-          ],
-          needsClose: false,
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: margin,
+            vertical: spacing / 2,
+          ),
+
+          // Actions
+          actions: isLefty ? actions.reversed.toList() : actions,
+          actionsAlignment:
+              isLefty ? MainAxisAlignment.start : MainAxisAlignment.end,
+
+          // General
+          actionsPadding: EzInsets.wrap(spacing),
+          buttonPadding: EdgeInsets.zero,
+          iconPadding: EdgeInsets.zero,
+          insetPadding: EdgeInsets.all(margin),
         ),
-      );
+      ),
+    );
+  }
 }
