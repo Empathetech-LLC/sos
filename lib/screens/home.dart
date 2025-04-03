@@ -41,7 +41,6 @@ class _HomeScreenState extends State<HomeScreen>
   final double margin = EzConfig.get(marginKey);
   final double padding = EzConfig.get(paddingKey);
   final double spacing = EzConfig.get(spacingKey);
-
   late final double spargin = margin + spacing;
 
   static const EzSeparator separator = EzSeparator();
@@ -102,9 +101,7 @@ class _HomeScreenState extends State<HomeScreen>
         status == PermissionStatus.permanentlyDenied) {
       return false;
     }
-
     await Permission.microphone.request();
-    await Gal.requestAccess();
 
     final List<CameraDescription> cameras = await availableCameras();
     camera = CameraController(cameras.first, ResolutionPreset.max);
@@ -114,9 +111,7 @@ class _HomeScreenState extends State<HomeScreen>
       return true;
     } catch (e) {
       if (e is! CameraException || e.code != 'CameraAccessDenied') {
-        if (mounted) {
-          ezLogAlert(context, message: e.toString());
-        }
+        if (mounted) ezLogAlert(context, message: e.toString());
       }
     }
 
@@ -139,17 +134,15 @@ class _HomeScreenState extends State<HomeScreen>
     if (newUser) emc = await addEMC(context, emc);
 
     // Setup the camera/preview
-    late final bool cameraAccess;
     if (newUser && context.mounted) {
-      if (await permissionsMsg(context) == true) {
-        cameraAccess = await initCamera();
-      } else {
-        cameraAccess = false;
-      }
+      // Allow new users to opt out of camera requests their first time
+      if (await permissionsMsg(context) == true) await initCamera();
+      // Currently, this is just to avoid potential 'request overload'
+      // Users will be asked again later (in the else below)
     } else {
-      cameraAccess = await initCamera();
+      await initCamera();
     }
-    setState(cameraAccess ? () {} : () => showRights = true);
+    setState(() {});
 
     // Run the tutorial (if unfinished)
     if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
@@ -170,7 +163,10 @@ class _HomeScreenState extends State<HomeScreen>
                 height: heightOf(context) * 0.667,
                 width: double.infinity,
                 child: camera == null
-                    ? RightsView(hide: emc == null || emc!.isEmpty)
+                    ? Visibility(
+                        visible: showRights,
+                        child: const RightsView(),
+                      )
                     : Stack(children: <Widget>[
                         CameraPreview(camera!),
                         Visibility(
@@ -342,7 +338,6 @@ class _HomeScreenState extends State<HomeScreen>
                           icon: showRights
                               ? Icon(PlatformIcons(context).eyeSlash)
                               : const Icon(Icons.gavel),
-                          enabled: camera != null,
                           onPressed: () =>
                               setState(() => showRights = !showRights),
                         )
@@ -424,7 +419,9 @@ class _HomeScreenState extends State<HomeScreen>
                                   } catch (e) {
                                     // If this fails, it's likely the user has bigger problems at hand
                                     // We can still try to share the file without saving it to the gallery
+                                    debugPrint('CAW!');
                                     ezLog(e.toString());
+                                    debugPrint('CAW!');
                                   }
                                 }
 
