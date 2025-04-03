@@ -179,13 +179,13 @@ abstract class Lang {
   /// No description provided for @hsVideoTutorial.
   ///
   /// In en, this message translates to:
-  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows your rights.'**
+  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with a gavel that shows your rights.'**
   String get hsVideoTutorial;
 
   /// No description provided for @hsRightsTutorial.
   ///
   /// In en, this message translates to:
-  /// **'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.'**
+  /// **'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nHit the gavel to show a list of your rights.'**
   String get hsRightsTutorial;
 
   /// No description provided for @hsNoNumber.

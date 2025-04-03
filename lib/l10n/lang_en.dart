@@ -55,11 +55,11 @@ class LangEn extends Lang {
 
   @override
   String get hsVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows your rights.';
+      'When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with a gavel that shows your rights.';
 
   @override
   String get hsRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.';
+      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nHit the gavel to show a list of your rights.';
 
   @override
   String get hsNoNumber => 'The contact must have a phone number.';
