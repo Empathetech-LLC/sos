@@ -486,13 +486,26 @@ class _HomeScreenState extends State<HomeScreen>
   // Cleanup //
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
+  void didChangeAppLifecycleState(AppLifecycleState state) async {
     if (recording &&
         (state == AppLifecycleState.detached ||
             state == AppLifecycleState.hidden ||
             state == AppLifecycleState.inactive ||
             state == AppLifecycleState.paused)) {
+      // Start broadcast/send ping based on user settings
       sosOnClose ? startBroadcast() : sendSOS();
+
+      // Attempt to save the partial recording
+      final XFile video = await camera!.stopVideoRecording();
+      watch.stop();
+      watch.reset();
+
+      try {
+        await Gal.putVideo(video.path);
+      } catch (e) {
+        // The app is unfocussed, so we can't do anything
+        ezLog(e.toString());
+      }
     }
   }
 
