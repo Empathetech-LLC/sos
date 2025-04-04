@@ -70,8 +70,9 @@ class _HomeScreenState extends State<HomeScreen>
   bool broadcasting = false;
   Timer? sosTimer;
 
-  final bool sosOnInterrupt = EzConfig.get(onInterruptKey) ?? false;
+  final bool sosOnOpen = EzConfig.get(onOpenKey) ?? false;
   final bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
+  final bool sosOnInterrupt = EzConfig.get(onInterruptKey) ?? false;
 
   // Tutorial
   final OverlayPortalController broadcastOverlay =
@@ -138,6 +139,17 @@ class _HomeScreenState extends State<HomeScreen>
 
     // Verify the emergency contacts
     if (newUser) emc = await addEMC(context, emc);
+
+    // Check for auto SOS
+    if (sosOnOpen) {
+      sosTimer?.cancel();
+      sosTimer = Timer.periodic(
+        const Duration(minutes: 5),
+        (_) => sendSOS(),
+      );
+
+      setState(() => broadcasting = true);
+    }
 
     // Setup the camera/preview
     if (newUser && context.mounted) {
