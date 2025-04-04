@@ -15,6 +15,7 @@ import 'package:flutter/services.dart';
 import 'package:feedback/feedback.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:after_layout/after_layout.dart';
 import 'package:path_provider/path_provider.dart';
@@ -239,6 +240,15 @@ class _HomeScreenState extends State<HomeScreen>
                                 .cancelByUniqueName(broadcastTask);
                             setState(() => broadcasting = false);
                           },
+                          onLongPress: () async {
+                            final LocationPermission permission =
+                                await Geolocator.checkPermission();
+                            if (permission == LocationPermission.denied ||
+                                permission ==
+                                    LocationPermission.deniedForever) {
+                              await openAppSettings();
+                            }
+                          },
                         )
                       : EzIconButton(
                           icon: const Icon(Icons.sos),
@@ -247,6 +257,15 @@ class _HomeScreenState extends State<HomeScreen>
                             // Error handling?
                             await startBroadcast();
                             setState(() => broadcasting = true);
+                          },
+                          onLongPress: () async {
+                            final LocationPermission permission =
+                                await Geolocator.checkPermission();
+                            if (permission == LocationPermission.denied ||
+                                permission ==
+                                    LocationPermission.deniedForever) {
+                              await openAppSettings();
+                            }
                           },
                         ),
                 ),
@@ -473,6 +492,11 @@ class _HomeScreenState extends State<HomeScreen>
                                 if (context.mounted) {
                                   ezLogAlert(context, message: e.toString());
                                 }
+                              }
+                            },
+                            onLongPress: () async {
+                              if (camera == null) {
+                                await openAppSettings();
                               }
                             },
                           ),
