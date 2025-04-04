@@ -10,6 +10,7 @@ import '../../widgets/export.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 class SettingsHomeScreen extends StatefulWidget {
   const SettingsHomeScreen({super.key});
@@ -27,6 +28,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   static const EzSpacer spacer = EzSpacer();
   static const EzSeparator separator = EzSeparator();
 
+  late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = EFUILang.of(context)!;
 
   // Define the build data //
@@ -61,30 +63,65 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
             // SOS
             _SettingsCheckbox(
-              title: 'Auto SOS on open',
+              title: 'SOS on open',
               value: sosOnOpen,
-              onChanged: (bool? value) {
+              onChanged: (bool? value) async {
                 if (value == null) return;
+                await EzConfig.setBool(onOpenKey, value);
                 setState(() => sosOnOpen = value);
               },
             ),
             spacer,
 
             _SettingsCheckbox(
-              title: 'Auto SOS on close',
+              title: 'SOS on lock',
               value: sosOnClose,
-              onChanged: (bool? value) {
+              onChanged: (bool? value) async {
                 if (value == null) return;
+
+                if (value == true) {
+                  await showPlatformDialog(
+                    context: context,
+                    builder: (_) => EzAlertDialog(
+                      title: Text(
+                        el10n.gAttention,
+                        textAlign: TextAlign.center,
+                      ),
+                      contents: <Widget>[
+                        const Text(
+                          "When 'SOS on lock' is enabled, a safe close button will appear on the home screen (opposite the settings).\n\nUse this to close the app without activating SOS",
+                          textAlign: TextAlign.center,
+                        )
+                      ],
+                      materialActions: <Widget>[
+                        EzMaterialAction(
+                          text: l10n.gOk,
+                          onPressed: Navigator.of(context).pop,
+                        ),
+                      ],
+                      cupertinoActions: <Widget>[
+                        EzCupertinoAction(
+                          text: l10n.gOk,
+                          onPressed: Navigator.of(context).pop,
+                        ),
+                      ],
+                      needsClose: false,
+                    ),
+                  );
+                }
+
+                await EzConfig.setBool(onCloseKey, value);
                 setState(() => sosOnClose = value);
               },
             ),
             spacer,
 
             _SettingsCheckbox(
-              title: 'Auto SOS on interrupted recording',
+              title: 'SOS on interrupted recording',
               value: sosOnInterrupt,
-              onChanged: (bool? value) {
+              onChanged: (bool? value) async {
                 if (value == null) return;
+                await EzConfig.setBool(onInterruptKey, value);
                 setState(() => sosOnInterrupt = value);
               },
             ),
