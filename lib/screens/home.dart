@@ -262,7 +262,7 @@ class _HomeScreenState extends State<HomeScreen>
                           onPressed: () {
                             sosTimer?.cancel();
                             sosTimer = Timer.periodic(
-                              const Duration(minutes: 1),
+                              const Duration(minutes: 5),
                               (_) => sendSOS(),
                             );
 
