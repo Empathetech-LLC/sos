@@ -508,8 +508,20 @@ class _HomeScreenState extends State<HomeScreen>
       watch.stop();
       watch.reset();
 
+      // Videos are saved as tmp files
+      // We need to fix that before proceeding
+      final File tmpFile = File(video.path);
+
+      // Create a unique mp4 file path
+      final Directory appDir = await getApplicationDocumentsDirectory();
+      final String mp4Path =
+          '${appDir.path}/${DateTime.now().millisecondsSinceEpoch}.mp4';
+
+      // Copy the tmp file to the new mp4
+      await tmpFile.copy(mp4Path);
+
       try {
-        await Gal.putVideo(video.path);
+        await Gal.putVideo(mp4Path);
       } catch (e) {
         // The app is unfocussed, so we can't do anything
         ezLog(e.toString());
