@@ -32,10 +32,5 @@ Future<String> getCoordinates() async {
 void sendSOS() => debugPrint('CAW SOS CAW');
 
 /// Register [broadcastTask] (aka [sendSOS]) with [Workmanager]
-Future<dynamic> startBroadcast() {
-  return Workmanager().registerPeriodicTask(
-    broadcastTask,
-    broadcastTask,
-    frequency: const Duration(seconds: 3),
-  );
-}
+Future<void> runBackgroundBroadcast() =>
+    Workmanager().registerPeriodicTask(broadcastTask, broadcastTask);
