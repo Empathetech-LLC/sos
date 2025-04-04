@@ -47,7 +47,7 @@ class LangEn extends Lang {
 
   @override
   String get hsBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts every minute.\n\nIf SOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.';
+      'Activate SOS to automatically text your emergency contacts.\n\nIf SOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.';
 
   @override
   String get hsSettingsTutorial =>
@@ -132,10 +132,6 @@ class LangEn extends Lang {
 
   @override
   String get ssVideoSOS => 'Auto SOS on interrupted recording';
-
-  @override
-  String get ssVideoSOSHint =>
-      'Enable for continuos texts, disable for a single text.';
 
   @override
   String get ssEMC => 'Emergency contacts';

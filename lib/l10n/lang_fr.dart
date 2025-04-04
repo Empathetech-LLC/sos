@@ -37,26 +37,26 @@ class LangFr extends Lang {
 
   @override
   String get hsAppTutorial =>
-      'This app is designed to share your location with emergency contacts in a moment of crisis.\n\nPlease choose your first emergency contact.\nThey must have a phone number.\n\nJust one for now, you can add more later.';
+      'It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.';
 
   @override
   String get hsPermissionsTutorialTitle => 'If you want';
 
   @override
   String get hsPermissionsTutorial =>
-      'SOS can also help share evidence.\n\nThe app will ask you for camera, microphone, and gallery access so it can take and save photos and videos.\n\nThis is recommended, but optional.';
+      'SOS can also share evidence.\n\nIt will ask for camera, microphone, gallery, and location access to do so.';
 
   @override
   String get hsBroadcastTutorial =>
-      'Activate SOS to text your emergency contacts your exact location every minute.\n\nIt will continue when the phone is locked.\n\nDeactivate SOS or fully close the app to stop the texts.';
+      'Activate SOS to automatically text your emergency contacts.\n\nIf SOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.';
 
   @override
   String get hsSettingsTutorial =>
-      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n& Change the app\'s appearance\n\n in the settings.\n\nHold the settings button to give feedback for the app.';
+      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s language, and\n- Update the app\'s appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.';
 
   @override
   String get hsVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with one that shows you your rights.';
+      'When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with a gavel that shows your rights.';
 
   @override
   String get hsRightsTutorial =>
@@ -134,10 +134,6 @@ class LangFr extends Lang {
   @override
   String get ssVideoSOS =>
       'SOS automatique en cas d\'enregistrement interrompu';
-
-  @override
-  String get ssVideoSOSHint =>
-      'Activer pour des messages continus, désactiver pour un seul message.';
 
   @override
   String get ssEMC => 'Contacts d\'urgence';

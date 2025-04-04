@@ -167,7 +167,7 @@ abstract class Lang {
   /// No description provided for @hsBroadcastTutorial.
   ///
   /// In en, this message translates to:
-  /// **'Activate SOS to automatically text your emergency contacts every minute.\n\nIf SOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.'**
+  /// **'Activate SOS to automatically text your emergency contacts.\n\nIf SOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.'**
   String get hsBroadcastTutorial;
 
   /// No description provided for @hsSettingsTutorial.
@@ -307,12 +307,6 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'Auto SOS on interrupted recording'**
   String get ssVideoSOS;
-
-  /// No description provided for @ssVideoSOSHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Enable for continuos texts, disable for a single text.'**
-  String get ssVideoSOSHint;
 
   /// No description provided for @ssEMC.
   ///
