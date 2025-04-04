@@ -8,6 +8,7 @@ import '../utils/export.dart';
 import '../widgets/export.dart';
 
 import 'dart:io';
+import 'dart:async';
 import 'package:gal/gal.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,6 @@ import 'package:feedback/feedback.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:workmanager/workmanager.dart';
 import 'package:after_layout/after_layout.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -68,9 +68,9 @@ class _HomeScreenState extends State<HomeScreen>
   List<String>? emc = EzConfig.get(emcKey);
 
   bool broadcasting = false;
+  Timer? sosTimer;
 
-  /// true == indefinite
-  /// false == once
+  final bool sosOnInterrupt = EzConfig.get(onInterruptKey) ?? false;
   final bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
 
   // Tutorial
@@ -241,9 +241,9 @@ class _HomeScreenState extends State<HomeScreen>
                           icon: const SOSIcon(),
                           iconSize: iconSize * 1.5,
                           onPressed: () async {
-                            // Error handling?
-                            await Workmanager()
-                                .cancelByUniqueName(broadcastTask);
+                            sosTimer?.cancel();
+                            sosTimer = null;
+
                             setState(() => broadcasting = false);
                           },
                           onLongPress: () async {
@@ -259,9 +259,13 @@ class _HomeScreenState extends State<HomeScreen>
                       : EzIconButton(
                           icon: const Icon(Icons.sos),
                           iconSize: iconSize * 1.5,
-                          onPressed: () async {
-                            // Error handling?
-                            await startBroadcast();
+                          onPressed: () {
+                            sosTimer?.cancel();
+                            sosTimer = Timer.periodic(
+                              const Duration(minutes: 1),
+                              (_) => sendSOS(),
+                            );
+
                             setState(() => broadcasting = true);
                           },
                           onLongPress: () async {
@@ -533,44 +537,50 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) async {
-    if (recording &&
-        (state == AppLifecycleState.detached ||
-            state == AppLifecycleState.hidden ||
-            state == AppLifecycleState.inactive ||
-            state == AppLifecycleState.paused)) {
-      // Start broadcast/send ping based on user settings
-      sosOnClose ? startBroadcast() : sendSOS();
+    if ((state == AppLifecycleState.detached ||
+        state == AppLifecycleState.hidden ||
+        state == AppLifecycleState.inactive ||
+        state == AppLifecycleState.paused)) {
+      if (recording) {
+        // Start broadcast/send ping based on user settings
+        if (broadcasting || sosOnClose || sosOnInterrupt) {
+          runBackgroundBroadcast();
+        }
 
-      // Attempt to save the partial recording
-      try {
-        final XFile video = await camera!.stopVideoRecording();
+        // Attempt to save the partial recording
+        try {
+          final XFile video = await camera!.stopVideoRecording();
 
-        // Videos are saved as tmp files
-        // We need to fix that before proceeding
-        final File tmpFile = File(video.path);
+          // Videos are saved as tmp files
+          // We need to fix that before proceeding
+          final File tmpFile = File(video.path);
 
-        // Create a unique mp4 file path
-        final Directory appDir = await getApplicationDocumentsDirectory();
-        final String mp4Path =
-            '${appDir.path}/${DateTime.now().millisecondsSinceEpoch}.mp4';
+          // Create a unique mp4 file path
+          final Directory appDir = await getApplicationDocumentsDirectory();
+          final String mp4Path =
+              '${appDir.path}/${DateTime.now().millisecondsSinceEpoch}.mp4';
 
-        // Copy the tmp file to the new mp4
-        await tmpFile.copy(mp4Path);
+          // Copy the tmp file to the new mp4
+          await tmpFile.copy(mp4Path);
 
-        await Gal.putVideo(mp4Path);
-      } catch (e) {
-        // The app is unfocussed, so we can't do anything
-        ezLog(e.toString());
+          await Gal.putVideo(mp4Path);
+        } catch (e) {
+          // The app is unfocussed, so we can't do anything
+          ezLog(e.toString());
+        }
+
+        watch.stop();
+        watch.reset();
+        setState(() => recording = false);
+      } else {
+        if (broadcasting || sosOnClose) runBackgroundBroadcast();
       }
-
-      watch.stop();
-      watch.reset();
-      setState(() => recording = false);
     }
   }
 
   @override
   void dispose() {
+    sosTimer?.cancel();
     WidgetsBinding.instance.removeObserver(this);
     camera?.dispose();
     super.dispose();
