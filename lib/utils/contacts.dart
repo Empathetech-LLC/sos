@@ -8,6 +8,7 @@ import './export.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 /// Prompt the user to save their first contact
@@ -27,23 +28,42 @@ Future<List<String>?> addEMC(BuildContext context, List<String>? curr) async {
       await FlutterContacts.requestPermission(readonly: true);
 
   // If denied: re-iterate that SOS is useless without contacts, and exit
-  if (!contactsGranted) {
+  while (!contactsGranted) {
     if (context.mounted) {
-      ezLogAlert(
+      await ezLogAlert(
         context,
-        title: el10n.gAttention,
+        title: el10n.gError,
         message: l10n.hsNeedContacts,
         customActions: (
           <EzMaterialAction>[
-            EzMaterialAction(text: l10n.gOk, onPressed: () => exit(0))
+            EzMaterialAction(text: el10n.gCancel, onPressed: () => exit(0)),
+            EzMaterialAction(
+              text: l10n.gOk,
+              onPressed: () async {
+                await openAppSettings();
+              },
+            ),
           ],
           <EzCupertinoAction>[
-            EzCupertinoAction(text: l10n.gOk, onPressed: () => exit(0))
+            EzCupertinoAction(text: el10n.gCancel, onPressed: () => exit(0)),
+            EzCupertinoAction(
+              text: l10n.gOk,
+              onPressed: () async {
+                await openAppSettings();
+              },
+            ),
           ],
         ),
       );
+    } else {
+      // This also runs when the app returns to the foreground
+      // I think
+      // So check if permission was granted in the meantime
+      if (await Permission.contacts.isDenied ||
+          await Permission.contacts.isPermanentlyDenied) {
+        exit(0);
+      }
     }
-    return curr;
   }
 
   // Save the first emergency contact
