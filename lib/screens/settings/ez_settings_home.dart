@@ -5,6 +5,7 @@
 
 import '../export.dart';
 import '../../utils/export.dart';
+import '../../widgets/export.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -37,53 +38,56 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return EzScreen(
-      useImageDecoration: false,
-      child: EzScrollView(
-        children: <Widget>[
-          // Functionality disclaimer
-          EzWarning(l10n.ssSettingsGuide.split('\n').first),
-          separator,
+    return SosScaffold(
+      title: 'Appearance',
+      body: EzScreen(
+        useImageDecoration: false,
+        child: EzScrollView(
+          children: <Widget>[
+            // Functionality disclaimer
+            EzWarning(l10n.ssSettingsGuide.split('\n').first),
+            separator,
 
-          // Global settings
-          const EzDominantHandSwitch(),
-          spacer,
+            // Global settings
+            const EzDominantHandSwitch(),
+            spacer,
 
-          const EzThemeModeSwitch(),
-          separator,
+            const EzThemeModeSwitch(),
+            separator,
 
-          EzElevatedIconButton(
-            onPressed: () => context.goNamed(textSettingsPath),
-            icon: EzIcon(Icons.navigate_next),
-            label: l10n.tsPageTitle,
-          ),
-          spacer,
+            EzElevatedIconButton(
+              onPressed: () => context.goNamed(textSettingsPath),
+              icon: EzIcon(Icons.navigate_next),
+              label: l10n.tsPageTitle,
+            ),
+            spacer,
 
-          EzElevatedIconButton(
-            onPressed: () => context.goNamed(layoutSettingsPath),
-            icon: EzIcon(Icons.navigate_next),
-            label: l10n.lsPageTitle,
-          ),
-          spacer,
+            EzElevatedIconButton(
+              onPressed: () => context.goNamed(layoutSettingsPath),
+              icon: EzIcon(Icons.navigate_next),
+              label: l10n.lsPageTitle,
+            ),
+            spacer,
 
-          EzElevatedIconButton(
-            onPressed: () => context.goNamed(colorSettingsPath),
-            icon: EzIcon(Icons.navigate_next),
-            label: l10n.csPageTitle,
-          ),
-          separator,
+            EzElevatedIconButton(
+              onPressed: () => context.goNamed(colorSettingsPath),
+              icon: EzIcon(Icons.navigate_next),
+              label: l10n.csPageTitle,
+            ),
+            separator,
 
-          EzResetButton(
-            onConfirm: () async {
-              await EzConfig.removeKeys(<String>{
-                ...empathetechConfig.keys,
-                videoColorKey,
-              });
-              setState(() {});
-            },
-          ),
-          separator,
-        ],
+            EzResetButton(
+              onConfirm: () async {
+                await EzConfig.removeKeys(<String>{
+                  ...empathetechConfig.keys,
+                  videoColorKey,
+                });
+                setState(() {});
+              },
+            ),
+            separator,
+          ],
+        ),
       ),
     );
   }
