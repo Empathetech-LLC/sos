@@ -3,8 +3,8 @@
  * See LICENSE for distribution and usage details.
  */
 
-import 'package:sos/screens/export.dart';
-
+import '../export.dart';
+import '../../utils/export.dart';
 import '../../widgets/export.dart';
 
 import 'package:flutter/material.dart';
@@ -24,7 +24,16 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   final double margin = EzConfig.get(marginKey);
   final double spacing = EzConfig.get(spacingKey);
 
+  static const EzSpacer spacer = EzSpacer();
   static const EzSeparator separator = EzSeparator();
+
+  late final EFUILang el10n = EFUILang.of(context)!;
+
+  // Define the build data //
+
+  bool sosOnOpen = EzConfig.get(onOpenKey);
+  bool sosOnClose = EzConfig.get(onCloseKey);
+  bool sosOnInterrupt = EzConfig.get(onInterruptKey);
 
   // Init //
 
@@ -38,11 +47,10 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final TextTheme textTheme = Theme.of(context).textTheme;
-
     return SosScaffold(
-      title: EFUILang.of(context)!.ssPageTitle,
+      title: el10n.ssPageTitle,
       body: EzScreen(
+        useImageDecoration: false,
         child: EzScrollView(
           children: <Widget>[
             if (spacing > margin) EzSpacer(space: spacing - margin),
@@ -52,7 +60,34 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             separator,
 
             // SOS
-            Text('Setting', style: textTheme.bodyLarge),
+            _SettingsCheckbox(
+              title: 'Auto SOS on open',
+              value: sosOnOpen,
+              onChanged: (bool? value) {
+                if (value == null) return;
+                setState(() => sosOnOpen = value);
+              },
+            ),
+            spacer,
+
+            _SettingsCheckbox(
+              title: 'Auto SOS on close',
+              value: sosOnClose,
+              onChanged: (bool? value) {
+                if (value == null) return;
+                setState(() => sosOnClose = value);
+              },
+            ),
+            spacer,
+
+            _SettingsCheckbox(
+              title: 'Auto SOS on interrupted recording',
+              value: sosOnInterrupt,
+              onChanged: (bool? value) {
+                if (value == null) return;
+                setState(() => sosOnInterrupt = value);
+              },
+            ),
             separator,
 
             // Appearance
@@ -65,6 +100,32 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _SettingsCheckbox extends StatelessWidget {
+  final String title;
+  final bool value;
+  final void Function(bool?) onChanged;
+
+  const _SettingsCheckbox({
+    required this.title,
+    required this.value,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return EzRow(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Flexible(child: EzText(title, textAlign: TextAlign.center)),
+        EzCheckbox(
+          value: value,
+          onChanged: onChanged,
+        ),
+      ],
     );
   }
 }
