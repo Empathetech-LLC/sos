@@ -34,10 +34,8 @@ class _HomeScreenState extends State<HomeScreen>
   // Gather the theme data //
 
   // Layout
-  late final double safeTop =
-      Platform.isIOS ? padding : MediaQuery.paddingOf(context).top;
-  late final double safeBottom =
-      Platform.isIOS ? margin : MediaQuery.paddingOf(context).bottom;
+  late final double safeTop = MediaQuery.paddingOf(context).top;
+  late final double safeBottom = MediaQuery.paddingOf(context).bottom;
 
   final double margin = EzConfig.get(marginKey);
   final double padding = EzConfig.get(paddingKey);
@@ -456,6 +454,16 @@ class _HomeScreenState extends State<HomeScreen>
                             ),
                             icon: Icon(Icons.circle, size: iconSize * 2),
                             onPressed: () async {
+                              if (camera == null) {
+                                final bool hasAccess = await initCamera();
+
+                                if (hasAccess) {
+                                  setState(() {});
+                                } else {
+                                  return;
+                                }
+                              }
+
                               try {
                                 await camera!.startVideoRecording();
                                 watch.start();
