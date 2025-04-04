@@ -84,9 +84,7 @@ void main() async {
   ));
 }
 
-/// Initialize a path based router for web-enabled apps
-/// Or any other app that requires deep linking
-/// https://docs.flutter.dev/ui/navigation/deep-linking
+/// [GoRouter] for the [PlatformApp.router]
 final GoRouter router = GoRouter(
   initialLocation: homePath,
   errorBuilder: (_, GoRouterState state) => ErrorScreen(state.error),
@@ -100,52 +98,54 @@ final GoRouter router = GoRouter(
           path: settingsHomePath,
           name: settingsHomePath,
           builder: (_, __) => const SettingsHomeScreen(),
-        ),
-        GoRoute(
-          path: ezSettingsHomePath,
-          name: ezSettingsHomePath,
-          builder: (_, __) => const EzSettingsHomeScreen(),
           routes: <RouteBase>[
             GoRoute(
-              path: textSettingsPath,
-              name: textSettingsPath,
-              builder: (_, __) => const TextSettingsScreen(),
+              path: ezSettingsHomePath,
+              name: ezSettingsHomePath,
+              builder: (_, __) => const EzSettingsHomeScreen(),
               routes: <RouteBase>[
                 GoRoute(
-                  path: EzSettingType.quick.path,
-                  name: 'text_quick',
-                  builder: (_, __) =>
-                      const TextSettingsScreen(target: EzSettingType.quick),
+                  path: textSettingsPath,
+                  name: textSettingsPath,
+                  builder: (_, __) => const TextSettingsScreen(),
+                  routes: <RouteBase>[
+                    GoRoute(
+                      path: EzSettingType.quick.path,
+                      name: 'text_quick',
+                      builder: (_, __) =>
+                          const TextSettingsScreen(target: EzSettingType.quick),
+                    ),
+                    GoRoute(
+                      path: EzSettingType.advanced.path,
+                      name: 'text_advanced',
+                      builder: (_, __) => const TextSettingsScreen(
+                          target: EzSettingType.advanced),
+                    ),
+                  ],
                 ),
                 GoRoute(
-                  path: EzSettingType.advanced.path,
-                  name: 'text_advanced',
-                  builder: (_, __) =>
-                      const TextSettingsScreen(target: EzSettingType.advanced),
-                ),
-              ],
-            ),
-            GoRoute(
-              path: layoutSettingsPath,
-              name: layoutSettingsPath,
-              builder: (_, __) => const LayoutSettingsScreen(),
-            ),
-            GoRoute(
-              path: colorSettingsPath,
-              name: colorSettingsPath,
-              builder: (_, __) => const ColorSettingsScreen(),
-              routes: <RouteBase>[
-                GoRoute(
-                  path: EzSettingType.quick.path,
-                  name: 'color_quick',
-                  builder: (_, __) =>
-                      const ColorSettingsScreen(target: EzSettingType.quick),
+                  path: layoutSettingsPath,
+                  name: layoutSettingsPath,
+                  builder: (_, __) => const LayoutSettingsScreen(),
                 ),
                 GoRoute(
-                  path: EzSettingType.advanced.path,
-                  name: 'color_advanced',
-                  builder: (_, __) =>
-                      const ColorSettingsScreen(target: EzSettingType.advanced),
+                  path: colorSettingsPath,
+                  name: colorSettingsPath,
+                  builder: (_, __) => const ColorSettingsScreen(),
+                  routes: <RouteBase>[
+                    GoRoute(
+                      path: EzSettingType.quick.path,
+                      name: 'color_quick',
+                      builder: (_, __) => const ColorSettingsScreen(
+                          target: EzSettingType.quick),
+                    ),
+                    GoRoute(
+                      path: EzSettingType.advanced.path,
+                      name: 'color_advanced',
+                      builder: (_, __) => const ColorSettingsScreen(
+                          target: EzSettingType.advanced),
+                    ),
+                  ],
                 ),
               ],
             ),
