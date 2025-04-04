@@ -19,9 +19,6 @@ const String videoColorKey = 'Video';
 /// 'emc'
 const String emcKey = 'emc';
 
-/// 'customSOS'
-const String customSOSKey = 'customSOS';
-
 /// 'notifyOnOpen'
 const String onOpenKey = 'sosOnOpen';
 
@@ -38,7 +35,6 @@ final Map<String, dynamic> sosConfig = <String, dynamic>{
   tutorialKey: true,
   videoColorKey: 0xFFFF0000,
   emcKey: <String>[],
-  customSOSKey: 'SOS',
   onOpenKey: false,
   onCloseKey: false,
   onInterruptKey: true,
