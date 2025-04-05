@@ -24,14 +24,15 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
   static const EzSpacer spacer = EzSpacer();
   static const EzSeparator separator = EzSeparator();
 
-  late final EFUILang l10n = EFUILang.of(context)!;
+  late final Lang l10n = Lang.of(context)!;
+  late final EFUILang el10n = EFUILang.of(context)!;
 
   // Set the page title //
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    ezWindowNamer(context, 'Appearance settings'); // TODO: translate
+    ezWindowNamer(context, el10n.ssPageTitle);
   }
 
   // Return the build //
@@ -39,13 +40,13 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SosScaffold(
-      title: 'Appearance',
+      title: l10n.ssAppearance,
       body: EzScreen(
         useImageDecoration: false,
         child: EzScrollView(
           children: <Widget>[
             // Functionality disclaimer
-            EzWarning(l10n.ssSettingsGuide.split('\n').first),
+            EzWarning(el10n.ssSettingsGuide.split('\n').first),
             separator,
 
             // Global settings
@@ -58,21 +59,21 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
             EzElevatedIconButton(
               onPressed: () => context.goNamed(textSettingsPath),
               icon: EzIcon(Icons.navigate_next),
-              label: l10n.tsPageTitle,
+              label: el10n.tsPageTitle,
             ),
             spacer,
 
             EzElevatedIconButton(
               onPressed: () => context.goNamed(layoutSettingsPath),
               icon: EzIcon(Icons.navigate_next),
-              label: l10n.lsPageTitle,
+              label: el10n.lsPageTitle,
             ),
             spacer,
 
             EzElevatedIconButton(
               onPressed: () => context.goNamed(colorSettingsPath),
               icon: EzIcon(Icons.navigate_next),
-              label: l10n.csPageTitle,
+              label: el10n.csPageTitle,
             ),
             separator,
 

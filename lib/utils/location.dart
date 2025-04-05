@@ -9,20 +9,22 @@ import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:workmanager/workmanager.dart';
 
-Future<String> getCoordinates() async {
+Future<String> getCoordinates(Lang l10n) async {
   final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!serviceEnabled) return 'Cannot access location (disabled)';
+  if (!serviceEnabled) return l10n.sosDisabled;
 
   LocationPermission permission = await Geolocator.checkPermission();
   if (permission == LocationPermission.denied) {
     // Changeably denied, ask again
     permission = await Geolocator.requestPermission();
-    if (permission == LocationPermission.denied) {
-      return 'Cannot access location (denied)';
+
+    if (permission == LocationPermission.denied ||
+        permission == LocationPermission.deniedForever) {
+      return l10n.sosDenied;
     }
   } else if (permission == LocationPermission.deniedForever) {
     // Permanently denied
-    return 'Cannot access location (denied)';
+    return l10n.sosDenied;
   }
 
   final Position pos = await Geolocator.getCurrentPosition();

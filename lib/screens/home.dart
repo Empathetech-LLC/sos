@@ -403,7 +403,7 @@ class _HomeScreenState extends State<HomeScreen>
                               // Attempt to share the image
                               await Share.shareXFiles(
                                 <XFile>[image],
-                                text: await getCoordinates(),
+                                text: await getCoordinates(l10n),
                               );
                             } catch (e) {
                               // More granularity?
@@ -478,7 +478,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 // Attempt to share the video
                                 await Share.shareXFiles(
                                   <XFile>[XFile(mp4Path)],
-                                  text: await getCoordinates(),
+                                  text: await getCoordinates(l10n),
                                 );
                               } catch (e) {
                                 // More granularity?

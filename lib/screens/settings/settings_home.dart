@@ -42,7 +42,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    ezWindowNamer(context, 'App settings');
+    ezWindowNamer(context, el10n.ssPageTitle);
   }
 
   // Return the build //
@@ -63,7 +63,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
             // SOS
             _SettingsCheckbox(
-              title: 'SOS on open',
+              title: l10n.ssSOSOnOpen,
               value: sosOnOpen,
               onChanged: (bool? value) async {
                 if (value == null) return;
@@ -74,7 +74,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             spacer,
 
             _SettingsCheckbox(
-              title: 'SOS on lock',
+              title: l10n.ssSOSOnClose,
               value: sosOnClose,
               onChanged: (bool? value) async {
                 if (value == null) return;
@@ -88,10 +88,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                         textAlign: TextAlign.center,
                       ),
                       contents: <Widget>[
-                        const Text(
-                          "When 'SOS on lock' is enabled, a safe close button will appear on the home screen (opposite the settings).\n\nUse this to close the app without activating SOS",
-                          textAlign: TextAlign.center,
-                        )
+                        Text(l10n.ssSOSOnCloseHint, textAlign: TextAlign.center)
                       ],
                       materialActions: <Widget>[
                         EzMaterialAction(
@@ -117,7 +114,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             spacer,
 
             _SettingsCheckbox(
-              title: 'SOS on interrupted recording',
+              title: l10n.ssVideoSOS,
               value: sosOnInterrupt,
               onChanged: (bool? value) async {
                 if (value == null) return;
@@ -135,7 +132,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             EzElevatedIconButton(
               onPressed: () => context.goNamed(ezSettingsHomePath),
               icon: EzIcon(Icons.navigate_next),
-              label: 'Appearance',
+              label: l10n.ssAppearance,
             ),
             separator,
           ],

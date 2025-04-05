@@ -30,7 +30,7 @@ class ContactTile extends StatelessWidget {
       icon: Icon(PlatformIcons(context).removeCircledOutline),
       enabled: enabled,
       onPressed: onRemove,
-      tooltip: 'Remove contact',
+      tooltip: Lang.of(context)!.ssRemoveHint,
     );
 
     return ListTile(
@@ -60,6 +60,7 @@ class _ContactListState extends State<ContactList> {
     style: textTheme.bodyLarge,
   ).height;
 
+  late final Lang l10n = Lang.of(context)!;
   late final TextTheme textTheme = Theme.of(context).textTheme;
 
   // Define build data //
@@ -76,10 +77,7 @@ class _ContactListState extends State<ContactList> {
           EzRow(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Text(
-                'Emergency Contacts',
-                style: textTheme.titleLarge,
-              ),
+              Text(l10n.ssEMC, style: textTheme.titleLarge),
               EzMargin(),
               EzIconButton(
                 icon: Icon(PlatformIcons(context).addCircledOutline),
@@ -87,7 +85,7 @@ class _ContactListState extends State<ContactList> {
                   emc = await addEMC(context, emc, loop: false) ?? emc;
                   setState(() => heightMod = min(5, emc.length));
                 },
-                tooltip: 'Add another contact',
+                tooltip: l10n.ssAddHint,
               ),
             ],
           ),
