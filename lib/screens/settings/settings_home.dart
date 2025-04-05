@@ -33,9 +33,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
   // Define the build data //
 
-  bool sosOnOpen = EzConfig.get(onOpenKey);
-  bool sosOnClose = EzConfig.get(onCloseKey);
-  bool sosOnInterrupt = EzConfig.get(onInterruptKey);
+  bool sosOnOpen = EzConfig.get(onOpenKey) ?? false;
+  bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
+  bool sosOnInterrupt = EzConfig.get(onInterruptKey) ?? false;
 
   // Init //
 
