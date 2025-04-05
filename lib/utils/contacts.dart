@@ -79,6 +79,8 @@ Future<List<String>?> addEMC(BuildContext context, List<String>? curr) async {
           message: l10n.hsNoNumber,
         ).closed;
       }
+    } else if (curr.contains(contact.phones.first.number)) {
+      return curr;
     } else {
       break;
     }
