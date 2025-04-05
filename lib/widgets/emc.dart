@@ -95,7 +95,7 @@ class _ContactListState extends State<ContactList> {
           Card(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: margin),
-              height: 2 * margin +
+              height: margin +
                   (padding + numHeight) * heightMod +
                   spacing * (heightMod - 1),
               width: double.infinity,
