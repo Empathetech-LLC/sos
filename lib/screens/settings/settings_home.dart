@@ -127,6 +127,10 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             ),
             separator,
 
+            // EMC
+            const ContactList(),
+            separator,
+
             // Appearance
             EzElevatedIconButton(
               onPressed: () => context.goNamed(ezSettingsHomePath),
