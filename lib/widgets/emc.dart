@@ -65,7 +65,7 @@ class _ContactListState extends State<ContactList> {
   // Define build data //
 
   List<String> emc = EzConfig.get(emcKey);
-  late final int heightMod = min(5, emc.length);
+  late int heightMod = min(5, emc.length);
 
   // Return the build //
 
@@ -85,7 +85,7 @@ class _ContactListState extends State<ContactList> {
                 icon: Icon(PlatformIcons(context).addCircledOutline),
                 onPressed: () async {
                   emc = await addEMC(context, emc) ?? emc;
-                  setState(() {});
+                  setState(() => heightMod = min(5, emc.length));
                 },
                 tooltip: 'Add another contact',
               ),
@@ -96,8 +96,7 @@ class _ContactListState extends State<ContactList> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: margin),
               height: 2 * margin +
-                  padding +
-                  numHeight * heightMod +
+                  (padding + numHeight) * heightMod +
                   spacing * (heightMod - 1),
               width: double.infinity,
               child: Center(
@@ -112,7 +111,7 @@ class _ContactListState extends State<ContactList> {
                         onRemove: () async {
                           emc.remove(number);
                           await EzConfig.setStringList(emcKey, emc);
-                          setState(() {});
+                          setState(() => heightMod = min(5, emc.length));
                         },
                       ),
                   ],
