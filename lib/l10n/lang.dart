@@ -284,16 +284,28 @@ abstract class Lang {
   /// **'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.'**
   String get rsSharedLawyer;
 
+  /// No description provided for @sosDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Cannot access location (disabled)'**
+  String get sosDisabled;
+
+  /// No description provided for @sosDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Cannot access location (denied)'**
+  String get sosDenied;
+
   /// No description provided for @ssSOSOnOpen.
   ///
   /// In en, this message translates to:
-  /// **'Auto SOS on open'**
+  /// **'SOS on open'**
   String get ssSOSOnOpen;
 
   /// No description provided for @ssSOSOnClose.
   ///
   /// In en, this message translates to:
-  /// **'Auto SOS on close'**
+  /// **'SOS on close'**
   String get ssSOSOnClose;
 
   /// No description provided for @ssSOSOnCloseHint.
@@ -305,7 +317,7 @@ abstract class Lang {
   /// No description provided for @ssVideoSOS.
   ///
   /// In en, this message translates to:
-  /// **'Auto SOS on interrupted recording'**
+  /// **'SOS on interrupted recording'**
   String get ssVideoSOS;
 
   /// No description provided for @ssEMC.
@@ -313,6 +325,24 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'Emergency contacts'**
   String get ssEMC;
+
+  /// No description provided for @ssRemoveHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove contact'**
+  String get ssRemoveHint;
+
+  /// No description provided for @ssAddHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add another contact'**
+  String get ssAddHint;
+
+  /// No description provided for @ssAppearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get ssAppearance;
 }
 
 class _LangDelegate extends LocalizationsDelegate<Lang> {

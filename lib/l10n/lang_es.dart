@@ -13,23 +13,23 @@ class LangEs extends Lang {
 
   @override
   String get hsNeedContacts =>
-      'SOS necesita acceso a sus contactos para funcionar correctamente.';
+      'SOS needs access to your contacts to function properly.';
 
   @override
   String get hsNeedLocation =>
-      'SOS necesita acceso a su ubicación para funcionar correctamente.';
+      'SOS needs access to your location to function properly.';
 
   @override
-  String get hsSOSHint => 'Comience a compartir la ubicación';
+  String get hsSOSHint => 'Start sharing location';
 
   @override
-  String get hsSafeCloseHint => 'Todo claro\nCierra la aplicación sin SOS';
+  String get hsSafeCloseHint => 'All clear\nClose the app without SOS';
 
   @override
-  String get hsCameraHint => 'Tomar una foto';
+  String get hsCameraHint => 'Take a photo';
 
   @override
-  String get hsRecordHint => 'Grabar un video';
+  String get hsRecordHint => 'Record a video';
 
   @override
   String get hsWelcome => 'Welcome to SOS';
@@ -62,77 +62,92 @@ class LangEs extends Lang {
       'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nHit the gavel to show a list of your rights.';
 
   @override
-  String get hsNoNumber => 'El contacto no tiene un número de teléfono';
+  String get hsNoNumber => 'The contact must have a phone number.';
 
   @override
-  String get rsSharedHeader => 'Tienes derecho a...';
+  String get rsSharedHeader => 'You have the right to...';
 
   @override
   String get rsSharedRemainSilent =>
-      'Permanecer en silencio. Algunos estados pueden requerir un nombre, pero eso es todo lo que pueden exigir. No mientas ni resistas el arresto, pero no tienes que responder preguntas.';
+      'Remain silent. Some states may require a name, but that is all they can require. Do not lie or resist arrest, but you do not have to answer questions.';
 
   @override
   String get rsSharedDoubleSilence =>
-      'Permanecer en silencio sobre tu silencio. No tienes que justificarte.';
+      'Be silent about your silence. You do not have to justify yourself.';
 
   @override
   String get rsSharedDocument =>
-      'Documentar todo. Tienes derecho a tomar fotos, grabar videos y grabar audio.';
+      'Document everything. You have the right to take pictures, record videos, and record audio.';
 
   @override
   String get rsWalkPockets =>
-      'Negarse a una búsqueda de sus bolsillos. ICE puede hacer un registro superficial, pero no una búsqueda.';
+      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
 
   @override
-  String get rsWalkLeave => 'Irse si no está bajo arresto.';
+  String get rsWalkLeave => 'Leave if you are not under arrest.';
 
   @override
-  String get rsDriveSearch => 'Negarse a una búsqueda de su automóvil.';
+  String get rsDriveSearch => 'Refuse a search of your car.';
 
   @override
   String get rsDrivePockets =>
-      'Negarse a una búsqueda de sus bolsillos. ICE puede hacer un registro superficial, pero no una búsqueda.';
+      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
 
   @override
   String get rsDriveID =>
-      'Negarse a proporcionar identificación como pasajero. Solo el conductor está obligado a proporcionar identificación.';
+      'Refuse to provide ID as a passenger. Only the driver is required to provide ID.';
 
   @override
   String get rsDriveQuestion =>
-      'Hacer preguntas. Averigua por qué te están deteniendo.';
+      'Ask questions. Find out why you are being stopped.';
 
   @override
   String get rsDriveWarrant =>
-      'Preguntar si los oficiales tienen una orden. Tienes derecho a verla si la tienen.';
+      'Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it\'s not valid.';
 
   @override
-  String get rsDriveLeave => 'Irse si no está bajo arresto.';
+  String get rsDriveLeave => 'Leave if you are not under arrest.';
 
   @override
   String get rsHomeWarrant =>
-      'Mantén la puerta cerrada. Si tienen una orden, pídeles que se la pasen por debajo de la puerta primero.';
+      'Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.';
 
   @override
   String get rsSharedFingerprint =>
-      'Negarse a ser fichado por ICE a menos que esté bajo arresto.';
+      'Refuse to be fingerprinted by ICE unless you are under arrest.';
 
   @override
   String get rsSharedLawyer =>
-      'Consultar a un abogado. Si has sido arrestado formalmente, tienes derecho a un abogado de oficio.';
+      'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.';
 
   @override
-  String get ssSOSOnOpen => 'SOS automático al abrir';
+  String get sosDisabled => 'Cannot access location (disabled)';
 
   @override
-  String get ssSOSOnClose => 'SOS automático al cerrar';
+  String get sosDenied => 'Cannot access location (denied)';
+
+  @override
+  String get ssSOSOnOpen => 'Auto SOS on open';
+
+  @override
+  String get ssSOSOnClose => 'Auto SOS on close';
 
   @override
   String get ssSOSOnCloseHint =>
-      'Cuando está habilitado, se mostrará un botón de cierre seguro opuesto a la configuración.';
+      'When enabled, a safe close button will be shown opposite the settings.';
 
   @override
-  String get ssVideoSOS => 'SOS automático en caso de grabación interrumpida';
+  String get ssVideoSOS => 'Auto SOS on interrupted recording';
 
   @override
-  String get ssEMC => 'Contactos de emergencia';
+  String get ssEMC => 'Emergency contacts';
+
+  @override
+  String get ssRemoveHint => 'Remove contact';
+
+  @override
+  String get ssAddHint => 'Add another contact';
+
+  @override
+  String get ssAppearance => 'Appearance';
 }

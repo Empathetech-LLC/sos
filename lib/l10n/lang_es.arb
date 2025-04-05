@@ -1,19 +1,19 @@
 {
   "@@locale": "es",
 
-
-
+  
+  
   "gOk": "Ok",
 
 
 
-  "hsNeedContacts": "SOS necesita acceso a sus contactos para funcionar correctamente.",
-  "hsNeedLocation": "SOS necesita acceso a su ubicación para funcionar correctamente.",
+  "hsNeedContacts": "SOS needs access to your contacts to function properly.",
+  "hsNeedLocation": "SOS needs access to your location to function properly.",
 
-  "hsSOSHint": "Comience a compartir la ubicación",
-  "hsSafeCloseHint": "Todo claro\nCierra la aplicación sin SOS",
-  "hsCameraHint": "Tomar una foto",
-  "hsRecordHint": "Grabar un video",
+  "hsSOSHint": "Start sharing location",
+  "hsSafeCloseHint": "All clear\nClose the app without SOS",
+  "hsCameraHint": "Take a photo",
+  "hsRecordHint": "Record a video",
 
   "hsWelcome": "Welcome to SOS",
   "hsAppTutorial": "It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.",
@@ -24,36 +24,46 @@
   "hsVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nWhile recording a video, the camera button will be replaced with a gavel that shows your rights.",
   "hsRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nHit the gavel to show a list of your rights.",
 
-  "hsNoNumber": "El contacto no tiene un número de teléfono",
+  "hsNoNumber": "The contact must have a phone number.",
 
 
 
-  "rsSharedHeader": "Tienes derecho a...",
-  "rsSharedRemainSilent": "Permanecer en silencio. Algunos estados pueden requerir un nombre, pero eso es todo lo que pueden exigir. No mientas ni resistas el arresto, pero no tienes que responder preguntas.",
-  "rsSharedDoubleSilence": "Permanecer en silencio sobre tu silencio. No tienes que justificarte.",
-  "rsSharedDocument": "Documentar todo. Tienes derecho a tomar fotos, grabar videos y grabar audio.",
-
-  "rsWalkPockets": "Negarse a una búsqueda de sus bolsillos. ICE puede hacer un registro superficial, pero no una búsqueda.",
-  "rsWalkLeave": "Irse si no está bajo arresto.",
-
-  "rsDriveSearch": "Negarse a una búsqueda de su automóvil.",
-  "rsDrivePockets": "Negarse a una búsqueda de sus bolsillos. ICE puede hacer un registro superficial, pero no una búsqueda.",
-  "rsDriveID": "Negarse a proporcionar identificación como pasajero. Solo el conductor está obligado a proporcionar identificación.",
-  "rsDriveQuestion": "Hacer preguntas. Averigua por qué te están deteniendo.",
-  "rsDriveWarrant": "Preguntar si los oficiales tienen una orden. Tienes derecho a verla si la tienen.",
-  "rsDriveLeave": "Irse si no está bajo arresto.",
-
-  "rsHomeWarrant": "Mantén la puerta cerrada. Si tienen una orden, pídeles que se la pasen por debajo de la puerta primero.",
+  "rsSharedHeader": "You have the right to...",
   
-  "rsSharedFingerprint": "Negarse a ser fichado por ICE a menos que esté bajo arresto.",
-  "rsSharedLawyer": "Consultar a un abogado. Si has sido arrestado formalmente, tienes derecho a un abogado de oficio.",
+  "rsSharedRemainSilent": "Remain silent. Some states may require a name, but that is all they can require. Do not lie or resist arrest, but you do not have to answer questions.",
+  "rsSharedDoubleSilence": "Be silent about your silence. You do not have to justify yourself.",
+  "rsSharedDocument": "Document everything. You have the right to take pictures, record videos, and record audio.",
+
+  "rsWalkPockets": "Refuse a search of your pockets. ICE can give a pat-down, but not a search.",
+  "rsWalkLeave": "Leave if you are not under arrest.",
+
+  "rsDriveSearch": "Refuse a search of your car.",
+  "rsDrivePockets": "Refuse a search of your pockets. ICE can give a pat-down, but not a search.",
+  "rsDriveID": "Refuse to provide ID as a passenger. Only the driver is required to provide ID.",
+  "rsDriveQuestion": "Ask questions. Find out why you are being stopped.",
+  "rsDriveWarrant": "Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it's not valid.",
+  "rsDriveLeave": "Leave if you are not under arrest.",
+  
+  "rsHomeWarrant": "Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it's not valid. Keep your door shut.",
+
+  "rsSharedFingerprint": "Refuse to be fingerprinted by ICE unless you are under arrest.",
+  "rsSharedLawyer": "To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.",
 
 
   
-  "ssSOSOnOpen": "SOS automático al abrir",
-  "ssSOSOnClose": "SOS automático al cerrar",
-  "ssSOSOnCloseHint": "Cuando está habilitado, se mostrará un botón de cierre seguro opuesto a la configuración.",
-  "ssVideoSOS": "SOS automático en caso de grabación interrumpida",
+  "sosDisabled": "Cannot access location (disabled)",
+  "sosDenied": "Cannot access location (denied)",
+  
+  
+  
+  "ssSOSOnOpen": "Auto SOS on open",
+  "ssSOSOnClose": "Auto SOS on close",
+  "ssSOSOnCloseHint": "When enabled, a safe close button will be shown opposite the settings.",
+  "ssVideoSOS": "Auto SOS on interrupted recording",
 
-  "ssEMC": "Contactos de emergencia"
+  "ssEMC": "Emergency contacts",
+  "ssRemoveHint": "Remove contact",
+  "ssAddHint": "Add another contact",
+
+  "ssAppearance": "Appearance"
 }

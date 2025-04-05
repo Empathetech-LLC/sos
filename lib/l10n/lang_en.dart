@@ -121,18 +121,33 @@ class LangEn extends Lang {
       'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.';
 
   @override
-  String get ssSOSOnOpen => 'Auto SOS on open';
+  String get sosDisabled => 'Cannot access location (disabled)';
 
   @override
-  String get ssSOSOnClose => 'Auto SOS on close';
+  String get sosDenied => 'Cannot access location (denied)';
+
+  @override
+  String get ssSOSOnOpen => 'SOS on open';
+
+  @override
+  String get ssSOSOnClose => 'SOS on close';
 
   @override
   String get ssSOSOnCloseHint =>
       'When enabled, a safe close button will be shown opposite the settings.';
 
   @override
-  String get ssVideoSOS => 'Auto SOS on interrupted recording';
+  String get ssVideoSOS => 'SOS on interrupted recording';
 
   @override
   String get ssEMC => 'Emergency contacts';
+
+  @override
+  String get ssRemoveHint => 'Remove contact';
+
+  @override
+  String get ssAddHint => 'Add another contact';
+
+  @override
+  String get ssAppearance => 'Appearance';
 }

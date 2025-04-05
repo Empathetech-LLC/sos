@@ -50,11 +50,20 @@
   "rsSharedLawyer": "To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.",
 
 
-  
-  "ssSOSOnOpen": "Auto SOS on open",
-  "ssSOSOnClose": "Auto SOS on close",
-  "ssSOSOnCloseHint": "When enabled, a safe close button will be shown opposite the settings.",
-  "ssVideoSOS": "Auto SOS on interrupted recording",
 
-  "ssEMC": "Emergency contacts"
+  "sosDisabled": "Cannot access location (disabled)",
+  "sosDenied": "Cannot access location (denied)",
+
+
+  
+  "ssSOSOnOpen": "SOS on open",
+  "ssSOSOnClose": "SOS on close",
+  "ssSOSOnCloseHint": "When enabled, a safe close button will be shown opposite the settings.",
+  "ssVideoSOS": "SOS on interrupted recording",
+
+  "ssEMC": "Emergency contacts",
+  "ssRemoveHint": "Remove contact",
+  "ssAddHint": "Add another contact",
+
+  "ssAppearance": "Appearance"
 }
