@@ -13,7 +13,11 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 /// Prompt the user to save their first contact
 /// Users must select at least one emergency contact to use the app
-Future<List<String>?> addEMC(BuildContext context, List<String>? curr) async {
+Future<List<String>?> addEMC(
+  BuildContext context,
+  List<String>? curr, {
+  bool loop = true,
+}) async {
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = EFUILang.of(context)!;
 
@@ -84,6 +88,8 @@ Future<List<String>?> addEMC(BuildContext context, List<String>? curr) async {
     } else {
       break;
     }
+
+    if (!loop) return curr;
   }
 
   curr.add(contact.phones.first.number);
