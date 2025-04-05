@@ -3,10 +3,12 @@
  * See LICENSE for distribution and usage details.
  */
 
+import '../utils/export.dart';
+
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-import 'package:sos/utils/consts.dart';
 
 class ContactTile extends StatelessWidget {
   final String number;
@@ -28,7 +30,7 @@ class ContactTile extends StatelessWidget {
       icon: Icon(PlatformIcons(context).removeCircledOutline),
       enabled: enabled,
       onPressed: onRemove,
-      tooltip: 'Remove',
+      tooltip: 'Remove contact',
     );
 
     return ListTile(
@@ -47,44 +49,74 @@ class ContactList extends StatefulWidget {
 }
 
 class _ContactListState extends State<ContactList> {
-  final List<String> emc = EzConfig.get(emcKey);
+  // Gather theme data //
+
+  final double margin = EzConfig.get(marginKey);
+  final double padding = EzConfig.get(paddingKey);
+  final double spacing = EzConfig.get(paddingKey);
+  late final double numHeight = ezTextSize(
+    '(000) 000-0000',
+    context: context,
+    style: textTheme.bodyLarge,
+  ).height;
+
   late final TextTheme textTheme = Theme.of(context).textTheme;
+
+  // Define build data //
+
+  List<String> emc = EzConfig.get(emcKey);
+  late final int heightMod = min(5, emc.length);
+
+  // Return the build //
 
   @override
   Widget build(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text(
-            'Emergency Contacts',
-            style: textTheme.titleLarge,
+          EzRow(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Text(
+                'Emergency Contacts',
+                style: textTheme.titleLarge,
+              ),
+              EzMargin(),
+              EzIconButton(
+                icon: Icon(PlatformIcons(context).addCircledOutline),
+                onPressed: () async {
+                  emc = await addEMC(context, emc) ?? emc;
+                  setState(() {});
+                },
+                tooltip: 'Add another contact',
+              ),
+            ],
           ),
           EzMargin(),
           Card(
             child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: EzConfig.get(marginKey),
-              ),
-              height: ezTextSize(
-                    '(000) 000-0000',
-                    context: context,
-                    style: textTheme.bodyLarge,
-                  ).height *
-                  5,
+              padding: EdgeInsets.symmetric(horizontal: margin),
+              height: 2 * margin +
+                  padding +
+                  numHeight * heightMod +
+                  spacing * (heightMod - 1),
               width: double.infinity,
-              child: EzScrollView(
-                children: <Widget>[
-                  for (final String number in emc)
-                    ContactTile(
-                      key: ValueKey<String>(number),
-                      number: number,
-                      enabled: emc.length > 1,
-                      onRemove: () async {
-                        emc.remove(number);
-                        await EzConfig.setStringList(emcKey, emc);
-                        setState(() {});
-                      },
-                    ),
-                ],
+              child: Center(
+                child: EzScrollView(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    for (final String number in emc)
+                      ContactTile(
+                        key: ValueKey<String>(number),
+                        number: number,
+                        enabled: emc.length > 1,
+                        onRemove: () async {
+                          emc.remove(number);
+                          await EzConfig.setStringList(emcKey, emc);
+                          setState(() {});
+                        },
+                      ),
+                  ],
+                ),
               ),
             ),
           ),
