@@ -84,7 +84,7 @@ class _ContactListState extends State<ContactList> {
               EzIconButton(
                 icon: Icon(PlatformIcons(context).addCircledOutline),
                 onPressed: () async {
-                  emc = await addEMC(context, emc) ?? emc;
+                  emc = await addEMC(context, emc, loop: false) ?? emc;
                   setState(() => heightMod = min(5, emc.length));
                 },
                 tooltip: 'Add another contact',
