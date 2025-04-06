@@ -5,7 +5,7 @@
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>
-		<string>SnapOS</string>
+		<string>InstaSOS</string>
 		<key>CFBundleExecutable</key>
 		<string>$(EXECUTABLE_NAME)</string>
 		<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundleName</key>
-		<string>SnapOS</string>
+		<string>InstaSOS</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
@@ -46,22 +46,22 @@
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
 		<key>NSCameraUsageDescription</key>
-		<string>SnapOS needs access to your camera to share photos/videos with your emergency contacts.</string>
+		<string>InstaSOS needs access to your camera to share photos/videos with your emergency contacts.</string>
 		<key>NSMicrophoneUsageDescription</key>
-		<string>SnapOS needs access to your microphone to record videos with audio.</string>
+		<string>InstaSOS needs access to your microphone to record videos with audio.</string>
 		<key>UIStatusBarHidden</key>
 		<false/>
 		<key>NSLocationUsageDescription</key>
-		<string>SnapOS needs access to your location to share it with your emergency contacts.</string>
+		<string>InstaSOS needs access to your location to share it with your emergency contacts.</string>
 		<key>NSLocationWhenInUseUsageDescription</key>
-		<string>SnapOS needs access to your location to share it with your emergency contacts.</string>
+		<string>InstaSOS needs access to your location to share it with your emergency contacts.</string>
 		<key>NSLocationAlwaysUsageDescription</key>
-		<string>SnapOS needs access to your location to share it with your emergency contacts.</string>
+		<string>InstaSOS needs access to your location to share it with your emergency contacts.</string>
 		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-		<string>SnapOS needs access to your location to share it with your emergency contacts.</string>
+		<string>InstaSOS needs access to your location to share it with your emergency contacts.</string>
 		<key>NSContactsUsageDescription</key>
-		<string>SnapOS needs to be able to save your emergency contacts.</string>
+		<string>InstaSOS needs to be able to save your emergency contacts.</string>
 		<key>NSPhotoLibraryAddUsageDescription</key>
-		<string>SnapOS needs access to your photo library to save photos/videos.</string>
+		<string>InstaSOS needs access to your photo library to save photos/videos.</string>
 	</dict>
 </plist>
