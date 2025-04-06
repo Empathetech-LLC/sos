@@ -66,11 +66,11 @@ flutter:
     - assets/fonts/Roboto-Thin.ttf
     - assets/fonts/Roboto-ThinItalic.ttf
     - assets/images/
-    - assets/images/logo.png
+    - assets/images/icon.png
 
 flutter_launcher_icons:
-  image_path: assets/images/logo.png
-  adaptive_icon_foreground: assets/images/logo.png
+  image_path: assets/images/icon.png
+  adaptive_icon_foreground: assets/images/icon.png
   adaptive_icon_background: "#A520DA"
   android: true
   ios: true
@@ -83,7 +83,7 @@ flutter_launcher_icons:
     generate: false
 
 flutter_native_splash:
-  image: assets/images/logo.png
+  image: assets/images/icon.png
   color: "#A520DA"
   android: true
   ios: true
