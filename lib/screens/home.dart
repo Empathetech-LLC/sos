@@ -437,7 +437,8 @@ class _HomeScreenState extends State<HomeScreen>
                               foregroundColor: videoColor,
                               side: BorderSide(color: videoTextColor),
                             ),
-                            icon: Icon(Icons.stop, size: iconSize * 2),
+                            icon: const Icon(Icons.stop),
+                            iconSize: iconSize * 2,
                             onPressed: () async {
                               try {
                                 // Stop recording
@@ -493,7 +494,8 @@ class _HomeScreenState extends State<HomeScreen>
                               foregroundColor: videoColor,
                               side: BorderSide(color: videoTextColor),
                             ),
-                            icon: Icon(Icons.circle, size: iconSize * 2),
+                            icon: const Icon(Icons.circle),
+                            iconSize: iconSize * 2,
                             onPressed: () async {
                               if (camera == null) {
                                 final bool hasAccess = await initCamera();
