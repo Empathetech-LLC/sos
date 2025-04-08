@@ -14,7 +14,7 @@ import workmanager
       GeneratedPluginRegistrant.register(with: registry)
     }
 
-    WorkmanagerPlugin.registerPeriodicTask(withIdentifier: "net.empathetech.sos.sos_broadcast")
+    WorkmanagerPlugin.registerPeriodicTask(withIdentifier: "net.empathetech.sos.sos_broadcast", frequency: NSNumber(value: 15 * 60))
 
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
