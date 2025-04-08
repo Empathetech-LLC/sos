@@ -144,8 +144,8 @@ class _HomeScreenState extends State<HomeScreen>
     if (sosOnOpen) {
       sosTimer?.cancel();
       sosTimer = Timer.periodic(
-        const Duration(minutes: 5),
-        (_) => sendSOS(),
+        const Duration(seconds: 10),
+        (_) => sendSOS(emc: emc, l10n: l10n),
       );
 
       setState(() => broadcasting = true);
@@ -274,8 +274,8 @@ class _HomeScreenState extends State<HomeScreen>
                           onPressed: () {
                             sosTimer?.cancel();
                             sosTimer = Timer.periodic(
-                              const Duration(minutes: 5),
-                              (_) => sendSOS(),
+                              const Duration(seconds: 10),
+                              (_) => sendSOS(emc: emc, l10n: l10n),
                             );
 
                             setState(() => broadcasting = true);
