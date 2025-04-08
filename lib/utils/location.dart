@@ -5,9 +5,10 @@
 
 import './export.dart';
 
-import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:workmanager/workmanager.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 Future<String> getCoordinates(Lang l10n) async {
   final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
@@ -31,7 +32,28 @@ Future<String> getCoordinates(Lang l10n) async {
   return pos.toString();
 }
 
-void sendSOS() => debugPrint('CAW SOS CAW');
+// Not gonna work, relies on external apps
+void sendSOS({
+  required List<String>? emc,
+  required Lang l10n,
+}) {
+  if (emc == null || emc.isEmpty) return;
+
+  try {
+    for (final String number in emc) {
+      final Uri url = Uri(
+        scheme: 'sms',
+        path: number,
+        queryParameters: <String, String>{
+          'body': 'SOS\n${getCoordinates(l10n)}'
+        },
+      );
+      launchUrl(url);
+    }
+  } catch (e) {
+    ezLog('Error sending SOS: $e');
+  }
+}
 
 /// Register [broadcastTask] (aka [sendSOS]) with [Workmanager]
 Future<void> runBackgroundBroadcast() =>
