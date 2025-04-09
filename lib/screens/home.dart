@@ -34,6 +34,8 @@ class _HomeScreenState extends State<HomeScreen>
     with AfterLayoutMixin<HomeScreen>, WidgetsBindingObserver {
   // Gather the theme data //
 
+  final bool isAndroid = Platform.isAndroid;
+
   // Layout
   late final double safeTop = MediaQuery.paddingOf(context).top;
   late final double safeBottom = MediaQuery.paddingOf(context).bottom;
@@ -145,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen>
       sosTimer?.cancel();
       sosTimer = Timer.periodic(
         const Duration(seconds: 10),
-        (_) => sendSOS(emc: emc, l10n: l10n),
+        (_) => sendSOS(emc: emc, l10n: l10n, isAndroid: isAndroid),
       );
 
       setState(() => broadcasting = true);
@@ -275,7 +277,11 @@ class _HomeScreenState extends State<HomeScreen>
                             sosTimer?.cancel();
                             sosTimer = Timer.periodic(
                               const Duration(seconds: 10),
-                              (_) => sendSOS(emc: emc, l10n: l10n),
+                              (_) => sendSOS(
+                                emc: emc,
+                                l10n: l10n,
+                                isAndroid: isAndroid,
+                              ),
                             );
 
                             setState(() => broadcasting = true);
