@@ -7,7 +7,6 @@ import './export.dart';
 
 import 'package:geolocator/geolocator.dart';
 import 'package:workmanager/workmanager.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 Future<String> getCoordinates(Lang l10n) async {
@@ -36,19 +35,17 @@ Future<String> getCoordinates(Lang l10n) async {
 void sendSOS({
   required List<String>? emc,
   required Lang l10n,
+  required bool isAndroid,
 }) {
   if (emc == null || emc.isEmpty) return;
 
   try {
     for (final String number in emc) {
-      final Uri url = Uri(
-        scheme: 'sms',
-        path: number,
-        queryParameters: <String, String>{
-          'body': 'SOS\n${getCoordinates(l10n)}'
-        },
-      );
-      launchUrl(url);
+      if (isAndroid) {
+        // Do stuff
+      } else {
+        // Do other stuff
+      }
     }
   } catch (e) {
     ezLog('Error sending SOS: $e');
