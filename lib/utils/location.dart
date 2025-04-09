@@ -5,6 +5,7 @@
 
 import './export.dart';
 
+import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
@@ -39,13 +40,13 @@ void sendSOS({
 }) {
   if (emc == null || emc.isEmpty) return;
 
+  final String message = 'SOS\n${getCoordinates(l10n)}';
+
   try {
-    for (final String number in emc) {
-      if (isAndroid) {
-        // Do stuff
-      } else {
-        // Do other stuff
-      }
+    if (isAndroid) {
+      debugPrint(message);
+    } else {
+      debugPrint(message);
     }
   } catch (e) {
     ezLog('Error sending SOS: $e');
