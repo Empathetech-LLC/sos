@@ -65,7 +65,7 @@ class _ContactListState extends State<ContactList> {
   late int heightMod = min(5, emc.length);
 
   late final Size numSize = ezTextSize(
-    '(444) 444-4444',
+    '+44 (444) 444-4444',
     context: context,
     style: textTheme.bodyLarge,
   );
@@ -106,30 +106,29 @@ class _ContactListState extends State<ContactList> {
           EzMargin(),
 
           // List of numbers (with remove buttons)
-          Center(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: listHeight,
-                maxHeight: listHeight,
-                minWidth: listWidth,
-                maxWidth: listWidth,
-              ),
-              child: Card(
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: listHeight,
+              maxHeight: listHeight,
+              minWidth: listWidth,
+              maxWidth: listWidth,
+            ),
+            child: Card(
+              child: Center(
                 child: EzScrollView(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    for (final String number in emc)
-                      ContactTile(
-                        key: ValueKey<String>(number),
-                        number: number,
-                        enabled: emc.length > 1,
-                        onRemove: () async {
-                          emc.remove(number);
-                          await EzConfig.setStringList(emcKey, emc);
-                          setState(() => heightMod = min(5, emc.length));
-                        },
-                      ),
-                  ],
+                  children: emc
+                      .map((String number) => ContactTile(
+                            key: ValueKey<String>(number),
+                            number: number,
+                            enabled: emc.length > 1,
+                            onRemove: () async {
+                              emc.remove(number);
+                              await EzConfig.setStringList(emcKey, emc);
+                              setState(() => heightMod = min(5, emc.length));
+                            },
+                          ))
+                      .toList(),
                 ),
               ),
             ),
