@@ -23,22 +23,21 @@ class ContactTile extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    final bool isLefty = EzConfig.get(isLeftyKey);
-
-    final EzIconButton remove = EzIconButton(
-      icon: Icon(PlatformIcons(context).removeCircledOutline),
-      enabled: enabled,
-      onPressed: onRemove,
-      tooltip: Lang.of(context)!.ssRemoveHint,
-    );
-
-    return ListTile(
-      leading: isLefty ? remove : null,
-      title: Text(number, style: Theme.of(context).textTheme.bodyLarge),
-      trailing: isLefty ? null : remove,
-    );
-  }
+  Widget build(BuildContext context) => EzScrollView(
+        mainAxisSize: MainAxisSize.min,
+        scrollDirection: Axis.horizontal,
+        reverseHands: true,
+        children: <Widget>[
+          Text(number, style: Theme.of(context).textTheme.bodyLarge),
+          const EzSpacer(vertical: false),
+          EzIconButton(
+            icon: Icon(PlatformIcons(context).removeCircledOutline),
+            enabled: enabled,
+            onPressed: onRemove,
+            tooltip: Lang.of(context)!.ssRemoveHint,
+          )
+        ],
+      );
 }
 
 class ContactList extends StatefulWidget {
@@ -66,7 +65,7 @@ class _ContactListState extends State<ContactList> {
   late int heightMod = min(5, emc.length);
 
   late final Size numSize = ezTextSize(
-    '(000) 000-0000',
+    '(444) 444-4444',
     context: context,
     style: textTheme.bodyLarge,
   );
