@@ -21,6 +21,8 @@ dependencies:
 
   # Community
   after_layout: ^1.2.0
+  efui_bios:
+    path: ../efui_bios
   empathetech_flutter_ui: 
     path: ../empathetech_flutter_ui
   permission_handler: ^11.4.0

@@ -6,6 +6,7 @@
 import '../screens/export.dart';
 import '../utils/export.dart';
 import '../widgets/export.dart';
+import 'package:efui_bios/efui_bios.dart';
 
 import 'dart:io';
 import 'dart:async';
