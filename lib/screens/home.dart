@@ -376,120 +376,44 @@ class _HomeScreenState extends State<HomeScreen>
               bottom: spargin,
               left: 0,
               right: 0,
-              child: EzScrollView(
-                scrollDirection: Axis.horizontal,
-                reverseHands: true,
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                startCentered: true,
-                children: <Widget>[
-                  // Capture/Know your rights
-                  (camera == null || recording)
-                      ? EzIconButton(
-                          icon: showRights
-                              ? Icon(PlatformIcons(context).eyeSlash)
-                              : const Icon(Icons.gavel),
-                          onPressed: () =>
-                              setState(() => showRights = !showRights),
-                        )
-                      : EzIconButton(
-                          icon: Icon(PlatformIcons(context).photoCamera),
-                          onPressed: () async {
-                            try {
-                              // Take a picture
-                              final XFile image = await camera!.takePicture();
-
-                              // Attempt to save the image
-                              final bool galAccess = await Gal.requestAccess();
-                              if (galAccess) {
-                                try {
-                                  await Gal.putImage(image.path);
-                                } catch (e) {
-                                  // If this fails, it's likely the user has bigger problems at hand
-                                  // We can still try to share the file without saving it to the gallery
-                                  ezLog(e.toString());
-                                }
-                              }
-
-                              // Attempt to share the image
-                              await Share.shareXFiles(
-                                <XFile>[image],
-                                text: await getCoordinates(l10n),
-                              );
-                            } catch (e) {
-                              // More granularity?
-                              if (context.mounted) {
-                                ezLogAlert(context, message: e.toString());
-                              }
-                            }
-                          },
-                        ),
-                  separator,
-
-                  // Record
-                  OverlayPortal(
-                    controller: recordOverlay,
-                    overlayChildBuilder: (_) => TutorialOverlay(
-                      bottom: safeBottom + spargin + iconSize * 2 + spacing,
-                      left: 0,
-                      right: 0,
-                      title: '3/3',
-                      content: camera == null
-                          ? l10n.hsRightsTutorial
-                          : l10n.hsVideoTutorial,
-                      accept: () async {
-                        recordOverlay.hide();
-                        await EzConfig.setBool(tutorialKey, false);
-                      },
-                    ),
-                    child: recording
+              child: Center(
+                child: EzScrollView(
+                  scrollDirection: Axis.horizontal,
+                  reverseHands: true,
+                  startCentered: true,
+                  children: <Widget>[
+                    // Capture/Know your rights
+                    (camera == null || recording)
                         ? EzIconButton(
-                            style: IconButton.styleFrom(
-                              foregroundColor: videoColor,
-                              side: BorderSide(color: videoTextColor),
-                            ),
-                            icon: const Icon(Icons.stop),
-                            iconSize: iconSize * 2,
+                            icon: showRights
+                                ? Icon(PlatformIcons(context).eyeSlash)
+                                : const Icon(Icons.gavel),
+                            onPressed: () =>
+                                setState(() => showRights = !showRights),
+                          )
+                        : EzIconButton(
+                            icon: Icon(PlatformIcons(context).photoCamera),
                             onPressed: () async {
                               try {
-                                // Stop recording
-                                final XFile video =
-                                    await camera!.stopVideoRecording();
-                                watch.stop();
+                                // Take a picture
+                                final XFile image = await camera!.takePicture();
 
-                                // Update the UI
-                                setState(() => recording = false);
-                                watch.reset();
-
-                                // Videos are saved as tmp files
-                                // We need to fix that before proceeding
-                                final File tmpFile = File(video.path);
-
-                                // Create a unique mp4 file path
-                                final Directory appDir =
-                                    await getApplicationDocumentsDirectory();
-                                final String mp4Path =
-                                    '${appDir.path}/${DateTime.now().millisecondsSinceEpoch}.mp4';
-
-                                // Copy the tmp file to the new mp4
-                                await tmpFile.copy(mp4Path);
-
-                                // Attempt to save the video
+                                // Attempt to save the image
                                 final bool galAccess =
                                     await Gal.requestAccess();
-
                                 if (galAccess) {
                                   try {
-                                    await Gal.putVideo(mp4Path);
+                                    await Gal.putImage(image.path);
                                   } catch (e) {
                                     // If this fails, it's likely the user has bigger problems at hand
+                                    // We can still try to share the file without saving it to the gallery
                                     ezLog(e.toString());
                                   }
                                 }
 
-                                // Attempt to share the video
+                                // Attempt to share the image
                                 await Share.shareXFiles(
-                                  <XFile>[XFile(mp4Path)],
+                                  <XFile>[image],
                                   text: await getCoordinates(l10n),
                                 );
                               } catch (e) {
@@ -499,57 +423,134 @@ class _HomeScreenState extends State<HomeScreen>
                                 }
                               }
                             },
-                          )
-                        : EzIconButton(
-                            style: IconButton.styleFrom(
-                              foregroundColor: videoColor,
-                              side: BorderSide(color: videoTextColor),
-                            ),
-                            icon: const Icon(Icons.circle),
-                            iconSize: iconSize * 2,
-                            onPressed: () async {
-                              if (camera == null) {
-                                final bool hasAccess = await initCamera();
-
-                                if (hasAccess) {
-                                  setState(() {});
-                                } else {
-                                  return;
-                                }
-                              }
-
-                              try {
-                                await camera!.startVideoRecording();
-                                watch.start();
-
-                                setState(() => recording = true);
-                              } catch (e) {
-                                if (context.mounted) {
-                                  ezLogAlert(context, message: e.toString());
-                                }
-                              }
-                            },
-                            onLongPress: () async {
-                              if (camera == null) {
-                                await openAppSettings();
-                              }
-                            },
                           ),
-                  ),
-                  separator,
+                    separator,
 
-                  // Flash
-                  camera == null
-                      ? const EzIconButton(
-                          icon: Icon(Icons.flash_off),
-                          enabled: false,
-                          onPressed: doNothing,
-                        )
-                      : FlashButton(
-                          camera: camera!,
-                          stateCallback: () => setState(() {}),
-                        ),
-                ],
+                    // Record
+                    OverlayPortal(
+                      controller: recordOverlay,
+                      overlayChildBuilder: (_) => TutorialOverlay(
+                        bottom: safeBottom + spargin + iconSize * 2 + spacing,
+                        left: 0,
+                        right: 0,
+                        title: '3/3',
+                        content: camera == null
+                            ? l10n.hsRightsTutorial
+                            : l10n.hsVideoTutorial,
+                        accept: () async {
+                          recordOverlay.hide();
+                          await EzConfig.setBool(tutorialKey, false);
+                        },
+                      ),
+                      child: recording
+                          ? EzIconButton(
+                              style: IconButton.styleFrom(
+                                foregroundColor: videoColor,
+                                side: BorderSide(color: videoTextColor),
+                              ),
+                              icon: const Icon(Icons.stop),
+                              iconSize: iconSize * 2,
+                              onPressed: () async {
+                                try {
+                                  // Stop recording
+                                  final XFile video =
+                                      await camera!.stopVideoRecording();
+                                  watch.stop();
+
+                                  // Update the UI
+                                  setState(() => recording = false);
+                                  watch.reset();
+
+                                  // Videos are saved as tmp files
+                                  // We need to fix that before proceeding
+                                  final File tmpFile = File(video.path);
+
+                                  // Create a unique mp4 file path
+                                  final Directory appDir =
+                                      await getApplicationDocumentsDirectory();
+                                  final String mp4Path =
+                                      '${appDir.path}/${DateTime.now().millisecondsSinceEpoch}.mp4';
+
+                                  // Copy the tmp file to the new mp4
+                                  await tmpFile.copy(mp4Path);
+
+                                  // Attempt to save the video
+                                  final bool galAccess =
+                                      await Gal.requestAccess();
+
+                                  if (galAccess) {
+                                    try {
+                                      await Gal.putVideo(mp4Path);
+                                    } catch (e) {
+                                      // If this fails, it's likely the user has bigger problems at hand
+                                      ezLog(e.toString());
+                                    }
+                                  }
+
+                                  // Attempt to share the video
+                                  await Share.shareXFiles(
+                                    <XFile>[XFile(mp4Path)],
+                                    text: await getCoordinates(l10n),
+                                  );
+                                } catch (e) {
+                                  // More granularity?
+                                  if (context.mounted) {
+                                    ezLogAlert(context, message: e.toString());
+                                  }
+                                }
+                              },
+                            )
+                          : EzIconButton(
+                              style: IconButton.styleFrom(
+                                foregroundColor: videoColor,
+                                side: BorderSide(color: videoTextColor),
+                              ),
+                              icon: const Icon(Icons.circle),
+                              iconSize: iconSize * 2,
+                              onPressed: () async {
+                                if (camera == null) {
+                                  final bool hasAccess = await initCamera();
+
+                                  if (hasAccess) {
+                                    setState(() {});
+                                  } else {
+                                    return;
+                                  }
+                                }
+
+                                try {
+                                  await camera!.startVideoRecording();
+                                  watch.start();
+
+                                  setState(() => recording = true);
+                                } catch (e) {
+                                  if (context.mounted) {
+                                    ezLogAlert(context, message: e.toString());
+                                  }
+                                }
+                              },
+                              onLongPress: () async {
+                                if (camera == null) {
+                                  await openAppSettings();
+                                }
+                              },
+                            ),
+                    ),
+                    separator,
+
+                    // Flash
+                    camera == null
+                        ? const EzIconButton(
+                            icon: Icon(Icons.flash_off),
+                            enabled: false,
+                            onPressed: doNothing,
+                          )
+                        : FlashButton(
+                            camera: camera!,
+                            stateCallback: () => setState(() {}),
+                          ),
+                  ],
+                ),
               ),
             ),
           ],
