@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen>
   final double margin = EzConfig.get(marginKey);
   final double padding = EzConfig.get(paddingKey);
   final double spacing = EzConfig.get(spacingKey);
-  late final double spargin = margin + spacing;
+  late final double spargin = spacing + margin;
 
   static const EzSeparator separator = EzSeparator();
 
@@ -182,16 +182,17 @@ class _HomeScreenState extends State<HomeScreen>
             Center(
               child: GestureDetector(
                 onDoubleTap: () => setState(() => showRights = !showRights),
-                child: SizedBox(
+                child: Container(
                   height: heightOf(context) * 0.667,
                   width: double.infinity,
+                  color: Theme.of(context).colorScheme.surface,
                   child: camera == null
                       ? Visibility(
                           visible: showRights,
                           child: const RightsView(),
                         )
                       : Stack(children: <Widget>[
-                          CameraPreview(camera!),
+                          Center(child: CameraPreview(camera!)),
                           Visibility(
                             visible: showRights,
                             child: Container(
@@ -376,7 +377,7 @@ class _HomeScreenState extends State<HomeScreen>
 
             // Controls
             Positioned(
-              bottom: spargin,
+              bottom: spacing,
               left: 0,
               right: 0,
               child: Center(
