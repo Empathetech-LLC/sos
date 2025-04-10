@@ -55,6 +55,8 @@ class _ContactListState extends State<ContactList> {
   final double padding = EzConfig.get(paddingKey);
   final double spacing = EzConfig.get(paddingKey);
 
+  final double iconSize = EzConfig.get(iconSizeKey);
+
   late final Lang l10n = Lang.of(context)!;
   late final TextTheme textTheme = Theme.of(context).textTheme;
 
@@ -75,8 +77,10 @@ class _ContactListState extends State<ContactList> {
           spacing * (heightMod - 1),
       2 * margin + kMinInteractiveDimension);
 
-  late final double listWidth =
-      2 * (margin + padding) + numSize.width + spacing;
+  late final double listWidth = 2 * margin +
+      max(iconSize + padding, kMinInteractiveDimension) +
+      numSize.width +
+      spacing;
 
   // Return the build //
 
