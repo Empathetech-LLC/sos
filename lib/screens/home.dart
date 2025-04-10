@@ -376,8 +376,12 @@ class _HomeScreenState extends State<HomeScreen>
               bottom: spargin,
               left: 0,
               right: 0,
-              child: EzRow(
+              child: EzScrollView(
+                scrollDirection: Axis.horizontal,
+                reverseHands: true,
+                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
+                startCentered: true,
                 children: <Widget>[
                   // Capture/Know your rights
                   (camera == null || recording)
