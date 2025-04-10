@@ -54,11 +54,6 @@ class _ContactListState extends State<ContactList> {
   final double margin = EzConfig.get(marginKey);
   final double padding = EzConfig.get(paddingKey);
   final double spacing = EzConfig.get(paddingKey);
-  late final double numHeight = ezTextSize(
-    '(000) 000-0000',
-    context: context,
-    style: textTheme.bodyLarge,
-  ).height;
 
   late final Lang l10n = Lang.of(context)!;
   late final TextTheme textTheme = Theme.of(context).textTheme;
@@ -68,12 +63,28 @@ class _ContactListState extends State<ContactList> {
   List<String> emc = EzConfig.get(emcKey);
   late int heightMod = min(5, emc.length);
 
+  late final Size numSize = ezTextSize(
+    '(000) 000-0000',
+    context: context,
+    style: textTheme.bodyLarge,
+  );
+
+  late final double listHeight = max(
+      margin +
+          (padding + numSize.height) * heightMod +
+          spacing * (heightMod - 1),
+      2 * margin + kMinInteractiveDimension);
+
+  late final double listWidth =
+      2 * (margin + padding) + numSize.width + spacing;
+
   // Return the build //
 
   @override
   Widget build(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
+          // Title && add button
           EzRow(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
@@ -90,14 +101,17 @@ class _ContactListState extends State<ContactList> {
             ],
           ),
           EzMargin(),
-          Card(
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: margin),
-              height: margin +
-                  (padding + numHeight) * heightMod +
-                  spacing * (heightMod - 1),
-              width: double.infinity,
-              child: Center(
+
+          // List of numbers (with remove buttons)
+          Center(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: listHeight,
+                maxHeight: listHeight,
+                minWidth: listWidth,
+                maxWidth: listWidth,
+              ),
+              child: Card(
                 child: EzScrollView(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
