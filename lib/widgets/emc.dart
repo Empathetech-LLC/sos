@@ -88,7 +88,9 @@ class _ContactListState extends State<ContactList> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           // Title && add button
-          EzRow(
+          EzScrollView(
+            scrollDirection: Axis.horizontal,
+            reverseHands: true,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Text(l10n.ssEMC, style: textTheme.titleLarge),
