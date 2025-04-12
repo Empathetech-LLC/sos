@@ -30,6 +30,10 @@ dependencies:
   flutter_contacts: ^1.1.9+2
   flutter_localized_locales: ^2.0.5
   flutter_platform_widgets: ^8.0.0
+  flutter_sms:
+    git:
+      url: https://github.com/fluttercommunity/flutter_sms.git
+      ref: master
   gal: ^2.3.1
   geolocator: ^13.0.4
   share_plus: ^10.1.4
