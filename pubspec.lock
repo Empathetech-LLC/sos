@@ -409,11 +409,9 @@ packages:
   flutter_sms:
     dependency: "direct main"
     description:
-      path: "."
-      ref: master
-      resolved-ref: eea09849c355405d77175542c982a2f567d76232
-      url: "https://github.com/fluttercommunity/flutter_sms.git"
-    source: git
+      path: "../flutter_sms"
+      relative: true
+    source: path
     version: "2.3.3"
   flutter_test:
     dependency: "direct dev"
