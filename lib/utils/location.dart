@@ -8,6 +8,7 @@ import './export.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:workmanager/workmanager.dart';
+import 'package:flutter_sms/flutter_sms.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 Future<String> getCoordinates(Lang l10n) async {
@@ -44,7 +45,7 @@ void sendSOS({
 
   try {
     if (isAndroid) {
-      debugPrint(message);
+      sendSMS(message: message, recipients: emc, sendDirect: true);
     } else {
       debugPrint(message);
     }
