@@ -34,7 +34,6 @@ Future<String> getCoordinates(Lang l10n) async {
 
 const MethodChannel platform = MethodChannel('net.empathetech.sos/broadcast');
 
-// Not gonna work, relies on external apps
 void sendSOS({
   required List<String>? emc,
   required Lang l10n,
