@@ -1,5 +1,6 @@
 import Flutter
 import UIKit
+import MessageUI
 //import workmanager
 
 @main
@@ -17,7 +18,7 @@ import UIKit
         result(FlutterMethodNotImplemented)
         return
       }
-      self?.sendSMS(result: result)
+      self?.sendSMS(result: result, call.arguments as! [String : Any])
     })
 
     //WorkmanagerPlugin.setPluginRegistrantCallback { registry in GeneratedPluginRegistrant.register(with: registry) }
@@ -27,7 +28,7 @@ import UIKit
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 
-  private func sendSMS(result: FlutterResult) {
+  private func sendSMS(result: FlutterResult, _arguments: [String : Any]) {
     _arguments = call.arguments as! [String : Any];
     #if targetEnvironment(simulator)
       result(FlutterError(
