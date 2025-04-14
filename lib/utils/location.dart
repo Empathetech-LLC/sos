@@ -44,7 +44,7 @@ void sendSOS({
   mapData['message'] = 'SOS\n${await getCoordinates(l10n)}';
 
   try {
-    if (isCupertino()) {
+    if (isApple()) {
       mapData['recipients'] = emc;
     } else {
       mapData['recipients'] = emc.join(';');
