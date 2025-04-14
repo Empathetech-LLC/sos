@@ -20,8 +20,10 @@ Future<dynamic> firstContactMsg(BuildContext context) async {
   ) = ezActionPairs(
     context: context,
     onConfirm: Navigator.of(context).pop,
+    confirmIsDefault: true,
     confirmMsg: el10n.gContinue,
     onDeny: () => exit(1),
+    denyIsDestructive: true,
     denyMsg: el10n.gCancel,
   );
 
@@ -47,6 +49,7 @@ Future<dynamic> permissionsMsg(BuildContext context) async {
   ) = ezActionPairs(
     context: context,
     onConfirm: () => Navigator.of(context).pop(true),
+    confirmIsDefault: true,
     confirmMsg: l10n.gOk,
     onDeny: () => Navigator.of(context).pop(false),
     denyMsg: el10n.gNo,
