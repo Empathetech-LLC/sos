@@ -145,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen>
     if (sosOnOpen) {
       sosTimer?.cancel();
       sosTimer = Timer.periodic(
-        const Duration(seconds: 10),
+        const Duration(seconds: 30),
         (_) => sendSOS(emc: emc, l10n: l10n),
       );
 
@@ -246,10 +246,12 @@ class _HomeScreenState extends State<HomeScreen>
                     top: safeTop + spargin + iconSize * 1.5 + spacing,
                     left: 0,
                     right: 0,
-                    title: '1/3',
+                    title: '3/5',
                     content: l10n.hsBroadcastTutorial,
-                    accept: () {
+                    accept: () async {
                       broadcastOverlay.hide();
+                      await Permission.sms.request();
+                      await Geolocator.requestPermission();
                       settingsOverlay.show();
                     },
                   ),
@@ -276,21 +278,41 @@ class _HomeScreenState extends State<HomeScreen>
                       : EzIconButton(
                           icon: const Icon(Icons.sos),
                           iconSize: iconSize * 1.5,
-                          onPressed: () {
+                          onPressed: () async {
+                            final PermissionStatus smsStatus =
+                                await Permission.sms.request();
+
+                            if (smsStatus == PermissionStatus.denied ||
+                                smsStatus ==
+                                    PermissionStatus.permanentlyDenied) {
+                              if (context.mounted) {
+                                ezLogAlert(
+                                  context,
+                                  message:
+                                      'SOS needs SMS', // TODO: Improve and localize
+                                );
+                              }
+                              return;
+                            }
+
                             sosTimer?.cancel();
                             sosTimer = Timer.periodic(
-                              const Duration(seconds: 10),
+                              const Duration(seconds: 30),
                               (_) => sendSOS(emc: emc, l10n: l10n),
                             );
 
                             setState(() => broadcasting = true);
                           },
                           onLongPress: () async {
-                            final LocationPermission permission =
-                                await Geolocator.checkPermission();
-                            if (permission == LocationPermission.denied ||
-                                permission ==
-                                    LocationPermission.deniedForever) {
+                            final PermissionStatus smsPerm =
+                                await Permission.sms.request();
+                            final LocationPermission geoPerm =
+                                await Geolocator.requestPermission();
+
+                            if (smsPerm == PermissionStatus.denied ||
+                                smsPerm == PermissionStatus.permanentlyDenied ||
+                                geoPerm == LocationPermission.denied ||
+                                geoPerm == LocationPermission.deniedForever) {
                               await openAppSettings();
                             }
                           },
@@ -310,7 +332,7 @@ class _HomeScreenState extends State<HomeScreen>
                   top: safeTop + margin,
                   right: isLefty ? 0 : margin + iconSize + spacing,
                   left: isLefty ? margin + iconSize + spacing : 0,
-                  title: '2/3',
+                  title: '4/5',
                   content: l10n.hsSettingsTutorial,
                   accept: () {
                     settingsOverlay.hide();
@@ -431,7 +453,7 @@ class _HomeScreenState extends State<HomeScreen>
                         bottom: safeBottom + spargin + iconSize * 2 + spacing,
                         left: 0,
                         right: 0,
-                        title: '3/3',
+                        title: '5/5',
                         content: camera == null
                             ? l10n.hsRightsTutorial
                             : l10n.hsVideoTutorial,
