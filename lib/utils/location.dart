@@ -5,10 +5,9 @@
 
 import './export.dart';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:workmanager/workmanager.dart';
-import 'package:flutter_sms/flutter_sms.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 Future<String> getCoordinates(Lang l10n) async {
@@ -33,22 +32,22 @@ Future<String> getCoordinates(Lang l10n) async {
   return pos.toString();
 }
 
+const MethodChannel platform = MethodChannel('net.empathetech.sos/broadcast');
+
 // Not gonna work, relies on external apps
 void sendSOS({
   required List<String>? emc,
   required Lang l10n,
-  required bool isAndroid,
 }) {
   if (emc == null || emc.isEmpty) return;
 
   final String message = 'SOS\n${getCoordinates(l10n)}';
 
   try {
-    if (isAndroid) {
-      sendSMS(message: message, recipients: emc, sendDirect: true);
-    } else {
-      debugPrint(message);
-    }
+    platform.invokeMethod<void>('sendSOS', <String, dynamic>{
+      'message': message,
+      'emc': emc,
+    });
   } catch (e) {
     ezLog('Error sending SOS: $e');
   }
