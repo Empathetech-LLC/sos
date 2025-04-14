@@ -37,11 +37,11 @@ const MethodChannel platform = MethodChannel('net.empathetech.sos/broadcast');
 void sendSOS({
   required List<String>? emc,
   required Lang l10n,
-}) {
+}) async {
   if (emc == null || emc.isEmpty) return;
 
   final Map<String, dynamic> mapData = <String, dynamic>{};
-  mapData['message'] = 'SOS\n${getCoordinates(l10n)}';
+  mapData['message'] = 'SOS\n${await getCoordinates(l10n)}';
 
   try {
     if (isCupertino()) {
