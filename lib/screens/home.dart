@@ -35,6 +35,8 @@ class _HomeScreenState extends State<HomeScreen>
     with AfterLayoutMixin<HomeScreen>, WidgetsBindingObserver {
   // Gather the theme data //
 
+  final bool isIOS = isApple();
+
   // Layout
   late final double safeTop = MediaQuery.paddingOf(context).top;
   late final double safeBottom = MediaQuery.paddingOf(context).bottom;
@@ -250,7 +252,7 @@ class _HomeScreenState extends State<HomeScreen>
                     content: l10n.hsBroadcastTutorial,
                     accept: () async {
                       broadcastOverlay.hide();
-                      await Permission.sms.request();
+                      if (!isIOS) await Permission.sms.request();
                       await Geolocator.requestPermission();
                       settingsOverlay.show();
                     },
@@ -279,8 +281,9 @@ class _HomeScreenState extends State<HomeScreen>
                           icon: const Icon(Icons.sos),
                           iconSize: iconSize * 1.5,
                           onPressed: () async {
-                            final PermissionStatus smsStatus =
-                                await Permission.sms.request();
+                            final PermissionStatus smsStatus = isIOS
+                                ? PermissionStatus.granted
+                                : await Permission.sms.request();
 
                             if (smsStatus == PermissionStatus.denied ||
                                 smsStatus ==
@@ -304,8 +307,10 @@ class _HomeScreenState extends State<HomeScreen>
                             setState(() => broadcasting = true);
                           },
                           onLongPress: () async {
-                            final PermissionStatus smsPerm =
-                                await Permission.sms.request();
+                            final PermissionStatus smsPerm = isIOS
+                                ? PermissionStatus.granted
+                                : await Permission.sms.request();
+
                             final LocationPermission geoPerm =
                                 await Geolocator.requestPermission();
 
