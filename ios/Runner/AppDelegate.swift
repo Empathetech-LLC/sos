@@ -4,13 +4,13 @@ import MessageUI
 //import workmanager
 
 @main
-@objc class AppDelegate: FlutterAppDelegate {
+@objc class AppDelegate: FlutterAppDelegate, MFMessageComposeViewControllerDelegate {
   override func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-    let controller : FlutterViewController = window?.rootViewController as! FlutterViewController
-    let broadcastChannel = FlutterMethodChannel(name: "net.empathetech.sos/broadcast", binaryMessenger: controller.binaryMessenger)
+    let viewControl : FlutterViewController = window?.rootViewController as! FlutterViewController
+    let broadcastChannel = FlutterMethodChannel(name: "net.empathetech.sos/broadcast", binaryMessenger: viewControl.binaryMessenger)
 
     broadcastChannel.setMethodCallHandler({
       [weak self] (call: FlutterMethodCall, result: FlutterResult) -> Void in
@@ -18,7 +18,7 @@ import MessageUI
         result(FlutterMethodNotImplemented)
         return
       }
-      self?.sendSMS(result: result, call.arguments as! [String : Any])
+      self?.sendSMS(result: result, viewControl: viewControl, arguments: call.arguments as! [String : Any])
     })
 
     //WorkmanagerPlugin.setPluginRegistrantCallback { registry in GeneratedPluginRegistrant.register(with: registry) }
@@ -28,8 +28,7 @@ import MessageUI
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 
-  private func sendSMS(result: FlutterResult, _arguments: [String : Any]) {
-    _arguments = call.arguments as! [String : Any];
+  private func sendSMS(result: FlutterResult, viewControl: FlutterViewController , arguments: [String : Any]) {
     #if targetEnvironment(simulator)
       result(FlutterError(
           code: "device_not_supported",
@@ -38,12 +37,15 @@ import MessageUI
         )
       )
     #else
-      self.result = result
-      let controller = MFMessageComposeViewController()
-      controller.body = _arguments["message"] as? String
-      controller.recipients = _arguments["recipients"] as? [String]
-      controller.messageComposeDelegate = self
-      UIApplication.shared.keyWindow?.rootViewController?.present(controller, animated: true, completion: nil)
+      let smsControl = MFMessageComposeViewController()
+      smsControl.body = arguments["message"] as? String
+      smsControl.recipients = arguments["recipients"] as? [String]
+      smsControl.messageComposeDelegate = self
+      viewControl.present(smsControl, animated: true, completion: nil)
     #endif
+  }
+
+  func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+    controller.dismiss(animated: true, completion: nil)
   }
 }
