@@ -35,8 +35,6 @@ class _HomeScreenState extends State<HomeScreen>
     with AfterLayoutMixin<HomeScreen>, WidgetsBindingObserver {
   // Gather the theme data //
 
-  final bool isAndroid = Platform.isAndroid;
-
   // Layout
   late final double safeTop = MediaQuery.paddingOf(context).top;
   late final double safeBottom = MediaQuery.paddingOf(context).bottom;
