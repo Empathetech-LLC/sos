@@ -31,6 +31,6 @@ class MainActivity : FlutterActivity() {
       smsManager.sendTextMessage(num, null, message, null, null)
     }
 
-    result.success("SMS Sent!")
+    result.success("sendSMS successful")
   }
 }
