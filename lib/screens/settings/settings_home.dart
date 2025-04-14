@@ -9,6 +9,7 @@ import '../../widgets/export.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
@@ -67,6 +68,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               value: sosOnOpen,
               onChanged: (bool? value) async {
                 if (value == null) return;
+                if (value == true) await Permission.sms.request();
+
                 await EzConfig.setBool(onOpenKey, value);
                 setState(() => sosOnOpen = value);
               },
