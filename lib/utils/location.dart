@@ -29,7 +29,10 @@ Future<String> getCoordinates(Lang l10n) async {
   }
 
   final Position pos = await Geolocator.getCurrentPosition();
-  return pos.toString();
+
+  return '''Latitude: ${pos.latitude.toStringAsFixed(4)}
+Longitude: ${pos.longitude.toStringAsFixed(4)}
+Altitude: ${pos.altitude.toStringAsFixed(4)}''';
 }
 
 const MethodChannel platform = MethodChannel('net.empathetech.sos/broadcast');
@@ -41,7 +44,7 @@ void sendSOS({
   if (emc == null || emc.isEmpty) return;
 
   final Map<String, dynamic> mapData = <String, dynamic>{};
-  mapData['message'] = 'SOS\n${await getCoordinates(l10n)}';
+  mapData['message'] = 'SOS\n\n${await getCoordinates(l10n)}';
 
   try {
     if (isCupertino()) {
