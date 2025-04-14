@@ -41,13 +41,17 @@ void sendSOS({
 }) {
   if (emc == null || emc.isEmpty) return;
 
-  final String message = 'SOS\n${getCoordinates(l10n)}';
+  final Map<String, dynamic> mapData = <String, dynamic>{};
+  mapData['message'] = 'SOS\n${getCoordinates(l10n)}';
 
   try {
-    platform.invokeMethod<void>('sendSOS', <String, dynamic>{
-      'message': message,
-      'emc': emc,
-    });
+    if (isCupertino()) {
+      mapData['recipients'] = emc;
+    } else {
+      mapData['recipients'] = emc.join(';');
+    }
+
+    platform.invokeMethod<void>('sendSOS', mapData);
   } catch (e) {
     ezLog('Error sending SOS: $e');
   }
