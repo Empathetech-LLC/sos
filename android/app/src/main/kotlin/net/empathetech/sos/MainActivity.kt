@@ -27,10 +27,25 @@ class MainActivity : FlutterActivity() {
     val smsManager = SmsManager.getDefault()
     val numbers = recipients.split(";")
 
+    val failures = mutableListOf<String>()
+
     for (num in numbers) {
-      smsManager.sendTextMessage(num, null, message, null, null)
+      try {
+        smsManager.sendTextMessage(num, null, message, null, null)
+      } catch (e: Exception) {
+        android.util.Log.e("SMS_ERROR", "Failed to send to $num: ${e.message}")
+        failedRecipients.add(num)
+      }
     }
 
-    result.success("sendSMS successful")
+    if (failedRecipients.isEmpty()) {
+      result.success("SMS_SUCCESS")
+    } else {
+      result.error(
+        "SMS_PARTIAL_FAILURE",
+        "Failed to send to: ${failedRecipients.joinToString(", ")}",
+        null
+      )
+    }
   }
 }
