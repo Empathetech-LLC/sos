@@ -51,9 +51,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
         canSMS != PermissionStatus.permanentlyDenied) {
       return EzConfig.setBool(onOpenKey, value);
     } else {
-      if (mounted) ezSnackBar(context: context, message: 'SMS is disabled');
+      if (mounted) ezSnackBar(context: context, message: l10n.sosNeedSMS);
       return false;
-    } // TODO: Localize this
+    }
   }
 
   // Init //
