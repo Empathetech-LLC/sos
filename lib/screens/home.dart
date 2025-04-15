@@ -138,6 +138,20 @@ class _HomeScreenState extends State<HomeScreen>
     setState(() => broadcasting = true);
   }
 
+  /// Take users to their platform settings if SOS doesn't have the permissions it needs
+  void openSOSPermissions() async {
+    final PermissionStatus smsPerm =
+        isIOS ? PermissionStatus.granted : await Permission.sms.request();
+    final LocationPermission geoPerm = await Geolocator.requestPermission();
+
+    if (smsPerm == PermissionStatus.denied ||
+        smsPerm == PermissionStatus.permanentlyDenied ||
+        geoPerm == LocationPermission.denied ||
+        geoPerm == LocationPermission.deniedForever) {
+      await openAppSettings();
+    }
+  }
+
   /// Save the file at [path] to the gallery
   Future<void> saveToGallery(String path) async {
     final bool galAccess = await Gal.requestAccess();
@@ -291,15 +305,7 @@ class _HomeScreenState extends State<HomeScreen>
                             sosTimer = null;
                             setState(() => broadcasting = false);
                           },
-                          onLongPress: () async {
-                            final LocationPermission permission =
-                                await Geolocator.checkPermission();
-                            if (permission == LocationPermission.denied ||
-                                permission ==
-                                    LocationPermission.deniedForever) {
-                              await openAppSettings();
-                            }
-                          },
+                          onLongPress: openSOSPermissions,
                         )
                       : EzIconButton(
                           icon: const Icon(Icons.sos),
@@ -325,21 +331,7 @@ class _HomeScreenState extends State<HomeScreen>
                             foregroundSOS();
                             setState(() => broadcasting = true);
                           },
-                          onLongPress: () async {
-                            final PermissionStatus smsPerm = isIOS
-                                ? PermissionStatus.granted
-                                : await Permission.sms.request();
-
-                            final LocationPermission geoPerm =
-                                await Geolocator.requestPermission();
-
-                            if (smsPerm == PermissionStatus.denied ||
-                                smsPerm == PermissionStatus.permanentlyDenied ||
-                                geoPerm == LocationPermission.denied ||
-                                geoPerm == LocationPermission.deniedForever) {
-                              await openAppSettings();
-                            }
-                          },
+                          onLongPress: openSOSPermissions,
                         ),
                 ),
               ),
