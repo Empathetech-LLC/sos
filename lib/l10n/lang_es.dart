@@ -73,85 +73,85 @@ class LangEs extends Lang {
   String get hsNoNumber => 'El contacto debe tener un número de teléfono.';
 
   @override
-  String get rsSharedHeader => 'You have the right to...';
+  String get rsSharedHeader => 'Tienes derecho a...';
 
   @override
   String get rsSharedRemainSilent =>
-      'Remain silent. Do not lie, but you don\'t have to answer questions.';
+      'Guardar silencio. No mientas, pero no tienes que responder preguntas.';
 
   @override
   String get rsSharedDocument =>
-      'Document everything. You have the right to take pictures, record videos, and record audio.';
+      'Documentar todo. Tienes derecho a tomar fotos, grabar videos y grabar audio.';
 
   @override
   String get rsWalkPockets =>
-      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
+      'Negarte a que registren tus bolsillos. ICE puede hacer una revisión externa, pero no un registro.';
 
   @override
-  String get rsWalkLeave => 'Leave if you are not under arrest.';
+  String get rsWalkLeave => 'Irte si no estás bajo arresto.';
 
   @override
-  String get rsDriveSearch => 'Refuse a search of your car.';
+  String get rsDriveSearch => 'Negarte a que registren tu auto.';
 
   @override
   String get rsDrivePockets =>
-      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
+      'Negarte a que registren tus bolsillos. ICE puede hacer una revisión externa, pero no un registro.';
 
   @override
   String get rsDriveID =>
-      'Refuse to provide ID as a passenger. Only the driver is required to provide ID.';
+      'Negarte a mostrar identificación como pasajero. Solo el conductor está obligado a mostrarla.';
 
   @override
   String get rsDriveQuestion =>
-      'Ask questions. Find out why you are being stopped.';
+      'Hacer preguntas. Averigua por qué te detuvieron.';
 
   @override
   String get rsDriveWarrant =>
-      'Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it\'s not valid.';
+      'Preguntar si los agentes tienen una orden judicial. Tienes derecho a verla si la tienen. Si la \"orden\" no está firmada por un juez, no es válida.';
 
   @override
-  String get rsDriveLeave => 'Leave if you are not under arrest.';
+  String get rsDriveLeave => 'Irte si no estás bajo arresto.';
 
   @override
   String get rsHomeWarrant =>
-      'Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.';
+      'Mantener la puerta cerrada. Si tienen una orden, pídeles que la pasen por debajo de la puerta. Si la \"orden\" no está firmada por un juez, no es válida. Mantén la puerta cerrada.';
 
   @override
   String get rsSharedFingerprint =>
-      'Refuse to be fingerprinted by ICE unless you are under arrest.';
+      'Negarte a que ICE tome tus huellas digitales a menos que estés bajo arresto.';
 
   @override
   String get rsSharedLawyer =>
-      'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.';
+      'Consultar con un abogado. Si has sido arrestado formalmente, tienes derecho a un abogado designado por el tribunal.';
 
   @override
-  String get sosDisabled => 'Cannot access location (disabled)';
+  String get sosDisabled => 'No se puede acceder a la ubicación (desactivada)';
 
   @override
-  String get sosDenied => 'Cannot access location (denied)';
+  String get sosDenied => 'No se puede acceder a la ubicación (denegada)';
 
   @override
-  String get ssSOSOnOpen => 'Auto SOS on open';
+  String get ssSOSOnOpen => 'SOS automático al abrir';
 
   @override
-  String get ssSOSOnClose => 'Auto SOS on close';
+  String get ssSOSOnClose => 'SOS automático al cerrar';
 
   @override
   String get ssSOSOnCloseHint =>
-      'When enabled, a safe close button will be shown opposite the settings.';
+      'Cuando está activado, se mostrará un botón de cierre seguro frente al de ajustes.';
 
   @override
-  String get ssVideoSOS => 'Auto SOS on interrupted recording';
+  String get ssVideoSOS => 'SOS automático si se interrumpe la grabación';
 
   @override
-  String get ssEMC => 'Emergency contacts';
+  String get ssEMC => 'Contactos de emergencia';
 
   @override
-  String get ssRemoveHint => 'Remove contact';
+  String get ssRemoveHint => 'Eliminar contacto';
 
   @override
-  String get ssAddHint => 'Add another contact';
+  String get ssAddHint => 'Agregar otro contacto';
 
   @override
-  String get ssAppearance => 'Appearance';
+  String get ssAppearance => 'Apariencia';
 }
