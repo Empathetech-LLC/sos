@@ -7,31 +7,32 @@
 
 
 
-  "hsNeedContacts": "SOS needs access to your contacts to function properly.",
-  "hsNeedLocation": "SOS needs access to your location to function properly.",
+  "hsNeedContacts": "SOS necesita acceso a tus contactos para funcionar correctamente.",
 
-  "hsSOSHint": "Start sharing location",
-  "hsSafeCloseHint": "All clear\nClose the app without SOS",
-  "hsCameraHint": "Take a photo",
-  "hsRecordHint": "Record a video",
+  "hsSOSHint": "Comenzar a compartir ubicación",
+  "hsSafeCloseHint": "Todo claro\nCerrar la app sin activar SOS",
+  "hsCameraHint": "Tomar una foto",
+  "hsRecordHint": "Grabar un video",
 
-  "hsWelcome": "Welcome to SOS",
-  "hsAppTutorial": "It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.",
-  "hsPermissionsTutorialTitle": "If you want",
-  "hsPermissionsTutorial": "SOS can also share evidence.\n\nIt will ask for camera, microphone, gallery, and location access to do so.",
-  "hsBroadcastTutorial": "Activate SOS to automatically text your emergency contacts.\n\nIf SOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.",
-  "hsSettingsTutorial": "You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app's language, and\n- Update the app's appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.",
-  "hsVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nDouble tap the center preview to show a list of your rights.",
-  "hsRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.",
+  "hsWelcome": "Bienvenido a SOS",
+  "hsAppTutorial": "Comparte tu estado con contactos de emergencia en un momento de crisis.\n\nPor favor elige un contacto de emergencia.\nSolo uno por ahora, podrás agregar más después.",
+  "hsPermissionsTutorialTitle": "Si quieres",
+  "hsPermissionsTutorial": "SOS también puede recopilar y compartir evidencia.\n\nPedirá acceso a la cámara, micrófono y galería para hacerlo.",
+  "hsBroadcastTutorial": "Activa SOS para enviar mensajes automáticamente a tus contactos de emergencia.\n\nSi SOS tiene acceso a tu ubicación, esta se incluirá en los mensajes.\n\nLos mensajes continuarán incluso si el teléfono está bloqueado.\n\nDesactiva SOS o cierra completamente la app para detener los mensajes.",
+  "hsIOSBroadcastTutorial": "Activa SOS para enviar mensajes automáticamente a tus contactos de emergencia.\n\nSi SOS tiene acceso a tu ubicación, esta se incluirá en los mensajes.",
+  "hsSettingsTutorial": "Puedes...\n\n- Agregar más contactos de emergencia\n- Configurar SOS automático\n- Cambiar el idioma de la app, y\n- Actualizar la apariencia de la app\n\nen los ajustes.\n\nMantén presionado el botón de ajustes para enviar comentarios sobre la app.",
+  "hsVideoTutorial": "Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nToca dos veces el centro de la vista previa para ver una lista de tus derechos.",
+  "hsIOSVideoTutorial": "Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nToca dos veces el centro de la vista previa para ver una lista de tus derechos.",
+  "hsRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nToca el mazo o toca dos veces el centro de la pantalla para ver una lista de tus derechos.",
+  "hsIOSRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nToca el mazo o toca dos veces el centro de la pantalla para ver una lista de tus derechos.",
 
-  "hsNoNumber": "The contact must have a phone number.",
+  "hsNoNumber": "El contacto debe tener un número de teléfono.",
 
 
 
   "rsSharedHeader": "You have the right to...",
   
-  "rsSharedRemainSilent": "Remain silent. Some states may require a name, but that is all they can require. Do not lie or resist arrest, but you do not have to answer questions.",
-  "rsSharedDoubleSilence": "Be silent about your silence. You do not have to justify yourself.",
+  "rsSharedRemainSilent": "Remain silent. Do not lie, but you don't have to answer questions.",  
   "rsSharedDocument": "Document everything. You have the right to take pictures, record videos, and record audio.",
 
   "rsWalkPockets": "Refuse a search of your pockets. ICE can give a pat-down, but not a search.",

@@ -107,14 +107,8 @@ abstract class Lang {
   /// No description provided for @hsNeedContacts.
   ///
   /// In en, this message translates to:
-  /// **'SOS needs access to your contacts to function properly.'**
+  /// **'InstaSOS needs access to your contacts to function properly.'**
   String get hsNeedContacts;
-
-  /// No description provided for @hsNeedLocation.
-  ///
-  /// In en, this message translates to:
-  /// **'SOS needs access to your location to function properly.'**
-  String get hsNeedLocation;
 
   /// No description provided for @hsSOSHint.
   ///
@@ -143,7 +137,7 @@ abstract class Lang {
   /// No description provided for @hsWelcome.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to SOS'**
+  /// **'Welcome to InstaSOS'**
   String get hsWelcome;
 
   /// No description provided for @hsAppTutorial.
@@ -161,14 +155,20 @@ abstract class Lang {
   /// No description provided for @hsPermissionsTutorial.
   ///
   /// In en, this message translates to:
-  /// **'SOS can also share evidence.\n\nIt will ask for camera, microphone, gallery, and location access to do so.'**
+  /// **'InstaSOS can also gather and share evidence.\n\nIt will ask for camera, microphone, and gallery access to do so.'**
   String get hsPermissionsTutorial;
 
   /// No description provided for @hsBroadcastTutorial.
   ///
   /// In en, this message translates to:
-  /// **'Activate SOS to automatically text your emergency contacts.\n\nIf SOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.'**
+  /// **'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.'**
   String get hsBroadcastTutorial;
+
+  /// No description provided for @hsIOSBroadcastTutorial.
+  ///
+  /// In en, this message translates to:
+  /// **'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.'**
+  String get hsIOSBroadcastTutorial;
 
   /// No description provided for @hsSettingsTutorial.
   ///
@@ -179,14 +179,26 @@ abstract class Lang {
   /// No description provided for @hsVideoTutorial.
   ///
   /// In en, this message translates to:
-  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nDouble tap the center preview to show a list of your rights.'**
+  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nDouble tap the center preview to show a list of your rights.'**
   String get hsVideoTutorial;
+
+  /// No description provided for @hsIOSVideoTutorial.
+  ///
+  /// In en, this message translates to:
+  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nDouble tap the center preview to show a list of your rights.'**
+  String get hsIOSVideoTutorial;
 
   /// No description provided for @hsRightsTutorial.
   ///
   /// In en, this message translates to:
-  /// **'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.'**
+  /// **'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.'**
   String get hsRightsTutorial;
+
+  /// No description provided for @hsIOSRightsTutorial.
+  ///
+  /// In en, this message translates to:
+  /// **'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.'**
+  String get hsIOSRightsTutorial;
 
   /// No description provided for @hsNoNumber.
   ///
@@ -203,14 +215,8 @@ abstract class Lang {
   /// No description provided for @rsSharedRemainSilent.
   ///
   /// In en, this message translates to:
-  /// **'Remain silent. Some states may require a name, but that is all they can require. Do not lie or resist arrest, but you do not have to answer questions.'**
+  /// **'Remain silent. Do not lie, but you don\'t have to answer questions.'**
   String get rsSharedRemainSilent;
-
-  /// No description provided for @rsSharedDoubleSilence.
-  ///
-  /// In en, this message translates to:
-  /// **'Be silent about your silence. You do not have to justify yourself.'**
-  String get rsSharedDoubleSilence;
 
   /// No description provided for @rsSharedDocument.
   ///

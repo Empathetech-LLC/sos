@@ -16,10 +16,6 @@ class LangFr extends Lang {
       'SOS needs access to your contacts to function properly.';
 
   @override
-  String get hsNeedLocation =>
-      'SOS needs access to your location to function properly.';
-
-  @override
   String get hsSOSHint => 'Start sharing location';
 
   @override
@@ -43,11 +39,15 @@ class LangFr extends Lang {
 
   @override
   String get hsPermissionsTutorial =>
-      'SOS can also share evidence.\n\nIt will ask for camera, microphone, gallery, and location access to do so.';
+      'SOS can also gather and share evidence.\n\nIt will ask for camera, microphone, and gallery access to do so.';
 
   @override
   String get hsBroadcastTutorial =>
       'Activate SOS to automatically text your emergency contacts.\n\nIf SOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.';
+
+  @override
+  String get hsIOSBroadcastTutorial =>
+      'Activate SOS to automatically text your emergency contacts.\n\nIf SOS has access to your location, it will be included in the texts.';
 
   @override
   String get hsSettingsTutorial =>
@@ -55,11 +55,19 @@ class LangFr extends Lang {
 
   @override
   String get hsVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nDouble tap the center preview to show a list of your rights.';
+      'When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nDouble tap the center preview to show a list of your rights.';
+
+  @override
+  String get hsIOSVideoTutorial =>
+      'When you take a picture or record a video, you will be able to share it right away.\n\nDouble tap the center preview to show a list of your rights.';
 
   @override
   String get hsRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.';
+      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.';
+
+  @override
+  String get hsIOSRightsTutorial =>
+      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.';
 
   @override
   String get hsNoNumber => 'The contact must have a phone number.';
@@ -69,11 +77,7 @@ class LangFr extends Lang {
 
   @override
   String get rsSharedRemainSilent =>
-      'Remain silent. Some states may require a name, but that is all they can require. Do not lie or resist arrest, but you do not have to answer questions.';
-
-  @override
-  String get rsSharedDoubleSilence =>
-      'Be silent about your silence. You do not have to justify yourself.';
+      'Remain silent. Do not lie, but you don\'t have to answer questions.';
 
   @override
   String get rsSharedDocument =>

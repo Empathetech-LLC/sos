@@ -13,67 +13,71 @@ class LangEs extends Lang {
 
   @override
   String get hsNeedContacts =>
-      'SOS needs access to your contacts to function properly.';
+      'SOS necesita acceso a tus contactos para funcionar correctamente.';
 
   @override
-  String get hsNeedLocation =>
-      'SOS needs access to your location to function properly.';
+  String get hsSOSHint => 'Comenzar a compartir ubicación';
 
   @override
-  String get hsSOSHint => 'Start sharing location';
+  String get hsSafeCloseHint => 'Todo claro\nCerrar la app sin activar SOS';
 
   @override
-  String get hsSafeCloseHint => 'All clear\nClose the app without SOS';
+  String get hsCameraHint => 'Tomar una foto';
 
   @override
-  String get hsCameraHint => 'Take a photo';
+  String get hsRecordHint => 'Grabar un video';
 
   @override
-  String get hsRecordHint => 'Record a video';
-
-  @override
-  String get hsWelcome => 'Welcome to SOS';
+  String get hsWelcome => 'Bienvenido a SOS';
 
   @override
   String get hsAppTutorial =>
-      'It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.';
+      'Comparte tu estado con contactos de emergencia en un momento de crisis.\n\nPor favor elige un contacto de emergencia.\nSolo uno por ahora, podrás agregar más después.';
 
   @override
-  String get hsPermissionsTutorialTitle => 'If you want';
+  String get hsPermissionsTutorialTitle => 'Si quieres';
 
   @override
   String get hsPermissionsTutorial =>
-      'SOS can also share evidence.\n\nIt will ask for camera, microphone, gallery, and location access to do so.';
+      'SOS también puede recopilar y compartir evidencia.\n\nPedirá acceso a la cámara, micrófono y galería para hacerlo.';
 
   @override
   String get hsBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts.\n\nIf SOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.';
+      'Activa SOS para enviar mensajes automáticamente a tus contactos de emergencia.\n\nSi SOS tiene acceso a tu ubicación, esta se incluirá en los mensajes.\n\nLos mensajes continuarán incluso si el teléfono está bloqueado.\n\nDesactiva SOS o cierra completamente la app para detener los mensajes.';
+
+  @override
+  String get hsIOSBroadcastTutorial =>
+      'Activa SOS para enviar mensajes automáticamente a tus contactos de emergencia.\n\nSi SOS tiene acceso a tu ubicación, esta se incluirá en los mensajes.';
 
   @override
   String get hsSettingsTutorial =>
-      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s language, and\n- Update the app\'s appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.';
+      'Puedes...\n\n- Agregar más contactos de emergencia\n- Configurar SOS automático\n- Cambiar el idioma de la app, y\n- Actualizar la apariencia de la app\n\nen los ajustes.\n\nMantén presionado el botón de ajustes para enviar comentarios sobre la app.';
 
   @override
   String get hsVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nDouble tap the center preview to show a list of your rights.';
+      'Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nToca dos veces el centro de la vista previa para ver una lista de tus derechos.';
+
+  @override
+  String get hsIOSVideoTutorial =>
+      'Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nToca dos veces el centro de la vista previa para ver una lista de tus derechos.';
 
   @override
   String get hsRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nIf a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.';
+      'Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nToca el mazo o toca dos veces el centro de la pantalla para ver una lista de tus derechos.';
 
   @override
-  String get hsNoNumber => 'The contact must have a phone number.';
+  String get hsIOSRightsTutorial =>
+      'Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nToca el mazo o toca dos veces el centro de la pantalla para ver una lista de tus derechos.';
+
+  @override
+  String get hsNoNumber => 'El contacto debe tener un número de teléfono.';
 
   @override
   String get rsSharedHeader => 'You have the right to...';
 
   @override
   String get rsSharedRemainSilent =>
-      'Remain silent. Some states may require a name, but that is all they can require. Do not lie or resist arrest, but you do not have to answer questions.';
-
-  @override
-  String get rsSharedDoubleSilence =>
-      'Be silent about your silence. You do not have to justify yourself.';
+      'Remain silent. Do not lie, but you don\'t have to answer questions.';
 
   @override
   String get rsSharedDocument =>
