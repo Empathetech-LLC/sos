@@ -133,7 +133,6 @@ class _RightsViewState extends State<RightsView> {
 
             // Shared rights
             rightsBlock(l10n.rsSharedRemainSilent),
-            rightsBlock(l10n.rsSharedDoubleSilence),
             rightsBlock(l10n.rsSharedDocument),
 
             // Specific rights
