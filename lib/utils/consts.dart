@@ -8,8 +8,8 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 /// 'InstaSOS'
 const String appTitle = 'InstaSOS';
 
-/// 'sos_broadcast'
-const String broadcastTask = 'sos_broadcast';
+/// 'broadcast'
+const String broadcast = 'broadcast';
 
 /// 'showTutorial'
 const String tutorialKey = 'showTutorial';
