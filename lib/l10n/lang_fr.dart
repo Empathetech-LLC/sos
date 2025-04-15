@@ -13,145 +13,147 @@ class LangFr extends Lang {
 
   @override
   String get hsNeedContacts =>
-      'SOS needs access to your contacts to function properly.';
+      'SOS a besoin d\'accéder à vos contacts pour fonctionner correctement.';
 
   @override
-  String get hsSOSHint => 'Start sharing location';
+  String get hsSOSHint => 'Commencer à partager la localisation';
 
   @override
-  String get hsSafeCloseHint => 'All clear\nClose the app without SOS';
+  String get hsSafeCloseHint =>
+      'Tout est clair\nFermer l\'application sans activer SOS';
 
   @override
-  String get hsCameraHint => 'Take a photo';
+  String get hsCameraHint => 'Prendre une photo';
 
   @override
-  String get hsRecordHint => 'Record a video';
+  String get hsRecordHint => 'Enregistrer une vidéo';
 
   @override
-  String get hsWelcome => 'Welcome to SOS';
+  String get hsWelcome => 'Bienvenue sur SOS';
 
   @override
   String get hsAppTutorial =>
-      'It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.';
+      'L\'application partage votre statut avec vos contacts d\'urgence en cas de crise.\n\nVeuillez choisir un contact d\'urgence.\nUn seul pour l\'instant, vous pourrez en ajouter d\'autres plus tard.';
 
   @override
-  String get hsPermissionsTutorialTitle => 'If you want';
+  String get hsPermissionsTutorialTitle => 'Si vous le souhaitez';
 
   @override
   String get hsPermissionsTutorial =>
-      'SOS can also gather and share evidence.\n\nIt will ask for camera, microphone, and gallery access to do so.';
+      'SOS peut également collecter et partager des preuves.\n\nElle demandera l\'accès à la caméra, au microphone et à la galerie pour ce faire.';
 
   @override
   String get hsBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts.\n\nIf SOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.';
+      'Activez SOS pour envoyer automatiquement des messages à vos contacts d\'urgence.\n\nSi SOS a accès à votre position, celle-ci sera incluse dans les messages.\n\nLes messages continueront même si le téléphone est verrouillé.\n\nDésactivez SOS ou fermez complètement l\'application pour arrêter les messages.';
 
   @override
   String get hsIOSBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts.\n\nIf SOS has access to your location, it will be included in the texts.';
+      'Activez SOS pour envoyer automatiquement des messages à vos contacts d\'urgence.\n\nSi SOS a accès à votre position, celle-ci sera incluse dans les messages.';
 
   @override
   String get hsSettingsTutorial =>
-      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s language, and\n- Update the app\'s appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.';
+      'Vous pouvez...\n\n- Ajouter d\'autres contacts d\'urgence\n- Configurer le SOS automatique\n- Changer la langue de l\'application, et\n- Modifier l\'apparence de l\'application\n\ndans les paramètres.\n\nMaintenez le bouton des paramètres pour envoyer des commentaires sur l\'application.';
 
   @override
   String get hsVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nDouble tap the center preview to show a list of your rights.';
+      'Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s\'activera automatiquement.\n\nTouchez deux fois le centre de l\'aperçu pour afficher une liste de vos droits.';
 
   @override
   String get hsIOSVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nDouble tap the center preview to show a list of your rights.';
+      'Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nTouchez deux fois le centre de l\'aperçu pour afficher une liste de vos droits.';
 
   @override
   String get hsRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.';
+      'Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s\'activera automatiquement.\n\nTouchez le marteau ou touchez deux fois le centre de l\'écran pour voir une liste de vos droits.';
 
   @override
   String get hsIOSRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.';
+      'Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nTouchez le marteau ou touchez deux fois le centre de l\'écran pour voir une liste de vos droits.';
 
   @override
-  String get hsNoNumber => 'The contact must have a phone number.';
+  String get hsNoNumber => 'Le contact doit avoir un numéro de téléphone.';
 
   @override
-  String get rsSharedHeader => 'You have the right to...';
+  String get rsSharedHeader => 'Vous avez le droit de...';
 
   @override
   String get rsSharedRemainSilent =>
-      'Remain silent. Do not lie, but you don\'t have to answer questions.';
+      'Garder le silence. Ne mentez pas, mais vous n\'êtes pas obligé de répondre aux questions.';
 
   @override
   String get rsSharedDocument =>
-      'Document everything. You have the right to take pictures, record videos, and record audio.';
+      'Tout documenter. Vous avez le droit de prendre des photos, d\'enregistrer des vidéos et de l\'audio.';
 
   @override
   String get rsWalkPockets =>
-      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
+      'Refuser une fouille de vos poches. L’ICE peut effectuer une palpation, mais pas une fouille.';
 
   @override
-  String get rsWalkLeave => 'Leave if you are not under arrest.';
+  String get rsWalkLeave => 'Partir si vous n’êtes pas en état d’arrestation.';
 
   @override
-  String get rsDriveSearch => 'Refuse a search of your car.';
+  String get rsDriveSearch => 'Refuser une fouille de votre voiture.';
 
   @override
   String get rsDrivePockets =>
-      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
+      'Refuser une fouille de vos poches. L’ICE peut effectuer une palpation, mais pas une fouille.';
 
   @override
   String get rsDriveID =>
-      'Refuse to provide ID as a passenger. Only the driver is required to provide ID.';
+      'Refuser de fournir une pièce d\'identité en tant que passager. Seul le conducteur est tenu de le faire.';
 
   @override
   String get rsDriveQuestion =>
-      'Ask questions. Find out why you are being stopped.';
+      'Poser des questions. Découvrez pourquoi vous êtes arrêté.';
 
   @override
   String get rsDriveWarrant =>
-      'Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it\'s not valid.';
+      'Demandez si les agents ont un mandat. Vous avez le droit de le voir s’ils en ont un. Si un « mandat » n’est pas signé par un juge, il n’est pas valide.';
 
   @override
-  String get rsDriveLeave => 'Leave if you are not under arrest.';
+  String get rsDriveLeave => 'Partir si vous n’êtes pas en état d’arrestation.';
 
   @override
   String get rsHomeWarrant =>
-      'Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.';
+      'Gardez la porte fermée. S’ils ont un mandat, demandez-leur de le glisser sous la porte. Si un « mandat » n’est pas signé par un juge, il n’est pas valide. Gardez la porte fermée.';
 
   @override
   String get rsSharedFingerprint =>
-      'Refuse to be fingerprinted by ICE unless you are under arrest.';
+      'Refuser que l’ICE prenne vos empreintes digitales, sauf si vous êtes en état d’arrestation.';
 
   @override
   String get rsSharedLawyer =>
-      'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.';
+      'Consulter un avocat. Si vous avez été formellement arrêté, vous avez droit à un avocat commis d’office.';
 
   @override
-  String get sosDisabled => 'Cannot access location (disabled)';
+  String get sosDisabled =>
+      'Impossible d\'accéder à la localisation (désactivée)';
 
   @override
-  String get sosDenied => 'Cannot access location (denied)';
+  String get sosDenied => 'Impossible d\'accéder à la localisation (refusée)';
 
   @override
-  String get ssSOSOnOpen => 'Auto SOS on open';
+  String get ssSOSOnOpen => 'SOS auto à l\'ouverture';
 
   @override
-  String get ssSOSOnClose => 'Auto SOS on close';
+  String get ssSOSOnClose => 'SOS auto à la fermeture';
 
   @override
   String get ssSOSOnCloseHint =>
-      'When enabled, a safe close button will be shown opposite the settings.';
+      'Lorsqu\'il est activé, un bouton de fermeture sécurisée apparaîtra en face des paramètres.';
 
   @override
-  String get ssVideoSOS => 'Auto SOS on interrupted recording';
+  String get ssVideoSOS => 'SOS auto si l\'enregistrement est interrompu';
 
   @override
-  String get ssEMC => 'Emergency contacts';
+  String get ssEMC => 'Contacts d\'urgence';
 
   @override
-  String get ssRemoveHint => 'Remove contact';
+  String get ssRemoveHint => 'Supprimer le contact';
 
   @override
-  String get ssAddHint => 'Add another contact';
+  String get ssAddHint => 'Ajouter un autre contact';
 
   @override
-  String get ssAppearance => 'Appearance';
+  String get ssAppearance => 'Apparence';
 }
