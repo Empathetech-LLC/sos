@@ -70,16 +70,18 @@ class _ContactListState extends State<ContactList> {
     style: textTheme.bodyLarge,
   );
 
-  late final double listHeight = max(
-      margin +
-          (padding + numSize.height) * heightMod +
-          spacing * (heightMod - 1),
-      2 * margin + kMinInteractiveDimension);
-
   late final double listWidth = 2 * margin +
       max(iconSize + padding, kMinInteractiveDimension) +
       numSize.width +
       spacing;
+
+  // Define custom functions //
+
+  double listHeight() => max(
+      margin +
+          (padding + numSize.height) * heightMod +
+          spacing * (heightMod - 1),
+      2 * margin + kMinInteractiveDimension);
 
   // Return the build //
 
@@ -110,9 +112,7 @@ class _ContactListState extends State<ContactList> {
           // List of numbers (with remove buttons)
           ConstrainedBox(
             constraints: BoxConstraints(
-              minHeight: listHeight,
-              maxHeight: listHeight,
-              minWidth: listWidth,
+              maxHeight: listHeight(),
               maxWidth: listWidth,
             ),
             child: Card(
