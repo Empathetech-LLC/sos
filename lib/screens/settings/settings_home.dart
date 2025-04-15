@@ -40,6 +40,22 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
   bool sosOnInterrupt = EzConfig.get(onInterruptKey) ?? false;
 
+  // Define custom functions //
+
+  Future<bool> attemptToSet(String key, bool value) async {
+    if (value == false) return EzConfig.setBool(onOpenKey, value);
+
+    final PermissionStatus canSMS = await Permission.sms.request();
+
+    if (canSMS != PermissionStatus.denied &&
+        canSMS != PermissionStatus.permanentlyDenied) {
+      return EzConfig.setBool(onOpenKey, value);
+    } else {
+      if (mounted) ezSnackBar(context: context, message: 'SMS is disabled');
+      return false;
+    } // TODO: Localize this
+  }
+
   // Init //
 
   @override
@@ -70,10 +86,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               value: sosOnOpen,
               onChanged: (bool? value) async {
                 if (value == null) return;
-                if (value == true) await Permission.sms.request();
 
-                await EzConfig.setBool(onOpenKey, value);
-                setState(() => sosOnOpen = value);
+                final bool refresh = await attemptToSet(onOpenKey, value);
+                if (refresh) setState(() => sosOnOpen = value);
               },
             ),
             spacer,
@@ -94,8 +109,10 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                           textAlign: TextAlign.center,
                         ),
                         contents: <Widget>[
-                          Text(l10n.ssSOSOnCloseHint,
-                              textAlign: TextAlign.center)
+                          Text(
+                            l10n.ssSOSOnCloseHint,
+                            textAlign: TextAlign.center,
+                          )
                         ],
                         materialActions: <Widget>[
                           EzMaterialAction(
@@ -114,8 +131,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     );
                   }
 
-                  await EzConfig.setBool(onCloseKey, value);
-                  setState(() => sosOnClose = value);
+                  final bool refresh = await attemptToSet(onCloseKey, value);
+                  if (refresh) setState(() => sosOnClose = value);
                 },
               ),
               spacer,
@@ -127,8 +144,10 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 value: sosOnInterrupt,
                 onChanged: (bool? value) async {
                   if (value == null) return;
-                  await EzConfig.setBool(onInterruptKey, value);
-                  setState(() => sosOnInterrupt = value);
+
+                  final bool refresh =
+                      await attemptToSet(onInterruptKey, value);
+                  if (refresh) setState(() => sosOnInterrupt = value);
                 },
               ),
             isIOS ? spacer : separator,
@@ -163,16 +182,11 @@ class _SettingsCheckbox extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return EzRow(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Flexible(child: EzText(title, textAlign: TextAlign.center)),
-        EzCheckbox(
-          value: value,
-          onChanged: onChanged,
-        ),
-      ],
-    );
-  }
+  Widget build(BuildContext context) => EzRow(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Flexible(child: EzText(title, textAlign: TextAlign.center)),
+          EzCheckbox(value: value, onChanged: onChanged),
+        ],
+      );
 }
