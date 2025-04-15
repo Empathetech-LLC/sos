@@ -122,6 +122,7 @@ class _HomeScreenState extends State<HomeScreen>
     return false;
   }
 
+  /// [sendSOS] every 30 seconds
   void foregroundSOS() {
     sosTimer?.cancel();
 
@@ -135,6 +136,21 @@ class _HomeScreenState extends State<HomeScreen>
     );
 
     setState(() => broadcasting = true);
+  }
+
+  /// Save the file at [path] to the gallery
+  Future<void> saveToGallery(String path) async {
+    final bool galAccess = await Gal.requestAccess();
+
+    if (galAccess) {
+      try {
+        await Gal.putImage(path);
+      } catch (e) {
+        // If this fails, it's likely the user has bigger problems at hand
+        // We can still try to share the file without saving it to the gallery
+        ezLog(e.toString());
+      }
+    }
   }
 
   // Init //
@@ -185,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen>
       body: SafeArea(
         child: Stack(
           children: <Widget>[
-            // Preview (or loading) and rights view
+            // Camera preview and rights view
             Center(
               child: GestureDetector(
                 onDoubleTap: () => setState(() => showRights = !showRights),
@@ -408,7 +424,7 @@ class _HomeScreenState extends State<HomeScreen>
                   reverseHands: true,
                   startCentered: true,
                   children: <Widget>[
-                    // Capture/Know your rights
+                    // Take picture/know your rights
                     (camera == null || recording)
                         ? EzIconButton(
                             icon: showRights
@@ -425,25 +441,14 @@ class _HomeScreenState extends State<HomeScreen>
                                 final XFile image = await camera!.takePicture();
 
                                 // Attempt to save the image
-                                final bool galAccess =
-                                    await Gal.requestAccess();
-                                if (galAccess) {
-                                  try {
-                                    await Gal.putImage(image.path);
-                                  } catch (e) {
-                                    // If this fails, it's likely the user has bigger problems at hand
-                                    // We can still try to share the file without saving it to the gallery
-                                    ezLog(e.toString());
-                                  }
-                                }
+                                await saveToGallery(image.path);
 
-                                // Attempt to share the image
+                                // Attempt to share
                                 await Share.shareXFiles(
                                   <XFile>[image],
                                   text: await getCoordinates(l10n),
                                 );
                               } catch (e) {
-                                // More granularity?
                                 if (context.mounted) {
                                   ezLogAlert(context, message: e.toString());
                                 }
@@ -501,17 +506,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   await tmpFile.copy(mp4Path);
 
                                   // Attempt to save the video
-                                  final bool galAccess =
-                                      await Gal.requestAccess();
-
-                                  if (galAccess) {
-                                    try {
-                                      await Gal.putVideo(mp4Path);
-                                    } catch (e) {
-                                      // If this fails, it's likely the user has bigger problems at hand
-                                      ezLog(e.toString());
-                                    }
-                                  }
+                                  await saveToGallery(mp4Path);
 
                                   // Attempt to share the video
                                   await Share.shareXFiles(
@@ -519,7 +514,6 @@ class _HomeScreenState extends State<HomeScreen>
                                     text: await getCoordinates(l10n),
                                   );
                                 } catch (e) {
-                                  // More granularity?
                                   if (context.mounted) {
                                     ezLogAlert(context, message: e.toString());
                                   }
@@ -595,8 +589,8 @@ class _HomeScreenState extends State<HomeScreen>
         state == AppLifecycleState.paused)) {
       if (recording) {
         // Start broadcast/send ping based on user settings
-        if (broadcasting || sosOnClose || sosOnInterrupt) {
-          runBackgroundBroadcast();
+        if (!isIOS && (broadcasting || sosOnClose || sosOnInterrupt)) {
+          backgroundSOS();
         }
 
         // Attempt to save the partial recording
@@ -615,7 +609,8 @@ class _HomeScreenState extends State<HomeScreen>
           // Copy the tmp file to the new mp4
           await tmpFile.copy(mp4Path);
 
-          await Gal.putVideo(mp4Path);
+          // Attempt to save the video
+          await saveToGallery(mp4Path);
         } catch (e) {
           // The app is unfocussed, so we can't do anything
           ezLog(e.toString());
@@ -625,7 +620,7 @@ class _HomeScreenState extends State<HomeScreen>
         watch.reset();
         setState(() => recording = false);
       } else {
-        if (broadcasting || sosOnClose) runBackgroundBroadcast();
+        if (!isIOS && (broadcasting || sosOnClose)) backgroundSOS();
       }
     }
   }

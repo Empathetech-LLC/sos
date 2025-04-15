@@ -57,5 +57,5 @@ void sendSOS({
 }
 
 /// Register [broadcastTask] (aka [sendSOS]) with [Workmanager]
-Future<void> runBackgroundBroadcast() =>
+Future<void> backgroundSOS() =>
     Workmanager().registerPeriodicTask(broadcastTask, broadcastTask);
