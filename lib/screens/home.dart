@@ -64,6 +64,9 @@ class _HomeScreenState extends State<HomeScreen>
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = EFUILang.of(context)!;
 
+  late final String sosDenied = l10n.sosDenied;
+  late final String sosDisabled = l10n.sosDisabled;
+
   // Define the build data //
 
   // Core
@@ -127,12 +130,12 @@ class _HomeScreenState extends State<HomeScreen>
     sosTimer?.cancel();
 
     // Send an immediate SOS
-    sendSOS(emc: emc, l10n: l10n);
+    sendSOS(emc: emc, denied: sosDenied, disabled: sosDisabled);
 
     // Initiate a periodic SOS
     sosTimer = Timer.periodic(
       const Duration(seconds: 30),
-      (_) => sendSOS(emc: emc, l10n: l10n),
+      (_) => sendSOS(emc: emc, denied: sosDenied, disabled: sosDisabled),
     );
 
     setState(() => broadcasting = true);
@@ -319,11 +322,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 smsStatus ==
                                     PermissionStatus.permanentlyDenied) {
                               if (context.mounted) {
-                                ezLogAlert(
-                                  context,
-                                  message:
-                                      'SOS needs SMS', // TODO: Improve and localize
-                                );
+                                ezLogAlert(context, message: l10n.sosNeedSMS);
                               }
                               return;
                             }
@@ -440,7 +439,10 @@ class _HomeScreenState extends State<HomeScreen>
                                 // Attempt to share
                                 await Share.shareXFiles(
                                   <XFile>[image],
-                                  text: await getCoordinates(l10n),
+                                  text: await getCoordinates(
+                                    denied: sosDenied,
+                                    disabled: sosDisabled,
+                                  ),
                                 );
                               } catch (e) {
                                 if (context.mounted) {
@@ -509,7 +511,10 @@ class _HomeScreenState extends State<HomeScreen>
                                   // Attempt to share the video
                                   await Share.shareXFiles(
                                     <XFile>[XFile(mp4Path)],
-                                    text: await getCoordinates(l10n),
+                                    text: await getCoordinates(
+                                      denied: sosDenied,
+                                      disabled: sosDisabled,
+                                    ),
                                   );
                                 } catch (e) {
                                   if (context.mounted) {
@@ -587,8 +592,11 @@ class _HomeScreenState extends State<HomeScreen>
         state == AppLifecycleState.paused)) {
       if (recording) {
         // Start broadcast/send ping based on user settings
-        if (!isIOS && (broadcasting || sosOnClose || sosOnInterrupt)) {
-          backgroundSOS();
+        if (!isIOS &&
+            emc != null &&
+            emc!.isNotEmpty &&
+            (broadcasting || sosOnClose || sosOnInterrupt)) {
+          backgroundSOS(emc!, denied: sosDenied, disabled: sosDisabled);
         }
 
         // Attempt to save the partial recording
@@ -618,7 +626,12 @@ class _HomeScreenState extends State<HomeScreen>
         watch.reset();
         setState(() => recording = false);
       } else {
-        if (!isIOS && (broadcasting || sosOnClose)) backgroundSOS();
+        if (!isIOS &&
+            emc != null &&
+            emc!.isNotEmpty &&
+            (broadcasting || sosOnClose)) {
+          backgroundSOS(emc!, denied: sosDenied, disabled: sosDisabled);
+        }
       }
     }
   }
