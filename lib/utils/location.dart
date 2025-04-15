@@ -10,9 +10,12 @@ import 'package:geolocator/geolocator.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-Future<String> getCoordinates(Lang l10n) async {
+Future<String> getCoordinates({
+  required String denied,
+  required String disabled,
+}) async {
   final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!serviceEnabled) return l10n.sosDisabled;
+  if (!serviceEnabled) return disabled;
 
   LocationPermission permission = await Geolocator.checkPermission();
   if (permission == LocationPermission.denied) {
@@ -21,11 +24,11 @@ Future<String> getCoordinates(Lang l10n) async {
 
     if (permission == LocationPermission.denied ||
         permission == LocationPermission.deniedForever) {
-      return l10n.sosDenied;
+      return denied;
     }
   } else if (permission == LocationPermission.deniedForever) {
     // Permanently denied
-    return l10n.sosDenied;
+    return denied;
   }
 
   final Position pos = await Geolocator.getCurrentPosition();
@@ -36,12 +39,16 @@ const MethodChannel platform = MethodChannel('net.empathetech.sos/broadcast');
 
 void sendSOS({
   required List<String>? emc,
-  required Lang l10n,
+  required String denied,
+  required String disabled,
 }) async {
   if (emc == null || emc.isEmpty) return;
 
   final Map<String, dynamic> mapData = <String, dynamic>{};
-  mapData['message'] = 'SOS\n${await getCoordinates(l10n)}';
+  mapData['message'] = 'SOS\n${await getCoordinates(
+    denied: denied,
+    disabled: disabled,
+  )}';
 
   try {
     if (isApple()) {
@@ -57,5 +64,17 @@ void sendSOS({
 }
 
 /// Register [broadcastTask] (aka [sendSOS]) with [Workmanager]
-Future<void> backgroundSOS() =>
-    Workmanager().registerPeriodicTask(broadcastTask, broadcastTask);
+Future<void> backgroundSOS(
+  List<String> emc, {
+  required String denied,
+  required String disabled,
+}) =>
+    Workmanager().registerPeriodicTask(
+      '${broadcast}Task',
+      broadcast,
+      inputData: <String, dynamic>{
+        'emc': emc,
+        'denied': denied,
+        'disabled': disabled,
+      },
+    );
