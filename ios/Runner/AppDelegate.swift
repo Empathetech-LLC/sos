@@ -1,7 +1,6 @@
 import Flutter
 import UIKit
 import MessageUI
-//import workmanager
 
 @main
 @objc class AppDelegate: FlutterAppDelegate, MFMessageComposeViewControllerDelegate {
@@ -20,9 +19,6 @@ import MessageUI
       }
       self?.sendSMS(result: result, viewControl: viewControl, arguments: call.arguments as! [String : Any])
     })
-
-    //WorkmanagerPlugin.setPluginRegistrantCallback { registry in GeneratedPluginRegistrant.register(with: registry) }
-    //WorkmanagerPlugin.registerPeriodicTask(withIdentifier: "net.empathetech.sos.sos_broadcast", frequency: NSNumber(value: 15 * 60))
 
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
