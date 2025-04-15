@@ -10,10 +10,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:feedback/feedback.dart';
 import 'package:go_router/go_router.dart';
+import 'package:workmanager/workmanager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
+
+@pragma('vm:entry-point')
+void callbackDispatcher() {
+  Workmanager().executeTask((
+    String task,
+    Map<String, dynamic>? inputData,
+  ) async {
+    if (task == broadcast) {
+      sendSOS(
+        emc: inputData?['emc']?.cast<List<String>>(),
+        denied: inputData?['denied']?.cast<String>(),
+        disabled: inputData?['disabled']?.cast<String>(),
+      );
+    }
+    return Future<bool>.value(true);
+  });
+}
 
 void main() async {
   // Setup the app //
@@ -23,6 +41,8 @@ void main() async {
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
   ]);
+
+  Workmanager().initialize(callbackDispatcher);
 
   // Initialize EzConfig //
 
