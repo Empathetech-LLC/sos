@@ -104,6 +104,24 @@ abstract class Lang {
   /// **'Ok'**
   String get gOk;
 
+  /// No description provided for @sosNeedSMS.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS needs SMS permission to function properly.'**
+  String get sosNeedSMS;
+
+  /// No description provided for @sosDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Cannot access location (disabled)'**
+  String get sosDisabled;
+
+  /// No description provided for @sosDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Cannot access location (denied)'**
+  String get sosDenied;
+
   /// No description provided for @hsNeedContacts.
   ///
   /// In en, this message translates to:
@@ -289,18 +307,6 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.'**
   String get rsSharedLawyer;
-
-  /// No description provided for @sosDisabled.
-  ///
-  /// In en, this message translates to:
-  /// **'Cannot access location (disabled)'**
-  String get sosDisabled;
-
-  /// No description provided for @sosDenied.
-  ///
-  /// In en, this message translates to:
-  /// **'Cannot access location (denied)'**
-  String get sosDenied;
 
   /// No description provided for @ssSOSOnOpen.
   ///

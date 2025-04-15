@@ -12,6 +12,15 @@ class LangEn extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get sosNeedSMS => 'SOS needs SMS permission to function properly.';
+
+  @override
+  String get sosDisabled => 'Cannot access location (disabled)';
+
+  @override
+  String get sosDenied => 'Cannot access location (denied)';
+
+  @override
   String get hsNeedContacts =>
       'InstaSOS needs access to your contacts to function properly.';
 
@@ -123,12 +132,6 @@ class LangEn extends Lang {
   @override
   String get rsSharedLawyer =>
       'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.';
-
-  @override
-  String get sosDisabled => 'Cannot access location (disabled)';
-
-  @override
-  String get sosDenied => 'Cannot access location (denied)';
 
   @override
   String get ssSOSOnOpen => 'SOS on open';

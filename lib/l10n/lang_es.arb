@@ -5,6 +5,10 @@
   
   "gOk": "Ok",
 
+  "sosNeedSMS": "SOS necesita permiso de SMS para funcionar correctamente.",
+  "sosDisabled": "No se puede acceder a la ubicación (desactivada)",
+  "sosDenied": "No se puede acceder a la ubicación (denegada)",
+
 
 
   "hsNeedContacts": "SOS necesita acceso a tus contactos para funcionar correctamente.",
@@ -49,11 +53,6 @@
 
   "rsSharedFingerprint": "Negarte a que ICE tome tus huellas digitales a menos que estés bajo arresto.",
   "rsSharedLawyer": "Consultar con un abogado. Si has sido arrestado formalmente, tienes derecho a un abogado designado por el tribunal.",
-
-
-
-  "sosDisabled": "No se puede acceder a la ubicación (desactivada)",
-  "sosDenied": "No se puede acceder a la ubicación (denegada)",
 
 
 

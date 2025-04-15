@@ -12,6 +12,16 @@ class LangEs extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get sosNeedSMS =>
+      'SOS necesita permiso de SMS para funcionar correctamente.';
+
+  @override
+  String get sosDisabled => 'No se puede acceder a la ubicación (desactivada)';
+
+  @override
+  String get sosDenied => 'No se puede acceder a la ubicación (denegada)';
+
+  @override
   String get hsNeedContacts =>
       'SOS necesita acceso a tus contactos para funcionar correctamente.';
 
@@ -123,12 +133,6 @@ class LangEs extends Lang {
   @override
   String get rsSharedLawyer =>
       'Consultar con un abogado. Si has sido arrestado formalmente, tienes derecho a un abogado designado por el tribunal.';
-
-  @override
-  String get sosDisabled => 'No se puede acceder a la ubicación (desactivada)';
-
-  @override
-  String get sosDenied => 'No se puede acceder a la ubicación (denegada)';
 
   @override
   String get ssSOSOnOpen => 'SOS automático al abrir';

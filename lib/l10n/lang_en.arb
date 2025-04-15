@@ -5,6 +5,10 @@
   
   "gOk": "Ok",
 
+  "sosNeedSMS": "SOS needs SMS permission to function properly.",
+  "sosDisabled": "Cannot access location (disabled)",
+  "sosDenied": "Cannot access location (denied)",
+
 
 
   "hsNeedContacts": "InstaSOS needs access to your contacts to function properly.",
@@ -49,11 +53,6 @@
 
   "rsSharedFingerprint": "Refuse to be fingerprinted by ICE unless you are under arrest.",
   "rsSharedLawyer": "To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.",
-
-
-
-  "sosDisabled": "Cannot access location (disabled)",
-  "sosDenied": "Cannot access location (denied)",
 
 
   
