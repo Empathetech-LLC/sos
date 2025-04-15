@@ -42,9 +42,11 @@ import MessageUI
         // If there is already a compose view, dismiss it
         existing.dismiss(animated: true) { [weak self] in
           self?.presentSMS(message: message, recipients: recipients, on: viewControl)
+          result(String("SMS_SUCCESS"))
         }
       } else {
         presentSMS(message: message, recipients: recipients, on: viewControl)
+        result(String("SMS_SUCCESS"))
       }
     #endif
   }
