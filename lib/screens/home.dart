@@ -272,7 +272,9 @@ class _HomeScreenState extends State<HomeScreen>
                     left: 0,
                     right: 0,
                     title: '3/5',
-                    content: l10n.hsBroadcastTutorial,
+                    content: isIOS
+                        ? l10n.hsIOSBroadcastTutorial
+                        : l10n.hsBroadcastTutorial,
                     accept: () async {
                       broadcastOverlay.hide();
                       if (!isIOS) await Permission.sms.request();
@@ -466,8 +468,12 @@ class _HomeScreenState extends State<HomeScreen>
                         right: 0,
                         title: '5/5',
                         content: camera == null
-                            ? l10n.hsRightsTutorial
-                            : l10n.hsVideoTutorial,
+                            ? isIOS
+                                ? l10n.hsIOSRightsTutorial
+                                : l10n.hsRightsTutorial
+                            : isIOS
+                                ? l10n.hsIOSVideoTutorial
+                                : l10n.hsVideoTutorial,
                         accept: () async {
                           recordOverlay.hide();
                           await EzConfig.setBool(tutorialKey, false);
