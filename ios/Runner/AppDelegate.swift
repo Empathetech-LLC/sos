@@ -46,8 +46,6 @@ import MessageUI
       } else {
         presentSMS(message: message, recipients: recipients, on: viewControl)
       }
-
-      result(nil)
     #endif
   }
 
