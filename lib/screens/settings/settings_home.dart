@@ -23,6 +23,8 @@ class SettingsHomeScreen extends StatefulWidget {
 class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   // Gather the theme data //
 
+  final bool isIOS = isApple();
+
   final double margin = EzConfig.get(marginKey);
   final double spacing = EzConfig.get(spacingKey);
 
@@ -76,56 +78,60 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             ),
             spacer,
 
-            _SettingsCheckbox(
-              title: l10n.ssSOSOnClose,
-              value: sosOnClose,
-              onChanged: (bool? value) async {
-                if (value == null) return;
+            if (!isIOS) ...<Widget>[
+              _SettingsCheckbox(
+                title: l10n.ssSOSOnClose,
+                value: sosOnClose,
+                onChanged: (bool? value) async {
+                  if (value == null) return;
 
-                if (value == true) {
-                  await showPlatformDialog(
-                    context: context,
-                    builder: (_) => EzAlertDialog(
-                      title: Text(
-                        el10n.gAttention,
-                        textAlign: TextAlign.center,
+                  if (value == true) {
+                    await showPlatformDialog(
+                      context: context,
+                      builder: (_) => EzAlertDialog(
+                        title: Text(
+                          el10n.gAttention,
+                          textAlign: TextAlign.center,
+                        ),
+                        contents: <Widget>[
+                          Text(l10n.ssSOSOnCloseHint,
+                              textAlign: TextAlign.center)
+                        ],
+                        materialActions: <Widget>[
+                          EzMaterialAction(
+                            text: l10n.gOk,
+                            onPressed: Navigator.of(context).pop,
+                          ),
+                        ],
+                        cupertinoActions: <Widget>[
+                          EzCupertinoAction(
+                            text: l10n.gOk,
+                            onPressed: Navigator.of(context).pop,
+                          ),
+                        ],
+                        needsClose: false,
                       ),
-                      contents: <Widget>[
-                        Text(l10n.ssSOSOnCloseHint, textAlign: TextAlign.center)
-                      ],
-                      materialActions: <Widget>[
-                        EzMaterialAction(
-                          text: l10n.gOk,
-                          onPressed: Navigator.of(context).pop,
-                        ),
-                      ],
-                      cupertinoActions: <Widget>[
-                        EzCupertinoAction(
-                          text: l10n.gOk,
-                          onPressed: Navigator.of(context).pop,
-                        ),
-                      ],
-                      needsClose: false,
-                    ),
-                  );
-                }
+                    );
+                  }
 
-                await EzConfig.setBool(onCloseKey, value);
-                setState(() => sosOnClose = value);
-              },
-            ),
-            spacer,
+                  await EzConfig.setBool(onCloseKey, value);
+                  setState(() => sosOnClose = value);
+                },
+              ),
+              spacer,
+            ],
 
-            _SettingsCheckbox(
-              title: l10n.ssVideoSOS,
-              value: sosOnInterrupt,
-              onChanged: (bool? value) async {
-                if (value == null) return;
-                await EzConfig.setBool(onInterruptKey, value);
-                setState(() => sosOnInterrupt = value);
-              },
-            ),
-            separator,
+            if (!isIOS)
+              _SettingsCheckbox(
+                title: l10n.ssVideoSOS,
+                value: sosOnInterrupt,
+                onChanged: (bool? value) async {
+                  if (value == null) return;
+                  await EzConfig.setBool(onInterruptKey, value);
+                  setState(() => sosOnInterrupt = value);
+                },
+              ),
+            isIOS ? spacer : separator,
 
             // EMC
             const ContactList(),
