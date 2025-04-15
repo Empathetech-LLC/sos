@@ -122,6 +122,21 @@ class _HomeScreenState extends State<HomeScreen>
     return false;
   }
 
+  void foregroundSOS() {
+    sosTimer?.cancel();
+
+    // Send an immediate SOS
+    sendSOS(emc: emc, l10n: l10n);
+
+    // Initiate a periodic SOS
+    sosTimer = Timer.periodic(
+      const Duration(seconds: 30),
+      (_) => sendSOS(emc: emc, l10n: l10n),
+    );
+
+    setState(() => broadcasting = true);
+  }
+
   // Init //
 
   @override
@@ -144,15 +159,7 @@ class _HomeScreenState extends State<HomeScreen>
     if (newUser) emc = await addEMC(context, emc);
 
     // Check for auto SOS
-    if (sosOnOpen) {
-      sosTimer?.cancel();
-      sosTimer = Timer.periodic(
-        const Duration(seconds: 30),
-        (_) => sendSOS(emc: emc, l10n: l10n),
-      );
-
-      setState(() => broadcasting = true);
-    }
+    if (sosOnOpen) foregroundSOS();
 
     // Setup the camera/preview
     if (newUser && context.mounted) {
@@ -264,7 +271,6 @@ class _HomeScreenState extends State<HomeScreen>
                           onPressed: () async {
                             sosTimer?.cancel();
                             sosTimer = null;
-
                             setState(() => broadcasting = false);
                           },
                           onLongPress: () async {
@@ -298,12 +304,7 @@ class _HomeScreenState extends State<HomeScreen>
                               return;
                             }
 
-                            sosTimer?.cancel();
-                            sosTimer = Timer.periodic(
-                              const Duration(seconds: 30),
-                              (_) => sendSOS(emc: emc, l10n: l10n),
-                            );
-
+                            foregroundSOS();
                             setState(() => broadcasting = true);
                           },
                           onLongPress: () async {
