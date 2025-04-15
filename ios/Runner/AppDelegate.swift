@@ -24,6 +24,8 @@ import MessageUI
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 
+  var currSMSControl: MFMessageComposeViewController?
+
   private func sendSMS(result: FlutterResult, viewControl: FlutterViewController , arguments: [String : Any]) {
     #if targetEnvironment(simulator)
       result(FlutterError(
@@ -33,15 +35,35 @@ import MessageUI
         )
       )
     #else
-      let smsControl = MFMessageComposeViewController()
-      smsControl.body = arguments["message"] as? String
-      smsControl.recipients = arguments["recipients"] as? [String]
-      smsControl.messageComposeDelegate = self
-      viewControl.present(smsControl, animated: true, completion: nil)
+      let message = arguments["message"] as! String
+      let recipients = arguments["recipients"] as! [String]
+
+      if let existing = currSMSControl {
+        // If there is already a compose view, dismiss it
+        existing.dismiss(animated: true) { [weak self] in
+          self?.presentSMS(message: message, recipients: recipients, on: viewControl)
+        }
+      } else {
+        presentSMS(message: message, recipients: recipients, on: viewControl)
+      }
+
+      result(nil)
     #endif
+  }
+
+  private func presentSMS(message: String, recipients: [String], on viewControl: FlutterViewController) {
+    let smsControl = MFMessageComposeViewController()
+
+    smsControl.body = message
+    smsControl.recipients = recipients
+    smsControl.messageComposeDelegate = self
+
+    currSMSControl = smsControl
+    viewControl.present(smsControl, animated: true, completion: nil)
   }
 
   func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
     controller.dismiss(animated: true, completion: nil)
+    currSMSControl = nil
   }
 }
