@@ -34,16 +34,16 @@ class MainActivity : FlutterActivity() {
         smsManager.sendTextMessage(num, null, message, null, null)
       } catch (e: Exception) {
         android.util.Log.e("SMS_ERROR", "Failed to send to $num: ${e.message}")
-        failedRecipients.add(num)
+        failures.add(num)
       }
     }
 
-    if (failedRecipients.isEmpty()) {
+    if (failures.isEmpty()) {
       result.success("SMS_SUCCESS")
     } else {
       result.error(
         "SMS_PARTIAL_FAILURE",
-        "Failed to send to: ${failedRecipients.joinToString(", ")}",
+        "Failed to send to: ${failures.joinToString(", ")}",
         null
       )
     }
