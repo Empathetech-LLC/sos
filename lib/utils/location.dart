@@ -55,9 +55,8 @@ void sendSOS({
       mapData['recipients'] = emc.join(';');
     }
 
-    ezLog('Attempting foreground broadcast');
+    ezLog('SOS');
     ezLog(mapData.toString());
-
     platform.invokeMethod<void>('sendSOS', mapData);
   } catch (e) {
     ezLog('Error sending SOS: $e');
