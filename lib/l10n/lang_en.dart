@@ -21,10 +21,6 @@ class LangEn extends Lang {
   String get sosDenied => 'Cannot access location (denied)';
 
   @override
-  String get hsNeedContacts =>
-      'InstaSOS needs access to your contacts to function properly.';
-
-  @override
   String get hsSOSHint => 'Start sharing location';
 
   @override
@@ -35,6 +31,18 @@ class LangEn extends Lang {
 
   @override
   String get hsRecordHint => 'Record a video';
+
+  @override
+  String get hsFlashOff => 'Flash Off. Activate to turn on auto flash.';
+
+  @override
+  String get hsFlashAuto => 'Auto flash. Activate to turn flash on.';
+
+  @override
+  String get hsFlashOn => 'Flash on. Activate to turn flash off.';
+
+  @override
+  String get hsFlashTorch => 'Torch mode. Activate to turn flash off.';
 
   @override
   String get hsWelcome => 'Welcome to InstaSOS';
@@ -77,6 +85,10 @@ class LangEn extends Lang {
   @override
   String get hsIOSRightsTutorial =>
       'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.';
+
+  @override
+  String get hsNeedContacts =>
+      'InstaSOS needs access to your contacts to function properly.';
 
   @override
   String get hsNoNumber => 'The contact must have a phone number.';

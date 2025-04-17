@@ -22,10 +22,6 @@ class LangEs extends Lang {
   String get sosDenied => 'No se puede acceder a la ubicación (denegada)';
 
   @override
-  String get hsNeedContacts =>
-      'SOS necesita acceso a tus contactos para funcionar correctamente.';
-
-  @override
   String get hsSOSHint => 'Comenzar a compartir ubicación';
 
   @override
@@ -36,6 +32,19 @@ class LangEs extends Lang {
 
   @override
   String get hsRecordHint => 'Grabar un video';
+
+  @override
+  String get hsFlashOff =>
+      'Flash apagado. Activar para encender el flash automático.';
+
+  @override
+  String get hsFlashAuto => 'Flash automático. Activar para encender el flash.';
+
+  @override
+  String get hsFlashOn => 'Flash encendido. Activar para apagar el flash.';
+
+  @override
+  String get hsFlashTorch => 'Modo linterna. Activar para apagar el flash.';
 
   @override
   String get hsWelcome => 'Bienvenido a SOS';
@@ -78,6 +87,10 @@ class LangEs extends Lang {
   @override
   String get hsIOSRightsTutorial =>
       'Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nToca el mazo o toca dos veces el centro de la pantalla para ver una lista de tus derechos.';
+
+  @override
+  String get hsNeedContacts =>
+      'SOS necesita acceso a tus contactos para funcionar correctamente.';
 
   @override
   String get hsNoNumber => 'El contacto debe tener un número de teléfono.';

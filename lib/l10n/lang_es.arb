@@ -11,12 +11,15 @@
 
 
 
-  "hsNeedContacts": "SOS necesita acceso a tus contactos para funcionar correctamente.",
-
   "hsSOSHint": "Comenzar a compartir ubicación",
   "hsSafeCloseHint": "Todo claro\nCerrar la app sin activar SOS",
   "hsCameraHint": "Tomar una foto",
   "hsRecordHint": "Grabar un video",
+
+  "hsFlashOff": "Flash apagado. Activar para encender el flash automático.",
+  "hsFlashAuto": "Flash automático. Activar para encender el flash.",
+  "hsFlashOn": "Flash encendido. Activar para apagar el flash.",
+  "hsFlashTorch": "Modo linterna. Activar para apagar el flash.",
 
   "hsWelcome": "Bienvenido a SOS",
   "hsAppTutorial": "Comparte tu estado con contactos de emergencia en un momento de crisis.\n\nPor favor elige un contacto de emergencia.\nSolo uno por ahora, podrás agregar más después.",
@@ -30,6 +33,7 @@
   "hsRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nToca el mazo o toca dos veces el centro de la pantalla para ver una lista de tus derechos.",
   "hsIOSRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nToca el mazo o toca dos veces el centro de la pantalla para ver una lista de tus derechos.",
 
+  "hsNeedContacts": "SOS necesita acceso a tus contactos para funcionar correctamente.",
   "hsNoNumber": "El contacto debe tener un número de teléfono.",
 
 

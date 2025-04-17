@@ -122,12 +122,6 @@ abstract class Lang {
   /// **'Cannot access location (denied)'**
   String get sosDenied;
 
-  /// No description provided for @hsNeedContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'InstaSOS needs access to your contacts to function properly.'**
-  String get hsNeedContacts;
-
   /// No description provided for @hsSOSHint.
   ///
   /// In en, this message translates to:
@@ -151,6 +145,30 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'Record a video'**
   String get hsRecordHint;
+
+  /// No description provided for @hsFlashOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Flash Off. Activate to turn on auto flash.'**
+  String get hsFlashOff;
+
+  /// No description provided for @hsFlashAuto.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto flash. Activate to turn flash on.'**
+  String get hsFlashAuto;
+
+  /// No description provided for @hsFlashOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Flash on. Activate to turn flash off.'**
+  String get hsFlashOn;
+
+  /// No description provided for @hsFlashTorch.
+  ///
+  /// In en, this message translates to:
+  /// **'Torch mode. Activate to turn flash off.'**
+  String get hsFlashTorch;
 
   /// No description provided for @hsWelcome.
   ///
@@ -217,6 +235,12 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.'**
   String get hsIOSRightsTutorial;
+
+  /// No description provided for @hsNeedContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'InstaSOS needs access to your contacts to function properly.'**
+  String get hsNeedContacts;
 
   /// No description provided for @hsNoNumber.
   ///

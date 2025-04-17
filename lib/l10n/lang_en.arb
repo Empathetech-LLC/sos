@@ -11,12 +11,15 @@
 
 
 
-  "hsNeedContacts": "InstaSOS needs access to your contacts to function properly.",
-
   "hsSOSHint": "Start sharing location",
   "hsSafeCloseHint": "All clear\nClose the app without SOS",
   "hsCameraHint": "Take a photo",
   "hsRecordHint": "Record a video",
+
+  "hsFlashOff": "Flash Off. Activate to turn on auto flash.",
+  "hsFlashAuto": "Auto flash. Activate to turn flash on.",
+  "hsFlashOn": "Flash on. Activate to turn flash off.",
+  "hsFlashTorch": "Torch mode. Activate to turn flash off.",
 
   "hsWelcome": "Welcome to InstaSOS",
   "hsAppTutorial": "It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.",
@@ -29,7 +32,8 @@
   "hsIOSVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nDouble tap the center preview to show a list of your rights.",
   "hsRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.",
   "hsIOSRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.",
-
+  
+  "hsNeedContacts": "InstaSOS needs access to your contacts to function properly.",
   "hsNoNumber": "The contact must have a phone number.",
 
 
