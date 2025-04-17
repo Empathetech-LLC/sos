@@ -311,7 +311,11 @@ class _HomeScreenState extends State<HomeScreen>
                           onLongPress: openSOSPermissions,
                         )
                       : EzIconButton(
-                          icon: const Icon(Icons.sos),
+                          icon: const Icon(
+                            Icons.sos,
+                            semanticLabel:
+                                'SOS. Activate to send emergency texts.',
+                          ),
                           iconSize: iconSize * 1.5,
                           onPressed: () async {
                             final PermissionStatus smsStatus = isIOS

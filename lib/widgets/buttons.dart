@@ -20,7 +20,10 @@ class SettingsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => EzMenuButton(
         onPressed: () => parentContext.goNamed(settingsHomePath),
-        icon: EzIcon(PlatformIcons(context).settings),
+        icon: EzIcon(
+          PlatformIcons(context).settings,
+          semanticLabel: 'Settings',
+        ),
         label: EFUILang.of(context)!.ssPageTitle,
       );
 }
@@ -41,10 +44,22 @@ class FlashButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => EzIconButton(
         icon: switch (camera.value.flashMode) {
-          FlashMode.off => const Icon(Icons.flash_off),
-          FlashMode.auto => const Icon(Icons.flash_auto),
-          FlashMode.always => const Icon(Icons.flash_on),
-          FlashMode.torch => const Icon(Icons.flashlight_on),
+          FlashMode.off => const Icon(
+              Icons.flash_off,
+              semanticLabel: 'Off',
+            ),
+          FlashMode.auto => const Icon(
+              Icons.flash_auto,
+              semanticLabel: 'Auto',
+            ),
+          FlashMode.always => const Icon(
+              Icons.flash_on,
+              semanticLabel: 'Always',
+            ),
+          FlashMode.torch => const Icon(
+              Icons.flashlight_on,
+              semanticLabel: 'Torch',
+            ),
         },
         onPressed: () async {
           switch (camera.value.flashMode) {

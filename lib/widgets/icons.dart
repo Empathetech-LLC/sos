@@ -40,9 +40,12 @@ class _PulsingIconWidgetState extends State<SOSIcon>
   @override
   Widget build(BuildContext context) => AnimatedBuilder(
         animation: breathe,
-        builder: (_, __) => Icon(breathe.value < 0.5
-            ? Icons.notifications
-            : Icons.notifications_active),
+        builder: (_, __) => Icon(
+          breathe.value < 0.5
+              ? Icons.notifications
+              : Icons.notifications_active,
+          semanticLabel: 'SOS. Broadcast is active.',
+        ),
       );
 
   @override
