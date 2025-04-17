@@ -430,7 +430,10 @@ class _HomeScreenState extends State<HomeScreen>
                     semanticLabel: l10n.hsSafeCloseHint,
                   ),
                   enabled: !recording,
-                  onPressed: () => exit(0),
+                  onPressed: () {
+                    stopForegroundSOS();
+                    exit(0);
+                  },
                 ),
               ),
             ),
