@@ -45,23 +45,27 @@
 
   "rsSharedHeader": "Vous avez le droit de...",
 
+  "rsOnFoot": "À pied",
+  "rsWhileDriving": "En voiture",
+  "rsAtHome": "À la maison",
+
   "rsSharedRemainSilent": "Garder le silence. Ne mentez pas, mais vous n'êtes pas obligé de répondre aux questions.",
   "rsSharedDocument": "Tout documenter. Vous avez le droit de prendre des photos, d'enregistrer des vidéos et de l'audio.",
 
-  "rsWalkPockets": "Refuser une fouille de vos poches. L’ICE peut effectuer une palpation, mais pas une fouille.",
-  "rsWalkLeave": "Partir si vous n’êtes pas en état d’arrestation.",
+  "rsWalkPockets": "Refuser une fouille de vos poches. L'ICE peut effectuer une palpation, mais pas une fouille.",
+  "rsWalkLeave": "Partir si vous n'êtes pas en état d'arrestation.",
 
   "rsDriveSearch": "Refuser une fouille de votre voiture.",
-  "rsDrivePockets": "Refuser une fouille de vos poches. L’ICE peut effectuer une palpation, mais pas une fouille.",
+  "rsDrivePockets": "Refuser une fouille de vos poches. L'ICE peut effectuer une palpation, mais pas une fouille.",
   "rsDriveID": "Refuser de fournir une pièce d'identité en tant que passager. Seul le conducteur est tenu de le faire.",
   "rsDriveQuestion": "Poser des questions. Découvrez pourquoi vous êtes arrêté.",
-  "rsDriveWarrant": "Demandez si les agents ont un mandat. Vous avez le droit de le voir s’ils en ont un. Si un « mandat » n’est pas signé par un juge, il n’est pas valide.",
-  "rsDriveLeave": "Partir si vous n’êtes pas en état d’arrestation.",
+  "rsDriveWarrant": "Demandez si les agents ont un mandat. Vous avez le droit de le voir s'ils en ont un. Si un « mandat » n'est pas signé par un juge, il n'est pas valide.",
+  "rsDriveLeave": "Partir si vous n'êtes pas en état d'arrestation.",
 
-  "rsHomeWarrant": "Gardez la porte fermée. S’ils ont un mandat, demandez-leur de le glisser sous la porte. Si un « mandat » n’est pas signé par un juge, il n’est pas valide. Gardez la porte fermée.",
+  "rsHomeWarrant": "Gardez la porte fermée. S'ils ont un mandat, demandez-leur de le glisser sous la porte. Si un « mandat » n'est pas signé par un juge, il n'est pas valide. Gardez la porte fermée.",
 
-  "rsSharedFingerprint": "Refuser que l’ICE prenne vos empreintes digitales, sauf si vous êtes en état d’arrestation.",
-  "rsSharedLawyer": "Consulter un avocat. Si vous avez été formellement arrêté, vous avez droit à un avocat commis d’office.",
+  "rsSharedFingerprint": "Refuser que l'ICE prenne vos empreintes digitales, sauf si vous êtes en état d'arrestation.",
+  "rsSharedLawyer": "Consulter un avocat. Si vous avez été formellement arrêté, vous avez droit à un avocat commis d'office.",
 
 
   

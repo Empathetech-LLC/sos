@@ -112,6 +112,15 @@ class LangEn extends Lang {
   String get rsSharedHeader => 'You have the right to...';
 
   @override
+  String get rsOnFoot => 'On foot';
+
+  @override
+  String get rsWhileDriving => 'While driving';
+
+  @override
+  String get rsAtHome => 'At home';
+
+  @override
   String get rsSharedRemainSilent =>
       'Remain silent. Do not lie, but you don\'t have to answer questions.';
 

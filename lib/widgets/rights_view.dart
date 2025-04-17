@@ -113,14 +113,17 @@ class _RightsViewState extends State<RightsView> {
                   ButtonSegment<Location>(
                     value: Location.walking,
                     label: Icon(Location.walking.icon),
+                    tooltip: l10n.rsOnFoot,
                   ),
                   ButtonSegment<Location>(
                     value: Location.driving,
                     label: Icon(Location.driving.icon),
+                    tooltip: l10n.rsWhileDriving,
                   ),
                   ButtonSegment<Location>(
                     value: Location.home,
                     label: Icon(Location.home.icon),
+                    tooltip: l10n.rsAtHome,
                   ),
                 ],
                 selected: <Location>{currentTab},

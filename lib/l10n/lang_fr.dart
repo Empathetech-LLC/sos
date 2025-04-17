@@ -116,6 +116,15 @@ class LangFr extends Lang {
   String get rsSharedHeader => 'Vous avez le droit de...';
 
   @override
+  String get rsOnFoot => 'À pied';
+
+  @override
+  String get rsWhileDriving => 'En voiture';
+
+  @override
+  String get rsAtHome => 'À la maison';
+
+  @override
   String get rsSharedRemainSilent =>
       'Garder le silence. Ne mentez pas, mais vous n\'êtes pas obligé de répondre aux questions.';
 
@@ -125,17 +134,18 @@ class LangFr extends Lang {
 
   @override
   String get rsWalkPockets =>
-      'Refuser une fouille de vos poches. L’ICE peut effectuer une palpation, mais pas une fouille.';
+      'Refuser une fouille de vos poches. L\'ICE peut effectuer une palpation, mais pas une fouille.';
 
   @override
-  String get rsWalkLeave => 'Partir si vous n’êtes pas en état d’arrestation.';
+  String get rsWalkLeave =>
+      'Partir si vous n\'êtes pas en état d\'arrestation.';
 
   @override
   String get rsDriveSearch => 'Refuser une fouille de votre voiture.';
 
   @override
   String get rsDrivePockets =>
-      'Refuser une fouille de vos poches. L’ICE peut effectuer une palpation, mais pas une fouille.';
+      'Refuser une fouille de vos poches. L\'ICE peut effectuer une palpation, mais pas une fouille.';
 
   @override
   String get rsDriveID =>
@@ -147,22 +157,23 @@ class LangFr extends Lang {
 
   @override
   String get rsDriveWarrant =>
-      'Demandez si les agents ont un mandat. Vous avez le droit de le voir s’ils en ont un. Si un « mandat » n’est pas signé par un juge, il n’est pas valide.';
+      'Demandez si les agents ont un mandat. Vous avez le droit de le voir s\'ils en ont un. Si un « mandat » n\'est pas signé par un juge, il n\'est pas valide.';
 
   @override
-  String get rsDriveLeave => 'Partir si vous n’êtes pas en état d’arrestation.';
+  String get rsDriveLeave =>
+      'Partir si vous n\'êtes pas en état d\'arrestation.';
 
   @override
   String get rsHomeWarrant =>
-      'Gardez la porte fermée. S’ils ont un mandat, demandez-leur de le glisser sous la porte. Si un « mandat » n’est pas signé par un juge, il n’est pas valide. Gardez la porte fermée.';
+      'Gardez la porte fermée. S\'ils ont un mandat, demandez-leur de le glisser sous la porte. Si un « mandat » n\'est pas signé par un juge, il n\'est pas valide. Gardez la porte fermée.';
 
   @override
   String get rsSharedFingerprint =>
-      'Refuser que l’ICE prenne vos empreintes digitales, sauf si vous êtes en état d’arrestation.';
+      'Refuser que l\'ICE prenne vos empreintes digitales, sauf si vous êtes en état d\'arrestation.';
 
   @override
   String get rsSharedLawyer =>
-      'Consulter un avocat. Si vous avez été formellement arrêté, vous avez droit à un avocat commis d’office.';
+      'Consulter un avocat. Si vous avez été formellement arrêté, vous avez droit à un avocat commis d\'office.';
 
   @override
   String get ssSOSOnOpen => 'SOS auto à l\'ouverture';

@@ -284,6 +284,24 @@ abstract class Lang {
   /// **'You have the right to...'**
   String get rsSharedHeader;
 
+  /// No description provided for @rsOnFoot.
+  ///
+  /// In en, this message translates to:
+  /// **'On foot'**
+  String get rsOnFoot;
+
+  /// No description provided for @rsWhileDriving.
+  ///
+  /// In en, this message translates to:
+  /// **'While driving'**
+  String get rsWhileDriving;
+
+  /// No description provided for @rsAtHome.
+  ///
+  /// In en, this message translates to:
+  /// **'At home'**
+  String get rsAtHome;
+
   /// No description provided for @rsSharedRemainSilent.
   ///
   /// In en, this message translates to:

@@ -115,6 +115,15 @@ class LangEs extends Lang {
   String get rsSharedHeader => 'Tienes derecho a...';
 
   @override
+  String get rsOnFoot => 'A pie';
+
+  @override
+  String get rsWhileDriving => 'Mientras conduces';
+
+  @override
+  String get rsAtHome => 'En casa';
+
+  @override
   String get rsSharedRemainSilent =>
       'Guardar silencio. No mientas, pero no tienes que responder preguntas.';
 

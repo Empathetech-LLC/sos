@@ -45,6 +45,10 @@
 
   "rsSharedHeader": "Tienes derecho a...",
 
+  "rsOnFoot": "A pie",
+  "rsWhileDriving": "Mientras conduces",
+  "rsAtHome": "En casa",
+
   "rsSharedRemainSilent": "Guardar silencio. No mientas, pero no tienes que responder preguntas.",
   "rsSharedDocument": "Documentar todo. Tienes derecho a tomar fotos, grabar videos y grabar audio.",
 
