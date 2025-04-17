@@ -43,51 +43,50 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
       title: l10n.ssAppearance,
       body: EzScreen(
         useImageDecoration: false,
-        child: EzScrollView(
-          children: <Widget>[
-            // Functionality disclaimer
-            EzWarning(el10n.ssSettingsGuide.split('\n').first),
-            separator,
+        child: Center(
+          child: EzScrollView(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              // Global settings
+              const EzDominantHandSwitch(),
+              spacer,
 
-            // Global settings
-            const EzDominantHandSwitch(),
-            spacer,
+              const EzThemeModeSwitch(),
+              separator,
 
-            const EzThemeModeSwitch(),
-            separator,
+              EzElevatedIconButton(
+                onPressed: () => context.goNamed(textSettingsPath),
+                icon: EzIcon(Icons.navigate_next),
+                label: el10n.tsPageTitle,
+              ),
+              spacer,
 
-            EzElevatedIconButton(
-              onPressed: () => context.goNamed(textSettingsPath),
-              icon: EzIcon(Icons.navigate_next),
-              label: el10n.tsPageTitle,
-            ),
-            spacer,
+              EzElevatedIconButton(
+                onPressed: () => context.goNamed(layoutSettingsPath),
+                icon: EzIcon(Icons.navigate_next),
+                label: el10n.lsPageTitle,
+              ),
+              spacer,
 
-            EzElevatedIconButton(
-              onPressed: () => context.goNamed(layoutSettingsPath),
-              icon: EzIcon(Icons.navigate_next),
-              label: el10n.lsPageTitle,
-            ),
-            spacer,
+              EzElevatedIconButton(
+                onPressed: () => context.goNamed(colorSettingsPath),
+                icon: EzIcon(Icons.navigate_next),
+                label: el10n.csPageTitle,
+              ),
+              separator,
 
-            EzElevatedIconButton(
-              onPressed: () => context.goNamed(colorSettingsPath),
-              icon: EzIcon(Icons.navigate_next),
-              label: el10n.csPageTitle,
-            ),
-            separator,
-
-            EzResetButton(
-              onConfirm: () async {
-                await EzConfig.removeKeys(<String>{
-                  ...empathetechConfig.keys,
-                  videoColorKey,
-                });
-                setState(() {});
-              },
-            ),
-            separator,
-          ],
+              EzResetButton(
+                onConfirm: () async {
+                  await EzConfig.removeKeys(<String>{
+                    ...empathetechConfig.keys,
+                    videoColorKey,
+                  });
+                  setState(() {});
+                },
+              ),
+              separator,
+            ],
+          ),
         ),
       ),
     );
