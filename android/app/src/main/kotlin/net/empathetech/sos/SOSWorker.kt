@@ -17,10 +17,11 @@ class SendSOSWorker(context: Context, workerParams: WorkerParameters) : Worker(c
 
     for (num in numbers) {
       try {
+        android.util.Log.d("SMS_PROGRESS", "Sending SOS to $num")
         val parts = smsManager.divideMessage("$message\n$location")
         smsManager.sendMultipartTextMessage(num, null, parts, null, null)
       } catch (e: Exception) {
-        android.util.Log.e("SMS_ERROR", "Failed to send to $num: ${e.message}")
+        android.util.Log.d("SMS_ERROR", "Failed to send to $num: ${e.message}")
         failures.add(num)
       }
     }

@@ -30,9 +30,10 @@ class MainActivity : FlutterActivity() {
 
     for (num in numbers) {
       try {
+        android.util.Log.d("SMS_PROGRESS", "Sending SOS to $num")
         smsManager.sendTextMessage(num, null, message, null, null)
       } catch (e: Exception) {
-        android.util.Log.e("SMS_ERROR", "Failed to send to $num: ${e.message}")
+        android.util.Log.d("SMS_ERROR", "Failed to send to $num: ${e.message}")
         failures.add(num)
       }
     }
