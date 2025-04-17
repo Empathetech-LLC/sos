@@ -7,8 +7,9 @@ import androidx.work.WorkerParameters
 
 class SendSOSWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
   override fun doWork(): Result {
-    val recipients = inputData.getString("recipients") ?: return Result.failure("MISSING_RECIPIENTS")
-    val message = inputData.getString("message") ?: return Result.failure("MISSING_MESSAGE")
+    val recipients = inputData.getString("recipients") ?: return Result.failure()
+    val message = inputData.getString("message") ?: return Result.failure()
+    val location = inputData.getString("location") ?: return Result.failure()
 
     val smsManager = SmsManager.getDefault()
     val numbers = recipients.split(";")
@@ -16,7 +17,8 @@ class SendSOSWorker(context: Context, workerParams: WorkerParameters) : Worker(c
 
     for (num in numbers) {
       try {
-        smsManager.sendTextMessage(num, null, message, null, null)
+        val parts = smsManager.divideMessage("$message\n$location")
+        smsManager.sendMultipartTextMessage(num, null, parts, null, null)
       } catch (e: Exception) {
         android.util.Log.e("SMS_ERROR", "Failed to send to $num: ${e.message}")
         failures.add(num)
@@ -24,13 +26,9 @@ class SendSOSWorker(context: Context, workerParams: WorkerParameters) : Worker(c
     }
 
     return if (failures.isEmpty()) {
-      Result.success("SMS_SUCCESS")
+      Result.success()
     } else {
-      Result.failure(
-        "SMS_FAILURES_DETECTED",
-        "Failed to send to: ${failures.joinToString(", ")}",
-        null
-      )
+      Result.failure()
     }
   }
 }
