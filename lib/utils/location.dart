@@ -64,8 +64,8 @@ void sendSOS({
 const String broadcastName = 'broadcast';
 const String broadcastTask = 'broadcastTask';
 
-/// Register [broadcast] task (aka [sendSOS]) with [Workmanager]
-Future<void> startBackgroundSOS(
+/// Register [broadcastTask] (aka [sendSOS]) with [Workmanager]
+Future<void> backgroundSOS(
   List<String> emc, {
   required String denied,
   required String disabled,
