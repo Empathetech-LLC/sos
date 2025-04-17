@@ -130,14 +130,14 @@ class _HomeScreenState extends State<HomeScreen>
   void startForegroundSOS() {
     sosTimer?.cancel();
 
-    // Send an immediate SOS
-    sendSOS(emc: emc, denied: sosDenied, disabled: sosDisabled);
+    // // Send an immediate SOS
+    // sendSOS(emc: emc, denied: sosDenied, disabled: sosDisabled);
 
-    // Initiate a periodic SOS
-    sosTimer = Timer.periodic(
-      const Duration(minutes: 5),
-      (_) => sendSOS(emc: emc, denied: sosDenied, disabled: sosDisabled),
-    );
+    // // Initiate a periodic SOS
+    // sosTimer = Timer.periodic(
+    //   const Duration(minutes: 5),
+    //   (_) => sendSOS(emc: emc, denied: sosDenied, disabled: sosDisabled),
+    // );
 
     setState(() => broadcasting = true);
   }
@@ -679,9 +679,6 @@ class _HomeScreenState extends State<HomeScreen>
             !alreadyRunning &&
             (broadcasting || sosOnClose)) {
           if (broadcasting) stopForegroundSOS();
-
-          debugPrint('CAW! ${state.toString()}');
-          debugPrint('CAW calling background SOS');
           await startBackgroundSOS();
         }
       }
