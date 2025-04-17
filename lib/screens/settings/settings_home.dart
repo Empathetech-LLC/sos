@@ -40,13 +40,13 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   // Define custom functions //
 
   Future<bool> attemptToSet(String key, bool value) async {
-    if (value == false) return EzConfig.setBool(onOpenKey, value);
+    if (value == false) return EzConfig.setBool(key, value);
 
     final PermissionStatus canSMS = await Permission.sms.request();
 
     if (canSMS != PermissionStatus.denied &&
         canSMS != PermissionStatus.permanentlyDenied) {
-      return EzConfig.setBool(onOpenKey, value);
+      return EzConfig.setBool(key, value);
     } else {
       if (mounted) ezSnackBar(context: context, message: l10n.sosNeedSMS);
       return false;
