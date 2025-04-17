@@ -52,6 +52,8 @@ class _HomeScreenState extends State<HomeScreen>
   final bool isLefty = EzConfig.get(isLeftyKey);
 
   // Color
+  late final ColorScheme colorScheme = Theme.of(context).colorScheme;
+
   final Color videoColor = Color(EzConfig.get(videoColorKey) ?? 0xFFFF0000);
   late final Color videoTextColor = getTextColor(videoColor);
   late final Color rightsBackgroundColor = Theme.of(context)
@@ -225,7 +227,7 @@ class _HomeScreenState extends State<HomeScreen>
                 child: Container(
                   height: heightOf(context) * 0.667,
                   width: double.infinity,
-                  color: Theme.of(context).colorScheme.surface,
+                  color: colorScheme.surface,
                   child: camera == null
                       ? Visibility(
                           visible: showRights,
@@ -550,7 +552,7 @@ class _HomeScreenState extends State<HomeScreen>
                           : EzIconButton(
                               style: IconButton.styleFrom(
                                 foregroundColor: videoColor,
-                                side: BorderSide(color: videoTextColor),
+                                side: BorderSide(color: colorScheme.onSurface),
                               ),
                               icon: Icon(
                                 Icons.circle,
