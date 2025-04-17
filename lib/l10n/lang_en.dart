@@ -21,16 +21,28 @@ class LangEn extends Lang {
   String get sosDenied => 'Cannot access location (denied)';
 
   @override
-  String get hsSOSHint => 'Start sharing location';
+  String get hsStartSOS => 'Activate to start SOS broadcast.';
 
   @override
-  String get hsSafeCloseHint => 'All clear\nClose the app without SOS';
+  String get hsEndSOS => 'SOS is broadcasting. Activate to stop.';
 
   @override
-  String get hsCameraHint => 'Take a photo';
+  String get hsSafeCloseHint => 'All clear. Close the app without SOS.';
 
   @override
-  String get hsRecordHint => 'Record a video';
+  String get hsCameraHint => 'Take a photo.';
+
+  @override
+  String get hsShowRights => 'Show your rights.';
+
+  @override
+  String get hsHideRights => 'Hide your rights.';
+
+  @override
+  String get hsStartRecord => 'Record a video.';
+
+  @override
+  String get hsEndRecord => 'End the recording.';
 
   @override
   String get hsFlashOff => 'Flash Off. Activate to turn on auto flash.';

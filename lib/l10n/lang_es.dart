@@ -22,16 +22,28 @@ class LangEs extends Lang {
   String get sosDenied => 'No se puede acceder a la ubicación (denegada)';
 
   @override
-  String get hsSOSHint => 'Comenzar a compartir ubicación';
+  String get hsStartSOS => 'Activar para iniciar la transmisión SOS.';
 
   @override
-  String get hsSafeCloseHint => 'Todo claro\nCerrar la app sin activar SOS';
+  String get hsEndSOS => 'Se está emitiendo un SOS. Activar para detener.';
 
   @override
-  String get hsCameraHint => 'Tomar una foto';
+  String get hsSafeCloseHint => 'Todo claro. Cerrar la app sin activar SOS.';
 
   @override
-  String get hsRecordHint => 'Grabar un video';
+  String get hsCameraHint => 'Tomar una foto.';
+
+  @override
+  String get hsShowRights => 'Muestra tus derechos.';
+
+  @override
+  String get hsHideRights => 'Oculta tus derechos.';
+
+  @override
+  String get hsStartRecord => 'Grabar un vídeo.';
+
+  @override
+  String get hsEndRecord => 'End the recording.';
 
   @override
   String get hsFlashOff =>

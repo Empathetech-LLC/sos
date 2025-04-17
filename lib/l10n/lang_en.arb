@@ -11,11 +11,15 @@
 
 
 
-  "hsSOSHint": "Start sharing location",
-  "hsSafeCloseHint": "All clear\nClose the app without SOS",
-  "hsCameraHint": "Take a photo",
-  "hsRecordHint": "Record a video",
+  "hsStartSOS": "Activate to start SOS broadcast.",
+  "hsEndSOS": "SOS is broadcasting. Activate to stop.",
+  "hsSafeCloseHint": "All clear. Close the app without SOS.",
 
+  "hsCameraHint": "Take a photo.",
+  "hsShowRights": "Show your rights.",
+  "hsHideRights": "Hide your rights.",
+  "hsStartRecord": "Record a video.",
+  "hsEndRecord": "End the recording.",
   "hsFlashOff": "Flash Off. Activate to turn on auto flash.",
   "hsFlashAuto": "Auto flash. Activate to turn flash on.",
   "hsFlashOn": "Flash on. Activate to turn flash off.",

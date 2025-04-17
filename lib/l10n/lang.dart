@@ -122,29 +122,53 @@ abstract class Lang {
   /// **'Cannot access location (denied)'**
   String get sosDenied;
 
-  /// No description provided for @hsSOSHint.
+  /// No description provided for @hsStartSOS.
   ///
   /// In en, this message translates to:
-  /// **'Start sharing location'**
-  String get hsSOSHint;
+  /// **'Activate to start SOS broadcast.'**
+  String get hsStartSOS;
+
+  /// No description provided for @hsEndSOS.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS is broadcasting. Activate to stop.'**
+  String get hsEndSOS;
 
   /// No description provided for @hsSafeCloseHint.
   ///
   /// In en, this message translates to:
-  /// **'All clear\nClose the app without SOS'**
+  /// **'All clear. Close the app without SOS.'**
   String get hsSafeCloseHint;
 
   /// No description provided for @hsCameraHint.
   ///
   /// In en, this message translates to:
-  /// **'Take a photo'**
+  /// **'Take a photo.'**
   String get hsCameraHint;
 
-  /// No description provided for @hsRecordHint.
+  /// No description provided for @hsShowRights.
   ///
   /// In en, this message translates to:
-  /// **'Record a video'**
-  String get hsRecordHint;
+  /// **'Show your rights.'**
+  String get hsShowRights;
+
+  /// No description provided for @hsHideRights.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide your rights.'**
+  String get hsHideRights;
+
+  /// No description provided for @hsStartRecord.
+  ///
+  /// In en, this message translates to:
+  /// **'Record a video.'**
+  String get hsStartRecord;
+
+  /// No description provided for @hsEndRecord.
+  ///
+  /// In en, this message translates to:
+  /// **'End the recording.'**
+  String get hsEndRecord;
 
   /// No description provided for @hsFlashOff.
   ///

@@ -23,17 +23,29 @@ class LangFr extends Lang {
   String get sosDenied => 'Impossible d\'accéder à la localisation (refusée)';
 
   @override
-  String get hsSOSHint => 'Commencer à partager la localisation';
+  String get hsStartSOS => 'Activer pour démarrer la diffusion SOS.';
+
+  @override
+  String get hsEndSOS => 'SOS est en cours de diffusion. Activez pour arrêter.';
 
   @override
   String get hsSafeCloseHint =>
-      'Tout est clair\nFermer l\'application sans activer SOS';
+      'Tout est clair. Fermer l\'application sans activer SOS.';
 
   @override
-  String get hsCameraHint => 'Prendre une photo';
+  String get hsCameraHint => 'Prendre une photo.';
 
   @override
-  String get hsRecordHint => 'Enregistrer une vidéo';
+  String get hsShowRights => 'Montrez vos droits.';
+
+  @override
+  String get hsHideRights => 'Cachez vos droits.';
+
+  @override
+  String get hsStartRecord => 'Enregistrer une vidéo.';
+
+  @override
+  String get hsEndRecord => 'Terminez l\'enregistrement.';
 
   @override
   String get hsFlashOff =>
