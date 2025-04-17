@@ -18,6 +18,7 @@ import 'package:feedback/feedback.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:workmanager/workmanager.dart';
 import 'package:after_layout/after_layout.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -34,8 +35,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with AfterLayoutMixin<HomeScreen>, WidgetsBindingObserver {
   // Gather the theme data //
-
-  final bool isIOS = isApple();
 
   // Layout
   late final double safeTop = MediaQuery.paddingOf(context).top;
@@ -127,8 +126,8 @@ class _HomeScreenState extends State<HomeScreen>
     return false;
   }
 
-  /// [sendSOS] every 30 seconds
-  void foregroundSOS() {
+  /// [sendSOS] every 5 minutes
+  void startForegroundSOS() {
     sosTimer?.cancel();
 
     // Send an immediate SOS
@@ -143,10 +142,28 @@ class _HomeScreenState extends State<HomeScreen>
     setState(() => broadcasting = true);
   }
 
+  void stopForegroundSOS() {
+    sosTimer?.cancel();
+    sosTimer = null;
+    setState(() => broadcasting = false);
+  }
+
+  /// Assumes an emc null/empty check has already been done
+  Future<void> startBackgroundSOS() async {
+    await backgroundSOS(emc!, denied: sosDenied, disabled: sosDisabled);
+    await EzConfig.setBool(taskRunningKey, true);
+  }
+
+  Future<void> stopBackgroundSOS() async {
+    await Workmanager().cancelByUniqueName(broadcastName);
+    await EzConfig.setBool(taskRunningKey, false);
+  }
+
   /// Take users to their platform settings if SOS doesn't have the permissions it needs
   void openSOSPermissions() async {
-    final PermissionStatus smsPerm =
-        isIOS ? PermissionStatus.granted : await Permission.sms.request();
+    final PermissionStatus smsPerm = Platform.isIOS
+        ? PermissionStatus.granted
+        : await Permission.sms.request();
     final LocationPermission geoPerm = await Geolocator.requestPermission();
 
     if (smsPerm == PermissionStatus.denied ||
@@ -194,7 +211,10 @@ class _HomeScreenState extends State<HomeScreen>
     if (newUser) emc = await addEMC(context, emc);
 
     // Check for auto SOS
-    if (sosOnOpen) foregroundSOS();
+    final bool taskRunning = await EzConfig.get(taskRunningKey) ?? false;
+
+    if (taskRunning) await stopBackgroundSOS();
+    if (sosOnOpen || taskRunning) startForegroundSOS();
 
     // Setup the camera/preview
     if (newUser && context.mounted) {
@@ -297,12 +317,12 @@ class _HomeScreenState extends State<HomeScreen>
                     left: 0,
                     right: 0,
                     title: '3/5',
-                    content: isIOS
+                    content: Platform.isIOS
                         ? l10n.hsIOSBroadcastTutorial
                         : l10n.hsBroadcastTutorial,
                     accept: () async {
                       broadcastOverlay.hide();
-                      if (!isIOS) await Permission.sms.request();
+                      if (!Platform.isIOS) await Permission.sms.request();
                       await Geolocator.requestPermission();
                       settingsOverlay.show();
                     },
@@ -311,18 +331,14 @@ class _HomeScreenState extends State<HomeScreen>
                       ? EzIconButton(
                           icon: const SOSIcon(),
                           iconSize: iconSize * 1.5,
-                          onPressed: () async {
-                            sosTimer?.cancel();
-                            sosTimer = null;
-                            setState(() => broadcasting = false);
-                          },
+                          onPressed: stopForegroundSOS,
                           onLongPress: openSOSPermissions,
                         )
                       : EzIconButton(
                           icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
                           iconSize: iconSize * 1.5,
                           onPressed: () async {
-                            final PermissionStatus smsStatus = isIOS
+                            final PermissionStatus smsStatus = Platform.isIOS
                                 ? PermissionStatus.granted
                                 : await Permission.sms.request();
 
@@ -335,8 +351,7 @@ class _HomeScreenState extends State<HomeScreen>
                               return;
                             }
 
-                            foregroundSOS();
-                            setState(() => broadcasting = true);
+                            startForegroundSOS();
                           },
                           onLongPress: openSOSPermissions,
                         ),
@@ -485,10 +500,10 @@ class _HomeScreenState extends State<HomeScreen>
                         right: 0,
                         title: '5/5',
                         content: camera == null
-                            ? isIOS
+                            ? Platform.isIOS
                                 ? l10n.hsIOSRightsTutorial
                                 : l10n.hsRightsTutorial
-                            : isIOS
+                            : Platform.isIOS
                                 ? l10n.hsIOSVideoTutorial
                                 : l10n.hsVideoTutorial,
                         accept: () async {
@@ -616,13 +631,17 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) async {
     if (state != AppLifecycleState.resumed) {
+      final bool canRunBackground =
+          !Platform.isIOS && emc != null && emc!.isNotEmpty;
+      final bool alreadyRunning = await EzConfig.get(taskRunningKey) ?? false;
+
       if (recording) {
         // Start broadcast/send ping based on user settings
-        if (!isIOS &&
-            emc != null &&
-            emc!.isNotEmpty &&
+        if (canRunBackground &&
+            !alreadyRunning &&
             (broadcasting || sosOnClose || sosOnInterrupt)) {
-          backgroundSOS(emc!, denied: sosDenied, disabled: sosDisabled);
+          if (broadcasting) stopForegroundSOS();
+          await startBackgroundSOS();
         }
 
         // Attempt to save the partial recording
@@ -652,12 +671,22 @@ class _HomeScreenState extends State<HomeScreen>
         watch.reset();
         setState(() => recording = false);
       } else {
-        if (!isIOS &&
-            emc != null &&
-            emc!.isNotEmpty &&
+        // Start broadcast/send ping based on user settings
+        if (canRunBackground &&
+            !alreadyRunning &&
             (broadcasting || sosOnClose)) {
-          backgroundSOS(emc!, denied: sosDenied, disabled: sosDisabled);
+          if (broadcasting) stopForegroundSOS();
+
+          debugPrint('CAW! ${state.toString()}');
+          debugPrint('CAW calling background SOS');
+          await startBackgroundSOS();
         }
+      }
+    } else {
+      // Resumed state
+      if (await EzConfig.get(taskRunningKey) == true) {
+        await stopBackgroundSOS();
+        startForegroundSOS();
       }
     }
   }
