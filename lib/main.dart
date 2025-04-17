@@ -22,11 +22,12 @@ void callbackDispatcher() => Workmanager()
       switch (task) {
         case broadcastName:
         case broadcastTask:
+          ezLog('Attempting background broadcast');
           try {
             sendSOS(
-              emc: inputData?['emc']?.cast<List<String>>(),
-              denied: inputData?['denied']?.cast<String>(),
-              disabled: inputData?['disabled']?.cast<String>(),
+              emc: List<String>.from(inputData?['emc'] ?? <String>[]),
+              denied: inputData?['denied'] ?? '',
+              disabled: inputData?['disabled'] ?? '',
             );
             return Future<bool>.value(true);
           } catch (e) {
@@ -35,6 +36,7 @@ void callbackDispatcher() => Workmanager()
             return Future<bool>.value(false);
           }
         default:
+          ezLog("Task '$task' not supported");
           return Future<bool>.value(false);
       }
     });
@@ -44,11 +46,11 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
+  Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
+
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
   ]);
-
-  Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
 
   // Initialize EzConfig //
 
