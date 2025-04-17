@@ -17,21 +17,27 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 
 @pragma('vm:entry-point')
-void callbackDispatcher() {
-  Workmanager().executeTask((
-    String task,
-    Map<String, dynamic>? inputData,
-  ) async {
-    if (task == broadcast) {
-      sendSOS(
-        emc: inputData?['emc']?.cast<List<String>>(),
-        denied: inputData?['denied']?.cast<String>(),
-        disabled: inputData?['disabled']?.cast<String>(),
-      );
-    }
-    return Future<bool>.value(true);
-  });
-}
+void callbackDispatcher() => Workmanager()
+        .executeTask((String task, Map<String, dynamic>? inputData) async {
+      switch (task) {
+        case broadcastName:
+        case broadcastTask:
+          try {
+            sendSOS(
+              emc: inputData?['emc']?.cast<List<String>>(),
+              denied: inputData?['denied']?.cast<String>(),
+              disabled: inputData?['disabled']?.cast<String>(),
+            );
+            return Future<bool>.value(true);
+          } catch (e) {
+            ezLog('SOS Failure');
+            ezLog(e.toString());
+            return Future<bool>.value(false);
+          }
+        default:
+          return Future<bool>.value(false);
+      }
+    });
 
 void main() async {
   // Setup the app //
