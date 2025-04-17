@@ -55,6 +55,9 @@ void sendSOS({
       mapData['recipients'] = emc.join(';');
     }
 
+    ezLog('Attempting foreground broadcast');
+    ezLog(mapData.toString());
+
     platform.invokeMethod<void>('sendSOS', mapData);
   } catch (e) {
     ezLog('Error sending SOS: $e');
@@ -70,7 +73,7 @@ Future<void> backgroundSOS(
   required String denied,
   required String disabled,
 }) =>
-    Workmanager().registerPeriodicTask(
+    Workmanager().registerOneOffTask(
       broadcastName,
       broadcastTask,
       inputData: <String, dynamic>{
