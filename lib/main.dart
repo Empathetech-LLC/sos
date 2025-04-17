@@ -42,7 +42,7 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
 
-  Workmanager().initialize(callbackDispatcher);
+  Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
 
   // Initialize EzConfig //
 
