@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen>
 
     // Initiate a periodic SOS
     sosTimer = Timer.periodic(
-      const Duration(seconds: 30),
+      const Duration(minutes: 5),
       (_) => sendSOS(emc: emc, denied: sosDenied, disabled: sosDisabled),
     );
 
