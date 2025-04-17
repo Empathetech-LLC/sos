@@ -63,7 +63,7 @@ void sendSOS({
   }
 }
 
-/// Register [broadcastTask] (aka [sendSOS]) with [Workmanager]
+/// Register [broadcast] task (aka [sendSOS]) with [Workmanager]
 Future<void> backgroundSOS(
   List<String> emc, {
   required String denied,
