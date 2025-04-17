@@ -66,12 +66,14 @@ const String broadcastName = 'broadcast';
 const String broadcastTask = 'broadcastTask';
 
 /// Register [broadcastTask] (aka [sendSOS]) with [Workmanager]
-Future<void> backgroundSOS(List<String> emc, Lang l10n) =>
-    Workmanager().registerOneOffTask(
-      broadcastName,
-      broadcastTask,
-      inputData: <String, dynamic>{
-        'recipients': emc.join(';'),
-        'message': 'SOS\n${getCoordinates(l10n)}',
-      },
-    );
+Future<void> backgroundSOS(List<String> emc, Lang l10n) async {
+  return Workmanager().registerOneOffTask(
+    broadcastName,
+    broadcastTask,
+    inputData: <String, dynamic>{
+      'recipients': emc.join(';'),
+      'message': 'SOS\nThe app is currently closed. Last known location:',
+      'location': await getCoordinates(l10n),
+    },
+  ); // TODO: localize
+}
