@@ -311,11 +311,7 @@ class _HomeScreenState extends State<HomeScreen>
                           onLongPress: openSOSPermissions,
                         )
                       : EzIconButton(
-                          icon: const Icon(
-                            Icons.sos,
-                            semanticLabel:
-                                'SOS. Activate to send emergency texts.',
-                          ),
+                          icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
                           iconSize: iconSize * 1.5,
                           onPressed: () async {
                             final PermissionStatus smsStatus = isIOS
@@ -403,7 +399,10 @@ class _HomeScreenState extends State<HomeScreen>
               child: Visibility(
                 visible: sosOnClose,
                 child: EzIconButton(
-                  icon: Icon(PlatformIcons(context).thumbUp),
+                  icon: Icon(
+                    PlatformIcons(context).thumbUp,
+                    semanticLabel: l10n.hsSafeCloseHint,
+                  ),
                   enabled: !recording,
                   onPressed: () => exit(0),
                 ),
@@ -425,8 +424,14 @@ class _HomeScreenState extends State<HomeScreen>
                     (camera == null || recording)
                         ? EzIconButton(
                             icon: showRights
-                                ? Icon(PlatformIcons(context).eyeSlash)
-                                : const Icon(Icons.gavel),
+                                ? Icon(
+                                    PlatformIcons(context).eyeSlash,
+                                    semanticLabel: l10n.hsHideRights,
+                                  )
+                                : Icon(
+                                    Icons.gavel,
+                                    semanticLabel: l10n.hsShowRights,
+                                  ),
                             onPressed: () =>
                                 setState(() => showRights = !showRights),
                           )
