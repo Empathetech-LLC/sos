@@ -590,10 +590,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) async {
-    if ((state == AppLifecycleState.detached ||
-        state == AppLifecycleState.hidden ||
-        state == AppLifecycleState.inactive ||
-        state == AppLifecycleState.paused)) {
+    if (state != AppLifecycleState.resumed) {
       if (recording) {
         // Start broadcast/send ping based on user settings
         if (!isIOS &&
@@ -643,8 +640,10 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void dispose() {
     sosTimer?.cancel();
-    WidgetsBinding.instance.removeObserver(this);
+    sosTimer = null;
     camera?.dispose();
+    camera = null;
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 }
