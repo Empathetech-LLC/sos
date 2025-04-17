@@ -8,6 +8,7 @@
   "sosNeedSMS": "SOS necesita permiso de SMS para funcionar correctamente.",
   "sosDisabled": "No se puede acceder a la ubicación (desactivada)",
   "sosDenied": "No se puede acceder a la ubicación (denegada)",
+  "sosError": "No se puede acceder a la ubicación (error)",
 
 
 

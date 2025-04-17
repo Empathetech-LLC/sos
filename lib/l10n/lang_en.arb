@@ -8,6 +8,7 @@
   "sosNeedSMS": "SOS needs SMS permission to function properly.",
   "sosDisabled": "Cannot access location (disabled)",
   "sosDenied": "Cannot access location (denied)",
+  "sosError": "Cannot access location (error)",
 
 
 

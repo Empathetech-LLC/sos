@@ -8,6 +8,7 @@
   "sosNeedSMS": "SOS a besoin d'une autorisation SMS pour fonctionner correctement.",
   "sosDisabled": "Impossible d'accéder à la localisation (désactivée)",
   "sosDenied": "Impossible d'accéder à la localisation (refusée)",
+  "sosError": "Impossible d'accéder à la localisation (erreur)",
 
 
 

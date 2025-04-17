@@ -23,6 +23,9 @@ class LangFr extends Lang {
   String get sosDenied => 'Impossible d\'accéder à la localisation (refusée)';
 
   @override
+  String get sosError => 'Impossible d\'accéder à la localisation (erreur)';
+
+  @override
   String get hsStartSOS => 'Activer pour démarrer la diffusion SOS.';
 
   @override

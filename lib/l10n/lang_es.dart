@@ -22,6 +22,9 @@ class LangEs extends Lang {
   String get sosDenied => 'No se puede acceder a la ubicación (denegada)';
 
   @override
+  String get sosError => 'No se puede acceder a la ubicación (error)';
+
+  @override
   String get hsStartSOS => 'Activar para iniciar la transmisión SOS.';
 
   @override

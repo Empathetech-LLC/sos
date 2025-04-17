@@ -122,6 +122,12 @@ abstract class Lang {
   /// **'Cannot access location (denied)'**
   String get sosDenied;
 
+  /// No description provided for @sosError.
+  ///
+  /// In en, this message translates to:
+  /// **'Cannot access location (error)'**
+  String get sosError;
+
   /// No description provided for @hsStartSOS.
   ///
   /// In en, this message translates to:
