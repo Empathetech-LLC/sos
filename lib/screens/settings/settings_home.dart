@@ -25,9 +25,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
   final bool isIOS = isApple();
 
-  final double margin = EzConfig.get(marginKey);
-  final double spacing = EzConfig.get(spacingKey);
-
   static const EzSpacer spacer = EzSpacer();
   static const EzSeparator separator = EzSeparator();
 
@@ -74,7 +71,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
         useImageDecoration: false,
         child: EzScrollView(
           children: <Widget>[
-            if (spacing > margin) EzSpacer(space: spacing - margin),
+            // Functionality disclaimer
+            EzWarning(el10n.ssSettingsGuide.split('\n').first),
+            separator,
 
             // Language
             const EzLocaleSetting(),
