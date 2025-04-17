@@ -17,30 +17,10 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 
 @pragma('vm:entry-point')
-void callbackDispatcher() => Workmanager()
-        .executeTask((String task, Map<String, dynamic>? inputData) async {
-      switch (task) {
-        case broadcastName:
-        case broadcastTask:
-          ezLog('Attempting background broadcast');
-          try {
-            sendSOS(
-              emc: List<String>.from(inputData?['emc'] ?? <String>[]),
-              denied: inputData?['denied'] ?? 'Cannot access location (denied)',
-              disabled:
-                  inputData?['disabled'] ?? 'Cannot access location (disabled)',
-              error: inputData?['error'] ?? 'Cannot access location (error)',
-            );
-            return Future<bool>.value(true);
-          } catch (e) {
-            ezLog('SOS Failure');
-            ezLog(e.toString());
-            return Future<bool>.value(false);
-          }
-        default:
-          ezLog("Task '$task' not supported");
-          return Future<bool>.value(false);
-      }
+void callbackDispatcher() =>
+    Workmanager().executeTask((String task, Map<String, dynamic>? inputData) {
+      ezLog('Attempting background broadcast');
+      return Future<bool>.value(true);
     });
 
 void main() async {
