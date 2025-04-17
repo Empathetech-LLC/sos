@@ -355,7 +355,10 @@ class _HomeScreenState extends State<HomeScreen>
                   },
                 ),
                 child: EzIconButton(
-                  icon: Icon(PlatformIcons(context).settings),
+                  icon: Icon(
+                    PlatformIcons(context).settings,
+                    semanticLabel: el10n.ssPageTitle,
+                  ),
                   enabled: !recording,
                   onPressed: () => context.goNamed(settingsHomePath),
                   onLongPress: () async {
