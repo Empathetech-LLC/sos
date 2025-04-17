@@ -7,8 +7,8 @@ import androidx.work.WorkerParameters
 
 class SendSOSWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
   override fun doWork(): Result {
-    val message = inputData.getString("message") ?: return Result.failure()
-    val recipients = inputData.getString("recipients") ?: return Result.failure()
+    val recipients = inputData.getString("recipients") ?: return Result.failure("MISSING_RECIPIENTS")
+    val message = inputData.getString("message") ?: return Result.failure("MISSING_MESSAGE")
 
     val smsManager = SmsManager.getDefault()
     val numbers = recipients.split(";")
