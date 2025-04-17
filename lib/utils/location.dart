@@ -3,8 +3,6 @@
  * See LICENSE for distribution and usage details.
  */
 
-import './export.dart';
-
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:workmanager/workmanager.dart';
@@ -63,15 +61,18 @@ void sendSOS({
   }
 }
 
+const String broadcastName = 'broadcast';
+const String broadcastTask = 'broadcastTask';
+
 /// Register [broadcast] task (aka [sendSOS]) with [Workmanager]
-Future<void> backgroundSOS(
+Future<void> startBackgroundSOS(
   List<String> emc, {
   required String denied,
   required String disabled,
 }) =>
     Workmanager().registerPeriodicTask(
-      '${broadcast}Task',
-      broadcast,
+      broadcastName,
+      broadcastTask,
       inputData: <String, dynamic>{
         'emc': emc,
         'denied': denied,
