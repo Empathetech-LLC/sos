@@ -3,6 +3,8 @@
  * See LICENSE for distribution and usage details.
  */
 
+import '../utils/export.dart';
+
 import 'package:flutter/material.dart';
 
 class SOSIcon extends StatefulWidget {
@@ -38,15 +40,17 @@ class _PulsingIconWidgetState extends State<SOSIcon>
   // Return the build //
 
   @override
-  Widget build(BuildContext context) => AnimatedBuilder(
-        animation: breathe,
-        builder: (_, __) => Icon(
-          breathe.value < 0.5
-              ? Icons.notifications
-              : Icons.notifications_active,
-          semanticLabel: 'SOS. Broadcast is active.',
-        ),
-      );
+  Widget build(BuildContext context) {
+    final Lang l10n = Lang.of(context)!;
+
+    return AnimatedBuilder(
+      animation: breathe,
+      builder: (_, __) => Icon(
+        breathe.value < 0.5 ? Icons.notifications : Icons.notifications_active,
+        semanticLabel: l10n.hsEndSOS,
+      ),
+    );
+  }
 
   @override
   void dispose() {
