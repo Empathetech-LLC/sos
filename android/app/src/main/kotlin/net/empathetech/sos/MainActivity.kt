@@ -40,7 +40,7 @@ class MainActivity : FlutterActivity() {
     if (failures.isEmpty()) {
       result.success("SMS_SUCCESS")
     } else {
-      result.failure(
+      result.error(
         "SMS_FAILURES_DETECTED",
         "Failed to send to: ${failures.joinToString(", ")}",
         null
