@@ -23,21 +23,30 @@ class ContactTile extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => EzScrollView(
-        mainAxisSize: MainAxisSize.min,
-        scrollDirection: Axis.horizontal,
-        reverseHands: true,
-        children: <Widget>[
-          Text(number, style: Theme.of(context).textTheme.bodyLarge),
-          const EzSpacer(vertical: false),
-          EzIconButton(
-            icon: Icon(PlatformIcons(context).removeCircledOutline),
-            enabled: enabled,
-            onPressed: onRemove,
-            tooltip: Lang.of(context)!.ssRemoveHint,
-          )
-        ],
-      );
+  Widget build(BuildContext context) {
+    final Lang l10n = Lang.of(context)!;
+    final EFUILang el10n = EFUILang.of(context)!;
+
+    return EzScrollView(
+      mainAxisSize: MainAxisSize.min,
+      scrollDirection: Axis.horizontal,
+      reverseHands: true,
+      children: <Widget>[
+        Text(number, style: Theme.of(context).textTheme.bodyLarge),
+        const EzSpacer(vertical: false),
+        EzIconButton(
+          icon: Icon(
+            PlatformIcons(context).removeCircledOutline,
+            semanticLabel:
+                '${l10n.ssRemoveHint}.${enabled ? '' : ' ${el10n.gDisabled}.'}',
+          ),
+          enabled: enabled,
+          onPressed: onRemove,
+          tooltip: l10n.ssRemoveHint,
+        )
+      ],
+    );
+  }
 }
 
 class ContactList extends StatefulWidget {
@@ -98,7 +107,10 @@ class _ContactListState extends State<ContactList> {
               Text(l10n.ssEMC, style: textTheme.titleLarge),
               EzMargin(),
               EzIconButton(
-                icon: Icon(PlatformIcons(context).addCircledOutline),
+                icon: Icon(
+                  PlatformIcons(context).addCircledOutline,
+                  semanticLabel: l10n.ssAddHint,
+                ),
                 onPressed: () async {
                   emc = await addEMC(context, emc, loop: false) ?? emc;
                   setState(() => heightMod = min(5, emc.length));
