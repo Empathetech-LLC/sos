@@ -175,15 +175,16 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   /// Save the file at [path] to the gallery
-  Future<void> saveToGallery(String path) async {
+  Future<void> saveToGallery(String path, bool image) async {
     final bool galAccess = await Gal.requestAccess();
 
     if (galAccess) {
       try {
-        await Gal.putImage(path);
+        image ? await Gal.putImage(path) : Gal.putVideo(path);
       } catch (e) {
         // If this fails, it's likely the user has bigger problems at hand
         // We can still try to share the file without saving it to the gallery
+        ezLog('Error saving to gallery');
         ezLog(e.toString());
       }
     }
@@ -475,7 +476,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 final XFile image = await camera!.takePicture();
 
                                 // Attempt to save the image
-                                await saveToGallery(image.path);
+                                await saveToGallery(image.path, true);
 
                                 // Attempt to share
                                 await Share.shareXFiles(
@@ -550,7 +551,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   await tmpFile.copy(mp4Path);
 
                                   // Attempt to save the video
-                                  await saveToGallery(mp4Path);
+                                  await saveToGallery(mp4Path, false);
 
                                   // Attempt to share the video
                                   await Share.shareXFiles(
@@ -664,7 +665,7 @@ class _HomeScreenState extends State<HomeScreen>
           await tmpFile.copy(mp4Path);
 
           // Attempt to save the video
-          await saveToGallery(mp4Path);
+          await saveToGallery(mp4Path, false);
         } catch (e) {
           // The app is unfocussed, so we can't do anything
           ezLog(e.toString());
