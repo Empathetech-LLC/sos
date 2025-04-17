@@ -65,10 +65,6 @@ class _HomeScreenState extends State<HomeScreen>
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = EFUILang.of(context)!;
 
-  late final String sosDenied = l10n.sosDenied;
-  late final String sosDisabled = l10n.sosDisabled;
-  late final String sosError = l10n.sosError;
-
   // Define the build data //
 
   // Core
@@ -151,12 +147,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   /// Assumes an emc null/empty check has already been done
   Future<void> startBackgroundSOS() async {
-    await backgroundSOS(
-      emc!,
-      denied: sosDenied,
-      disabled: sosDisabled,
-      error: sosError,
-    );
+    await backgroundSOS(emc!, l10n);
     await EzConfig.setBool(taskRunningKey, true);
   }
 
@@ -487,11 +478,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 // Attempt to share
                                 await Share.shareXFiles(
                                   <XFile>[image],
-                                  text: await getCoordinates(
-                                    denied: sosDenied,
-                                    disabled: sosDisabled,
-                                    error: sosError,
-                                  ),
+                                  text: await getCoordinates(l10n),
                                 );
                               } catch (e) {
                                 if (context.mounted) {
@@ -563,11 +550,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   // Attempt to share the video
                                   await Share.shareXFiles(
                                     <XFile>[XFile(mp4Path)],
-                                    text: await getCoordinates(
-                                      denied: sosDenied,
-                                      disabled: sosDisabled,
-                                      error: sosError,
-                                    ),
+                                    text: await getCoordinates(l10n),
                                   );
                                 } catch (e) {
                                   if (context.mounted) {
