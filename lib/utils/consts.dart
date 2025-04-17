@@ -8,8 +8,8 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 /// 'InstaSOS'
 const String appTitle = 'InstaSOS';
 
-/// 'broadcast'
-const String broadcast = 'broadcast';
+/// 'taskRunning'
+const String taskRunningKey = 'taskRunning';
 
 /// 'showTutorial'
 const String tutorialKey = 'showTutorial';
@@ -33,10 +33,11 @@ final Map<String, dynamic> sosConfig = <String, dynamic>{
   ...empathetechConfig,
   darkTextBackgroundOpacityKey: 0.8,
   lightTextBackgroundOpacityKey: 0.8,
-  tutorialKey: true,
   videoColorKey: 0xFFFF0000,
   emcKey: <String>[],
+  tutorialKey: true,
   onOpenKey: false,
   onCloseKey: false,
   onInterruptKey: true,
+  taskRunningKey: false,
 };
