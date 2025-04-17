@@ -33,6 +33,9 @@ class LangEn extends Lang {
   String get hsCameraHint => 'Take a photo.';
 
   @override
+  String get hsPreviewHint => 'Long press to toggle your rights view.';
+
+  @override
   String get hsShowRights => 'Show your rights.';
 
   @override
@@ -84,19 +87,19 @@ class LangEn extends Lang {
 
   @override
   String get hsVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nDouble tap the center preview to show a list of your rights.';
+      'When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nLong press the center preview to show a list of your rights.';
 
   @override
   String get hsIOSVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nDouble tap the center preview to show a list of your rights.';
+      'When you take a picture or record a video, you will be able to share it right away.\n\nLong press the center preview to show a list of your rights.';
 
   @override
   String get hsRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.';
+      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or long press the center of the screen to show a list of your rights.';
 
   @override
   String get hsIOSRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.';
+      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.';
 
   @override
   String get hsNeedContacts =>

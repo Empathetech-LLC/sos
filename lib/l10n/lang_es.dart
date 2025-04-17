@@ -34,6 +34,10 @@ class LangEs extends Lang {
   String get hsCameraHint => 'Tomar una foto.';
 
   @override
+  String get hsPreviewHint =>
+      'Mantén presionado para alternar la vista de tus derechos.';
+
+  @override
   String get hsShowRights => 'Muestra tus derechos.';
 
   @override
@@ -86,19 +90,19 @@ class LangEs extends Lang {
 
   @override
   String get hsVideoTutorial =>
-      'Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nToca dos veces el centro de la vista previa para ver una lista de tus derechos.';
+      'Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nPulsación larga el centro de la vista previa para ver una lista de tus derechos.';
 
   @override
   String get hsIOSVideoTutorial =>
-      'Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nToca dos veces el centro de la vista previa para ver una lista de tus derechos.';
+      'Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nPulsación larga el centro de la vista previa para ver una lista de tus derechos.';
 
   @override
   String get hsRightsTutorial =>
-      'Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nToca el mazo o toca dos veces el centro de la pantalla para ver una lista de tus derechos.';
+      'Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nToca el mazo o pulsación larga el centro de la pantalla para ver una lista de tus derechos.';
 
   @override
   String get hsIOSRightsTutorial =>
-      'Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nToca el mazo o toca dos veces el centro de la pantalla para ver una lista de tus derechos.';
+      'Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nToca el mazo o pulsación larga el centro de la pantalla para ver una lista de tus derechos.';
 
   @override
   String get hsNeedContacts =>

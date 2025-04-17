@@ -16,6 +16,7 @@
   "hsSafeCloseHint": "Tout est clair. Fermer l'application sans activer SOS.",
 
   "hsCameraHint": "Prendre une photo.",
+  "hsPreviewHint": "Appui long pour basculer la vue de vos droits.",
   "hsShowRights": "Montrez vos droits.",
   "hsHideRights": "Cachez vos droits.",
   "hsStartRecord": "Enregistrer une vidéo.",
@@ -32,10 +33,10 @@
   "hsBroadcastTutorial": "Activez SOS pour envoyer automatiquement des messages à vos contacts d'urgence.\n\nSi SOS a accès à votre position, celle-ci sera incluse dans les messages.\n\nLes messages continueront même si le téléphone est verrouillé.\n\nDésactivez SOS ou fermez complètement l'application pour arrêter les messages.",
   "hsIOSBroadcastTutorial": "Activez SOS pour envoyer automatiquement des messages à vos contacts d'urgence.\n\nSi SOS a accès à votre position, celle-ci sera incluse dans les messages.",
   "hsSettingsTutorial": "Vous pouvez...\n\n- Ajouter d'autres contacts d'urgence\n- Configurer le SOS automatique\n- Changer la langue de l'application, et\n- Modifier l'apparence de l'application\n\ndans les paramètres.\n\nMaintenez le bouton des paramètres pour envoyer des commentaires sur l'application.",
-  "hsVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s'activera automatiquement.\n\nTouchez deux fois le centre de l'aperçu pour afficher une liste de vos droits.",
-  "hsIOSVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nTouchez deux fois le centre de l'aperçu pour afficher une liste de vos droits.",
-  "hsRightsTutorial": "Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s'activera automatiquement.\n\nTouchez le marteau ou touchez deux fois le centre de l'écran pour voir une liste de vos droits.",
-  "hsIOSRightsTutorial": "Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nTouchez le marteau ou touchez deux fois le centre de l'écran pour voir une liste de vos droits.",
+  "hsVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s'activera automatiquement.\n\nAppui long le centre de l'aperçu pour afficher une liste de vos droits.",
+  "hsIOSVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nAppui long le centre de l'aperçu pour afficher une liste de vos droits.",
+  "hsRightsTutorial": "Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s'activera automatiquement.\n\nTouchez le marteau ou appui long le centre de l'écran pour voir une liste de vos droits.",
+  "hsIOSRightsTutorial": "Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nTouchez le marteau ou appui long le centre de l'écran pour voir une liste de vos droits.",
 
   "hsNeedContacts": "SOS a besoin d'accéder à vos contacts pour fonctionner correctement.",
   "hsNoNumber": "Le contact doit avoir un numéro de téléphone.",

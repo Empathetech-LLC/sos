@@ -221,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen>
             // Camera preview and rights view
             Center(
               child: GestureDetector(
-                onDoubleTap: () => setState(() => showRights = !showRights),
+                onLongPress: () => setState(() => showRights = !showRights),
                 child: Container(
                   height: heightOf(context) * 0.667,
                   width: double.infinity,
@@ -232,7 +232,13 @@ class _HomeScreenState extends State<HomeScreen>
                           child: const RightsView(),
                         )
                       : Stack(children: <Widget>[
-                          Center(child: CameraPreview(camera!)),
+                          Center(
+                            child: Semantics(
+                              hint: l10n.hsPreviewHint,
+                              excludeSemantics: showRights,
+                              child: CameraPreview(camera!),
+                            ),
+                          ),
                           Visibility(
                             visible: showRights,
                             child: Container(
@@ -439,7 +445,10 @@ class _HomeScreenState extends State<HomeScreen>
                                 setState(() => showRights = !showRights),
                           )
                         : EzIconButton(
-                            icon: Icon(PlatformIcons(context).photoCamera),
+                            icon: Icon(
+                              PlatformIcons(context).photoCamera,
+                              semanticLabel: l10n.hsCameraHint,
+                            ),
                             onPressed: () async {
                               try {
                                 // Take a picture
@@ -491,7 +500,10 @@ class _HomeScreenState extends State<HomeScreen>
                                 foregroundColor: videoColor,
                                 side: BorderSide(color: videoTextColor),
                               ),
-                              icon: const Icon(Icons.stop),
+                              icon: Icon(
+                                Icons.stop,
+                                semanticLabel: l10n.hsEndRecord,
+                              ),
                               iconSize: iconSize * 2,
                               onPressed: () async {
                                 try {
@@ -540,7 +552,10 @@ class _HomeScreenState extends State<HomeScreen>
                                 foregroundColor: videoColor,
                                 side: BorderSide(color: videoTextColor),
                               ),
-                              icon: const Icon(Icons.circle),
+                              icon: Icon(
+                                Icons.circle,
+                                semanticLabel: l10n.hsStartRecord,
+                              ),
                               iconSize: iconSize * 2,
                               onPressed: () async {
                                 if (camera == null) {

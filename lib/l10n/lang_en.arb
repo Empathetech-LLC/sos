@@ -16,6 +16,7 @@
   "hsSafeCloseHint": "All clear. Close the app without SOS.",
 
   "hsCameraHint": "Take a photo.",
+  "hsPreviewHint": "Long press to toggle your rights view.",
   "hsShowRights": "Show your rights.",
   "hsHideRights": "Hide your rights.",
   "hsStartRecord": "Record a video.",
@@ -32,10 +33,10 @@
   "hsBroadcastTutorial": "Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.",
   "hsIOSBroadcastTutorial": "Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.",
   "hsSettingsTutorial": "You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app's language, and\n- Update the app's appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.",
-  "hsVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nDouble tap the center preview to show a list of your rights.",
-  "hsIOSVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nDouble tap the center preview to show a list of your rights.",
-  "hsRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.",
-  "hsIOSRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.",
+  "hsVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nLong press the center preview to show a list of your rights.",
+  "hsIOSVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nLong press the center preview to show a list of your rights.",
+  "hsRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or long press the center of the screen to show a list of your rights.",
+  "hsIOSRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.",
   
   "hsNeedContacts": "InstaSOS needs access to your contacts to function properly.",
   "hsNoNumber": "The contact must have a phone number.",

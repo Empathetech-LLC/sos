@@ -36,6 +36,9 @@ class LangFr extends Lang {
   String get hsCameraHint => 'Prendre une photo.';
 
   @override
+  String get hsPreviewHint => 'Appui long pour basculer la vue de vos droits.';
+
+  @override
   String get hsShowRights => 'Montrez vos droits.';
 
   @override
@@ -88,19 +91,19 @@ class LangFr extends Lang {
 
   @override
   String get hsVideoTutorial =>
-      'Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s\'activera automatiquement.\n\nTouchez deux fois le centre de l\'aperçu pour afficher une liste de vos droits.';
+      'Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s\'activera automatiquement.\n\nAppui long le centre de l\'aperçu pour afficher une liste de vos droits.';
 
   @override
   String get hsIOSVideoTutorial =>
-      'Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nTouchez deux fois le centre de l\'aperçu pour afficher une liste de vos droits.';
+      'Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nAppui long le centre de l\'aperçu pour afficher une liste de vos droits.';
 
   @override
   String get hsRightsTutorial =>
-      'Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s\'activera automatiquement.\n\nTouchez le marteau ou touchez deux fois le centre de l\'écran pour voir une liste de vos droits.';
+      'Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s\'activera automatiquement.\n\nTouchez le marteau ou appui long le centre de l\'écran pour voir une liste de vos droits.';
 
   @override
   String get hsIOSRightsTutorial =>
-      'Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nTouchez le marteau ou touchez deux fois le centre de l\'écran pour voir une liste de vos droits.';
+      'Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nTouchez le marteau ou appui long le centre de l\'écran pour voir une liste de vos droits.';
 
   @override
   String get hsNeedContacts =>

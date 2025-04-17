@@ -16,6 +16,7 @@
   "hsSafeCloseHint": "Todo claro. Cerrar la app sin activar SOS.",
 
   "hsCameraHint": "Tomar una foto.",
+  "hsPreviewHint": "Mantén presionado para alternar la vista de tus derechos.",
   "hsShowRights": "Muestra tus derechos.",
   "hsHideRights": "Oculta tus derechos.",
   "hsStartRecord": "Grabar un vídeo.",
@@ -32,10 +33,10 @@
   "hsBroadcastTutorial": "Activa SOS para enviar mensajes automáticamente a tus contactos de emergencia.\n\nSi SOS tiene acceso a tu ubicación, esta se incluirá en los mensajes.\n\nLos mensajes continuarán incluso si el teléfono está bloqueado.\n\nDesactiva SOS o cierra completamente la app para detener los mensajes.",
   "hsIOSBroadcastTutorial": "Activa SOS para enviar mensajes automáticamente a tus contactos de emergencia.\n\nSi SOS tiene acceso a tu ubicación, esta se incluirá en los mensajes.",
   "hsSettingsTutorial": "Puedes...\n\n- Agregar más contactos de emergencia\n- Configurar SOS automático\n- Cambiar el idioma de la app, y\n- Actualizar la apariencia de la app\n\nen los ajustes.\n\nMantén presionado el botón de ajustes para enviar comentarios sobre la app.",
-  "hsVideoTutorial": "Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nToca dos veces el centro de la vista previa para ver una lista de tus derechos.",
-  "hsIOSVideoTutorial": "Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nToca dos veces el centro de la vista previa para ver una lista de tus derechos.",
-  "hsRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nToca el mazo o toca dos veces el centro de la pantalla para ver una lista de tus derechos.",
-  "hsIOSRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nToca el mazo o toca dos veces el centro de la pantalla para ver una lista de tus derechos.",
+  "hsVideoTutorial": "Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nPulsación larga el centro de la vista previa para ver una lista de tus derechos.",
+  "hsIOSVideoTutorial": "Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nPulsación larga el centro de la vista previa para ver una lista de tus derechos.",
+  "hsRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nToca el mazo o pulsación larga el centro de la pantalla para ver una lista de tus derechos.",
+  "hsIOSRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nToca el mazo o pulsación larga el centro de la pantalla para ver una lista de tus derechos.",
 
   "hsNeedContacts": "SOS necesita acceso a tus contactos para funcionar correctamente.",
   "hsNoNumber": "El contacto debe tener un número de teléfono.",

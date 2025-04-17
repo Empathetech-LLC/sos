@@ -146,6 +146,12 @@ abstract class Lang {
   /// **'Take a photo.'**
   String get hsCameraHint;
 
+  /// No description provided for @hsPreviewHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Long press to toggle your rights view.'**
+  String get hsPreviewHint;
+
   /// No description provided for @hsShowRights.
   ///
   /// In en, this message translates to:
@@ -239,25 +245,25 @@ abstract class Lang {
   /// No description provided for @hsVideoTutorial.
   ///
   /// In en, this message translates to:
-  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nDouble tap the center preview to show a list of your rights.'**
+  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nLong press the center preview to show a list of your rights.'**
   String get hsVideoTutorial;
 
   /// No description provided for @hsIOSVideoTutorial.
   ///
   /// In en, this message translates to:
-  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nDouble tap the center preview to show a list of your rights.'**
+  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nLong press the center preview to show a list of your rights.'**
   String get hsIOSVideoTutorial;
 
   /// No description provided for @hsRightsTutorial.
   ///
   /// In en, this message translates to:
-  /// **'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.'**
+  /// **'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or long press the center of the screen to show a list of your rights.'**
   String get hsRightsTutorial;
 
   /// No description provided for @hsIOSRightsTutorial.
   ///
   /// In en, this message translates to:
-  /// **'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or double tap the center of the screen to show a list of your rights.'**
+  /// **'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.'**
   String get hsIOSRightsTutorial;
 
   /// No description provided for @hsNeedContacts.
