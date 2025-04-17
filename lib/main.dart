@@ -26,8 +26,9 @@ void callbackDispatcher() => Workmanager()
           try {
             sendSOS(
               emc: List<String>.from(inputData?['emc'] ?? <String>[]),
-              denied: inputData?['denied'] ?? '',
-              disabled: inputData?['disabled'] ?? '',
+              denied: inputData?['denied'] ?? 'Cannot access location (denied)',
+              disabled:
+                  inputData?['disabled'] ?? 'Cannot access location (disabled)',
             );
             return Future<bool>.value(true);
           } catch (e) {
