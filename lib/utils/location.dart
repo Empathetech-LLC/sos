@@ -11,26 +11,33 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 Future<String> getCoordinates({
   required String denied,
   required String disabled,
+  required String error,
 }) async {
-  final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!serviceEnabled) return disabled;
+  try {
+    final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) return disabled;
 
-  LocationPermission permission = await Geolocator.checkPermission();
-  if (permission == LocationPermission.denied) {
-    // Changeably denied, ask again
-    permission = await Geolocator.requestPermission();
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      // Changeably denied, ask again
+      permission = await Geolocator.requestPermission();
 
-    if (permission == LocationPermission.denied ||
-        permission == LocationPermission.deniedForever) {
+      if (permission == LocationPermission.denied ||
+          permission == LocationPermission.deniedForever) {
+        return denied;
+      }
+    } else if (permission == LocationPermission.deniedForever) {
+      // Permanently denied
       return denied;
     }
-  } else if (permission == LocationPermission.deniedForever) {
-    // Permanently denied
-    return denied;
-  }
 
-  final Position pos = await Geolocator.getCurrentPosition();
-  return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.longitude.toStringAsFixed(4)}';
+    final Position pos = await Geolocator.getCurrentPosition();
+    return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.longitude.toStringAsFixed(4)}';
+  } catch (e) {
+    ezLog('Error getting coordinates');
+    ezLog(e.toString());
+    return error;
+  }
 }
 
 const MethodChannel platform = MethodChannel('net.empathetech.sos/broadcast');
@@ -39,6 +46,7 @@ void sendSOS({
   required List<String>? emc,
   required String denied,
   required String disabled,
+  required String error,
 }) async {
   if (emc == null || emc.isEmpty) return;
 
@@ -46,6 +54,7 @@ void sendSOS({
   mapData['message'] = 'SOS\n${await getCoordinates(
     denied: denied,
     disabled: disabled,
+    error: error,
   )}';
 
   try {
@@ -71,6 +80,7 @@ Future<void> backgroundSOS(
   List<String> emc, {
   required String denied,
   required String disabled,
+  required String error,
 }) =>
     Workmanager().registerOneOffTask(
       broadcastName,
@@ -79,5 +89,6 @@ Future<void> backgroundSOS(
         'emc': emc,
         'denied': denied,
         'disabled': disabled,
+        'error': error,
       },
     );

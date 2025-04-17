@@ -67,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   late final String sosDenied = l10n.sosDenied;
   late final String sosDisabled = l10n.sosDisabled;
+  late final String sosError = l10n.sosError;
 
   // Define the build data //
 
@@ -150,7 +151,12 @@ class _HomeScreenState extends State<HomeScreen>
 
   /// Assumes an emc null/empty check has already been done
   Future<void> startBackgroundSOS() async {
-    await backgroundSOS(emc!, denied: sosDenied, disabled: sosDisabled);
+    await backgroundSOS(
+      emc!,
+      denied: sosDenied,
+      disabled: sosDisabled,
+      error: sosError,
+    );
     await EzConfig.setBool(taskRunningKey, true);
   }
 
@@ -484,6 +490,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   text: await getCoordinates(
                                     denied: sosDenied,
                                     disabled: sosDisabled,
+                                    error: sosError,
                                   ),
                                 );
                               } catch (e) {
@@ -559,6 +566,7 @@ class _HomeScreenState extends State<HomeScreen>
                                     text: await getCoordinates(
                                       denied: sosDenied,
                                       disabled: sosDisabled,
+                                      error: sosError,
                                     ),
                                   );
                                 } catch (e) {

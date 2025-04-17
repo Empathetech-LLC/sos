@@ -21,6 +21,9 @@ class LangEn extends Lang {
   String get sosDenied => 'Cannot access location (denied)';
 
   @override
+  String get sosError => 'Cannot access location (error)';
+
+  @override
   String get hsStartSOS => 'Activate to start SOS broadcast.';
 
   @override

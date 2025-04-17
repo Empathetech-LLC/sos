@@ -29,6 +29,7 @@ void callbackDispatcher() => Workmanager()
               denied: inputData?['denied'] ?? 'Cannot access location (denied)',
               disabled:
                   inputData?['disabled'] ?? 'Cannot access location (disabled)',
+              error: inputData?['error'] ?? 'Cannot access location (error)',
             );
             return Future<bool>.value(true);
           } catch (e) {
