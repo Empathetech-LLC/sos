@@ -20,6 +20,18 @@ const String videoColorKey = 'Video';
 /// 'emc'
 const String emcKey = 'emc';
 
+/// 'savedTab'
+const String savedTabKey = 'savedTab';
+
+/// 'walking'
+const String walkingTab = 'walking';
+
+/// 'driving'
+const String drivingTab = 'driving';
+
+/// 'atHome'
+const String atHomeTab = 'atHome';
+
 /// 'notifyOnOpen'
 const String onOpenKey = 'sosOnOpen';
 
@@ -35,6 +47,7 @@ final Map<String, dynamic> sosConfig = <String, dynamic>{
   lightTextBackgroundOpacityKey: 0.8,
   videoColorKey: 0xFFFF0000,
   emcKey: <String>[],
+  savedTabKey: walkingTab,
   tutorialKey: true,
   onOpenKey: false,
   onCloseKey: false,

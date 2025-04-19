@@ -40,9 +40,20 @@ class _RightsViewState extends State<RightsView> {
 
   // Define the build data //
 
-  Location currentTab = Location.walking;
+  late Location currentTab = getTab(EzConfig.get(savedTabKey));
 
   // Define custom functions //
+
+  Location getTab(String? tab) {
+    switch (tab) {
+      case drivingTab:
+        return Location.driving;
+      case atHomeTab:
+        return Location.home;
+      default:
+        return Location.walking;
+    }
+  }
 
   Widget populateTab() {
     switch (currentTab) {
