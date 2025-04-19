@@ -10,6 +10,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
+/// Gets coordinates from [Geolocator]
+/// Returns the coordinates injected into a Google Maps URL
 Future<String> getCoordinates(Lang l10n) async {
   final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
   if (!serviceEnabled) return l10n.sosDisabled;
@@ -40,7 +42,8 @@ Future<String> getCoordinates(Lang l10n) async {
 
 const MethodChannel platform = MethodChannel('net.empathetech.sos/broadcast');
 
-void sendSOS(List<String>? emc, Lang l10n) async {
+/// Call the [MethodChannel] to send a foregroundSOS
+Future<void> foregroundSOS(List<String>? emc, Lang l10n) async {
   if (emc == null || emc.isEmpty) return;
 
   final Map<String, dynamic> mapData = <String, dynamic>{};
@@ -56,7 +59,7 @@ void sendSOS(List<String>? emc, Lang l10n) async {
   ezLog(mapData.toString());
 
   try {
-    platform.invokeMethod<void>('sendSOS', mapData);
+    await platform.invokeMethod<void>('foregroundSOS', mapData);
   } catch (e) {
     ezLog('Error sending SOS: $e');
   }
@@ -65,15 +68,16 @@ void sendSOS(List<String>? emc, Lang l10n) async {
 const String broadcastName = 'broadcast';
 const String broadcastTask = 'broadcastTask';
 
-/// Register [broadcastTask] (aka [sendSOS]) with [Workmanager]
+/// Register [broadcastTask] (aka [foregroundSOS]) with [Workmanager]
 Future<void> backgroundSOS(List<String> emc, Lang l10n) async {
+  final String link = await getCoordinates(l10n);
   return Workmanager().registerOneOffTask(
     broadcastName,
     broadcastTask,
     inputData: <String, dynamic>{
       'recipients': emc.join(';'),
       'message': 'SOS\nThe app is currently closed. Last known location:',
-      'location': await getCoordinates(l10n),
+      'location': link,
     },
   ); // TODO: localize
 }

@@ -138,8 +138,9 @@ class _ContactListState extends State<ContactList> {
                             enabled: emc.length > 1,
                             onRemove: () async {
                               emc.remove(number);
+                              heightMod = min(5, emc.length);
                               await EzConfig.setStringList(emcKey, emc);
-                              setState(() => heightMod = min(5, emc.length));
+                              setState(() {});
                             },
                           ))
                       .toList(),

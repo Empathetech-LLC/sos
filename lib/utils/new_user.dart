@@ -10,7 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-Future<dynamic> firstContactMsg(BuildContext context) async {
+/// Explains InstaSOS
+/// App closes on cancel
+Future<dynamic> firstContactMsg(BuildContext context) {
   final Lang l10n = Lang.of(context)!;
   final EFUILang el10n = EFUILang.of(context)!;
 
@@ -22,7 +24,7 @@ Future<dynamic> firstContactMsg(BuildContext context) async {
     onConfirm: Navigator.of(context).pop,
     confirmIsDefault: true,
     confirmMsg: el10n.gContinue,
-    onDeny: () => exit(1),
+    onDeny: () => exit(0),
     denyIsDestructive: true,
     denyMsg: el10n.gCancel,
   );
@@ -39,7 +41,9 @@ Future<dynamic> firstContactMsg(BuildContext context) async {
   );
 }
 
-Future<dynamic> permissionsMsg(BuildContext context) async {
+/// Warns about future permissions
+/// Returns false if the user would rather skip
+Future<dynamic> permissionsMsg(BuildContext context) {
   final Lang l10n = Lang.of(context)!;
   final EFUILang el10n = EFUILang.of(context)!;
 
