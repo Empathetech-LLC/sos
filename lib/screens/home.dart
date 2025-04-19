@@ -625,61 +625,70 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) async {
-    if (state != AppLifecycleState.resumed) {
-      final bool canRunBackground =
-          !Platform.isIOS && emc != null && emc!.isNotEmpty;
-      final bool alreadyRunning = await EzConfig.get(taskRunningKey) ?? false;
+    switch (state) {
+      case AppLifecycleState.detached:
+      case AppLifecycleState.inactive:
+        break;
 
-      if (recording) {
-        // Start broadcast/send ping based on user settings
-        if (canRunBackground &&
-            !alreadyRunning &&
-            (broadcasting || sosOnClose || sosOnInterrupt)) {
-          if (broadcasting) stopForegroundSOS();
-          await startBackgroundSOS();
+      case AppLifecycleState.paused:
+      case AppLifecycleState.hidden:
+        final bool canRunBackground =
+            !Platform.isIOS && emc != null && emc!.isNotEmpty;
+        final bool alreadyRunning = await EzConfig.get(taskRunningKey) ?? false;
+
+        if (recording) {
+          // SOS based on user state/settings
+          if (canRunBackground &&
+              !alreadyRunning &&
+              (broadcasting || sosOnClose || sosOnInterrupt)) {
+            if (broadcasting) stopForegroundSOS();
+            await startBackgroundSOS();
+          }
+
+          // Attempt to save the partial recording
+          try {
+            final XFile video = await camera!.stopVideoRecording();
+
+            // Videos are saved as tmp files
+            // We need to fix that before proceeding
+            final File tmpFile = File(video.path);
+
+            // Create a unique mp4 file path
+            final Directory appDir = await getApplicationDocumentsDirectory();
+            final String mp4Path =
+                '${appDir.path}/${DateTime.now().millisecondsSinceEpoch}.mp4';
+
+            // Copy the tmp file to the new mp4
+            await tmpFile.copy(mp4Path);
+
+            // Attempt to save the video
+            await saveToGallery(mp4Path, false);
+          } catch (e) {
+            // The app is unfocussed, so we can't do anything
+            ezLog(e.toString());
+          }
+
+          watch.stop();
+          watch.reset();
+          setState(() => recording = false);
+        } else {
+          // Not recording
+          // SOS based on user state/settings
+          if (canRunBackground &&
+              !alreadyRunning &&
+              (broadcasting || sosOnClose)) {
+            if (broadcasting) stopForegroundSOS();
+            await startBackgroundSOS();
+          }
         }
+        break;
 
-        // Attempt to save the partial recording
-        try {
-          final XFile video = await camera!.stopVideoRecording();
-
-          // Videos are saved as tmp files
-          // We need to fix that before proceeding
-          final File tmpFile = File(video.path);
-
-          // Create a unique mp4 file path
-          final Directory appDir = await getApplicationDocumentsDirectory();
-          final String mp4Path =
-              '${appDir.path}/${DateTime.now().millisecondsSinceEpoch}.mp4';
-
-          // Copy the tmp file to the new mp4
-          await tmpFile.copy(mp4Path);
-
-          // Attempt to save the video
-          await saveToGallery(mp4Path, false);
-        } catch (e) {
-          // The app is unfocussed, so we can't do anything
-          ezLog(e.toString());
+      case AppLifecycleState.resumed:
+        if (await EzConfig.get(taskRunningKey) == true) {
+          await stopBackgroundSOS();
+          startForegroundSOS();
         }
-
-        watch.stop();
-        watch.reset();
-        setState(() => recording = false);
-      } else {
-        // Start broadcast/send ping based on user settings
-        if (canRunBackground &&
-            !alreadyRunning &&
-            (broadcasting || sosOnClose)) {
-          if (broadcasting) stopForegroundSOS();
-          await startBackgroundSOS();
-        }
-      }
-    } else {
-      // Resumed state
-      if (await EzConfig.get(taskRunningKey) == true) {
-        await stopBackgroundSOS();
-        startForegroundSOS();
-      }
+        break;
     }
   }
 
