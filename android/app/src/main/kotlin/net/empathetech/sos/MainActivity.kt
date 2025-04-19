@@ -1,11 +1,15 @@
 package net.empathetech.sos
 
+import android.app.Application
+import androidx.work.WorkManager
+import androidx.work.Configuration
 import androidx.annotation.NonNull
 import android.telephony.SmsManager
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.android.FlutterActivity
 
+// Foreground SOS
 class MainActivity : FlutterActivity() {
   private val CHANNEL = "net.empathetech.sos/broadcast"
 
@@ -47,5 +51,19 @@ class MainActivity : FlutterActivity() {
         null
       )
     }
+  }
+}
+
+// Background SOS
+class MainApplication : Application(), Configuration.Provider {
+  override fun getWorkManagerConfiguration(): Configuration {
+    return Configuration.Builder()
+      .setWorkerFactory(SOSFactory())
+      .build()
+  }
+
+  override fun onCreate() {
+    super.onCreate()
+    WorkManager.initialize(this, workManagerConfiguration)
   }
 }

@@ -8,7 +8,7 @@
     
     <application
         android:label="InstaSOS"
-        android:name="${applicationName}"
+        android:name=".MainApplication"
         android:icon="@mipmap/ic_launcher">
 
         <activity
