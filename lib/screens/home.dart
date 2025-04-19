@@ -124,11 +124,11 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   /// [foregroundSOS] every 5 minutes
-  void startForegroundSOS() {
+  Future<void> startForegroundSOS() async {
     sosTimer?.cancel();
 
     // // Send an immediate SOS
-    // foregroundSOS(emc: emc, denied: sosDenied, disabled: sosDisabled);
+    // await foregroundSOS(emc: emc, denied: sosDenied, disabled: sosDisabled);
 
     // // Initiate a periodic SOS
     // sosTimer = Timer.periodic(
@@ -157,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   /// Take users to their platform settings if SOS doesn't have the permissions it needs
-  void openSOSPermissions() async {
+  Future<void> openSOSPermissions() async {
     final PermissionStatus smsPerm = Platform.isIOS
         ? PermissionStatus.granted
         : await Permission.sms.request();
@@ -177,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen>
 
     if (galAccess) {
       try {
-        image ? await Gal.putImage(path) : Gal.putVideo(path);
+        image ? await Gal.putImage(path) : await Gal.putVideo(path);
       } catch (e) {
         // If this fails, it's likely the user has bigger problems at hand
         // We can still try to share the file without saving it to the gallery
@@ -212,7 +212,7 @@ class _HomeScreenState extends State<HomeScreen>
     final bool taskRunning = EzConfig.get(taskRunningKey) ?? false;
 
     if (taskRunning) await stopBackgroundSOS();
-    if (sosOnOpen || taskRunning) startForegroundSOS();
+    if (sosOnOpen || taskRunning) await startForegroundSOS();
 
     // Setup the camera/preview
     if (newUser && context.mounted) {
@@ -344,12 +344,15 @@ class _HomeScreenState extends State<HomeScreen>
                                 smsStatus ==
                                     PermissionStatus.permanentlyDenied) {
                               if (context.mounted) {
-                                ezLogAlert(context, message: l10n.sosNeedSMS);
+                                await ezLogAlert(
+                                  context,
+                                  message: l10n.sosNeedSMS,
+                                );
                               }
                               return;
                             }
 
-                            startForegroundSOS();
+                            await startForegroundSOS();
                           },
                           onLongPress: openSOSPermissions,
                         ),
@@ -482,7 +485,10 @@ class _HomeScreenState extends State<HomeScreen>
                                 );
                               } catch (e) {
                                 if (context.mounted) {
-                                  ezLogAlert(context, message: e.toString());
+                                  await ezLogAlert(
+                                    context,
+                                    message: e.toString(),
+                                  );
                                 }
                               }
                             },
@@ -554,7 +560,10 @@ class _HomeScreenState extends State<HomeScreen>
                                   );
                                 } catch (e) {
                                   if (context.mounted) {
-                                    ezLogAlert(context, message: e.toString());
+                                    await ezLogAlert(
+                                      context,
+                                      message: e.toString(),
+                                    );
                                   }
                                 }
                               },
@@ -587,7 +596,10 @@ class _HomeScreenState extends State<HomeScreen>
                                   setState(() => recording = true);
                                 } catch (e) {
                                   if (context.mounted) {
-                                    ezLogAlert(context, message: e.toString());
+                                    await ezLogAlert(
+                                      context,
+                                      message: e.toString(),
+                                    );
                                   }
                                 }
                               },
@@ -686,7 +698,7 @@ class _HomeScreenState extends State<HomeScreen>
       case AppLifecycleState.resumed:
         if (EzConfig.get(taskRunningKey) == true) {
           await stopBackgroundSOS();
-          startForegroundSOS();
+          await startForegroundSOS();
         }
         break;
     }
