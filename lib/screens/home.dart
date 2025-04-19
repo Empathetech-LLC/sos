@@ -123,17 +123,17 @@ class _HomeScreenState extends State<HomeScreen>
     return false;
   }
 
-  /// [sendSOS] every 5 minutes
+  /// [foregroundSOS] every 5 minutes
   void startForegroundSOS() {
     sosTimer?.cancel();
 
     // // Send an immediate SOS
-    // sendSOS(emc: emc, denied: sosDenied, disabled: sosDisabled);
+    // foregroundSOS(emc: emc, denied: sosDenied, disabled: sosDisabled);
 
     // // Initiate a periodic SOS
     // sosTimer = Timer.periodic(
     //   const Duration(minutes: 5),
-    //   (_) => sendSOS(emc: emc, denied: sosDenied, disabled: sosDisabled),
+    //   (_) => foregroundSOS(emc: emc, denied: sosDenied, disabled: sosDisabled),
     // );
 
     setState(() => broadcasting = true);
@@ -209,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen>
     if (newUser) emc = await addEMC(context, emc);
 
     // Check for auto SOS
-    final bool taskRunning = await EzConfig.get(taskRunningKey) ?? false;
+    final bool taskRunning = EzConfig.get(taskRunningKey) ?? false;
 
     if (taskRunning) await stopBackgroundSOS();
     if (sosOnOpen || taskRunning) startForegroundSOS();
@@ -634,7 +634,7 @@ class _HomeScreenState extends State<HomeScreen>
       case AppLifecycleState.hidden:
         final bool canRunBackground =
             !Platform.isIOS && emc != null && emc!.isNotEmpty;
-        final bool alreadyRunning = await EzConfig.get(taskRunningKey) ?? false;
+        final bool alreadyRunning = EzConfig.get(taskRunningKey) ?? false;
 
         if (recording) {
           // SOS based on user state/settings
@@ -684,7 +684,7 @@ class _HomeScreenState extends State<HomeScreen>
         break;
 
       case AppLifecycleState.resumed:
-        if (await EzConfig.get(taskRunningKey) == true) {
+        if (EzConfig.get(taskRunningKey) == true) {
           await stopBackgroundSOS();
           startForegroundSOS();
         }
