@@ -23,7 +23,7 @@ class MainActivity : FlutterActivity() {
     super.configureFlutterEngine(flutterEngine)
     MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {
       call, result ->
-      if (call.method == "sendSOS") {
+      if (call.method == "foregroundSOS") {
         val recipients = call.argument<String?>("recipients") ?: ""
         val message = call.argument<String?>("message") ?: ""
         sendSMS(result, recipients, message)

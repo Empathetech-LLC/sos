@@ -13,7 +13,7 @@ import MessageUI
 
     broadcastChannel.setMethodCallHandler({
       [weak self] (call: FlutterMethodCall, result: FlutterResult) -> Void in
-      guard call.method == "sendSOS" else {
+      guard call.method == "foregroundSOS" else {
         result(FlutterMethodNotImplemented)
         return
       }
