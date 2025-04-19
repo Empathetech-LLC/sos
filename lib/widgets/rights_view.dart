@@ -23,6 +23,19 @@ extension Symbol on Location {
   }
 }
 
+extension Label on Location {
+  String get name {
+    switch (this) {
+      case Location.walking:
+        return walkingTab;
+      case Location.driving:
+        return drivingTab;
+      case Location.home:
+        return atHomeTab;
+    }
+  }
+}
+
 class RightsView extends StatefulWidget {
   final bool hide;
 
@@ -139,8 +152,11 @@ class _RightsViewState extends State<RightsView> {
                 ],
                 selected: <Location>{currentTab},
                 showSelectedIcon: false,
-                onSelectionChanged: (Set<Location> selected) =>
-                    setState(() => currentTab = selected.first),
+                onSelectionChanged: (Set<Location> selected) async {
+                  currentTab = selected.first;
+                  await EzConfig.setString(savedTabKey, currentTab.name);
+                  setState(() {});
+                },
               ),
             ),
             const EzSeparator(),
