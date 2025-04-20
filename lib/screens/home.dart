@@ -172,8 +172,7 @@ class _HomeScreenState extends State<HomeScreen>
 
     if (smsPerm == PermissionStatus.denied ||
         smsPerm == PermissionStatus.permanentlyDenied ||
-        geoPerm == LocationPermission.denied ||
-        geoPerm == LocationPermission.deniedForever) {
+        geoPerm != LocationPermission.always) {
       await openAppSettings();
     }
   }
@@ -328,7 +327,46 @@ class _HomeScreenState extends State<HomeScreen>
                     accept: () async {
                       broadcastOverlay.hide();
                       if (!Platform.isIOS) await Permission.sms.request();
-                      await Geolocator.requestPermission();
+                      final LocationPermission choice =
+                          await Geolocator.requestPermission();
+
+                      if (choice == LocationPermission.whileInUse &&
+                          Platform.isAndroid &&
+                          context.mounted) {
+                        final (
+                          List<EzMaterialAction>,
+                          List<EzCupertinoAction>
+                        ) customActions = ezActionPairs(
+                          context: context,
+                          onConfirm: () async {
+                            await openAppSettings();
+                            if (context.mounted) Navigator.of(context).pop();
+                          },
+                          confirmMsg: l10n.gOk,
+                          onDeny: () => Navigator.of(context).pop(false),
+                          denyMsg: el10n.gNo,
+                        );
+
+                        await showDialog(
+                          context: context,
+                          builder: (_) => EzAlertDialog(
+                            title: Text(
+                              l10n.hsPermissionsTutorialTitle,
+                              textAlign: TextAlign.center,
+                            ),
+                            contents: <Widget>[
+                              const Text(
+                                'Set location to always allow.\nIt will only be used while SOS is active.',
+                                textAlign: TextAlign.center,
+                              )
+                            ],
+                            materialActions: customActions.$1,
+                            cupertinoActions: customActions.$2,
+                            needsClose: false,
+                          ),
+                        ); // TODO: Localize
+                      }
+
                       settingsOverlay.show();
                     },
                   ),
