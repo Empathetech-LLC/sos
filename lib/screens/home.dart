@@ -153,7 +153,13 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Future<void> stopBackgroundSOS() async {
-    await cancelBackgroundSOS();
+    try {
+      await cancelBackgroundSOS();
+    } catch (e) {
+      if (mounted) {
+        await ezLogAlert(context, message: e.toString());
+      }
+    }
     await EzConfig.setBool(taskRunningKey, false);
   }
 
