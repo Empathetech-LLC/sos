@@ -583,16 +583,26 @@ class _HomeScreenState extends State<HomeScreen>
                               ),
                               iconSize: iconSize * 2,
                               onPressed: () async {
+                                late final XFile? video;
                                 try {
                                   // Stop recording
-                                  final XFile video =
-                                      await camera!.stopVideoRecording();
-                                  watch.stop();
+                                  video = await camera!.stopVideoRecording();
+                                } catch (e) {
+                                  if (context.mounted) {
+                                    await ezLogAlert(
+                                      context,
+                                      message: e.toString(),
+                                    );
+                                  }
+                                }
+                                watch.stop();
 
-                                  // Update the UI
-                                  setState(() => recording = false);
-                                  watch.reset();
+                                // Update the UI
+                                setState(() => recording = false);
+                                watch.reset();
 
+                                if (video == null) return;
+                                try {
                                   // Videos are saved as tmp files
                                   // We need to fix that before proceeding
                                   final File tmpFile = File(video.path);
