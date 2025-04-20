@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class ColorSettingsScreen extends StatelessWidget {
-  final EzSettingType? target;
+  final EzCSType? target;
 
   const ColorSettingsScreen({super.key, this.target});
 
