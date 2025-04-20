@@ -488,7 +488,7 @@ class _HomeScreenState extends State<HomeScreen>
                   ),
                   enabled: !recording,
                   onPressed: () {
-                    stopForegroundSOS();
+                    if (broadcasting) stopForegroundSOS();
                     exit(0);
                   },
                 ),
