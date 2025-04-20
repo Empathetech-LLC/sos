@@ -34,16 +34,20 @@ class MainActivity : FlutterActivity() {
         } 
         "backgroundSOS" -> {
           val recipients = call.argument<String?>("recipients") ?: ""
-          val workRequest = OneTimeWorkRequestBuilder<SOSWorker>()
+          val workRequest = PeriodicWorkRequestBuilder<SOSWorker>(15L, TimeUnit.MINUTES)
             .setInputData(workDataOf("recipients" to recipients))
             .build()
 
-          WorkManager.getInstance(this).enqueueUniqueWork(
-            "no_dupes",
+          WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "periodicSOS",
             ExistingWorkPolicy.REPLACE,
             workRequest
           )
-          result.success(null)
+          result.success("Periodic SOS scheduled")
+        }
+        "cancelBackgroundSOS" -> { 
+          WorkManager.getInstance(this).cancelUniqueWork("periodicSOS")
+          result.success("Periodic SOS cancelled")
         }
         else -> result.notImplemented()        
       } 
