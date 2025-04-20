@@ -69,7 +69,7 @@ class MainActivity : FlutterActivity() {
     val smsManager = SmsManager.getDefault()
     for (num in numbers) {
       try {
-        android.util.Log.d("SMS_PROGRESS", "Sending SOS to $num")
+        Log.d("SMS_PROGRESS", "Sending SOS to $num")
         smsManager.sendTextMessage(num, null, message, null, null)
       } catch (e: Exception) {
         failures.add(num)
