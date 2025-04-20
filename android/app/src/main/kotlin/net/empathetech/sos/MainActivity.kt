@@ -41,8 +41,10 @@ class MainActivity : FlutterActivity() {
         } 
         "backgroundSOS" -> {
           val recipients = call.argument<String?>("recipients") ?: ""
+          val heading = call.argument<String?>("heading") ?: ""
+
           val workRequest = PeriodicWorkRequestBuilder<SOSWorker>(15L, TimeUnit.MINUTES)
-            .setInputData(workDataOf("recipients" to recipients))
+            .setInputData(workDataOf("recipients" to recipients, "heading" to heading))
             .build()
 
           WorkManager.getInstance(this).enqueueUniquePeriodicWork(
@@ -135,7 +137,9 @@ class SOSWorker(appContext: Context, workerParams: WorkerParameters) : Coroutine
       Log.d("LOCATION_ERROR", "Fetch failure: ${e.message}")
       "Location unavailable."
     }
-    val message = "SOS\n$locationString"
+
+    val heading = inputData.getString("heading") ?: "SOS"
+    val message = "$heading\n$locationString"
 
     val smsManager = SmsManager.getDefault()
     for (num in numbers) {
@@ -158,8 +162,7 @@ class SOSWorker(appContext: Context, workerParams: WorkerParameters) : Coroutine
   private suspend fun fetchLocation(): String {
     return withContext(Dispatchers.IO) {
       try {
-        val locationResult = fusedLocationClient.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, null)
-        val location = Tasks.await(locationResult) 
+        val location = Tasks.await(fusedLocationClient.lastLocation) 
 
         if (location != null) {
           "https://www.google.com/maps?q=${location.latitude},${location.longitude}"
