@@ -148,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   /// Assumes an emc null/empty check has already been done
   Future<void> startBackgroundSOS() async {
-    await backgroundSOS(emc!);
+    await backgroundSOS(emc!, l10n);
     await EzConfig.setBool(taskRunningKey, true);
   }
 
@@ -355,8 +355,8 @@ class _HomeScreenState extends State<HomeScreen>
                               textAlign: TextAlign.center,
                             ),
                             contents: <Widget>[
-                              const Text(
-                                'Set location to always allow.\nIt will only be used while SOS is active.',
+                              Text(
+                                l10n.hsPermissionsAlways,
                                 textAlign: TextAlign.center,
                               )
                             ],
@@ -364,7 +364,7 @@ class _HomeScreenState extends State<HomeScreen>
                             cupertinoActions: customActions.$2,
                             needsClose: false,
                           ),
-                        ); // TODO: Localize
+                        );
                       }
 
                       settingsOverlay.show();
