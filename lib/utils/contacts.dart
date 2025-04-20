@@ -13,6 +13,7 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 /// Prompt the user to save their first contact
 /// Users must select at least one emergency contact to use the app
+/// Include error handling
 Future<List<String>?> addEMC(
   BuildContext context,
   List<String>? curr, {
