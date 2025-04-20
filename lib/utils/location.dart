@@ -67,9 +67,13 @@ Future<void> foregroundSOS(List<String>? emc, Lang l10n) async {
 
 /// Currently Android only
 /// Call a custom worker factory to send periodic SOS messages
-Future<void> backgroundSOS(List<String> emc) => platform.invokeMethod<void>(
+Future<void> backgroundSOS(List<String> emc, Lang l10n) =>
+    platform.invokeMethod<void>(
       'backgroundSOS',
-      <String, dynamic>{'recipients': emc.join(';')},
+      <String, dynamic>{
+        'recipients': emc.join(';'),
+        'heading': 'SOS - ${l10n.sosLastKnown}',
+      },
     );
 
 /// Also Android only
