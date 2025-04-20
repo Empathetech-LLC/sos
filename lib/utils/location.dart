@@ -7,7 +7,6 @@ import './export.dart';
 
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:workmanager/workmanager.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 /// Gets coordinates from [Geolocator]
@@ -62,17 +61,13 @@ Future<void> foregroundSOS(List<String>? emc, Lang l10n) async {
   try {
     await platform.invokeMethod<void>('foregroundSOS', mapData);
   } catch (e) {
-    ezLog('Error sending SOS: $e');
+    ezLog(e.toString());
   }
 }
 
-const String backgroundWorker = 'net.empathetech.sos/SOSWorker';
-
 /// Currently Android only
 /// Call a custom worker factory to send periodic SOS messages
-Future<void> backgroundSOS(List<String> emc) =>
-    Workmanager().registerOneOffTask(
-      backgroundWorker,
-      backgroundWorker,
-      inputData: <String, dynamic>{'recipients': emc.join(';')},
+Future<void> backgroundSOS(List<String> emc) => platform.invokeMethod<void>(
+      'backgroundSOS',
+      <String, dynamic>{'recipients': emc.join(';')},
     );
