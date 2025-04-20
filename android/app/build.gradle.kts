@@ -39,6 +39,8 @@ flutter {
 
 dependencies {
     val work_version = "2.10.0"
+    val location_version = "21.3.0"
 
     implementation("androidx.work:work-runtime-ktx:$work_version")
+    implementation("com.google.android.gms:play-services-location:$location_version")
 }

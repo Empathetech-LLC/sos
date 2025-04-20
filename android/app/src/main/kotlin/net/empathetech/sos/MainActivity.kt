@@ -2,10 +2,14 @@ package net.empathetech.sos
 
 import android.app.Application
 import android.content.Context
+import android.content.pm.PackageManager
+import android.Manifest
 import android.telephony.SmsManager
 import android.util.Log
 import androidx.annotation.NonNull
+import androidx.core.content.ContextCompat
 import androidx.work.Configuration
+import androidx.work.CoroutineWorker
 import androidx.work.ExistingWorkPolicy
 import androidx.work.ListenableWorker
 import androidx.work.OneTimeWorkRequestBuilder
@@ -14,6 +18,12 @@ import androidx.work.WorkManager
 import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
+import com.google.android.gms.tasks.Tasks
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.plugin.common.MethodChannel
@@ -108,18 +118,33 @@ class SOSFactory : WorkerFactory() {
   }
 }
 
-class SOSWorker(appContext: Context, workerParams: WorkerParameters) : Worker(appContext, workerParams) {
+class SOSWorker(appContext: Context, workerParams: WorkerParameters) : CoroutineWorker(appContext, workerParams) {
+
+  private val fusedLocationClient: FusedLocationProviderClient = 
+    LocationServices.getFusedLocationProviderClient(appContext)
+
   // Send background SOS
-  override fun doWork(): Result {
+  override suspend fun doWork(): Result {
     val recipients = inputData.getString("recipients") ?: return Result.failure()
     val numbers = recipients.split(";")
     val failures = mutableListOf<String>()
 
+    val locationString = try {
+      fetchLocation()
+    } catch (e: SecurityException) {
+      Log.d("LOCATION_ERROR", "Permission denied: ${e.message}")
+      "Location unavailable."
+    } catch (e: Exception) {
+      Log.d("LOCATION_ERROR", "Fetch failure: ${e.message}")
+      "Location unavailable."
+    }
+    val message = "SOS\n$locationString"
+
     val smsManager = SmsManager.getDefault()
     for (num in numbers) {
       try {
-        Log.d("SMS_PROGRESS", "Sending SOS to $num")
-        smsManager.sendTextMessage(num, null, "SOS", null, null)
+        Log.d("SMS_PROGRESS", "Periodic SOS to $num")
+        smsManager.sendTextMessage(num, null, message, null, null)
       } catch (e: Exception) {
         Log.d("SMS_ERROR", "Failed to send to $num: ${e.message}")
         failures.add(num)
@@ -130,6 +155,34 @@ class SOSWorker(appContext: Context, workerParams: WorkerParameters) : Worker(ap
       Result.success()
     } else {
       Result.failure()
+    }
+  }
+
+  private suspend fun fetchLocation(): String {
+    if (ContextCompat.checkSelfPermission(appContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+      ContextCompat.checkSelfPermission(appContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+      Log.d("LOCATION_ERROR", "Permission denied")
+      return "Location unavailable."
+    }
+
+    return withContext(Dispatchers.IO) {
+      try {
+        val locationResult = fusedLocationClient.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, null)
+        val location = Tasks.await(locationResult) 
+
+        if (location != null) {
+          "https://www.google.com/maps?q=${location.latitude},${location.longitude}"
+        } else {
+          Log.d("LOCATION_ERROR", "FusedLocationProviderClient returned null.")  
+          "Location unavailable."
+        }
+      } catch (e: SecurityException) {
+        Log.d("LOCATION_ERROR", "SecurityException during fetch: ${e.message}")
+        throw e 
+      } catch (e: Exception) {
+        Log.d("LOCATION_ERROR", "Exception during fetch: ${e.message}")
+        "Location unavailable."
+      }
     }
   }
 }
