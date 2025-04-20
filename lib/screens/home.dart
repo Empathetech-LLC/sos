@@ -128,27 +128,34 @@ class _HomeScreenState extends State<HomeScreen>
   Future<void> startForegroundSOS() async {
     sosTimer?.cancel();
 
-    // // Send an immediate SOS
-    // await foregroundSOS(emc: emc, denied: sosDenied, disabled: sosDisabled);
+    // Send an immediate SOS
+    await foregroundSOS(emc, l10n);
 
-    // // Initiate a periodic SOS
-    // sosTimer = Timer.periodic(
-    //   const Duration(minutes: 5),
-    //   (_) => foregroundSOS(emc: emc, denied: sosDenied, disabled: sosDisabled),
-    // );
+    // Initiate a periodic SOS
+    sosTimer = Timer.periodic(
+      const Duration(minutes: 5),
+      (_) => foregroundSOS(emc, l10n),
+    );
 
     setState(() => broadcasting = true);
   }
 
+  /// nullify the [sosTimer] and set [broadcasting] to false
   void stopForegroundSOS() {
     sosTimer?.cancel();
     sosTimer = null;
     setState(() => broadcasting = false);
   }
 
-  /// Assumes an emc null/empty check has already been done
+  /// Assumes an [emc] null/empty check has already been done
   Future<void> startBackgroundSOS() async {
-    await backgroundSOS(emc!, l10n);
+    try {
+      await backgroundSOS(emc!, l10n);
+    } catch (e) {
+      ezLog(e.toString());
+      // We still want to continue. Could be a partial success...
+      // and setting taskRunningKey to true will trigger foregroundSOS when the app is resumed
+    }
     await EzConfig.setBool(taskRunningKey, true);
   }
 
@@ -158,6 +165,9 @@ class _HomeScreenState extends State<HomeScreen>
     } catch (e) {
       if (mounted) {
         await ezLogAlert(context, message: e.toString());
+        // Improvement: check the error code
+        // The most likely error is that the task is already stopped
+        // But there are theoretical scenarios where taskRunningKey should remain true
       }
     }
     await EzConfig.setBool(taskRunningKey, false);
@@ -178,6 +188,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   /// Save the file at [path] to the gallery
+  /// Includes error handling
   Future<void> saveToGallery(String path, bool image) async {
     final bool galAccess = await Gal.requestAccess();
 
