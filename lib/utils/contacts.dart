@@ -78,14 +78,17 @@ Future<List<String>?> addEMC(
     if (contact == null ||
         (contact.phones.isEmpty || contact.phones.first.number.isEmpty)) {
       if (context.mounted) {
+        // Invalid contact, warn the user and optionally retry
         await ezSnackBar(
           context: context,
           message: l10n.hsNoNumber,
         ).closed;
       }
     } else if (curr.contains(contact.phones.first.number)) {
+      // Contact already exists, exit func with no changes
       return curr;
     } else {
+      // Valid contact, escape the loop
       break;
     }
 
