@@ -18,7 +18,6 @@ import 'package:feedback/feedback.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:workmanager/workmanager.dart';
 import 'package:after_layout/after_layout.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -73,6 +72,8 @@ class _HomeScreenState extends State<HomeScreen>
 
   bool broadcasting = false;
   Timer? sosTimer;
+
+  bool canRunBackground = false;
 
   final bool sosOnOpen = EzConfig.get(onOpenKey) ?? false;
   final bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
@@ -147,12 +148,12 @@ class _HomeScreenState extends State<HomeScreen>
 
   /// Assumes an emc null/empty check has already been done
   Future<void> startBackgroundSOS() async {
-    await backgroundSOS(emc!, l10n);
+    await backgroundSOS(emc!);
     await EzConfig.setBool(taskRunningKey, true);
   }
 
   Future<void> stopBackgroundSOS() async {
-    await Workmanager().cancelByUniqueName(broadcastName);
+    // TODO: Stop backgroundSOS
     await EzConfig.setBool(taskRunningKey, false);
   }
 
@@ -223,7 +224,7 @@ class _HomeScreenState extends State<HomeScreen>
     } else {
       await initCamera();
     }
-    setState(() {});
+    setState(() => canRunBackground = Platform.isAndroid);
 
     // Run the tutorial (if unfinished)
     if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
@@ -640,12 +641,10 @@ class _HomeScreenState extends State<HomeScreen>
     switch (state) {
       case AppLifecycleState.detached:
       case AppLifecycleState.inactive:
+      case AppLifecycleState.paused:
         break;
 
-      case AppLifecycleState.paused:
       case AppLifecycleState.hidden:
-        final bool canRunBackground =
-            !Platform.isIOS && emc != null && emc!.isNotEmpty;
         final bool alreadyRunning = EzConfig.get(taskRunningKey) ?? false;
 
         if (recording) {
@@ -677,6 +676,7 @@ class _HomeScreenState extends State<HomeScreen>
             await saveToGallery(mp4Path, false);
           } catch (e) {
             // The app is unfocussed, so we can't do anything
+            ezLog('Error saving the partial recording');
             ezLog(e.toString());
           }
 
