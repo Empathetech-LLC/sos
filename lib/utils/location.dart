@@ -31,6 +31,7 @@ Future<String> getCoordinates(Lang l10n) async {
   }
 
   try {
+    ezLog('Building maps link');
     final Position pos = await Geolocator.getCurrentPosition();
     return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.longitude.toStringAsFixed(4)}';
   } catch (e) {
@@ -55,7 +56,7 @@ Future<void> foregroundSOS(List<String>? emc, Lang l10n) async {
   }
   mapData['message'] = 'SOS\n${await getCoordinates(l10n)}';
 
-  ezLog('Sending SOS');
+  ezLog('Sending SOS (foreground)');
   ezLog(mapData.toString());
 
   try {
@@ -65,19 +66,13 @@ Future<void> foregroundSOS(List<String>? emc, Lang l10n) async {
   }
 }
 
-const String broadcastName = 'broadcast';
-const String broadcastTask = 'broadcastTask';
+const String backgroundWorker = 'net.empathetech.sos/SOSWorker';
 
-/// Register [broadcastTask] (aka [foregroundSOS]) with [Workmanager]
-Future<void> backgroundSOS(List<String> emc, Lang l10n) async {
-  final String link = await getCoordinates(l10n);
-  return Workmanager().registerOneOffTask(
-    broadcastName,
-    broadcastTask,
-    inputData: <String, dynamic>{
-      'recipients': emc.join(';'),
-      'message': 'SOS\nThe app is currently closed. Last known location:',
-      'location': link,
-    },
-  ); // TODO: localize
-}
+/// Currently Android only
+/// Call a custom worker factory to send periodic SOS messages
+Future<void> backgroundSOS(List<String> emc) =>
+    Workmanager().registerOneOffTask(
+      backgroundWorker,
+      backgroundWorker,
+      inputData: <String, dynamic>{'recipients': emc.join(';')},
+    );
