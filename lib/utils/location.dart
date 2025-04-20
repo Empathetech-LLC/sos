@@ -71,3 +71,8 @@ Future<void> backgroundSOS(List<String> emc) => platform.invokeMethod<void>(
       'backgroundSOS',
       <String, dynamic>{'recipients': emc.join(';')},
     );
+
+/// Also Android only
+/// Cancel [backgroundSOS]
+Future<void> cancelBackgroundSOS() =>
+    platform.invokeMethod<void>('cancelBackgroundSOS');
