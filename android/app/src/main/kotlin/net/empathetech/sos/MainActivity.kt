@@ -2,18 +2,14 @@ package net.empathetech.sos
 
 import android.app.Application
 import android.content.Context
-import android.content.pm.PackageManager
-import android.Manifest
 import android.telephony.SmsManager
 import android.util.Log
 import androidx.annotation.NonNull
-import androidx.core.content.ContextCompat
 import androidx.work.Configuration
 import androidx.work.CoroutineWorker
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ListenableWorker
 import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.Worker
 import androidx.work.WorkManager
 import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
