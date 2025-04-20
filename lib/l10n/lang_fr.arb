@@ -5,6 +5,7 @@
   
   "gOk": "Ok",
 
+  "sosLastKnown": "Dernière position connue",
   "sosNeedSMS": "SOS a besoin d'une autorisation SMS pour fonctionner correctement.",
   "sosDisabled": "Impossible d'accéder à la localisation (désactivée)",
   "sosDenied": "Impossible d'accéder à la localisation (refusée)",
@@ -31,6 +32,7 @@
   "hsAppTutorial": "L'application partage votre statut avec vos contacts d'urgence en cas de crise.\n\nVeuillez choisir un contact d'urgence.\nUn seul pour l'instant, vous pourrez en ajouter d'autres plus tard.",
   "hsPermissionsTutorialTitle": "Si vous le souhaitez",
   "hsPermissionsTutorial": "SOS peut également collecter et partager des preuves.\n\nElle demandera l'accès à la caméra, au microphone et à la galerie pour ce faire.",
+  "hsPermissionsAlways": "Veuillez définir la localisation pour autoriser toujours.\nElle ne sera utilisée que lorsque SOS est actif.",
   "hsBroadcastTutorial": "Activez SOS pour envoyer automatiquement des messages à vos contacts d'urgence.\n\nSi SOS a accès à votre position, celle-ci sera incluse dans les messages.\n\nLes messages continueront même si le téléphone est verrouillé.\n\nDésactivez SOS ou fermez complètement l'application pour arrêter les messages.",
   "hsIOSBroadcastTutorial": "Activez SOS pour envoyer automatiquement des messages à vos contacts d'urgence.\n\nSi SOS a accès à votre position, celle-ci sera incluse dans les messages.",
   "hsSettingsTutorial": "Vous pouvez...\n\n- Ajouter d'autres contacts d'urgence\n- Configurer le SOS automatique\n- Changer la langue de l'application, et\n- Modifier l'apparence de l'application\n\ndans les paramètres.\n\nMaintenez le bouton des paramètres pour envoyer des commentaires sur l'application.",

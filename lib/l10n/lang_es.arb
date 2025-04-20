@@ -5,6 +5,7 @@
   
   "gOk": "Ok",
 
+  "sosLastKnown": "Última ubicación conocida",
   "sosNeedSMS": "SOS necesita permiso de SMS para funcionar correctamente.",
   "sosDisabled": "No se puede acceder a la ubicación (desactivada)",
   "sosDenied": "No se puede acceder a la ubicación (denegada)",
@@ -31,6 +32,7 @@
   "hsAppTutorial": "Comparte tu estado con contactos de emergencia en un momento de crisis.\n\nPor favor elige un contacto de emergencia.\nSolo uno por ahora, podrás agregar más después.",
   "hsPermissionsTutorialTitle": "Si quieres",
   "hsPermissionsTutorial": "SOS también puede recopilar y compartir evidencia.\n\nPedirá acceso a la cámara, micrófono y galería para hacerlo.",
+  "hsPermissionsAlways": "Por favor, establece la ubicación para permitir siempre.\nSolo se usará mientras SOS esté activo.",
   "hsBroadcastTutorial": "Activa SOS para enviar mensajes automáticamente a tus contactos de emergencia.\n\nSi SOS tiene acceso a tu ubicación, esta se incluirá en los mensajes.\n\nLos mensajes continuarán incluso si el teléfono está bloqueado.\n\nDesactiva SOS o cierra completamente la app para detener los mensajes.",
   "hsIOSBroadcastTutorial": "Activa SOS para enviar mensajes automáticamente a tus contactos de emergencia.\n\nSi SOS tiene acceso a tu ubicación, esta se incluirá en los mensajes.",
   "hsSettingsTutorial": "Puedes...\n\n- Agregar más contactos de emergencia\n- Configurar SOS automático\n- Cambiar el idioma de la app, y\n- Actualizar la apariencia de la app\n\nen los ajustes.\n\nMantén presionado el botón de ajustes para enviar comentarios sobre la app.",

@@ -12,6 +12,9 @@ class LangEs extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get sosLastKnown => 'Última ubicación conocida';
+
+  @override
   String get sosNeedSMS =>
       'SOS necesita permiso de SMS para funcionar correctamente.';
 
@@ -78,6 +81,10 @@ class LangEs extends Lang {
   @override
   String get hsPermissionsTutorial =>
       'SOS también puede recopilar y compartir evidencia.\n\nPedirá acceso a la cámara, micrófono y galería para hacerlo.';
+
+  @override
+  String get hsPermissionsAlways =>
+      'Por favor, establece la ubicación para permitir siempre.\nSolo se usará mientras SOS esté activo.';
 
   @override
   String get hsBroadcastTutorial =>

@@ -104,6 +104,12 @@ abstract class Lang {
   /// **'Ok'**
   String get gOk;
 
+  /// No description provided for @sosLastKnown.
+  ///
+  /// In en, this message translates to:
+  /// **'Last known location'**
+  String get sosLastKnown;
+
   /// No description provided for @sosNeedSMS.
   ///
   /// In en, this message translates to:
@@ -229,6 +235,12 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'InstaSOS can also gather and share evidence.\n\nIt will ask for camera, microphone, and gallery access to do so.'**
   String get hsPermissionsTutorial;
+
+  /// No description provided for @hsPermissionsAlways.
+  ///
+  /// In en, this message translates to:
+  /// **'Please set location to always allow.\nIt will only be used while SOS is active.'**
+  String get hsPermissionsAlways;
 
   /// No description provided for @hsBroadcastTutorial.
   ///
