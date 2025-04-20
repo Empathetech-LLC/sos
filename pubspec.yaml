@@ -33,11 +33,6 @@ dependencies:
   gal: ^2.3.1
   geolocator: ^14.0.0
   share_plus: ^10.1.4
-  workmanager:
-    git:
-      url: https://github.com/fluttercommunity/flutter_workmanager.git
-      path: workmanager
-      ref: main
 
 dev_dependencies:
   dependency_validator: ^5.0.2
