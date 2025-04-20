@@ -10,9 +10,9 @@ import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
 import androidx.work.Configuration
 import androidx.work.CoroutineWorker
-import androidx.work.ExistingWorkPolicy
+import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ListenableWorker
-import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.Worker
 import androidx.work.WorkManager
 import androidx.work.WorkerFactory
@@ -22,6 +22,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.Tasks
+import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import io.flutter.embedding.engine.FlutterEngine
@@ -50,7 +51,7 @@ class MainActivity : FlutterActivity() {
 
           WorkManager.getInstance(this).enqueueUniquePeriodicWork(
             "periodicSOS",
-            ExistingWorkPolicy.REPLACE,
+            ExistingPeriodicWorkPolicy.REPLACE,
             workRequest
           )
           result.success("Periodic SOS scheduled")
@@ -159,12 +160,6 @@ class SOSWorker(appContext: Context, workerParams: WorkerParameters) : Coroutine
   }
 
   private suspend fun fetchLocation(): String {
-    if (ContextCompat.checkSelfPermission(appContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-      ContextCompat.checkSelfPermission(appContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-      Log.d("LOCATION_ERROR", "Permission denied")
-      return "Location unavailable."
-    }
-
     return withContext(Dispatchers.IO) {
       try {
         val locationResult = fusedLocationClient.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, null)
