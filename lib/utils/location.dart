@@ -11,6 +11,7 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 /// Gets coordinates from [Geolocator]
 /// Returns the coordinates injected into a Google Maps URL
+/// Includes error handling
 Future<String> getCoordinates(Lang l10n) async {
   final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
   if (!serviceEnabled) return l10n.sosDisabled;
@@ -43,6 +44,7 @@ Future<String> getCoordinates(Lang l10n) async {
 const MethodChannel platform = MethodChannel('net.empathetech.sos/broadcast');
 
 /// Call the [MethodChannel] to send a foregroundSOS
+/// Includes error handling
 Future<void> foregroundSOS(List<String>? emc, Lang l10n) async {
   if (emc == null || emc.isEmpty) return;
 
@@ -67,6 +69,7 @@ Future<void> foregroundSOS(List<String>? emc, Lang l10n) async {
 
 /// Currently Android only
 /// Call a custom worker factory to send periodic SOS messages
+/// Does not include error handling
 Future<void> backgroundSOS(List<String> emc, Lang l10n) =>
     platform.invokeMethod<void>(
       'backgroundSOS',
@@ -78,5 +81,6 @@ Future<void> backgroundSOS(List<String> emc, Lang l10n) =>
 
 /// Also Android only
 /// Cancel [backgroundSOS]
+/// Dos not include error handling
 Future<void> cancelBackgroundSOS() =>
     platform.invokeMethod<void>('cancelBackgroundSOS');
