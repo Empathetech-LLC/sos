@@ -22,9 +22,6 @@ void main() async {
 
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-    DeviceOrientation.landscapeLeft,
-    DeviceOrientation.landscapeRight,
   ]);
 
   // Initialize EzConfig //
@@ -47,38 +44,34 @@ void main() async {
     theme: FeedbackThemeData(
       background: Colors.grey,
       feedbackSheetColor: Colors.white,
-      // activeFeedbackModeColor: lightPrimaryColor,
+      activeFeedbackModeColor: empathPurple,
       bottomSheetDescriptionStyle: lightFeedbackText,
       bottomSheetTextInputStyle: lightFeedbackText,
       sheetIsDraggable: true,
       dragHandleColor: Colors.black,
-      // colorScheme: const ColorScheme.light(primary: lightPrimaryColor),
     ),
     darkTheme: FeedbackThemeData(
       background: Colors.grey,
       feedbackSheetColor: Colors.black,
-      // activeFeedbackModeColor: darkPrimaryColor,
+      activeFeedbackModeColor: empathEucalyptus,
       bottomSheetDescriptionStyle: darkFeedbackText,
       bottomSheetTextInputStyle: darkFeedbackText,
       sheetIsDraggable: true,
       dragHandleColor: Colors.white,
-      // colorScheme: const ColorScheme.light(primary: darkPrimaryColor),
     ),
     themeMode: EzConfig.getThemeMode(),
     localizationsDelegates: <LocalizationsDelegate<dynamic>>[
       const LocaleNamesLocalizationsDelegate(),
       ...EFUILang.localizationsDelegates,
-          ...Lang.localizationsDelegates,
+      ...Lang.localizationsDelegates,
       EmpathetechFeedbackLocalizationsDelegate(),
     ],
     localeOverride: EzConfig.getLocale(),
-    child: const Sos(),
+    child: const SOS(),
   ));
 }
 
-/// Initialize a path based router for web-enabled apps
-/// Or any other app that requires deep linking
-/// https://docs.flutter.dev/ui/navigation/deep-linking
+/// [GoRouter] for the [PlatformApp.router]
 final GoRouter router = GoRouter(
   initialLocation: homePath,
   errorBuilder: (_, GoRouterState state) => ErrorScreen(state.error),
@@ -94,49 +87,55 @@ final GoRouter router = GoRouter(
           builder: (_, __) => const SettingsHomeScreen(),
           routes: <RouteBase>[
             GoRoute(
-              path: textSettingsPath,
-              name: textSettingsPath,
-              builder: (_, __) => const TextSettingsScreen(),
+              path: ezSettingsHomePath,
+              name: ezSettingsHomePath,
+              builder: (_, __) => const EzSettingsHomeScreen(),
               routes: <RouteBase>[
                 GoRoute(
-                  path: EzSettingType.quick.path,
-                  name: 'text_quick',
-                  builder: (_, __) =>
-                      const TextSettingsScreen(target: EzSettingType.quick),
+                  path: textSettingsPath,
+                  name: textSettingsPath,
+                  builder: (_, __) => const TextSettingsScreen(),
+                  routes: <RouteBase>[
+                    GoRoute(
+                      path: EzTSType.quick.path,
+                      name: EzTSType.quick.name,
+                      builder: (_, __) =>
+                          const TextSettingsScreen(target: EzTSType.quick),
+                    ),
+                    GoRoute(
+                      path: EzTSType.advanced.path,
+                      name: EzTSType.advanced.name,
+                      builder: (_, __) =>
+                          const TextSettingsScreen(target: EzTSType.advanced),
+                    ),
+                  ],
                 ),
                 GoRoute(
-                  path: EzSettingType.advanced.path,
-                  name: 'text_advanced',
-                  builder: (_, __) =>
-                      const TextSettingsScreen(target: EzSettingType.advanced),
+                  path: layoutSettingsPath,
+                  name: layoutSettingsPath,
+                  builder: (_, __) => const LayoutSettingsScreen(),
+                ),
+                GoRoute(
+                  path: colorSettingsPath,
+                  name: colorSettingsPath,
+                  builder: (_, __) => const ColorSettingsScreen(),
+                  routes: <RouteBase>[
+                    GoRoute(
+                      path: EzCSType.quick.path,
+                      name: EzCSType.quick.name,
+                      builder: (_, __) =>
+                          const ColorSettingsScreen(target: EzCSType.quick),
+                    ),
+                    GoRoute(
+                      path: EzCSType.advanced.path,
+                      name: EzCSType.advanced.name,
+                      builder: (_, __) =>
+                          const ColorSettingsScreen(target: EzCSType.advanced),
+                    ),
+                  ],
                 ),
               ],
             ),
-            GoRoute(
-              path: layoutSettingsPath,
-              name: layoutSettingsPath,
-              builder: (_, __) => const LayoutSettingsScreen(),
-            ),
-            GoRoute(
-              path: colorSettingsPath,
-              name: colorSettingsPath,
-              builder: (_, __) => const ColorSettingsScreen(),
-              routes: <RouteBase>[
-                GoRoute(
-                  path: EzSettingType.quick.path,
-                  name: 'color_quick',
-                  builder: (_, __) =>
-                      const ColorSettingsScreen(target: EzSettingType.quick),
-                ),
-                GoRoute(
-                  path: EzSettingType.advanced.path,
-                  name: 'color_advanced',
-                  builder: (_, __) =>
-                      const ColorSettingsScreen(target: EzSettingType.advanced),
-                ),
-              ],
-            ),
-                                 
           ],
         ),
       ],
@@ -144,28 +143,21 @@ final GoRouter router = GoRouter(
   ],
 );
 
-class Sos extends StatelessWidget {
-  const Sos({super.key});
+class SOS extends StatelessWidget {
+  const SOS({super.key});
 
   @override
   Widget build(BuildContext context) {
     return EzAppProvider(
       app: PlatformApp.router(
         debugShowCheckedModeBanner: false,
-
-        // Language handlers
         localizationsDelegates: <LocalizationsDelegate<dynamic>>{
           const LocaleNamesLocalizationsDelegate(),
           ...EFUILang.localizationsDelegates,
           ...Lang.localizationsDelegates,
         },
-
-        // Supported languages
         supportedLocales: Lang.supportedLocales,
-
-        // Current language
         locale: EzConfig.getLocale(),
-
         title: appTitle,
         routerConfig: router,
       ),

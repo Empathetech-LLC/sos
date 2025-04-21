@@ -1,7 +1,85 @@
 {
   "@@locale": "en",
 
+  
+  
+  "gOk": "Ok",
+
+  "sosLastKnown": "Last known location",
+  "sosNeedSMS": "SOS needs SMS permission to function properly.",
+  "sosDisabled": "Cannot access location (disabled)",
+  "sosDenied": "Cannot access location (denied)",
+  "sosError": "Cannot access location (error)",
 
 
-  "hsCounterLabel": "You have pushed the button this many times:"
+
+  "hsStartSOS": "Activate to start SOS broadcast.",
+  "hsEndSOS": "SOS is broadcasting. Activate to stop.",
+  "hsSafeCloseHint": "All clear. Close the app without SOS.",
+
+  "hsCameraHint": "Take a photo.",
+  "hsPreviewHint": "Long press to toggle your rights view.",
+  "hsShowRights": "Show your rights.",
+  "hsHideRights": "Hide your rights.",
+  "hsStartRecord": "Record a video.",
+  "hsEndRecord": "End the recording.",
+  "hsFlashOff": "Flash Off. Activate to turn on auto flash.",
+  "hsFlashAuto": "Auto flash. Activate to turn flash on.",
+  "hsFlashOn": "Flash on. Activate to turn flash off.",
+  "hsFlashTorch": "Torch mode. Activate to turn flash off.",
+
+  "hsWelcome": "Welcome to InstaSOS",
+  "hsAppTutorial": "It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.",
+  "hsPermissionsTutorialTitle": "If you want",
+  "hsPermissionsTutorial": "InstaSOS can also gather and share evidence.\n\nIt will ask for camera, microphone, and gallery access to do so.",
+  "hsPermissionsAlways": "Please set location to always allow.\nIt will only be used while SOS is active.",
+  "hsBroadcastTutorial": "Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.",
+  "hsIOSBroadcastTutorial": "Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.",
+  "hsSettingsTutorial": "You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app's language, and\n- Update the app's appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.",
+  "hsVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nLong press the center preview to show a list of your rights.",
+  "hsIOSVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nLong press the center preview to show a list of your rights.",
+  "hsRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or long press the center of the screen to show a list of your rights.",
+  "hsIOSRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.",
+  
+  "hsNeedContacts": "InstaSOS needs access to your contacts to function properly.",
+  "hsNoNumber": "The contact must have a phone number.",
+
+
+
+  "rsSharedHeader": "You have the right to...",
+
+  "rsOnFoot": "On foot",
+  "rsWhileDriving": "While driving",
+  "rsAtHome": "At home",
+  
+  "rsSharedRemainSilent": "Remain silent. Do not lie, but you don't have to answer questions.",
+  "rsSharedDocument": "Document everything. You have the right to take pictures, record videos, and record audio.",
+
+  "rsWalkPockets": "Refuse a search of your pockets. ICE can give a pat-down, but not a search.",
+  "rsWalkLeave": "Leave if you are not under arrest.",
+
+  "rsDriveSearch": "Refuse a search of your car.",
+  "rsDrivePockets": "Refuse a search of your pockets. ICE can give a pat-down, but not a search.",
+  "rsDriveID": "Refuse to provide ID as a passenger. Only the driver is required to provide ID.",
+  "rsDriveQuestion": "Ask questions. Find out why you are being stopped.",
+  "rsDriveWarrant": "Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it's not valid.",
+  "rsDriveLeave": "Leave if you are not under arrest.",
+  
+  "rsHomeWarrant": "Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it's not valid. Keep your door shut.",
+
+  "rsSharedFingerprint": "Refuse to be fingerprinted by ICE unless you are under arrest.",
+  "rsSharedLawyer": "To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.",
+
+
+  
+  "ssSOSOnOpen": "SOS on open",
+  "ssSOSOnClose": "SOS on close",
+  "ssSOSOnCloseHint": "When enabled, a safe close button will be shown opposite the settings.",
+  "ssVideoSOS": "SOS on interrupted recording",
+
+  "ssEMC": "Emergency contacts",
+  "ssRemoveHint": "Remove contact",
+  "ssAddHint": "Add another contact",
+
+  "ssAppearance": "Appearance"
 }

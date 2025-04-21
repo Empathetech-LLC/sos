@@ -9,15 +9,13 @@ import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class TextSettingsScreen extends StatelessWidget {
-  final EzSettingType? target;
+  final EzTSType? target;
 
   const TextSettingsScreen({super.key, this.target});
 
   @override
   Widget build(BuildContext context) => SosScaffold(
         title: EFUILang.of(context)!.tsPageTitle,
-        showSettings: false,
-        body: EzTextSettings(target: target),
-        fab: EzBackFAB(context),
+        body: EzTextSettings(useImageDecoration: false, target: target),
       );
 }

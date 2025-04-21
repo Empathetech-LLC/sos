@@ -14,8 +14,6 @@ class LayoutSettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SosScaffold(
         title: EFUILang.of(context)!.lsPageTitle,
-        showSettings: false,
-        body: const EzLayoutSettings(),
-        fab: EzBackFAB(context),
+        body: const EzLayoutSettings(useImageDecoration: false),
       );
 }
