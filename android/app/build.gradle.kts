@@ -1,4 +1,5 @@
 import java.util.Properties
+import java.io.FileInputStream
 
 plugins {
     id("com.android.application")
@@ -10,7 +11,7 @@ val keystoreProperties = Properties()
 val keystorePropertiesFile = rootProject.file("key.properties")
 
 if (keystorePropertiesFile.exists()) {
-    keystorePropertiesFile.inputStream().use { inputStream -> keystoreProperties.load(inputStream) }
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
 android {
@@ -39,13 +40,14 @@ android {
         create("release") {
             keyAlias = keystoreProperties["keyAlias"] as String
             keyPassword = keystoreProperties["keyPassword"] as String
-            storeFile = keystoreProperties["storeFile"]?.let { filePath -> file(filePath as String)}
+            storeFile = keystoreProperties["storeFile"]?.let { file(it) }
             storePassword = keystoreProperties["storePassword"] as String
         }
    }
 
     buildTypes {
         getByName("release") {
+            signingConfig = signingConfigs.getByName("debug")
             signingConfig = signingConfigs.getByName("release")
         }
     }
