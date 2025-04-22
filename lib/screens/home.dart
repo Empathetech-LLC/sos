@@ -456,16 +456,16 @@ class _HomeScreenState extends State<HomeScreen>
                     if (context.mounted) {
                       BetterFeedback.of(context).show(
                         (UserFeedback feedback) async {
-                          await Share.shareXFiles(
-                            <XFile>[
+                          await SharePlus.instance.share(ShareParams(
+                            text: feedback.text,
+                            files: <XFile>[
                               XFile.fromData(
                                 feedback.screenshot,
                                 name: 'screenshot.png',
                                 mimeType: 'image/png',
                               )
                             ],
-                            text: feedback.text,
-                          );
+                          ));
                         },
                       );
                     }
@@ -535,10 +535,10 @@ class _HomeScreenState extends State<HomeScreen>
                                 await saveToGallery(image.path, true);
 
                                 // Attempt to share
-                                await Share.shareXFiles(
-                                  <XFile>[image],
+                                await SharePlus.instance.share(ShareParams(
                                   text: await getCoordinates(l10n),
-                                );
+                                  files: <XFile>[image],
+                                ));
                               } catch (e) {
                                 if (context.mounted) {
                                   await ezLogAlert(
@@ -620,10 +620,10 @@ class _HomeScreenState extends State<HomeScreen>
                                   await saveToGallery(mp4Path, false);
 
                                   // Attempt to share the video
-                                  await Share.shareXFiles(
-                                    <XFile>[XFile(mp4Path)],
+                                  await SharePlus.instance.share(ShareParams(
                                     text: await getCoordinates(l10n),
-                                  );
+                                    files: <XFile>[XFile(mp4Path)],
+                                  ));
                                 } catch (e) {
                                   if (context.mounted) {
                                     await ezLogAlert(
