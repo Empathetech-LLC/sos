@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2025-04-22
+### Fixed
+- Google Play release
+
 ## [1.1.0] - 2025-04-20
 ### Added
 - Bug fixes and improvements
