@@ -78,7 +78,7 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
               EzResetButton(
                 onConfirm: () async {
                   await EzConfig.removeKeys(<String>{
-                    ...empathetechConfig.keys,
+                    ...mobileEmpathConfig.keys,
                     videoColorKey,
                   });
                   setState(() {});
