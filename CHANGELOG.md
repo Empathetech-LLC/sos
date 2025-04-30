@@ -2,9 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2025-04-30
+### Added
+- Sources link to rights view
+
 ## [1.1.1] - 2025-04-22
 ### Fixed
 - Google Play release
+- SharePlus package
 
 ## [1.1.0] - 2025-04-20
 ### Added
