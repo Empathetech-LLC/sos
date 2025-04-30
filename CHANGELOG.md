@@ -2,9 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.2.0] - 2025-04-30
-### Added
-- Sources link to rights view
+## [1.2.0] - 2025-05-??
+### Updated
+- Translations: human verified
 
 ## [1.1.1] - 2025-04-22
 ### Fixed
