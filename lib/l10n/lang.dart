@@ -96,6 +96,7 @@ abstract class Lang {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('ar'),
+    Locale('ar', 'EG'),
     Locale('en'),
     Locale('es'),
     Locale('fr'),
@@ -468,6 +469,20 @@ class _LangDelegate extends LocalizationsDelegate<Lang> {
 }
 
 Future<Lang> lookupLang(Locale locale) {
+  // Lookup logic when language+country codes are specified.
+  switch (locale.languageCode) {
+    case 'ar':
+      {
+        switch (locale.countryCode) {
+          case 'EG':
+            return lang_ar
+                .loadLibrary()
+                .then((dynamic _) => lang_ar.LangArEg());
+        }
+        break;
+      }
+  }
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'ar':
