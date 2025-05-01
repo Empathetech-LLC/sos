@@ -32,7 +32,7 @@ class SosScaffold extends StatelessWidget {
     // Gather the theme data //
 
     final bool isLefty = EzConfig.get(isLeftyKey) ?? false;
-    final EFUILang l10n = EFUILang.of(context)!;
+    final EFUILang l10n = ezL10n(context);
 
     late final double toolbarHeight = ezToolbarHeight(context, appTitle);
 

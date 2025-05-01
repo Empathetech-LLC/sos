@@ -25,7 +25,7 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
   static const EzSeparator separator = EzSeparator();
 
   late final Lang l10n = Lang.of(context)!;
-  late final EFUILang el10n = EFUILang.of(context)!;
+  late final EFUILang el10n = ezL10n(context);
 
   // Set the page title //
 

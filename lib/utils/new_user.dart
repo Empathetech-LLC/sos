@@ -14,7 +14,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 /// App closes on cancel
 Future<dynamic> firstContactMsg(BuildContext context) {
   final Lang l10n = Lang.of(context)!;
-  final EFUILang el10n = EFUILang.of(context)!;
+  final EFUILang el10n = ezL10n(context);
 
   final (
     List<EzMaterialAction> materialActions,
@@ -45,7 +45,7 @@ Future<dynamic> firstContactMsg(BuildContext context) {
 /// Returns false if the user would rather skip
 Future<dynamic> permissionsMsg(BuildContext context) {
   final Lang l10n = Lang.of(context)!;
-  final EFUILang el10n = EFUILang.of(context)!;
+  final EFUILang el10n = ezL10n(context);
 
   final (
     List<EzMaterialAction> materialActions,

@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   // Text
   late final Lang l10n = Lang.of(context)!;
-  late final EFUILang el10n = EFUILang.of(context)!;
+  late final EFUILang el10n = ezL10n(context);
 
   // Define the build data //
 
