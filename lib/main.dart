@@ -29,9 +29,10 @@ void main() async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
 
   EzConfig.init(
-    assetPaths: <String>{},
     preferences: prefs,
     defaults: sosConfig,
+    fallbackLang: await EFUILang.delegate.load(english),
+    assetPaths: <String>{},
   );
 
   // Run the app //
@@ -61,9 +62,6 @@ void main() async {
     ),
     themeMode: EzConfig.getThemeMode(),
     localizationsDelegates: <LocalizationsDelegate<dynamic>>[
-      const LocaleNamesLocalizationsDelegate(),
-      ...EFUILang.localizationsDelegates,
-      ...Lang.localizationsDelegates,
       EmpathetechFeedbackLocalizationsDelegate(),
     ],
     localeOverride: EzConfig.getLocale(),
