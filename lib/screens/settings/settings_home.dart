@@ -76,7 +76,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             separator,
 
             // Language
-            const EzLocaleSetting(),
+            const EzLocaleSetting(locales: Lang.supportedLocales),
             separator,
 
             // SOS
