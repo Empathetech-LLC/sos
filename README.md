@@ -39,7 +39,7 @@ On top of running in the background, automatic messages allow for custom conditi
 
 <img src="assets/images/readme/screenshot-6-android-options.png" alt="Screenshot of the SOS message on iOS" width="250"/>
 
-<br>"SOS on close" will automatically start sending texts when the app goes to the background; if you minimize the app, switch to another app, or lock the phone.<br>While "SOS on close" is enabled, there will be a safe exit/thumbs up button on the home screen. Use this to close the app without starting a broadcast.
+<br>"SOS on close" will automatically start sending texts when the app goes to the background.<br>While "SOS on close" is enabled, there will be a safe exit/thumbs up button on the home screen. Use this to close the app without starting a broadcast.
 
 <img src="assets/images/readme/screenshot-7-safe-close-message.png" alt="Screenshot of the SOS message on iOS" width="250"/>
 <img src="assets/images/readme/screenshot-8-safe-close-button.png" alt="Screenshot of the SOS message on iOS" width="250"/>
