@@ -35,22 +35,21 @@ On Android, SOS messages are fully automatic.<br>While the app is open, SOS mess
 
 Because they're fully automatic, Android SOS messages can even be sent when the app is in the background.<br>"In the background" being when the app is minimized, if you've switched to another app, or locked the phone.<br>While in the background, SOS messages will be sent every 15 minutes.
 
-On top of running in the background, automatic messages allow for custom conditions.<br>On Android, you can enable "SOS on close" and "SOS on interrupted recoding".
+On top of running in the background, automatic messages allow for custom conditions.<br>On Android, you can enable "SOS on close" and "SOS on interrupted recording".
 
 <img src="assets/images/readme/screenshot-6-android-options.png" alt="Screenshot of the SOS message on iOS" width="250"/>
 
-<br>"SOS on close" will automatically start sending texts when the app goes to the background.<br>While "SOS on close" is enabled, there will be a safe exit/thumbs up button on the home screen. Use this to close the app without starting a broadcast.
+<br>"SOS on close" will automatically start sending texts when the app goes to the background.<br>While "SOS on close" is enabled, there will be a safe exit (thumbs up) button on the home screen. Use this to close the app without starting a broadcast.
 
-<img src="assets/images/readme/screenshot-7-safe-close-message.png" alt="Screenshot of the SOS message on iOS" width="250"/>
-<img src="assets/images/readme/screenshot-8-safe-close-button.png" alt="Screenshot of the SOS message on iOS" width="250"/>
+| ![Screenshot of the SOS message on iOS](assets/images/readme/screenshot-7-safe-close-message.png) | ![Screenshot of the SOS message on iOS](assets/images/readme/screenshot-8-safe-close-button.png) |
+|:-------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
+| While walking                                                                                     | While driving                                                                                    |
 
 <br>"SOS on interrupted recoding" is enabled by default.<br>If you're recording a video, and it gets interrupted, a background broadcast will start automatically.
 
-For example, let's say you are exercising your right to record an ICE agent, and they unconstitutionally threaten you with violence if you don't stop. In that unfortunately likely case, it's even more unfortunate that it's the safest thing to do is comply.
-
 "SOS on open" is available on both platforms.<br>While enabled, anytime you open the app, SOS will start automatically.
 
-On both platforms, press the button again to stop the broadcast. Fully closing the app will also stop the texts.
+On both platforms, press the button again to stop the broadcast. Fully closing the app will also stop the broadcast.
 
 ## <br>Notes
 
@@ -64,14 +63,13 @@ return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.l
 
 ### <br>Platform differences
 
-The texting differences are due to Apple's policies.<br>They do not allow text automation. They don't even have an appeal process for emergency apps.<br>Pretty hypocritical coming from a company whose marketing often implies that you'll die if you don't own enough iOS devices, IMO.
+The texting differences are due to Apple's policies.<br>They do not allow text automation, at all. They don't even have an appeal process for emergency apps.<br>Pretty hypocritical coming from a company whose marketing often implies that you aren't safe without their products, IMO.
 
 #### <br>Timing
 
 Why are broadcasts every 5 minutes in the foreground, but every 15 in the background?
 
-Android limits the frequency of background tasks to save battery life (and lots of other reasons). Fifteen minutes is the max frequency.
-But, the same limitations don't apply when the app is open. Five minutes was chosen to try and balance urgency vs spam.
+Android limits the frequency of background tasks to save battery life (and lots of other reasons). Fifteen minutes is the max frequency.<br>But, the same limitations don't apply when the app is open.
 
 # <br>Contributing
 
