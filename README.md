@@ -19,17 +19,17 @@ As civilians, our first line of defense is our cameras.<br>So, at its core, Inst
 
 <img src="assets/images/readme/screenshot-1-camera.png" alt="Screenshot of the InstaSOS home screen" width="250"/>
 
-<br>When you long press the center of the screen, the app shows (or hides) a list of your rights.<br>Your rights if you're on foot, got pulled over while driving, or at home.
+<br>When you long press the center of the screen, the app shows (or hides) a list of your rights.
 
-<img src="assets/images/readme/screenshot-2-walking.png" alt="Screenshot of the walking rights view" width="250"/>
-<img src="assets/images/readme/screenshot-3-driving.png" alt="Screenshot of the driving rights view" width="250"/>
-<img src="assets/images/readme/screenshot-4-at-home.png" alt="Screenshot of the at home rights view" width="250"/>
+| ![Screenshot of the walking rights view](assets/images/readme/screenshot-2-walking.png) | ![Screenshot of the driving rights view](assets/images/readme/screenshot-3-driving.png) | ![Screenshot of the at home rights view](assets/images/readme/screenshot-4-at-home.png) |
+|:---------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------:|
+| While walking                                                                           | While driving                                                                           | While at home                                                                           |
 
 <br>The crucial feature of InstaSOS, is the SOS button.<br>Press it to automatically share your status and location with your emergency contacts.
 
 <img src="assets/images/readme/screenshot-5-ios-message.png" alt="Screenshot of the SOS message on iOS" width="250"/>
 
-<br>On iOS, SOS messages are automated.<br>New drafts with your up to date location will be made every 5 minutes, but you have to confirm to send.<br>This process is done without leaving the app, and will **not** interrupt video recordings.
+<br>On iOS, SOS messages are automated.<br>Every 5 minutes, a message with your latest location will be created (like the image above). You will have to hit the send button yourself; you are also free to cancel.<br>This process is done without leaving the app, and will **not** interrupt video recordings.
 
 On Android, SOS messages are fully automatic.<br>While the app is open, SOS messages will be sent for you every 5 minutes, so you can focus on the task at hand.
 
