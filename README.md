@@ -41,7 +41,7 @@ The benefits of automatic messages don't stop there.<br>On Android, you can enab
 
 <br>While "SOS on close" is enabled, there will be a safe exit (thumbs up) button on the home screen.<br>If the app goes to the background for any reason except the safe close button, an SOS broadcast will start automatically.
 
-| While walking | While driving |
+| Reminder | New home |
 |:-------------:|:-------------:|
 | <img src="assets/images/readme/screenshot-7-safe-close-message.png" alt="Screenshot of the SOS on close disclaimer" width="250"/> | <img src="assets/images/readme/screenshot-8-safe-close-button.png" alt="Screenshot of the home screen with a safe close button" width="250"/> |
 
