@@ -49,7 +49,7 @@ The benefits of automatic messages don't stop there.<br>On Android, you can enab
 
 "SOS on open" is available on both platforms.<br>While enabled, a broadcast will start as soon as the app opens.
 
-On both platforms, press the button again to stop the broadcast.<br>While broadcasting, the button's icon will be a ringing bell, like the app icon.<br>Fully closing the app will also stop the broadcast.
+On both platforms, press the SOS button again to stop the broadcast.<br>While broadcasting, the button's icon will be a ringing bell, like the app icon.<br>Fully closing the app will also stop the broadcast.
 
 ## <br>Notes
 
@@ -63,7 +63,7 @@ return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.l
 
 ### <br>Platform differences
 
-The texting differences are due to Apple's policies.<br>They do not allow text automation, at all. They don't even have an appeal process for emergency apps.<br>Pretty hypocritical coming from a company whose marketing often implies that you aren't safe without their products, IMO.
+The texting differences are due to Apple's policies.<br>They do not allow text automation, at all. They don't even have an appeal process for emergency apps.<br>Pretty hypocritical coming from a company whose marketing often implies that we aren't safe without their products, IMO.
 
 #### <br>Timing
 
