@@ -5,7 +5,7 @@
 [![fr](https://img.shields.io/badge/lang-fr-white.svg)](https://github.com/Empathetech-LLC/empathetech_flutter_ui/blob/main/localized_readme/README.fr.md)
 [![ht](https://img.shields.io/badge/lang-ht-blue.svg)](https://github.com/Empathetech-LLC/empathetech_flutter_ui/blob/main/localized_readme/README.ht.md)
 
-<br>Hopefully unnecessary.
+<br>Hopefully unnecessary. Translations coming soon.
 
 ## <br>Table of Contents
 
@@ -21,35 +21,35 @@ As civilians, our first line of defense is our cameras.<br>So, at its core, Inst
 
 <br>When you long press the center of the screen, the app shows (or hides) a list of your rights.
 
-| ![Screenshot of the walking rights view](assets/images/readme/screenshot-2-walking.png) | ![Screenshot of the driving rights view](assets/images/readme/screenshot-3-driving.png) | ![Screenshot of the at home rights view](assets/images/readme/screenshot-4-at-home.png) |
-|:---------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------:|
-| While walking                                                                           | While driving                                                                           | While at home                                                                           |
+| While walking | While driving | While at home |
+|:-------------:|:-------------:|:-------------:|
+| <img src="assets/images/readme/screenshot-2-walking.png" alt="Screenshot of the walking rights view" width="250"/> | <img src="assets/images/readme/screenshot-3-driving.png" alt="Screenshot of the driving rights view" width="250"/> | <img src="assets/images/readme/screenshot-4-at-home.png" alt="Screenshot of the at home rights view" width="250"/> |
 
-<br>The crucial feature of InstaSOS, is the SOS button.<br>Press it to automatically share your status and location with your emergency contacts.
+<br>The crucial feature of InstaSOS, is the SOS button.<br>Activate it to send your location to your emergency contacts.<br>Emergency contacts are decided by you, the first time you open the app. 
 
-<img src="assets/images/readme/screenshot-5-ios-message.png" alt="Screenshot of the SOS message on iOS" width="250"/>
+<img src="assets/images/readme/screenshot-5-ios-message.png" alt="Screenshot of an iOS SOS message example" width="250"/>
 
-<br>On iOS, SOS messages are automated.<br>Every 5 minutes, a message with your latest location will be created (like the image above). You will have to hit the send button yourself; you are also free to cancel.<br>This process is done without leaving the app, and will **not** interrupt video recordings.
+<br>On iOS, the messages are automated.<br>Every 5 minutes, a message with your current location will be created (like the image above).<br>You will have to hit the send button yourself. You are also free to cancel.<br>This process is done without leaving the app, and does **not** interrupt video recordings.
 
-On Android, SOS messages are fully automatic.<br>While the app is open, SOS messages will be sent for you every 5 minutes, so you can focus on the task at hand.
+On Android, the messages are fully automatic.<br>Every 5 minutes, a message with your currently location will be sent, and you can focus on the task at hand.
 
-Because they're fully automatic, Android SOS messages can even be sent when the app is in the background.<br>"In the background" being when the app is minimized, if you've switched to another app, or locked the phone.<br>While in the background, SOS messages will be sent every 15 minutes.
+Because they're automatic, Android SOS's can even be sent in the background.<br>"In the background" being when the app is minimized, if you've switched to another app, or locked the phone.<br>While in the background, SOS messages will be sent every 15 minutes.
 
-On top of running in the background, automatic messages allow for custom conditions.<br>On Android, you can enable "SOS on close" and "SOS on interrupted recording".
+The benefits of automatic messages don't stop there.<br>On Android, you can enable "SOS on close" and "SOS on interrupted recording".
 
-<img src="assets/images/readme/screenshot-6-android-options.png" alt="Screenshot of the SOS message on iOS" width="250"/>
+<img src="assets/images/readme/screenshot-6-android-options.png" alt="Screenshot of the custom Android options" width="250"/>
 
-<br>"SOS on close" will automatically start sending texts when the app goes to the background.<br>While "SOS on close" is enabled, there will be a safe exit (thumbs up) button on the home screen. Use this to close the app without starting a broadcast.
+<br>While "SOS on close" is enabled, there will be a safe exit (thumbs up) button on the home screen.<br>If the app goes to the background for any reason except the safe close button, an SOS broadcast will start automatically.
 
-| ![Screenshot of the SOS message on iOS](assets/images/readme/screenshot-7-safe-close-message.png) | ![Screenshot of the SOS message on iOS](assets/images/readme/screenshot-8-safe-close-button.png) |
-|:-------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
-| While walking                                                                                     | While driving                                                                                    |
+| While walking | While driving |
+|:-------------:|:-------------:|
+| <img src="assets/images/readme/screenshot-7-safe-close-message.png" alt="Screenshot of the SOS on close disclaimer" width="250"/> | <img src="assets/images/readme/screenshot-8-safe-close-button.png" alt="Screenshot of the home screen with a safe close button" width="250"/> |
 
 <br>"SOS on interrupted recoding" is enabled by default.<br>If you're recording a video, and it gets interrupted, a background broadcast will start automatically.
 
-"SOS on open" is available on both platforms.<br>While enabled, anytime you open the app, SOS will start automatically.
+"SOS on open" is available on both platforms.<br>While enabled, a broadcast will start as soon as the app opens.
 
-On both platforms, press the button again to stop the broadcast. Fully closing the app will also stop the broadcast.
+On both platforms, press the button again to stop the broadcast.<br>While broadcasting, the button's icon will be a ringing bell, like the app icon.<br>Fully closing the app will also stop the broadcast.
 
 ## <br>Notes
 
