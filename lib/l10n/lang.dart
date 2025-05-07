@@ -98,6 +98,7 @@ abstract class Lang {
     Locale('ar'),
     Locale('ar', 'EG'),
     Locale('en'),
+    Locale('en', 'US'),
     Locale('es'),
     Locale('fr'),
     Locale('ht')
@@ -478,6 +479,16 @@ Future<Lang> lookupLang(Locale locale) {
             return lang_ar
                 .loadLibrary()
                 .then((dynamic _) => lang_ar.LangArEg());
+        }
+        break;
+      }
+    case 'en':
+      {
+        switch (locale.countryCode) {
+          case 'US':
+            return lang_en
+                .loadLibrary()
+                .then((dynamic _) => lang_en.LangEnUs());
         }
         break;
       }
