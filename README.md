@@ -5,7 +5,15 @@
 [![fr](https://img.shields.io/badge/lang-fr-white.svg)](https://github.com/Empathetech-LLC/empathetech_flutter_ui/blob/main/localized_readme/README.fr.md)
 [![ht](https://img.shields.io/badge/lang-ht-blue.svg)](https://github.com/Empathetech-LLC/empathetech_flutter_ui/blob/main/localized_readme/README.ht.md)
 
-<br>Hopefully unnecessary. Translations coming soon.
+<br>A camera, SOS beacon, and list of your rights all in one place.
+
+InstaSOS shares your status with emergency contacts in a moment of crisis.
+
+It enables you to record evidence, and keeps you informed of your rights when dealing with law/immigration enforcement.
+
+InstaSOS has no accounts, cookies, ads, or payments.
+
+Stay safe out there.
 
 ## <br>Table of Contents
 
