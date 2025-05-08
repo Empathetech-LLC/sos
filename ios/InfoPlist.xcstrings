@@ -43,7 +43,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS a besoin d'accéder à votre appareil photo pour partager des photos/vidéos avec vos contacts d'urgence."
           }
         },
         "ht" : {
@@ -78,7 +78,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS doit pouvoir enregistrer vos contacts d'urgence."
           }
         },
         "ht" : {
@@ -113,7 +113,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence."
           }
         },
         "ht" : {
@@ -148,7 +148,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence."
           }
         },
         "ht" : {
@@ -183,7 +183,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence."
           }
         },
         "ht" : {
@@ -218,7 +218,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence."
           }
         },
         "ht" : {
@@ -253,7 +253,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS a besoin d'accéder à votre microphone pour enregistrer des vidéos avec audio."
           }
         },
         "ht" : {
@@ -288,7 +288,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS a besoin d'accéder à votre galerie pour enregistrer des photos/vidéos."
           }
         },
         "ht" : {
