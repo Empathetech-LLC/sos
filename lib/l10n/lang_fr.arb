@@ -1,85 +1,85 @@
 {
   "@@locale": "fr",
 
-  
-  
+
+
   "gOk": "Ok",
 
-  "sosLastKnown": "Dernière position connue",
+  "sosLastKnown": "Dernière localisation connue",
   "sosNeedSMS": "SOS a besoin d'une autorisation SMS pour fonctionner correctement.",
-  "sosDisabled": "Impossible d'accéder à la localisation (désactivée)",
-  "sosDenied": "Impossible d'accéder à la localisation (refusée)",
+  "sosDisabled": "Impossible d'accéder à la localisation (désactivé)",
+  "sosDenied": "Impossible d'accéder à la localisation (refusé)",
   "sosError": "Impossible d'accéder à la localisation (erreur)",
 
 
 
-  "hsStartSOS": "Activer pour démarrer la diffusion SOS.",
-  "hsEndSOS": "SOS est en cours de diffusion. Activez pour arrêter.",
-  "hsSafeCloseHint": "Tout est clair. Fermer l'application sans activer SOS.",
+  "hsStartSOS": "Activez pour démarrer la diffusion SOS.",
+  "hsEndSOS": "Le SOS est en cours de diffusion. Activez pour arrêter.",
+  "hsSafeCloseHint": "Tout va bien. Fermer l'application sans SOS.",
 
   "hsCameraHint": "Prendre une photo.",
-  "hsPreviewHint": "Appui long pour basculer la vue de vos droits.",
-  "hsShowRights": "Montrez vos droits.",
-  "hsHideRights": "Cachez vos droits.",
+  "hsPreviewHint": "Appuyez longuement pour basculer votre vue des droits.",
+  "hsShowRights": "Afficher vos droits.",
+  "hsHideRights": "Cacher vos droits.",
   "hsStartRecord": "Enregistrer une vidéo.",
-  "hsEndRecord": "Terminez l'enregistrement.",
-  "hsFlashOff": "Flash désactivé. Activez pour activer le flash automatique.",
+  "hsEndRecord": "Arrêter l'enregistrement.",
+  "hsFlashOff": "Flash désactivé. Activez ce bouton pour activer le flash automatique.",
   "hsFlashAuto": "Flash automatique. Activez pour activer le flash.",
   "hsFlashOn": "Flash activé. Activez pour désactiver le flash.",
   "hsFlashTorch": "Mode torche. Activez pour désactiver le flash.",
 
-  "hsWelcome": "Bienvenue sur SOS",
-  "hsAppTutorial": "L'application partage votre statut avec vos contacts d'urgence en cas de crise.\n\nVeuillez choisir un contact d'urgence.\nUn seul pour l'instant, vous pourrez en ajouter d'autres plus tard.",
+  "hsWelcome": "Bienvenue sur InstaSOS",
+  "hsAppTutorial": "Votre statut est partagé avec les contacts d'urgence en cas de crise.\n\nVeuillez choisir un contact d'urgence.\nUn seul pour l'instant ; vous pourrez en ajouter d'autres ultérieurement.",
   "hsPermissionsTutorialTitle": "Si vous le souhaitez",
-  "hsPermissionsTutorial": "SOS peut également collecter et partager des preuves.\n\nElle demandera l'accès à la caméra, au microphone et à la galerie pour ce faire.",
-  "hsPermissionsAlways": "Veuillez définir la localisation pour autoriser toujours.\nElle ne sera utilisée que lorsque SOS est actif.",
-  "hsBroadcastTutorial": "Activez SOS pour envoyer automatiquement des messages à vos contacts d'urgence.\n\nSi SOS a accès à votre position, celle-ci sera incluse dans les messages.\n\nLes messages continueront même si le téléphone est verrouillé.\n\nDésactivez SOS ou fermez complètement l'application pour arrêter les messages.",
-  "hsIOSBroadcastTutorial": "Activez SOS pour envoyer automatiquement des messages à vos contacts d'urgence.\n\nSi SOS a accès à votre position, celle-ci sera incluse dans les messages.",
-  "hsSettingsTutorial": "Vous pouvez...\n\n- Ajouter d'autres contacts d'urgence\n- Configurer le SOS automatique\n- Changer la langue de l'application, et\n- Modifier l'apparence de l'application\n\ndans les paramètres.\n\nMaintenez le bouton des paramètres pour envoyer des commentaires sur l'application.",
-  "hsVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s'activera automatiquement.\n\nAppui long le centre de l'aperçu pour afficher une liste de vos droits.",
-  "hsIOSVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nAppui long le centre de l'aperçu pour afficher une liste de vos droits.",
-  "hsRightsTutorial": "Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s'activera automatiquement.\n\nTouchez le marteau ou appui long le centre de l'écran pour voir une liste de vos droits.",
-  "hsIOSRightsTutorial": "Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nTouchez le marteau ou appui long le centre de l'écran pour voir une liste de vos droits.",
-
-  "hsNeedContacts": "SOS a besoin d'accéder à vos contacts pour fonctionner correctement.",
-  "hsNoNumber": "Le contact doit avoir un numéro de téléphone.",
-
-
-
-  "rsSharedHeader": "Vous avez le droit de...",
-
-  "rsOnFoot": "À pied",
-  "rsWhileDriving": "En voiture",
-  "rsAtHome": "À la maison",
-
-  "rsSharedRemainSilent": "Garder le silence. Ne mentez pas, mais vous n'êtes pas obligé de répondre aux questions.",
-  "rsSharedDocument": "Tout documenter. Vous avez le droit de prendre des photos, d'enregistrer des vidéos et de l'audio.",
-
-  "rsWalkPockets": "Refuser une fouille de vos poches. L'ICE peut effectuer une palpation, mais pas une fouille.",
-  "rsWalkLeave": "Partir si vous n'êtes pas en état d'arrestation.",
-
-  "rsDriveSearch": "Refuser une fouille de votre voiture.",
-  "rsDrivePockets": "Refuser une fouille de vos poches. L'ICE peut effectuer une palpation, mais pas une fouille.",
-  "rsDriveID": "Refuser de fournir une pièce d'identité en tant que passager. Seul le conducteur est tenu de le faire.",
-  "rsDriveQuestion": "Poser des questions. Découvrez pourquoi vous êtes arrêté.",
-  "rsDriveWarrant": "Demandez si les agents ont un mandat. Vous avez le droit de le voir s'ils en ont un. Si un « mandat » n'est pas signé par un juge, il n'est pas valide.",
-  "rsDriveLeave": "Partir si vous n'êtes pas en état d'arrestation.",
-
-  "rsHomeWarrant": "Gardez la porte fermée. S'ils ont un mandat, demandez-leur de le glisser sous la porte. Si un « mandat » n'est pas signé par un juge, il n'est pas valide. Gardez la porte fermée.",
-
-  "rsSharedFingerprint": "Refuser que l'ICE prenne vos empreintes digitales, sauf si vous êtes en état d'arrestation.",
-  "rsSharedLawyer": "Consulter un avocat. Si vous avez été formellement arrêté, vous avez droit à un avocat commis d'office.",
-
-
+  "hsPermissionsTutorial": "InstaSOS peut également recueillir et partager des preuves.\n\nPour ce faire, l'accès à la caméra, au microphone et à la galerie sera requis.",
+  "hsPermissionsAlways": "Veuillez définir la localisation sur \"Toujours autoriser\". Elle ne sera utilisée que lorsque le SOS est actif.",
+  "hsBroadcastTutorial": "Activez le SOS pour envoyer automatiquement des SMS à vos contacts d'urgence.\n\nSi InstaSOS a accès à votre localisation, celle-ci sera incluse dans les SMS.\n\nLes SMS continueront d'être envoyés même lorsque le téléphone est verrouillé.\n\nDésactivez le SOS ou fermez complètement l'application pour arrêter les SMS.",
+  "hsIOSBroadcastTutorial": "Activez le SOS pour envoyer automatiquement des SMS à vos contacts d'urgence.\n\nSi InstaSOS a accès à votre localisation, celle-ci sera incluse dans les SMS.",
+  "hsSettingsTutorial": "Vous pouvez…\n\n- Ajouter d'autres contacts d'urgence\n- Configurer le SOS automatique\n- Modifier la langue de l'application\n- Mettre à jour l'apparence de l'application\n\ndans les paramètres.\n\nMaintenez le bouton Paramètres enfoncé pour partager votre retour sur l'application.",
+  "hsVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, le SOS s'active automatiquement.\n\nAppuyez longuement au centre de l'écran pour afficher la liste de vos droits.",
+  "hsIOSVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nAppuyez longuement au centre de l'écran pour afficher la liste de vos droits.",
+  "hsRightsTutorial": "Si vous activez l'appareil photo et prenez une photo ou enregistrez une vidéo, vous pourrez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, le SOS s'active automatiquement.\n\nAppuyez sur le marteau ou appuyez longuement au centre de l'écran pour afficher la liste de vos droits.",
+  "hsIOSRightsTutorial": "Si vous activez l'appareil photo et prenez une photo ou enregistrez une vidéo, vous pourrez la partager immédiatement.\n\nAppuyez sur le marteau ou appuyez longuement au centre de l'écran pour afficher la liste de vos droits.",
   
-  "ssSOSOnOpen": "SOS auto à l'ouverture",
-  "ssSOSOnClose": "SOS auto à la fermeture",
-  "ssSOSOnCloseHint": "Lorsqu'il est activé, un bouton de fermeture sécurisée apparaîtra en face des paramètres.",
-  "ssVideoSOS": "SOS auto si l'enregistrement est interrompu",
-
+  "hsNeedContacts": "InstaSOS a besoin d'accéder à vos contacts pour fonctionner correctement.",
+  "hsNoNumber": "Le contact doit avoir un numéro de téléphone.",
+  
+  
+  
+  "rsSharedHeader": "Vous avez le droit de...",
+  
+  "rsOnFoot": "Piéton",
+  "rsWhileDriving": "Conducteur",
+  "rsAtHome": "Au domicile",
+  
+  "rsSharedRemainSilent": "Garder le silence. Ne mentez pas, mais vous n'êtes pas obligé de répondre aux questions.",
+  "rsSharedDocument": "Documenter tout. Vous avez le droit de prendre des photos, d'enregistrer des vidéos et de faire des enregistrements audio.",
+  
+  "rsWalkPockets": "Refuser la fouille de vos poches. L'ICE peut procéder à une palpation, mais pas à une fouille.",
+  "rsWalkLeave": "Partir si vous n'êtes pas en état d'arrestation.",
+  
+  "rsDriveSearch": "Refuser la fouille de votre véhicule.",
+  "rsDrivePockets": "Refuser la fouille de vos poches. L'ICE peut procéder à une palpation, mais pas à une fouille.",
+  "rsDriveID": "Refuser de présenter une pièce d'identité en tant que passager. Seul le conducteur est tenu de présenter une pièce d'identité.",
+  "rsDriveQuestion": "Poser des questions. Comprenez pourquoi vous avez été arrêté.",
+  "rsDriveWarrant": "Demander aux agents s'ils ont un mandat. Vous avez le droit de le voir s'ils en ont un. Si un \"mandat\" n'est pas signé par un juge, il n'est pas valide.",
+  "rsDriveLeave": "Partir si vous n'êtes pas en état d'arrestation.",
+  
+  "rsHomeWarrant": "Garder votre porte fermée. S'ils ont un mandat, demandez-leur de le glisser sous la porte. Si un \"mandat\" n'est pas signé par un juge, il n'est pas valide. Gardez votre porte fermée.",
+  
+  "rsSharedFingerprint": "Refuser de vous soumettre à un relevé d'empreintes digitales par l'ICE, sauf si vous êtes en état d'arrestation.",
+  "rsSharedLawyer": "Consulter un avocat. Si vous avez été officiellement arrêté, vous avez droit à un avocat commis d'office.",
+  
+  
+  
+  "ssSOSOnOpen": "SOS à l'ouverture",
+  "ssSOSOnClose": "SOS à la fermeture",
+  "ssSOSOnCloseHint": "Lorsqu'il est activé, un bouton de fermeture sécurisée s'affiche en face des paramètres.",
+  "ssVideoSOS": "SOS en cas d'enregistrement interrompu",
+  
   "ssEMC": "Contacts d'urgence",
   "ssRemoveHint": "Supprimer le contact",
   "ssAddHint": "Ajouter un autre contact",
-
+  
   "ssAppearance": "Apparence"
 }
