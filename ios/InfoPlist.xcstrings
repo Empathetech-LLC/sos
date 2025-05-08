@@ -34,6 +34,12 @@
             "value" : "InstaSOS needs access to your camera to share photos/videos with your emergency contacts."
           }
         },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -51,12 +57,6 @@
             "state" : "translated",
             "value" : ""
           }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
         }
       }
     },
@@ -67,6 +67,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS needs to be able to save your emergency contacts."
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
           }
         },
         "es" : {
@@ -86,12 +92,6 @@
             "state" : "translated",
             "value" : ""
           }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
         }
       }
     },
@@ -102,6 +102,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS needs access to your location to share it with your emergency contacts."
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
           }
         },
         "es" : {
@@ -117,12 +123,6 @@
           }
         },
         "ht" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
@@ -139,6 +139,12 @@
             "value" : "InstaSOS needs access to your location to share it with your emergency contacts."
           }
         },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -152,12 +158,6 @@
           }
         },
         "ht" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
@@ -174,6 +174,12 @@
             "value" : "InstaSOS needs access to your location to share it with your emergency contacts."
           }
         },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -187,12 +193,6 @@
           }
         },
         "ht" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
@@ -209,6 +209,12 @@
             "value" : "InstaSOS needs access to your location to share it with your emergency contacts."
           }
         },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -226,12 +232,6 @@
             "state" : "translated",
             "value" : ""
           }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
         }
       }
     },
@@ -242,6 +242,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS needs access to your microphone to record videos with audio."
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
           }
         },
         "es" : {
@@ -261,12 +267,6 @@
             "state" : "translated",
             "value" : ""
           }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
         }
       }
     },
@@ -277,6 +277,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS needs access to your photo library to save photos/videos."
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
           }
         },
         "es" : {
@@ -292,12 +298,6 @@
           }
         },
         "ht" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
