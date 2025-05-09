@@ -12,195 +12,195 @@ class LangHt extends Lang {
   String get gOk => 'Ok';
 
   @override
-  String get sosLastKnown => 'Last known location';
+  String get sosLastKnown => 'Dènye kote yo te konnen ou ye a';
 
   @override
-  String get sosNeedSMS => 'SOS needs SMS permission to function properly.';
+  String get sosNeedSMS => 'SOS bezwen pèmisyon SMS pou li fonksyone byen.';
 
   @override
-  String get sosDisabled => 'Cannot access location (disabled)';
+  String get sosDisabled => 'Pa ka jwenn pozisyon an (dezaktive)';
 
   @override
-  String get sosDenied => 'Cannot access location (denied)';
+  String get sosDenied => 'Pa ka jwenn pozisyon an (refize)';
 
   @override
-  String get sosError => 'Cannot access location (error)';
+  String get sosError => 'Pa ka jwenn pozisyon an (erè)';
 
   @override
-  String get hsStartSOS => 'Activate to start SOS broadcast.';
+  String get hsStartSOS => 'Peze pou lanse alèt SOS la.';
 
   @override
-  String get hsEndSOS => 'SOS is broadcasting. Activate to stop.';
+  String get hsEndSOS => 'SOS ap difize. Peze pou sispann li.';
 
   @override
-  String get hsSafeCloseHint => 'All clear. Close the app without SOS.';
+  String get hsSafeCloseHint => 'Tout bagay OK. Fèmen aplikasyon an san SOS.';
 
   @override
-  String get hsCameraHint => 'Take a photo.';
+  String get hsCameraHint => 'Pran yon foto.';
 
   @override
-  String get hsPreviewHint => 'Long press to toggle your rights view.';
+  String get hsPreviewHint => 'Peze pandan plizyè segond pou ou wè dwa ou yo.';
 
   @override
-  String get hsShowRights => 'Show your rights.';
+  String get hsShowRights => 'Afiche dwa ou yo';
 
   @override
-  String get hsHideRights => 'Hide your rights.';
+  String get hsHideRights => 'Kache dwa ou yo.';
 
   @override
-  String get hsStartRecord => 'Record a video.';
+  String get hsStartRecord => 'Anrejistre yon videyo.';
 
   @override
-  String get hsEndRecord => 'End the recording.';
+  String get hsEndRecord => 'Kanpe anrejistreman an.';
 
   @override
-  String get hsFlashOff => 'Flash Off. Activate to turn on auto flash.';
+  String get hsFlashOff => 'Flach otomatik. Peze pou limen flach la.';
 
   @override
-  String get hsFlashAuto => 'Auto flash. Activate to turn flash on.';
+  String get hsFlashAuto => 'Flach etenn. Peze pou mete flach otomatik.';
 
   @override
-  String get hsFlashOn => 'Flash on. Activate to turn flash off.';
+  String get hsFlashOn => 'Flach limen. Peze pou etenn flach la.';
 
   @override
-  String get hsFlashTorch => 'Torch mode. Activate to turn flash off.';
+  String get hsFlashTorch => 'Mòd lanp. Peze pou etenn flach la.';
 
   @override
-  String get hsWelcome => 'Welcome to InstaSOS';
+  String get hsWelcome => 'Byenveni sou InstaSOS';
 
   @override
   String get hsAppTutorial =>
-      'It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.';
+      'Li pataje pozisyon ou ak kontak ijans ou yo lè gen sitiyasyon kriz.\n\nTanpri chwazi yon kontak ijans.\nYonn pou kounye a, ou ka ajoute plis apre.';
 
   @override
-  String get hsPermissionsTutorialTitle => 'If you want';
+  String get hsPermissionsTutorialTitle => 'Si ou vle';
 
   @override
   String get hsPermissionsTutorial =>
-      'InstaSOS can also gather and share evidence.\n\nIt will ask for camera, microphone, and gallery access to do so.';
+      'InstaSOS kapab kolekte epi pataje prèv tou.\n\nLi ap mande aksè a kamera, mikwo, avèk galri pou sa.';
 
   @override
   String get hsPermissionsAlways =>
-      'Please set location to always allow.\nIt will only be used while SOS is active.';
+      'Tanpri mete pozisyon sou \'toujou otorize\'.\nLi ap sèlman itilize lè SOS aktif.';
 
   @override
   String get hsBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.';
+      'Aktive SOS pou voye mesaj otomatik bay kontak ijans ou yo.\n\nSi InstaSOS gen aksè a pozisyon ou, li ap mete l nan mesaj yo.\n\nMesaj yo ap kontinye ale menm si telefòn nan fèmen.\n\nOu ka swa dezaktive SOS oswa fèmen aplikasyon an nèt pou sispann voye mesaj ale.';
 
   @override
   String get hsIOSBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.';
+      'Aktive SOS pou voye mesaj otomatik bay kontak ijans ou yo.\n\nSi InstaSOS gen aksè apozisyon ou, li ap mete l nan mesaj yo.';
 
   @override
   String get hsSettingsTutorial =>
-      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s language, and\n- Update the app\'s appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.';
+      'Ou kapab...\n\n- Ajoute plis kontak ijans\n- Setup SOS otomatik\n- Chanje lang aplikasyon an, epi\n- Mete aparans aplikasyon an ajou\n\nnan anviwònman yo.\n\nPeze bouton anviwònman an pandan plizyè segond pou bay fidbak sou aplikasyon an.';
 
   @override
   String get hsVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nLong press the center preview to show a list of your rights.';
+      'Lè ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPa defo, si yon anrejistreman entèwonp, SOS ap aktive otomatikman.\n\nPeze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.';
 
   @override
   String get hsIOSVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nLong press the center preview to show a list of your rights.';
+      'Lè ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPez mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo';
 
   @override
   String get hsRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or long press the center of the screen to show a list of your rights.';
+      'Si ou aktive kamera a, epi ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPa defo, si yon anrejistreman entèwonp, SOS ap aktive otomatikman.\n\nPeze sou ikòn balans jistis la oswa peze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.';
 
   @override
   String get hsIOSRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.';
+      'Si ou aktive kamera a, epi ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPeze sou ikòn balans jistis la oswa peze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.';
 
   @override
   String get hsNeedContacts =>
-      'InstaSOS needs access to your contacts to function properly.';
+      'InstaSOS bezwen aksè a kontak ou yo pou li fonksyone kòrèkteman.';
 
   @override
-  String get hsNoNumber => 'The contact must have a phone number.';
+  String get hsNoNumber => 'Kontak la dwe genyen yon nimewo telefòn.';
 
   @override
-  String get rsSharedHeader => 'You have the right to...';
+  String get rsSharedHeader => 'Ou gen dwa pou...';
 
   @override
-  String get rsOnFoot => 'On foot';
+  String get rsOnFoot => 'A pye';
 
   @override
-  String get rsWhileDriving => 'While driving';
+  String get rsWhileDriving => 'Pandan ou nan machin';
 
   @override
-  String get rsAtHome => 'At home';
+  String get rsAtHome => 'Lakay';
 
   @override
   String get rsSharedRemainSilent =>
-      'Remain silent. Do not lie, but you don\'t have to answer questions.';
+      'Rete an silans. Pa bay manti, men ou pa oblije reponn kesyon.';
 
   @override
   String get rsSharedDocument =>
-      'Document everything. You have the right to take pictures, record videos, and record audio.';
+      'Dokimante tout bagay. Ou gen dwa pou ou pran foto, anrejistre videyo, ak odyo.';
 
   @override
   String get rsWalkPockets =>
-      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
+      'Refize ke yo fouye pòch ou. ICE ka fè yon manyen rapid, men yo pa ka fouye.';
 
   @override
-  String get rsWalkLeave => 'Leave if you are not under arrest.';
+  String get rsWalkLeave => 'Ale si yo pa arete ou.';
 
   @override
-  String get rsDriveSearch => 'Refuse a search of your car.';
+  String get rsDriveSearch => 'Refize ke yo fouye machin ou.';
 
   @override
   String get rsDrivePockets =>
-      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
+      'Refize ke yo fouye pòch ou. ICE ka fè yon manyen rapid, men yo pa ka fouye.';
 
   @override
   String get rsDriveID =>
-      'Refuse to provide ID as a passenger. Only the driver is required to provide ID.';
+      'Refize bay ID antan ke pasaje. Sèlman chofè a oblije bay ID.';
 
   @override
   String get rsDriveQuestion =>
-      'Ask questions. Find out why you are being stopped.';
+      'Poze kesyon. Chèche konnen poukisa yo kanpe ou.';
 
   @override
   String get rsDriveWarrant =>
-      'Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it\'s not valid.';
+      'Mande si ajan yo gen manda. Ou gen dwa wè li si yo genyen. Si pa genyen siyati yon jij sou manda a, li pa valab.';
 
   @override
-  String get rsDriveLeave => 'Leave if you are not under arrest.';
+  String get rsDriveLeave => 'Ale si yo pa arete ou';
 
   @override
   String get rsHomeWarrant =>
-      'Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.';
+      'Kenbe pòt ou fèmen. Si yo gen manda, mande yo pou yo fè li pase anba pòt la. Si pa genyen siyati yon jij sou manda a, li pa valab. Kenbe pòt la fèmen.';
 
   @override
   String get rsSharedFingerprint =>
-      'Refuse to be fingerprinted by ICE unless you are under arrest.';
+      'Refize ke ICE pran anprent ou sòf si yo deja arete ou.';
 
   @override
   String get rsSharedLawyer =>
-      'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.';
+      'Pou konsilte yon avoka. Si yo arete fòmèlman, ou gen dwa gen yon avoka leta.';
 
   @override
-  String get ssSOSOnOpen => 'SOS on open';
+  String get ssSOSOnOpen => 'SOS lè ou ouvè aplikasyon an';
 
   @override
-  String get ssSOSOnClose => 'SOS on close';
+  String get ssSOSOnClose => 'SOS lè ou fèmen aplikasyon an';
 
   @override
   String get ssSOSOnCloseHint =>
-      'When enabled, a safe close button will be shown opposite the settings.';
+      'Lè sa aktive, ou ap wè yon bouton ki pèmèt ou sòti an san pwoblèm anfas bouton anviwònman an.';
 
   @override
-  String get ssVideoSOS => 'SOS on interrupted recording';
+  String get ssVideoSOS => 'SOS si anrejistreman an entèwonp';
 
   @override
-  String get ssEMC => 'Emergency contacts';
+  String get ssEMC => 'Kontak ijans';
 
   @override
-  String get ssRemoveHint => 'Remove contact';
+  String get ssRemoveHint => 'Retire kontak';
 
   @override
-  String get ssAddHint => 'Add another contact';
+  String get ssAddHint => 'Ajoute yon lòt kontak';
 
   @override
-  String get ssAppearance => 'Appearance';
+  String get ssAppearance => 'Aparans';
 }
