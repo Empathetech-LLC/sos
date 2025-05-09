@@ -17,9 +17,9 @@ Protégez-vous.
 
 ## <br>Sommaire
 
-* [Utilisation](#Utilisation)
-* [Contribuer](#Contribuer)
-* [Licence](#Licence)
+* [Utilisation](#utilisation)
+* [Contribuer](#contribuer)
+* [Licence](#licence)
 
 # <br>Utilisation
 
