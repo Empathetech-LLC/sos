@@ -37,7 +37,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "يحتاج InstaSOS إلى الوصول إلى كاميرتك لمشاركة الصور/الفيديوهات مع جهات اتصال الطوارئ لديك."
           }
         },
         "es" : {
@@ -72,7 +72,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "يحتاج InstaSOS إلى حفظ جهات اتصال الطوارئ لديك."
           }
         },
         "es" : {
@@ -107,7 +107,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك."
           }
         },
         "es" : {
@@ -142,7 +142,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك."
           }
         },
         "es" : {
@@ -177,7 +177,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك."
           }
         },
         "es" : {
@@ -212,7 +212,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك."
           }
         },
         "es" : {
@@ -247,7 +247,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "يحتاج InstaSOS إلى الوصول إلى الميكروفون لتسجيل الفيديوهات مع الصوت."
           }
         },
         "es" : {
@@ -282,7 +282,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "يحتاج InstaSOS إلى الوصول إلى مكتبة الصور لديك لحفظ الصور/الفيديوهات."
           }
         },
         "es" : {
