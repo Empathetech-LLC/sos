@@ -9,200 +9,199 @@ class LangAr extends Lang {
   LangAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get gOk => 'Ok';
+  String get gOk => 'حسنًا';
 
   @override
-  String get sosLastKnown => 'Last known location';
+  String get sosLastKnown => 'آخر موقع معروف';
 
   @override
-  String get sosNeedSMS => 'SOS needs SMS permission to function properly.';
+  String get sosNeedSMS => 'تحتاج خدمة SOS إلى إذن SMS لتعمل بشكل صحيح.';
 
   @override
-  String get sosDisabled => 'Cannot access location (disabled)';
+  String get sosDisabled => 'لا يمكن الوصول إلى الموقع (معطل)';
 
   @override
-  String get sosDenied => 'Cannot access location (denied)';
+  String get sosDenied => 'لا يمكن الوصول إلى الموقع (مرفوض)';
 
   @override
-  String get sosError => 'Cannot access location (error)';
+  String get sosError => 'لا يمكن الوصول إلى الموقع (خطأ)';
 
   @override
-  String get hsStartSOS => 'Activate to start SOS broadcast.';
+  String get hsStartSOS => 'قم بالتفعيل لبدء بث SOS.';
 
   @override
-  String get hsEndSOS => 'SOS is broadcasting. Activate to stop.';
+  String get hsEndSOS => 'يتم بث SOS. قم بتفعيله لإيقافه.';
 
   @override
-  String get hsSafeCloseHint => 'All clear. Close the app without SOS.';
+  String get hsSafeCloseHint => 'كل شيء واضح. أغلق التطبيق بدون SOS.';
 
   @override
-  String get hsCameraHint => 'Take a photo.';
+  String get hsCameraHint => 'التقط صورة.';
 
   @override
-  String get hsPreviewHint => 'Long press to toggle your rights view.';
+  String get hsPreviewHint => 'اضغط لفترة طويلة لتبديل عرض حقوقك.';
 
   @override
-  String get hsShowRights => 'Show your rights.';
+  String get hsShowRights => 'أظهر حقوقك.';
 
   @override
-  String get hsHideRights => 'Hide your rights.';
+  String get hsHideRights => 'إخفاء حقوقك.';
 
   @override
-  String get hsStartRecord => 'Record a video.';
+  String get hsStartRecord => 'سجل فيديو.';
 
   @override
-  String get hsEndRecord => 'End the recording.';
+  String get hsEndRecord => 'إنهاء التسجيل.';
 
   @override
-  String get hsFlashOff => 'Flash Off. Activate to turn on auto flash.';
+  String get hsFlashOff => 'الفلاش معطل. قم بتفعيله لتشغيل الفلاش التلقائي.';
 
   @override
-  String get hsFlashAuto => 'Auto flash. Activate to turn flash on.';
+  String get hsFlashAuto => 'الفلاش تلقائي. قم بتفعيله لتشغيل الفلاش.';
 
   @override
-  String get hsFlashOn => 'Flash on. Activate to turn flash off.';
+  String get hsFlashOn => 'الفلاش يعمل. قم بتفعيله لإيقاف تشغيل الفلاش.';
 
   @override
-  String get hsFlashTorch => 'Torch mode. Activate to turn flash off.';
+  String get hsFlashTorch => 'وضع المصباح. قم بتفعيله لإيقاف تشغيل الفلاش.';
 
   @override
-  String get hsWelcome => 'Welcome to InstaSOS';
+  String get hsWelcome => 'مرحباً بكم في InstaSOS';
 
   @override
   String get hsAppTutorial =>
-      'It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.';
+      'يشارك حالتك مع جهات الاتصال في حالات الطوارئ في أوقات الأزمات.\n\nالرجاء اختيار جهة اتصال في حالات الطوارئ.\nواحدة فقط في الوقت الحالي، ويمكنك إضافة المزيد لاحقًا.';
 
   @override
-  String get hsPermissionsTutorialTitle => 'If you want';
+  String get hsPermissionsTutorialTitle => 'إذا أردت';
 
   @override
   String get hsPermissionsTutorial =>
-      'InstaSOS can also gather and share evidence.\n\nIt will ask for camera, microphone, and gallery access to do so.';
+      'يمكن لـ InstaSOS أيضًا جمع الأدلة ومشاركتها.\n\nوسيطلب الوصول إلى الكاميرا والميكروفون والمعرض للقيام بذلك.';
 
   @override
   String get hsPermissionsAlways =>
-      'Please set location to always allow.\nIt will only be used while SOS is active.';
+      'يرجى تعيين الموقع للسماح به دائمًا.\nسيتم استخدامه فقط أثناء تنشيط SOS.';
 
   @override
   String get hsBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.';
+      'قم بتفعيل SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال في حالات الطوارئ.\n\nإذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.\n\nستستمر الرسائل النصية حتى عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تنشيط SOS أو إغلاق التطبيق بالكامل لإيقاف الرسائل النصية.';
 
   @override
   String get hsIOSBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.';
+      'قم بتنشيط SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال الخاصة بك في حالات الطوارئ.\n\n إذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.';
 
   @override
   String get hsSettingsTutorial =>
-      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s language, and\n- Update the app\'s appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.';
+      'يمكنك...\n\n- إضافة المزيد من جهات الاتصال في حالات الطوارئ\n- إعداد خدمة SOS تلقائية\n- تغيير لغة التطبيق، و\n- تحديث مظهر التطبيق\n\nفي الإعدادات.\n\nاضغط باستمرار على زر الإعدادات لتقديم ملاحظات حول التطبيق.';
 
   @override
   String get hsVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nLong press the center preview to show a list of your rights.';
+      'عندما تلتقط صورة أو تسجل مقطع فيديو، ستتمكن من مشاركته على الفور.\n\nافتراضيًا، إذا تمت مقاطعة التسجيل، فسيتم تنشيط SOS تلقائيًا.\n\nاضغط مطولًا على المعاينة المركزية لإظهار قائمة بحقوقك.';
 
   @override
   String get hsIOSVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nLong press the center preview to show a list of your rights.';
+      'عندما تلتقط صورة أو تسجل مقطع فيديو، ستتمكن من مشاركته على الفور.\n\nاضغط لفترة طويلة على المعاينة المركزية لإظهار قائمة بحقوقك.';
 
   @override
   String get hsRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or long press the center of the screen to show a list of your rights.';
+      'إذا قمت بتمكين الكاميرا، والتقطت صورة أو سجلت مقطع فيديو، فستتمكن من مشاركته على الفور.\n\nافتراضيًا، إذا تمت مقاطعة التسجيل، فسيتم تنشيط SOS تلقائيًا.\n\nاضغط على المطرقة أو اضغط مطولاً على وسط الشاشة لإظهار قائمة بحقوقك.';
 
   @override
   String get hsIOSRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.';
+      'إذا قمت بتمكين الكاميرا، والتقطت صورة أو سجلت مقطع فيديو، فستتمكن من مشاركته على الفور.\n\nاضغط على المطرقة أو اضغط لفترة طويلة على وسط الشاشة لإظهار قائمة بحقوقك.';
 
   @override
   String get hsNeedContacts =>
-      'InstaSOS needs access to your contacts to function properly.';
+      'يحتاج تطبيق InstaSOS إلى الوصول إلى جهات الاتصال الخاصة بك ليعمل بشكل صحيح.';
 
   @override
-  String get hsNoNumber => 'The contact must have a phone number.';
+  String get hsNoNumber => 'يجب أن يكون لدى جهة الاتصال رقم هاتف.';
 
   @override
-  String get rsSharedHeader => 'You have the right to...';
+  String get rsSharedHeader => 'لديك الحق في...';
 
   @override
-  String get rsOnFoot => 'On foot';
+  String get rsOnFoot => 'سيرا على الأقدام';
 
   @override
-  String get rsWhileDriving => 'While driving';
+  String get rsWhileDriving => 'أثناء القيادة';
 
   @override
-  String get rsAtHome => 'At home';
+  String get rsAtHome => 'في البيت';
 
   @override
   String get rsSharedRemainSilent =>
-      'Remain silent. Do not lie, but you don\'t have to answer questions.';
+      'التزم الصمت. لا تكذب، ولكن ليس عليك الإجابة على الأسئلة.';
 
   @override
   String get rsSharedDocument =>
-      'Document everything. You have the right to take pictures, record videos, and record audio.';
+      'وثّق كل شيء. لديك الحق في التقاط الصور وتسجيل الفيديوهات والتسجيل الصوتي.';
 
   @override
   String get rsWalkPockets =>
-      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
+      'ارفض تفتيش جيوبك. يمكن لدائرة الهجرة والجمارك الأمريكية (ICE) إجراء تفتيش جسدي، ولكن ليس تفتيشًا داخليًا.';
 
   @override
-  String get rsWalkLeave => 'Leave if you are not under arrest.';
+  String get rsWalkLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
 
   @override
-  String get rsDriveSearch => 'Refuse a search of your car.';
+  String get rsDriveSearch => 'ارفض تفتيش سيارتك.';
 
   @override
   String get rsDrivePockets =>
-      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
+      'ارفض تفتيش جيوبك. يمكن لدائرة الهجرة والجمارك الأمريكية (ICE) إجراء تفتيش جسدي، ولكن ليس تفتيشًا داخليًا.';
 
   @override
   String get rsDriveID =>
-      'Refuse to provide ID as a passenger. Only the driver is required to provide ID.';
+      'ارفض إبراز بطاقة هوية كراكب. السائق فقط هو المطلوب منه إبرازها.';
 
   @override
-  String get rsDriveQuestion =>
-      'Ask questions. Find out why you are being stopped.';
+  String get rsDriveQuestion => 'اطرح الأسئلة. اكتشف سبب إيقافك.';
 
   @override
   String get rsDriveWarrant =>
-      'Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it\'s not valid.';
+      'اسأل إن كان لدى الضباط أمر تفتيش. يحق لك الاطلاع عليه إن وُجد. إذا لم يتم توقيع \"الأمر\" من قبل القاضي، فهو غير صالح.';
 
   @override
-  String get rsDriveLeave => 'Leave if you are not under arrest.';
+  String get rsDriveLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
 
   @override
   String get rsHomeWarrant =>
-      'Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.';
+      'أبقِ بابك مغلقًا. إذا كان لديهم أمر تفتيش، فاطلب منهم وضعه تحت الباب أولًا. إذا لم يكن \"الأمر\" موقّعًا من قاضٍ، فهو غير صالح. أبقِ بابك مغلقًا.';
 
   @override
   String get rsSharedFingerprint =>
-      'Refuse to be fingerprinted by ICE unless you are under arrest.';
+      'ارفض أن يتم أخذ بصمات أصابعك من قبل دائرة الهجرة والجمارك الأمريكية إلا إذا كنت تحت الاعتقال.';
 
   @override
   String get rsSharedLawyer =>
-      'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.';
+      'استشارة محامٍ. إذا تم اعتقالك رسميًا، يحق لك الاستعانة بمحامٍ تعينه المحكمة.';
 
   @override
-  String get ssSOSOnOpen => 'SOS on open';
+  String get ssSOSOnOpen => 'SOS مفتوح';
 
   @override
-  String get ssSOSOnClose => 'SOS on close';
+  String get ssSOSOnClose => 'SOS مغلق';
 
   @override
   String get ssSOSOnCloseHint =>
-      'When enabled, a safe close button will be shown opposite the settings.';
+      'عند التمكين، سيظهر زر إغلاق آمن مقابل الإعدادات.';
 
   @override
-  String get ssVideoSOS => 'SOS on interrupted recording';
+  String get ssVideoSOS => 'SOS عند انقطاع التسجيل';
 
   @override
-  String get ssEMC => 'Emergency contacts';
+  String get ssEMC => 'جهات الاتصال في حالات الطوارئ';
 
   @override
-  String get ssRemoveHint => 'Remove contact';
+  String get ssRemoveHint => 'إزالة جهة الاتصال';
 
   @override
-  String get ssAddHint => 'Add another contact';
+  String get ssAddHint => 'إضافة جهة اتصال أخرى';
 
   @override
-  String get ssAppearance => 'Appearance';
+  String get ssAppearance => 'المظهر';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -210,198 +209,197 @@ class LangArEg extends LangAr {
   LangArEg() : super('ar_EG');
 
   @override
-  String get gOk => 'Ok';
+  String get gOk => 'حسنًا';
 
   @override
-  String get sosLastKnown => 'Last known location';
+  String get sosLastKnown => 'آخر موقع معروف';
 
   @override
-  String get sosNeedSMS => 'SOS needs SMS permission to function properly.';
+  String get sosNeedSMS => 'تحتاج خدمة SOS إلى إذن SMS لتعمل بشكل صحيح.';
 
   @override
-  String get sosDisabled => 'Cannot access location (disabled)';
+  String get sosDisabled => 'لا يمكن الوصول إلى الموقع (معطل)';
 
   @override
-  String get sosDenied => 'Cannot access location (denied)';
+  String get sosDenied => 'لا يمكن الوصول إلى الموقع (مرفوض)';
 
   @override
-  String get sosError => 'Cannot access location (error)';
+  String get sosError => 'لا يمكن الوصول إلى الموقع (خطأ)';
 
   @override
-  String get hsStartSOS => 'Activate to start SOS broadcast.';
+  String get hsStartSOS => 'قم بالتفعيل لبدء بث SOS.';
 
   @override
-  String get hsEndSOS => 'SOS is broadcasting. Activate to stop.';
+  String get hsEndSOS => 'يتم بث SOS. قم بتفعيله لإيقافه.';
 
   @override
-  String get hsSafeCloseHint => 'All clear. Close the app without SOS.';
+  String get hsSafeCloseHint => 'كل شيء واضح. أغلق التطبيق بدون SOS.';
 
   @override
-  String get hsCameraHint => 'Take a photo.';
+  String get hsCameraHint => 'التقط صورة.';
 
   @override
-  String get hsPreviewHint => 'Long press to toggle your rights view.';
+  String get hsPreviewHint => 'اضغط لفترة طويلة لتبديل عرض حقوقك.';
 
   @override
-  String get hsShowRights => 'Show your rights.';
+  String get hsShowRights => 'أظهر حقوقك.';
 
   @override
-  String get hsHideRights => 'Hide your rights.';
+  String get hsHideRights => 'إخفاء حقوقك.';
 
   @override
-  String get hsStartRecord => 'Record a video.';
+  String get hsStartRecord => 'سجل فيديو.';
 
   @override
-  String get hsEndRecord => 'End the recording.';
+  String get hsEndRecord => 'إنهاء التسجيل.';
 
   @override
-  String get hsFlashOff => 'Flash Off. Activate to turn on auto flash.';
+  String get hsFlashOff => 'الفلاش معطل. قم بتفعيله لتشغيل الفلاش التلقائي.';
 
   @override
-  String get hsFlashAuto => 'Auto flash. Activate to turn flash on.';
+  String get hsFlashAuto => 'الفلاش تلقائي. قم بتفعيله لتشغيل الفلاش.';
 
   @override
-  String get hsFlashOn => 'Flash on. Activate to turn flash off.';
+  String get hsFlashOn => 'الفلاش يعمل. قم بتفعيله لإيقاف تشغيل الفلاش.';
 
   @override
-  String get hsFlashTorch => 'Torch mode. Activate to turn flash off.';
+  String get hsFlashTorch => 'وضع المصباح. قم بتفعيله لإيقاف تشغيل الفلاش.';
 
   @override
-  String get hsWelcome => 'Welcome to InstaSOS';
+  String get hsWelcome => 'مرحباً بكم في InstaSOS';
 
   @override
   String get hsAppTutorial =>
-      'It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.';
+      'يشارك حالتك مع جهات الاتصال في حالات الطوارئ في أوقات الأزمات.\n\nالرجاء اختيار جهة اتصال في حالات الطوارئ.\nواحدة فقط في الوقت الحالي، ويمكنك إضافة المزيد لاحقًا.';
 
   @override
-  String get hsPermissionsTutorialTitle => 'If you want';
+  String get hsPermissionsTutorialTitle => 'إذا أردت';
 
   @override
   String get hsPermissionsTutorial =>
-      'InstaSOS can also gather and share evidence.\n\nIt will ask for camera, microphone, and gallery access to do so.';
+      'يمكن لـ InstaSOS أيضًا جمع الأدلة ومشاركتها.\n\nوسيطلب الوصول إلى الكاميرا والميكروفون والمعرض للقيام بذلك.';
 
   @override
   String get hsPermissionsAlways =>
-      'Please set location to always allow.\nIt will only be used while SOS is active.';
+      'يرجى تعيين الموقع للسماح به دائمًا.\nسيتم استخدامه فقط أثناء تنشيط SOS.';
 
   @override
   String get hsBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.';
+      'قم بتفعيل SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال في حالات الطوارئ.\n\nإذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.\n\nستستمر الرسائل النصية حتى عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تنشيط SOS أو إغلاق التطبيق بالكامل لإيقاف الرسائل النصية.';
 
   @override
   String get hsIOSBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.';
+      'قم بتنشيط SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال الخاصة بك في حالات الطوارئ.\n\n إذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.';
 
   @override
   String get hsSettingsTutorial =>
-      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s language, and\n- Update the app\'s appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.';
+      'يمكنك...\n\n- إضافة المزيد من جهات الاتصال في حالات الطوارئ\n- إعداد خدمة SOS تلقائية\n- تغيير لغة التطبيق، و\n- تحديث مظهر التطبيق\n\nفي الإعدادات.\n\nاضغط باستمرار على زر الإعدادات لتقديم ملاحظات حول التطبيق.';
 
   @override
   String get hsVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nLong press the center preview to show a list of your rights.';
+      'عندما تلتقط صورة أو تسجل مقطع فيديو، ستتمكن من مشاركته على الفور.\n\nافتراضيًا، إذا تمت مقاطعة التسجيل، فسيتم تنشيط SOS تلقائيًا.\n\nاضغط مطولًا على المعاينة المركزية لإظهار قائمة بحقوقك.';
 
   @override
   String get hsIOSVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nLong press the center preview to show a list of your rights.';
+      'عندما تلتقط صورة أو تسجل مقطع فيديو، ستتمكن من مشاركته على الفور.\n\nاضغط لفترة طويلة على المعاينة المركزية لإظهار قائمة بحقوقك.';
 
   @override
   String get hsRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or long press the center of the screen to show a list of your rights.';
+      'إذا قمت بتمكين الكاميرا، والتقطت صورة أو سجلت مقطع فيديو، فستتمكن من مشاركته على الفور.\n\nافتراضيًا، إذا تمت مقاطعة التسجيل، فسيتم تنشيط SOS تلقائيًا.\n\nاضغط على المطرقة أو اضغط مطولاً على وسط الشاشة لإظهار قائمة بحقوقك.';
 
   @override
   String get hsIOSRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.';
+      'إذا قمت بتمكين الكاميرا، والتقطت صورة أو سجلت مقطع فيديو، فستتمكن من مشاركته على الفور.\n\nاضغط على المطرقة أو اضغط لفترة طويلة على وسط الشاشة لإظهار قائمة بحقوقك.';
 
   @override
   String get hsNeedContacts =>
-      'InstaSOS needs access to your contacts to function properly.';
+      'يحتاج تطبيق InstaSOS إلى الوصول إلى جهات الاتصال الخاصة بك ليعمل بشكل صحيح.';
 
   @override
-  String get hsNoNumber => 'The contact must have a phone number.';
+  String get hsNoNumber => 'يجب أن يكون لدى جهة الاتصال رقم هاتف.';
 
   @override
-  String get rsSharedHeader => 'You have the right to...';
+  String get rsSharedHeader => 'لديك الحق في...';
 
   @override
-  String get rsOnFoot => 'On foot';
+  String get rsOnFoot => 'سيرا على الأقدام';
 
   @override
-  String get rsWhileDriving => 'While driving';
+  String get rsWhileDriving => 'أثناء القيادة';
 
   @override
-  String get rsAtHome => 'At home';
+  String get rsAtHome => 'في البيت';
 
   @override
   String get rsSharedRemainSilent =>
-      'Remain silent. Do not lie, but you don\'t have to answer questions.';
+      'التزم الصمت. لا تكذب، ولكن ليس عليك الإجابة على الأسئلة.';
 
   @override
   String get rsSharedDocument =>
-      'Document everything. You have the right to take pictures, record videos, and record audio.';
+      'وثّق كل شيء. لديك الحق في التقاط الصور وتسجيل الفيديوهات والتسجيل الصوتي.';
 
   @override
   String get rsWalkPockets =>
-      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
+      'ارفض تفتيش جيوبك. يمكن لدائرة الهجرة والجمارك الأمريكية (ICE) إجراء تفتيش جسدي، ولكن ليس تفتيشًا داخليًا.';
 
   @override
-  String get rsWalkLeave => 'Leave if you are not under arrest.';
+  String get rsWalkLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
 
   @override
-  String get rsDriveSearch => 'Refuse a search of your car.';
+  String get rsDriveSearch => 'ارفض تفتيش سيارتك.';
 
   @override
   String get rsDrivePockets =>
-      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
+      'ارفض تفتيش جيوبك. يمكن لدائرة الهجرة والجمارك الأمريكية (ICE) إجراء تفتيش جسدي، ولكن ليس تفتيشًا داخليًا.';
 
   @override
   String get rsDriveID =>
-      'Refuse to provide ID as a passenger. Only the driver is required to provide ID.';
+      'ارفض إبراز بطاقة هوية كراكب. السائق فقط هو المطلوب منه إبرازها.';
 
   @override
-  String get rsDriveQuestion =>
-      'Ask questions. Find out why you are being stopped.';
+  String get rsDriveQuestion => 'اطرح الأسئلة. اكتشف سبب إيقافك.';
 
   @override
   String get rsDriveWarrant =>
-      'Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it\'s not valid.';
+      'اسأل إن كان لدى الضباط أمر تفتيش. يحق لك الاطلاع عليه إن وُجد. إذا لم يتم توقيع \"الأمر\" من قبل القاضي، فهو غير صالح.';
 
   @override
-  String get rsDriveLeave => 'Leave if you are not under arrest.';
+  String get rsDriveLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
 
   @override
   String get rsHomeWarrant =>
-      'Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.';
+      'أبقِ بابك مغلقًا. إذا كان لديهم أمر تفتيش، فاطلب منهم وضعه تحت الباب أولًا. إذا لم يكن \"الأمر\" موقّعًا من قاضٍ، فهو غير صالح. أبقِ بابك مغلقًا.';
 
   @override
   String get rsSharedFingerprint =>
-      'Refuse to be fingerprinted by ICE unless you are under arrest.';
+      'ارفض أن يتم أخذ بصمات أصابعك من قبل دائرة الهجرة والجمارك الأمريكية إلا إذا كنت تحت الاعتقال.';
 
   @override
   String get rsSharedLawyer =>
-      'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.';
+      'استشارة محامٍ. إذا تم اعتقالك رسميًا، يحق لك الاستعانة بمحامٍ تعينه المحكمة.';
 
   @override
-  String get ssSOSOnOpen => 'SOS on open';
+  String get ssSOSOnOpen => 'SOS مفتوح';
 
   @override
-  String get ssSOSOnClose => 'SOS on close';
+  String get ssSOSOnClose => 'SOS مغلق';
 
   @override
   String get ssSOSOnCloseHint =>
-      'When enabled, a safe close button will be shown opposite the settings.';
+      'عند التمكين، سيظهر زر إغلاق آمن مقابل الإعدادات.';
 
   @override
-  String get ssVideoSOS => 'SOS on interrupted recording';
+  String get ssVideoSOS => 'SOS عند انقطاع التسجيل';
 
   @override
-  String get ssEMC => 'Emergency contacts';
+  String get ssEMC => 'جهات الاتصال في حالات الطوارئ';
 
   @override
-  String get ssRemoveHint => 'Remove contact';
+  String get ssRemoveHint => 'إزالة جهة الاتصال';
 
   @override
-  String get ssAddHint => 'Add another contact';
+  String get ssAddHint => 'إضافة جهة اتصال أخرى';
 
   @override
-  String get ssAppearance => 'Appearance';
+  String get ssAppearance => 'المظهر';
 }

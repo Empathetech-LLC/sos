@@ -3,83 +3,83 @@
 
   
   
-  "gOk": "Ok",
+  "gOk": "حسنًا",
 
-  "sosLastKnown": "Last known location",
-  "sosNeedSMS": "SOS needs SMS permission to function properly.",
-  "sosDisabled": "Cannot access location (disabled)",
-  "sosDenied": "Cannot access location (denied)",
-  "sosError": "Cannot access location (error)",
+  "sosLastKnown": "آخر موقع معروف",
+  "sosNeedSMS": "تحتاج خدمة SOS إلى إذن SMS لتعمل بشكل صحيح.",
+  "sosDisabled": "لا يمكن الوصول إلى الموقع (معطل)",
+  "sosDenied": "لا يمكن الوصول إلى الموقع (مرفوض)",
+  "sosError": "لا يمكن الوصول إلى الموقع (خطأ)",
 
 
 
-  "hsStartSOS": "Activate to start SOS broadcast.",
-  "hsEndSOS": "SOS is broadcasting. Activate to stop.",
-  "hsSafeCloseHint": "All clear. Close the app without SOS.",
+  "hsStartSOS": "قم بالتفعيل لبدء بث SOS.",
+  "hsEndSOS": "يتم بث SOS. قم بتفعيله لإيقافه.",
+  "hsSafeCloseHint": "كل شيء واضح. أغلق التطبيق بدون SOS.",
 
-  "hsCameraHint": "Take a photo.",
-  "hsPreviewHint": "Long press to toggle your rights view.",
-  "hsShowRights": "Show your rights.",
-  "hsHideRights": "Hide your rights.",
-  "hsStartRecord": "Record a video.",
-  "hsEndRecord": "End the recording.",
-  "hsFlashOff": "Flash Off. Activate to turn on auto flash.",
-  "hsFlashAuto": "Auto flash. Activate to turn flash on.",
-  "hsFlashOn": "Flash on. Activate to turn flash off.",
-  "hsFlashTorch": "Torch mode. Activate to turn flash off.",
+  "hsCameraHint": "التقط صورة.",
+  "hsPreviewHint": "اضغط لفترة طويلة لتبديل عرض حقوقك.",
+  "hsShowRights": "أظهر حقوقك.",
+  "hsHideRights": "إخفاء حقوقك.",
+  "hsStartRecord": "سجل فيديو.",
+  "hsEndRecord": "إنهاء التسجيل.",
+  "hsFlashOff": "الفلاش معطل. قم بتفعيله لتشغيل الفلاش التلقائي.",
+  "hsFlashAuto": "الفلاش تلقائي. قم بتفعيله لتشغيل الفلاش.",
+  "hsFlashOn": "الفلاش يعمل. قم بتفعيله لإيقاف تشغيل الفلاش.",
+  "hsFlashTorch": "وضع المصباح. قم بتفعيله لإيقاف تشغيل الفلاش.",
 
-  "hsWelcome": "Welcome to InstaSOS",
-  "hsAppTutorial": "It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.",
-  "hsPermissionsTutorialTitle": "If you want",
-  "hsPermissionsTutorial": "InstaSOS can also gather and share evidence.\n\nIt will ask for camera, microphone, and gallery access to do so.",
-  "hsPermissionsAlways": "Please set location to always allow.\nIt will only be used while SOS is active.",
-  "hsBroadcastTutorial": "Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.",
-  "hsIOSBroadcastTutorial": "Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.",
-  "hsSettingsTutorial": "You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app's language, and\n- Update the app's appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.",
-  "hsVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nLong press the center preview to show a list of your rights.",
-  "hsIOSVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nLong press the center preview to show a list of your rights.",
-  "hsRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or long press the center of the screen to show a list of your rights.",
-  "hsIOSRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.",
+  "hsWelcome": "مرحباً بكم في InstaSOS",
+  "hsAppTutorial": "يشارك حالتك مع جهات الاتصال في حالات الطوارئ في أوقات الأزمات.\n\nالرجاء اختيار جهة اتصال في حالات الطوارئ.\nواحدة فقط في الوقت الحالي، ويمكنك إضافة المزيد لاحقًا.",
+  "hsPermissionsTutorialTitle": "إذا أردت",
+  "hsPermissionsTutorial": "يمكن لـ InstaSOS أيضًا جمع الأدلة ومشاركتها.\n\nوسيطلب الوصول إلى الكاميرا والميكروفون والمعرض للقيام بذلك.",
+  "hsPermissionsAlways": "يرجى تعيين الموقع للسماح به دائمًا.\nسيتم استخدامه فقط أثناء تنشيط SOS.",
+  "hsBroadcastTutorial": "قم بتفعيل SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال في حالات الطوارئ.\n\nإذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.\n\nستستمر الرسائل النصية حتى عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تنشيط SOS أو إغلاق التطبيق بالكامل لإيقاف الرسائل النصية.",
+  "hsIOSBroadcastTutorial": "قم بتنشيط SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال الخاصة بك في حالات الطوارئ.\n\n إذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.",
+  "hsSettingsTutorial": "يمكنك...\n\n- إضافة المزيد من جهات الاتصال في حالات الطوارئ\n- إعداد خدمة SOS تلقائية\n- تغيير لغة التطبيق، و\n- تحديث مظهر التطبيق\n\nفي الإعدادات.\n\nاضغط باستمرار على زر الإعدادات لتقديم ملاحظات حول التطبيق.",
+  "hsVideoTutorial": "عندما تلتقط صورة أو تسجل مقطع فيديو، ستتمكن من مشاركته على الفور.\n\nافتراضيًا، إذا تمت مقاطعة التسجيل، فسيتم تنشيط SOS تلقائيًا.\n\nاضغط مطولًا على المعاينة المركزية لإظهار قائمة بحقوقك.",
+  "hsIOSVideoTutorial": "عندما تلتقط صورة أو تسجل مقطع فيديو، ستتمكن من مشاركته على الفور.\n\nاضغط لفترة طويلة على المعاينة المركزية لإظهار قائمة بحقوقك.",
+  "hsRightsTutorial": "إذا قمت بتمكين الكاميرا، والتقطت صورة أو سجلت مقطع فيديو، فستتمكن من مشاركته على الفور.\n\nافتراضيًا، إذا تمت مقاطعة التسجيل، فسيتم تنشيط SOS تلقائيًا.\n\nاضغط على المطرقة أو اضغط مطولاً على وسط الشاشة لإظهار قائمة بحقوقك.",
+  "hsIOSRightsTutorial": "إذا قمت بتمكين الكاميرا، والتقطت صورة أو سجلت مقطع فيديو، فستتمكن من مشاركته على الفور.\n\nاضغط على المطرقة أو اضغط لفترة طويلة على وسط الشاشة لإظهار قائمة بحقوقك.",
   
-  "hsNeedContacts": "InstaSOS needs access to your contacts to function properly.",
-  "hsNoNumber": "The contact must have a phone number.",
+  "hsNeedContacts": "يحتاج تطبيق InstaSOS إلى الوصول إلى جهات الاتصال الخاصة بك ليعمل بشكل صحيح.",
+  "hsNoNumber": "يجب أن يكون لدى جهة الاتصال رقم هاتف.",
 
 
 
-  "rsSharedHeader": "You have the right to...",
+  "rsSharedHeader": "لديك الحق في...",
 
-  "rsOnFoot": "On foot",
-  "rsWhileDriving": "While driving",
-  "rsAtHome": "At home",
+  "rsOnFoot": "سيرا على الأقدام",
+  "rsWhileDriving": "أثناء القيادة",
+  "rsAtHome": "في البيت",
   
-  "rsSharedRemainSilent": "Remain silent. Do not lie, but you don't have to answer questions.",
-  "rsSharedDocument": "Document everything. You have the right to take pictures, record videos, and record audio.",
+  "rsSharedRemainSilent": "التزم الصمت. لا تكذب، ولكن ليس عليك الإجابة على الأسئلة.",
+  "rsSharedDocument": "وثّق كل شيء. لديك الحق في التقاط الصور وتسجيل الفيديوهات والتسجيل الصوتي.",
 
-  "rsWalkPockets": "Refuse a search of your pockets. ICE can give a pat-down, but not a search.",
-  "rsWalkLeave": "Leave if you are not under arrest.",
+  "rsWalkPockets": "ارفض تفتيش جيوبك. يمكن لدائرة الهجرة والجمارك الأمريكية (ICE) إجراء تفتيش جسدي، ولكن ليس تفتيشًا داخليًا.",
+  "rsWalkLeave": "إرحل إذا لم تكن تحت الإعتقال.",
 
-  "rsDriveSearch": "Refuse a search of your car.",
-  "rsDrivePockets": "Refuse a search of your pockets. ICE can give a pat-down, but not a search.",
-  "rsDriveID": "Refuse to provide ID as a passenger. Only the driver is required to provide ID.",
-  "rsDriveQuestion": "Ask questions. Find out why you are being stopped.",
-  "rsDriveWarrant": "Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it's not valid.",
-  "rsDriveLeave": "Leave if you are not under arrest.",
+  "rsDriveSearch": "ارفض تفتيش سيارتك.",
+  "rsDrivePockets": "ارفض تفتيش جيوبك. يمكن لدائرة الهجرة والجمارك الأمريكية (ICE) إجراء تفتيش جسدي، ولكن ليس تفتيشًا داخليًا.",
+  "rsDriveID": "ارفض إبراز بطاقة هوية كراكب. السائق فقط هو المطلوب منه إبرازها.",
+  "rsDriveQuestion": "اطرح الأسئلة. اكتشف سبب إيقافك.",
+  "rsDriveWarrant": "اسأل إن كان لدى الضباط أمر تفتيش. يحق لك الاطلاع عليه إن وُجد. إذا لم يتم توقيع \"الأمر\" من قبل القاضي، فهو غير صالح.",
+  "rsDriveLeave": "إرحل إذا لم تكن تحت الإعتقال.",
   
-  "rsHomeWarrant": "Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it's not valid. Keep your door shut.",
+  "rsHomeWarrant": "أبقِ بابك مغلقًا. إذا كان لديهم أمر تفتيش، فاطلب منهم وضعه تحت الباب أولًا. إذا لم يكن \"الأمر\" موقّعًا من قاضٍ، فهو غير صالح. أبقِ بابك مغلقًا.",
 
-  "rsSharedFingerprint": "Refuse to be fingerprinted by ICE unless you are under arrest.",
-  "rsSharedLawyer": "To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.",
+  "rsSharedFingerprint": "ارفض أن يتم أخذ بصمات أصابعك من قبل دائرة الهجرة والجمارك الأمريكية إلا إذا كنت تحت الاعتقال.",
+  "rsSharedLawyer": "استشارة محامٍ. إذا تم اعتقالك رسميًا، يحق لك الاستعانة بمحامٍ تعينه المحكمة.",
 
 
   
-  "ssSOSOnOpen": "SOS on open",
-  "ssSOSOnClose": "SOS on close",
-  "ssSOSOnCloseHint": "When enabled, a safe close button will be shown opposite the settings.",
-  "ssVideoSOS": "SOS on interrupted recording",
+  "ssSOSOnOpen": "SOS مفتوح",
+  "ssSOSOnClose": "SOS مغلق",
+  "ssSOSOnCloseHint": "عند التمكين، سيظهر زر إغلاق آمن مقابل الإعدادات.",
+  "ssVideoSOS": "SOS عند انقطاع التسجيل",
 
-  "ssEMC": "Emergency contacts",
-  "ssRemoveHint": "Remove contact",
-  "ssAddHint": "Add another contact",
+  "ssEMC": "جهات الاتصال في حالات الطوارئ",
+  "ssRemoveHint": "إزالة جهة الاتصال",
+  "ssAddHint": "إضافة جهة اتصال أخرى",
 
-  "ssAppearance": "Appearance"
+  "ssAppearance": "المظهر"
 }
