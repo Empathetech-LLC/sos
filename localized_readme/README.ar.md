@@ -5,92 +5,98 @@
 [![fr](https://img.shields.io/badge/lang-fr-white.svg)](https://github.com/Empathetech-LLC/empathetech_flutter_ui/blob/main/localized_readme/README.fr.md)
 [![ht](https://img.shields.io/badge/lang-ht-blue.svg)](https://github.com/Empathetech-LLC/empathetech_flutter_ui/blob/main/localized_readme/README.ht.md)
 
-<br>Hopefully unnecessary. Translations coming soon.
+<br>يشارك InstaSOS حالتك مع جهات اتصال الطوارئ في أوقات الأزمات.
 
-## <br>Table of Contents
+يُمكّنك من تسجيل الأدلة، ويُبقيك على اطلاع بحقوقك عند التعامل مع جهات إنفاذ القانون/الهجرة.
 
-* [Using](#using)
-* [Contributing](#contributing)
-* [License](#license)
+لا يمتلك InstaSOS أي حسابات، أو ملفات تعريف ارتباط، أو إعلانات، أو مدفوعات.
 
-# <br>Using
+ابقَ آمنًا في الخارج.
 
-As civilians, our first line of defense is our cameras.<br>So, at its core, InstaSOS is a camera.
+## <br>جدول المحتويات
+
+* [استخدام](#استخدام)
+* [المساهمة](#المساهمة)
+* [الترخيص](#الترخيص)
+
+# <br>استخدام
+
+باعتبارنا مدنيين، فإن خط الدفاع الأول لدينا هو كاميراتنا.<br>لذا، في جوهره، InstaSOS عبارة عن كاميرا.
 
 <img src="../assets/images/readme/screenshot-1-camera.png" alt="Screenshot of the InstaSOS home screen" width="250"/>
 
-<br>When you long press the center of the screen, the app shows (or hides) a list of your rights.
+<br>عندما تضغط لفترة طويلة على منتصف الشاشة، يعرض التطبيق (أو يخفي) قائمة بحقوقك.
 
-| While walking | While driving | While at home |
+| أثناء السير | أثناء القيادة | في البيت |
 |:-------------:|:-------------:|:-------------:|
 | <img src="../assets/images/readme/screenshot-2-walking.png" alt="Screenshot of the walking rights view" width="250"/> | <img src="../assets/images/readme/screenshot-3-driving.png" alt="Screenshot of the driving rights view" width="250"/> | <img src="../assets/images/readme/screenshot-4-at-home.png" alt="Screenshot of the at home rights view" width="250"/> |
 
-<br>The crucial feature of InstaSOS, is the SOS button.<br>Activate it to send your location to your emergency contacts.<br>Emergency contacts are decided by you, the first time you open the app. 
+<br>الميزة الحاسمة في InstaSOS هي زر SOS.<br>قم بتنشيطه لإرسال موقعك إلى جهات اتصال الطوارئ الخاصة بك.<br>تحدد أنت جهات الاتصال في حالات الطوارئ، عند فتح التطبيق لأول مرة.
 
 <img src="../assets/images/readme/screenshot-5-ios-message.png" alt="Screenshot of an iOS SOS message example" width="250"/>
 
-<br>On iOS, the messages are automated.<br>Every 5 minutes, a message with your current location will be created (like the image above).<br>You will have to hit the send button yourself. You are also free to cancel.<br>This process is done without leaving the app, and does **not** interrupt video recordings.
+<br>على نظام iOS، الرسائل آلية.<br>كل 5 دقائق، سيتم إنشاء رسالة بموقعك الحالي (كما في الصورة أعلاه).<br>سيتعين عليك الضغط على زر الإرسال بنفسك. يمكنك أيضًا إلغاء الاشتراك.<br>تتم هذه العملية دون مغادرة التطبيق، ولا **تؤدي** إلى مقاطعة تسجيلات الفيديو.
 
-On Android, the messages are fully automatic.<br>Every 5 minutes, a message with your currently location will be sent, and you can focus on the task at hand.
+على نظام Android، تكون الرسائل تلقائية بالكامل.<br>كل 5 دقائق، سيتم إرسال رسالة بموقعك الحالي، ويمكنك التركيز على المهمة المطروحة.
 
-Because they're automatic, Android SOS's can even be sent in the background.<br>"In the background" being when the app is minimized, if you've switched to another app, or locked the phone.<br>While in the background, SOS messages will be sent every 15 minutes.
+نظرًا لأنها تلقائية، يمكن إرسال رسائل SOS الخاصة بنظام Android حتى في الخلفية.<br>"في الخلفية" هي عندما يتم تصغير التطبيق، أو إذا قمت بالتبديل إلى تطبيق آخر، أو قفل الهاتف.<br>أثناء وجودها في الخلفية، سيتم إرسال رسائل SOS كل 15 دقيقة.
 
-The benefits of automatic messages don't stop there.<br>On Android, you can enable "SOS on close" and "SOS on interrupted recording".
+لا تتوقف فوائد الرسائل التلقائية عند هذا الحد.<br>على نظام التشغيل Android، يمكنك تمكين "SOS عند الإغلاق" و"SOS عند انقطاع التسجيل".
 
 <img src="../assets/images/readme/screenshot-6-android-options.png" alt="Screenshot of the custom Android options" width="250"/>
 
-<br>While "SOS on close" is enabled, there will be a safe exit (thumbs up) button on the home screen.<br>If the app goes to the background for any reason except the safe close button, an SOS broadcast will start automatically.
+<br>عند تمكين "SOS عند الإغلاق"، سيكون هناك زر خروج آمن (إبهام لأعلى) على الشاشة الرئيسية.<br>إذا انتقل التطبيق إلى الخلفية لأي سبب باستثناء زر إغلاق الخزنة، فسيتم بدء بث SOS تلقائيًا.
 
-| Reminder | New home |
+| تذكير | بيت جديد |
 |:-------------:|:-------------:|
 | <img src="../assets/images/readme/screenshot-7-safe-close-message.png" alt="Screenshot of the SOS on close disclaimer" width="250"/> | <img src="../assets/images/readme/screenshot-8-safe-close-button.png" alt="Screenshot of the home screen with a safe close button" width="250"/> |
 
-<br>"SOS on interrupted recoding" is enabled by default.<br>If you're recording a video, and it gets interrupted, a background broadcast will start automatically.
+<br>يتم تمكين "SOS عند انقطاع التسجيل" بشكل افتراضي.<br>إذا كنت تسجل مقطع فيديو، وتم مقاطعته، فسيتم بدء البث في الخلفية تلقائيًا.
 
-"SOS on open" is available on both platforms.<br>While enabled, a broadcast will start as soon as the app opens.
+تتوفر ميزة "SOS عند الفتح" على كلا المنصتين.<br>عند تمكينها، سيبدأ البث بمجرد فتح التطبيق.
 
-On both platforms, press the SOS button again to stop the broadcast.<br>While broadcasting, the button's icon will be a ringing bell, like the app icon.<br>Fully closing the app will also stop the broadcast.
+على كلا المنصتين، اضغط على زر SOS مرة أخرى لإيقاف البث.<br>أثناء البث، سيكون رمز الزر عبارة عن جرس رنين، مثل رمز التطبيق.<br>سيؤدي إغلاق التطبيق بالكامل أيضًا إلى إيقاف البث.
 
-## <br>Notes
+## <br>ملحوظات
 
-### Location
+### موقع
 
-Your location data is taken from the device GPS, and pasted into a maps link.<br>[location code](lib/utils/location.dart) excerpt:
+يتم أخذ بيانات موقعك من نظام تحديد المواقع العالمي (GPS) الخاص بالجهاز، ولصقها في رابط الخرائط.<br>[رمز الموقع](lib/utils/location.dart) مقتطفات:
 ```Dart
 final Position pos = await Geolocator.getCurrentPosition();
 return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.longitude.toStringAsFixed(4)}';
 ```
 
-### <br>Platform differences
+### <br>اختلافات المنصة
 
-The texting differences are due to Apple's policies.<br>They do not allow text automation, at all. They don't even have an appeal process for emergency apps.<br>Pretty hypocritical coming from a company whose marketing often implies that we aren't safe without their products, IMO.
+اختلافات الرسائل النصية تعود إلى سياسات آبل.<br>لا تسمح آبل بأتمتة الرسائل النصية إطلاقًا. ولا توفر حتى آلية استئناف لتطبيقات الطوارئ.<br>هذا نفاقٌ كبيرٌ من شركةٍ غالبًا ما توحي حملاتها التسويقية بأننا لسنا بأمان بدون منتجاتها، في رأيي.
 
-#### <br>Timing
+#### <br>التوقيت
 
-Why are broadcasts every 5 minutes in the foreground, but every 15 in the background?
+لماذا يُبثّ كل خمس دقائق في المقدمة، وكل خمس عشرة دقيقة في الخلفية؟
 
-Android limits the frequency of background tasks to save battery life (and lots of other reasons). Fifteen minutes is the max frequency.<br>But, the same limitations don't apply when the app is open.
+يُحدّد نظام أندرويد عدد مرات تشغيل مهام الخلفية لتوفير طاقة البطارية (وأسباب أخرى كثيرة). الحد الأقصى هو خمس عشرة دقيقة.<br>ولكن، لا تُطبّق هذه القيود عند فتح التطبيق.
 
-# <br>Contributing
+# <br>المساهمة
 
-## Time
+## الوقت
 
-Please reach out to the [community](mailto:community@empathetech.net?subject=Becoming%20a%20contributor) contact about becoming a contributor. There's never a shortage of ideas, only time!
+يرجى التواصل مع مسؤول [المجتمع](mailto:community@empathetech.net?subject=Becoming%20a%20contributor) للاشتراك كمساهم. الأفكار متوفرة دائمًا، والوقت محدود!
 
-### <br>Translations
+### <br>الترجمات
 
-If you speak English and a currently unsupported language, please reach out! The more the merrier.
+إذا كنت تتحدث الإنجليزية ولغة غير مدعومة حاليًا، يُرجى التواصل معنا! كلما زاد عدد المشاركين، كان ذلك أفضل.
 
-OR: If you speak English and a currently supported language, and see something wrong, please reach out! It takes a village.
+أو: إذا كنت تتحدث الإنجليزية ولغة معتمدة حاليًا، ولاحظت أي مشكلة، يُرجى التواصل معنا! الأمر يتطلب تكاتف الجميع.
 
-## <br>Money
+## <br>المال
 
-Empathetech makes free and open source software as a public service. Please consider donating so the work can continue. 
+تقوم شركة Empathetech بإنشاء برامج مجانية ومفتوحة المصدر كخدمة عامة. يُرجى التبرع لمواصلة العمل.
 
 &nbsp;&nbsp;&nbsp;[GoFundMe](https://gofund.me/c047d07e)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Patreon](https://patreon.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Buy Me a Coffee](https://www.buymeacoffee.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Ko-fi](https://ko-fi.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[PayPal](https://www.paypal.com/donate/?hosted_button_id=NGEL6AB5A6KNL)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Venmo](https://venmo.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Cash App](https://cash.app/$empathetech)
 
-<br> Many thanks for any and all contributions!
+<br> شكرا جزيلا على كل المساهمات!
 
-# <br>License
+# <br>الترخيص
 
 [GNU GPLv3](./LICENSE)
