@@ -61,7 +61,10 @@ void main() async {
       dragHandleColor: Colors.white,
     ),
     themeMode: EzConfig.getThemeMode(),
-    localizationsDelegates: <LocalizationsDelegate<dynamic>>[EzFeedbackLD()],
+    localizationsDelegates: <LocalizationsDelegate<dynamic>>[
+      EzFeedbackLD(),
+      const CreoleWidgetsLocalizationsDelegate(),
+    ],
     localeOverride: EzConfig.getLocale(),
     child: const SOS(),
   ));
@@ -151,6 +154,7 @@ class SOS extends StatelessWidget {
           const LocaleNamesLocalizationsDelegate(),
           ...EFUILang.localizationsDelegates,
           ...Lang.localizationsDelegates,
+          const CreoleWidgetsLocalizationsDelegate(),
         },
         supportedLocales: Lang.supportedLocales,
         locale: EzConfig.getLocale(),
