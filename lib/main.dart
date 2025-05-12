@@ -63,6 +63,8 @@ void main() async {
     themeMode: EzConfig.getThemeMode(),
     localizationsDelegates: <LocalizationsDelegate<dynamic>>[
       EzFeedbackLD(),
+      CreoleMaterialLocalizations.delegate,
+      CreoleCupertinoLocalizations.delegate,
       const CreoleWidgetsLocalizationsDelegate(),
     ],
     localeOverride: EzConfig.getLocale(),
@@ -154,6 +156,8 @@ class SOS extends StatelessWidget {
           const LocaleNamesLocalizationsDelegate(),
           ...EFUILang.localizationsDelegates,
           ...Lang.localizationsDelegates,
+          CreoleMaterialLocalizations.delegate,
+          CreoleCupertinoLocalizations.delegate,
           const CreoleWidgetsLocalizationsDelegate(),
         },
         supportedLocales: Lang.supportedLocales,
