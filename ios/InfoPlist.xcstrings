@@ -43,7 +43,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS necesita acceso a la cámara para compartir fotos y vídeos con tus contactos de emergencia."
           }
         },
         "fr" : {
@@ -78,7 +78,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS necesita poder guardar tus contactos de emergencia."
           }
         },
         "fr" : {
@@ -113,7 +113,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia."
           }
         },
         "fr" : {
@@ -148,7 +148,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia."
           }
         },
         "fr" : {
@@ -183,7 +183,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia."
           }
         },
         "fr" : {
@@ -218,7 +218,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia."
           }
         },
         "fr" : {
@@ -253,7 +253,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS necesita acceso al micrófono para grabar vídeos con audio."
           }
         },
         "fr" : {
@@ -288,7 +288,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS necesita acceso a tu galería para guardar fotos y vídeos."
           }
         },
         "fr" : {
