@@ -7,7 +7,6 @@
 
 <br>Yon kamera, yon lanp SOS, ak yon lis dwa ou yo, tout yon sèl kote.
 
-
 InstaSOS pataje estati ou ak kontak ijans ou yo nan sitiyasyon kriz.
 
 Li pèmèt ou anrejistre prèv epi li kenbe ou enfòme konsènan dwa ou lè ou ap fè fas ak fòs lòd/lwa oswa imigrasyon.
