@@ -5,7 +5,9 @@
 [![fr](https://img.shields.io/badge/lang-fr-white.svg)](https://github.com/Empathetech-LLC/empathetech_flutter_ui/blob/main/localized_readme/README.fr.md)
 [![ht](https://img.shields.io/badge/lang-ht-blue.svg)](https://github.com/Empathetech-LLC/empathetech_flutter_ui/blob/main/localized_readme/README.ht.md)
 
-<br>يشارك InstaSOS حالتك مع جهات اتصال الطوارئ في أوقات الأزمات.
+<br>كاميرا، ومنارة SOS، وقائمة بحقوقك، كل ذلك في مكان واحد.
+
+يشارك InstaSOS حالتك مع جهات اتصال الطوارئ في أوقات الأزمات.
 
 يُمكّنك من تسجيل الأدلة، ويُبقيك على اطلاع بحقوقك عند التعامل مع جهات إنفاذ القانون/الهجرة.
 
