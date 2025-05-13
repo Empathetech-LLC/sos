@@ -34,16 +34,28 @@
             "value" : "InstaSOS needs access to your camera to share photos/videos with your emergency contacts."
           }
         },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يحتاج InstaSOS إلى الوصول إلى كاميرتك لمشاركة الصور/الفيديوهات مع جهات اتصال الطوارئ لديك."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "InstaSOS necesita acceso a tu cámara para compartir fotos/videos con tus contactos de emergencia."
+            "value" : "InstaSOS necesita acceso a la cámara para compartir fotos y vídeos con tus contactos de emergencia."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS a besoin d'accéder à votre appareil photo pour partager des photos/vidéos avec vos contacts d'urgence."
+          }
+        },
+        "ht" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS bezwen aksè a kamera a pou pataje foto/videyo avèk kontak ijans ou yo."
           }
         }
       }
@@ -57,16 +69,28 @@
             "value" : "InstaSOS needs to be able to save your emergency contacts."
           }
         },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يحتاج InstaSOS إلى حفظ جهات اتصال الطوارئ لديك."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "InstaSOS necesita poder guardar sus contactos de emergencia."
+            "value" : "InstaSOS necesita poder guardar tus contactos de emergencia."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS doit pouvoir enregistrer vos contacts d'urgence."
+          }
+        },
+        "ht" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS bezwen kapab anrejistre kontak ijans ou yo."
           }
         }
       }
@@ -80,6 +104,12 @@
             "value" : "InstaSOS needs access to your location to share it with your emergency contacts."
           }
         },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -89,7 +119,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "InstaSOS a besoin d'accéder à votre position pour la partager avec vos contacts d'urgence."
+            "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence."
+          }
+        },
+        "ht" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo."
           }
         }
       }
@@ -103,6 +139,12 @@
             "value" : "InstaSOS needs access to your location to share it with your emergency contacts."
           }
         },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -112,7 +154,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "InstaSOS a besoin d'accéder à votre position pour la partager avec vos contacts d'urgence."
+            "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence."
+          }
+        },
+        "ht" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo."
           }
         }
       }
@@ -126,6 +174,12 @@
             "value" : "InstaSOS needs access to your location to share it with your emergency contacts."
           }
         },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -135,7 +189,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "InstaSOS a besoin d'accéder à votre position pour la partager avec vos contacts d'urgence."
+            "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence."
+          }
+        },
+        "ht" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo."
           }
         }
       }
@@ -149,6 +209,12 @@
             "value" : "InstaSOS needs access to your location to share it with your emergency contacts."
           }
         },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -158,7 +224,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "InstaSOS a besoin d'accéder à votre position pour la partager avec vos contacts d'urgence."
+            "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence."
+          }
+        },
+        "ht" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo."
           }
         }
       }
@@ -172,16 +244,28 @@
             "value" : "InstaSOS needs access to your microphone to record videos with audio."
           }
         },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يحتاج InstaSOS إلى الوصول إلى الميكروفون لتسجيل الفيديوهات مع الصوت."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "InstaSOS necesita acceso a su micrófono para grabar videos con audio."
+            "value" : "InstaSOS necesita acceso al micrófono para grabar vídeos con audio."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS a besoin d'accéder à votre microphone pour enregistrer des vidéos avec audio."
+          }
+        },
+        "ht" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS bezwen aksè a mikwofòn ou an pou anrejistre videyo ak odyo."
           }
         }
       }
@@ -195,16 +279,28 @@
             "value" : "InstaSOS needs access to your photo library to save photos/videos."
           }
         },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يحتاج InstaSOS إلى الوصول إلى مكتبة الصور لديك لحفظ الصور/الفيديوهات."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "InstaSOS necesita acceso a tu biblioteca de fotos para guardar fotos/videos."
+            "value" : "InstaSOS necesita acceso a tu galería para guardar fotos y vídeos."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "InstaSOS a besoin d'accéder à votre photothèque pour enregistrer des photos/vidéos."
+            "value" : "InstaSOS a besoin d'accéder à votre galerie pour enregistrer des photos/vidéos."
+          }
+        },
+        "ht" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS bezwen aksè ak fichye foto ou yo pou anrejistre foto/videyo."
           }
         }
       }

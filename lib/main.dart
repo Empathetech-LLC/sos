@@ -29,9 +29,10 @@ void main() async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
 
   EzConfig.init(
-    assetPaths: <String>{},
     preferences: prefs,
     defaults: sosConfig,
+    fallbackLang: await EFUILang.delegate.load(english),
+    assetPaths: <String>{},
   );
 
   // Run the app //
@@ -61,10 +62,10 @@ void main() async {
     ),
     themeMode: EzConfig.getThemeMode(),
     localizationsDelegates: <LocalizationsDelegate<dynamic>>[
-      const LocaleNamesLocalizationsDelegate(),
-      ...EFUILang.localizationsDelegates,
-      ...Lang.localizationsDelegates,
-      EmpathetechFeedbackLocalizationsDelegate(),
+      EzFeedbackLD(),
+      CreoleMaterialLocalizations.delegate,
+      CreoleCupertinoLocalizations.delegate,
+      const CreoleWidgetsLocalizationsDelegate(),
     ],
     localeOverride: EzConfig.getLocale(),
     child: const SOS(),
@@ -155,6 +156,9 @@ class SOS extends StatelessWidget {
           const LocaleNamesLocalizationsDelegate(),
           ...EFUILang.localizationsDelegates,
           ...Lang.localizationsDelegates,
+          CreoleMaterialLocalizations.delegate,
+          CreoleCupertinoLocalizations.delegate,
+          const CreoleWidgetsLocalizationsDelegate(),
         },
         supportedLocales: Lang.supportedLocales,
         locale: EzConfig.getLocale(),

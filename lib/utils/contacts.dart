@@ -20,7 +20,7 @@ Future<List<String>?> addEMC(
   bool loop = true,
 }) async {
   late final Lang l10n = Lang.of(context)!;
-  late final EFUILang el10n = EFUILang.of(context)!;
+  late final EFUILang el10n = ezL10n(context);
 
   // Check for first run
   if (curr == null || curr.isEmpty) {

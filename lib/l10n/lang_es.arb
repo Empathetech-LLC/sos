@@ -5,81 +5,81 @@
   
   "gOk": "Ok",
 
-  "sosLastKnown": "Última ubicación conocida",
-  "sosNeedSMS": "SOS necesita permiso de SMS para funcionar correctamente.",
-  "sosDisabled": "No se puede acceder a la ubicación (desactivada)",
-  "sosDenied": "No se puede acceder a la ubicación (denegada)",
-  "sosError": "No se puede acceder a la ubicación (error)",
+  "sosLastKnown": "Última localización conocida",
+  "sosNeedSMS": "SOS necesita poder enviar SMS para funcionar bien.",
+  "sosDisabled": "Ubicación inaccesible (deshabilitado)",
+  "sosDenied": "Ubicación inaccesible (rechazado)",
+  "sosError": "Ubicación inaccesible (error)",
 
 
 
-  "hsStartSOS": "Activar para iniciar la transmisión SOS.",
-  "hsEndSOS": "Se está emitiendo un SOS. Activar para detener.",
-  "hsSafeCloseHint": "Todo claro. Cerrar la app sin activar SOS.",
+  "hsStartSOS": "Activar para emitir señal SOS",
+  "hsEndSOS": "SOS en transmisión. Activar para detener.",
+  "hsSafeCloseHint": "Despejado. Cierra la app sin SOS.",
 
-  "hsCameraHint": "Tomar una foto.",
-  "hsPreviewHint": "Mantén presionado para alternar la vista de tus derechos.",
-  "hsShowRights": "Muestra tus derechos.",
-  "hsHideRights": "Oculta tus derechos.",
-  "hsStartRecord": "Grabar un vídeo.",
-  "hsEndRecord": "End the recording.",
-  "hsFlashOff": "Flash apagado. Activar para encender el flash automático.",
-  "hsFlashAuto": "Flash automático. Activar para encender el flash.",
-  "hsFlashOn": "Flash encendido. Activar para apagar el flash.",
-  "hsFlashTorch": "Modo linterna. Activar para apagar el flash.",
+  "hsCameraHint": "Toma una foto",
+  "hsPreviewHint": "Mantén pulsado para mostrar tus derechos",
+  "hsShowRights": "Muestra tus derechos",
+  "hsHideRights": "Oculta tus derechos",
+  "hsStartRecord": "Grabar un vídeo",
+  "hsEndRecord": "Terminar la grabación",
+  "hsFlashOff": "Flash desactivado. Activar para encender el flash automático",
+  "hsFlashAuto": "Flash automático. Activar para encender el flash",
+  "hsFlashOn": "Flash activado. Activar para apagar el flash",
+  "hsFlashTorch": "Modo linterna. Activar para apagar la luz",
 
-  "hsWelcome": "Bienvenido a SOS",
-  "hsAppTutorial": "Comparte tu estado con contactos de emergencia en un momento de crisis.\n\nPor favor elige un contacto de emergencia.\nSolo uno por ahora, podrás agregar más después.",
+  "hsWelcome": "Bienvenido a InstaSOS",
+  "hsAppTutorial": "Comparte tu estado con contactos de emergencia durante una crisis.\n\nElige un contacto de emergencia.\nSolo uno por ahora, luego podrás añadir más",
   "hsPermissionsTutorialTitle": "Si quieres",
-  "hsPermissionsTutorial": "SOS también puede recopilar y compartir evidencia.\n\nPedirá acceso a la cámara, micrófono y galería para hacerlo.",
-  "hsPermissionsAlways": "Por favor, establece la ubicación para permitir siempre.\nSolo se usará mientras SOS esté activo.",
-  "hsBroadcastTutorial": "Activa SOS para enviar mensajes automáticamente a tus contactos de emergencia.\n\nSi SOS tiene acceso a tu ubicación, esta se incluirá en los mensajes.\n\nLos mensajes continuarán incluso si el teléfono está bloqueado.\n\nDesactiva SOS o cierra completamente la app para detener los mensajes.",
-  "hsIOSBroadcastTutorial": "Activa SOS para enviar mensajes automáticamente a tus contactos de emergencia.\n\nSi SOS tiene acceso a tu ubicación, esta se incluirá en los mensajes.",
-  "hsSettingsTutorial": "Puedes...\n\n- Agregar más contactos de emergencia\n- Configurar SOS automático\n- Cambiar el idioma de la app, y\n- Actualizar la apariencia de la app\n\nen los ajustes.\n\nMantén presionado el botón de ajustes para enviar comentarios sobre la app.",
-  "hsVideoTutorial": "Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nPulsación larga el centro de la vista previa para ver una lista de tus derechos.",
-  "hsIOSVideoTutorial": "Cuando tomes una foto o grabes un video, podrás compartirlo de inmediato.\n\nPulsación larga el centro de la vista previa para ver una lista de tus derechos.",
-  "hsRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nPor defecto, si una grabación se interrumpe, SOS se activará automáticamente.\n\nToca el mazo o pulsación larga el centro de la pantalla para ver una lista de tus derechos.",
-  "hsIOSRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un video, podrás compartirlo de inmediato.\n\nToca el mazo o pulsación larga el centro de la pantalla para ver una lista de tus derechos.",
-
-  "hsNeedContacts": "SOS necesita acceso a tus contactos para funcionar correctamente.",
-  "hsNoNumber": "El contacto debe tener un número de teléfono.",
+  "hsPermissionsTutorial": "InstaSOS también puede obtener y compartir evidencia.\n\nPara ello, pedirá acceso a la cámara, al micrófono y a la galería.",
+  "hsPermissionsAlways": "Pon que siempre tenga acceso a tu ubicación.\nSolo se utilizará mientras SOS esté activo",
+  "hsBroadcastTutorial": "Activa el SOS para enviar SMS automáticamente a tus contactos de emergencia.\n\nSi InstaSOS tiene acceso a tu ubicación, se incluirá en los mensajes.\n\nSeguirán enviándose SMS aunque el dispositivo esté bloqueado.\n\nDesactiva el SOS o cierra la aplicación para dejar de enviar mensajes.",
+  "hsIOSBroadcastTutorial": "Activa el SOS para enviar SMS automáticamente a tus contactos de emergencia.\n\nSi InstaSOS tiene acceso a tu ubicación, se incluirá en los mensajes",
+  "hsSettingsTutorial": "Puedes...\n\n- Añadir más contactos de emergencia\n- Configurar SMS automáticos\n- Cambiar el idioma y\n- editar la apariencia de la aplicación\n\nen las opciones.\n\nMantén pulsado el botón de opciones para enviar feedback.",
+  "hsVideoTutorial": "Cuando tomes una foto o grabes un vídeo, podrás compartirlo al instante.\n\nPor defecto, si se interrumpe una grabación, SOS se activará automáticamente.\n\nMantén pulsada la vista previa central para mostrar una lista de tus derechos.",
+  "hsIOSVideoTutorial": "Cuando tomes una foto o grabes un vídeo, podrás compartirlo al instante.\n\nMantén pulsada la vista previa central para mostrar una lista de tus derechos.",
+  "hsRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un vídeo, podrás compartirlo al momento.\n\nPor defecto, si se interrumpe una grabación, SOS se activará automáticamente.\n\nMantén pulsado el mazo para mostrar una lista de tus derechos",
+  "hsIOSRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un vídeo, podrás compartirlo al momento.\n\nMantén pulsado el mazo para mostrar una lista de tus derechos",
+  
+  "hsNeedContacts": "InstaSOS necesita acceso a tus contactos para funcionar bien.",
+  "hsNoNumber": "El contacto debe tener un número",
 
 
 
   "rsSharedHeader": "Tienes derecho a...",
 
   "rsOnFoot": "A pie",
-  "rsWhileDriving": "Mientras conduces",
+  "rsWhileDriving": "Al volante",
   "rsAtHome": "En casa",
+  
+  "rsSharedRemainSilent": "Guarda silencio. No tienes que responder a ninguna pregunta, pero si dices algo, no mientas",
+  "rsSharedDocument": "Documéntalo todo. Tienes derecho a hacer fotos, grabar vídeos y audio",
 
-  "rsSharedRemainSilent": "Guardar silencio. No mientas, pero no tienes que responder preguntas.",
-  "rsSharedDocument": "Documentar todo. Tienes derecho a tomar fotos, grabar videos y grabar audio.",
+  "rsWalkPockets": "Niégate a que te registren los bolsillos. El ICE puede cachearte, pero no registrarte",
+  "rsWalkLeave": "Márchate si no estás arrestado",
 
-  "rsWalkPockets": "Negarte a que registren tus bolsillos. ICE puede hacer una revisión externa, pero no un registro.",
-  "rsWalkLeave": "Irte si no estás bajo arresto.",
+  "rsDriveSearch": "Niégate a que registren tu vehículo",
+  "rsDrivePockets": "Niégate a que te registren los bolsillos. El ICE puede cachearte, pero no registrarte",
+  "rsDriveID": "Si eres pasajero, niégate a proporcionar documentos de identificación. Solo la persona al volante está obligada a identificarse",
+  "rsDriveQuestion": "Haz preguntas, incluyendo por qué te han hecho detenerte",
+  "rsDriveWarrant": "Pregunta si tienen una orden judicial. Tienes derecho a verla si la tienen. Una \"orden judicial\" solo es válida si está firmada por un juez",
+  "rsDriveLeave": "Márchate si no estás arrestado",
+  
+  "rsHomeWarrant": "No abras la puerta. Si tienen una orden judicial, pídeles que la pasen primero por debajo de la puerta. Una \"orden judicial\" solo es válida si está firmada por un juez. No abras la puerta.",
 
-  "rsDriveSearch": "Negarte a que registren tu auto.",
-  "rsDrivePockets": "Negarte a que registren tus bolsillos. ICE puede hacer una revisión externa, pero no un registro.",
-  "rsDriveID": "Negarte a mostrar identificación como pasajero. Solo el conductor está obligado a mostrarla.",
-  "rsDriveQuestion": "Hacer preguntas. Averigua por qué te detuvieron.",
-  "rsDriveWarrant": "Preguntar si los agentes tienen una orden judicial. Tienes derecho a verla si la tienen. Si la \"orden\" no está firmada por un juez, no es válida.",
-  "rsDriveLeave": "Irte si no estás bajo arresto.",
-
-  "rsHomeWarrant": "Mantener la puerta cerrada. Si tienen una orden, pídeles que la pasen por debajo de la puerta. Si la \"orden\" no está firmada por un juez, no es válida. Mantén la puerta cerrada.",
-
-  "rsSharedFingerprint": "Negarte a que ICE tome tus huellas digitales a menos que estés bajo arresto.",
-  "rsSharedLawyer": "Consultar con un abogado. Si has sido arrestado formalmente, tienes derecho a un abogado designado por el tribunal.",
+  "rsSharedFingerprint": "Niégate a que el ICE tome tus huellas dactilares a menos que estés arrestado",
+  "rsSharedLawyer": "Consultar a un abogado. Si te han arrestado formalmente, tienes derecho a un abogado de oficio",
 
 
-
-  "ssSOSOnOpen": "SOS automático al abrir",
-  "ssSOSOnClose": "SOS automático al cerrar",
-  "ssSOSOnCloseHint": "Cuando está activado, se mostrará un botón de cierre seguro frente al de ajustes.",
-  "ssVideoSOS": "SOS automático si se interrumpe la grabación",
+  
+  "ssSOSOnOpen": "SOS al abrirse",
+  "ssSOSOnClose": "SOS al cerrarse",
+  "ssSOSOnCloseHint": "Cuando esté activado, se mostrará un botón de cierre seguro al otro lado de la configuración",
+  "ssVideoSOS": "SOS al interrumpir la grabación",
 
   "ssEMC": "Contactos de emergencia",
   "ssRemoveHint": "Eliminar contacto",
-  "ssAddHint": "Agregar otro contacto",
+  "ssAddHint": "Añadir otro contacto",
 
   "ssAppearance": "Apariencia"
 }

@@ -1,0 +1,85 @@
+{
+  "@@locale": "ht",
+
+  
+  
+  "gOk": "Ok",
+
+  "sosLastKnown": "Dènye kote yo te konnen ou ye a",
+  "sosNeedSMS": "SOS bezwen pèmisyon SMS pou li fonksyone byen.",
+  "sosDisabled": "Pa ka jwenn pozisyon an (dezaktive)",
+  "sosDenied": "Pa ka jwenn pozisyon an (refize)",
+  "sosError": "Pa ka jwenn pozisyon an (erè)",
+
+
+
+  "hsStartSOS": "Peze pou lanse alèt SOS la.",
+  "hsEndSOS": "SOS ap difize. Peze pou sispann li.",
+  "hsSafeCloseHint": "Tout bagay OK. Fèmen aplikasyon an san SOS.",
+
+  "hsCameraHint": "Pran yon foto.",
+  "hsPreviewHint": "Peze pandan plizyè segond pou ou wè dwa ou yo.",
+  "hsShowRights": "Afiche dwa ou yo",
+  "hsHideRights": "Kache dwa ou yo.",
+  "hsStartRecord": "Anrejistre yon videyo.",
+  "hsEndRecord": "Kanpe anrejistreman an.",
+  "hsFlashOff": "Flach otomatik. Peze pou limen flach la.",
+  "hsFlashAuto": "Flach etenn. Peze pou mete flach otomatik.",
+  "hsFlashOn": "Flach limen. Peze pou etenn flach la.",
+  "hsFlashTorch": "Mòd lanp. Peze pou etenn flach la.",
+
+  "hsWelcome": "Byenveni sou InstaSOS",
+  "hsAppTutorial": "Li pataje pozisyon ou ak kontak ijans ou yo lè gen sitiyasyon kriz.\n\nTanpri chwazi yon kontak ijans.\nYonn pou kounye a, ou ka ajoute plis apre.",
+  "hsPermissionsTutorialTitle": "Si ou vle",
+  "hsPermissionsTutorial": "InstaSOS kapab kolekte epi pataje prèv tou.\n\nLi ap mande aksè a kamera, mikwo, avèk galri pou sa.",
+  "hsPermissionsAlways": "Tanpri mete pozisyon sou 'toujou otorize'.\nLi ap sèlman itilize lè SOS aktif.",
+  "hsBroadcastTutorial": "Aktive SOS pou voye mesaj otomatik bay kontak ijans ou yo.\n\nSi InstaSOS gen aksè a pozisyon ou, li ap mete l nan mesaj yo.\n\nMesaj yo ap kontinye ale menm si telefòn nan fèmen.\n\nOu ka swa dezaktive SOS oswa fèmen aplikasyon an nèt pou sispann voye mesaj ale.",
+  "hsIOSBroadcastTutorial": "Aktive SOS pou voye mesaj otomatik bay kontak ijans ou yo.\n\nSi InstaSOS gen aksè apozisyon ou, li ap mete l nan mesaj yo.",
+  "hsSettingsTutorial": "Ou kapab...\n\n- Ajoute plis kontak ijans\n- Setup SOS otomatik\n- Chanje lang aplikasyon an, epi\n- Mete aparans aplikasyon an ajou\n\nnan anviwònman yo.\n\nPeze bouton anviwònman an pandan plizyè segond pou bay fidbak sou aplikasyon an.",
+  "hsVideoTutorial": "Lè ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPa defo, si yon anrejistreman entèwonp, SOS ap aktive otomatikman.\n\nPeze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.",
+  "hsIOSVideoTutorial": "Lè ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPez mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo",
+  "hsRightsTutorial": "Si ou aktive kamera a, epi ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPa defo, si yon anrejistreman entèwonp, SOS ap aktive otomatikman.\n\nPeze sou ikòn balans jistis la oswa peze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.",
+  "hsIOSRightsTutorial": "Si ou aktive kamera a, epi ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPeze sou ikòn balans jistis la oswa peze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.",
+  
+  "hsNeedContacts": "InstaSOS bezwen aksè a kontak ou yo pou li fonksyone kòrèkteman.",
+  "hsNoNumber": "Kontak la dwe genyen yon nimewo telefòn.",
+
+
+
+  "rsSharedHeader": "Ou gen dwa pou...",
+
+  "rsOnFoot": "A pye",
+  "rsWhileDriving": "Pandan ou nan machin",
+  "rsAtHome": "Lakay",
+  
+  "rsSharedRemainSilent": "Rete an silans. Pa bay manti, men ou pa oblije reponn kesyon.",
+  "rsSharedDocument": "Dokimante tout bagay. Ou gen dwa pou ou pran foto, anrejistre videyo, ak odyo.",
+
+  "rsWalkPockets": "Refize ke yo fouye pòch ou. ICE ka fè yon manyen rapid, men yo pa ka fouye.",
+  "rsWalkLeave": "Ale si yo pa arete ou.",
+
+  "rsDriveSearch": "Refize ke yo fouye machin ou.",
+  "rsDrivePockets": "Refize ke yo fouye pòch ou. ICE ka fè yon manyen rapid, men yo pa ka fouye.",
+  "rsDriveID": "Refize bay ID antan ke pasaje. Sèlman chofè a oblije bay ID.",
+  "rsDriveQuestion": "Poze kesyon. Chèche konnen poukisa yo kanpe ou.",
+  "rsDriveWarrant": "Mande si ajan yo gen manda. Ou gen dwa wè li si yo genyen. Si pa genyen siyati yon jij sou manda a, li pa valab.",
+  "rsDriveLeave": "Ale si yo pa arete ou",
+  
+  "rsHomeWarrant": "Kenbe pòt ou fèmen. Si yo gen manda, mande yo pou yo fè li pase anba pòt la. Si pa genyen siyati yon jij sou manda a, li pa valab. Kenbe pòt la fèmen.",
+
+  "rsSharedFingerprint": "Refize ke ICE pran anprent ou sòf si yo deja arete ou.",
+  "rsSharedLawyer": "Pou konsilte yon avoka. Si yo arete fòmèlman, ou gen dwa gen yon avoka leta.",
+
+
+  
+  "ssSOSOnOpen": "SOS lè ou ouvè aplikasyon an",
+  "ssSOSOnClose": "SOS lè ou fèmen aplikasyon an",
+  "ssSOSOnCloseHint": "Lè sa aktive, ou ap wè yon bouton ki pèmèt ou sòti an san pwoblèm anfas bouton anviwònman an.",
+  "ssVideoSOS": "SOS si anrejistreman an entèwonp",
+
+  "ssEMC": "Kontak ijans",
+  "ssRemoveHint": "Retire kontak",
+  "ssAddHint": "Ajoute yon lòt kontak",
+
+  "ssAppearance": "Aparans"
+}

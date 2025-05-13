@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2025-05-13
+### Updated
+- Localizations
+  - Arabic, Spanish, French, Haitian Creole
+    - All human verified
+
+## [1.1.1] - 2025-04-22
+### Fixed
+- Google Play release
+- SharePlus package
+
 ## [1.1.0] - 2025-04-20
 ### Added
 - Bug fixes and improvements

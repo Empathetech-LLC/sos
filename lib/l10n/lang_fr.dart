@@ -12,7 +12,7 @@ class LangFr extends Lang {
   String get gOk => 'Ok';
 
   @override
-  String get sosLastKnown => 'Dernière position connue';
+  String get sosLastKnown => 'Dernière localisation connue';
 
   @override
   String get sosNeedSMS =>
@@ -20,45 +20,46 @@ class LangFr extends Lang {
 
   @override
   String get sosDisabled =>
-      'Impossible d\'accéder à la localisation (désactivée)';
+      'Impossible d\'accéder à la localisation (désactivé)';
 
   @override
-  String get sosDenied => 'Impossible d\'accéder à la localisation (refusée)';
+  String get sosDenied => 'Impossible d\'accéder à la localisation (refusé)';
 
   @override
   String get sosError => 'Impossible d\'accéder à la localisation (erreur)';
 
   @override
-  String get hsStartSOS => 'Activer pour démarrer la diffusion SOS.';
+  String get hsStartSOS => 'Activez pour démarrer la diffusion SOS.';
 
   @override
-  String get hsEndSOS => 'SOS est en cours de diffusion. Activez pour arrêter.';
+  String get hsEndSOS =>
+      'Le SOS est en cours de diffusion. Activez pour arrêter.';
 
   @override
-  String get hsSafeCloseHint =>
-      'Tout est clair. Fermer l\'application sans activer SOS.';
+  String get hsSafeCloseHint => 'Tout va bien. Fermer l\'application sans SOS.';
 
   @override
   String get hsCameraHint => 'Prendre une photo.';
 
   @override
-  String get hsPreviewHint => 'Appui long pour basculer la vue de vos droits.';
+  String get hsPreviewHint =>
+      'Appuyez longuement pour basculer votre vue des droits.';
 
   @override
-  String get hsShowRights => 'Montrez vos droits.';
+  String get hsShowRights => 'Afficher vos droits.';
 
   @override
-  String get hsHideRights => 'Cachez vos droits.';
+  String get hsHideRights => 'Cacher vos droits.';
 
   @override
   String get hsStartRecord => 'Enregistrer une vidéo.';
 
   @override
-  String get hsEndRecord => 'Terminez l\'enregistrement.';
+  String get hsEndRecord => 'Arrêter l\'enregistrement.';
 
   @override
   String get hsFlashOff =>
-      'Flash désactivé. Activez pour activer le flash automatique.';
+      'Flash désactivé. Activez ce bouton pour activer le flash automatique.';
 
   @override
   String get hsFlashAuto => 'Flash automatique. Activez pour activer le flash.';
@@ -70,54 +71,54 @@ class LangFr extends Lang {
   String get hsFlashTorch => 'Mode torche. Activez pour désactiver le flash.';
 
   @override
-  String get hsWelcome => 'Bienvenue sur SOS';
+  String get hsWelcome => 'Bienvenue sur InstaSOS';
 
   @override
   String get hsAppTutorial =>
-      'L\'application partage votre statut avec vos contacts d\'urgence en cas de crise.\n\nVeuillez choisir un contact d\'urgence.\nUn seul pour l\'instant, vous pourrez en ajouter d\'autres plus tard.';
+      'Votre statut est partagé avec les contacts d\'urgence en cas de crise.\n\nVeuillez choisir un contact d\'urgence.\nUn seul pour l\'instant ; vous pourrez en ajouter d\'autres ultérieurement.';
 
   @override
   String get hsPermissionsTutorialTitle => 'Si vous le souhaitez';
 
   @override
   String get hsPermissionsTutorial =>
-      'SOS peut également collecter et partager des preuves.\n\nElle demandera l\'accès à la caméra, au microphone et à la galerie pour ce faire.';
+      'InstaSOS peut également recueillir et partager des preuves.\n\nPour ce faire, l\'accès à la caméra, au microphone et à la galerie sera requis.';
 
   @override
   String get hsPermissionsAlways =>
-      'Veuillez définir la localisation pour autoriser toujours.\nElle ne sera utilisée que lorsque SOS est actif.';
+      'Veuillez définir la localisation sur \"Toujours autoriser\". Elle ne sera utilisée que lorsque le SOS est actif.';
 
   @override
   String get hsBroadcastTutorial =>
-      'Activez SOS pour envoyer automatiquement des messages à vos contacts d\'urgence.\n\nSi SOS a accès à votre position, celle-ci sera incluse dans les messages.\n\nLes messages continueront même si le téléphone est verrouillé.\n\nDésactivez SOS ou fermez complètement l\'application pour arrêter les messages.';
+      'Activez le SOS pour envoyer automatiquement des SMS à vos contacts d\'urgence.\n\nSi InstaSOS a accès à votre localisation, celle-ci sera incluse dans les SMS.\n\nLes SMS continueront d\'être envoyés même lorsque le téléphone est verrouillé.\n\nDésactivez le SOS ou fermez complètement l\'application pour arrêter les SMS.';
 
   @override
   String get hsIOSBroadcastTutorial =>
-      'Activez SOS pour envoyer automatiquement des messages à vos contacts d\'urgence.\n\nSi SOS a accès à votre position, celle-ci sera incluse dans les messages.';
+      'Activez le SOS pour envoyer automatiquement des SMS à vos contacts d\'urgence.\n\nSi InstaSOS a accès à votre localisation, celle-ci sera incluse dans les SMS.';
 
   @override
   String get hsSettingsTutorial =>
-      'Vous pouvez...\n\n- Ajouter d\'autres contacts d\'urgence\n- Configurer le SOS automatique\n- Changer la langue de l\'application, et\n- Modifier l\'apparence de l\'application\n\ndans les paramètres.\n\nMaintenez le bouton des paramètres pour envoyer des commentaires sur l\'application.';
+      'Vous pouvez…\n\n- Ajouter d\'autres contacts d\'urgence\n- Configurer le SOS automatique\n- Modifier la langue de l\'application\n- Mettre à jour l\'apparence de l\'application\n\ndans les paramètres.\n\nMaintenez le bouton Paramètres enfoncé pour partager votre retour sur l\'application.';
 
   @override
   String get hsVideoTutorial =>
-      'Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s\'activera automatiquement.\n\nAppui long le centre de l\'aperçu pour afficher une liste de vos droits.';
+      'Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, le SOS s\'active automatiquement.\n\nAppuyez longuement au centre de l\'écran pour afficher la liste de vos droits.';
 
   @override
   String get hsIOSVideoTutorial =>
-      'Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nAppui long le centre de l\'aperçu pour afficher une liste de vos droits.';
+      'Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nAppuyez longuement au centre de l\'écran pour afficher la liste de vos droits.';
 
   @override
   String get hsRightsTutorial =>
-      'Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, SOS s\'activera automatiquement.\n\nTouchez le marteau ou appui long le centre de l\'écran pour voir une liste de vos droits.';
+      'Si vous activez l\'appareil photo et prenez une photo ou enregistrez une vidéo, vous pourrez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, le SOS s\'active automatiquement.\n\nAppuyez sur le marteau ou appuyez longuement au centre de l\'écran pour afficher la liste de vos droits.';
 
   @override
   String get hsIOSRightsTutorial =>
-      'Si vous activez la caméra et prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nTouchez le marteau ou appui long le centre de l\'écran pour voir une liste de vos droits.';
+      'Si vous activez l\'appareil photo et prenez une photo ou enregistrez une vidéo, vous pourrez la partager immédiatement.\n\nAppuyez sur le marteau ou appuyez longuement au centre de l\'écran pour afficher la liste de vos droits.';
 
   @override
   String get hsNeedContacts =>
-      'SOS a besoin d\'accéder à vos contacts pour fonctionner correctement.';
+      'InstaSOS a besoin d\'accéder à vos contacts pour fonctionner correctement.';
 
   @override
   String get hsNoNumber => 'Le contact doit avoir un numéro de téléphone.';
@@ -126,13 +127,13 @@ class LangFr extends Lang {
   String get rsSharedHeader => 'Vous avez le droit de...';
 
   @override
-  String get rsOnFoot => 'À pied';
+  String get rsOnFoot => 'Piéton';
 
   @override
-  String get rsWhileDriving => 'En voiture';
+  String get rsWhileDriving => 'Conducteur';
 
   @override
-  String get rsAtHome => 'À la maison';
+  String get rsAtHome => 'Au domicile';
 
   @override
   String get rsSharedRemainSilent =>
@@ -140,34 +141,34 @@ class LangFr extends Lang {
 
   @override
   String get rsSharedDocument =>
-      'Tout documenter. Vous avez le droit de prendre des photos, d\'enregistrer des vidéos et de l\'audio.';
+      'Documenter tout. Vous avez le droit de prendre des photos, d\'enregistrer des vidéos et de faire des enregistrements audio.';
 
   @override
   String get rsWalkPockets =>
-      'Refuser une fouille de vos poches. L\'ICE peut effectuer une palpation, mais pas une fouille.';
+      'Refuser la fouille de vos poches. L\'ICE peut procéder à une palpation, mais pas à une fouille.';
 
   @override
   String get rsWalkLeave =>
       'Partir si vous n\'êtes pas en état d\'arrestation.';
 
   @override
-  String get rsDriveSearch => 'Refuser une fouille de votre voiture.';
+  String get rsDriveSearch => 'Refuser la fouille de votre véhicule.';
 
   @override
   String get rsDrivePockets =>
-      'Refuser une fouille de vos poches. L\'ICE peut effectuer une palpation, mais pas une fouille.';
+      'Refuser la fouille de vos poches. L\'ICE peut procéder à une palpation, mais pas à une fouille.';
 
   @override
   String get rsDriveID =>
-      'Refuser de fournir une pièce d\'identité en tant que passager. Seul le conducteur est tenu de le faire.';
+      'Refuser de présenter une pièce d\'identité en tant que passager. Seul le conducteur est tenu de présenter une pièce d\'identité.';
 
   @override
   String get rsDriveQuestion =>
-      'Poser des questions. Découvrez pourquoi vous êtes arrêté.';
+      'Poser des questions. Comprenez pourquoi vous avez été arrêté.';
 
   @override
   String get rsDriveWarrant =>
-      'Demandez si les agents ont un mandat. Vous avez le droit de le voir s\'ils en ont un. Si un « mandat » n\'est pas signé par un juge, il n\'est pas valide.';
+      'Demander aux agents s\'ils ont un mandat. Vous avez le droit de le voir s\'ils en ont un. Si un \"mandat\" n\'est pas signé par un juge, il n\'est pas valide.';
 
   @override
   String get rsDriveLeave =>
@@ -175,28 +176,28 @@ class LangFr extends Lang {
 
   @override
   String get rsHomeWarrant =>
-      'Gardez la porte fermée. S\'ils ont un mandat, demandez-leur de le glisser sous la porte. Si un « mandat » n\'est pas signé par un juge, il n\'est pas valide. Gardez la porte fermée.';
+      'Garder votre porte fermée. S\'ils ont un mandat, demandez-leur de le glisser sous la porte. Si un \"mandat\" n\'est pas signé par un juge, il n\'est pas valide. Gardez votre porte fermée.';
 
   @override
   String get rsSharedFingerprint =>
-      'Refuser que l\'ICE prenne vos empreintes digitales, sauf si vous êtes en état d\'arrestation.';
+      'Refuser de vous soumettre à un relevé d\'empreintes digitales par l\'ICE, sauf si vous êtes en état d\'arrestation.';
 
   @override
   String get rsSharedLawyer =>
-      'Consulter un avocat. Si vous avez été formellement arrêté, vous avez droit à un avocat commis d\'office.';
+      'Consulter un avocat. Si vous avez été officiellement arrêté, vous avez droit à un avocat commis d\'office.';
 
   @override
-  String get ssSOSOnOpen => 'SOS auto à l\'ouverture';
+  String get ssSOSOnOpen => 'SOS à l\'ouverture';
 
   @override
-  String get ssSOSOnClose => 'SOS auto à la fermeture';
+  String get ssSOSOnClose => 'SOS à la fermeture';
 
   @override
   String get ssSOSOnCloseHint =>
-      'Lorsqu\'il est activé, un bouton de fermeture sécurisée apparaîtra en face des paramètres.';
+      'Lorsqu\'il est activé, un bouton de fermeture sécurisée s\'affiche en face des paramètres.';
 
   @override
-  String get ssVideoSOS => 'SOS auto si l\'enregistrement est interrompu';
+  String get ssVideoSOS => 'SOS en cas d\'enregistrement interrompu';
 
   @override
   String get ssEMC => 'Contacts d\'urgence';

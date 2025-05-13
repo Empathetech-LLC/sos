@@ -29,7 +29,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   static const EzSeparator separator = EzSeparator();
 
   late final Lang l10n = Lang.of(context)!;
-  late final EFUILang el10n = EFUILang.of(context)!;
+  late final EFUILang el10n = ezL10n(context);
 
   // Define the build data //
 
@@ -76,7 +76,10 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             separator,
 
             // Language
-            const EzLocaleSetting(),
+            const EzLocaleSetting(
+              locales: Lang.supportedLocales,
+              skip: <Locale>[arabic, english],
+            ),
             separator,
 
             // SOS

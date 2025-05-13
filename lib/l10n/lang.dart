@@ -4,9 +4,11 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'lang_ar.dart' deferred as lang_ar;
 import 'lang_en.dart' deferred as lang_en;
 import 'lang_es.dart' deferred as lang_es;
 import 'lang_fr.dart' deferred as lang_fr;
+import 'lang_ht.dart' deferred as lang_ht;
 
 // ignore_for_file: type=lint
 
@@ -93,9 +95,13 @@ abstract class Lang {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
+    Locale('ar'),
+    Locale('ar', 'EG'),
     Locale('en'),
+    Locale('en', 'US'),
     Locale('es'),
-    Locale('fr')
+    Locale('fr'),
+    Locale('ht')
   ];
 
   /// No description provided for @gOk.
@@ -457,21 +463,49 @@ class _LangDelegate extends LocalizationsDelegate<Lang> {
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['en', 'es', 'fr'].contains(locale.languageCode);
+      <String>['ar', 'en', 'es', 'fr', 'ht'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_LangDelegate old) => false;
 }
 
 Future<Lang> lookupLang(Locale locale) {
+  // Lookup logic when language+country codes are specified.
+  switch (locale.languageCode) {
+    case 'ar':
+      {
+        switch (locale.countryCode) {
+          case 'EG':
+            return lang_ar
+                .loadLibrary()
+                .then((dynamic _) => lang_ar.LangArEg());
+        }
+        break;
+      }
+    case 'en':
+      {
+        switch (locale.countryCode) {
+          case 'US':
+            return lang_en
+                .loadLibrary()
+                .then((dynamic _) => lang_en.LangEnUs());
+        }
+        break;
+      }
+  }
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'ar':
+      return lang_ar.loadLibrary().then((dynamic _) => lang_ar.LangAr());
     case 'en':
       return lang_en.loadLibrary().then((dynamic _) => lang_en.LangEn());
     case 'es':
       return lang_es.loadLibrary().then((dynamic _) => lang_es.LangEs());
     case 'fr':
       return lang_fr.loadLibrary().then((dynamic _) => lang_fr.LangFr());
+    case 'ht':
+      return lang_ht.loadLibrary().then((dynamic _) => lang_ht.LangHt());
   }
 
   throw FlutterError(
