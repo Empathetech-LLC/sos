@@ -5,92 +5,100 @@
 [![fr](https://img.shields.io/badge/lang-fr-white.svg)](https://github.com/Empathetech-LLC/empathetech_flutter_ui/blob/main/localized_readme/README.fr.md)
 [![ht](https://img.shields.io/badge/lang-ht-blue.svg)](https://github.com/Empathetech-LLC/empathetech_flutter_ui/blob/main/localized_readme/README.ht.md)
 
-<br>Hopefully unnecessary. Translations coming soon.
+<br>Una cámara, una señal de SOS y una lista con tus derechos, todo en uno.
 
-## <br>Table of Contents
+InstaSOS comparte tu estado con tus contactos de emergencia durante una crisis.
 
-* [Using](#using)
-* [Contributing](#contributing)
-* [License](#license)
+Te permite grabar evidencias y te informa de tus derechos cuando tengas que lidiar con agentes de policía o de inmigración.
 
-# <br>Using
+InstaSOS no tiene cuentas, cookies, anuncios, ni pagos.
 
-As civilians, our first line of defense is our cameras.<br>So, at its core, InstaSOS is a camera.
+Seguridad ante todo.
 
-<img src="../assets/images/readme/screenshot-1-camera.png" alt="Screenshot of the InstaSOS home screen" width="250"/>
+## <br>Tabla de contenido
 
-<br>When you long press the center of the screen, the app shows (or hides) a list of your rights.
+* [Uso](#uso)
+* [Contribuir](#contribuir)
+* [Licencia](#licencia)
 
-| While walking | While driving | While at home |
+# <br>Uso
+
+Como ciudadanos, nuestra primera línea de defensa son nuestras cámaras.<br>Así que en esencia, InstaSOS es una cámara.
+
+<img src="../assets/images/readme/screenshot-1-camera.png" alt="Captura de inicio de InstaSOS" width="250"/>
+
+<br>Al mantener pulsado el centro de la pantalla, la aplicación muestra (u oculta) una lista con tus derechos.
+
+| A pie | Al volante | En casa |
 |:-------------:|:-------------:|:-------------:|
-| <img src="../assets/images/readme/screenshot-2-walking.png" alt="Screenshot of the walking rights view" width="250"/> | <img src="../assets/images/readme/screenshot-3-driving.png" alt="Screenshot of the driving rights view" width="250"/> | <img src="../assets/images/readme/screenshot-4-at-home.png" alt="Screenshot of the at home rights view" width="250"/> |
+| <img src="../assets/images/readme/screenshot-2-walking.png" alt="Captura de la vista de derechos como peatón" width="250"/> | <img src="../assets/images/readme/screenshot-3-driving.png" alt="Captura de la vista de derechos conductor" width="250"/> | <img src="../assets/images/readme/screenshot-4-at-home.png" alt="Captura de la vista de derechos en tu hogar" width="250"/> |
 
-<br>The crucial feature of InstaSOS, is the SOS button.<br>Activate it to send your location to your emergency contacts.<br>Emergency contacts are decided by you, the first time you open the app. 
+<br>La característica más importante de InstaSOS es el botón de SOS.<br>Actívalo para enviar tu ubicación a tus contactos de emergencia.<br>Los contactos de emergencia los decides tú la primera vez que abres la aplicación. 
 
-<img src="../assets/images/readme/screenshot-5-ios-message.png" alt="Screenshot of an iOS SOS message example" width="250"/>
+<img src="../assets/images/readme/screenshot-5-ios-message.png" alt="Captura de un ejemplo de mensaje SOS en iOS" width="250"/>
 
-<br>On iOS, the messages are automated.<br>Every 5 minutes, a message with your current location will be created (like the image above).<br>You will have to hit the send button yourself. You are also free to cancel.<br>This process is done without leaving the app, and does **not** interrupt video recordings.
+<br>En iOS, los mensajes son automáticos. Cada 5 minutos se creará un mensaje con tu ubicación actual (como en la imagen de arriba).<br>Tendrás que pulsar el botón de enviar manualmente. También puedes cancelarlo.<br>Este proceso se realiza sin salir de la aplicación, y **no** interrumpe las grabaciones de vídeo.
 
-On Android, the messages are fully automatic.<br>Every 5 minutes, a message with your currently location will be sent, and you can focus on the task at hand.
+En Android, los SMS son totalmente automáticos.<br>Cada 5 minutos se enviará un mensaje con tu ubicación actual, y podrás centrarte en lo que estés haciendo.
 
-Because they're automatic, Android SOS's can even be sent in the background.<br>"In the background" being when the app is minimized, if you've switched to another app, or locked the phone.<br>While in the background, SOS messages will be sent every 15 minutes.
+Como son automáticos, los SOS de Android pueden enviarse incluso en segundo plano.<br>«En segundo plano» es cuando la aplicación está minimizada, si has cambiado a otra aplicación o bloqueado el teléfono.<br>Mientras estén en segundo plano, los mensajes SOS se enviarán cada 15 minutos.
 
-The benefits of automatic messages don't stop there.<br>On Android, you can enable "SOS on close" and "SOS on interrupted recording".
+Las ventajas de los mensajes automáticos no acaban aquí.<br>En Android, puedes activar «SOS al cerrar» y «SOS al interrumpir la grabación».
 
-<img src="../assets/images/readme/screenshot-6-android-options.png" alt="Screenshot of the custom Android options" width="250"/>
+<img src="../assets/images/readme/screenshot-6-android-options.png" alt="Captura de las opciones personalizadas de Android" width="250"/>
 
-<br>While "SOS on close" is enabled, there will be a safe exit (thumbs up) button on the home screen.<br>If the app goes to the background for any reason except the safe close button, an SOS broadcast will start automatically.
+<br>Mientras «SOS al cerrar» esté activado, habrá un botón de salida segura (pulgar hacia arriba) en la pantalla de inicio.<br>Si la aplicación pasa a segundo plano por cualquier motivo excepto por el botón de cierre seguro, se iniciará automáticamente una emisión de SOS.
 
-| Reminder | New home |
+| Recordatorio | Pantalla de inicio |
 |:-------------:|:-------------:|
-| <img src="../assets/images/readme/screenshot-7-safe-close-message.png" alt="Screenshot of the SOS on close disclaimer" width="250"/> | <img src="../assets/images/readme/screenshot-8-safe-close-button.png" alt="Screenshot of the home screen with a safe close button" width="250"/> |
+| <img src="../assets/images/readme/screenshot-7-safe-close-message.png" alt="Captura de la advertencia de SOS al cerrar" width="250"/> | <img src="../assets/images/readme/screenshot-8-safe-close-button.png" alt="Captura de la pantalla de inicio con el botón de cierre seguro" width="250"/> |
 
-<br>"SOS on interrupted recoding" is enabled by default.<br>If you're recording a video, and it gets interrupted, a background broadcast will start automatically.
+<br>La función de «SOS al interrumpir la grabación» está activada por defecto.<br>Si estás grabando un vídeo y se interrumpe, se iniciará automáticamente una transmisión en segundo plano.
 
-"SOS on open" is available on both platforms.<br>While enabled, a broadcast will start as soon as the app opens.
+«SOS al abrir» está disponible en ambas plataformas.<br>Mientras esté activada, se iniciará una transmisión en cuanto se abra la aplicación.
 
-On both platforms, press the SOS button again to stop the broadcast.<br>While broadcasting, the button's icon will be a ringing bell, like the app icon.<br>Fully closing the app will also stop the broadcast.
+En ambas plataformas, pulsa de nuevo el botón de SOS para detener la transmisión.<br>Mientras se esté transmitiendo, el icono del botón será una campana sonando, como el icono de la app.<br>Cerrar por completo la app también detendrá la transmisión.
 
-## <br>Notes
+## <br>Notas
 
-### Location
+### Ubicación
 
-Your location data is taken from the device GPS, and pasted into a maps link.<br>[location code](lib/utils/location.dart) excerpt:
+Los datos de tu ubicación se toman del GPS del dispositivo y se convierten a un enlace de Google Maps.<br>Extracto de [código de ubicación](lib/utils/location.dart) excerpt:
 ```Dart
 final Position pos = await Geolocator.getCurrentPosition();
 return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.longitude.toStringAsFixed(4)}';
 ```
 
-### <br>Platform differences
+### <br>Diferencias entre plataformas
 
-The texting differences are due to Apple's policies.<br>They do not allow text automation, at all. They don't even have an appeal process for emergency apps.<br>Pretty hypocritical coming from a company whose marketing often implies that we aren't safe without their products, IMO.
+Las diferencias en los SMS se deben a las normas de Apple.<br>No permiten la automatización de SMS bajo ningún concepto. Ni siquiera tienen un proceso de apelación para las aplicaciones de emergencia.<br>Bastante hipócrita por parte de una empresa cuyo marketing a menudo implica que no estamos protegidos sin sus productos, pero bueno.
 
-#### <br>Timing
+#### <br>Temporización
 
-Why are broadcasts every 5 minutes in the foreground, but every 15 in the background?
+¿Por qué se transmite cada 5 minutos en primer plano, pero cada 15 en segundo plano?
 
-Android limits the frequency of background tasks to save battery life (and lots of other reasons). Fifteen minutes is the max frequency.<br>But, the same limitations don't apply when the app is open.
+Android limita la frecuencia de las tareas en segundo plano para ahorrar batería (y muchas otras razones). Quince minutos es la frecuencia máxima.<br>Estas limitaciones no se aplican cuando la aplicación está abierta.
 
-# <br>Contributing
+# <br>Contribuir
 
-## Time
+## Tiempo
 
-Please reach out to the [community](mailto:community@empathetech.net?subject=Becoming%20a%20contributor) contact about becoming a contributor. There's never a shortage of ideas, only time!
+Ponte en contacto con la [comunidad](mailto:community@empathetech.net?subject=Becoming%20a%20contributor) para colaborar. ¡Nunca faltan ideas, solo tiempo!
 
-### <br>Translations
+### <br>Traducciones
 
-If you speak English and a currently unsupported language, please reach out! The more the merrier.
+Si hablas inglés y un idioma no disponible en la aplicación, ¡no dudes en ponerte en contacto con nosotros! Cuantos más seamos, mejor.
 
-OR: If you speak English and a currently supported language, and see something wrong, please reach out! It takes a village.
+O bien: si hablas inglés y un idioma disponible en la aplicación y ves algo está mal, ¡háznoslo saber! Sería una gran ayuda.
 
-## <br>Money
+## <br>Donaciones
 
-Empathetech makes free and open source software as a public service. Please consider donating so the work can continue. 
+Empathetech hace software gratuito y de código abierto como un servicio público. Por favor, considera hacer una donación para apoyar nuestro trabajo. 
 
 &nbsp;&nbsp;&nbsp;[GoFundMe](https://gofund.me/c047d07e)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Patreon](https://patreon.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Buy Me a Coffee](https://www.buymeacoffee.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Ko-fi](https://ko-fi.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[PayPal](https://www.paypal.com/donate/?hosted_button_id=NGEL6AB5A6KNL)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Venmo](https://venmo.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Cash App](https://cash.app/$empathetech)
 
-<br> Many thanks for any and all contributions!
+<br> ¡Muchas gracias por las donaciones, grandes y pequeñas!
 
-# <br>License
+# <br>Licencia
 
 [GNU GPLv3](./LICENSE)
