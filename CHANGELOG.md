@@ -2,12 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.2.0] - 2025-05-??
+## [1.2.0] - 2025-05-13
 ### Updated
 - Localizations
-  - Spanish and French are now human verified
-  - Added Creole and Arabic (Egyptian)
-    - With human intelligence
+  - Arabic, Spanish, French, Haitian Creole
+    - All human verified
 
 ## [1.1.1] - 2025-04-22
 ### Fixed
