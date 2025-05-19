@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.1] - 2025-05-??
+### Updated
+- Camera state management
+  - Resolves iOS bug where the camera might not be recognized as authentic
+    - If you experience(d) this issue, it is temporary. Opening/closing the default camera should resolve it.
+      - Another example of Apple being alarmist to scare it's users into a submissive state
+
 ## [1.2.0] - 2025-05-13
 ### Updated
 - Localizations
