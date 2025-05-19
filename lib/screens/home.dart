@@ -707,9 +707,11 @@ class _HomeScreenState extends State<HomeScreen>
   void didChangeAppLifecycleState(AppLifecycleState state) async {
     switch (state) {
       case AppLifecycleState.detached:
+      case AppLifecycleState.paused:
+        break; // Do nothing
+
       case AppLifecycleState.inactive:
         camera?.dispose();
-      case AppLifecycleState.paused:
         break;
 
       case AppLifecycleState.hidden:
@@ -774,6 +776,7 @@ class _HomeScreenState extends State<HomeScreen>
               if (mounted) ezLogAlert(context, message: e.toString());
             }
           }
+          setState(() {});
         }
 
         // Check SOS state
