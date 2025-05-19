@@ -88,6 +88,7 @@ class _HomeScreenState extends State<HomeScreen>
       OverlayPortalController(debugLabel: 'record');
 
   // Camera
+  CameraDescription? cameraDesc;
   CameraController? camera;
 
   bool recording = false;
@@ -110,9 +111,10 @@ class _HomeScreenState extends State<HomeScreen>
     await Permission.microphone.request();
 
     final List<CameraDescription> cameras = await availableCameras();
-    camera = CameraController(cameras.first, ResolutionPreset.max);
+    cameraDesc = cameras.first;
 
     try {
+      camera = CameraController(cameraDesc!, ResolutionPreset.max);
       await camera!.initialize();
       return true;
     } catch (e) {
@@ -240,7 +242,7 @@ class _HomeScreenState extends State<HomeScreen>
     } else {
       await initCamera();
     }
-    setState(() => canRunBackground = Platform.isAndroid);
+    if (mounted) setState(() => canRunBackground = Platform.isAndroid);
 
     // Run the tutorial (if unfinished)
     if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
@@ -705,8 +707,12 @@ class _HomeScreenState extends State<HomeScreen>
   void didChangeAppLifecycleState(AppLifecycleState state) async {
     switch (state) {
       case AppLifecycleState.detached:
-      case AppLifecycleState.inactive:
       case AppLifecycleState.paused:
+        break; // Do nothing
+
+      case AppLifecycleState.inactive:
+        camera?.dispose();
+        camera = null;
         break;
 
       case AppLifecycleState.hidden:
@@ -761,6 +767,20 @@ class _HomeScreenState extends State<HomeScreen>
         break;
 
       case AppLifecycleState.resumed:
+        // Restore camera
+        if (cameraDesc != null) {
+          try {
+            camera = CameraController(cameraDesc!, ResolutionPreset.max);
+            await camera!.initialize();
+          } catch (e) {
+            if (e is! CameraException || e.code != 'CameraAccessDenied') {
+              if (mounted) ezLogAlert(context, message: e.toString());
+            }
+          }
+          if (mounted) setState(() {});
+        }
+
+        // Check SOS state
         if (EzConfig.get(taskRunningKey) == true) {
           await stopBackgroundSOS();
           await startForegroundSOS();
