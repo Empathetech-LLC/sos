@@ -242,7 +242,7 @@ class _HomeScreenState extends State<HomeScreen>
     } else {
       await initCamera();
     }
-    setState(() => canRunBackground = Platform.isAndroid);
+    if (mounted) setState(() => canRunBackground = Platform.isAndroid);
 
     // Run the tutorial (if unfinished)
     if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
@@ -712,6 +712,7 @@ class _HomeScreenState extends State<HomeScreen>
 
       case AppLifecycleState.inactive:
         camera?.dispose();
+        camera = null;
         break;
 
       case AppLifecycleState.hidden:
@@ -776,7 +777,7 @@ class _HomeScreenState extends State<HomeScreen>
               if (mounted) ezLogAlert(context, message: e.toString());
             }
           }
-          setState(() {});
+          if (mounted) setState(() {});
         }
 
         // Check SOS state
