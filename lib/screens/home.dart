@@ -88,6 +88,7 @@ class _HomeScreenState extends State<HomeScreen>
       OverlayPortalController(debugLabel: 'record');
 
   // Camera
+  CameraDescription? cameraDesc;
   CameraController? camera;
 
   bool recording = false;
@@ -110,9 +111,10 @@ class _HomeScreenState extends State<HomeScreen>
     await Permission.microphone.request();
 
     final List<CameraDescription> cameras = await availableCameras();
-    camera = CameraController(cameras.first, ResolutionPreset.max);
+    cameraDesc = cameras.first;
 
     try {
+      camera = CameraController(cameraDesc!, ResolutionPreset.max);
       await camera!.initialize();
       return true;
     } catch (e) {
@@ -706,6 +708,7 @@ class _HomeScreenState extends State<HomeScreen>
     switch (state) {
       case AppLifecycleState.detached:
       case AppLifecycleState.inactive:
+        camera?.dispose();
       case AppLifecycleState.paused:
         break;
 
@@ -761,6 +764,19 @@ class _HomeScreenState extends State<HomeScreen>
         break;
 
       case AppLifecycleState.resumed:
+        // Restore camera
+        if (cameraDesc != null) {
+          try {
+            camera = CameraController(cameraDesc!, ResolutionPreset.max);
+            await camera!.initialize();
+          } catch (e) {
+            if (e is! CameraException || e.code != 'CameraAccessDenied') {
+              if (mounted) ezLogAlert(context, message: e.toString());
+            }
+          }
+        }
+
+        // Check SOS state
         if (EzConfig.get(taskRunningKey) == true) {
           await stopBackgroundSOS();
           await startForegroundSOS();
