@@ -1,0 +1,85 @@
+{
+  "@@locale": "fil",
+
+  
+  
+  "gOk": "Ok",
+
+  "sosLastKnown": "Huling napag-alamang lokasyon",
+  "sosNeedSMS": "Kailangan ng SOS ang pahintulot sa SMS para gumana nang maayos.",
+  "sosDisabled": "Hindi ma-access ang lokasyon (disabled)",
+  "sosDenied": "Hindi ma-access ang lokasyon (denied)",
+  "sosError": "Hindi ma-access ang lokasyon (error)",
+
+
+
+  "hsStartSOS": "I-activate para simulan ang SOS broadcast.",
+  "hsEndSOS": "Nagbo-broadcast ang SOS. I-activate para ihinto.",
+  "hsSafeCloseHint": "Clear na lahat. Isara ang app nang walang SOS.",
+
+  "hsCameraHint": "Kunan ng larawan.",
+  "hsPreviewHint": "Pindutin nang matagal para ipakita ang iyong mga karapatan.",
+  "hsShowRights": "Ipakita ang iyong mga karapatan.",
+  "hsHideRights": "Ihide ang iyong mga karapatan.",
+  "hsStartRecord": "Magsimulang mag-record ng video.",
+  "hsEndRecord": "Itigil ang pagre-record.",
+  "hsFlashOff": "Naka-off ang flash. I-activate para i-auto flash.",
+  "hsFlashAuto": "Auto flash. I-activate para i-on ang flash.",
+  "hsFlashOn": "Naka-on ang flash. I-activate para i-off.",
+  "hsFlashTorch": "Torch mode. I-activate para i-off ang flash.",
+
+  "hsWelcome": "Welcome sa InstaSOS",
+  "hsAppTutorial": "Ibinabahagi nito ang iyong status sa mga emergency contact sa oras ng krisis.\n\nPumili ng isang emergency contact.\nIsa lang muna ngayon, maaari kang magdagdag mamaya.",
+  "hsPermissionsTutorialTitle": "Kung nais mo",
+  "hsPermissionsTutorial": "Maaaring mangolekta at magbahagi ng ebidensya ang InstaSOS.\n\nHihingi ito ng access sa camera, mikropono, at gallery.",
+  "hsPermissionsAlways": "Itakda ang lokasyon sa 'laging payagan'.\nGagamitin lamang ito habang aktibo ang SOS.",
+  "hsBroadcastTutorial": "I-activate ang SOS para awtomatikong mag-tetext sa iyong mga emergency contact.\n\nKung may access ang InstaSOS sa iyong lokasyon, isasama ito sa mga text.\n\nMagpapatuloy ang mga text kahit naka-lock ang telepono.\n\nI-deactivate ang SOS o isara ang app para ihinto ang mga text.",
+  "hsIOSBroadcastTutorial": "I-activate ang SOS para awtomatikong mag-text sa iyong mga emergency contact.\n\nKung may access ang InstaSOS sa iyong lokasyon, isasama ito sa mga text.",
+  "hsSettingsTutorial": "Maaari kang...\n\n- Magdagdag ng mas maraming emergency contact\n- I-setup ang automatic SOS\n- Palitan ang wika ng app, at\n- I-update ang hitsura ng app\n\nsa settings.\n\nPindutin nang matagal ang settings button para magbigay ng feedback para sa app.",
+  "hsVideoTutorial": "Kapag kumukuha ka ng larawan o nag-rerecord ng video, maaari mo itong ibahagi agad.\n\nBy default, kung maputol ang recording, awtomatikong maa-activate ang SOS.\n\nPindutin nang matagal ang gitnang preview para ipakita ang listahan ng iyong mga karapatan.",
+  "hsIOSVideoTutorial": "Kapag kumukuha ka ng larawan o nag-rerecord ng video, maaari mo itong ibahagi agad.\n\nPindutin nang matagal ang gitnang preview para ipakita ang listahan ng iyong mga karapatan.",
+  "hsRightsTutorial": "Kung pinapagana ang camera at kumukuha ng larawan o nag-rerecord ng video, maaari mo itong ibahagi agad.\n\nBy default, kung maputol ang recording, awtomatikong maa-activate ang SOS.\n\nPindutin ang malyeteng icon o pindutin nang matagal ang gitna ng screen para ipakita ang listahan ng iyong mga karapatan.",
+  "hsIOSRightsTutorial": "Kung pinapagana ang camera at kumukuha ng larawan o nag-rerecord ng video, maaari mo itong ibahagi agad.\n\nPindutin ang malyeteng icon o pindutin nang matagal ang gitna ng screen para ipakita ang listahan ng iyong mga karapatan.",
+  
+  "hsNeedContacts": "Kailangan ng InstaSOS ang access sa iyong mga contact para gumana nang maayos.",
+  "hsNoNumber": "Dapat may numero ang contact.",
+
+
+
+  "rsSharedHeader": "May karapatan kang...",
+
+  "rsOnFoot": "Habang naglalakad",
+  "rsWhileDriving": "Habang nagmamaneho",
+  "rsAtHome": "Habang nasa bahay",
+  
+  "rsSharedRemainSilent": "Manahimik. Huwag magsinungaling, pero hindi mo kailangang sumagot sa mga tanong.",
+  "rsSharedDocument": "I-dokumento ang lahat. May karapatan kang kumuha ng larawan, mag-record ng video, at mag-record ng audio.",
+
+  "rsWalkPockets": "Tumangging ipasuri ang iyong bulsa. Puwedeng kapkapan ka ng ICE, pero hindi puwedeng maghalughog.",
+  "rsWalkLeave": "Umalis kung hindi ka inaaresto.",
+
+  "rsDriveSearch": "Tumangging ipasuri ang iyong sasakyan.",
+  "rsDrivePockets": "Tumangging ipasuri ang iyong bulsa. Puwedeng kapkapan ka ng ICE, pero hindi puwedeng maghalughog.",
+  "rsDriveID": "Tumangging magbigay ng ID bilang pasahero. Tanging driver lang ang kailangang magbigay ng ID.",
+  "rsDriveQuestion": "Magtanong. Alamin kung bakit ka pinahinto.",
+  "rsDriveWarrant": "Magtanong kung may warrant ang mga opisyal. May karapatan kang makita ito. Kung walang pirma ng hukom, wala itong bisa.",
+  "rsDriveLeave": "Umalis kung hindi ka inaaresto.",
+  
+  "rsHomeWarrant": "Panatilihing nakasara ang pinto. Kung may warrant, hilingin na ipasok ito sa ilalim ng pinto. Kung walang pirma ng hukom, wala itong bisa. Panatilihing nakasara ang pinto.",
+
+  "rsSharedFingerprint": "Tumangging magpa-fingerprint sa ICE maliban kung inaaresto ka.",
+  "rsSharedLawyer": "Kumonsulta sa abogado. Kung pormal kang naaresto, may karapatan kang bigyan ng abogado ng korte.",
+
+
+  
+  "ssSOSOnOpen": "SOS sa pagbukas",
+  "ssSOSOnClose": "SOS sa pagsara",
+  "ssSOSOnCloseHint": "Kapag naka-enable, makikita ang safe close button sa tapat ng settings.",
+  "ssVideoSOS": "SOS sa naputol na recording",
+
+  "ssEMC": "Mga emergency contact",
+  "ssRemoveHint": "Tanggalin ang contact",
+  "ssAddHint": "Magdagdag ng isa pang contact",
+
+  "ssAppearance": "Hitsura"
+}
