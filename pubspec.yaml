@@ -29,15 +29,15 @@ dependencies:
   feedback: ^3.1.0
   flutter_contacts: ^1.1.9+2
   flutter_localized_locales: ^2.0.5
-  flutter_platform_widgets: ^8.0.0
+  flutter_platform_widgets: ^9.0.0
   gal: ^2.3.1
-  geolocator: ^14.0.0
+  geolocator: ^14.0.1
   share_plus: ^11.0.0
 
 dev_dependencies:
   dependency_validator: ^5.0.2
   flutter_launcher_icons: ^0.14.3
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   flutter_native_splash: ^2.4.6
   flutter_test:
     sdk: flutter
