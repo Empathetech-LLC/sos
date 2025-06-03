@@ -73,7 +73,7 @@
         "zh" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS 需要访问您的相机，以便将照片/视频分享给紧急联系人。"
           }
         }
       }
@@ -126,7 +126,7 @@
         "zh" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS 需要保存您的紧急联系人信息。"
           }
         }
       }
@@ -179,7 +179,7 @@
         "zh" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。"
           }
         }
       }
@@ -232,7 +232,7 @@
         "zh" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。"
           }
         }
       }
@@ -285,7 +285,7 @@
         "zh" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。"
           }
         }
       }
@@ -338,7 +338,7 @@
         "zh" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。"
           }
         }
       }
@@ -391,7 +391,7 @@
         "zh" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS 需要访问您的麦克风，以便录制带音频的视频。"
           }
         }
       }
@@ -444,7 +444,7 @@
         "zh" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "InstaSOS 需要访问您的照片库，以便保存照片/视频。"
           }
         }
       }
