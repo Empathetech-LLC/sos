@@ -8,17 +8,17 @@
 [![pt](https://img.shields.io/badge/lang-pt-green.svg)](https://github.com/Empathetech-LLC/sos/blob/main/localized_readme/README.pt.md)
 [![zh](https://img.shields.io/badge/lang-zh-red.svg)](https://github.com/Empathetech-LLC/sos/blob/main/localized_readme/README.zh.md)
 
-<br>A camera, SOS beacon, and list of your rights all in one place.
+<br>一款集成了相机、SOS 求救信号和权利清单的多功能工具。
 
-InstaSOS shares your status with emergency contacts in a moment of crisis.
+InstaSOS 可在危机时刻将您的状况即时分享给紧急联系人。
 
-It enables you to record evidence, and keeps you informed of your rights when dealing with law/immigration enforcement.
+它帮助您记录证据，并在面对执法或移民机关时提醒你应有的权利。
 
-InstaSOS has no accounts, cookies, ads, or payments.
+InstaSOS 无需注册账号、不使用 cookies、无广告、无任何付费项目。
 
-Stay safe out there.
+请务必注意安全。
 
-## <br>Table of Contents
+## <br>内容表
 
 * [Using](#using)
 * [Contributing](#contributing)
@@ -26,81 +26,81 @@ Stay safe out there.
 
 # <br>Using
 
-As civilians, our first line of defense is our cameras.<br>So, at its core, InstaSOS is a camera.
+作为普通群众，我们的第一道防线就是我们的相机。<br>所以，从本质上说，InstaSOS 就是一台相机。
 
 <img src="assets/images/readme/screenshot-1-camera.png" alt="Screenshot of the InstaSOS home screen" width="250"/>
 
-<br>When you long press the center of the screen, the app shows (or hides) a list of your rights.
+<br>当您长按屏幕中央时，应用会显示（或隐藏）您的权利清单。
 
-| While walking | While driving | While at home |
+| 行走时 | 驾驶时 | 在家时 |
 |:-------------:|:-------------:|:-------------:|
-| <img src="assets/images/readme/screenshot-2-walking.png" alt="Screenshot of the walking rights view" width="250"/> | <img src="assets/images/readme/screenshot-3-driving.png" alt="Screenshot of the driving rights view" width="250"/> | <img src="assets/images/readme/screenshot-4-at-home.png" alt="Screenshot of the at home rights view" width="250"/> |
+| <img src="assets/images/readme/screenshot-2-walking.png" alt="行走权利截图" width="250"/> | <img src="assets/images/readme/screenshot-3-driving.png" alt="驾驶权利截图" width="250"/> | <img src="assets/images/readme/screenshot-4-at-home.png" alt="在家权利截图" width="250"/> |
 
-<br>The crucial feature of InstaSOS, is the SOS button.<br>Activate it to send your location to your emergency contacts.<br>Emergency contacts are decided by you, the first time you open the app. 
+<br>InstaSOS 的核心功能，是 SOS 按钮。<br>启用该功能后，您的位置将发送给紧急联络人。<br>紧急联络人由您在首次打开应用时自行设定。
 
-<img src="assets/images/readme/screenshot-5-ios-message.png" alt="Screenshot of an iOS SOS message example" width="250"/>
+<img src="assets/images/readme/screenshot-5-ios-message.png" alt="iOS SOS 信息示例截图" width="250"/>
 
-<br>On iOS, the messages are automated.<br>Every 5 minutes, a message with your current location will be created (like the image above).<br>You will have to hit the send button yourself. You are also free to cancel.<br>This process is done without leaving the app, and does **not** interrupt video recordings.
+<br>在 iOS 上，信息是自动生成的。<br>每隔 5 分钟，系统将创建一条包含您当前位置的信息（如上图所示）。<br>您需自行点击发送按钮，也可以选择取消。<br>整个过程不会离开应用，亦不会中断视频录制。
 
-On Android, the messages are fully automatic.<br>Every 5 minutes, a message with your currently location will be sent, and you can focus on the task at hand.
+在 Android 上，信息发送完全自动。<br>每隔 5 分钟，一条包含您当前位置的信息会被自动发送，您可以专注于当前事务。
 
-Because they're automatic, Android SOS's can even be sent in the background.<br>"In the background" being when the app is minimized, if you've switched to another app, or locked the phone.<br>While in the background, SOS messages will be sent every 15 minutes.
+由于其自动化特性，Android 平台的 SOS 信息即使在后台也能发送。<br>“后台”指的是应用被最小化、切换到其他应用或手机锁屏的状态。<br>在后台状态下，SOS 信息将每隔 15 分钟发送一次。
 
-The benefits of automatic messages don't stop there.<br>On Android, you can enable "SOS on close" and "SOS on interrupted recording".
+自动信息的优势不止于此。<br>在 Android 上，您还可以启用“关闭即 SOS”以及“录制中断即 SOS”。
 
-<img src="assets/images/readme/screenshot-6-android-options.png" alt="Screenshot of the custom Android options" width="250"/>
+<img src="assets/images/readme/screenshot-6-android-options.png" alt="自定义Android选项的截图" width="250"/>
 
-<br>While "SOS on close" is enabled, there will be a safe exit (thumbs up) button on the home screen.<br>If the app goes to the background for any reason except the safe close button, an SOS broadcast will start automatically.
+<br>启用“关闭即 SOS”后，主画面会显示一个安全退出（大拇指）按钮。<br>如果应用因任何非安全退出的原因进入后台，SOS 广播将自动启动。
 
-| Reminder | New home |
+| 提示器 | 新的主页 |
 |:-------------:|:-------------:|
-| <img src="assets/images/readme/screenshot-7-safe-close-message.png" alt="Screenshot of the SOS on close disclaimer" width="250"/> | <img src="assets/images/readme/screenshot-8-safe-close-button.png" alt="Screenshot of the home screen with a safe close button" width="250"/> |
+| <img src="assets/images/readme/screenshot-7-safe-close-message.png" alt="关闭时启动SOS的提示画面截图" width="250"/> | <img src="assets/images/readme/screenshot-8-safe-close-button.png" alt="带有安全关闭按钮的主画面截图" width="250"/> |
 
-<br>"SOS on interrupted recoding" is enabled by default.<br>If you're recording a video, and it gets interrupted, a background broadcast will start automatically.
+<br>“录制中断即 SOS”默认启用。<br>若您正在录制视频且过程中断，后台广播将自动启动。
 
-"SOS on open" is available on both platforms.<br>While enabled, a broadcast will start as soon as the app opens.
+“SOS 打开即启用”适用于两个平台。<br>启用后，一打开应用就会立即启动 SOS 广播。
 
-On both platforms, press the SOS button again to stop the broadcast.<br>While broadcasting, the button's icon will be a ringing bell, like the app icon.<br>Fully closing the app will also stop the broadcast.
+在两个平台中，您可再次按下 SOS 按钮来停止广播。<br>广播期间，该按钮的图标为响铃，类似于应用图标。<br>完全关闭应用也可终止广播。
 
-## <br>Notes
+## <br>注意事项
 
-### Location
+### 地址
 
-Your location data is taken from the device GPS, and pasted into a maps link.<br>[location code](lib/utils/location.dart) excerpt:
+您的位置信息来自设备 GPS，并粘贴为地图链接。<br>[location code](lib/utils/location.dart) excerpt:
 ```Dart
 final Position pos = await Geolocator.getCurrentPosition();
 return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.longitude.toStringAsFixed(4)}';
 ```
 
-### <br>Platform differences
+### <br>各平台的差异
 
-The texting differences are due to Apple's policies.<br>They do not allow text automation, at all. They don't even have an appeal process for emergency apps.<br>Pretty hypocritical coming from a company whose marketing often implies that we aren't safe without their products, IMO.
+文字信息功能的差异源于 Apple 的政策。<br>他们完全不允许短信自动化，即使是用于紧急应用也无申诉通道。<br>在我看来，这与其一贯宣称“使用他们的产品才更安全”的宣传口径颇为矛盾。
 
-#### <br>Timing
+#### <br>时间设置
 
-Why are broadcasts every 5 minutes in the foreground, but every 15 in the background?
+为何前台状态每 5 分钟发送一次，而后台状态为每 15 分钟？
 
-Android limits the frequency of background tasks to save battery life (and lots of other reasons). Fifteen minutes is the max frequency.<br>But, the same limitations don't apply when the app is open.
+Android 系统为节省电量（以及多种其他原因），限制后台任务的频率。十五分钟是后台可执行任务的最大频率。<br>但这些限制在应用打开时并不适用。
 
-# <br>Contributing
+# <br>贡献
 
-## Time
+## 时间支持
 
-Please reach out to the [community](mailto:community@empathetech.net?subject=Becoming%20a%20contributor) contact about becoming a contributor. There's never a shortage of ideas, only time!
+如您愿意成为贡献者，请与  [community](mailto:community@empathetech.net?subject=Becoming%20a%20contributor)  联系。创意永不缺，时间才是瓶颈！
 
-### <br>Translations
+### <br>翻译
 
-If you speak English and a currently unsupported language, please reach out! The more the merrier.
+如果您会英语并掌握目前尚未支持的语言，请联系我们！欢迎更多伙伴加入。
 
-OR: If you speak English and a currently supported language, and see something wrong, please reach out! It takes a village.
+或者：若您会英语且熟悉当前已支持语言，发现翻译有误，也请联系！这需要大家共同努力。
 
-## <br>Money
+## <br>资金
 
-Empathetech makes free and open source software as a public service. Please consider donating so the work can continue. 
+Empathetech 提供免费、开源软件作为公共服务。若您愿意捐赠支持此项目持续发展，我们将深表感谢。
 
 &nbsp;&nbsp;&nbsp;[GoFundMe](https://gofund.me/c047d07e)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Patreon](https://patreon.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Buy Me a Coffee](https://www.buymeacoffee.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Ko-fi](https://ko-fi.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[PayPal](https://www.paypal.com/donate/?hosted_button_id=NGEL6AB5A6KNL)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Venmo](https://venmo.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Cash App](https://cash.app/$empathetech)
 
-<br> Many thanks for any and all contributions!
+<br>非常感谢您给予的任何形式的支持与贡献！
 
 # <br>License
 
