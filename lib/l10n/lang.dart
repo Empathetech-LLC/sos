@@ -10,6 +10,7 @@ import 'lang_es.dart' deferred as lang_es;
 import 'lang_fil.dart' deferred as lang_fil;
 import 'lang_fr.dart' deferred as lang_fr;
 import 'lang_ht.dart' deferred as lang_ht;
+import 'lang_zh.dart' deferred as lang_zh;
 
 // ignore_for_file: type=lint
 
@@ -103,7 +104,8 @@ abstract class Lang {
     Locale('es'),
     Locale('fil'),
     Locale('fr'),
-    Locale('ht')
+    Locale('ht'),
+    Locale('zh')
   ];
 
   /// No description provided for @gOk.
@@ -470,7 +472,8 @@ class _LangDelegate extends LocalizationsDelegate<Lang> {
         'es',
         'fil',
         'fr',
-        'ht'
+        'ht',
+        'zh'
       ].contains(locale.languageCode);
 
   @override
@@ -516,6 +519,8 @@ Future<Lang> lookupLang(Locale locale) {
       return lang_fr.loadLibrary().then((dynamic _) => lang_fr.LangFr());
     case 'ht':
       return lang_ht.loadLibrary().then((dynamic _) => lang_ht.LangHt());
+    case 'zh':
+      return lang_zh.loadLibrary().then((dynamic _) => lang_zh.LangZh());
   }
 
   throw FlutterError(
