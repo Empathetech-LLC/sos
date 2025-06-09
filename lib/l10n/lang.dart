@@ -105,7 +105,8 @@ abstract class Lang {
     Locale('fil'),
     Locale('fr'),
     Locale('ht'),
-    Locale('zh')
+    Locale('zh'),
+    Locale('zh', 'CN')
   ];
 
   /// No description provided for @gOk.
@@ -500,6 +501,16 @@ Future<Lang> lookupLang(Locale locale) {
             return lang_en
                 .loadLibrary()
                 .then((dynamic _) => lang_en.LangEnUs());
+        }
+        break;
+      }
+    case 'zh':
+      {
+        switch (locale.countryCode) {
+          case 'CN':
+            return lang_zh
+                .loadLibrary()
+                .then((dynamic _) => lang_zh.LangZhCn());
         }
         break;
       }
