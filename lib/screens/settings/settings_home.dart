@@ -78,7 +78,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             // Language
             const EzLocaleSetting(
               locales: Lang.supportedLocales,
-              skip: <Locale>[arabic, english],
+              skip: <Locale>[arabic, english, chinese], // Dupes
             ),
             separator,
 
