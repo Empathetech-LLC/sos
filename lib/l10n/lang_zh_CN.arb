@@ -1,0 +1,85 @@
+{
+  "@@locale": "zh_CN",
+
+
+
+  "gOk": "确定",
+
+  "sosLastKnown": "已知最后位置",
+  "sosNeedSMS": "SOS功能需要短信权限以正常运行。",
+  "sosDisabled": "无法访问定位（已关闭）",
+  "sosDenied": "无法访问定位（权限被拒）",
+  "sosError": "无法访问定位（出错）",
+
+
+
+  "hsStartSOS": "启动以开始SOS广播。",
+  "hsEndSOS": "SOS正在广播，点击以停止。",
+  "hsSafeCloseHint": "一切安全，可直接关闭应用。",
+
+  "hsCameraHint": "拍摄照片。",
+  "hsPreviewHint": "长按可切换权限查看模式。",
+  "hsShowRights": "显示您的权限。",
+  "hsHideRights": "隐藏您的权限。",
+  "hsStartRecord": "开始录像。",
+  "hsEndRecord": "结束录像。",
+  "hsFlashOff": "闪光灯关闭。点击开启自动闪光。",
+  "hsFlashAuto": "自动闪光。点击开启闪光灯。",
+  "hsFlashOn": "闪光灯开启。点击关闭闪光灯。",
+  "hsFlashTorch": "手电模式。点击关闭闪光灯。",
+
+  "hsWelcome": "欢迎使用 InstaSOS",
+  "hsAppTutorial": "本应用可在危机时刻迅速将您的状况分享给紧急联系人。\n\n请选择一位紧急联系人。\n目前只需添加一位，后续可随时增添。",
+  "hsPermissionsTutorialTitle": "如果您愿意",
+  "hsPermissionsTutorial": "InstaSOS 也可用于采集和分享证据。\n\n系统将请求相机、麦克风和相册访问权限以实现该功能。",
+  "hsPermissionsAlways": "请将定位权限设置为“始终允许”。\n仅在SOS激活时才会使用定位信息。",
+  "hsBroadcastTutorial": "激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。\n\n即使设备锁屏，短信也会持续发送。\n\n停止发送可通过关闭SOS或完全退出应用实现。",
+  "hsIOSBroadcastTutorial": "激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。",
+  "hsSettingsTutorial": "您可以在设置中：\n\n- 添加更多紧急联系人\n- 设置自动SOS\n- 更改应用语言\n- 自定义界面外观\n\n长按设置按钮还可提交反馈。",
+  "hsVideoTutorial": "拍照或录像后，您可以立即分享内容。\n\n默认情况下，录像若被中断，SOS将自动激活。\n\n长按画面中央可查看权限列表。",
+  "hsIOSVideoTutorial": "拍照或录像后，您可以立即分享内容。\n\n长按画面中央可查看权限列表。",
+  "hsRightsTutorial": "启用相机后，拍摄照片或视频内容可即时分享。\n\n默认情况下，录像若被中断，SOS将自动激活。\n\n点击法槌图标或长按屏幕中央可查看您的权限列表。",
+  "hsIOSRightsTutorial": "启用相机后，拍摄照片或视频内容可即时分享。\n\n点击法槌图标或长按屏幕中央可查看您的权限列表。",
+
+  "hsNeedContacts": "InstaSOS 需要访问您的联系人以正常运行。",
+  "hsNoNumber": "联系人必须包含电话号码。",
+
+
+
+  "rsSharedHeader": "您有权...",
+
+  "rsOnFoot": "步行时",
+  "rsWhileDriving": "驾车时",
+  "rsAtHome": "在家中",
+
+  "rsSharedRemainSilent": "保持沉默。无需撒谎，但您不必回答任何问题。",
+  "rsSharedDocument": "记录一切。您有权拍照、录像和录音。",
+
+  "rsWalkPockets": "拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。",
+  "rsWalkLeave": "若未被逮捕，您有权离开。",
+
+  "rsDriveSearch": "拒绝对车辆进行搜查。",
+  "rsDrivePockets": "拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。",
+  "rsDriveID": "作为乘客可拒绝出示身份证明。只有驾驶员必须出示。",
+  "rsDriveQuestion": "提出疑问。了解为何被拦截。",
+  "rsDriveWarrant": "询问警官是否持有搜查令。如有，您有权查看。未由法官签署的“搜查令”无效。",
+  "rsDriveLeave": "若未被逮捕，您有权离开。",
+
+  "rsHomeWarrant": "保持房门关闭。如对方称持有搜查令，请先让其从门缝递进。未由法官签署的“搜查令”无效。始终保持房门关闭。",
+
+  "rsSharedFingerprint": "除非被正式逮捕，可拒绝接受移民局采集指纹。",
+  "rsSharedLawyer": "您有权联系律师。如您已被正式逮捕，则有权请求法院为您指派律师。",
+
+
+
+  "ssSOSOnOpen": "打开应用时启动SOS",
+  "ssSOSOnClose": "关闭应用时启动SOS",
+  "ssSOSOnCloseHint": "启用后，在设置按钮对侧会显示一个“安全关闭”按钮。",
+  "ssVideoSOS": "录像中断自动启动SOS",
+
+  "ssEMC": "紧急联系人",
+  "ssRemoveHint": "移除联系人",
+  "ssAddHint": "添加联系人",
+
+  "ssAppearance": "界面外观"
+}

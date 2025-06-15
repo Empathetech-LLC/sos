@@ -7,8 +7,10 @@ import 'package:intl/intl.dart' as intl;
 import 'lang_ar.dart' deferred as lang_ar;
 import 'lang_en.dart' deferred as lang_en;
 import 'lang_es.dart' deferred as lang_es;
+import 'lang_fil.dart' deferred as lang_fil;
 import 'lang_fr.dart' deferred as lang_fr;
 import 'lang_ht.dart' deferred as lang_ht;
+import 'lang_zh.dart' deferred as lang_zh;
 
 // ignore_for_file: type=lint
 
@@ -100,8 +102,11 @@ abstract class Lang {
     Locale('en'),
     Locale('en', 'US'),
     Locale('es'),
+    Locale('fil'),
     Locale('fr'),
-    Locale('ht')
+    Locale('ht'),
+    Locale('zh'),
+    Locale('zh', 'CN')
   ];
 
   /// No description provided for @gOk.
@@ -462,8 +467,15 @@ class _LangDelegate extends LocalizationsDelegate<Lang> {
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['ar', 'en', 'es', 'fr', 'ht'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+        'ar',
+        'en',
+        'es',
+        'fil',
+        'fr',
+        'ht',
+        'zh'
+      ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_LangDelegate old) => false;
@@ -492,6 +504,16 @@ Future<Lang> lookupLang(Locale locale) {
         }
         break;
       }
+    case 'zh':
+      {
+        switch (locale.countryCode) {
+          case 'CN':
+            return lang_zh
+                .loadLibrary()
+                .then((dynamic _) => lang_zh.LangZhCn());
+        }
+        break;
+      }
   }
 
   // Lookup logic when only language code is specified.
@@ -502,10 +524,14 @@ Future<Lang> lookupLang(Locale locale) {
       return lang_en.loadLibrary().then((dynamic _) => lang_en.LangEn());
     case 'es':
       return lang_es.loadLibrary().then((dynamic _) => lang_es.LangEs());
+    case 'fil':
+      return lang_fil.loadLibrary().then((dynamic _) => lang_fil.LangFil());
     case 'fr':
       return lang_fr.loadLibrary().then((dynamic _) => lang_fr.LangFr());
     case 'ht':
       return lang_ht.loadLibrary().then((dynamic _) => lang_ht.LangHt());
+    case 'zh':
+      return lang_zh.loadLibrary().then((dynamic _) => lang_zh.LangZh());
   }
 
   throw FlutterError(

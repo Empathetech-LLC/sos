@@ -46,6 +46,12 @@
             "value" : "InstaSOS necesita acceso a la cámara para compartir fotos y vídeos con tus contactos de emergencia."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kailangan ng InstaSOS ng access sa iyong camera upang maibahagi ang mga larawan/video sa iyong mga emergency contact."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -56,6 +62,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS bezwen aksè a kamera a pou pataje foto/videyo avèk kontak ijans ou yo."
+          }
+        },
+        "zh" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS 需要访问您的相机，以便将照片/视频分享给紧急联系人。"
           }
         }
       }
@@ -81,6 +93,12 @@
             "value" : "InstaSOS necesita poder guardar tus contactos de emergencia."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kailangan ng permiso ng InstaSOS para ma-save ang iyong mga emergency contact."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -91,6 +109,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS bezwen kapab anrejistre kontak ijans ou yo."
+          }
+        },
+        "zh" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS 需要保存您的紧急联系人信息。"
           }
         }
       }
@@ -116,6 +140,12 @@
             "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -126,6 +156,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo."
+          }
+        },
+        "zh" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。"
           }
         }
       }
@@ -151,6 +187,12 @@
             "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -161,6 +203,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo."
+          }
+        },
+        "zh" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。"
           }
         }
       }
@@ -186,6 +234,12 @@
             "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -196,6 +250,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo."
+          }
+        },
+        "zh" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。"
           }
         }
       }
@@ -221,6 +281,12 @@
             "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -231,6 +297,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo."
+          }
+        },
+        "zh" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。"
           }
         }
       }
@@ -256,6 +328,12 @@
             "value" : "InstaSOS necesita acceso al micrófono para grabar vídeos con audio."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kailangan ng InstaSOS ng access sa iyong microphone para mag-record ang mga video na may audio."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -266,6 +344,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS bezwen aksè a mikwofòn ou an pou anrejistre videyo ak odyo."
+          }
+        },
+        "zh" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS 需要访问您的麦克风，以便录制带音频的视频。"
           }
         }
       }
@@ -291,6 +375,12 @@
             "value" : "InstaSOS necesita acceso a tu galería para guardar fotos y vídeos."
           }
         },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kailangan ng InstaSOS ng access sa iyong photo library para mai-save ang mga photo/video."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -301,6 +391,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "InstaSOS bezwen aksè ak fichye foto ou yo pou anrejistre foto/videyo."
+          }
+        },
+        "zh" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "InstaSOS 需要访问您的照片库，以便保存照片/视频。"
           }
         }
       }
