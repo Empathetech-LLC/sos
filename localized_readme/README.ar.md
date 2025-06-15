@@ -5,7 +5,6 @@
 [![fil](https://img.shields.io/badge/lang-fil-blue.svg)](https://github.com/Empathetech-LLC/sos/blob/main/localized_readme/README.fil.md)
 [![fr](https://img.shields.io/badge/lang-fr-white.svg)](https://github.com/Empathetech-LLC/sos/blob/main/localized_readme/README.fr.md)
 [![ht](https://img.shields.io/badge/lang-ht-blue.svg)](https://github.com/Empathetech-LLC/sos/blob/main/localized_readme/README.ht.md)
-[![pt](https://img.shields.io/badge/lang-pt-green.svg)](https://github.com/Empathetech-LLC/sos/blob/main/localized_readme/README.pt.md)
 [![zh](https://img.shields.io/badge/lang-zh-red.svg)](https://github.com/Empathetech-LLC/sos/blob/main/localized_readme/README.zh.md)
 
 <br>كاميرا، ومنارة SOS، وقائمة بحقوقك، كل ذلك في مكان واحد.
