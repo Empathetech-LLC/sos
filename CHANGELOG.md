@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] - 2025-06-15
+### Added
+- Filipino
+- Simplified Chinese
+
 ## [1.2.1] - 2025-05-19
 ### Updated
 - Camera state management
