@@ -44,8 +44,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
     final PermissionStatus canSMS = await Permission.sms.request();
 
-    if (canSMS != PermissionStatus.denied &&
-        canSMS != PermissionStatus.permanentlyDenied) {
+    if (isIOS ||
+        (canSMS != PermissionStatus.denied &&
+            canSMS != PermissionStatus.permanentlyDenied)) {
       return EzConfig.setBool(key, value);
     } else {
       if (mounted) ezSnackBar(context: context, message: l10n.sosNeedSMS);
@@ -76,15 +77,15 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             separator,
 
             // Language
-            const EzLocaleSetting(
+            EzLocaleSetting(
               locales: Lang.supportedLocales,
-              skip: <Locale>[arabic, english, chinese], // Dupes
+              skip: <Locale>{arabic, english, chinese}, // Dupes
             ),
             separator,
 
             // SOS
-            _SettingsCheckbox(
-              title: l10n.ssSOSOnOpen,
+            EzSwitchPair(
+              text: l10n.ssSOSOnOpen,
               value: sosOnOpen,
               onChanged: (bool? value) async {
                 if (value == null) return;
@@ -96,8 +97,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             spacer,
 
             if (!isIOS) ...<Widget>[
-              _SettingsCheckbox(
-                title: l10n.ssSOSOnClose,
+              EzSwitchPair(
+                text: l10n.ssSOSOnClose,
                 value: sosOnClose,
                 onChanged: (bool? value) async {
                   if (value == null) return;
@@ -141,8 +142,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             ],
 
             if (!isIOS)
-              _SettingsCheckbox(
-                title: l10n.ssVideoSOS,
+              EzSwitchPair(
+                text: l10n.ssVideoSOS,
                 value: sosOnInterrupt,
                 onChanged: (bool? value) async {
                   if (value == null) return;
@@ -170,25 +171,4 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
       ),
     );
   }
-}
-
-class _SettingsCheckbox extends StatelessWidget {
-  final String title;
-  final bool value;
-  final void Function(bool?) onChanged;
-
-  const _SettingsCheckbox({
-    required this.title,
-    required this.value,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) => EzRow(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Flexible(child: EzText(title, textAlign: TextAlign.center)),
-          EzCheckbox(value: value, onChanged: onChanged),
-        ],
-      );
 }

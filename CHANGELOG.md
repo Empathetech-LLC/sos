@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.1] - 2025-06-23
+### Updated
+- Settings checkbox -> settings switch
+- iOS "SOS on open" bugfix
+  - Sometimes unable to enable; now always able to enable
+
 ## [1.3.0] - 2025-06-15
 ### Added
 - Filipino
