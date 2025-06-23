@@ -44,8 +44,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
     final PermissionStatus canSMS = await Permission.sms.request();
 
-    if (canSMS != PermissionStatus.denied &&
-        canSMS != PermissionStatus.permanentlyDenied) {
+    if (isIOS ||
+        (canSMS != PermissionStatus.denied &&
+            canSMS != PermissionStatus.permanentlyDenied)) {
       return EzConfig.setBool(key, value);
     } else {
       if (mounted) ezSnackBar(context: context, message: l10n.sosNeedSMS);
