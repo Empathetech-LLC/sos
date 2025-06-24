@@ -13,8 +13,6 @@ import 'dart:async';
 import 'package:gal/gal.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:feedback/feedback.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:geolocator/geolocator.dart';
@@ -440,35 +438,12 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 enabled: !recording,
                 onPressed: () => context.goNamed(settingsHomePath),
-                onLongPress: () async {
-                  await Clipboard.setData(
-                      const ClipboardData(text: empathSupport));
-
-                  if (context.mounted) {
-                    await ezSnackBar(
-                      context: context,
-                      message:
-                          '${el10n.gOpeningFeedback}\n${el10n.gClipboard(el10n.gSupportEmail)}',
-                    ).closed;
-                  }
-
-                  if (context.mounted) {
-                    BetterFeedback.of(context).show(
-                      (UserFeedback feedback) async {
-                        await SharePlus.instance.share(ShareParams(
-                          text: feedback.text,
-                          files: <XFile>[
-                            XFile.fromData(
-                              feedback.screenshot,
-                              name: 'screenshot.png',
-                              mimeType: 'image/png',
-                            )
-                          ],
-                        ));
-                      },
-                    );
-                  }
-                },
+                onLongPress: () => ezFeedback(
+                  parentContext: context,
+                  l10n: el10n,
+                  supportEmail: empathSupport,
+                  appName: appTitle,
+                ),
               ),
             ),
           ),
