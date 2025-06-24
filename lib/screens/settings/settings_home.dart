@@ -67,8 +67,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SosScaffold(
-      title: el10n.ssPageTitle,
-      body: EzScreen(
+      EzScreen(
         useImageDecoration: false,
         child: EzScrollView(
           children: <Widget>[
@@ -169,6 +168,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
           ],
         ),
       ),
+      fab: EzBackFAB(context, showHome: true),
     );
   }
 }

@@ -40,7 +40,7 @@ class _ErrorScreenState extends State<ErrorScreen> {
   @override
   Widget build(BuildContext context) {
     return SosScaffold(
-      body: EzScreen(
+      EzScreen(
         useImageDecoration: false,
         child: Center(
           child: EzScrollView(

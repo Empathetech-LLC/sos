@@ -253,293 +253,375 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return SosScaffold(
-      showAppBar: false,
-      body: SafeArea(
-        child: Stack(
-          children: <Widget>[
-            // Camera preview and rights view
-            Center(
-              child: GestureDetector(
-                onLongPress: () => setState(() => showRights = !showRights),
-                child: Container(
-                  height: heightOf(context) * 0.667,
-                  width: double.infinity,
-                  color: colorScheme.surface,
-                  child: camera == null
-                      ? Visibility(
+      Stack(
+        children: <Widget>[
+          // Camera preview and rights view
+          Center(
+            child: GestureDetector(
+              onLongPress: () => setState(() => showRights = !showRights),
+              child: Container(
+                height: heightOf(context) * 0.667,
+                width: double.infinity,
+                color: colorScheme.surface,
+                child: camera == null
+                    ? Visibility(
+                        visible: showRights,
+                        child: const RightsView(),
+                      )
+                    : Stack(children: <Widget>[
+                        Center(
+                          child: Semantics(
+                            hint: l10n.hsPreviewHint,
+                            excludeSemantics: showRights,
+                            child: CameraPreview(camera!),
+                          ),
+                        ),
+                        Visibility(
                           visible: showRights,
-                          child: const RightsView(),
-                        )
-                      : Stack(children: <Widget>[
-                          Center(
-                            child: Semantics(
-                              hint: l10n.hsPreviewHint,
-                              excludeSemantics: showRights,
-                              child: CameraPreview(camera!),
-                            ),
+                          child: Container(
+                            height: double.infinity,
+                            width: double.infinity,
+                            color: rightsBackgroundColor,
+                            child: const RightsView(),
                           ),
-                          Visibility(
-                            visible: showRights,
-                            child: Container(
-                              height: double.infinity,
-                              width: double.infinity,
-                              color: rightsBackgroundColor,
-                              child: const RightsView(),
-                            ),
-                          ),
-                        ]),
-                ),
+                        ),
+                      ]),
               ),
             ),
+          ),
 
-            // Video timer
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: Visibility(
-                visible: recording,
-                child: Center(
-                  child: StreamBuilder<int>(
-                    stream: Stream<int>.periodic(
-                      const Duration(seconds: 1),
-                      (_) => watch.elapsed.inSeconds,
-                    ),
-                    builder: (_, AsyncSnapshot<int> snapshot) {
-                      final Duration elapsed =
-                          Duration(seconds: snapshot.data ?? 0);
-                      return EzText(
-                        elapsed.toString().split('.').first,
-                        backgroundColor: videoColor,
-                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                              color: videoTextColor,
-                            ),
-                      );
-                    },
-                  ),
-                ),
-              ),
-            ),
-
-            // SOS/broadcast button
-            Positioned(
-              top: spargin,
-              left: 0,
-              right: 0,
+          // Video timer
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Visibility(
+              visible: recording,
               child: Center(
-                child: OverlayPortal(
-                  controller: broadcastOverlay,
-                  overlayChildBuilder: (_) => TutorialOverlay(
-                    top: safeTop + spargin + iconSize * 1.5 + spacing,
-                    left: 0,
-                    right: 0,
-                    title: '3/5',
-                    content: Platform.isIOS
-                        ? l10n.hsIOSBroadcastTutorial
-                        : l10n.hsBroadcastTutorial,
-                    accept: () async {
-                      broadcastOverlay.hide();
-                      if (!Platform.isIOS) await Permission.sms.request();
-                      final LocationPermission choice =
-                          await Geolocator.requestPermission();
-
-                      if (choice == LocationPermission.whileInUse &&
-                          Platform.isAndroid &&
-                          context.mounted) {
-                        final (
-                          List<EzMaterialAction>,
-                          List<EzCupertinoAction>
-                        ) customActions = ezActionPairs(
-                          context: context,
-                          onConfirm: () async {
-                            await openAppSettings();
-                            if (context.mounted) Navigator.of(context).pop();
-                          },
-                          confirmMsg: l10n.gOk,
-                          onDeny: () => Navigator.of(context).pop(false),
-                          denyMsg: el10n.gNo,
-                        );
-
-                        await showDialog(
-                          context: context,
-                          builder: (_) => EzAlertDialog(
-                            title: Text(
-                              l10n.hsPermissionsTutorialTitle,
-                              textAlign: TextAlign.center,
-                            ),
-                            contents: <Widget>[
-                              Text(
-                                l10n.hsPermissionsAlways,
-                                textAlign: TextAlign.center,
-                              )
-                            ],
-                            materialActions: customActions.$1,
-                            cupertinoActions: customActions.$2,
-                            needsClose: false,
-                          ),
-                        );
-                      }
-
-                      settingsOverlay.show();
-                    },
+                child: StreamBuilder<int>(
+                  stream: Stream<int>.periodic(
+                    const Duration(seconds: 1),
+                    (_) => watch.elapsed.inSeconds,
                   ),
-                  child: broadcasting
+                  builder: (_, AsyncSnapshot<int> snapshot) {
+                    final Duration elapsed =
+                        Duration(seconds: snapshot.data ?? 0);
+                    return EzText(
+                      elapsed.toString().split('.').first,
+                      backgroundColor: videoColor,
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                            color: videoTextColor,
+                          ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+
+          // SOS/broadcast button
+          Positioned(
+            top: spargin,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: OverlayPortal(
+                controller: broadcastOverlay,
+                overlayChildBuilder: (_) => TutorialOverlay(
+                  top: safeTop + spargin + iconSize * 1.5 + spacing,
+                  left: 0,
+                  right: 0,
+                  title: '3/5',
+                  content: Platform.isIOS
+                      ? l10n.hsIOSBroadcastTutorial
+                      : l10n.hsBroadcastTutorial,
+                  accept: () async {
+                    broadcastOverlay.hide();
+                    if (!Platform.isIOS) await Permission.sms.request();
+                    final LocationPermission choice =
+                        await Geolocator.requestPermission();
+
+                    if (choice == LocationPermission.whileInUse &&
+                        Platform.isAndroid &&
+                        context.mounted) {
+                      final (
+                        List<EzMaterialAction>,
+                        List<EzCupertinoAction>
+                      ) customActions = ezActionPairs(
+                        context: context,
+                        onConfirm: () async {
+                          await openAppSettings();
+                          if (context.mounted) Navigator.of(context).pop();
+                        },
+                        confirmMsg: l10n.gOk,
+                        onDeny: () => Navigator.of(context).pop(false),
+                        denyMsg: el10n.gNo,
+                      );
+
+                      await showDialog(
+                        context: context,
+                        builder: (_) => EzAlertDialog(
+                          title: Text(
+                            l10n.hsPermissionsTutorialTitle,
+                            textAlign: TextAlign.center,
+                          ),
+                          contents: <Widget>[
+                            Text(
+                              l10n.hsPermissionsAlways,
+                              textAlign: TextAlign.center,
+                            )
+                          ],
+                          materialActions: customActions.$1,
+                          cupertinoActions: customActions.$2,
+                          needsClose: false,
+                        ),
+                      );
+                    }
+
+                    settingsOverlay.show();
+                  },
+                ),
+                child: broadcasting
+                    ? EzIconButton(
+                        icon: const SOSIcon(),
+                        iconSize: iconSize * 1.5,
+                        onPressed: stopForegroundSOS,
+                        onLongPress: openSOSPermissions,
+                      )
+                    : EzIconButton(
+                        icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
+                        iconSize: iconSize * 1.5,
+                        onPressed: () async {
+                          final PermissionStatus smsStatus = Platform.isIOS
+                              ? PermissionStatus.granted
+                              : await Permission.sms.request();
+
+                          if (smsStatus == PermissionStatus.denied ||
+                              smsStatus == PermissionStatus.permanentlyDenied) {
+                            if (context.mounted) {
+                              await ezLogAlert(
+                                context,
+                                message: l10n.sosNeedSMS,
+                              );
+                            }
+                            return;
+                          }
+
+                          await startForegroundSOS();
+                        },
+                        onLongPress: openSOSPermissions,
+                      ),
+              ),
+            ),
+          ),
+
+          // Settings
+          Positioned(
+            top: margin,
+            right: isLefty ? null : margin,
+            left: isLefty ? margin : null,
+            child: OverlayPortal(
+              controller: settingsOverlay,
+              overlayChildBuilder: (_) => TutorialOverlay(
+                top: safeTop + margin,
+                right: isLefty ? 0 : margin + iconSize + spacing,
+                left: isLefty ? margin + iconSize + spacing : 0,
+                title: '4/5',
+                content: l10n.hsSettingsTutorial,
+                accept: () {
+                  settingsOverlay.hide();
+                  recordOverlay.show();
+                },
+              ),
+              child: EzIconButton(
+                icon: Icon(
+                  PlatformIcons(context).settings,
+                  semanticLabel: el10n.ssPageTitle,
+                ),
+                enabled: !recording,
+                onPressed: () => context.goNamed(settingsHomePath),
+                onLongPress: () async {
+                  await Clipboard.setData(
+                      const ClipboardData(text: empathSupport));
+
+                  if (context.mounted) {
+                    await ezSnackBar(
+                      context: context,
+                      message:
+                          '${el10n.gOpeningFeedback}\n${el10n.gClipboard(el10n.gSupportEmail)}',
+                    ).closed;
+                  }
+
+                  if (context.mounted) {
+                    BetterFeedback.of(context).show(
+                      (UserFeedback feedback) async {
+                        await SharePlus.instance.share(ShareParams(
+                          text: feedback.text,
+                          files: <XFile>[
+                            XFile.fromData(
+                              feedback.screenshot,
+                              name: 'screenshot.png',
+                              mimeType: 'image/png',
+                            )
+                          ],
+                        ));
+                      },
+                    );
+                  }
+                },
+              ),
+            ),
+          ),
+
+          // Safe close - iff sosOnClose is true
+          Positioned(
+            top: margin,
+            right: isLefty ? margin : null,
+            left: isLefty ? null : margin,
+            child: Visibility(
+              visible: sosOnClose,
+              child: EzIconButton(
+                icon: Icon(
+                  PlatformIcons(context).thumbUp,
+                  semanticLabel: l10n.hsSafeCloseHint,
+                ),
+                enabled: !recording,
+                onPressed: () {
+                  if (broadcasting) stopForegroundSOS();
+                  exit(0);
+                },
+              ),
+            ),
+          ),
+
+          // Controls
+          Positioned(
+            bottom: spacing,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: EzScrollView(
+                scrollDirection: Axis.horizontal,
+                reverseHands: true,
+                startCentered: true,
+                children: <Widget>[
+                  // Take picture/know your rights
+                  (camera == null || recording)
                       ? EzIconButton(
-                          icon: const SOSIcon(),
-                          iconSize: iconSize * 1.5,
-                          onPressed: stopForegroundSOS,
-                          onLongPress: openSOSPermissions,
+                          icon: showRights
+                              ? Icon(
+                                  PlatformIcons(context).eyeSlash,
+                                  semanticLabel: l10n.hsHideRights,
+                                )
+                              : Icon(
+                                  Icons.gavel,
+                                  semanticLabel: l10n.hsShowRights,
+                                ),
+                          onPressed: () =>
+                              setState(() => showRights = !showRights),
                         )
                       : EzIconButton(
-                          icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
-                          iconSize: iconSize * 1.5,
+                          icon: Icon(
+                            PlatformIcons(context).photoCamera,
+                            semanticLabel: l10n.hsCameraHint,
+                          ),
                           onPressed: () async {
-                            final PermissionStatus smsStatus = Platform.isIOS
-                                ? PermissionStatus.granted
-                                : await Permission.sms.request();
+                            try {
+                              // Take a picture
+                              final XFile image = await camera!.takePicture();
 
-                            if (smsStatus == PermissionStatus.denied ||
-                                smsStatus ==
-                                    PermissionStatus.permanentlyDenied) {
+                              // Attempt to save the image
+                              await saveToGallery(image.path, true);
+
+                              // Attempt to share
+                              await SharePlus.instance.share(ShareParams(
+                                text: await getCoordinates(l10n),
+                                files: <XFile>[image],
+                              ));
+                            } catch (e) {
                               if (context.mounted) {
                                 await ezLogAlert(
                                   context,
-                                  message: l10n.sosNeedSMS,
+                                  message: e.toString(),
                                 );
                               }
-                              return;
                             }
-
-                            await startForegroundSOS();
                           },
-                          onLongPress: openSOSPermissions,
                         ),
-                ),
-              ),
-            ),
+                  separator,
 
-            // Settings
-            Positioned(
-              top: margin,
-              right: isLefty ? null : margin,
-              left: isLefty ? margin : null,
-              child: OverlayPortal(
-                controller: settingsOverlay,
-                overlayChildBuilder: (_) => TutorialOverlay(
-                  top: safeTop + margin,
-                  right: isLefty ? 0 : margin + iconSize + spacing,
-                  left: isLefty ? margin + iconSize + spacing : 0,
-                  title: '4/5',
-                  content: l10n.hsSettingsTutorial,
-                  accept: () {
-                    settingsOverlay.hide();
-                    recordOverlay.show();
-                  },
-                ),
-                child: EzIconButton(
-                  icon: Icon(
-                    PlatformIcons(context).settings,
-                    semanticLabel: el10n.ssPageTitle,
-                  ),
-                  enabled: !recording,
-                  onPressed: () => context.goNamed(settingsHomePath),
-                  onLongPress: () async {
-                    await Clipboard.setData(
-                        const ClipboardData(text: empathSupport));
-
-                    if (context.mounted) {
-                      await ezSnackBar(
-                        context: context,
-                        message:
-                            '${el10n.gOpeningFeedback}\n${el10n.gClipboard(el10n.gSupportEmail)}',
-                      ).closed;
-                    }
-
-                    if (context.mounted) {
-                      BetterFeedback.of(context).show(
-                        (UserFeedback feedback) async {
-                          await SharePlus.instance.share(ShareParams(
-                            text: feedback.text,
-                            files: <XFile>[
-                              XFile.fromData(
-                                feedback.screenshot,
-                                name: 'screenshot.png',
-                                mimeType: 'image/png',
-                              )
-                            ],
-                          ));
-                        },
-                      );
-                    }
-                  },
-                ),
-              ),
-            ),
-
-            // Safe close - iff sosOnClose is true
-            Positioned(
-              top: margin,
-              right: isLefty ? margin : null,
-              left: isLefty ? null : margin,
-              child: Visibility(
-                visible: sosOnClose,
-                child: EzIconButton(
-                  icon: Icon(
-                    PlatformIcons(context).thumbUp,
-                    semanticLabel: l10n.hsSafeCloseHint,
-                  ),
-                  enabled: !recording,
-                  onPressed: () {
-                    if (broadcasting) stopForegroundSOS();
-                    exit(0);
-                  },
-                ),
-              ),
-            ),
-
-            // Controls
-            Positioned(
-              bottom: spacing,
-              left: 0,
-              right: 0,
-              child: Center(
-                child: EzScrollView(
-                  scrollDirection: Axis.horizontal,
-                  reverseHands: true,
-                  startCentered: true,
-                  children: <Widget>[
-                    // Take picture/know your rights
-                    (camera == null || recording)
+                  // Record
+                  OverlayPortal(
+                    controller: recordOverlay,
+                    overlayChildBuilder: (_) => TutorialOverlay(
+                      bottom: safeBottom + spargin + iconSize * 2 + spacing,
+                      left: 0,
+                      right: 0,
+                      title: '5/5',
+                      content: camera == null
+                          ? Platform.isIOS
+                              ? l10n.hsIOSRightsTutorial
+                              : l10n.hsRightsTutorial
+                          : Platform.isIOS
+                              ? l10n.hsIOSVideoTutorial
+                              : l10n.hsVideoTutorial,
+                      accept: () async {
+                        recordOverlay.hide();
+                        await EzConfig.setBool(tutorialKey, false);
+                      },
+                    ),
+                    child: recording
                         ? EzIconButton(
-                            icon: showRights
-                                ? Icon(
-                                    PlatformIcons(context).eyeSlash,
-                                    semanticLabel: l10n.hsHideRights,
-                                  )
-                                : Icon(
-                                    Icons.gavel,
-                                    semanticLabel: l10n.hsShowRights,
-                                  ),
-                            onPressed: () =>
-                                setState(() => showRights = !showRights),
-                          )
-                        : EzIconButton(
-                            icon: Icon(
-                              PlatformIcons(context).photoCamera,
-                              semanticLabel: l10n.hsCameraHint,
+                            style: IconButton.styleFrom(
+                              foregroundColor: videoColor,
+                              side: BorderSide(color: videoTextColor),
                             ),
+                            icon: Icon(
+                              Icons.stop,
+                              semanticLabel: l10n.hsEndRecord,
+                            ),
+                            iconSize: iconSize * 2,
                             onPressed: () async {
+                              late final XFile? video;
                               try {
-                                // Take a picture
-                                final XFile image = await camera!.takePicture();
+                                // Stop recording
+                                video = await camera!.stopVideoRecording();
+                              } catch (e) {
+                                if (context.mounted) {
+                                  await ezLogAlert(
+                                    context,
+                                    message: e.toString(),
+                                  );
+                                }
+                              }
+                              watch.stop();
 
-                                // Attempt to save the image
-                                await saveToGallery(image.path, true);
+                              // Update the UI
+                              setState(() => recording = false);
+                              watch.reset();
 
-                                // Attempt to share
+                              if (video == null) return;
+                              try {
+                                // Videos are saved as tmp files
+                                // We need to fix that before proceeding
+                                final File tmpFile = File(video.path);
+
+                                // Create a unique mp4 file path
+                                final Directory appDir =
+                                    await getApplicationDocumentsDirectory();
+                                final String mp4Path =
+                                    '${appDir.path}/${DateTime.now().millisecondsSinceEpoch}.mp4';
+
+                                // Copy the tmp file to the new mp4
+                                await tmpFile.copy(mp4Path);
+
+                                // Attempt to save the video
+                                await saveToGallery(mp4Path, false);
+
+                                // Attempt to share the video
                                 await SharePlus.instance.share(ShareParams(
                                   text: await getCoordinates(l10n),
-                                  files: <XFile>[image],
+                                  files: <XFile>[XFile(mp4Path)],
                                 ));
                               } catch (e) {
                                 if (context.mounted) {
@@ -550,153 +632,67 @@ class _HomeScreenState extends State<HomeScreen>
                                 }
                               }
                             },
-                          ),
-                    separator,
-
-                    // Record
-                    OverlayPortal(
-                      controller: recordOverlay,
-                      overlayChildBuilder: (_) => TutorialOverlay(
-                        bottom: safeBottom + spargin + iconSize * 2 + spacing,
-                        left: 0,
-                        right: 0,
-                        title: '5/5',
-                        content: camera == null
-                            ? Platform.isIOS
-                                ? l10n.hsIOSRightsTutorial
-                                : l10n.hsRightsTutorial
-                            : Platform.isIOS
-                                ? l10n.hsIOSVideoTutorial
-                                : l10n.hsVideoTutorial,
-                        accept: () async {
-                          recordOverlay.hide();
-                          await EzConfig.setBool(tutorialKey, false);
-                        },
-                      ),
-                      child: recording
-                          ? EzIconButton(
-                              style: IconButton.styleFrom(
-                                foregroundColor: videoColor,
-                                side: BorderSide(color: videoTextColor),
-                              ),
-                              icon: Icon(
-                                Icons.stop,
-                                semanticLabel: l10n.hsEndRecord,
-                              ),
-                              iconSize: iconSize * 2,
-                              onPressed: () async {
-                                late final XFile? video;
-                                try {
-                                  // Stop recording
-                                  video = await camera!.stopVideoRecording();
-                                } catch (e) {
-                                  if (context.mounted) {
-                                    await ezLogAlert(
-                                      context,
-                                      message: e.toString(),
-                                    );
-                                  }
-                                }
-                                watch.stop();
-
-                                // Update the UI
-                                setState(() => recording = false);
-                                watch.reset();
-
-                                if (video == null) return;
-                                try {
-                                  // Videos are saved as tmp files
-                                  // We need to fix that before proceeding
-                                  final File tmpFile = File(video.path);
-
-                                  // Create a unique mp4 file path
-                                  final Directory appDir =
-                                      await getApplicationDocumentsDirectory();
-                                  final String mp4Path =
-                                      '${appDir.path}/${DateTime.now().millisecondsSinceEpoch}.mp4';
-
-                                  // Copy the tmp file to the new mp4
-                                  await tmpFile.copy(mp4Path);
-
-                                  // Attempt to save the video
-                                  await saveToGallery(mp4Path, false);
-
-                                  // Attempt to share the video
-                                  await SharePlus.instance.share(ShareParams(
-                                    text: await getCoordinates(l10n),
-                                    files: <XFile>[XFile(mp4Path)],
-                                  ));
-                                } catch (e) {
-                                  if (context.mounted) {
-                                    await ezLogAlert(
-                                      context,
-                                      message: e.toString(),
-                                    );
-                                  }
-                                }
-                              },
-                            )
-                          : EzIconButton(
-                              style: IconButton.styleFrom(
-                                foregroundColor: videoColor,
-                                side: BorderSide(color: colorScheme.onSurface),
-                              ),
-                              icon: Icon(
-                                Icons.circle,
-                                semanticLabel: l10n.hsStartRecord,
-                              ),
-                              iconSize: iconSize * 2,
-                              onPressed: () async {
-                                if (camera == null) {
-                                  final bool hasAccess = await initCamera();
-
-                                  if (hasAccess) {
-                                    setState(() {});
-                                  } else {
-                                    return;
-                                  }
-                                }
-
-                                try {
-                                  await camera!.startVideoRecording();
-                                  watch.start();
-
-                                  setState(() => recording = true);
-                                } catch (e) {
-                                  if (context.mounted) {
-                                    await ezLogAlert(
-                                      context,
-                                      message: e.toString(),
-                                    );
-                                  }
-                                }
-                              },
-                              onLongPress: () async {
-                                if (camera == null) {
-                                  await openAppSettings();
-                                }
-                              },
-                            ),
-                    ),
-                    separator,
-
-                    // Flash
-                    camera == null
-                        ? const EzIconButton(
-                            icon: Icon(Icons.flash_off),
-                            enabled: false,
-                            onPressed: doNothing,
                           )
-                        : FlashButton(
-                            camera: camera!,
-                            stateCallback: () => setState(() {}),
+                        : EzIconButton(
+                            style: IconButton.styleFrom(
+                              foregroundColor: videoColor,
+                              side: BorderSide(color: colorScheme.onSurface),
+                            ),
+                            icon: Icon(
+                              Icons.circle,
+                              semanticLabel: l10n.hsStartRecord,
+                            ),
+                            iconSize: iconSize * 2,
+                            onPressed: () async {
+                              if (camera == null) {
+                                final bool hasAccess = await initCamera();
+
+                                if (hasAccess) {
+                                  setState(() {});
+                                } else {
+                                  return;
+                                }
+                              }
+
+                              try {
+                                await camera!.startVideoRecording();
+                                watch.start();
+
+                                setState(() => recording = true);
+                              } catch (e) {
+                                if (context.mounted) {
+                                  await ezLogAlert(
+                                    context,
+                                    message: e.toString(),
+                                  );
+                                }
+                              }
+                            },
+                            onLongPress: () async {
+                              if (camera == null) {
+                                await openAppSettings();
+                              }
+                            },
                           ),
-                  ],
-                ),
+                  ),
+                  separator,
+
+                  // Flash
+                  camera == null
+                      ? const EzIconButton(
+                          icon: Icon(Icons.flash_off),
+                          enabled: false,
+                          onPressed: doNothing,
+                        )
+                      : FlashButton(
+                          camera: camera!,
+                          stateCallback: () => setState(() {}),
+                        ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
