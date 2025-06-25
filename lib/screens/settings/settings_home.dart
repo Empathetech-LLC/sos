@@ -55,14 +55,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
     }
   }
 
-  // Init //
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ezWindowNamer(context, el10n.ssPageTitle);
-  }
-
   // Return the build //
 
   @override

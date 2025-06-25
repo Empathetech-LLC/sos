@@ -27,14 +27,6 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = ezL10n(context);
 
-  // Set the page title //
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ezWindowNamer(context, el10n.ssPageTitle);
-  }
-
   // Return the build //
 
   @override

@@ -213,12 +213,6 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ezWindowNamer(context, appTitle);
-  }
-
-  @override
   void afterFirstLayout(BuildContext context) async {
     final bool newUser = emc == null || emc!.isEmpty;
 
