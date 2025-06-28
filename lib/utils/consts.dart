@@ -41,7 +41,7 @@ const String onCloseKey = 'sosOnClose';
 /// 'sosOnInterrupt'
 const String onInterruptKey = 'sosOnInterrupt';
 
-final Map<String, dynamic> sosConfig = <String, dynamic>{
+final Map<String, Object> sosConfig = <String, Object>{
   ...mobileEmpathConfig,
   darkTextBackgroundOpacityKey: 0.8,
   lightTextBackgroundOpacityKey: 0.8,

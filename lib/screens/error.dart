@@ -27,20 +27,12 @@ class _ErrorScreenState extends State<ErrorScreen> {
 
   late final TextTheme textTheme = Theme.of(context).textTheme;
 
-  // Set the page title //
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ezWindowNamer(context, '404 ${l10n.gError}');
-  }
-
   // Return the build //
 
   @override
   Widget build(BuildContext context) {
     return SosScaffold(
-      body: EzScreen(
+      EzScreen(
         useImageDecoration: false,
         child: Center(
           child: EzScrollView(

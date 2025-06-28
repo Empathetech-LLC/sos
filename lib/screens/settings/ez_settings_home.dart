@@ -27,21 +27,12 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = ezL10n(context);
 
-  // Set the page title //
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ezWindowNamer(context, el10n.ssPageTitle);
-  }
-
   // Return the build //
 
   @override
   Widget build(BuildContext context) {
     return SosScaffold(
-      title: l10n.ssAppearance,
-      body: EzScreen(
+      EzScreen(
         useImageDecoration: false,
         child: Center(
           child: EzScrollView(
@@ -89,6 +80,7 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
           ),
         ),
       ),
+      fab: EzBackFAB(context),
     );
   }
 }

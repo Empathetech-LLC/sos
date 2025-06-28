@@ -16,8 +16,7 @@ class ColorSettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SosScaffold(
-        title: ezL10n(context).csPageTitle,
-        body: EzColorSettings(
+        EzColorSettings(
           useImageDecoration: false,
           target: target,
           lightStarterSet: const <String>[
@@ -35,5 +34,6 @@ class ColorSettingsScreen extends StatelessWidget {
             darkSurfaceContainerKey,
           ],
         ),
+        fab: EzBackFAB(context),
       );
 }

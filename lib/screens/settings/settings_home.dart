@@ -27,6 +27,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
   static const EzSpacer spacer = EzSpacer();
   static const EzSeparator separator = EzSeparator();
+  static const EzDivider divider = EzDivider();
 
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = ezL10n(context);
@@ -54,36 +55,28 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
     }
   }
 
-  // Init //
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ezWindowNamer(context, el10n.ssPageTitle);
-  }
-
   // Return the build //
 
   @override
   Widget build(BuildContext context) {
     return SosScaffold(
-      title: el10n.ssPageTitle,
-      body: EzScreen(
+      EzScreen(
         useImageDecoration: false,
         child: EzScrollView(
           children: <Widget>[
             // Functionality disclaimer
             EzWarning(el10n.ssSettingsGuide.split('\n').first),
-            separator,
+            spacer,
 
             // Language
             EzLocaleSetting(
               locales: Lang.supportedLocales,
               skip: <Locale>{arabic, english, chinese}, // Dupes
+              protest: true,
             ),
-            separator,
+            isIOS ? separator : divider,
 
-            // SOS
+            // SOS on open
             EzSwitchPair(
               text: l10n.ssSOSOnOpen,
               value: sosOnOpen,
@@ -94,9 +87,11 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 if (refresh) setState(() => sosOnOpen = value);
               },
             ),
-            spacer,
 
             if (!isIOS) ...<Widget>[
+              spacer,
+
+              // SOS on close
               EzSwitchPair(
                 text: l10n.ssSOSOnClose,
                 value: sosOnClose,
@@ -139,9 +134,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 },
               ),
               spacer,
-            ],
 
-            if (!isIOS)
+              // SOS on interrupt
               EzSwitchPair(
                 text: l10n.ssVideoSOS,
                 value: sosOnInterrupt,
@@ -153,7 +147,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                   if (refresh) setState(() => sosOnInterrupt = value);
                 },
               ),
-            isIOS ? spacer : separator,
+            ],
+            isIOS ? separator : divider,
 
             // EMC
             const ContactList(),
@@ -169,6 +164,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
           ],
         ),
       ),
+      fab: EzBackFAB(context, showHome: true),
     );
   }
 }

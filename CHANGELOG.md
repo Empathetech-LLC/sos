@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.2] - 2025-06-27
+### Updated
+- Settings UI
+  - EFUI 9.2.0
+
 ## [1.3.1] - 2025-06-23
 ### Updated
 - Settings checkbox -> settings switch
