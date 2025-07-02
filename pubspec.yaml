@@ -31,7 +31,7 @@ dependencies:
   flutter_localized_locales: ^2.0.5
   flutter_platform_widgets: ^9.0.0
   gal: ^2.3.1
-  geolocator: ^14.0.1
+  geolocator: ^14.0.2
   share_plus: ^11.0.0
 
 dev_dependencies:
