@@ -32,23 +32,16 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = ezL10n(context);
 
-  // Define the build data //
-
-  bool sosOnOpen = EzConfig.get(onOpenKey) ?? false;
-  bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
-  bool sosOnInterrupt = EzConfig.get(onInterruptKey) ?? false;
-
   // Define custom functions //
 
-  Future<bool> attemptToSet(String key, bool value) async {
-    if (value == false) return EzConfig.setBool(key, value);
+  Future<bool> canSet(String key, bool value) async {
+    if (value == false || isIOS) return true;
 
     final PermissionStatus canSMS = await Permission.sms.request();
 
-    if (isIOS ||
-        (canSMS != PermissionStatus.denied &&
-            canSMS != PermissionStatus.permanentlyDenied)) {
-      return EzConfig.setBool(key, value);
+    if (canSMS != PermissionStatus.denied &&
+        canSMS != PermissionStatus.permanentlyDenied) {
+      return true;
     } else {
       if (mounted) ezSnackBar(context: context, message: l10n.sosNeedSMS);
       return false;
@@ -79,13 +72,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             // SOS on open
             EzSwitchPair(
               text: l10n.ssSOSOnOpen,
-              value: sosOnOpen,
-              onChanged: (bool? value) async {
-                if (value == null) return;
-
-                final bool refresh = await attemptToSet(onOpenKey, value);
-                if (refresh) setState(() => sosOnOpen = value);
-              },
+              valueKey: onOpenKey,
+              canChange: (bool choice) => canSet(onOpenKey, choice),
             ),
 
             if (!isIOS) ...<Widget>[
@@ -94,43 +82,39 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               // SOS on close
               EzSwitchPair(
                 text: l10n.ssSOSOnClose,
-                value: sosOnClose,
-                onChanged: (bool? value) async {
-                  if (value == null) return;
+                valueKey: onCloseKey,
+                canChange: (bool choice) => canSet(onCloseKey, choice),
+                onChangedCallback: (bool? choice) async {
+                  if (choice != true) return;
 
-                  if (value == true) {
-                    await showPlatformDialog(
-                      context: context,
-                      builder: (_) => EzAlertDialog(
-                        title: Text(
-                          el10n.gAttention,
-                          textAlign: TextAlign.center,
-                        ),
-                        contents: <Widget>[
-                          Text(
-                            l10n.ssSOSOnCloseHint,
-                            textAlign: TextAlign.center,
-                          )
-                        ],
-                        materialActions: <Widget>[
-                          EzMaterialAction(
-                            text: l10n.gOk,
-                            onPressed: Navigator.of(context).pop,
-                          ),
-                        ],
-                        cupertinoActions: <Widget>[
-                          EzCupertinoAction(
-                            text: l10n.gOk,
-                            onPressed: Navigator.of(context).pop,
-                          ),
-                        ],
-                        needsClose: false,
+                  await showPlatformDialog<bool>(
+                    context: context,
+                    builder: (_) => EzAlertDialog(
+                      title: Text(
+                        el10n.gAttention,
+                        textAlign: TextAlign.center,
                       ),
-                    );
-                  }
-
-                  final bool refresh = await attemptToSet(onCloseKey, value);
-                  if (refresh) setState(() => sosOnClose = value);
+                      contents: <Widget>[
+                        Text(
+                          l10n.ssSOSOnCloseHint,
+                          textAlign: TextAlign.center,
+                        )
+                      ],
+                      materialActions: <Widget>[
+                        EzMaterialAction(
+                          text: l10n.gOk,
+                          onPressed: () => Navigator.of(context).pop(true),
+                        ),
+                      ],
+                      cupertinoActions: <Widget>[
+                        EzCupertinoAction(
+                          text: l10n.gOk,
+                          onPressed: () => Navigator.of(context).pop(true),
+                        ),
+                      ],
+                      needsClose: false,
+                    ),
+                  );
                 },
               ),
               spacer,
@@ -138,14 +122,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               // SOS on interrupt
               EzSwitchPair(
                 text: l10n.ssVideoSOS,
-                value: sosOnInterrupt,
-                onChanged: (bool? value) async {
-                  if (value == null) return;
-
-                  final bool refresh =
-                      await attemptToSet(onInterruptKey, value);
-                  if (refresh) setState(() => sosOnInterrupt = value);
-                },
+                valueKey: onInterruptKey,
+                canChange: (bool choice) => canSet(onInterruptKey, choice),
               ),
             ],
             isIOS ? separator : divider,
