@@ -8,4 +8,3 @@ export 'emc.dart';
 export 'icons.dart';
 export 'rights_view.dart';
 export 'sos_scaffold.dart';
-export 'tutorial.dart';

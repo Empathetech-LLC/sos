@@ -319,7 +319,7 @@ class _HomeScreenState extends State<HomeScreen>
             child: Center(
               child: OverlayPortal(
                 controller: broadcastOverlay,
-                overlayChildBuilder: (_) => TutorialOverlay(
+                overlayChildBuilder: (_) => EzTutorial(
                   top: safeTop + spargin + iconSize * 1.5 + spacing,
                   left: 0,
                   right: 0,
@@ -327,7 +327,8 @@ class _HomeScreenState extends State<HomeScreen>
                   content: Platform.isIOS
                       ? l10n.hsIOSBroadcastTutorial
                       : l10n.hsBroadcastTutorial,
-                  accept: () async {
+                  acceptMessage: l10n.gOk,
+                  onAccept: () async {
                     broadcastOverlay.hide();
                     if (!Platform.isIOS) await Permission.sms.request();
                     final LocationPermission choice =
@@ -414,13 +415,14 @@ class _HomeScreenState extends State<HomeScreen>
             left: isLefty ? margin : null,
             child: OverlayPortal(
               controller: settingsOverlay,
-              overlayChildBuilder: (_) => TutorialOverlay(
+              overlayChildBuilder: (_) => EzTutorial(
                 top: safeTop + margin,
                 right: isLefty ? 0 : margin + iconSize + spacing,
                 left: isLefty ? margin + iconSize + spacing : 0,
                 title: '4/5',
                 content: l10n.hsSettingsTutorial,
-                accept: () {
+                acceptMessage: l10n.gOk,
+                onAccept: () {
                   settingsOverlay.hide();
                   recordOverlay.show();
                 },
@@ -522,7 +524,7 @@ class _HomeScreenState extends State<HomeScreen>
                   // Record
                   OverlayPortal(
                     controller: recordOverlay,
-                    overlayChildBuilder: (_) => TutorialOverlay(
+                    overlayChildBuilder: (_) => EzTutorial(
                       bottom: safeBottom + spargin + iconSize * 2 + spacing,
                       left: 0,
                       right: 0,
@@ -534,7 +536,8 @@ class _HomeScreenState extends State<HomeScreen>
                           : Platform.isIOS
                               ? l10n.hsIOSVideoTutorial
                               : l10n.hsVideoTutorial,
-                      accept: () async {
+                      acceptMessage: l10n.gOk,
+                      onAccept: () async {
                         recordOverlay.hide();
                         await EzConfig.setBool(tutorialKey, false);
                       },
