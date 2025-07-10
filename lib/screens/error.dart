@@ -31,35 +31,33 @@ class _ErrorScreenState extends State<ErrorScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SosScaffold(
-      EzScreen(
-        useImageDecoration: false,
-        child: Center(
-          child: EzScrollView(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                l10n.g404Wonder,
-                style: textTheme.headlineLarge,
-                textAlign: TextAlign.center,
-              ),
-              separator,
-              Text(
-                l10n.g404,
-                style: ezSubTitleStyle(textTheme),
-                textAlign: TextAlign.center,
-              ),
-              separator,
-              Text(
-                l10n.g404Note,
-                style: textTheme.labelLarge,
-                textAlign: TextAlign.center,
-              ),
-              separator,
-            ],
-          ),
+    return SosScaffold(EzScreen(
+      Center(
+        child: EzScrollView(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              l10n.g404Wonder,
+              style: textTheme.headlineLarge,
+              textAlign: TextAlign.center,
+            ),
+            separator,
+            Text(
+              l10n.g404,
+              style: ezSubTitleStyle(textTheme),
+              textAlign: TextAlign.center,
+            ),
+            separator,
+            Text(
+              l10n.g404Note,
+              style: textTheme.labelLarge,
+              textAlign: TextAlign.center,
+            ),
+            separator,
+          ],
         ),
       ),
-    );
+      useImageDecoration: false,
+    ));
   }
 }

@@ -54,93 +54,91 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   Widget build(BuildContext context) {
     return SosScaffold(
       EzScreen(
-        useImageDecoration: false,
-        child: EzScrollView(
-          children: <Widget>[
-            // Functionality disclaimer
-            EzWarning(el10n.ssSettingsGuide.split('\n').first),
+        EzScrollView(children: <Widget>[
+          // Functionality disclaimer
+          EzWarning(el10n.ssSettingsGuide.split('\n').first),
+          spacer,
+
+          // Language
+          EzLocaleSetting(
+            locales: Lang.supportedLocales,
+            skip: <Locale>{arabic, english, chinese}, // Dupes
+            protest: true,
+          ),
+          isIOS ? separator : divider,
+
+          // SOS on open
+          EzSwitchPair(
+            text: l10n.ssSOSOnOpen,
+            valueKey: onOpenKey,
+            canChange: (bool choice) => canSet(onOpenKey, choice),
+          ),
+
+          if (!isIOS) ...<Widget>[
             spacer,
 
-            // Language
-            EzLocaleSetting(
-              locales: Lang.supportedLocales,
-              skip: <Locale>{arabic, english, chinese}, // Dupes
-              protest: true,
-            ),
-            isIOS ? separator : divider,
-
-            // SOS on open
+            // SOS on close
             EzSwitchPair(
-              text: l10n.ssSOSOnOpen,
-              valueKey: onOpenKey,
-              canChange: (bool choice) => canSet(onOpenKey, choice),
-            ),
+              text: l10n.ssSOSOnClose,
+              valueKey: onCloseKey,
+              canChange: (bool choice) => canSet(onCloseKey, choice),
+              onChangedCallback: (bool? choice) async {
+                if (choice != true) return;
 
-            if (!isIOS) ...<Widget>[
-              spacer,
-
-              // SOS on close
-              EzSwitchPair(
-                text: l10n.ssSOSOnClose,
-                valueKey: onCloseKey,
-                canChange: (bool choice) => canSet(onCloseKey, choice),
-                onChangedCallback: (bool? choice) async {
-                  if (choice != true) return;
-
-                  await showPlatformDialog<bool>(
-                    context: context,
-                    builder: (_) => EzAlertDialog(
-                      title: Text(
-                        el10n.gAttention,
-                        textAlign: TextAlign.center,
-                      ),
-                      contents: <Widget>[
-                        Text(
-                          l10n.ssSOSOnCloseHint,
-                          textAlign: TextAlign.center,
-                        )
-                      ],
-                      materialActions: <Widget>[
-                        EzMaterialAction(
-                          text: l10n.gOk,
-                          onPressed: () => Navigator.of(context).pop(true),
-                        ),
-                      ],
-                      cupertinoActions: <Widget>[
-                        EzCupertinoAction(
-                          text: l10n.gOk,
-                          onPressed: () => Navigator.of(context).pop(true),
-                        ),
-                      ],
-                      needsClose: false,
+                await showPlatformDialog<bool>(
+                  context: context,
+                  builder: (_) => EzAlertDialog(
+                    title: Text(
+                      el10n.gAttention,
+                      textAlign: TextAlign.center,
                     ),
-                  );
-                },
-              ),
-              spacer,
-
-              // SOS on interrupt
-              EzSwitchPair(
-                text: l10n.ssVideoSOS,
-                valueKey: onInterruptKey,
-                canChange: (bool choice) => canSet(onInterruptKey, choice),
-              ),
-            ],
-            isIOS ? separator : divider,
-
-            // EMC
-            const ContactList(),
-            separator,
-
-            // Appearance
-            EzElevatedIconButton(
-              onPressed: () => context.goNamed(ezSettingsHomePath),
-              icon: EzIcon(Icons.navigate_next),
-              label: l10n.ssAppearance,
+                    contents: <Widget>[
+                      Text(
+                        l10n.ssSOSOnCloseHint,
+                        textAlign: TextAlign.center,
+                      )
+                    ],
+                    materialActions: <Widget>[
+                      EzMaterialAction(
+                        text: l10n.gOk,
+                        onPressed: () => Navigator.of(context).pop(true),
+                      ),
+                    ],
+                    cupertinoActions: <Widget>[
+                      EzCupertinoAction(
+                        text: l10n.gOk,
+                        onPressed: () => Navigator.of(context).pop(true),
+                      ),
+                    ],
+                    needsClose: false,
+                  ),
+                );
+              },
             ),
-            separator,
+            spacer,
+
+            // SOS on interrupt
+            EzSwitchPair(
+              text: l10n.ssVideoSOS,
+              valueKey: onInterruptKey,
+              canChange: (bool choice) => canSet(onInterruptKey, choice),
+            ),
           ],
-        ),
+          isIOS ? separator : divider,
+
+          // EMC
+          const ContactList(),
+          separator,
+
+          // Appearance
+          EzElevatedIconButton(
+            onPressed: () => context.goNamed(ezSettingsHomePath),
+            icon: EzIcon(Icons.navigate_next),
+            label: l10n.ssAppearance,
+          ),
+          separator,
+        ]),
+        useImageDecoration: false,
       ),
       fab: EzBackFAB(context, showHome: true),
     );

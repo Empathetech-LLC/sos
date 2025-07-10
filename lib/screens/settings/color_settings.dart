@@ -16,23 +16,25 @@ class ColorSettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SosScaffold(
-        EzColorSettings(
+        EzScreen(
+          EzColorSettings(
+            target: target,
+            lightStarterSet: const <String>[
+              videoColorKey,
+              lightPrimaryKey,
+              lightSurfaceKey,
+              lightOnSurfaceKey,
+              lightSurfaceContainerKey,
+            ],
+            darkStarterSet: const <String>[
+              videoColorKey,
+              darkPrimaryKey,
+              darkSurfaceKey,
+              darkOnSurfaceKey,
+              darkSurfaceContainerKey,
+            ],
+          ),
           useImageDecoration: false,
-          target: target,
-          lightStarterSet: const <String>[
-            videoColorKey,
-            lightPrimaryKey,
-            lightSurfaceKey,
-            lightOnSurfaceKey,
-            lightSurfaceContainerKey,
-          ],
-          darkStarterSet: const <String>[
-            videoColorKey,
-            darkPrimaryKey,
-            darkSurfaceKey,
-            darkOnSurfaceKey,
-            darkSurfaceContainerKey,
-          ],
         ),
         fab: EzBackFAB(context),
       );

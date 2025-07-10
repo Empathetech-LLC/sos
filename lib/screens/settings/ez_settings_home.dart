@@ -33,8 +33,7 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
   Widget build(BuildContext context) {
     return SosScaffold(
       EzScreen(
-        useImageDecoration: false,
-        child: Center(
+        Center(
           child: EzScrollView(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -79,6 +78,7 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
             ],
           ),
         ),
+        useImageDecoration: false,
       ),
       fab: EzBackFAB(context),
     );
