@@ -1,3 +1,8 @@
+/* sos
+ * Copyright (c) 2025 Empathetech LLC. All rights reserved.
+ * See LICENSE for distribution and usage details.
+ */
+
 import Flutter
 import UIKit
 import MessageUI
@@ -29,11 +34,10 @@ import MessageUI
   private func sendSMS(result: FlutterResult, viewControl: FlutterViewController , arguments: [String : Any]) {
     #if targetEnvironment(simulator)
       result(FlutterError(
-          code: "device_not_supported",
-          message: "Must use hardware",
-          details: "Cannot send SMS/MMS on a Simulator"
-        )
-      )
+        code: "device_not_supported",
+        message: "Must use hardware",
+        details: "Cannot send SMS/MMS on a Simulator"
+      ))
     #else
       let message = arguments["message"] as! String
       let recipients = arguments["recipients"] as! [String]
