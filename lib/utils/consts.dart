@@ -42,7 +42,7 @@ const String onCloseKey = 'sosOnClose';
 const String onInterruptKey = 'sosOnInterrupt';
 
 final Map<String, Object> sosConfig = <String, Object>{
-  ...mobileEmpathConfig,
+  ...empathMobileConfig,
   darkTextBackgroundOpacityKey: 0.8,
   lightTextBackgroundOpacityKey: 0.8,
   videoColorKey: 0xFFFF0000,
