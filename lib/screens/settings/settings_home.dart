@@ -56,7 +56,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
       EzScreen(
         EzScrollView(children: <Widget>[
           // Functionality disclaimer
-          EzWarning(el10n.ssSettingsGuide.split('\n').first),
+          EzWarning(el10n.ssRestartReminder),
           spacer,
 
           // Language

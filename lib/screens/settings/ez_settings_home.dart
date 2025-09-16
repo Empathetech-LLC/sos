@@ -45,9 +45,16 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
               separator,
 
               EzElevatedIconButton(
-                onPressed: () => context.goNamed(textSettingsPath),
+                onPressed: () => context.goNamed(colorSettingsPath),
                 icon: EzIcon(Icons.navigate_next),
-                label: el10n.tsPageTitle,
+                label: el10n.csPageTitle,
+              ),
+              spacer,
+
+              EzElevatedIconButton(
+                onPressed: () => context.goNamed(designSettingsPath),
+                icon: EzIcon(Icons.navigate_next),
+                label: el10n.dsPageTitle,
               ),
               spacer,
 
@@ -59,16 +66,16 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
               spacer,
 
               EzElevatedIconButton(
-                onPressed: () => context.goNamed(colorSettingsPath),
+                onPressed: () => context.goNamed(textSettingsPath),
                 icon: EzIcon(Icons.navigate_next),
-                label: el10n.csPageTitle,
+                label: el10n.tsPageTitle,
               ),
               separator,
 
               EzResetButton(
                 onConfirm: () async {
                   await EzConfig.removeKeys(<String>{
-                    ...mobileEmpathConfig.keys,
+                    ...empathMobileConfig.keys,
                     videoColorKey,
                   });
                   setState(() {});
