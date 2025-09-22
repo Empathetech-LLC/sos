@@ -31,7 +31,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with AfterLayoutMixin<HomeScreen>, WidgetsBindingObserver {
-  // Gather the theme data //
+  // Gather the fixed theme data //
 
   // Layout
   late final double safeTop = MediaQuery.paddingOf(context).top;
@@ -48,15 +48,9 @@ class _HomeScreenState extends State<HomeScreen>
   final bool isLefty = EzConfig.get(isLeftyKey);
 
   // Color
-  late final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
   final Color videoColor = Color(EzConfig.get(videoColorKey) ?? 0xFFFF0000);
   late final Color videoTextColor = getTextColor(videoColor);
-  late final Color rightsBackgroundColor = Theme.of(context)
-      .textButtonTheme
-      .style!
-      .backgroundColor!
-      .resolve(<WidgetState>{WidgetState.focused})!;
 
   // Text
   late final Lang l10n = Lang.of(context)!;
@@ -238,10 +232,19 @@ class _HomeScreenState extends State<HomeScreen>
     if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
   }
 
-  // Return the build //
-
   @override
   Widget build(BuildContext context) {
+    // Gather the dynamic theme data //
+
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final Color rightsBackgroundColor = Theme.of(context)
+        .textButtonTheme
+        .style!
+        .backgroundColor!
+        .resolve(<WidgetState>{WidgetState.focused})!;
+
+    // Return the build //
+
     return SosScaffold(
       Stack(
         children: <Widget>[
