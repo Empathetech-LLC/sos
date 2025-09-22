@@ -19,7 +19,7 @@ class _PulsingIconWidgetState extends State<SOSIcon>
   // Define the animation data //
 
   late AnimationController controller;
-  late Animation<double> breathe;
+  late Animation<double> ping;
 
   // Init //
 
@@ -32,8 +32,7 @@ class _PulsingIconWidgetState extends State<SOSIcon>
       vsync: this,
     );
 
-    breathe = Tween<double>(begin: 0, end: 1).animate(controller);
-
+    ping = Tween<double>(begin: 0, end: 1).animate(controller);
     controller.repeat(reverse: true);
   }
 
@@ -44,9 +43,9 @@ class _PulsingIconWidgetState extends State<SOSIcon>
     final Lang l10n = Lang.of(context)!;
 
     return AnimatedBuilder(
-      animation: breathe,
+      animation: ping,
       builder: (_, __) => Icon(
-        breathe.value < 0.5 ? Icons.notifications : Icons.notifications_active,
+        ping.value < 0.5 ? Icons.notifications : Icons.notifications_active,
         semanticLabel: l10n.hsEndSOS,
       ),
     );
