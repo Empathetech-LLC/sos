@@ -71,8 +71,6 @@ class _HomeScreenState extends State<HomeScreen>
   bool broadcasting = false;
   Timer? sosTimer;
 
-  bool canRunBackground = false;
-
   final bool sosOnOpen = EzConfig.get(onOpenKey) ?? false;
   final bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
   final bool sosOnInterrupt = EzConfig.get(onInterruptKey) ?? false;
@@ -234,7 +232,7 @@ class _HomeScreenState extends State<HomeScreen>
     } else {
       await initCamera();
     }
-    if (mounted) setState(() => canRunBackground = Platform.isAndroid);
+    if (mounted) setState(() {});
 
     // Run the tutorial (if unfinished)
     if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
@@ -688,7 +686,7 @@ class _HomeScreenState extends State<HomeScreen>
 
         if (recording) {
           // SOS based on user state/settings
-          if (canRunBackground &&
+          if (Platform.isAndroid &&
               !alreadyRunning &&
               (broadcasting || sosOnClose || sosOnInterrupt)) {
             if (broadcasting) stopForegroundSOS();
@@ -725,7 +723,7 @@ class _HomeScreenState extends State<HomeScreen>
         } else {
           // Not recording
           // SOS based on user state/settings
-          if (canRunBackground &&
+          if (Platform.isAndroid &&
               !alreadyRunning &&
               (broadcasting || sosOnClose)) {
             if (broadcasting) stopForegroundSOS();
