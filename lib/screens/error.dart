@@ -25,12 +25,12 @@ class _ErrorScreenState extends State<ErrorScreen> {
 
   late final EFUILang l10n = ezL10n(context);
 
-  late final TextTheme textTheme = Theme.of(context).textTheme;
-
   // Return the build //
 
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
+
     return SosScaffold(EzScreen(
       Center(
         child: EzScrollView(

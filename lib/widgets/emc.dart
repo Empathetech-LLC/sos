@@ -57,7 +57,7 @@ class ContactList extends StatefulWidget {
 }
 
 class _ContactListState extends State<ContactList> {
-  // Gather theme data //
+  // Gather the fixed theme data //
 
   final double margin = EzConfig.get(marginKey);
   final double padding = EzConfig.get(paddingKey);
@@ -66,7 +66,6 @@ class _ContactListState extends State<ContactList> {
   final double iconSize = EzConfig.get(iconSizeKey);
 
   late final Lang l10n = Lang.of(context)!;
-  late final TextTheme textTheme = Theme.of(context).textTheme;
 
   // Define build data //
 
@@ -76,7 +75,7 @@ class _ContactListState extends State<ContactList> {
   late final Size numSize = ezTextSize(
     '+44 (444) 444-4444',
     context: context,
-    style: textTheme.bodyLarge,
+    style: Theme.of(context).textTheme.bodyLarge,
   );
 
   late final double listWidth = 2 * margin +
@@ -95,59 +94,63 @@ class _ContactListState extends State<ContactList> {
   // Return the build //
 
   @override
-  Widget build(BuildContext context) => Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          // Title && add button
-          EzScrollView(
-            scrollDirection: Axis.horizontal,
-            reverseHands: true,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text(l10n.ssEMC, style: textTheme.titleLarge),
-              EzMargin(),
-              EzIconButton(
-                icon: Icon(
-                  PlatformIcons(context).addCircledOutline,
-                  semanticLabel: l10n.ssAddHint,
-                ),
-                onPressed: () async {
-                  emc = await addEMC(context, emc, loop: false) ?? emc;
-                  setState(() => heightMod = min(5, emc.length));
-                },
-                tooltip: l10n.ssAddHint,
-              ),
-            ],
-          ),
-          EzMargin(),
+  Widget build(BuildContext context) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
 
-          // List of numbers (with remove buttons)
-          ConstrainedBox(
-            constraints: BoxConstraints(
-              maxHeight: listHeight(),
-              maxWidth: listWidth,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        // Title && add button
+        EzScrollView(
+          scrollDirection: Axis.horizontal,
+          reverseHands: true,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(l10n.ssEMC, style: textTheme.titleLarge),
+            EzMargin(),
+            EzIconButton(
+              icon: Icon(
+                PlatformIcons(context).addCircledOutline,
+                semanticLabel: l10n.ssAddHint,
+              ),
+              onPressed: () async {
+                emc = await addEMC(context, emc, loop: false) ?? emc;
+                setState(() => heightMod = min(5, emc.length));
+              },
+              tooltip: l10n.ssAddHint,
             ),
-            child: Card(
-              child: Center(
-                child: EzScrollView(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: emc
-                      .map((String number) => ContactTile(
-                            key: ValueKey<String>(number),
-                            number: number,
-                            enabled: emc.length > 1,
-                            onRemove: () async {
-                              emc.remove(number);
-                              heightMod = min(5, emc.length);
-                              await EzConfig.setStringList(emcKey, emc);
-                              setState(() {});
-                            },
-                          ))
-                      .toList(),
-                ),
+          ],
+        ),
+        EzMargin(),
+
+        // List of numbers (with remove buttons)
+        ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: listHeight(),
+            maxWidth: listWidth,
+          ),
+          child: Card(
+            child: Center(
+              child: EzScrollView(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: emc
+                    .map((String number) => ContactTile(
+                          key: ValueKey<String>(number),
+                          number: number,
+                          enabled: emc.length > 1,
+                          onRemove: () async {
+                            emc.remove(number);
+                            heightMod = min(5, emc.length);
+                            await EzConfig.setStringList(emcKey, emc);
+                            setState(() {});
+                          },
+                        ))
+                    .toList(),
               ),
             ),
           ),
-        ],
-      );
+        ),
+      ],
+    );
+  }
 }
