@@ -38,7 +38,7 @@ class SosScaffold extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[updater, const EzSpacer(), fab!],
                 ),
-          floatingActionButtonLocation: EzConfig.get(isLeftyKey) ?? false
+          floatingActionButtonLocation: EzConfig.get(isLeftyKey)
               ? FloatingActionButtonLocation.startFloat
               : FloatingActionButtonLocation.endFloat,
           resizeToAvoidBottomInset: false,

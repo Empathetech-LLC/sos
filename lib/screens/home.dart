@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   // Color
 
-  final Color videoColor = Color(EzConfig.get(videoColorKey) ?? 0xFFFF0000);
+  final Color videoColor = Color(EzConfig.get(videoColorKey));
   late final Color videoTextColor = getTextColor(videoColor);
 
   // Text
@@ -62,12 +62,12 @@ class _HomeScreenState extends State<HomeScreen>
   /// EMergency Contacts; [List] of phone number [String]s
   List<String>? emc = EzConfig.get(emcKey);
 
-  bool broadcasting = false;
+  bool broadcasting = false; // TODO: consolidate these two?
   Timer? sosTimer;
 
-  final bool sosOnOpen = EzConfig.get(onOpenKey) ?? false;
-  final bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
-  final bool sosOnInterrupt = EzConfig.get(onInterruptKey) ?? false;
+  final bool sosOnOpen = EzConfig.get(onOpenKey);
+  final bool sosOnClose = EzConfig.get(onCloseKey);
+  final bool sosOnInterrupt = EzConfig.get(onInterruptKey);
 
   // Tutorial
   final OverlayPortalController broadcastOverlay =
@@ -212,7 +212,7 @@ class _HomeScreenState extends State<HomeScreen>
     if (newUser) emc = await addEMC(context, emc);
 
     // Check for auto SOS
-    final bool taskRunning = EzConfig.get(taskRunningKey) ?? false;
+    final bool taskRunning = EzConfig.get(taskRunningKey);
 
     if (taskRunning) await stopBackgroundSOS();
     if (sosOnOpen || taskRunning) await startForegroundSOS();
@@ -685,7 +685,7 @@ class _HomeScreenState extends State<HomeScreen>
         break;
 
       case AppLifecycleState.hidden:
-        final bool alreadyRunning = EzConfig.get(taskRunningKey) ?? false;
+        final bool alreadyRunning = EzConfig.get(taskRunningKey);
 
         if (recording) {
           // SOS based on user state/settings
