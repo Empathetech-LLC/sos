@@ -71,6 +71,8 @@ class _HomeScreenState extends State<HomeScreen>
 
   final bool autoShare = EzConfig.get(autoShareKey);
 
+  final LinkType linkType = LinkConfig.fromName(EzConfig.get(linkTypeKey));
+
   // Tutorial
   final OverlayPortalController broadcastOverlay =
       OverlayPortalController(debugLabel: 'broadcast');
@@ -123,12 +125,12 @@ class _HomeScreenState extends State<HomeScreen>
     sosTimer?.cancel();
 
     // Send an immediate SOS
-    await foregroundSOS(emc, l10n);
+    await foregroundSOS(emc: emc, linkType: linkType, l10n: l10n);
 
     // Initiate a periodic SOS
     sosTimer = Timer.periodic(
       const Duration(minutes: 5),
-      (_) => foregroundSOS(emc, l10n),
+      (_) => foregroundSOS(emc: emc, linkType: linkType, l10n: l10n),
     );
 
     setState(() => broadcasting = true);
@@ -510,7 +512,10 @@ class _HomeScreenState extends State<HomeScreen>
                               // Attempt to share (config based)
                               if (autoShare) {
                                 await SharePlus.instance.share(ShareParams(
-                                  text: await getCoordinates(l10n),
+                                  text: await getCoordinates(
+                                    linkType.base,
+                                    l10n,
+                                  ),
                                   files: <XFile>[image],
                                 ));
                               }
@@ -598,7 +603,10 @@ class _HomeScreenState extends State<HomeScreen>
                                 // Attempt to share the video (config based)
                                 if (autoShare) {
                                   await SharePlus.instance.share(ShareParams(
-                                    text: await getCoordinates(l10n),
+                                    text: await getCoordinates(
+                                      linkType.base,
+                                      l10n,
+                                    ),
                                     files: <XFile>[XFile(mp4Path)],
                                   ));
                                 }

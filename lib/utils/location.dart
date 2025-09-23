@@ -82,7 +82,7 @@ extension LinkConfig on LinkType {
 /// Gets coordinates from [Geolocator]
 /// Returns the coordinates injected into a Google Maps URL
 /// Includes error handling
-Future<String> getCoordinates(Lang l10n) async {
+Future<String> getCoordinates(String linkBase, Lang l10n) async {
   final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
   if (!serviceEnabled) return l10n.sosDisabled;
 
@@ -103,7 +103,7 @@ Future<String> getCoordinates(Lang l10n) async {
   try {
     ezLog('Building maps link');
     final Position pos = await Geolocator.getCurrentPosition();
-    return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.longitude.toStringAsFixed(4)}';
+    return '$linkBase${pos.latitude.toStringAsFixed(4)},${pos.longitude.toStringAsFixed(4)}';
   } catch (e) {
     ezLog('Error getting coordinates');
     ezLog(e.toString());
@@ -115,7 +115,11 @@ const MethodChannel platform = MethodChannel('$packageName/broadcast');
 
 /// Call the [MethodChannel] to send a foregroundSOS
 /// Includes error handling
-Future<void> foregroundSOS(List<String>? emc, Lang l10n) async {
+Future<void> foregroundSOS({
+  required List<String>? emc,
+  required LinkType linkType,
+  required Lang l10n,
+}) async {
   if (emc == null || emc.isEmpty) return;
 
   final Map<String, dynamic> mapData = <String, dynamic>{};
@@ -125,7 +129,7 @@ Future<void> foregroundSOS(List<String>? emc, Lang l10n) async {
   } else {
     mapData['recipients'] = emc.join(';');
   }
-  mapData['message'] = 'SOS\n${await getCoordinates(l10n)}';
+  mapData['message'] = 'SOS\n${await getCoordinates(linkType.base, l10n)}';
 
   ezLog('Sending SOS (foreground)');
   ezLog(mapData.toString());
