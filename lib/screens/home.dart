@@ -439,7 +439,7 @@ class _HomeScreenState extends State<HomeScreen>
                   parentContext: context,
                   l10n: el10n,
                   supportEmail: empathSupport,
-                  appName: appTitle,
+                  appName: appName,
                 ),
               ),
             ),

@@ -148,7 +148,7 @@ class SOS extends StatelessWidget {
         },
         supportedLocales: Lang.supportedLocales,
         locale: EzConfig.getLocale(),
-        title: appTitle,
+        title: appName,
         routerConfig: router,
       ),
     );

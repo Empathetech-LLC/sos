@@ -41,7 +41,7 @@ Future<String> getCoordinates(Lang l10n) async {
   }
 }
 
-const MethodChannel platform = MethodChannel('net.empathetech.sos/broadcast');
+const MethodChannel platform = MethodChannel('$packageName/broadcast');
 
 /// Call the [MethodChannel] to send a foregroundSOS
 /// Includes error handling

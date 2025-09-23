@@ -6,7 +6,10 @@
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 /// 'InstaSOS'
-const String appTitle = 'InstaSOS';
+const String appName = 'InstaSOS';
+
+/// net.empathetech.sos
+const String packageName = 'net.empathetech.sos';
 
 /// 'taskRunning'
 const String taskRunningKey = 'taskRunning';
