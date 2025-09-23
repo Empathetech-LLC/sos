@@ -49,8 +49,8 @@ const String onCloseKey = 'sosOnClose';
 /// 'sosOnInterrupt'
 const String onInterruptKey = 'sosOnInterrupt';
 
-/// 'autoShareImages'
-const String autoShareKey = 'autoShareImages';
+/// 'autoShareMedia'
+const String autoShareKey = 'autoShareMedia';
 
 final Map<String, Object> sosConfig = <String, Object>{
   ...empathMobileConfig,

@@ -125,9 +125,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             ),
           ],
 
-          // Auto-share images
+          // Auto-share media
           EzSwitchPair(
-            text: l10n.ssVideoSOS,
+            text: 'Auto-share media', // TODO: l10n
             valueKey: autoShareKey,
           ),
           divider,
