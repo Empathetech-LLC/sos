@@ -10,7 +10,7 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 enum Location { walking, driving, home }
 
-extension Symbol on Location {
+extension LocationConfig on Location {
   IconData get icon {
     switch (this) {
       case Location.walking:
@@ -21,9 +21,7 @@ extension Symbol on Location {
         return Icons.home;
     }
   }
-}
 
-extension Label on Location {
   String get name {
     switch (this) {
       case Location.walking:
