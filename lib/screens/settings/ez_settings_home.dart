@@ -23,6 +23,7 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
 
   static const EzSpacer spacer = EzSpacer();
   static const EzSeparator separator = EzSeparator();
+  static const EzDivider divider = EzDivider();
 
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = ezL10n(context);
@@ -42,7 +43,7 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
               spacer,
 
               const EzThemeModeSwitch(),
-              separator,
+              divider,
 
               EzElevatedIconButton(
                 onPressed: () => context.goNamed(colorSettingsPath),
@@ -70,7 +71,14 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
                 icon: EzIcon(Icons.navigate_next),
                 label: el10n.tsPageTitle,
               ),
-              separator,
+              divider,
+
+              const EzQuickConfig(
+                videoGame: false,
+                chalkboard: false,
+                fancyPants: false,
+              ),
+              spacer,
 
               EzResetButton(
                 onConfirm: () async {
@@ -87,7 +95,11 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
         ),
         useImageDecoration: false,
       ),
-      fab: EzBackFAB(context),
+      fab: EzConfigFAB(
+        context,
+        appName: appName,
+        androidPackage: packageName,
+      ),
     );
   }
 }
