@@ -9,6 +9,13 @@ import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
+// Enum(s) //
+
+const String _google = 'google';
+const String _apple = 'apple';
+const String _waze = 'waze';
+const String _raw = 'raw';
+
 enum LinkType {
   google,
   apple,
@@ -20,13 +27,13 @@ extension LinkConfig on LinkType {
   String get name {
     switch (this) {
       case LinkType.google:
-        return 'google';
+        return _google;
       case LinkType.apple:
-        return 'apple';
+        return _apple;
       case LinkType.waze:
-        return 'waze';
+        return _waze;
       case LinkType.raw:
-        return 'raw';
+        return _raw;
     }
   }
 
@@ -55,7 +62,22 @@ extension LinkConfig on LinkType {
         return '';
     }
   }
+
+  static LinkType fromName(String name) {
+    switch (name) {
+      case _apple:
+        return LinkType.apple;
+      case _waze:
+        return LinkType.waze;
+      case _raw:
+        return LinkType.raw;
+      default:
+        return LinkType.google;
+    }
+  }
 }
+
+// Functions //
 
 /// Gets coordinates from [Geolocator]
 /// Returns the coordinates injected into a Google Maps URL
