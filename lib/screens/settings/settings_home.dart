@@ -32,6 +32,10 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = ezL10n(context);
 
+  // Define the build data //
+
+  LinkType linkType = LinkConfig.fromName(EzConfig.get(linkTypeKey));
+
   // Define custom functions //
 
   Future<bool> canSet(String key, bool value) async {
@@ -123,6 +127,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               valueKey: onInterruptKey,
               canChange: (bool choice) => canSet(onInterruptKey, choice),
             ),
+            spacer,
           ],
 
           // Auto-share media
@@ -150,6 +155,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               ),
               EzMargin(),
               EzDropdownMenu<LinkType>(
+                widthEntries: <String>[LinkType.google.label],
                 dropdownMenuEntries: LinkType.values
                     .map<DropdownMenuEntry<LinkType>>(
                       (LinkType type) => DropdownMenuEntry<LinkType>(
@@ -158,6 +164,14 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                       ),
                     )
                     .toList(),
+                enableSearch: false,
+                initialSelection: linkType,
+                onSelected: (LinkType? selection) async {
+                  if (selection == null || selection == linkType) return;
+
+                  await EzConfig.setString(linkTypeKey, selection.name);
+                  setState(() => linkType = selection);
+                },
               ),
             ],
           ),
