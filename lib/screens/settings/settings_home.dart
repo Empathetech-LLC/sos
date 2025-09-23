@@ -65,7 +65,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             skip: <Locale>{arabic, english, chinese}, // Dupes
             protest: true,
           ),
-          isIOS ? separator : divider,
+          divider,
 
           // SOS on open
           EzSwitchPair(
@@ -124,11 +124,44 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               canChange: (bool choice) => canSet(onInterruptKey, choice),
             ),
           ],
-          isIOS ? separator : divider,
+
+          // Auto-share images
+          EzSwitchPair(
+            text: l10n.ssVideoSOS,
+            valueKey: autoShareKey,
+          ),
+          divider,
 
           // EMC
           const ContactList(),
-          separator,
+          spacer,
+
+          // Link type
+          EzScrollView(
+            scrollDirection: Axis.horizontal,
+            reverseHands: true,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              // Label
+              EzText(
+                'Link type', // TODO: l10n
+                style: Theme.of(context).textTheme.bodyLarge,
+                textAlign: TextAlign.center,
+              ),
+              EzMargin(),
+              EzDropdownMenu<LinkType>(
+                dropdownMenuEntries: LinkType.values
+                    .map<DropdownMenuEntry<LinkType>>(
+                      (LinkType type) => DropdownMenuEntry<LinkType>(
+                        value: type,
+                        label: type.label,
+                      ),
+                    )
+                    .toList(),
+              ),
+            ],
+          ),
+          divider,
 
           // Appearance
           EzElevatedIconButton(
