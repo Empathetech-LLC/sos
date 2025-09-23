@@ -30,6 +30,19 @@ extension LinkConfig on LinkType {
     }
   }
 
+  String get label {
+    switch (this) {
+      case LinkType.google:
+        return 'Google Maps';
+      case LinkType.apple:
+        return 'Apple Maps';
+      case LinkType.waze:
+        return 'Waze';
+      case LinkType.raw:
+        return 'Coordinates';
+    }
+  }
+
   String get base {
     switch (this) {
       case LinkType.google:
