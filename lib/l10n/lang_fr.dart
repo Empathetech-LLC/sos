@@ -200,6 +200,9 @@ class LangFr extends Lang {
   String get ssVideoSOS => 'SOS en cas d\'enregistrement interrompu';
 
   @override
+  String get ssAutoShare => 'Partage automatique de médias';
+
+  @override
   String get ssEMC => 'Contacts d\'urgence';
 
   @override
@@ -207,6 +210,9 @@ class LangFr extends Lang {
 
   @override
   String get ssAddHint => 'Ajouter un autre contact';
+
+  @override
+  String get ssLinkType => 'Type de lien';
 
   @override
   String get ssAppearance => 'Apparence';

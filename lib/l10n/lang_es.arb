@@ -76,10 +76,12 @@
   "ssSOSOnClose": "SOS al cerrarse",
   "ssSOSOnCloseHint": "Cuando esté activado, se mostrará un botón de cierre seguro al otro lado de la configuración",
   "ssVideoSOS": "SOS al interrumpir la grabación",
+  "ssAutoShare": "Compartir medios automáticamente",
 
   "ssEMC": "Contactos de emergencia",
   "ssRemoveHint": "Eliminar contacto",
   "ssAddHint": "Añadir otro contacto",
+  "ssLinkType": "Tipo de enlace",
 
   "ssAppearance": "Apariencia"
 }

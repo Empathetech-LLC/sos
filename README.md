@@ -41,7 +41,7 @@ As civilians, our first line of defense is our cameras.<br>So, at its core, Inst
 
 <br>On iOS, the messages are automated.<br>Every 5 minutes, a message with your current location will be created (like the image above).<br>You will have to hit the send button yourself. You are also free to cancel.<br>This process is done without leaving the app, and does **not** interrupt video recordings.
 
-On Android, the messages are fully automatic.<br>Every 5 minutes, a message with your currently location will be sent, and you can focus on the task at hand.
+On Android, the messages are fully automatic.<br>Every 5 minutes, a message with your current location will be sent, and you can focus on the task at hand.
 
 Because they're automatic, Android SOS's can even be sent in the background.<br>"In the background" being when the app is minimized, if you've switched to another app, or locked the phone.<br>While in the background, SOS messages will be sent every 15 minutes.
 

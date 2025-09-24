@@ -195,6 +195,9 @@ class LangFil extends Lang {
   String get ssVideoSOS => 'SOS sa naputol na recording';
 
   @override
+  String get ssAutoShare => 'Auto-share ng media';
+
+  @override
   String get ssEMC => 'Mga emergency contact';
 
   @override
@@ -202,6 +205,9 @@ class LangFil extends Lang {
 
   @override
   String get ssAddHint => 'Magdagdag ng isa pang contact';
+
+  @override
+  String get ssLinkType => 'Uri ng link';
 
   @override
   String get ssAppearance => 'Hitsura';

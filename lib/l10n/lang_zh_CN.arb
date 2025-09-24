@@ -76,10 +76,12 @@
   "ssSOSOnClose": "关闭应用时启动SOS",
   "ssSOSOnCloseHint": "启用后，在设置按钮对侧会显示一个“安全关闭”按钮。",
   "ssVideoSOS": "录像中断自动启动SOS",
+  "ssAutoShare": "自动共享媒体",
 
   "ssEMC": "紧急联系人",
   "ssRemoveHint": "移除联系人",
   "ssAddHint": "添加联系人",
+  "ssLinkType": "链接类型",
 
   "ssAppearance": "界面外观"
 }

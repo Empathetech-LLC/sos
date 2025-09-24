@@ -8,14 +8,12 @@ import '../../widgets/export.dart';
 import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-class TextSettingsScreen extends StatelessWidget {
-  final EzTSType? target;
-
-  const TextSettingsScreen({super.key, this.target});
+class DesignSettingsScreen extends StatelessWidget {
+  const DesignSettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) => SosScaffold(
-        EzScreen(EzTextSettings(target: target), useImageDecoration: false),
+        const EzScreen(EzDesignSettings(), useImageDecoration: false),
         fab: EzBackFAB(context),
       );
 }

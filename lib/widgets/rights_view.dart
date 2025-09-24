@@ -10,7 +10,7 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 enum Location { walking, driving, home }
 
-extension Symbol on Location {
+extension LocationConfig on Location {
   IconData get icon {
     switch (this) {
       case Location.walking:
@@ -21,9 +21,7 @@ extension Symbol on Location {
         return Icons.home;
     }
   }
-}
 
-extension Label on Location {
   String get name {
     switch (this) {
       case Location.walking:
@@ -49,7 +47,6 @@ class _RightsViewState extends State<RightsView> {
   // Gather the theme data //
 
   late final Lang l10n = Lang.of(context)!;
-  late final TextTheme textTheme = Theme.of(context).textTheme;
 
   // Define the build data //
 
@@ -68,15 +65,15 @@ class _RightsViewState extends State<RightsView> {
     }
   }
 
-  Widget populateTab() {
+  Widget populateTab(TextStyle? style) {
     switch (currentTab) {
       case Location.walking:
         return Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            rightsBlock(l10n.rsWalkPockets),
-            rightsBlock(l10n.rsWalkLeave),
+            rightsBlock(l10n.rsWalkPockets, style),
+            rightsBlock(l10n.rsWalkLeave, style),
           ],
         );
       case Location.driving:
@@ -84,12 +81,12 @@ class _RightsViewState extends State<RightsView> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            rightsBlock(l10n.rsDriveSearch),
-            rightsBlock(l10n.rsDrivePockets),
-            rightsBlock(l10n.rsDriveID),
-            rightsBlock(l10n.rsDriveQuestion),
-            rightsBlock(l10n.rsDriveWarrant),
-            rightsBlock(l10n.rsDriveLeave),
+            rightsBlock(l10n.rsDriveSearch, style),
+            rightsBlock(l10n.rsDrivePockets, style),
+            rightsBlock(l10n.rsDriveID, style),
+            rightsBlock(l10n.rsDriveQuestion, style),
+            rightsBlock(l10n.rsDriveWarrant, style),
+            rightsBlock(l10n.rsDriveLeave, style),
           ],
         );
       case Location.home:
@@ -97,22 +94,24 @@ class _RightsViewState extends State<RightsView> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            rightsBlock(l10n.rsHomeWarrant),
+            rightsBlock(l10n.rsHomeWarrant, style),
           ],
         );
     }
   }
 
-  Text rightsBlock(String text) => Text(
+  Text rightsBlock(String text, TextStyle? style) => Text(
         '$text\n',
         textAlign: TextAlign.start,
-        style: textTheme.bodyLarge,
+        style: style,
       );
 
   // Return the build //
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle? bodyStyle = Theme.of(context).textTheme.bodyLarge;
+
     return Visibility(
       visible: !widget.hide,
       child: Padding(
@@ -125,7 +124,7 @@ class _RightsViewState extends State<RightsView> {
               child: Text(
                 l10n.rsSharedHeader,
                 textAlign: TextAlign.center,
-                style: textTheme.titleLarge,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
             const EzSpacer(),
@@ -161,16 +160,16 @@ class _RightsViewState extends State<RightsView> {
             ),
             const EzSeparator(),
 
-            // Shared rights
-            rightsBlock(l10n.rsSharedRemainSilent),
-            rightsBlock(l10n.rsSharedDocument),
+            // Shared rights I
+            rightsBlock(l10n.rsSharedRemainSilent, bodyStyle),
+            rightsBlock(l10n.rsSharedDocument, bodyStyle),
 
-            // Specific rights
-            populateTab(),
+            // Situational rights
+            populateTab(bodyStyle),
 
             // Shared rights II
-            rightsBlock(l10n.rsSharedFingerprint),
-            rightsBlock(l10n.rsSharedLawyer),
+            rightsBlock(l10n.rsSharedFingerprint, bodyStyle),
+            rightsBlock(l10n.rsSharedLawyer, bodyStyle),
           ],
         ),
       ),

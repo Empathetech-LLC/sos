@@ -13,7 +13,7 @@ class LayoutSettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SosScaffold(
-        const EzLayoutSettings(useImageDecoration: false),
+        const EzScreen(EzLayoutSettings(), useImageDecoration: false),
         fab: EzBackFAB(context),
       );
 }

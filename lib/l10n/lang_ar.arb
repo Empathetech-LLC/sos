@@ -76,10 +76,12 @@
   "ssSOSOnClose": "SOS مغلق",
   "ssSOSOnCloseHint": "عند التمكين، سيظهر زر إغلاق آمن مقابل الإعدادات.",
   "ssVideoSOS": "SOS عند انقطاع التسجيل",
+  "ssAutoShare": "مشاركة الوسائط تلقائيًا",
 
   "ssEMC": "جهات الاتصال في حالات الطوارئ",
   "ssRemoveHint": "إزالة جهة الاتصال",
   "ssAddHint": "إضافة جهة اتصال أخرى",
+  "ssLinkType": "نوع الرابط",
 
   "ssAppearance": "المظهر"
 }

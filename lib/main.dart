@@ -31,35 +31,16 @@ void main() async {
   EzConfig.init(
     preferences: prefs,
     defaults: sosConfig,
-    fallbackLang: await EFUILang.delegate.load(english),
+    fallbackLang: await EFUILang.delegate.load(americanEnglish),
     assetPaths: <String>{},
   );
 
   // Run the app //
   // With a feedback wrapper
 
-  late final TextStyle lightFeedbackText = ezBodyStyle(Colors.black);
-  late final TextStyle darkFeedbackText = ezBodyStyle(Colors.white);
-
   runApp(BetterFeedback(
-    theme: FeedbackThemeData(
-      background: Colors.grey,
-      feedbackSheetColor: Colors.white,
-      activeFeedbackModeColor: empathPurple,
-      bottomSheetDescriptionStyle: lightFeedbackText,
-      bottomSheetTextInputStyle: lightFeedbackText,
-      sheetIsDraggable: true,
-      dragHandleColor: Colors.black,
-    ),
-    darkTheme: FeedbackThemeData(
-      background: Colors.grey,
-      feedbackSheetColor: Colors.black,
-      activeFeedbackModeColor: empathEucalyptus,
-      bottomSheetDescriptionStyle: darkFeedbackText,
-      bottomSheetTextInputStyle: darkFeedbackText,
-      sheetIsDraggable: true,
-      dragHandleColor: Colors.white,
-    ),
+    theme: empathFeedbackLight,
+    darkTheme: empathFeedbackDark,
     themeMode: EzConfig.getThemeMode(),
     localizationsDelegates: <LocalizationsDelegate<dynamic>>[
       EzFeedbackLD(),
@@ -93,30 +74,6 @@ final GoRouter router = GoRouter(
               builder: (_, __) => const EzSettingsHomeScreen(),
               routes: <RouteBase>[
                 GoRoute(
-                  path: textSettingsPath,
-                  name: textSettingsPath,
-                  builder: (_, __) => const TextSettingsScreen(),
-                  routes: <RouteBase>[
-                    GoRoute(
-                      path: EzTSType.quick.path,
-                      name: EzTSType.quick.name,
-                      builder: (_, __) =>
-                          const TextSettingsScreen(target: EzTSType.quick),
-                    ),
-                    GoRoute(
-                      path: EzTSType.advanced.path,
-                      name: EzTSType.advanced.name,
-                      builder: (_, __) =>
-                          const TextSettingsScreen(target: EzTSType.advanced),
-                    ),
-                  ],
-                ),
-                GoRoute(
-                  path: layoutSettingsPath,
-                  name: layoutSettingsPath,
-                  builder: (_, __) => const LayoutSettingsScreen(),
-                ),
-                GoRoute(
                   path: colorSettingsPath,
                   name: colorSettingsPath,
                   builder: (_, __) => const ColorSettingsScreen(),
@@ -132,6 +89,35 @@ final GoRouter router = GoRouter(
                       name: EzCSType.advanced.name,
                       builder: (_, __) =>
                           const ColorSettingsScreen(target: EzCSType.advanced),
+                    ),
+                  ],
+                ),
+                GoRoute(
+                  path: designSettingsPath,
+                  name: designSettingsPath,
+                  builder: (_, __) => const DesignSettingsScreen(),
+                ),
+                GoRoute(
+                  path: layoutSettingsPath,
+                  name: layoutSettingsPath,
+                  builder: (_, __) => const LayoutSettingsScreen(),
+                ),
+                GoRoute(
+                  path: textSettingsPath,
+                  name: textSettingsPath,
+                  builder: (_, __) => const TextSettingsScreen(),
+                  routes: <RouteBase>[
+                    GoRoute(
+                      path: EzTSType.quick.path,
+                      name: EzTSType.quick.name,
+                      builder: (_, __) =>
+                          const TextSettingsScreen(target: EzTSType.quick),
+                    ),
+                    GoRoute(
+                      path: EzTSType.advanced.path,
+                      name: EzTSType.advanced.name,
+                      builder: (_, __) =>
+                          const TextSettingsScreen(target: EzTSType.advanced),
                     ),
                   ],
                 ),
@@ -162,7 +148,7 @@ class SOS extends StatelessWidget {
         },
         supportedLocales: Lang.supportedLocales,
         locale: EzConfig.getLocale(),
-        title: appTitle,
+        title: appName,
         routerConfig: router,
       ),
     );

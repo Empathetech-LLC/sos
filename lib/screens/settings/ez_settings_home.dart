@@ -23,6 +23,7 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
 
   static const EzSpacer spacer = EzSpacer();
   static const EzSeparator separator = EzSeparator();
+  static const EzDivider divider = EzDivider();
 
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = ezL10n(context);
@@ -33,8 +34,7 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
   Widget build(BuildContext context) {
     return SosScaffold(
       EzScreen(
-        useImageDecoration: false,
-        child: Center(
+        Center(
           child: EzScrollView(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -43,12 +43,19 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
               spacer,
 
               const EzThemeModeSwitch(),
-              separator,
+              divider,
 
               EzElevatedIconButton(
-                onPressed: () => context.goNamed(textSettingsPath),
+                onPressed: () => context.goNamed(colorSettingsPath),
                 icon: EzIcon(Icons.navigate_next),
-                label: el10n.tsPageTitle,
+                label: el10n.csPageTitle,
+              ),
+              spacer,
+
+              EzElevatedIconButton(
+                onPressed: () => context.goNamed(designSettingsPath),
+                icon: EzIcon(Icons.navigate_next),
+                label: el10n.dsPageTitle,
               ),
               spacer,
 
@@ -60,16 +67,23 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
               spacer,
 
               EzElevatedIconButton(
-                onPressed: () => context.goNamed(colorSettingsPath),
+                onPressed: () => context.goNamed(textSettingsPath),
                 icon: EzIcon(Icons.navigate_next),
-                label: el10n.csPageTitle,
+                label: el10n.tsPageTitle,
               ),
-              separator,
+              divider,
+
+              const EzQuickConfig(
+                videoGame: false,
+                chalkboard: false,
+                fancyPants: false,
+              ),
+              spacer,
 
               EzResetButton(
                 onConfirm: () async {
                   await EzConfig.removeKeys(<String>{
-                    ...mobileEmpathConfig.keys,
+                    ...allKeys.keys,
                     videoColorKey,
                   });
                   setState(() {});
@@ -79,8 +93,13 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
             ],
           ),
         ),
+        useImageDecoration: false,
       ),
-      fab: EzBackFAB(context),
+      fab: EzConfigFAB(
+        context,
+        appName: appName,
+        androidPackage: packageName,
+      ),
     );
   }
 }

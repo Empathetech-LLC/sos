@@ -25,41 +25,39 @@ class _ErrorScreenState extends State<ErrorScreen> {
 
   late final EFUILang l10n = ezL10n(context);
 
-  late final TextTheme textTheme = Theme.of(context).textTheme;
-
   // Return the build //
 
   @override
   Widget build(BuildContext context) {
-    return SosScaffold(
-      EzScreen(
-        useImageDecoration: false,
-        child: Center(
-          child: EzScrollView(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                l10n.g404Wonder,
-                style: textTheme.headlineLarge,
-                textAlign: TextAlign.center,
-              ),
-              separator,
-              Text(
-                l10n.g404,
-                style: ezSubTitleStyle(textTheme),
-                textAlign: TextAlign.center,
-              ),
-              separator,
-              Text(
-                l10n.g404Note,
-                style: textTheme.labelLarge,
-                textAlign: TextAlign.center,
-              ),
-              separator,
-            ],
-          ),
+    final TextTheme textTheme = Theme.of(context).textTheme;
+
+    return SosScaffold(EzScreen(
+      Center(
+        child: EzScrollView(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              l10n.g404Wonder,
+              style: textTheme.headlineLarge,
+              textAlign: TextAlign.center,
+            ),
+            separator,
+            Text(
+              l10n.g404,
+              style: ezSubTitleStyle(textTheme),
+              textAlign: TextAlign.center,
+            ),
+            separator,
+            Text(
+              l10n.g404Note,
+              style: textTheme.labelLarge,
+              textAlign: TextAlign.center,
+            ),
+            separator,
+          ],
         ),
       ),
-    );
+      useImageDecoration: false,
+    ));
   }
 }

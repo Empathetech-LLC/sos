@@ -194,6 +194,9 @@ class LangEs extends Lang {
   String get ssVideoSOS => 'SOS al interrumpir la grabación';
 
   @override
+  String get ssAutoShare => 'Compartir medios automáticamente';
+
+  @override
   String get ssEMC => 'Contactos de emergencia';
 
   @override
@@ -201,6 +204,9 @@ class LangEs extends Lang {
 
   @override
   String get ssAddHint => 'Añadir otro contacto';
+
+  @override
+  String get ssLinkType => 'Tipo de enlace';
 
   @override
   String get ssAppearance => 'Apariencia';

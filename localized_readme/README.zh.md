@@ -27,17 +27,17 @@ InstaSOS 无需注册账号、不使用 cookies、无广告、无任何付费项
 
 作为普通群众，我们的第一道防线就是我们的相机。<br>所以，从本质上说，InstaSOS 就是一台相机。
 
-<img src="assets/images/readme/screenshot-1-camera.png" alt="Screenshot of the InstaSOS home screen" width="250"/>
+<img src="../assets/images/readme/screenshot-1-camera.png" alt="Screenshot of the InstaSOS home screen" width="250"/>
 
 <br>当您长按屏幕中央时，应用会显示（或隐藏）您的权利清单。
 
 | 行走时 | 驾驶时 | 在家时 |
 |:-------------:|:-------------:|:-------------:|
-| <img src="assets/images/readme/screenshot-2-walking.png" alt="行走权利截图" width="250"/> | <img src="assets/images/readme/screenshot-3-driving.png" alt="驾驶权利截图" width="250"/> | <img src="assets/images/readme/screenshot-4-at-home.png" alt="在家权利截图" width="250"/> |
+| <img src="../assets/images/readme/screenshot-2-walking.png" alt="行走权利截图" width="250"/> | <img src="../assets/images/readme/screenshot-3-driving.png" alt="驾驶权利截图" width="250"/> | <img src="../assets/images/readme/screenshot-4-at-home.png" alt="在家权利截图" width="250"/> |
 
 <br>InstaSOS 的核心功能，是 SOS 按钮。<br>启用该功能后，您的位置将发送给紧急联络人。<br>紧急联络人由您在首次打开应用时自行设定。
 
-<img src="assets/images/readme/screenshot-5-ios-message.png" alt="iOS SOS 信息示例截图" width="250"/>
+<img src="../assets/images/readme/screenshot-5-ios-message.png" alt="iOS SOS 信息示例截图" width="250"/>
 
 <br>在 iOS 上，信息是自动生成的。<br>每隔 5 分钟，系统将创建一条包含您当前位置的信息（如上图所示）。<br>您需自行点击发送按钮，也可以选择取消。<br>整个过程不会离开应用，亦不会中断视频录制。
 
@@ -47,13 +47,13 @@ InstaSOS 无需注册账号、不使用 cookies、无广告、无任何付费项
 
 自动信息的优势不止于此。<br>在 Android 上，您还可以启用“关闭即 SOS”以及“录制中断即 SOS”。
 
-<img src="assets/images/readme/screenshot-6-android-options.png" alt="自定义Android选项的截图" width="250"/>
+<img src="../assets/images/readme/screenshot-6-android-options.png" alt="自定义Android选项的截图" width="250"/>
 
 <br>启用“关闭即 SOS”后，主画面会显示一个安全退出（大拇指）按钮。<br>如果应用因任何非安全退出的原因进入后台，SOS 广播将自动启动。
 
 | 提示器 | 新的主页 |
 |:-------------:|:-------------:|
-| <img src="assets/images/readme/screenshot-7-safe-close-message.png" alt="关闭时启动SOS的提示画面截图" width="250"/> | <img src="assets/images/readme/screenshot-8-safe-close-button.png" alt="带有安全关闭按钮的主画面截图" width="250"/> |
+| <img src="../assets/images/readme/screenshot-7-safe-close-message.png" alt="关闭时启动SOS的提示画面截图" width="250"/> | <img src="../assets/images/readme/screenshot-8-safe-close-button.png" alt="带有安全关闭按钮的主画面截图" width="250"/> |
 
 <br>“录制中断即 SOS”默认启用。<br>若您正在录制视频且过程中断，后台广播将自动启动。
 

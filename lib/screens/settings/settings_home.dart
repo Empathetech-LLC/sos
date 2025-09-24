@@ -34,21 +34,18 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
   // Define the build data //
 
-  bool sosOnOpen = EzConfig.get(onOpenKey) ?? false;
-  bool sosOnClose = EzConfig.get(onCloseKey) ?? false;
-  bool sosOnInterrupt = EzConfig.get(onInterruptKey) ?? false;
+  LinkType linkType = LinkConfig.fromName(EzConfig.get(linkTypeKey));
 
   // Define custom functions //
 
-  Future<bool> attemptToSet(String key, bool value) async {
-    if (value == false) return EzConfig.setBool(key, value);
+  Future<bool> canSet(String key, bool value) async {
+    if (value == false || isIOS) return true;
 
     final PermissionStatus canSMS = await Permission.sms.request();
 
-    if (isIOS ||
-        (canSMS != PermissionStatus.denied &&
-            canSMS != PermissionStatus.permanentlyDenied)) {
-      return EzConfig.setBool(key, value);
+    if (canSMS != PermissionStatus.denied &&
+        canSMS != PermissionStatus.permanentlyDenied) {
+      return true;
     } else {
       if (mounted) ezSnackBar(context: context, message: l10n.sosNeedSMS);
       return false;
@@ -61,108 +58,134 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   Widget build(BuildContext context) {
     return SosScaffold(
       EzScreen(
-        useImageDecoration: false,
-        child: EzScrollView(
-          children: <Widget>[
-            // Functionality disclaimer
-            EzWarning(el10n.ssSettingsGuide.split('\n').first),
+        EzScrollView(children: <Widget>[
+          // Functionality disclaimer
+          EzWarning(el10n.ssRestartReminder),
+          spacer,
+
+          // Language
+          EzLocaleSetting(
+            locales: Lang.supportedLocales,
+            skip: <Locale>{arabic, english, chinese}, // Dupes
+            protest: true,
+          ),
+          divider,
+
+          // SOS on open
+          EzSwitchPair(
+            text: l10n.ssSOSOnOpen,
+            valueKey: onOpenKey,
+            canChange: (bool choice) => canSet(onOpenKey, choice),
+          ),
+
+          if (!isIOS) ...<Widget>[
             spacer,
 
-            // Language
-            EzLocaleSetting(
-              locales: Lang.supportedLocales,
-              skip: <Locale>{arabic, english, chinese}, // Dupes
-              protest: true,
-            ),
-            isIOS ? separator : divider,
-
-            // SOS on open
+            // SOS on close
             EzSwitchPair(
-              text: l10n.ssSOSOnOpen,
-              value: sosOnOpen,
-              onChanged: (bool? value) async {
-                if (value == null) return;
+              text: l10n.ssSOSOnClose,
+              valueKey: onCloseKey,
+              canChange: (bool choice) => canSet(onCloseKey, choice),
+              onChangedCallback: (bool? choice) async {
+                if (choice != true) return;
 
-                final bool refresh = await attemptToSet(onOpenKey, value);
-                if (refresh) setState(() => sosOnOpen = value);
+                await showPlatformDialog<bool>(
+                  context: context,
+                  builder: (_) => EzAlertDialog(
+                    title: Text(
+                      el10n.gAttention,
+                      textAlign: TextAlign.center,
+                    ),
+                    contents: <Widget>[
+                      Text(
+                        l10n.ssSOSOnCloseHint,
+                        textAlign: TextAlign.center,
+                      )
+                    ],
+                    materialActions: <Widget>[
+                      EzMaterialAction(
+                        text: l10n.gOk,
+                        onPressed: () => Navigator.of(context).pop(true),
+                      ),
+                    ],
+                    cupertinoActions: <Widget>[
+                      EzCupertinoAction(
+                        text: l10n.gOk,
+                        onPressed: () => Navigator.of(context).pop(true),
+                      ),
+                    ],
+                    needsClose: false,
+                  ),
+                );
               },
             ),
+            spacer,
 
-            if (!isIOS) ...<Widget>[
-              spacer,
+            // SOS on interrupt
+            EzSwitchPair(
+              text: l10n.ssVideoSOS,
+              valueKey: onInterruptKey,
+              canChange: (bool choice) => canSet(onInterruptKey, choice),
+            ),
+            spacer,
+          ],
 
-              // SOS on close
-              EzSwitchPair(
-                text: l10n.ssSOSOnClose,
-                value: sosOnClose,
-                onChanged: (bool? value) async {
-                  if (value == null) return;
+          // Auto-share media
+          EzSwitchPair(
+            text: l10n.ssAutoShare,
+            valueKey: autoShareKey,
+          ),
+          divider,
 
-                  if (value == true) {
-                    await showPlatformDialog(
-                      context: context,
-                      builder: (_) => EzAlertDialog(
-                        title: Text(
-                          el10n.gAttention,
-                          textAlign: TextAlign.center,
-                        ),
-                        contents: <Widget>[
-                          Text(
-                            l10n.ssSOSOnCloseHint,
-                            textAlign: TextAlign.center,
-                          )
-                        ],
-                        materialActions: <Widget>[
-                          EzMaterialAction(
-                            text: l10n.gOk,
-                            onPressed: Navigator.of(context).pop,
-                          ),
-                        ],
-                        cupertinoActions: <Widget>[
-                          EzCupertinoAction(
-                            text: l10n.gOk,
-                            onPressed: Navigator.of(context).pop,
-                          ),
-                        ],
-                        needsClose: false,
-                      ),
-                    );
-                  }
+          // EMC
+          const ContactList(),
+          spacer,
 
-                  final bool refresh = await attemptToSet(onCloseKey, value);
-                  if (refresh) setState(() => sosOnClose = value);
-                },
+          // Link type
+          EzScrollView(
+            scrollDirection: Axis.horizontal,
+            reverseHands: true,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              // Label
+              EzText(
+                l10n.ssLinkType,
+                style: Theme.of(context).textTheme.bodyLarge,
+                textAlign: TextAlign.center,
               ),
-              spacer,
+              EzMargin(),
+              EzDropdownMenu<LinkType>(
+                widthEntries: <String>[LinkType.google.label],
+                dropdownMenuEntries: LinkType.values
+                    .map<DropdownMenuEntry<LinkType>>(
+                      (LinkType type) => DropdownMenuEntry<LinkType>(
+                        value: type,
+                        label: type.label,
+                      ),
+                    )
+                    .toList(),
+                enableSearch: false,
+                initialSelection: linkType,
+                onSelected: (LinkType? selection) async {
+                  if (selection == null || selection == linkType) return;
 
-              // SOS on interrupt
-              EzSwitchPair(
-                text: l10n.ssVideoSOS,
-                value: sosOnInterrupt,
-                onChanged: (bool? value) async {
-                  if (value == null) return;
-
-                  final bool refresh =
-                      await attemptToSet(onInterruptKey, value);
-                  if (refresh) setState(() => sosOnInterrupt = value);
+                  await EzConfig.setString(linkTypeKey, selection.name);
+                  setState(() => linkType = selection);
                 },
               ),
             ],
-            isIOS ? separator : divider,
+          ),
+          divider,
 
-            // EMC
-            const ContactList(),
-            separator,
-
-            // Appearance
-            EzElevatedIconButton(
-              onPressed: () => context.goNamed(ezSettingsHomePath),
-              icon: EzIcon(Icons.navigate_next),
-              label: l10n.ssAppearance,
-            ),
-            separator,
-          ],
-        ),
+          // Appearance
+          EzElevatedIconButton(
+            onPressed: () => context.goNamed(ezSettingsHomePath),
+            icon: EzIcon(Icons.navigate_next),
+            label: l10n.ssAppearance,
+          ),
+          separator,
+        ]),
+        useImageDecoration: false,
       ),
       fab: EzBackFAB(context, showHome: true),
     );

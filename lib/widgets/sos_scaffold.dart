@@ -17,16 +17,33 @@ class SosScaffold extends StatelessWidget {
   const SosScaffold(this.body, {super.key, this.fab});
 
   @override
-  Widget build(BuildContext context) => EzAdaptiveScaffold(
-        small: SelectionArea(
-          child: Scaffold(
-            body: SafeArea(child: body),
-            floatingActionButton: fab,
-            floatingActionButtonLocation: EzConfig.get(isLeftyKey) ?? false
-                ? FloatingActionButtonLocation.startFloat
-                : FloatingActionButtonLocation.endFloat,
-            resizeToAvoidBottomInset: false,
-          ),
+  Widget build(BuildContext context) {
+    const Widget updater = EzUpdaterFAB(
+      appVersion: '1.4.0',
+      versionSource:
+          'https://raw.githubusercontent.com/Empathetech-LLC/sos/refs/heads/main/APP_VERSION',
+      gPlay:
+          'https://play.google.com/store/apps/details?id=net.empathetech.sos',
+      appStore: 'https://apps.apple.com/us/app/instasos/id6744280817',
+      github: 'https://github.com/Empathetech-LLC/sos/releases',
+    );
+
+    return EzAdaptiveScaffold(
+      small: SelectionArea(
+        child: Scaffold(
+          body: SafeArea(child: body),
+          floatingActionButton: fab == null
+              ? updater
+              : Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[updater, const EzSpacer(), fab!],
+                ),
+          floatingActionButtonLocation: EzConfig.get(isLeftyKey)
+              ? FloatingActionButtonLocation.startFloat
+              : FloatingActionButtonLocation.endFloat,
+          resizeToAvoidBottomInset: false,
         ),
-      );
+      ),
+    );
+  }
 }

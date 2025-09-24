@@ -27,17 +27,17 @@ Manatiling ligtas.
 
 Bilang mga sibilyan, ang ating unang linya ng depensa ay ang ating mga kamera.<br>Kaya, sa pinakapayak na anyo, ang InstaSOS ay isang kamera.
 
-<img src="assets/images/readme/screenshot-1-camera.png" alt="Screenshot ng InstaSOS home screen" width="250"/>
+<img src="../assets/images/readme/screenshot-1-camera.png" alt="Screenshot ng InstaSOS home screen" width="250"/>
 
 <br>Kapag pinindot at hinawakan ang gitna ng screen, ipapakita (o itatago) ng app ang listahan ng iyong mga karapatan.
 
 | Habang naglalakad | Habang nagmamaneho | Habang nasa bahay |
 |:-------------:|:-------------:|:-------------:|
-| <img src="assets/images/readme/screenshot-2-walking.png" alt="Screenshot ng view ng mga karapatan habang naglalakad" width="250"/> | <img src="assets/images/readme/screenshot-3-driving.png" alt="Screenshot ng view ng mga karapatan habang nagmamaneho" width="250"/> | <img src="assets/images/readme/screenshot-4-at-home.png" alt="Screenshot ng view ng mga karapatan habang nasa bahay" width="250"/> |
+| <img src="../assets/images/readme/screenshot-2-walking.png" alt="Screenshot ng view ng mga karapatan habang naglalakad" width="250"/> | <img src="../assets/images/readme/screenshot-3-driving.png" alt="Screenshot ng view ng mga karapatan habang nagmamaneho" width="250"/> | <img src="../assets/images/readme/screenshot-4-at-home.png" alt="Screenshot ng view ng mga karapatan habang nasa bahay" width="250"/> |
 
 <br>Ang pangunahing tampok ng InstaSOS ay ang SOS button.<br>I-activate ito para maipadala mo ang iyong lokasyon sa iyong mga emergency contact.<br>Ikaw ang magdedesisyon kung sino ang ilalagay na mga emergency contact sa unang pagbukas mo ng app.
 
-<img src="assets/images/readme/screenshot-5-ios-message.png" alt="Screenshot ng halimbawa ng SOS message sa iOS" width="250"/>
+<img src="../assets/images/readme/screenshot-5-ios-message.png" alt="Screenshot ng halimbawa ng SOS message sa iOS" width="250"/>
 
 <br>Sa iOS, awtomatiko ang mga mensahe.<br>Kada ika-5 minuto, gumagawa ng mensahe na may kasalukuyang lokasyon mo (tulad ng larawan sa itaas).<br>Kailangan mong pindutin ang send button. Maaari ka ring mag-cancel.<br>Ang prosesong ito ay maaaring gawin nang hindi lumalabas sa app, at hindi nagdudulot ng pagkaantala o pagka-putol ng video recordings.
 
@@ -47,13 +47,13 @@ Dahil awtomatiko ito, puwedeng ipadala ang mga SOS ng Android kahit nasa backgro
 
 Hindi lang dito nagtatapos ang benepisyo ng automatic messages.<br>Sa Android, maaari mong i-enable ang "SOS on close" at "SOS on interrupted recording".
 
-<img src="assets/images/readme/screenshot-6-android-options.png" alt="Screenshot ng mga custom na opsyon sa Android" width="250"/>
+<img src="../assets/images/readme/screenshot-6-android-options.png" alt="Screenshot ng mga custom na opsyon sa Android" width="250"/>
 
 <br>Habang naka-enable ang "SOS on close", magkakaroon ng safe exit (thumbs up) button sa home screen.<br>Kung mapunta sa background ang app sa kahit anong dahilan maliban sa paggamit ng safe close button, awtomatikong magsisimula ang SOS broadcast.
 
 | Paalala | New home |
 |:-------------:|:-------------:|
-| <img src="assets/images/readme/screenshot-7-safe-close-message.png" alt="Screenshot of the SOS on close disclaimer" width="250"/> | <img src="assets/images/readme/screenshot-8-safe-close-button.png" alt="Screenshot ng home screen na may safe close button" width="250"/> |
+| <img src="../assets/images/readme/screenshot-7-safe-close-message.png" alt="Screenshot of the SOS on close disclaimer" width="250"/> | <img src="../assets/images/readme/screenshot-8-safe-close-button.png" alt="Screenshot ng home screen na may safe close button" width="250"/> |
 
 <br>Ang "SOS on interrupted recording" ay naka-enable bilang default.<br>Kung nagre-record ka ng video at ito'y nainterrupt, awtomatikong magsisimula ang background broadcast.
 
