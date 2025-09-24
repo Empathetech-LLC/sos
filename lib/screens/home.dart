@@ -671,10 +671,7 @@ class _HomeScreenState extends State<HomeScreen>
                           enabled: false,
                           onPressed: doNothing,
                         )
-                      : FlashButton(
-                          camera: camera!,
-                          stateCallback: () => setState(() {}),
-                        ),
+                      : FlashButton(camera!),
                 ],
               ),
             ),
