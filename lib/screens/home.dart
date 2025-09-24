@@ -97,7 +97,6 @@ class _HomeScreenState extends State<HomeScreen>
     if (camera != null) return true;
 
     final PermissionStatus status = await Permission.camera.request();
-
     if (status == PermissionStatus.denied ||
         status == PermissionStatus.permanentlyDenied) {
       return false;
@@ -105,7 +104,10 @@ class _HomeScreenState extends State<HomeScreen>
     await Permission.microphone.request();
 
     final List<CameraDescription> cameras = await availableCameras();
-    cameraDesc = cameras.first;
+    cameraDesc = cameras.firstWhere(
+      (CameraDescription c) => c.lensDirection == CameraLensDirection.back,
+    );
+    if (cameraDesc == null) return false;
 
     try {
       camera = CameraController(cameraDesc!, ResolutionPreset.max);
