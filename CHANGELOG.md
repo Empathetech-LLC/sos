@@ -6,9 +6,16 @@ All notable changes to this project will be documented in this file.
 ### Added
 - LinkType selector
   - Default still Google Maps, but can now select Apple, Waze, or raw coordinates
+- Version check FAB
+  - Mostly for the .apk peeps
+- Auto-share media is now a toggle setting
+  - Default on
 
 ### Updated
 - EFUI 10 && Flutter 3.35
+  - TutorialOverlay is now in EFUI (EzTutorial)
+- Flash button
+  - Includes torch mode and has better error handling
 
 ### Fixed
 - README typos
