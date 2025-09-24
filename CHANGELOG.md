@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.4.0] - 2025-09-23
+## [1.4.0] - 2025-09-24
 ### Added
 - LinkType selector
   - Default still Google Maps, but can now select Apple, Waze, or raw coordinates
