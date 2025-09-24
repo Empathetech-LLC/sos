@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0] - 2025-09-23
+### Added
+- LinkType selector
+  - Default still Google Maps, but can now select Apple, Waze, or raw coordinates
+
+### Updated
+- EFUI 10 && Flutter 3.35
+
+### Fixed
+- README typos
+
+### Removed
+- Unused font asset(s)
+
 ## [1.3.2] - 2025-06-27
 ### Updated
 - Settings UI
