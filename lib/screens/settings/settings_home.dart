@@ -132,7 +132,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
           // Auto-share media
           EzSwitchPair(
-            text: 'Auto-share media', // TODO: l10n
+            text: l10n.ssAutoShare,
             valueKey: autoShareKey,
           ),
           divider,
@@ -149,7 +149,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             children: <Widget>[
               // Label
               EzText(
-                'Link type', // TODO: l10n
+                l10n.ssLinkType,
                 style: Theme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
