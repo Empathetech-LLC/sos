@@ -62,7 +62,6 @@ class _HomeScreenState extends State<HomeScreen>
   /// EMergency Contacts; [List] of phone number [String]s
   List<String>? emc = EzConfig.get(emcKey);
 
-  bool broadcasting = false; // TODO: consolidate these two?
   Timer? sosTimer;
 
   final bool sosOnOpen = EzConfig.get(onOpenKey);
@@ -124,9 +123,8 @@ class _HomeScreenState extends State<HomeScreen>
 
   /// [foregroundSOS] every 5 minutes
   Future<void> startForegroundSOS() async {
+    // Cleanup any existing timer and send an immediate SOS
     sosTimer?.cancel();
-
-    // Send an immediate SOS
     await foregroundSOS(emc: emc, linkType: linkType, l10n: l10n);
 
     // Initiate a periodic SOS
@@ -134,15 +132,13 @@ class _HomeScreenState extends State<HomeScreen>
       const Duration(minutes: 5),
       (_) => foregroundSOS(emc: emc, linkType: linkType, l10n: l10n),
     );
-
-    setState(() => broadcasting = true);
+    setState(() {});
   }
 
-  /// nullify the [sosTimer] and set [broadcasting] to false
+  /// Cancel the [sosTimer]
   void stopForegroundSOS() {
     sosTimer?.cancel();
-    sosTimer = null;
-    setState(() => broadcasting = false);
+    setState(() {});
   }
 
   /// Assumes an [emc] null/empty check has already been done
@@ -381,7 +377,7 @@ class _HomeScreenState extends State<HomeScreen>
                     settingsOverlay.show();
                   },
                 ),
-                child: broadcasting
+                child: sosTimer?.isActive == true
                     ? EzIconButton(
                         icon: const SOSIcon(),
                         iconSize: iconSize * 1.5,
@@ -465,7 +461,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
                 enabled: !recording,
                 onPressed: () {
-                  if (broadcasting) stopForegroundSOS();
+                  if (sosTimer?.isActive == true) stopForegroundSOS();
                   exit(0);
                 },
               ),
@@ -699,13 +695,14 @@ class _HomeScreenState extends State<HomeScreen>
 
       case AppLifecycleState.hidden:
         final bool alreadyRunning = EzConfig.get(taskRunningKey);
+        final bool active = sosTimer?.isActive == true;
 
         if (recording) {
           // SOS based on user state/settings
           if (Platform.isAndroid &&
               !alreadyRunning &&
-              (broadcasting || sosOnClose || sosOnInterrupt)) {
-            if (broadcasting) stopForegroundSOS();
+              (active || sosOnClose || sosOnInterrupt)) {
+            if (active) stopForegroundSOS();
             await startBackgroundSOS();
           }
 
@@ -739,10 +736,8 @@ class _HomeScreenState extends State<HomeScreen>
         } else {
           // Not recording
           // SOS based on user state/settings
-          if (Platform.isAndroid &&
-              !alreadyRunning &&
-              (broadcasting || sosOnClose)) {
-            if (broadcasting) stopForegroundSOS();
+          if (Platform.isAndroid && !alreadyRunning && (active || sosOnClose)) {
+            if (active) stopForegroundSOS();
             await startBackgroundSOS();
           }
         }
@@ -774,7 +769,6 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void dispose() {
     sosTimer?.cancel();
-    sosTimer = null;
     camera?.dispose();
     camera = null;
     WidgetsBinding.instance.removeObserver(this);
