@@ -76,10 +76,12 @@
   "ssSOSOnClose": "SOS à la fermeture",
   "ssSOSOnCloseHint": "Lorsqu'il est activé, un bouton de fermeture sécurisée s'affiche en face des paramètres.",
   "ssVideoSOS": "SOS en cas d'enregistrement interrompu",
+  "ssAutoShare": "Partage automatique de médias",
   
   "ssEMC": "Contacts d'urgence",
   "ssRemoveHint": "Supprimer le contact",
   "ssAddHint": "Ajouter un autre contact",
+  "ssLinkType": "Type de lien",
   
   "ssAppearance": "Apparence"
 }

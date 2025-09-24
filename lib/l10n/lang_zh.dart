@@ -180,6 +180,9 @@ class LangZh extends Lang {
   String get ssVideoSOS => '录像中断自动启动SOS';
 
   @override
+  String get ssAutoShare => '自动共享媒体';
+
+  @override
   String get ssEMC => '紧急联系人';
 
   @override
@@ -187,6 +190,9 @@ class LangZh extends Lang {
 
   @override
   String get ssAddHint => '添加联系人';
+
+  @override
+  String get ssLinkType => '链接类型';
 
   @override
   String get ssAppearance => '界面外观';
@@ -368,6 +374,9 @@ class LangZhCn extends LangZh {
   String get ssVideoSOS => '录像中断自动启动SOS';
 
   @override
+  String get ssAutoShare => '自动共享媒体';
+
+  @override
   String get ssEMC => '紧急联系人';
 
   @override
@@ -375,6 +384,9 @@ class LangZhCn extends LangZh {
 
   @override
   String get ssAddHint => '添加联系人';
+
+  @override
+  String get ssLinkType => '链接类型';
 
   @override
   String get ssAppearance => '界面外观';

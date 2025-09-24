@@ -76,10 +76,12 @@
   "ssSOSOnClose": "SOS lè ou fèmen aplikasyon an",
   "ssSOSOnCloseHint": "Lè sa aktive, ou ap wè yon bouton ki pèmèt ou sòti an san pwoblèm anfas bouton anviwònman an.",
   "ssVideoSOS": "SOS si anrejistreman an entèwonp",
+  "ssAutoShare": "Pataje medya otomatikman",
 
   "ssEMC": "Kontak ijans",
   "ssRemoveHint": "Retire kontak",
   "ssAddHint": "Ajoute yon lòt kontak",
+  "ssLinkType": "Kalite lyen",
 
   "ssAppearance": "Aparans"
 }

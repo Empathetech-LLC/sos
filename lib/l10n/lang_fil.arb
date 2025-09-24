@@ -76,10 +76,12 @@
   "ssSOSOnClose": "SOS sa pagsara",
   "ssSOSOnCloseHint": "Kapag naka-enable, makikita ang safe close button sa tapat ng settings.",
   "ssVideoSOS": "SOS sa naputol na recording",
+  "ssAutoShare": "Auto-share ng media",
 
   "ssEMC": "Mga emergency contact",
   "ssRemoveHint": "Tanggalin ang contact",
   "ssAddHint": "Magdagdag ng isa pang contact",
+  "ssLinkType": "Uri ng link",
 
   "ssAppearance": "Hitsura"
 }

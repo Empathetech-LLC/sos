@@ -192,6 +192,9 @@ class LangAr extends Lang {
   String get ssVideoSOS => 'SOS عند انقطاع التسجيل';
 
   @override
+  String get ssAutoShare => 'مشاركة الوسائط تلقائيًا';
+
+  @override
   String get ssEMC => 'جهات الاتصال في حالات الطوارئ';
 
   @override
@@ -199,6 +202,9 @@ class LangAr extends Lang {
 
   @override
   String get ssAddHint => 'إضافة جهة اتصال أخرى';
+
+  @override
+  String get ssLinkType => 'نوع الرابط';
 
   @override
   String get ssAppearance => 'المظهر';
@@ -392,6 +398,9 @@ class LangArEg extends LangAr {
   String get ssVideoSOS => 'SOS عند انقطاع التسجيل';
 
   @override
+  String get ssAutoShare => 'مشاركة الوسائط تلقائيًا';
+
+  @override
   String get ssEMC => 'جهات الاتصال في حالات الطوارئ';
 
   @override
@@ -399,6 +408,9 @@ class LangArEg extends LangAr {
 
   @override
   String get ssAddHint => 'إضافة جهة اتصال أخرى';
+
+  @override
+  String get ssLinkType => 'نوع الرابط';
 
   @override
   String get ssAppearance => 'المظهر';

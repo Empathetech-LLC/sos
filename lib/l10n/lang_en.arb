@@ -76,10 +76,12 @@
   "ssSOSOnClose": "SOS on close",
   "ssSOSOnCloseHint": "When enabled, a safe close button will be shown opposite the settings.",
   "ssVideoSOS": "SOS on interrupted recording",
+  "ssAutoShare": "Auto-share media",
 
   "ssEMC": "Emergency contacts",
   "ssRemoveHint": "Remove contact",
   "ssAddHint": "Add another contact",
+  "ssLinkType": "Link type",
 
   "ssAppearance": "Appearance"
 }

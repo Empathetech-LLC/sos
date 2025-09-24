@@ -433,6 +433,12 @@ abstract class Lang {
   /// **'SOS on interrupted recording'**
   String get ssVideoSOS;
 
+  /// No description provided for @ssAutoShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto-share media'**
+  String get ssAutoShare;
+
   /// No description provided for @ssEMC.
   ///
   /// In en, this message translates to:
@@ -450,6 +456,12 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'Add another contact'**
   String get ssAddHint;
+
+  /// No description provided for @ssLinkType.
+  ///
+  /// In en, this message translates to:
+  /// **'Link type'**
+  String get ssLinkType;
 
   /// No description provided for @ssAppearance.
   ///

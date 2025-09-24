@@ -193,6 +193,9 @@ class LangEn extends Lang {
   String get ssVideoSOS => 'SOS on interrupted recording';
 
   @override
+  String get ssAutoShare => 'Auto-share media';
+
+  @override
   String get ssEMC => 'Emergency contacts';
 
   @override
@@ -200,6 +203,9 @@ class LangEn extends Lang {
 
   @override
   String get ssAddHint => 'Add another contact';
+
+  @override
+  String get ssLinkType => 'Link type';
 
   @override
   String get ssAppearance => 'Appearance';
@@ -394,6 +400,9 @@ class LangEnUs extends LangEn {
   String get ssVideoSOS => 'SOS on interrupted recording';
 
   @override
+  String get ssAutoShare => 'Auto-share media';
+
+  @override
   String get ssEMC => 'Emergency contacts';
 
   @override
@@ -401,6 +410,9 @@ class LangEnUs extends LangEn {
 
   @override
   String get ssAddHint => 'Add another contact';
+
+  @override
+  String get ssLinkType => 'Link type';
 
   @override
   String get ssAppearance => 'Appearance';

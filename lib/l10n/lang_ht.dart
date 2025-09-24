@@ -193,6 +193,9 @@ class LangHt extends Lang {
   String get ssVideoSOS => 'SOS si anrejistreman an entèwonp';
 
   @override
+  String get ssAutoShare => 'Pataje medya otomatikman';
+
+  @override
   String get ssEMC => 'Kontak ijans';
 
   @override
@@ -200,6 +203,9 @@ class LangHt extends Lang {
 
   @override
   String get ssAddHint => 'Ajoute yon lòt kontak';
+
+  @override
+  String get ssLinkType => 'Kalite lyen';
 
   @override
   String get ssAppearance => 'Aparans';
