@@ -343,17 +343,23 @@ abstract class Lang {
   /// **'Document everything. You have the right to take pictures, record videos, and record audio.'**
   String get rsSharedDocument;
 
-  /// No description provided for @rsWalkPockets.
+  /// No description provided for @rsMobilePockets.
   ///
   /// In en, this message translates to:
   /// **'Refuse a search of your pockets. ICE can give a pat-down, but not a search.'**
-  String get rsWalkPockets;
+  String get rsMobilePockets;
 
-  /// No description provided for @rsWalkLeave.
+  /// No description provided for @rsMobileQuestion.
   ///
   /// In en, this message translates to:
-  /// **'Leave if you are not under arrest.'**
-  String get rsWalkLeave;
+  /// **'Ask questions. Find out why you are being stopped.'**
+  String get rsMobileQuestion;
+
+  /// No description provided for @rsMobileLeave.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave if you are not being detained.'**
+  String get rsMobileLeave;
 
   /// No description provided for @rsDriveSearch.
   ///
@@ -361,23 +367,11 @@ abstract class Lang {
   /// **'Refuse a search of your car.'**
   String get rsDriveSearch;
 
-  /// No description provided for @rsDrivePockets.
-  ///
-  /// In en, this message translates to:
-  /// **'Refuse a search of your pockets. ICE can give a pat-down, but not a search.'**
-  String get rsDrivePockets;
-
   /// No description provided for @rsDriveID.
   ///
   /// In en, this message translates to:
   /// **'Refuse to provide ID as a passenger. Only the driver is required to provide ID.'**
   String get rsDriveID;
-
-  /// No description provided for @rsDriveQuestion.
-  ///
-  /// In en, this message translates to:
-  /// **'Ask questions. Find out why you are being stopped.'**
-  String get rsDriveQuestion;
 
   /// No description provided for @rsDriveWarrant.
   ///
@@ -385,17 +379,17 @@ abstract class Lang {
   /// **'Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it\'s not valid.'**
   String get rsDriveWarrant;
 
-  /// No description provided for @rsDriveLeave.
-  ///
-  /// In en, this message translates to:
-  /// **'Leave if you are not under arrest.'**
-  String get rsDriveLeave;
-
   /// No description provided for @rsHomeWarrant.
   ///
   /// In en, this message translates to:
   /// **'Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.'**
   String get rsHomeWarrant;
+
+  /// No description provided for @rsSharedSign.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuse to sign anything.'**
+  String get rsSharedSign;
 
   /// No description provided for @rsSharedFingerprint.
   ///

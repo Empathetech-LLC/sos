@@ -140,37 +140,33 @@ class LangEs extends Lang {
       'Documéntalo todo. Tienes derecho a hacer fotos, grabar vídeos y audio';
 
   @override
-  String get rsWalkPockets =>
+  String get rsMobilePockets =>
       'Niégate a que te registren los bolsillos. El ICE puede cachearte, pero no registrarte';
 
   @override
-  String get rsWalkLeave => 'Márchate si no estás arrestado';
+  String get rsMobileQuestion =>
+      'Haz preguntas, incluyendo por qué te han hecho detenerte';
+
+  @override
+  String get rsMobileLeave => 'Márchate si no estás arrestado';
 
   @override
   String get rsDriveSearch => 'Niégate a que registren tu vehículo';
-
-  @override
-  String get rsDrivePockets =>
-      'Niégate a que te registren los bolsillos. El ICE puede cachearte, pero no registrarte';
 
   @override
   String get rsDriveID =>
       'Si eres pasajero, niégate a proporcionar documentos de identificación. Solo la persona al volante está obligada a identificarse';
 
   @override
-  String get rsDriveQuestion =>
-      'Haz preguntas, incluyendo por qué te han hecho detenerte';
-
-  @override
   String get rsDriveWarrant =>
       'Pregunta si tienen una orden judicial. Tienes derecho a verla si la tienen. Una \"orden judicial\" solo es válida si está firmada por un juez';
 
   @override
-  String get rsDriveLeave => 'Márchate si no estás arrestado';
-
-  @override
   String get rsHomeWarrant =>
       'No abras la puerta. Si tienen una orden judicial, pídeles que la pasen primero por debajo de la puerta. Una \"orden judicial\" solo es válida si está firmada por un juez. No abras la puerta.';
+
+  @override
+  String get rsSharedSign => 'Niégate a firmar cualquier cosa';
 
   @override
   String get rsSharedFingerprint =>

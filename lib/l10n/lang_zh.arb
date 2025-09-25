@@ -55,18 +55,17 @@
   "rsSharedRemainSilent": "保持沉默。无需撒谎，但您不必回答任何问题。",
   "rsSharedDocument": "记录一切。您有权拍照、录像和录音。",
 
-  "rsWalkPockets": "拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。",
-  "rsWalkLeave": "若未被逮捕，您有权离开。",
+  "rsMobilePockets": "拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。",
+  "rsMobileQuestion": "提出疑问。了解为何被拦截。",
+  "rsMobileLeave": "若未被逮捕，您有权离开。",
 
   "rsDriveSearch": "拒绝对车辆进行搜查。",
-  "rsDrivePockets": "拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。",
   "rsDriveID": "作为乘客可拒绝出示身份证明。只有驾驶员必须出示。",
-  "rsDriveQuestion": "提出疑问。了解为何被拦截。",
   "rsDriveWarrant": "询问警官是否持有搜查令。如有，您有权查看。未由法官签署的“搜查令”无效。",
-  "rsDriveLeave": "若未被逮捕，您有权离开。",
 
   "rsHomeWarrant": "保持房门关闭。如对方称持有搜查令，请先让其从门缝递进。未由法官签署的“搜查令”无效。始终保持房门关闭。",
 
+  "rsSharedSign": "拒绝签署任何文件。",
   "rsSharedFingerprint": "除非被正式逮捕，可拒绝接受移民局采集指纹。",
   "rsSharedLawyer": "您有权联系律师。如您已被正式逮捕，则有权请求法院为您指派律师。",
 

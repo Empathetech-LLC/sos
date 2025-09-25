@@ -139,36 +139,32 @@ class LangAr extends Lang {
       'وثّق كل شيء. لديك الحق في التقاط الصور وتسجيل الفيديوهات والتسجيل الصوتي.';
 
   @override
-  String get rsWalkPockets =>
+  String get rsMobilePockets =>
       'ارفض تفتيش جيوبك. يمكن لدائرة الهجرة والجمارك الأمريكية (ICE) إجراء تفتيش جسدي، ولكن ليس تفتيشًا داخليًا.';
 
   @override
-  String get rsWalkLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
+  String get rsMobileQuestion => 'اطرح الأسئلة. اكتشف سبب إيقافك.';
+
+  @override
+  String get rsMobileLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
 
   @override
   String get rsDriveSearch => 'ارفض تفتيش سيارتك.';
-
-  @override
-  String get rsDrivePockets =>
-      'ارفض تفتيش جيوبك. يمكن لدائرة الهجرة والجمارك الأمريكية (ICE) إجراء تفتيش جسدي، ولكن ليس تفتيشًا داخليًا.';
 
   @override
   String get rsDriveID =>
       'ارفض إبراز بطاقة هوية كراكب. السائق فقط هو المطلوب منه إبرازها.';
 
   @override
-  String get rsDriveQuestion => 'اطرح الأسئلة. اكتشف سبب إيقافك.';
-
-  @override
   String get rsDriveWarrant =>
       'اسأل إن كان لدى الضباط أمر تفتيش. يحق لك الاطلاع عليه إن وُجد. إذا لم يتم توقيع \"الأمر\" من قبل القاضي، فهو غير صالح.';
 
   @override
-  String get rsDriveLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
-
-  @override
   String get rsHomeWarrant =>
       'أبقِ بابك مغلقًا. إذا كان لديهم أمر تفتيش، فاطلب منهم وضعه تحت الباب أولًا. إذا لم يكن \"الأمر\" موقّعًا من قاضٍ، فهو غير صالح. أبقِ بابك مغلقًا.';
+
+  @override
+  String get rsSharedSign => 'ارفض التوقيع على أي شيء.';
 
   @override
   String get rsSharedFingerprint =>
@@ -345,36 +341,32 @@ class LangArEg extends LangAr {
       'وثّق كل شيء. لديك الحق في التقاط الصور وتسجيل الفيديوهات والتسجيل الصوتي.';
 
   @override
-  String get rsWalkPockets =>
+  String get rsMobilePockets =>
       'ارفض تفتيش جيوبك. يمكن لدائرة الهجرة والجمارك الأمريكية (ICE) إجراء تفتيش جسدي، ولكن ليس تفتيشًا داخليًا.';
 
   @override
-  String get rsWalkLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
+  String get rsMobileQuestion => 'اطرح الأسئلة. اكتشف سبب إيقافك.';
+
+  @override
+  String get rsMobileLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
 
   @override
   String get rsDriveSearch => 'ارفض تفتيش سيارتك.';
-
-  @override
-  String get rsDrivePockets =>
-      'ارفض تفتيش جيوبك. يمكن لدائرة الهجرة والجمارك الأمريكية (ICE) إجراء تفتيش جسدي، ولكن ليس تفتيشًا داخليًا.';
 
   @override
   String get rsDriveID =>
       'ارفض إبراز بطاقة هوية كراكب. السائق فقط هو المطلوب منه إبرازها.';
 
   @override
-  String get rsDriveQuestion => 'اطرح الأسئلة. اكتشف سبب إيقافك.';
-
-  @override
   String get rsDriveWarrant =>
       'اسأل إن كان لدى الضباط أمر تفتيش. يحق لك الاطلاع عليه إن وُجد. إذا لم يتم توقيع \"الأمر\" من قبل القاضي، فهو غير صالح.';
 
   @override
-  String get rsDriveLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
-
-  @override
   String get rsHomeWarrant =>
       'أبقِ بابك مغلقًا. إذا كان لديهم أمر تفتيش، فاطلب منهم وضعه تحت الباب أولًا. إذا لم يكن \"الأمر\" موقّعًا من قاضٍ، فهو غير صالح. أبقِ بابك مغلقًا.';
+
+  @override
+  String get rsSharedSign => 'ارفض التوقيع على أي شيء.';
 
   @override
   String get rsSharedFingerprint =>
