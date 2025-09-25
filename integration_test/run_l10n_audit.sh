@@ -24,10 +24,12 @@ unset LANG_FILE["en"]
 
 ## Preamble ##
 
-echo; echo "Comparing all rights screen (rs) entries"
+echo; echo "Comparing all rights screen (rs) entries"; echo;
 echo "Reminder: we're not looking for exact matches, but for meaning matches"; echo
+echo "Especially since the translate-shell tool is... imperfect."; echo
+echo "Flag big misses, then manually review those lines. False failures are very possible. False successes less so."; echo
 
-echo "Enter/space marks a group success"
+echo "Enter (CR/empty) marks a group success"
 echo "If there are lines that need review, enter a CSV of the language codes (e.g. ar,zh)"
 echo; read -p "Press enter to start..."
 
