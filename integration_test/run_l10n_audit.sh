@@ -10,6 +10,13 @@ if [[ ! -f "$SRC_FILE" ]]; then
   exit 1
 fi
 
+echo; echo "Comparing all rights screen (rs) entries"
+echo "Reminder: we're not looking for exact matches, but for meaning matches"; echo
+
+echo "Enter/space marks a group success"
+echo "If there are lines that need review, enter a CSV of the language codes (e.g. ar,zh)"
+echo; read "Hit enter to start..."
+
 # build a map of base-lang -> file, skipping duplicates (keep first)
 declare -A LANG_FILE
 for f in "$ARB_DIR"/lang_*.arb; do
@@ -26,7 +33,7 @@ done
 unset LANG_FILE["en"]
 
 # gather rs* keys (line number and key) from English source
-mapfile -t RS_LINES < <(grep -nP '"rs[^"]*"\s*:' "$SRC_FILE" || true)
+mapfile -t RS_LINES < <(grep -nE '"rs[^"]*"[[:space:]]*:' "$SRC_FILE" || true)
 if [[ ${#RS_LINES[@]} -eq 0 ]]; then
   echo "No rs* entries found in $SRC_FILE" >&2
   exit 1
@@ -69,7 +76,7 @@ for entry in "${RS_LINES[@]}"; do
     file="${LANG_FILE[$base]}"
 
     # find the key line in that file
-    match_line=$(grep -nP "\"${key}\"\\s*:" "$file" || true)
+    match_line=$(grep -nE "\"${key}\"[[:space:]]*:" "$file" || true)
     if [[ -z "$match_line" ]]; then
       # no translation for this key in that language
       echo "$base: (missing)"; echo "  -> (no translation found)"; echo
@@ -86,10 +93,7 @@ for entry in "${RS_LINES[@]}"; do
     echo "  -> $trans_out"; echo
   done
 
-  # Prompt user
-  echo "Mark this entry as OK or failing."
-  echo " - Press Enter or Space to accept (OK)."
-  echo " - Or type comma-separated base language codes to mark failures (e.g. ar, zh)."
+  # Prompt user 
   read -r -p "> " user_in
 
   # trim whitespace
@@ -107,7 +111,7 @@ for entry in "${RS_LINES[@]}"; do
     # only record if we have that language file and the key exists there
     if [[ -n "${LANG_FILE[$lang]:-}" ]]; then
       file="${LANG_FILE[$lang]}"
-      match_line=$(grep -nP "\"${key}\"\\s*:" "$file" || true)
+      match_line=$(grep -nE "\"${key}\"[[:space:]]*:" "$file" || true)
       if [[ -n "$match_line" ]]; then
         other_line_num="${match_line%%:*}"
         if [[ -z "${FAILS[$lang]:-}" ]]; then
