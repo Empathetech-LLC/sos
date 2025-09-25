@@ -2,22 +2,12 @@
 
 set -e
 
+## Setup ##
+
 ARB_DIR="$HOME/repos/flutter/sos/lib/l10n"
-SRC_FILE="$ARB_DIR/lang_en.arb"
+SRC_FILE="$ARB_DIR/lang_en_US.arb"
 
-if [[ ! -f "$SRC_FILE" ]]; then
-  echo "Source English file not found: $SRC_FILE" >&2
-  exit 1
-fi
-
-echo; echo "Comparing all rights screen (rs) entries"
-echo "Reminder: we're not looking for exact matches, but for meaning matches"; echo
-
-echo "Enter/space marks a group success"
-echo "If there are lines that need review, enter a CSV of the language codes (e.g. ar,zh)"
-echo; read "Hit enter to start..."
-
-# build a map of base-lang -> file, skipping duplicates (keep first)
+# Build a map of lang -> file, skipping duplicates (keep first)
 declare -A LANG_FILE
 for f in "$ARB_DIR"/lang_*.arb; do
   [[ -f "$f" ]] || continue
@@ -32,7 +22,18 @@ for f in "$ARB_DIR"/lang_*.arb; do
 done
 unset LANG_FILE["en"]
 
-# gather rs* keys (line number and key) from English source
+## Preamble ##
+
+echo; echo "Comparing all rights screen (rs) entries"
+echo "Reminder: we're not looking for exact matches, but for meaning matches"; echo
+
+echo "Enter/space marks a group success"
+echo "If there are lines that need review, enter a CSV of the language codes (e.g. ar,zh)"
+echo; read -p "Press enter to start..."
+
+## Make it so ##
+
+# Gather rs* keys (line number and key) from English source
 mapfile -t RS_LINES < <(grep -nE '"rs[^"]*"[[:space:]]*:' "$SRC_FILE" || true)
 if [[ ${#RS_LINES[@]} -eq 0 ]]; then
   echo "No rs* entries found in $SRC_FILE" >&2
@@ -40,38 +41,22 @@ if [[ ${#RS_LINES[@]} -eq 0 ]]; then
 fi
 declare -A FAILS  # FAILS[lang]="line1,line2,..."
 
-# helper for extracting an .arb entry value
-extract_value_from_line() {
-  local line="$1"
-  # remove leading key stuff:    "rsKey": "value",
-  # capture inner JSON string (may contain escaped chars)
-  if [[ "$line" =~ :\ \"(.*)\"[[:space:]]*,?[[:space:]]*$ ]]; then
-    printf '%s' "${BASH_REMATCH[1]}"
-  else
-    # fallback: print whole line
-    printf '%s' "$line"
-  fi
-}
-
-# iterate entries
+JSON_LINE_REGEX='^[[:space:]]*"([^"]+)"[[:space:]]*:[[:space:]]*"(.*)"[[:space:]]*,?[[:space:]]*$'
 for entry in "${RS_LINES[@]}"; do
   line_num="${entry%%:*}"
-  line_content="$(sed -n "${line_num}p" "$SRC_FILE")"
+  line_content="${entry#*:}"
 
-  # extract key
-  if [[ "$line_content" =~ \"([^\"]+)\"\s*:\s*\" ]]; then
+  # Get key and English source value
+  if [[ "$line_content" =~ $JSON_LINE_REGEX ]]; then
     key="${BASH_REMATCH[1]}"
+    en_value="${BASH_REMATCH[2]}"
   else
-    # fallback parse from entry raw
-    key=$(echo "$entry" | sed -E 's/^[0-9]+:.*"([^"]+)".*/\1/')
-  fi
+    echo "Warning: Could not parse line $line_num in $SRC_FILE: $line_content" >&2
+    continue
+  fi  
+  clear; echo "$key"; echo "    $en_value"; echo
 
-  # english value
-  en_value="$(extract_value_from_line "$line_content")"
-
-  clear; echo "KEY: $key"; echo; echo "EN: $en_value"; echo
-
-  # show each other language (base) and its translation + translate-shell result
+  # Get translated values and their translate-shell results
   for base in "${!LANG_FILE[@]}"; do
     file="${LANG_FILE[$base]}"
 
@@ -79,18 +64,23 @@ for entry in "${RS_LINES[@]}"; do
     match_line=$(grep -nE "\"${key}\"[[:space:]]*:" "$file" || true)
     if [[ -z "$match_line" ]]; then
       # no translation for this key in that language
-      echo "$base: (missing)"; echo "  -> (no translation found)"; echo
+      echo "$base: (missing)"; echo "    (re-run gen-l10n)"; echo
       continue
     fi
 
     other_line_num="${match_line%%:*}"
-    other_line="$(sed -n "${other_line_num}p" "$file")"
-    other_val="$(extract_value_from_line "$other_line")"
-    echo "$base: \"$other_val\""
+    other_line_content="${match_line#*:}"
+    
+    if [[ "$other_line_content" =~ $JSON_LINE_REGEX ]]; then
+      other_val="${BASH_REMATCH[2]}"
+    else
+      other_val="[parsing failed]"
+    fi
+    echo "$base: \"$other_val\" ->"
     
     # use translate-shell to translate into English (auto-detect source)
     trans_out=$(trans -b :en "$other_val" 2>/dev/null || printf '[translate failed]')
-    echo "  -> $trans_out"; echo
+    echo "    $trans_out"; echo
   done
 
   # Prompt user 
@@ -102,13 +92,13 @@ for entry in "${RS_LINES[@]}"; do
     continue
   fi
 
-  # mark failures
-  IFS=',' read -r -a badlangs <<< "$user_trimmed"
-  for raw in "${badlangs[@]}"; do
-    lang="$(echo "$raw" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')"
+  # Mark failures
+  IFS=',' read -r -a err_langs <<< "$user_trimmed"
+  for raw in "${err_langs[@]}"; do
+    lang_tmp="${raw//[[:space:]]/}"
+    lang="${lang_tmp,,}"
     [[ -z "$lang" ]] && continue
 
-    # only record if we have that language file and the key exists there
     if [[ -n "${LANG_FILE[$lang]:-}" ]]; then
       file="${LANG_FILE[$lang]}"
       match_line=$(grep -nE "\"${key}\"[[:space:]]*:" "$file" || true)
@@ -133,7 +123,8 @@ for entry in "${RS_LINES[@]}"; do
   done
 done
 
-# final report
+## Report ##
+
 if [[ ${#FAILS[@]} -eq 0 ]]; then
   echo "Looks great! No issues found."
   exit 0
