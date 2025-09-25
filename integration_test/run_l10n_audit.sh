@@ -2,94 +2,143 @@
 
 set -e
 
-L10N_DIR="lib/l10n"
-EN_FILE="$L10N_DIR/lang_en.dart"
+ARB_DIR="$HOME/repos/flutter/sos/lib/l10n"
+SRC_FILE="$ARB_DIR/lang_en.arb"
 
-if ! command -v trans >/dev/null 2>&1; then
-  echo "ERROR: translate-shell (trans) not found in PATH. Install it and retry." >&2
-  exit 2
-fi
-
-declare -A LANG_FILE
-for f in "$L10N_DIR"/lang_*.dart; do
-  fn=$(basename "$f")
-  code=${fn#lang_}
-  code=${code%.dart}
-  base=${code%%_*} # reduce ar_EG -> ar
-  if [ "$base" = "en" ]; then
-    continue
-  fi
-done
-
-# build list of keys + english text + line numbers
-mapfile -t KEYS < <(grep -nE "String get rs[A-Za-z0-9_]+" "$EN_FILE" | sed -E 's/^([0-9]+):.*String get ([A-Za-z0-9_]+).*/\1|\2/')
-
-declare -A FAIL_LINES
-sep=$'\n'
-
-# helper trim
-trim() { echo "$1" | awk '{$1=$1;print}'; }
-
-for item in "${KEYS[@]}"; do
-  ln=${item%%|*}
-  key=${item##*|}
-
-  # extract english value
-  en=$(perl -0777 -ne "if(/String get ${key}\\s*=>\\s*'(.*?)'\\s*;/s){ print \$1 }" "$EN_FILE")
-  # unescape '\'' sequences for display
-  en_display=$(printf "%s" "$en" | sed "s/\\\\'/'/g")
-
-  # clear screen and show english then a blank line
-  clear
-  echo "Key: $key (line $ln)"; echo
-  echo "en: \"$en_display\""; echo
-
-  # attempt to extract and translate the translations
-  for lang in "${!LANG_FILE[@]}"; do
-    lf="${LANG_FILE[$lang]}"
-    tr=$(perl -0777 -ne "if(/String get ${key}\\s*=>\\s*'(.*?)'\\s*;/s){ print \$1 }" "$lf" || true)
-    if [ -z "$tr" ]; then
-      continue
-    fi
-    tr_display=$(printf "%s" "$tr" | sed "s/\\\\'/'/g")
-
-    # back-translate to English using translate-shell; keep it short
-    bt=$(trans -b :en "$tr_display" 2>/dev/null || echo "[translation failed]")
-    echo "${lang}: \"$tr_display\""
-    echo " -> $bt"
-    echo
-  done
-
-  # Prompt for pass/fail
-  echo "Mark failures as CSV (e.g. lang1, lang2) or press Enter to accept:"
-  read -r resp
-  resp=$(trim "$resp")
-
-  if [ -n "$resp" ]; then
-    # parse CSV, add line number to each failed lang
-    IFS=',' read -ra arr <<< "$resp"
-    for raw in "${arr[@]}"; do
-      lineNum=$(trim "$raw")
-      lineNum=${lineNum%%_*}
-      
-      if [ -z "${FAIL_LINES[$lineNum]}" ]; then
-        FAIL_LINES[$lineNum]="$ln"
-      else
-        FAIL_LINES[$lineNum]="${FAIL_LINES[$lineNum]},$ln"
-      fi
-    done
-  fi
-
-  # continue to next entry on Enter/space (already consumed)
-done
-
-# Print the results
-echo; echo "Audit complete."; echo
-
-for lang in "${!FAIL_LINES[@]}"; do
-  echo "$lang: ${FAIL_LINES[$lang]}"
-done
-
-if [ "${#FAIL_LINES[@]}" -gt 0 ]; then
+if [[ ! -f "$SRC_FILE" ]]; then
+  echo "Source English file not found: $SRC_FILE" >&2
   exit 1
 fi
+
+# build a map of base-lang -> file, skipping duplicates (keep first)
+declare -A LANG_FILE
+for f in "$ARB_DIR"/lang_*.arb; do
+  [[ -f "$f" ]] || continue
+  locale=$(basename "$f" .arb)
+  locale=${locale#lang_}
+  base=${locale%%_*}
+  base=${base,,}
+  
+  if [[ -z "${LANG_FILE[$base]:-}" ]]; then
+    LANG_FILE[$base]="$f"
+  fi
+done
+unset LANG_FILE["en"]
+
+# gather rs* keys (line number and key) from English source
+mapfile -t RS_LINES < <(grep -nP '"rs[^"]*"\s*:' "$SRC_FILE" || true)
+if [[ ${#RS_LINES[@]} -eq 0 ]]; then
+  echo "No rs* entries found in $SRC_FILE" >&2
+  exit 1
+fi
+declare -A FAILS  # FAILS[lang]="line1,line2,..."
+
+# helper for extracting an .arb entry value
+extract_value_from_line() {
+  local line="$1"
+  # remove leading key stuff:    "rsKey": "value",
+  # capture inner JSON string (may contain escaped chars)
+  if [[ "$line" =~ :\ \"(.*)\"[[:space:]]*,?[[:space:]]*$ ]]; then
+    printf '%s' "${BASH_REMATCH[1]}"
+  else
+    # fallback: print whole line
+    printf '%s' "$line"
+  fi
+}
+
+# iterate entries
+for entry in "${RS_LINES[@]}"; do
+  line_num="${entry%%:*}"
+  line_content="$(sed -n "${line_num}p" "$SRC_FILE")"
+
+  # extract key
+  if [[ "$line_content" =~ \"([^\"]+)\"\s*:\s*\" ]]; then
+    key="${BASH_REMATCH[1]}"
+  else
+    # fallback parse from entry raw
+    key=$(echo "$entry" | sed -E 's/^[0-9]+:.*"([^"]+)".*/\1/')
+  fi
+
+  # english value
+  en_value="$(extract_value_from_line "$line_content")"
+
+  clear; echo "KEY: $key"; echo; echo "EN: $en_value"; echo
+
+  # show each other language (base) and its translation + translate-shell result
+  for base in "${!LANG_FILE[@]}"; do
+    file="${LANG_FILE[$base]}"
+
+    # find the key line in that file
+    match_line=$(grep -nP "\"${key}\"\\s*:" "$file" || true)
+    if [[ -z "$match_line" ]]; then
+      # no translation for this key in that language
+      echo "$base: (missing)"; echo "  -> (no translation found)"; echo
+      continue
+    fi
+
+    other_line_num="${match_line%%:*}"
+    other_line="$(sed -n "${other_line_num}p" "$file")"
+    other_val="$(extract_value_from_line "$other_line")"
+    echo "$base: \"$other_val\""
+    
+    # use translate-shell to translate into English (auto-detect source)
+    trans_out=$(trans -b :en "$other_val" 2>/dev/null || printf '[translate failed]')
+    echo "  -> $trans_out"; echo
+  done
+
+  # Prompt user
+  echo "Mark this entry as OK or failing."
+  echo " - Press Enter or Space to accept (OK)."
+  echo " - Or type comma-separated base language codes to mark failures (e.g. ar, zh)."
+  read -r -p "> " user_in
+
+  # trim whitespace
+  user_trimmed="$(echo "$user_in" | sed -E 's/^[[:space:]]+|[[:space:]]+$//g')"
+  if [[ -z "$user_trimmed" ]]; then
+    continue
+  fi
+
+  # mark failures
+  IFS=',' read -r -a badlangs <<< "$user_trimmed"
+  for raw in "${badlangs[@]}"; do
+    lang="$(echo "$raw" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')"
+    [[ -z "$lang" ]] && continue
+
+    # only record if we have that language file and the key exists there
+    if [[ -n "${LANG_FILE[$lang]:-}" ]]; then
+      file="${LANG_FILE[$lang]}"
+      match_line=$(grep -nP "\"${key}\"\\s*:" "$file" || true)
+      if [[ -n "$match_line" ]]; then
+        other_line_num="${match_line%%:*}"
+        if [[ -z "${FAILS[$lang]:-}" ]]; then
+          FAILS[$lang]="$other_line_num"
+        else
+          FAILS[$lang]="${FAILS[$lang]},$other_line_num"
+        fi
+      else
+        # if key missing in that lang file, record the english line number as reference
+        if [[ -z "${FAILS[$lang]:-}" ]]; then
+          FAILS[$lang]="$line_num"
+        else
+          FAILS[$lang]="${FAILS[$lang]},$line_num"
+        fi
+      fi
+    else
+      echo "Warning: language '$lang' not tracked or not present (skipping)" >&2
+    fi
+  done
+done
+
+# final report
+if [[ ${#FAILS[@]} -eq 0 ]]; then
+  echo "Looks great! No issues found."
+  exit 0
+fi
+
+echo; echo "=== L10N AUDIT FAILURES ==="
+for lang in "${!FAILS[@]}"; do
+  # remove possible duplicate line numbers and sort
+  IFS=',' read -r -a arr <<< "${FAILS[$lang]}"
+  uniq_sorted=$(printf '%s\n' "${arr[@]}" | awk '!seen[$0]++' | sort -n | paste -sd, -)
+  echo "$lang: $uniq_sorted"
+done
