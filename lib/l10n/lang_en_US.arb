@@ -55,18 +55,17 @@
   "rsSharedRemainSilent": "Remain silent. Do not lie, but you don't have to answer questions.",
   "rsSharedDocument": "Document everything. You have the right to take pictures, record videos, and record audio.",
 
-  "rsWalkPockets": "Refuse a search of your pockets. ICE can give a pat-down, but not a search.",
-  "rsWalkLeave": "Leave if you are not under arrest.",
+  "rsMobilePockets": "Refuse a search of your pockets. ICE can give a pat-down, but not a search.",
+  "rsMobileQuestion": "Ask questions. Find out why you are being stopped.",
+  "rsMobileLeave": "Leave if you are not being detained.",
 
   "rsDriveSearch": "Refuse a search of your car.",
-  "rsDrivePockets": "Refuse a search of your pockets. ICE can give a pat-down, but not a search.",
   "rsDriveID": "Refuse to provide ID as a passenger. Only the driver is required to provide ID.",
-  "rsDriveQuestion": "Ask questions. Find out why you are being stopped.",
   "rsDriveWarrant": "Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it's not valid.",
-  "rsDriveLeave": "Leave if you are not under arrest.",
   
   "rsHomeWarrant": "Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it's not valid. Keep your door shut.",
 
+  "rsSharedSign": "Refuse to sign anything.",
   "rsSharedFingerprint": "Refuse to be fingerprinted by ICE unless you are under arrest.",
   "rsSharedLawyer": "To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.",
 

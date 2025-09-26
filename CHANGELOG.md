@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.1] - 2025-09-25
+### Added
+- Resources to the README(s)
+- l10n audit script
+- Right to refuse to sign anything.
+
+### Updated
+- Right to leave if you are not under arrest -> not being detained.
+- Router to properly consume the new animation duration setting
+
 ## [1.4.0] - 2025-09-24
 ### Added
 - LinkType selector

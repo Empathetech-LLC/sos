@@ -75,7 +75,16 @@ return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.l
 
 The texting differences are due to Apple's policies.<br>They do not allow text automation, at all. They don't even have an appeal process for emergency apps.<br>Pretty hypocritical coming from a company whose marketing often implies that we aren't safe without their products, IMO.
 
-#### <br>Timing
+### <br>Rights sources
+
+The list of rights was compiled from several public sources, including:
+- [ACLU Know Your Rights](https://www.aclu.org/know-your-rights)
+- [IMMDEF Resources](https://www.immdef.org/resources)
+- [Dunk the Vote: The Black Book](https://dunkthevote4ever.org/project/the-black-book-know-your-rights/)
+
+Another useful resource: [How to document ICE](https://lab.witness.org/projects/eyes-on-ice/)
+
+### <br>Timing
 
 Why are broadcasts every 5 minutes in the foreground, but every 15 in the background?
 

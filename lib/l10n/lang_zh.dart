@@ -134,32 +134,29 @@ class LangZh extends Lang {
   String get rsSharedDocument => '记录一切。您有权拍照、录像和录音。';
 
   @override
-  String get rsWalkPockets => '拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。';
+  String get rsMobilePockets => '拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。';
 
   @override
-  String get rsWalkLeave => '若未被逮捕，您有权离开。';
+  String get rsMobileQuestion => '提出疑问。了解为何被拦截。';
+
+  @override
+  String get rsMobileLeave => '如果您没有被拘留，您有权离开。';
 
   @override
   String get rsDriveSearch => '拒绝对车辆进行搜查。';
 
   @override
-  String get rsDrivePockets => '拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。';
-
-  @override
   String get rsDriveID => '作为乘客可拒绝出示身份证明。只有驾驶员必须出示。';
-
-  @override
-  String get rsDriveQuestion => '提出疑问。了解为何被拦截。';
 
   @override
   String get rsDriveWarrant => '询问警官是否持有搜查令。如有，您有权查看。未由法官签署的“搜查令”无效。';
 
   @override
-  String get rsDriveLeave => '若未被逮捕，您有权离开。';
-
-  @override
   String get rsHomeWarrant =>
       '保持房门关闭。如对方称持有搜查令，请先让其从门缝递进。未由法官签署的“搜查令”无效。始终保持房门关闭。';
+
+  @override
+  String get rsSharedSign => '拒绝签署任何文件。';
 
   @override
   String get rsSharedFingerprint => '除非被正式逮捕，可拒绝接受移民局采集指纹。';
@@ -328,32 +325,29 @@ class LangZhCn extends LangZh {
   String get rsSharedDocument => '记录一切。您有权拍照、录像和录音。';
 
   @override
-  String get rsWalkPockets => '拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。';
+  String get rsMobilePockets => '拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。';
 
   @override
-  String get rsWalkLeave => '若未被逮捕，您有权离开。';
+  String get rsMobileQuestion => '提出疑问。了解为何被拦截。';
+
+  @override
+  String get rsMobileLeave => '如果您没有被拘留，您有权离开。';
 
   @override
   String get rsDriveSearch => '拒绝对车辆进行搜查。';
 
   @override
-  String get rsDrivePockets => '拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。';
-
-  @override
   String get rsDriveID => '作为乘客可拒绝出示身份证明。只有驾驶员必须出示。';
-
-  @override
-  String get rsDriveQuestion => '提出疑问。了解为何被拦截。';
 
   @override
   String get rsDriveWarrant => '询问警官是否持有搜查令。如有，您有权查看。未由法官签署的“搜查令”无效。';
 
   @override
-  String get rsDriveLeave => '若未被逮捕，您有权离开。';
-
-  @override
   String get rsHomeWarrant =>
       '保持房门关闭。如对方称持有搜查令，请先让其从门缝递进。未由法官签署的“搜查令”无效。始终保持房门关闭。';
+
+  @override
+  String get rsSharedSign => '拒绝签署任何文件。';
 
   @override
   String get rsSharedFingerprint => '除非被正式逮捕，可拒绝接受移民局采集指纹。';

@@ -72,8 +72,9 @@ class _RightsViewState extends State<RightsView> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            rightsBlock(l10n.rsWalkPockets, style),
-            rightsBlock(l10n.rsWalkLeave, style),
+            rightsBlock(l10n.rsMobilePockets, style),
+            rightsBlock(l10n.rsMobileQuestion, style),
+            rightsBlock(l10n.rsMobileLeave, style),
           ],
         );
       case Location.driving:
@@ -81,12 +82,12 @@ class _RightsViewState extends State<RightsView> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            rightsBlock(l10n.rsMobilePockets, style),
+            rightsBlock(l10n.rsMobileQuestion, style),
+            rightsBlock(l10n.rsMobileLeave, style),
             rightsBlock(l10n.rsDriveSearch, style),
-            rightsBlock(l10n.rsDrivePockets, style),
             rightsBlock(l10n.rsDriveID, style),
-            rightsBlock(l10n.rsDriveQuestion, style),
             rightsBlock(l10n.rsDriveWarrant, style),
-            rightsBlock(l10n.rsDriveLeave, style),
           ],
         );
       case Location.home:
@@ -168,6 +169,7 @@ class _RightsViewState extends State<RightsView> {
             populateTab(bodyStyle),
 
             // Shared rights II
+            rightsBlock(l10n.rsSharedSign, bodyStyle),
             rightsBlock(l10n.rsSharedFingerprint, bodyStyle),
             rightsBlock(l10n.rsSharedLawyer, bodyStyle),
           ],

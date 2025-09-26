@@ -144,39 +144,33 @@ class LangFr extends Lang {
       'Documenter tout. Vous avez le droit de prendre des photos, d\'enregistrer des vidéos et de faire des enregistrements audio.';
 
   @override
-  String get rsWalkPockets =>
+  String get rsMobilePockets =>
       'Refuser la fouille de vos poches. L\'ICE peut procéder à une palpation, mais pas à une fouille.';
 
   @override
-  String get rsWalkLeave =>
-      'Partir si vous n\'êtes pas en état d\'arrestation.';
+  String get rsMobileQuestion =>
+      'Poser des questions. Comprenez pourquoi vous avez été arrêté.';
+
+  @override
+  String get rsMobileLeave => 'Partez si vous n’êtes pas en détention.';
 
   @override
   String get rsDriveSearch => 'Refuser la fouille de votre véhicule.';
-
-  @override
-  String get rsDrivePockets =>
-      'Refuser la fouille de vos poches. L\'ICE peut procéder à une palpation, mais pas à une fouille.';
 
   @override
   String get rsDriveID =>
       'Refuser de présenter une pièce d\'identité en tant que passager. Seul le conducteur est tenu de présenter une pièce d\'identité.';
 
   @override
-  String get rsDriveQuestion =>
-      'Poser des questions. Comprenez pourquoi vous avez été arrêté.';
-
-  @override
   String get rsDriveWarrant =>
       'Demander aux agents s\'ils ont un mandat. Vous avez le droit de le voir s\'ils en ont un. Si un \"mandat\" n\'est pas signé par un juge, il n\'est pas valide.';
 
   @override
-  String get rsDriveLeave =>
-      'Partir si vous n\'êtes pas en état d\'arrestation.';
-
-  @override
   String get rsHomeWarrant =>
       'Garder votre porte fermée. S\'ils ont un mandat, demandez-leur de le glisser sous la porte. Si un \"mandat\" n\'est pas signé par un juge, il n\'est pas valide. Gardez votre porte fermée.';
+
+  @override
+  String get rsSharedSign => 'Refuser de signer quoi que ce soit.';
 
   @override
   String get rsSharedFingerprint =>

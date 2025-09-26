@@ -55,18 +55,17 @@
   "rsSharedRemainSilent": "Rete an silans. Pa bay manti, men ou pa oblije reponn kesyon.",
   "rsSharedDocument": "Dokimante tout bagay. Ou gen dwa pou ou pran foto, anrejistre videyo, ak odyo.",
 
-  "rsWalkPockets": "Refize ke yo fouye pòch ou. ICE ka fè yon manyen rapid, men yo pa ka fouye.",
-  "rsWalkLeave": "Ale si yo pa arete ou.",
+  "rsMobilePockets": "Refize ke yo fouye pòch ou. ICE ka fè yon manyen rapid, men yo pa ka fouye.",
+  "rsMobileQuestion": "Poze kesyon. Chèche konnen poukisa yo kanpe ou.",
+  "rsMobileLeave": "Ale si yo pa arete ou.",
 
   "rsDriveSearch": "Refize ke yo fouye machin ou.",
-  "rsDrivePockets": "Refize ke yo fouye pòch ou. ICE ka fè yon manyen rapid, men yo pa ka fouye.",
   "rsDriveID": "Refize bay ID antan ke pasaje. Sèlman chofè a oblije bay ID.",
-  "rsDriveQuestion": "Poze kesyon. Chèche konnen poukisa yo kanpe ou.",
   "rsDriveWarrant": "Mande si ajan yo gen manda. Ou gen dwa wè li si yo genyen. Si pa genyen siyati yon jij sou manda a, li pa valab.",
-  "rsDriveLeave": "Ale si yo pa arete ou",
   
   "rsHomeWarrant": "Kenbe pòt ou fèmen. Si yo gen manda, mande yo pou yo fè li pase anba pòt la. Si pa genyen siyati yon jij sou manda a, li pa valab. Kenbe pòt la fèmen.",
 
+  "rsSharedSign": "Refize siyen anyen.",
   "rsSharedFingerprint": "Refize ke ICE pran anprent ou sòf si yo deja arete ou.",
   "rsSharedLawyer": "Pou konsilte yon avoka. Si yo arete fòmèlman, ou gen dwa gen yon avoka leta.",
 

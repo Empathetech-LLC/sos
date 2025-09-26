@@ -55,18 +55,17 @@
   "rsSharedRemainSilent": "Manahimik. Huwag magsinungaling, pero hindi mo kailangang sumagot sa mga tanong.",
   "rsSharedDocument": "I-dokumento ang lahat. May karapatan kang kumuha ng larawan, mag-record ng video, at mag-record ng audio.",
 
-  "rsWalkPockets": "Tumangging ipasuri ang iyong bulsa. Puwedeng kapkapan ka ng ICE, pero hindi puwedeng maghalughog.",
-  "rsWalkLeave": "Umalis kung hindi ka inaaresto.",
+  "rsMobilePockets": "Tumangging ipasuri ang iyong bulsa. Puwedeng kapkapan ka ng ICE, pero hindi puwedeng maghalughog.",
+  "rsMobileQuestion": "Magtanong. Alamin kung bakit ka pinahinto.",
+  "rsMobileLeave": "Umalis ka kung hindi ka pinipigilan.",
 
   "rsDriveSearch": "Tumangging ipasuri ang iyong sasakyan.",
-  "rsDrivePockets": "Tumangging ipasuri ang iyong bulsa. Puwedeng kapkapan ka ng ICE, pero hindi puwedeng maghalughog.",
   "rsDriveID": "Tumangging magbigay ng ID bilang pasahero. Tanging driver lang ang kailangang magbigay ng ID.",
-  "rsDriveQuestion": "Magtanong. Alamin kung bakit ka pinahinto.",
   "rsDriveWarrant": "Magtanong kung may warrant ang mga opisyal. May karapatan kang makita ito. Kung walang pirma ng hukom, wala itong bisa.",
-  "rsDriveLeave": "Umalis kung hindi ka inaaresto.",
   
   "rsHomeWarrant": "Panatilihing nakasara ang pinto. Kung may warrant, hilingin na ipasok ito sa ilalim ng pinto. Kung walang pirma ng hukom, wala itong bisa. Panatilihing nakasara ang pinto.",
 
+  "rsSharedSign": "Tumangging pumirma ng anuman.",
   "rsSharedFingerprint": "Tumangging magpa-fingerprint sa ICE maliban kung inaaresto ka.",
   "rsSharedLawyer": "Kumonsulta sa abogado. Kung pormal kang naaresto, may karapatan kang bigyan ng abogado ng korte.",
 

@@ -139,37 +139,33 @@ class LangHt extends Lang {
       'Dokimante tout bagay. Ou gen dwa pou ou pran foto, anrejistre videyo, ak odyo.';
 
   @override
-  String get rsWalkPockets =>
+  String get rsMobilePockets =>
       'Refize ke yo fouye pòch ou. ICE ka fè yon manyen rapid, men yo pa ka fouye.';
 
   @override
-  String get rsWalkLeave => 'Ale si yo pa arete ou.';
+  String get rsMobileQuestion =>
+      'Poze kesyon. Chèche konnen poukisa yo kanpe ou.';
+
+  @override
+  String get rsMobileLeave => 'Ale si yo pa arete ou.';
 
   @override
   String get rsDriveSearch => 'Refize ke yo fouye machin ou.';
-
-  @override
-  String get rsDrivePockets =>
-      'Refize ke yo fouye pòch ou. ICE ka fè yon manyen rapid, men yo pa ka fouye.';
 
   @override
   String get rsDriveID =>
       'Refize bay ID antan ke pasaje. Sèlman chofè a oblije bay ID.';
 
   @override
-  String get rsDriveQuestion =>
-      'Poze kesyon. Chèche konnen poukisa yo kanpe ou.';
-
-  @override
   String get rsDriveWarrant =>
       'Mande si ajan yo gen manda. Ou gen dwa wè li si yo genyen. Si pa genyen siyati yon jij sou manda a, li pa valab.';
 
   @override
-  String get rsDriveLeave => 'Ale si yo pa arete ou';
-
-  @override
   String get rsHomeWarrant =>
       'Kenbe pòt ou fèmen. Si yo gen manda, mande yo pou yo fè li pase anba pòt la. Si pa genyen siyati yon jij sou manda a, li pa valab. Kenbe pòt la fèmen.';
+
+  @override
+  String get rsSharedSign => 'Refize siyen anyen.';
 
   @override
   String get rsSharedFingerprint =>

@@ -139,37 +139,33 @@ class LangEn extends Lang {
       'Document everything. You have the right to take pictures, record videos, and record audio.';
 
   @override
-  String get rsWalkPockets =>
+  String get rsMobilePockets =>
       'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
 
   @override
-  String get rsWalkLeave => 'Leave if you are not under arrest.';
+  String get rsMobileQuestion =>
+      'Ask questions. Find out why you are being stopped.';
+
+  @override
+  String get rsMobileLeave => 'Leave if you are not being detained.';
 
   @override
   String get rsDriveSearch => 'Refuse a search of your car.';
-
-  @override
-  String get rsDrivePockets =>
-      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
 
   @override
   String get rsDriveID =>
       'Refuse to provide ID as a passenger. Only the driver is required to provide ID.';
 
   @override
-  String get rsDriveQuestion =>
-      'Ask questions. Find out why you are being stopped.';
-
-  @override
   String get rsDriveWarrant =>
       'Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it\'s not valid.';
 
   @override
-  String get rsDriveLeave => 'Leave if you are not under arrest.';
-
-  @override
   String get rsHomeWarrant =>
       'Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.';
+
+  @override
+  String get rsSharedSign => 'Refuse to sign anything.';
 
   @override
   String get rsSharedFingerprint =>
@@ -346,37 +342,33 @@ class LangEnUs extends LangEn {
       'Document everything. You have the right to take pictures, record videos, and record audio.';
 
   @override
-  String get rsWalkPockets =>
+  String get rsMobilePockets =>
       'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
 
   @override
-  String get rsWalkLeave => 'Leave if you are not under arrest.';
+  String get rsMobileQuestion =>
+      'Ask questions. Find out why you are being stopped.';
+
+  @override
+  String get rsMobileLeave => 'Leave if you are not being detained.';
 
   @override
   String get rsDriveSearch => 'Refuse a search of your car.';
-
-  @override
-  String get rsDrivePockets =>
-      'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
 
   @override
   String get rsDriveID =>
       'Refuse to provide ID as a passenger. Only the driver is required to provide ID.';
 
   @override
-  String get rsDriveQuestion =>
-      'Ask questions. Find out why you are being stopped.';
-
-  @override
   String get rsDriveWarrant =>
       'Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it\'s not valid.';
 
   @override
-  String get rsDriveLeave => 'Leave if you are not under arrest.';
-
-  @override
   String get rsHomeWarrant =>
       'Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.';
+
+  @override
+  String get rsSharedSign => 'Refuse to sign anything.';
 
   @override
   String get rsSharedFingerprint =>

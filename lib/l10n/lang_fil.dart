@@ -142,36 +142,32 @@ class LangFil extends Lang {
       'I-dokumento ang lahat. May karapatan kang kumuha ng larawan, mag-record ng video, at mag-record ng audio.';
 
   @override
-  String get rsWalkPockets =>
+  String get rsMobilePockets =>
       'Tumangging ipasuri ang iyong bulsa. Puwedeng kapkapan ka ng ICE, pero hindi puwedeng maghalughog.';
 
   @override
-  String get rsWalkLeave => 'Umalis kung hindi ka inaaresto.';
+  String get rsMobileQuestion => 'Magtanong. Alamin kung bakit ka pinahinto.';
+
+  @override
+  String get rsMobileLeave => 'Umalis ka kung hindi ka pinipigilan.';
 
   @override
   String get rsDriveSearch => 'Tumangging ipasuri ang iyong sasakyan.';
-
-  @override
-  String get rsDrivePockets =>
-      'Tumangging ipasuri ang iyong bulsa. Puwedeng kapkapan ka ng ICE, pero hindi puwedeng maghalughog.';
 
   @override
   String get rsDriveID =>
       'Tumangging magbigay ng ID bilang pasahero. Tanging driver lang ang kailangang magbigay ng ID.';
 
   @override
-  String get rsDriveQuestion => 'Magtanong. Alamin kung bakit ka pinahinto.';
-
-  @override
   String get rsDriveWarrant =>
       'Magtanong kung may warrant ang mga opisyal. May karapatan kang makita ito. Kung walang pirma ng hukom, wala itong bisa.';
 
   @override
-  String get rsDriveLeave => 'Umalis kung hindi ka inaaresto.';
-
-  @override
   String get rsHomeWarrant =>
       'Panatilihing nakasara ang pinto. Kung may warrant, hilingin na ipasok ito sa ilalim ng pinto. Kung walang pirma ng hukom, wala itong bisa. Panatilihing nakasara ang pinto.';
+
+  @override
+  String get rsSharedSign => 'Tumangging pumirma ng anuman.';
 
   @override
   String get rsSharedFingerprint =>

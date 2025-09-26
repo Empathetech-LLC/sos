@@ -75,7 +75,15 @@ return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.l
 
 Diferans nan voye mesaj yo sòti nan règleman Apple yo.<br>Yo **pa**  pèmèt okenn otomatizasyon mesaj ditou. Yo pa menm gen yon fason pou fè apèl pou aplikasyon ijans yo.<br>Se yon konpòtman ipokrit pou yon konpayi ki toujou fè pwomosyon pwodwi yo kòm bagay ou bezwen pou sekirite w, dapre opinyon mwen.
 
-#### <br>Senkwonizasyon
+### <br>Sous dwa yo
+
+- [ACLU Know Your Rights](https://www.aclu.org/know-your-rights)
+- [IMMDEF Resources](https://www.immdef.org/resources)
+- [Dunk the Vote: The Black Book](https://dunkthevote4ever.org/project/the-black-book-know-your-rights/)
+
+Yon lòt resous: [How to document ICE](https://lab.witness.org/projects/eyes-on-ice/)
+
+### <br>Senkwonizasyon
 
 Poukisa difizyon yo fèt chak 5 minit lè app lan ouvè, men chak 15 minit nan background?
 

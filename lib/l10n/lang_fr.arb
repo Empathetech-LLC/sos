@@ -55,18 +55,17 @@
   "rsSharedRemainSilent": "Garder le silence. Ne mentez pas, mais vous n'êtes pas obligé de répondre aux questions.",
   "rsSharedDocument": "Documenter tout. Vous avez le droit de prendre des photos, d'enregistrer des vidéos et de faire des enregistrements audio.",
   
-  "rsWalkPockets": "Refuser la fouille de vos poches. L'ICE peut procéder à une palpation, mais pas à une fouille.",
-  "rsWalkLeave": "Partir si vous n'êtes pas en état d'arrestation.",
+  "rsMobilePockets": "Refuser la fouille de vos poches. L'ICE peut procéder à une palpation, mais pas à une fouille.",
+  "rsMobileQuestion": "Poser des questions. Comprenez pourquoi vous avez été arrêté.",
+  "rsMobileLeave": "Partez si vous n’êtes pas en détention.",
   
   "rsDriveSearch": "Refuser la fouille de votre véhicule.",
-  "rsDrivePockets": "Refuser la fouille de vos poches. L'ICE peut procéder à une palpation, mais pas à une fouille.",
   "rsDriveID": "Refuser de présenter une pièce d'identité en tant que passager. Seul le conducteur est tenu de présenter une pièce d'identité.",
-  "rsDriveQuestion": "Poser des questions. Comprenez pourquoi vous avez été arrêté.",
   "rsDriveWarrant": "Demander aux agents s'ils ont un mandat. Vous avez le droit de le voir s'ils en ont un. Si un \"mandat\" n'est pas signé par un juge, il n'est pas valide.",
-  "rsDriveLeave": "Partir si vous n'êtes pas en état d'arrestation.",
   
   "rsHomeWarrant": "Garder votre porte fermée. S'ils ont un mandat, demandez-leur de le glisser sous la porte. Si un \"mandat\" n'est pas signé par un juge, il n'est pas valide. Gardez votre porte fermée.",
   
+  "rsSharedSign": "Refuser de signer quoi que ce soit.",
   "rsSharedFingerprint": "Refuser de vous soumettre à un relevé d'empreintes digitales par l'ICE, sauf si vous êtes en état d'arrestation.",
   "rsSharedLawyer": "Consulter un avocat. Si vous avez été officiellement arrêté, vous avez droit à un avocat commis d'office.",
   

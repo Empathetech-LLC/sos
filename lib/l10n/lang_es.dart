@@ -133,52 +133,48 @@ class LangEs extends Lang {
 
   @override
   String get rsSharedRemainSilent =>
-      'Guarda silencio. No tienes que responder a ninguna pregunta, pero si dices algo, no mientas';
+      'Guarda silencio. No tienes que responder a ninguna pregunta, pero si dices algo, no mientas.';
 
   @override
   String get rsSharedDocument =>
-      'Documéntalo todo. Tienes derecho a hacer fotos, grabar vídeos y audio';
+      'Documéntalo todo. Tienes derecho a hacer fotos, grabar vídeos y audio.';
 
   @override
-  String get rsWalkPockets =>
-      'Niégate a que te registren los bolsillos. El ICE puede cachearte, pero no registrarte';
+  String get rsMobilePockets =>
+      'Niégate a que te registren los bolsillos. El ICE puede cachearte, pero no registrarte.';
 
   @override
-  String get rsWalkLeave => 'Márchate si no estás arrestado';
+  String get rsMobileQuestion =>
+      'Haz preguntas, incluyendo por qué te han hecho detenerte.';
 
   @override
-  String get rsDriveSearch => 'Niégate a que registren tu vehículo';
+  String get rsMobileLeave => 'Salir si no estás detenido.';
 
   @override
-  String get rsDrivePockets =>
-      'Niégate a que te registren los bolsillos. El ICE puede cachearte, pero no registrarte';
+  String get rsDriveSearch => 'Niégate a que registren tu vehículo.';
 
   @override
   String get rsDriveID =>
-      'Si eres pasajero, niégate a proporcionar documentos de identificación. Solo la persona al volante está obligada a identificarse';
-
-  @override
-  String get rsDriveQuestion =>
-      'Haz preguntas, incluyendo por qué te han hecho detenerte';
+      'Si eres pasajero, niégate a proporcionar documentos de identificación. Solo la persona al volante está obligada a identificarse.';
 
   @override
   String get rsDriveWarrant =>
-      'Pregunta si tienen una orden judicial. Tienes derecho a verla si la tienen. Una \"orden judicial\" solo es válida si está firmada por un juez';
-
-  @override
-  String get rsDriveLeave => 'Márchate si no estás arrestado';
+      'Pregunta si tienen una orden judicial. Tienes derecho a verla si la tienen. Una \"orden judicial\" solo es válida si está firmada por un juez.';
 
   @override
   String get rsHomeWarrant =>
       'No abras la puerta. Si tienen una orden judicial, pídeles que la pasen primero por debajo de la puerta. Una \"orden judicial\" solo es válida si está firmada por un juez. No abras la puerta.';
 
   @override
+  String get rsSharedSign => 'Niégate a firmar cualquier cosa.';
+
+  @override
   String get rsSharedFingerprint =>
-      'Niégate a que el ICE tome tus huellas dactilares a menos que estés arrestado';
+      'Niégate a que el ICE tome tus huellas dactilares a menos que estés arrestado.';
 
   @override
   String get rsSharedLawyer =>
-      'Consultar a un abogado. Si te han arrestado formalmente, tienes derecho a un abogado de oficio';
+      'Consultar a un abogado. Si te han arrestado formalmente, tienes derecho a un abogado de oficio.';
 
   @override
   String get ssSOSOnOpen => 'SOS al abrirse';
