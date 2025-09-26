@@ -149,7 +149,7 @@ class LangFil extends Lang {
   String get rsMobileQuestion => 'Magtanong. Alamin kung bakit ka pinahinto.';
 
   @override
-  String get rsMobileLeave => 'Umalis kung hindi ka inaaresto.';
+  String get rsMobileLeave => 'Umalis ka kung hindi ka pinipigilan.';
 
   @override
   String get rsDriveSearch => 'Tumangging ipasuri ang iyong sasakyan.';
@@ -167,8 +167,7 @@ class LangFil extends Lang {
       'Panatilihing nakasara ang pinto. Kung may warrant, hilingin na ipasok ito sa ilalim ng pinto. Kung walang pirma ng hukom, wala itong bisa. Panatilihing nakasara ang pinto.';
 
   @override
-  String get rsSharedSign =>
-      'Tumangging pumirma sa ICE maliban kung inaaresto ka.';
+  String get rsSharedSign => 'Tumangging pumirma ng anuman.';
 
   @override
   String get rsSharedFingerprint =>

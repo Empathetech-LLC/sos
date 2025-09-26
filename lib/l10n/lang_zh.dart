@@ -140,7 +140,7 @@ class LangZh extends Lang {
   String get rsMobileQuestion => '提出疑问。了解为何被拦截。';
 
   @override
-  String get rsMobileLeave => '若未被逮捕，您有权离开。';
+  String get rsMobileLeave => '如果您没有被拘留，您有权离开。';
 
   @override
   String get rsDriveSearch => '拒绝对车辆进行搜查。';
@@ -331,7 +331,7 @@ class LangZhCn extends LangZh {
   String get rsMobileQuestion => '提出疑问。了解为何被拦截。';
 
   @override
-  String get rsMobileLeave => '若未被逮捕，您有权离开。';
+  String get rsMobileLeave => '如果您没有被拘留，您有权离开。';
 
   @override
   String get rsDriveSearch => '拒绝对车辆进行搜查。';

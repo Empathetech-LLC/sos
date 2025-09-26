@@ -152,8 +152,7 @@ class LangFr extends Lang {
       'Poser des questions. Comprenez pourquoi vous avez été arrêté.';
 
   @override
-  String get rsMobileLeave =>
-      'Partir si vous n\'êtes pas en état d\'arrestation.';
+  String get rsMobileLeave => 'Partez si vous n’êtes pas en détention.';
 
   @override
   String get rsDriveSearch => 'Refuser la fouille de votre véhicule.';
