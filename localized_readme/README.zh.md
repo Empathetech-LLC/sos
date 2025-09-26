@@ -75,7 +75,15 @@ return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.l
 
 文字信息功能的差异源于 Apple 的政策。<br>他们完全不允许短信自动化，即使是用于紧急应用也无申诉通道。<br>在我看来，这与其一贯宣称“使用他们的产品才更安全”的宣传口径颇为矛盾。
 
-#### <br>时间设置
+### <br>权利来源
+
+- [ACLU Know Your Rights](https://www.aclu.org/know-your-rights)
+- [IMMDEF Resources](https://www.immdef.org/resources)
+- [Dunk the Vote: The Black Book](https://dunkthevote4ever.org/project/the-black-book-know-your-rights/)
+
+另一个资源： [How to document ICE](https://lab.witness.org/projects/eyes-on-ice/)
+
+### <br>时间设置
 
 为何前台状态每 5 分钟发送一次，而后台状态为每 15 分钟？
 

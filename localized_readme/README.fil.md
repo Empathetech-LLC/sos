@@ -75,7 +75,15 @@ return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.l
 
 Ang pagkakaiba sa text automation ay dahil sa mga patakaran ng Apple.<br>Hindi nila pinapayagan ang text automation, kahit kailan. Wala pa nga silang appeal process para sa mga emergency app.<br>Medyo mapagkunwari mula sa isang kumpanya na madalas magpahiwatig sa kanilang marketing na hindi tayo ligtas nang wala ang kanilang mga produkto, sa palagay ko.
 
-#### <br>Timing
+### <br>Mga mapagkukunan ng karapatan
+
+- [ACLU Know Your Rights](https://www.aclu.org/know-your-rights)
+- [IMMDEF Resources](https://www.immdef.org/resources)
+- [Dunk the Vote: The Black Book](https://dunkthevote4ever.org/project/the-black-book-know-your-rights/)
+
+Isa pang mapagkukunan: [How to document ICE](https://lab.witness.org/projects/eyes-on-ice/)
+
+### <br>Timing
 
 Bakit bawat kada ika-5 minuto ang broadcast sa foreground, pero sa background ay kada ika-15 na minuto?
 

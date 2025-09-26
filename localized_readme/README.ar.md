@@ -75,7 +75,15 @@ return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.l
 
 اختلافات الرسائل النصية تعود إلى سياسات آبل.<br>لا تسمح آبل بأتمتة الرسائل النصية إطلاقًا. ولا توفر حتى آلية استئناف لتطبيقات الطوارئ.<br>هذا نفاقٌ كبيرٌ من شركةٍ غالبًا ما توحي حملاتها التسويقية بأننا لسنا بأمان بدون منتجاتها، في رأيي.
 
-#### <br>التوقيت
+### <br>مصادر الحقوق
+
+- [ACLU Know Your Rights](https://www.aclu.org/know-your-rights)
+- [IMMDEF Resources](https://www.immdef.org/resources)
+- [Dunk the Vote: The Black Book](https://dunkthevote4ever.org/project/the-black-book-know-your-rights/)
+
+مصدر آخر: [How to document ICE](https://lab.witness.org/projects/eyes-on-ice/)
+
+### <br>التوقيت
 
 لماذا يُبثّ كل خمس دقائق في المقدمة، وكل خمس عشرة دقيقة في الخلفية؟
 

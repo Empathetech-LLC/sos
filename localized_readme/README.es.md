@@ -75,7 +75,15 @@ return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.l
 
 Las diferencias en los SMS se deben a las normas de Apple.<br>No permiten la automatización de SMS bajo ningún concepto. Ni siquiera tienen un proceso de apelación para las aplicaciones de emergencia.<br>Bastante hipócrita por parte de una empresa cuyo marketing a menudo implica que no estamos protegidos sin sus productos, pero bueno.
 
-#### <br>Temporización
+### <br>Fuentes de derechos
+
+- [ACLU Know Your Rights](https://www.aclu.org/know-your-rights)
+- [IMMDEF Resources](https://www.immdef.org/resources)
+- [Dunk the Vote: The Black Book](https://dunkthevote4ever.org/project/the-black-book-know-your-rights/)
+
+Otro recurso: [How to document ICE](https://lab.witness.org/projects/eyes-on-ice/)
+
+### <br>Temporización
 
 ¿Por qué se transmite cada 5 minutos en primer plano, pero cada 15 en segundo plano?
 

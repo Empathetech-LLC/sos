@@ -75,7 +75,15 @@ return 'https://www.google.com/maps?q=${pos.latitude.toStringAsFixed(4)},${pos.l
 
 Les différences de SMS sont dues aux politiques d'Apple.<br>Ils n'autorisent absolument pas l'automatisation des SMS. Ils n'ont même pas de procédure d'appel pour les applications d'urgence.<br>C'est assez hypocrite de la part d'une entreprise dont le marketing laisse souvent entendre que nous ne sommes pas en sécurité sans ses produits, à mon avis.
 
-#### <br>Intervalles
+### <br>Sources des droits
+
+- [ACLU Know Your Rights](https://www.aclu.org/know-your-rights)
+- [IMMDEF Resources](https://www.immdef.org/resources)
+- [Dunk the Vote: The Black Book](https://dunkthevote4ever.org/project/the-black-book-know-your-rights/)
+
+Une autre ressource: [How to document ICE](https://lab.witness.org/projects/eyes-on-ice/)
+
+### <br>Intervalles
 
 Pourquoi les diffusions sont-elles toutes les 5 minutes au premier plan, mais toutes les 15 minutes en arrière-plan ?
 
