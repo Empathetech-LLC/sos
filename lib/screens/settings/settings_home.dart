@@ -25,10 +25,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
   final bool isIOS = isApple();
 
-  static const EzSpacer spacer = EzSpacer();
-  static const EzSeparator separator = EzSeparator();
-  static const EzDivider divider = EzDivider();
-
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = ezL10n(context);
 
@@ -61,7 +57,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
         EzScrollView(children: <Widget>[
           // Functionality disclaimer
           EzWarning(el10n.ssRestartReminder),
-          spacer,
+          ezSpacer,
 
           // Language
           EzLocaleSetting(
@@ -69,7 +65,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             skip: <Locale>{arabic, english, chinese}, // Dupes
             protest: true,
           ),
-          divider,
+          ezDivider,
 
           // SOS on open
           EzSwitchPair(
@@ -79,7 +75,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
           ),
 
           if (!isIOS) ...<Widget>[
-            spacer,
+            ezSpacer,
 
             // SOS on close
             EzSwitchPair(
@@ -119,7 +115,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 );
               },
             ),
-            spacer,
+            ezSpacer,
 
             // SOS on interrupt
             EzSwitchPair(
@@ -127,7 +123,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               valueKey: onInterruptKey,
               canChange: (bool choice) => canSet(onInterruptKey, choice),
             ),
-            spacer,
+            ezSpacer,
           ],
 
           // Auto-share media
@@ -135,11 +131,11 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             text: l10n.ssAutoShare,
             valueKey: autoShareKey,
           ),
-          divider,
+          ezDivider,
 
           // EMC
           const ContactList(),
-          spacer,
+          ezSpacer,
 
           // Link type
           EzScrollView(
@@ -153,7 +149,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 style: Theme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
-              EzMargin(),
+              ezMargin,
               EzDropdownMenu<LinkType>(
                 widthEntries: <String>[LinkType.google.label],
                 dropdownMenuEntries: LinkType.values
@@ -175,7 +171,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               ),
             ],
           ),
-          divider,
+          ezDivider,
 
           // Appearance
           EzElevatedIconButton(
@@ -183,7 +179,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             icon: EzIcon(Icons.navigate_next),
             label: l10n.ssAppearance,
           ),
-          separator,
+          ezSeparator,
         ]),
         useImageDecoration: false,
       ),

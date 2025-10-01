@@ -42,8 +42,6 @@ class _HomeScreenState extends State<HomeScreen>
   final double spacing = EzConfig.get(spacingKey);
   late final double spargin = spacing + margin;
 
-  static const EzSeparator separator = EzSeparator();
-
   final double iconSize = EzConfig.get(iconSizeKey);
   final bool isLefty = EzConfig.get(isLeftyKey);
 
@@ -527,7 +525,7 @@ class _HomeScreenState extends State<HomeScreen>
                             }
                           },
                         ),
-                  separator,
+                  ezSeparator,
 
                   // Record
                   OverlayPortal(
@@ -660,7 +658,7 @@ class _HomeScreenState extends State<HomeScreen>
                             },
                           ),
                   ),
-                  separator,
+                  ezSeparator,
 
                   // Flash
                   camera == null

@@ -107,7 +107,7 @@ class _ContactListState extends State<ContactList> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text(l10n.ssEMC, style: textTheme.titleLarge),
-            EzMargin(),
+            ezMargin,
             EzIconButton(
               icon: Icon(
                 PlatformIcons(context).addCircledOutline,
@@ -121,7 +121,7 @@ class _ContactListState extends State<ContactList> {
             ),
           ],
         ),
-        EzMargin(),
+        ezMargin,
 
         // List of numbers (with remove buttons)
         ConstrainedBox(
