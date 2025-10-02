@@ -7,49 +7,49 @@ import 'export.dart';
 
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-/// 'InstaSOS'
+/// InstaSOS
 const String appName = 'InstaSOS';
 
 /// net.empathetech.sos
 const String packageName = 'net.empathetech.sos';
 
-/// 'taskRunning'
+/// taskRunning
 const String taskRunningKey = 'taskRunning';
 
-/// 'showTutorial'
+/// showTutorial
 const String tutorialKey = 'showTutorial';
 
-/// 'Video'
+/// Video
 const String videoColorKey = 'Video';
 
-/// 'emc'
+/// emc
 const String emcKey = 'emc';
 
-/// 'linkType'
+/// linkType
 const String linkTypeKey = 'linkType';
 
-/// 'savedTab'
+/// savedTab
 const String savedTabKey = 'savedTab';
 
-/// 'walking'
+/// walking
 const String walkingTab = 'walking';
 
-/// 'driving'
+/// driving
 const String drivingTab = 'driving';
 
-/// 'atHome'
+/// atHome
 const String atHomeTab = 'atHome';
 
-/// 'notifyOnOpen'
+/// notifyOnOpen
 const String onOpenKey = 'sosOnOpen';
 
-/// 'notifyOnClose'
+/// notifyOnClose
 const String onCloseKey = 'sosOnClose';
 
-/// 'sosOnInterrupt'
+/// sosOnInterrupt
 const String onInterruptKey = 'sosOnInterrupt';
 
-/// 'autoShareMedia'
+/// autoShareMedia
 const String autoShareKey = 'autoShareMedia';
 
 final Map<String, Object> sosConfig = <String, Object>{
