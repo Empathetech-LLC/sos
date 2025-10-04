@@ -28,7 +28,7 @@ class SosScaffold extends StatelessWidget {
       github: 'https://github.com/Empathetech-LLC/sos/releases',
     );
 
-    return EzAdaptiveScaffold(
+    return EzAdaptiveParent(
       small: SelectionArea(
         child: Scaffold(
           body: SafeArea(child: body),
