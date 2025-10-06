@@ -10,11 +10,12 @@ class SosScaffold extends StatelessWidget {
   /// [Scaffold.body] passthrough
   final Widget body;
 
-  /// [FloatingActionButton]
-  final Widget? fab;
+  /// [FloatingActionButton]s to add on top of the [EzUpdaterFAB]
+  /// BYO spacing widgets
+  final List<Widget>? fabs;
 
   /// Standardized [Scaffold] for all of the EFUI example app's screens
-  const SosScaffold(this.body, {super.key, this.fab});
+  const SosScaffold(this.body, {super.key, this.fabs});
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +33,10 @@ class SosScaffold extends StatelessWidget {
       small: SelectionArea(
         child: Scaffold(
           body: SafeArea(child: body),
-          floatingActionButton: fab == null
-              ? updater
-              : Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[updater, ezSpacer, fab!],
-                ),
+          floatingActionButton: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[updater, if (fabs != null) ...fabs!],
+          ),
           floatingActionButtonLocation: EzConfig.get(isLeftyKey)
               ? FloatingActionButtonLocation.startFloat
               : FloatingActionButtonLocation.endFloat,

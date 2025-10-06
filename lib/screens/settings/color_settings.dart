@@ -36,6 +36,15 @@ class ColorSettingsScreen extends StatelessWidget {
           ),
           useImageDecoration: false,
         ),
-        fab: EzBackFAB(context),
+        fabs: <Widget>[
+          ezSpacer,
+          EzConfigFAB(
+            context,
+            appName: appName,
+            androidPackage: packageName,
+          ),
+          ezSpacer,
+          EzBackFAB(context),
+        ],
       );
 }

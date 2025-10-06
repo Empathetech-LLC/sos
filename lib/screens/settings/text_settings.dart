@@ -3,6 +3,7 @@
  * See LICENSE for distribution and usage details.
  */
 
+import '../../utils/export.dart';
 import '../../widgets/export.dart';
 
 import 'package:flutter/material.dart';
@@ -16,6 +17,15 @@ class TextSettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SosScaffold(
         EzScreen(EzTextSettings(target: target), useImageDecoration: false),
-        fab: EzBackFAB(context),
+        fabs: <Widget>[
+          ezSpacer,
+          EzConfigFAB(
+            context,
+            appName: appName,
+            androidPackage: packageName,
+          ),
+          ezSpacer,
+          EzBackFAB(context),
+        ],
       );
 }

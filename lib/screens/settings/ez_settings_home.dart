@@ -91,11 +91,16 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
         ),
         useImageDecoration: false,
       ),
-      fab: EzConfigFAB(
-        context,
-        appName: appName,
-        androidPackage: packageName,
-      ),
+      fabs: <Widget>[
+        ezSpacer,
+        EzConfigFAB(
+          context,
+          appName: appName,
+          androidPackage: packageName,
+        ),
+        ezSpacer,
+        EzBackFAB(context),
+      ],
     );
   }
 }

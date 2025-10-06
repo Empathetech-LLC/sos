@@ -183,7 +183,16 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
         ]),
         useImageDecoration: false,
       ),
-      fab: EzBackFAB(context, showHome: true),
+      fabs: <Widget>[
+        ezSpacer,
+        EzConfigFAB(
+          context,
+          appName: appName,
+          androidPackage: packageName,
+        ),
+        ezSpacer,
+        EzBackFAB(context, showHome: true),
+      ],
     );
   }
 }
