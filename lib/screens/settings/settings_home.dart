@@ -135,7 +135,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
           // EMC
           const ContactList(),
-          ezSpacer,
+          ezSeparator,
 
           // Link type
           EzScrollView(
