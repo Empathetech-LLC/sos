@@ -53,6 +53,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/images/icon.png
+    - assets/images/og-baddie.jpg
 
 flutter_launcher_icons:
   image_path: assets/images/icon.png

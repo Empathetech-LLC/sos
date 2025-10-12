@@ -7,6 +7,8 @@ import 'export.dart';
 
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
+// EzConfig //
+
 /// InstaSOS
 const String appName = 'InstaSOS';
 
@@ -52,6 +54,7 @@ const String onInterruptKey = 'sosOnInterrupt';
 /// autoShareMedia
 const String autoShareKey = 'autoShareMedia';
 
+/// defaults for [EzConfig.init]
 final Map<String, Object> sosConfig = <String, Object>{
   ...empathMobileConfig,
   darkTextBackgroundOpacityKey: 0.8,
@@ -66,4 +69,16 @@ final Map<String, Object> sosConfig = <String, Object>{
   onInterruptKey: true,
   autoShareKey: true,
   taskRunningKey: false,
+};
+
+// Local assets //
+
+/// assets/images/og-baddie.jpg
+const String ladyLiberty = 'assets/images/og-baddie.jpg';
+
+/// [ladyLiberty]
+const Set<String> assetPaths = <String>{ladyLiberty};
+
+const Map<String, String> credits = <String, String>{
+  ladyLiberty: 'Public domain; CC0 1.0 Universal',
 };
