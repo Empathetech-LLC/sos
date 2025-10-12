@@ -10,45 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-class ContactTile extends StatelessWidget {
-  final String number;
-  final bool enabled;
-  final VoidCallback onRemove;
-
-  const ContactTile({
-    super.key,
-    required this.number,
-    required this.enabled,
-    required this.onRemove,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final Lang l10n = Lang.of(context)!;
-    final EFUILang el10n = ezL10n(context);
-
-    return EzScrollView(
-      mainAxisSize: MainAxisSize.min,
-      scrollDirection: Axis.horizontal,
-      reverseHands: true,
-      children: <Widget>[
-        Text(number, style: Theme.of(context).textTheme.bodyLarge),
-        const EzSpacer(vertical: false),
-        EzIconButton(
-          icon: Icon(
-            PlatformIcons(context).removeCircledOutline,
-            semanticLabel:
-                '${l10n.ssRemoveHint}.${enabled ? '' : ' ${el10n.gDisabled}.'}',
-          ),
-          enabled: enabled,
-          onPressed: onRemove,
-          tooltip: l10n.ssRemoveHint,
-        )
-      ],
-    );
-  }
-}
-
 class ContactList extends StatefulWidget {
   const ContactList({super.key});
 
@@ -134,7 +95,7 @@ class _ContactListState extends State<ContactList> {
               child: EzScrollView(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: emc
-                    .map((String number) => ContactTile(
+                    .map((String number) => _ContactTile(
                           key: ValueKey<String>(number),
                           number: number,
                           enabled: emc.length > 1,
@@ -150,6 +111,45 @@ class _ContactListState extends State<ContactList> {
             ),
           ),
         ),
+      ],
+    );
+  }
+}
+
+class _ContactTile extends StatelessWidget {
+  final String number;
+  final bool enabled;
+  final VoidCallback onRemove;
+
+  const _ContactTile({
+    super.key,
+    required this.number,
+    required this.enabled,
+    required this.onRemove,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final Lang l10n = Lang.of(context)!;
+    final EFUILang el10n = ezL10n(context);
+
+    return EzScrollView(
+      mainAxisSize: MainAxisSize.min,
+      scrollDirection: Axis.horizontal,
+      reverseHands: true,
+      children: <Widget>[
+        Text(number, style: Theme.of(context).textTheme.bodyLarge),
+        const EzSpacer(vertical: false),
+        EzIconButton(
+          icon: Icon(
+            PlatformIcons(context).removeCircledOutline,
+            semanticLabel:
+                '${l10n.ssRemoveHint}.${enabled ? '' : ' ${el10n.gDisabled}.'}',
+          ),
+          enabled: enabled,
+          onPressed: onRemove,
+          tooltip: l10n.ssRemoveHint,
+        )
       ],
     );
   }
