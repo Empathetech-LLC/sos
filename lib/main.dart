@@ -29,7 +29,7 @@ void main() async {
     preferences: await SharedPreferences.getInstance(),
     defaults: sosConfig,
     fallbackLang: await EFUILang.delegate.load(americanEnglish),
-    assetPaths: <String>{},
+    assetPaths: assetPaths,
   );
 
   // Run the app //
