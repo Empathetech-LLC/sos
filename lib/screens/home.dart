@@ -209,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen>
     final bool newUser = emc == null || emc!.isEmpty;
 
     // Verify the emergency contacts
-    if (newUser) emc = await addEMC(context, emc);
+    if (newUser) emc = await addEMC(context, emc, l10n: l10n, el10n: el10n);
 
     // Check for auto SOS
     final bool taskRunning = EzConfig.get(taskRunningKey);
