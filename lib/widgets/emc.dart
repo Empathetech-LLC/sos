@@ -21,7 +21,10 @@ class _ContactListState extends State<ContactList> {
 
   final double margin = EzConfig.get(marginKey);
   final double padding = EzConfig.get(paddingKey);
+  final double spacing = EzConfig.get(spacingKey);
   final double iconSize = EzConfig.get(iconSizeKey);
+
+  late final EzSpacer listSpacer = EzSpacer(space: spacing - margin * 2);
 
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = ezL10n(context);
@@ -71,10 +74,22 @@ class _ContactListState extends State<ContactList> {
                   ? emc.fold<List<Widget>>(
                       <Widget>[],
                       (List<Widget> acc, String contact) {
+                        final List<String> parts = contact.split(contactSplit);
+                        late final String? initials;
+                        late final String number;
+
+                        if (parts.length == 2) {
+                          initials = parts.first;
+                          number = parts.last;
+                        } else {
+                          initials = null;
+                          number = contact;
+                        }
+
                         acc.add(_ContactTile(
                           key: ValueKey<String>(contact),
-                          initials: 'MW', // TODO: for realz
-                          number: contact,
+                          initials: initials,
+                          number: number,
                           enabled: emc.length > 1,
                           onRemove: () async {
                             emc.remove(contact);
@@ -89,14 +104,18 @@ class _ContactListState extends State<ContactList> {
                           padding: padding,
                           iconSize: iconSize,
                         ));
-                        acc.add(ezSpacer);
+                        acc.add(listSpacer);
                         return acc;
                       },
-                    )
+                    ).sublist(0, emc.length * 2 - 1) // Remove trailing spacer
                   : <Widget>[
                       _ContactTile(
-                        initials: 'MW', // TODO: ditto
-                        number: emc.first,
+                        initials: emc.first.contains(contactSplit)
+                            ? emc.first.split(contactSplit).first
+                            : null,
+                        number: emc.first.contains(contactSplit)
+                            ? emc.first.split(contactSplit).last
+                            : emc.first,
                         enabled: false,
                         onRemove: doNothing,
                         l10n: l10n,
@@ -117,7 +136,7 @@ class _ContactListState extends State<ContactList> {
 }
 
 class _ContactTile extends StatelessWidget {
-  final String initials;
+  final String? initials;
   final String number;
   final bool enabled;
   final VoidCallback onRemove;
@@ -156,21 +175,31 @@ class _ContactTile extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           scrollDirection: Axis.horizontal,
           children: <Widget>[
-            ezRowMargin,
-            CircleAvatar(
-              radius: padding + iconSize / 2,
-              foregroundColor: colorScheme.onSurface,
-              backgroundColor: colorScheme.surfaceContainer,
-              child: Text(
-                initials,
-                style: textTheme.bodyLarge,
-                textAlign: TextAlign.start,
+            // Initials coin (if available)
+            if (initials != null) ...<Widget>[
+              ezRowMargin,
+              CircleAvatar(
+                radius: padding + iconSize / 2,
+                foregroundColor: colorScheme.onSurface,
+                backgroundColor: colorScheme.surfaceContainer,
+                child: Text(
+                  initials!,
+                  style: textTheme.bodyLarge,
+                  textAlign: TextAlign.start,
+                ),
               ),
-            ),
+            ],
             ezRowMargin,
-            Text(number,
-                style: textTheme.bodyLarge, textAlign: TextAlign.start),
+
+            // Number
+            Text(
+              number,
+              style: textTheme.bodyLarge,
+              textAlign: TextAlign.start,
+            ),
             ezRowSpacer,
+
+            // Remove button
             EzIconButton(
               icon: Icon(
                 PlatformIcons(context).removeCircledOutline,
