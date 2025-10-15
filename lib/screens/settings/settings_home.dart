@@ -73,10 +73,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             valueKey: onOpenKey,
             canChange: (bool choice) => canSet(onOpenKey, choice),
           ),
+          ezSpacer,
 
           if (!isIOS) ...<Widget>[
-            ezSpacer,
-
             // SOS on close
             EzSwitchPair(
               text: l10n.ssSOSOnClose,
