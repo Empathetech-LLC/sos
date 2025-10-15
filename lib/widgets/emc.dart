@@ -55,7 +55,9 @@ class _ContactListState extends State<ContactList> {
                 semanticLabel: l10n.ssAddHint,
               ),
               onPressed: () async {
-                emc = await addEMC(context, emc, loop: false) ?? emc;
+                emc = await addEMC(context, emc,
+                        loop: false, l10n: l10n, el10n: el10n) ??
+                    emc;
                 setState(() {});
               },
               tooltip: l10n.ssAddHint,
