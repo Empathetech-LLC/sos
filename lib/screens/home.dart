@@ -506,13 +506,19 @@ class _HomeScreenState extends State<HomeScreen>
                               await saveToGallery(image.path, true);
 
                               // Attempt to share (config based)
-                              if (autoShare) {
+                              if (autoShare && context.mounted) {
+                                final RenderBox? box =
+                                    context.findRenderObject() as RenderBox?;
+
                                 await SharePlus.instance.share(ShareParams(
                                   text: await getCoordinates(
                                     linkType.base,
                                     l10n,
                                   ),
                                   files: <XFile>[image],
+                                  sharePositionOrigin:
+                                      box!.localToGlobal(Offset.zero) &
+                                          box.size,
                                 ));
                               }
                             } catch (e) {
@@ -597,13 +603,18 @@ class _HomeScreenState extends State<HomeScreen>
                                 await saveToGallery(mp4Path, false);
 
                                 // Attempt to share the video (config based)
-                                if (autoShare) {
+                                if (autoShare && context.mounted) {
+                                  final RenderBox? box =
+                                      context.findRenderObject() as RenderBox?;
                                   await SharePlus.instance.share(ShareParams(
                                     text: await getCoordinates(
                                       linkType.base,
                                       l10n,
                                     ),
                                     files: <XFile>[XFile(mp4Path)],
+                                    sharePositionOrigin:
+                                        box!.localToGlobal(Offset.zero) &
+                                            box.size,
                                   ));
                                 }
                               } catch (e) {
