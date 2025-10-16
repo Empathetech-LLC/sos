@@ -20,7 +20,7 @@ class SosScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const Widget updater = EzUpdaterFAB(
-      appVersion: '1.4.1',
+      appVersion: '1.5.0',
       versionSource:
           'https://raw.githubusercontent.com/Empathetech-LLC/sos/refs/heads/main/APP_VERSION',
       gPlay:
