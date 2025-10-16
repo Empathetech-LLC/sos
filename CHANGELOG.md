@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [1.5.0] - 2025-10-16
 ### Added
 - Text background opacity mirror to design settings, with a preview of the rights list
+- EzConfigFAB to appearance settings screens
 
 ### Updated
 - Contacts list
