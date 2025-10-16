@@ -72,63 +72,43 @@ class _ContactListState extends State<ContactList> {
           child: Card(
             child: EzScrollView(
               mainAxisSize: MainAxisSize.min,
-              children: emc.length > 1
-                  ? emc.fold<List<Widget>>(
-                      <Widget>[],
-                      (List<Widget> acc, String contact) {
-                        final List<String> parts = contact.split(contactSplit);
-                        late final String? initials;
-                        late final String number;
+              children: emc.fold<List<Widget>>(
+                <Widget>[],
+                (List<Widget> acc, String contact) {
+                  final List<String> parts = contact.split(contactSplit);
+                  late final String? initials;
+                  late final String number;
 
-                        if (parts.length == 2) {
-                          initials = parts.first;
-                          number = parts.last;
-                        } else {
-                          initials = null;
-                          number = contact;
-                        }
+                  if (parts.length == 2) {
+                    initials = parts.first;
+                    number = parts.last;
+                  } else {
+                    initials = null;
+                    number = contact;
+                  }
 
-                        acc.add(_ContactTile(
-                          key: ValueKey<String>(contact),
-                          initials: initials,
-                          number: number,
-                          enabled: emc.length > 1,
-                          onRemove: () async {
-                            emc.remove(contact);
-                            await EzConfig.setStringList(emcKey, emc);
-                            setState(() {});
-                          },
-                          l10n: l10n,
-                          el10n: el10n,
-                          textTheme: textTheme,
-                          colorScheme: colorScheme,
-                          margin: margin,
-                          padding: padding,
-                          iconSize: iconSize,
-                        ));
-                        acc.add(listSpacer);
-                        return acc;
-                      },
-                    ).sublist(0, emc.length * 2 - 1) // Remove trailing spacer
-                  : <Widget>[
-                      _ContactTile(
-                        initials: emc.first.contains(contactSplit)
-                            ? emc.first.split(contactSplit).first
-                            : null,
-                        number: emc.first.contains(contactSplit)
-                            ? emc.first.split(contactSplit).last
-                            : emc.first,
-                        enabled: false,
-                        onRemove: doNothing,
-                        l10n: l10n,
-                        el10n: el10n,
-                        textTheme: textTheme,
-                        colorScheme: colorScheme,
-                        margin: margin,
-                        padding: padding,
-                        iconSize: iconSize,
-                      ),
-                    ],
+                  acc.add(_ContactTile(
+                    key: ValueKey<String>(contact),
+                    initials: initials,
+                    number: number,
+                    enabled: emc.length > 1,
+                    onRemove: () async {
+                      emc.remove(contact);
+                      await EzConfig.setStringList(emcKey, emc);
+                      setState(() {});
+                    },
+                    l10n: l10n,
+                    el10n: el10n,
+                    textTheme: textTheme,
+                    colorScheme: colorScheme,
+                    margin: margin,
+                    padding: padding,
+                    iconSize: iconSize,
+                  ));
+                  acc.add(listSpacer);
+                  return acc;
+                },
+              ).sublist(0, emc.length * 2 - 1), // Remove trailing spacer
             ),
           ),
         ),
