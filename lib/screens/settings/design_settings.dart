@@ -56,7 +56,7 @@ class DesignSettingsScreen extends StatelessWidget {
                               Center(
                                 child: EzImage(
                                   image: const AssetImage(ladyLiberty),
-                                  semanticLabel: l10n.dsOGBaddie,
+                                  semanticLabel: l10n.dsLadyLiberty,
                                 ),
                               ),
                               Container(

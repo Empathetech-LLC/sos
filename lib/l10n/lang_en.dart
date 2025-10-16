@@ -207,7 +207,7 @@ class LangEn extends Lang {
   String get ssAppearance => 'Appearance';
 
   @override
-  String get dsOGBaddie =>
+  String get dsLadyLiberty =>
       'A picture of the Statue of Liberty, with a preview of the rights list.';
 }
 
@@ -414,6 +414,6 @@ class LangEnUs extends LangEn {
   String get ssAppearance => 'Appearance';
 
   @override
-  String get dsOGBaddie =>
+  String get dsLadyLiberty =>
       'A picture of the Statue of Liberty, with a preview of the rights list.';
 }

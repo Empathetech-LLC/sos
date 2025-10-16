@@ -206,7 +206,7 @@ class LangAr extends Lang {
   String get ssAppearance => 'المظهر';
 
   @override
-  String get dsOGBaddie => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';
+  String get dsLadyLiberty => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -411,5 +411,5 @@ class LangArEg extends LangAr {
   String get ssAppearance => 'المظهر';
 
   @override
-  String get dsOGBaddie => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';
+  String get dsLadyLiberty => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';
 }

@@ -212,6 +212,6 @@ class LangFr extends Lang {
   String get ssAppearance => 'Apparence';
 
   @override
-  String get dsOGBaddie =>
+  String get dsLadyLiberty =>
       'Une photo de la Statue de la Liberté, avec un aperçu de la liste des droits.';
 }

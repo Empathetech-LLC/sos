@@ -209,6 +209,6 @@ class LangFil extends Lang {
   String get ssAppearance => 'Hitsura';
 
   @override
-  String get dsOGBaddie =>
+  String get dsLadyLiberty =>
       'Isang larawan ng Statue of Liberty, na may preview ng listahan ng mga karapatan.';
 }

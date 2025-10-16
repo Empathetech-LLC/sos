@@ -463,11 +463,11 @@ abstract class Lang {
   /// **'Appearance'**
   String get ssAppearance;
 
-  /// No description provided for @dsOGBaddie.
+  /// No description provided for @dsLadyLiberty.
   ///
   /// In en, this message translates to:
   /// **'A picture of the Statue of Liberty, with a preview of the rights list.'**
-  String get dsOGBaddie;
+  String get dsLadyLiberty;
 }
 
 class _LangDelegate extends LocalizationsDelegate<Lang> {

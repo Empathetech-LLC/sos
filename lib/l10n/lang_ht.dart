@@ -207,6 +207,6 @@ class LangHt extends Lang {
   String get ssAppearance => 'Aparans';
 
   @override
-  String get dsOGBaddie =>
+  String get dsLadyLiberty =>
       'Yon foto Estati Libète a, avèk yon aperçu sou lis dwa yo.';
 }

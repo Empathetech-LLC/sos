@@ -195,7 +195,7 @@ class LangZh extends Lang {
   String get ssAppearance => '界面外观';
 
   @override
-  String get dsOGBaddie => '自由女神像的图片，附有权利列表的预览。';
+  String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -389,5 +389,5 @@ class LangZhCn extends LangZh {
   String get ssAppearance => '界面外观';
 
   @override
-  String get dsOGBaddie => '自由女神像的图片，附有权利列表的预览。';
+  String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';
 }

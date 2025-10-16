@@ -208,6 +208,6 @@ class LangEs extends Lang {
   String get ssAppearance => 'Apariencia';
 
   @override
-  String get dsOGBaddie =>
+  String get dsLadyLiberty =>
       'Una imagen de la Estatua de la Libertad, con una vista previa de la lista de derechos.';
 }
