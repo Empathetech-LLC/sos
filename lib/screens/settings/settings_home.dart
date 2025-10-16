@@ -184,12 +184,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
       ),
       fabs: <Widget>[
         ezSpacer,
-        EzConfigFAB(
-          context,
-          appName: appName,
-          androidPackage: packageName,
-        ),
-        ezSpacer,
         EzBackFAB(context, showHome: true),
       ],
     );
