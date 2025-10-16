@@ -6,6 +6,7 @@
 import '../export.dart';
 import '../../utils/export.dart';
 import '../../widgets/export.dart';
+import 'package:efui_bios/efui_bios.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -99,7 +100,11 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
           androidPackage: packageName,
         ),
         ezSpacer,
-        const EzBackFAB(),
+        const EzBackFAB(
+          hold4Feedback: true,
+          appName: appName,
+          supportEmail: empathSupport,
+        ),
       ],
     );
   }

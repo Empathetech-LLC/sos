@@ -6,6 +6,7 @@
 import '../export.dart';
 import '../../utils/export.dart';
 import '../../widgets/export.dart';
+import 'package:efui_bios/efui_bios.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -182,7 +183,14 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
         ]),
         useImageDecoration: false,
       ),
-      fabs: const <Widget>[ezSpacer, EzBackFAB(showHome: true)],
+      fabs: const <Widget>[
+        ezSpacer,
+        EzBackFAB(
+          hold4Feedback: true,
+          appName: appName,
+          supportEmail: empathSupport,
+        ),
+      ],
     );
   }
 }
