@@ -7,7 +7,7 @@ import 'export.dart';
 
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-// EzConfig //
+// App config //
 
 /// InstaSOS
 const String appName = 'InstaSOS';
@@ -15,20 +15,13 @@ const String appName = 'InstaSOS';
 /// net.empathetech.sos
 const String packageName = 'net.empathetech.sos';
 
-/// taskRunning
-const String taskRunningKey = 'taskRunning';
+// BTS settings //
 
 /// showTutorial
 const String tutorialKey = 'showTutorial';
 
-/// Video
-const String videoColorKey = 'Video';
-
-/// emc
-const String emcKey = 'emc';
-
-/// linkType
-const String linkTypeKey = 'linkType';
+/// showContactsMsg
+const String partialContactsKey = 'showContactsMsg';
 
 /// savedTab
 const String savedTabKey = 'savedTab';
@@ -42,6 +35,11 @@ const String drivingTab = 'driving';
 /// atHome
 const String atHomeTab = 'atHome';
 
+/// taskRunning
+const String taskRunningKey = 'taskRunning';
+
+// SOS settings //
+
 /// notifyOnOpen
 const String onOpenKey = 'sosOnOpen';
 
@@ -54,21 +52,42 @@ const String onInterruptKey = 'sosOnInterrupt';
 /// autoShareMedia
 const String autoShareKey = 'autoShareMedia';
 
+/// emc
+const String emcKey = 'emc';
+
+/// linkType
+const String linkTypeKey = 'linkType';
+
+// Color settings //
+
+/// Video
+const String videoColorKey = 'Video';
+
+// EzConfig default //
+
 /// defaults for [EzConfig.init]
 final Map<String, Object> sosConfig = <String, Object>{
+  // EFUI
   ...empathMobileConfig,
   darkTextBackgroundOpacityKey: 0.8,
   lightTextBackgroundOpacityKey: 0.8,
-  videoColorKey: 0xFFFF0000,
-  emcKey: <String>[],
-  linkTypeKey: LinkType.google.name,
-  savedTabKey: walkingTab,
+
+  // BTS
   tutorialKey: true,
+  partialContactsKey: true,
+  savedTabKey: walkingTab,
+  taskRunningKey: false,
+
+  // SOS
   onOpenKey: false,
   onCloseKey: false,
   onInterruptKey: true,
   autoShareKey: true,
-  taskRunningKey: false,
+  emcKey: <String>[],
+  linkTypeKey: LinkType.google.name,
+
+  // Color
+  videoColorKey: 0xFFFF0000,
 };
 
 // Local assets //
