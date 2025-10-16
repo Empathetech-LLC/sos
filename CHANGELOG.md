@@ -11,7 +11,8 @@ All notable changes to this project will be documented in this file.
 - Contacts list
   - Better spacing/styling
   - Contact tiles now have initials
-  - Fixed iOS bug(s)
+  - Fixed an iOS bug
+    - Updated the messaging on iOS when users select to share some contacts
   - No longer shows a toast when you cancel
 - Fixed i(Pad)OS sharing bug
   - Affected feedback and media sharing, both fixed
