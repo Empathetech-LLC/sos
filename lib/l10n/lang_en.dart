@@ -116,7 +116,8 @@ class LangEn extends Lang {
       'InstaSOS needs access to your contacts to function properly.';
 
   @override
-  String get hsNoNumber => 'The contact must have a phone number.';
+  String get hsNumError =>
+      'The contact is private or does not have a phone number.';
 
   @override
   String get rsSharedHeader => 'You have the right to...';
@@ -323,7 +324,8 @@ class LangEnUs extends LangEn {
       'InstaSOS needs access to your contacts to function properly.';
 
   @override
-  String get hsNoNumber => 'The contact must have a phone number.';
+  String get hsNumError =>
+      'The contact is private or does not have a phone number.';
 
   @override
   String get rsSharedHeader => 'You have the right to...';

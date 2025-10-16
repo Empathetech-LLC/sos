@@ -119,7 +119,8 @@ class LangFil extends Lang {
       'Kailangan ng InstaSOS ang access sa iyong mga contact para gumana nang maayos.';
 
   @override
-  String get hsNoNumber => 'Dapat may numero ang contact.';
+  String get hsNumError =>
+      'Ang contact ay pribado o walang numero ng telepono.';
 
   @override
   String get rsSharedHeader => 'May karapatan kang...';

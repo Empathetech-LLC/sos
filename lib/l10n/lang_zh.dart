@@ -113,7 +113,7 @@ class LangZh extends Lang {
   String get hsNeedContacts => 'InstaSOS 需要访问您的联系人以正常运行。';
 
   @override
-  String get hsNoNumber => '联系人必须包含电话号码。';
+  String get hsNumError => '该联系人是私人联系人或没有电话号码。';
 
   @override
   String get rsSharedHeader => '您有权...';
@@ -307,7 +307,7 @@ class LangZhCn extends LangZh {
   String get hsNeedContacts => 'InstaSOS 需要访问您的联系人以正常运行。';
 
   @override
-  String get hsNoNumber => '联系人必须包含电话号码。';
+  String get hsNumError => '该联系人是私人联系人或没有电话号码。';
 
   @override
   String get rsSharedHeader => '您有权...';

@@ -116,7 +116,7 @@ class LangHt extends Lang {
       'InstaSOS bezwen aksè a kontak ou yo pou li fonksyone kòrèkteman.';
 
   @override
-  String get hsNoNumber => 'Kontak la dwe genyen yon nimewo telefòn.';
+  String get hsNumError => 'Kontak la prive oubyen li pa gen nimewo telefòn.';
 
   @override
   String get rsSharedHeader => 'Ou gen dwa pou...';

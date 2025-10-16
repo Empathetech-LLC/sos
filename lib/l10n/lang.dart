@@ -301,11 +301,11 @@ abstract class Lang {
   /// **'InstaSOS needs access to your contacts to function properly.'**
   String get hsNeedContacts;
 
-  /// No description provided for @hsNoNumber.
+  /// No description provided for @hsNumError.
   ///
   /// In en, this message translates to:
-  /// **'The contact must have a phone number.'**
-  String get hsNoNumber;
+  /// **'The contact is private or does not have a phone number.'**
+  String get hsNumError;
 
   /// No description provided for @rsSharedHeader.
   ///

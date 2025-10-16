@@ -88,7 +88,7 @@ Future<List<String>?> addEMC(
         // Invalid contact, warn the user and optionally retry
         await ezSnackBar(
           context: context,
-          message: l10n.hsNoNumber,
+          message: l10n.hsNumError,
         ).closed;
       }
     } else {
@@ -102,7 +102,7 @@ Future<List<String>?> addEMC(
         if (context.mounted) {
           await ezSnackBar(
             context: context,
-            message: l10n.hsNoNumber,
+            message: l10n.hsNumError,
           ).closed;
         }
       } else {

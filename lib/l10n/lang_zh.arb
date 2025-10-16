@@ -42,7 +42,7 @@
   "hsIOSRightsTutorial": "启用相机后，拍摄照片或视频内容可即时分享。\n\n点击法槌图标或长按屏幕中央可查看您的权限列表。",
 
   "hsNeedContacts": "InstaSOS 需要访问您的联系人以正常运行。",
-  "hsNoNumber": "联系人必须包含电话号码。",
+  "hsNumError": "该联系人是私人联系人或没有电话号码。",
 
 
 

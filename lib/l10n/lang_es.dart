@@ -117,7 +117,8 @@ class LangEs extends Lang {
       'InstaSOS necesita acceso a tus contactos para funcionar bien.';
 
   @override
-  String get hsNoNumber => 'El contacto debe tener un número';
+  String get hsNumError =>
+      'El contacto es privado o no tiene número de teléfono.';
 
   @override
   String get rsSharedHeader => 'Tienes derecho a...';

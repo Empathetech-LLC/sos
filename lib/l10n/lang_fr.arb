@@ -42,7 +42,7 @@
   "hsIOSRightsTutorial": "Si vous activez l'appareil photo et prenez une photo ou enregistrez une vidéo, vous pourrez la partager immédiatement.\n\nAppuyez sur le marteau ou appuyez longuement au centre de l'écran pour afficher la liste de vos droits.",
   
   "hsNeedContacts": "InstaSOS a besoin d'accéder à vos contacts pour fonctionner correctement.",
-  "hsNoNumber": "Le contact doit avoir un numéro de téléphone.",
+  "hsNumError": "Le contact est privé ou n'a pas de numéro de téléphone.",
   
   
   

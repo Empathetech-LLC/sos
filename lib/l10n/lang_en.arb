@@ -42,7 +42,7 @@
   "hsIOSRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.",
   
   "hsNeedContacts": "InstaSOS needs access to your contacts to function properly.",
-  "hsNoNumber": "The contact must have a phone number.",
+  "hsNumError": "The contact is private or does not have a phone number.",
 
 
 

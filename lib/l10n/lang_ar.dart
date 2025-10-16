@@ -116,7 +116,7 @@ class LangAr extends Lang {
       'يحتاج تطبيق InstaSOS إلى الوصول إلى جهات الاتصال الخاصة بك ليعمل بشكل صحيح.';
 
   @override
-  String get hsNoNumber => 'يجب أن يكون لدى جهة الاتصال رقم هاتف.';
+  String get hsNumError => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف.';
 
   @override
   String get rsSharedHeader => 'لديك الحق في...';
@@ -321,7 +321,7 @@ class LangArEg extends LangAr {
       'يحتاج تطبيق InstaSOS إلى الوصول إلى جهات الاتصال الخاصة بك ليعمل بشكل صحيح.';
 
   @override
-  String get hsNoNumber => 'يجب أن يكون لدى جهة الاتصال رقم هاتف.';
+  String get hsNumError => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف.';
 
   @override
   String get rsSharedHeader => 'لديك الحق في...';
