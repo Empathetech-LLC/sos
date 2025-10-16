@@ -121,13 +121,15 @@ Future<void> foregroundSOS({
   required Lang l10n,
 }) async {
   if (emc == null || emc.isEmpty) return;
+  final List<String> numbers =
+      emc.map((String contact) => contact.split(contactSplit).last).toList();
 
   final Map<String, dynamic> mapData = <String, dynamic>{};
 
   if (isApple()) {
-    mapData['recipients'] = emc;
+    mapData['recipients'] = numbers;
   } else {
-    mapData['recipients'] = emc.join(';');
+    mapData['recipients'] = numbers.join(';');
   }
   mapData['message'] = 'SOS\n${await getCoordinates(linkType.base, l10n)}';
 
@@ -144,14 +146,18 @@ Future<void> foregroundSOS({
 /// Currently Android only
 /// Call a custom worker factory to send periodic SOS messages
 /// Does not include error handling
-Future<void> backgroundSOS(List<String> emc, Lang l10n) =>
-    platform.invokeMethod<void>(
-      'backgroundSOS',
-      <String, dynamic>{
-        'recipients': emc.join(';'),
-        'heading': 'SOS - ${l10n.sosLastKnown}',
-      },
-    );
+Future<void> backgroundSOS(List<String> emc, Lang l10n) async {
+  final List<String> numbers =
+      emc.map((String contact) => contact.split(contactSplit).last).toList();
+
+  await platform.invokeMethod<void>(
+    'backgroundSOS',
+    <String, dynamic>{
+      'recipients': numbers.join(';'),
+      'heading': 'SOS - ${l10n.sosLastKnown}',
+    },
+  );
+}
 
 /// Also Android only
 /// Cancel [backgroundSOS]
