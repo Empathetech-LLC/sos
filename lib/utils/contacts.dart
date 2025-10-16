@@ -69,7 +69,7 @@ Future<List<String>?> addEMC(
     }
   }
 
-  // Save the first emergency contact
+  // Permission granted, make it so
   Contact? contact;
   String? initials;
   String? number;
@@ -77,7 +77,13 @@ Future<List<String>?> addEMC(
   while (true) {
     contact = await FlutterContacts.openExternalPick();
 
-    if (contact == null || contact.phones.isEmpty) {
+    // Check for user cancel
+    if (contact == null) {
+      if (loop) continue; // else...
+      return curr;
+    }
+
+    if (contact.phones.isEmpty) {
       if (context.mounted) {
         // Invalid contact, warn the user and optionally retry
         await ezSnackBar(
