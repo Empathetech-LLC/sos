@@ -170,7 +170,7 @@ class _ContactTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: EdgeInsets.symmetric(vertical: margin),
+        padding: EdgeInsets.all(margin),
         child: EzScrollView(
           reverseHands: true,
           showScrollHint: true,
@@ -179,7 +179,6 @@ class _ContactTile extends StatelessWidget {
           children: <Widget>[
             // Initials coin (if available)
             if (initials != null) ...<Widget>[
-              ezRowMargin,
               CircleAvatar(
                 radius: padding + iconSize / 2,
                 foregroundColor: colorScheme.onSurface,
@@ -190,8 +189,8 @@ class _ContactTile extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
               ),
+              ezRowMargin,
             ],
-            ezRowMargin,
 
             // Number
             Text(
@@ -212,7 +211,6 @@ class _ContactTile extends StatelessWidget {
               onPressed: onRemove,
               tooltip: l10n.ssRemoveHint,
             ),
-            ezRowMargin,
           ],
         ),
       );
