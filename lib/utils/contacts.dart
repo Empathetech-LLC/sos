@@ -11,17 +11,19 @@ import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
+/// :
+const String contactSplit = ':';
+
 /// Prompt the user to save their first contact
 /// Users must select at least one emergency contact to use the app
 /// Include error handling
 Future<List<String>?> addEMC(
   BuildContext context,
   List<String>? curr, {
+  required Lang l10n,
+  required EFUILang el10n,
   bool loop = true,
 }) async {
-  late final Lang l10n = Lang.of(context)!;
-  late final EFUILang el10n = ezL10n(context);
-
   // Check for first run
   if (curr == null || curr.isEmpty) {
     curr = <String>[];
@@ -44,18 +46,14 @@ Future<List<String>?> addEMC(
             EzMaterialAction(text: el10n.gCancel, onPressed: () => exit(0)),
             EzMaterialAction(
               text: l10n.gOk,
-              onPressed: () async {
-                await openAppSettings();
-              },
+              onPressed: () => openAppSettings(),
             ),
           ],
           <EzCupertinoAction>[
             EzCupertinoAction(text: el10n.gCancel, onPressed: () => exit(0)),
             EzCupertinoAction(
               text: l10n.gOk,
-              onPressed: () async {
-                await openAppSettings();
-              },
+              onPressed: () => openAppSettings(),
             ),
           ],
         ),
@@ -73,11 +71,13 @@ Future<List<String>?> addEMC(
 
   // Save the first emergency contact
   Contact? contact;
+  String? initials;
+  String? number;
+
   while (true) {
     contact = await FlutterContacts.openExternalPick();
 
-    if (contact == null ||
-        (contact.phones.isEmpty || contact.phones.first.number.isEmpty)) {
+    if (contact == null || contact.phones.isEmpty) {
       if (context.mounted) {
         // Invalid contact, warn the user and optionally retry
         await ezSnackBar(
@@ -85,18 +85,40 @@ Future<List<String>?> addEMC(
           message: l10n.hsNoNumber,
         ).closed;
       }
-    } else if (curr.contains(contact.phones.first.number)) {
-      // Contact already exists, exit func with no changes
-      return curr;
     } else {
-      // Valid contact, escape the loop
-      break;
+      // We have a valid contact, now validate the phone number
+      number = contact.phones
+          .firstWhere((Phone phone) => phone.number.isNotEmpty,
+              orElse: () => contact!.phones.first)
+          .number;
+
+      if (number.isEmpty) {
+        if (context.mounted) {
+          await ezSnackBar(
+            context: context,
+            message: l10n.hsNoNumber,
+          ).closed;
+        }
+      } else {
+        // We have a number, remove any dupes then break the loop
+        curr.removeWhere((String emc) => emc.contains(number!));
+        break;
+      }
     }
 
     if (!loop) return curr;
   }
 
-  curr.add(contact.phones.first.number);
+  initials = contact.displayName.isNotEmpty
+      ? contact.displayName
+              .split(' ')
+              .where((String name) => name.isNotEmpty)
+              .map((String name) => name[0].toUpperCase())
+              .join() +
+          contactSplit
+      : '';
+
+  curr.add(initials + number);
   await EzConfig.setStringList(emcKey, curr);
   return curr;
 }
