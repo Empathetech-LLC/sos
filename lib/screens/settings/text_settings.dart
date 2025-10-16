@@ -25,7 +25,7 @@ class TextSettingsScreen extends StatelessWidget {
             androidPackage: packageName,
           ),
           ezSpacer,
-          EzBackFAB(context),
+          const EzBackFAB(),
         ],
       );
 }

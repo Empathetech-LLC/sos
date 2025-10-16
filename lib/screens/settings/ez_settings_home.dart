@@ -99,7 +99,7 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
           androidPackage: packageName,
         ),
         ezSpacer,
-        EzBackFAB(context),
+        const EzBackFAB(),
       ],
     );
   }
