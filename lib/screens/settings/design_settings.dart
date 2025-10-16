@@ -15,7 +15,8 @@ class DesignSettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final EFUILang l10n = ezL10n(context);
+    final Lang l10n = Lang.of(context)!;
+    final EFUILang el10n = ezL10n(context);
 
     return SosScaffold(
       EzScreen(
@@ -52,11 +53,10 @@ class DesignSettingsScreen extends StatelessWidget {
                             height: heightOf(context) * 0.667,
                             color: colorScheme.surface,
                             child: Stack(children: <Widget>[
-                              const Center(
+                              Center(
                                 child: EzImage(
-                                  image: AssetImage(ladyLiberty),
-                                  semanticLabel:
-                                      'A picture of the Statue of Liberty, with a preview of the rights list.', // TODO: l10n
+                                  image: const AssetImage(ladyLiberty),
+                                  semanticLabel: l10n.dsOGBaddie,
                                 ),
                               ),
                               Container(
@@ -105,7 +105,7 @@ class DesignSettingsScreen extends StatelessWidget {
                               });
                             },
                             icon: EzIcon(PlatformIcons(context).refresh),
-                            label: l10n.gReset,
+                            label: el10n.gReset,
                           ),
                           EzSpacer(space: EzConfig.get(spacingKey) * 1.5),
                         ],
@@ -113,7 +113,7 @@ class DesignSettingsScreen extends StatelessWidget {
                     );
                   }),
               icon: const Icon(Icons.opacity),
-              label: l10n.tsTextBackground,
+              label: el10n.tsTextBackground,
             ),
             ezSpacer,
           ],
