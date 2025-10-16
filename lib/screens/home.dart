@@ -606,6 +606,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 if (autoShare && context.mounted) {
                                   final RenderBox? box =
                                       context.findRenderObject() as RenderBox?;
+
                                   await SharePlus.instance.share(ShareParams(
                                     text: await getCoordinates(
                                       linkType.base,
