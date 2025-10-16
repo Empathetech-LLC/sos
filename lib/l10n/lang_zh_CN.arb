@@ -82,5 +82,9 @@
   "ssAddHint": "添加联系人",
   "ssLinkType": "链接类型",
 
-  "ssAppearance": "界面外观"
+  "ssAppearance": "界面外观",
+
+
+
+  "dsOGBaddie": "自由女神像的图片，附有权利列表的预览。"
 }

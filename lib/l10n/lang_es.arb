@@ -82,5 +82,9 @@
   "ssAddHint": "Añadir otro contacto",
   "ssLinkType": "Tipo de enlace",
 
-  "ssAppearance": "Apariencia"
+  "ssAppearance": "Apariencia",
+
+
+
+  "dsOGBaddie": "Una imagen de la Estatua de la Libertad, con una vista previa de la lista de derechos."
 }

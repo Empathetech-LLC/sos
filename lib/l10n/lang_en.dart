@@ -205,6 +205,10 @@ class LangEn extends Lang {
 
   @override
   String get ssAppearance => 'Appearance';
+
+  @override
+  String get dsOGBaddie =>
+      'A picture of the Statue of Liberty, with a preview of the rights list.';
 }
 
 /// The translations for English, as used in the United States (`en_US`).
@@ -408,4 +412,8 @@ class LangEnUs extends LangEn {
 
   @override
   String get ssAppearance => 'Appearance';
+
+  @override
+  String get dsOGBaddie =>
+      'A picture of the Statue of Liberty, with a preview of the rights list.';
 }
