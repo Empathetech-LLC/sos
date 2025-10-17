@@ -15,6 +15,9 @@ class LangFil extends Lang {
   String get gReminder => 'Paalala';
 
   @override
+  String get gNotAgain => 'Wag ka nang magpakita ulit';
+
+  @override
   String get sosLastKnown => 'Huling napag-alamang lokasyon';
 
   @override

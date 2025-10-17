@@ -15,6 +15,9 @@ class LangAr extends Lang {
   String get gReminder => 'تذكير';
 
   @override
+  String get gNotAgain => 'لا تظهر مرة أخرى';
+
+  @override
   String get sosLastKnown => 'آخر موقع معروف';
 
   @override
@@ -225,6 +228,9 @@ class LangArEg extends LangAr {
 
   @override
   String get gReminder => 'تذكير';
+
+  @override
+  String get gNotAgain => 'لا تظهر مرة أخرى';
 
   @override
   String get sosLastKnown => 'آخر موقع معروف';

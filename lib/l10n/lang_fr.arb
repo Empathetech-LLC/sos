@@ -5,6 +5,7 @@
 
   "gOk": "Ok",
   "gReminder": "Rappel",
+  "gNotAgain": "Ne plus afficher",
 
   "sosLastKnown": "Dernière localisation connue",
   "sosNeedSMS": "SOS a besoin d'une autorisation SMS pour fonctionner correctement.",

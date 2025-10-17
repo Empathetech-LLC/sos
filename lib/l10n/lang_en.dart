@@ -15,6 +15,9 @@ class LangEn extends Lang {
   String get gReminder => 'Reminder';
 
   @override
+  String get gNotAgain => 'Don\'t show again';
+
+  @override
   String get sosLastKnown => 'Last known location';
 
   @override
@@ -228,6 +231,9 @@ class LangEnUs extends LangEn {
 
   @override
   String get gReminder => 'Reminder';
+
+  @override
+  String get gNotAgain => 'Don\'t show again';
 
   @override
   String get sosLastKnown => 'Last known location';

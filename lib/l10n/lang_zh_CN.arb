@@ -5,6 +5,7 @@
 
   "gOk": "确定",
   "gReminder": "提醒",
+  "gNotAgain": "不再显示",
 
   "sosLastKnown": "已知最后位置",
   "sosNeedSMS": "SOS功能需要短信权限以正常运行。",

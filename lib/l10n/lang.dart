@@ -121,6 +121,12 @@ abstract class Lang {
   /// **'Reminder'**
   String get gReminder;
 
+  /// No description provided for @gNotAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t show again'**
+  String get gNotAgain;
+
   /// No description provided for @sosLastKnown.
   ///
   /// In en, this message translates to:

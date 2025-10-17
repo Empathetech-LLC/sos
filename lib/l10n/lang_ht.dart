@@ -15,6 +15,9 @@ class LangHt extends Lang {
   String get gReminder => 'Rapèl';
 
   @override
+  String get gNotAgain => 'Pa montre ankò';
+
+  @override
   String get sosLastKnown => 'Dènye kote yo te konnen ou ye a';
 
   @override

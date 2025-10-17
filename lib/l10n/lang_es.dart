@@ -15,6 +15,9 @@ class LangEs extends Lang {
   String get gReminder => 'Recordatorio';
 
   @override
+  String get gNotAgain => 'No volver a mostrar';
+
+  @override
   String get sosLastKnown => 'Última localización conocida';
 
   @override

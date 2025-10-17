@@ -15,6 +15,9 @@ class LangZh extends Lang {
   String get gReminder => '提醒';
 
   @override
+  String get gNotAgain => '不再显示';
+
+  @override
   String get sosLastKnown => '已知最后位置';
 
   @override
@@ -214,6 +217,9 @@ class LangZhCn extends LangZh {
 
   @override
   String get gReminder => '提醒';
+
+  @override
+  String get gNotAgain => '不再显示';
 
   @override
   String get sosLastKnown => '已知最后位置';

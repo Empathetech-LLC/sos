@@ -15,6 +15,9 @@ class LangFr extends Lang {
   String get gReminder => 'Rappel';
 
   @override
+  String get gNotAgain => 'Ne plus afficher';
+
+  @override
   String get sosLastKnown => 'Dernière localisation connue';
 
   @override
