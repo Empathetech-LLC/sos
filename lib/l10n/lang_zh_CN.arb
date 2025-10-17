@@ -4,6 +4,7 @@
 
 
   "gOk": "确定",
+  "gReminder": "提醒",
 
   "sosLastKnown": "已知最后位置",
   "sosNeedSMS": "SOS功能需要短信权限以正常运行。",
@@ -42,6 +43,7 @@
   "hsIOSRightsTutorial": "启用相机后，拍摄照片或视频内容可即时分享。\n\n点击法槌图标或长按屏幕中央可查看您的权限列表。",
 
   "hsNeedContacts": "InstaSOS 需要访问您的联系人以正常运行。",
+  "hsPartialContacts": "Apple 将显示所有联系人，而不仅仅是与 InstaSOS 共享的联系人。\n要分享更多联系人，请前往 iOS 设置 -> 应用 -> InstaSOS",
   "hsNumError": "该联系人是私人联系人或没有电话号码。",
 
 

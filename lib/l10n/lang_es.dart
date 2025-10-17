@@ -12,6 +12,9 @@ class LangEs extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get gReminder => 'Recordatorio';
+
+  @override
   String get sosLastKnown => 'Última localización conocida';
 
   @override
@@ -115,6 +118,10 @@ class LangEs extends Lang {
   @override
   String get hsNeedContacts =>
       'InstaSOS necesita acceso a tus contactos para funcionar bien.';
+
+  @override
+  String get hsPartialContacts =>
+      'Apple mostrará todos los contactos, no solo aquellos compartidos con InstaSOS.\nPara compartir más contactos, vaya a Configuración de iOS -> Aplicaciones -> InstaSOS';
 
   @override
   String get hsNumError =>

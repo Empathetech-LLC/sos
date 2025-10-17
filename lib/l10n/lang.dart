@@ -115,6 +115,12 @@ abstract class Lang {
   /// **'Ok'**
   String get gOk;
 
+  /// No description provided for @gReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder'**
+  String get gReminder;
+
   /// No description provided for @sosLastKnown.
   ///
   /// In en, this message translates to:
@@ -300,6 +306,12 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'InstaSOS needs access to your contacts to function properly.'**
   String get hsNeedContacts;
+
+  /// No description provided for @hsPartialContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, go to iOS Settings -> Apps -> InstaSOS'**
+  String get hsPartialContacts;
 
   /// No description provided for @hsNumError.
   ///

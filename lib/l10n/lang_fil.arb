@@ -4,6 +4,7 @@
   
   
   "gOk": "Ok",
+  "gReminder": "Paalala",
 
   "sosLastKnown": "Huling napag-alamang lokasyon",
   "sosNeedSMS": "Kailangan ng SOS ang pahintulot sa SMS para gumana nang maayos.",
@@ -42,6 +43,7 @@
   "hsIOSRightsTutorial": "Kung pinapagana ang camera at kumukuha ng larawan o nag-rerecord ng video, maaari mo itong ibahagi agad.\n\nPindutin ang malyeteng icon o pindutin nang matagal ang gitna ng screen para ipakita ang listahan ng iyong mga karapatan.",
   
   "hsNeedContacts": "Kailangan ng InstaSOS ang access sa iyong mga contact para gumana nang maayos.",
+  "hsPartialContacts": "Ipapakita ng Apple ang lahat ng mga contact, hindi lamang ang mga ibinahagi sa InstaSOS.\nUpang magbahagi ng higit pang mga contact, pumunta sa iOS Settings -> Apps -> InstaSOS",
   "hsNumError": "Ang contact ay pribado o walang numero ng telepono.",
 
 

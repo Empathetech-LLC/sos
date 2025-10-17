@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 /// :
 const String contactSplit = ':';
@@ -73,6 +74,42 @@ Future<List<String>?> addEMC(
   Contact? contact;
   String? initials;
   String? number;
+
+  // The way iOS handles partial contacts is hot garbage
+  // Best thing we can do is remind users that they will see all contacts, not just the shared ones
+  if (Platform.isIOS && EzConfig.get(partialContactsKey) == true) {
+    final bool show = await Permission.contacts.isLimited;
+
+    if (show && context.mounted) {
+      await showPlatformDialog(
+        context: context,
+        builder: (BuildContext dialogContext) {
+          late List<Widget> materialActions;
+          late List<Widget> cupertinoActions;
+
+          (materialActions, cupertinoActions) = ezActionPairs(
+            context: context,
+            confirmMsg: l10n.gOk,
+            onConfirm: () => Navigator.of(dialogContext).pop(),
+            denyMsg: "Don't show again",
+            onDeny: () async {
+              await EzConfig.setBool(partialContactsKey, false);
+              if (dialogContext.mounted) Navigator.of(dialogContext).pop();
+            },
+            denyIsDestructive: true,
+          );
+
+          return EzAlertDialog(
+            title: Text(l10n.gReminder, textAlign: TextAlign.center),
+            content: Text(l10n.hsPartialContacts, textAlign: TextAlign.center),
+            materialActions: materialActions,
+            cupertinoActions: cupertinoActions,
+            needsClose: false,
+          );
+        },
+      );
+    }
+  }
 
   while (true) {
     contact = await FlutterContacts.openExternalPick();

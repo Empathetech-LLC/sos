@@ -12,6 +12,9 @@ class LangEn extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get gReminder => 'Reminder';
+
+  @override
   String get sosLastKnown => 'Last known location';
 
   @override
@@ -114,6 +117,10 @@ class LangEn extends Lang {
   @override
   String get hsNeedContacts =>
       'InstaSOS needs access to your contacts to function properly.';
+
+  @override
+  String get hsPartialContacts =>
+      'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, go to iOS Settings -> Apps -> InstaSOS';
 
   @override
   String get hsNumError =>
@@ -220,6 +227,9 @@ class LangEnUs extends LangEn {
   String get gOk => 'Ok';
 
   @override
+  String get gReminder => 'Reminder';
+
+  @override
   String get sosLastKnown => 'Last known location';
 
   @override
@@ -322,6 +332,10 @@ class LangEnUs extends LangEn {
   @override
   String get hsNeedContacts =>
       'InstaSOS needs access to your contacts to function properly.';
+
+  @override
+  String get hsPartialContacts =>
+      'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, go to iOS Settings -> Apps -> InstaSOS';
 
   @override
   String get hsNumError =>

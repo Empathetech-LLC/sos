@@ -12,6 +12,9 @@ class LangFil extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get gReminder => 'Paalala';
+
+  @override
   String get sosLastKnown => 'Huling napag-alamang lokasyon';
 
   @override
@@ -117,6 +120,10 @@ class LangFil extends Lang {
   @override
   String get hsNeedContacts =>
       'Kailangan ng InstaSOS ang access sa iyong mga contact para gumana nang maayos.';
+
+  @override
+  String get hsPartialContacts =>
+      'Ipapakita ng Apple ang lahat ng mga contact, hindi lamang ang mga ibinahagi sa InstaSOS.\nUpang magbahagi ng higit pang mga contact, pumunta sa iOS Settings -> Apps -> InstaSOS';
 
   @override
   String get hsNumError =>

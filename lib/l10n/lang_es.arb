@@ -4,6 +4,7 @@
   
   
   "gOk": "Ok",
+  "gReminder": "Recordatorio",
 
   "sosLastKnown": "Última localización conocida",
   "sosNeedSMS": "SOS necesita poder enviar SMS para funcionar bien.",
@@ -42,6 +43,7 @@
   "hsIOSRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un vídeo, podrás compartirlo al momento.\n\nMantén pulsado el mazo para mostrar una lista de tus derechos",
   
   "hsNeedContacts": "InstaSOS necesita acceso a tus contactos para funcionar bien.",
+  "hsPartialContacts": "Apple mostrará todos los contactos, no solo aquellos compartidos con InstaSOS.\nPara compartir más contactos, vaya a Configuración de iOS -> Aplicaciones -> InstaSOS",
   "hsNumError": "El contacto es privado o no tiene número de teléfono.",
 
 

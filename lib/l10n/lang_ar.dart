@@ -12,6 +12,9 @@ class LangAr extends Lang {
   String get gOk => 'حسنًا';
 
   @override
+  String get gReminder => 'تذكير';
+
+  @override
   String get sosLastKnown => 'آخر موقع معروف';
 
   @override
@@ -114,6 +117,10 @@ class LangAr extends Lang {
   @override
   String get hsNeedContacts =>
       'يحتاج تطبيق InstaSOS إلى الوصول إلى جهات الاتصال الخاصة بك ليعمل بشكل صحيح.';
+
+  @override
+  String get hsPartialContacts =>
+      'ستعرض Apple جميع جهات الاتصال، وليس فقط تلك التي تمت مشاركتها مع InstaSOS.\nلمشاركة المزيد من جهات الاتصال، انتقل إلى إعدادات iOS -> التطبيقات -> InstaSOS';
 
   @override
   String get hsNumError => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف.';
@@ -217,6 +224,9 @@ class LangArEg extends LangAr {
   String get gOk => 'حسنًا';
 
   @override
+  String get gReminder => 'تذكير';
+
+  @override
   String get sosLastKnown => 'آخر موقع معروف';
 
   @override
@@ -319,6 +329,10 @@ class LangArEg extends LangAr {
   @override
   String get hsNeedContacts =>
       'يحتاج تطبيق InstaSOS إلى الوصول إلى جهات الاتصال الخاصة بك ليعمل بشكل صحيح.';
+
+  @override
+  String get hsPartialContacts =>
+      'ستعرض Apple جميع جهات الاتصال، وليس فقط تلك التي تمت مشاركتها مع InstaSOS.\nلمشاركة المزيد من جهات الاتصال، انتقل إلى إعدادات iOS -> التطبيقات -> InstaSOS';
 
   @override
   String get hsNumError => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف.';

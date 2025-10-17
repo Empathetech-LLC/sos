@@ -12,6 +12,9 @@ class LangHt extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get gReminder => 'Rapèl';
+
+  @override
   String get sosLastKnown => 'Dènye kote yo te konnen ou ye a';
 
   @override
@@ -114,6 +117,10 @@ class LangHt extends Lang {
   @override
   String get hsNeedContacts =>
       'InstaSOS bezwen aksè a kontak ou yo pou li fonksyone kòrèkteman.';
+
+  @override
+  String get hsPartialContacts =>
+      'Apple ap montre tout kontak yo, pa sèlman sa yo pataje ak InstaSOS.\nPou pataje plis kontak, ale nan Anviwònman iOS -> Aplikasyon -> InstaSOS';
 
   @override
   String get hsNumError => 'Kontak la prive oubyen li pa gen nimewo telefòn.';
