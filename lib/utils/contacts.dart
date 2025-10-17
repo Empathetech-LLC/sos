@@ -91,7 +91,7 @@ Future<List<String>?> addEMC(
             context: context,
             confirmMsg: l10n.gOk,
             onConfirm: () => Navigator.of(dialogContext).pop(),
-            denyMsg: "Don't show again",
+            denyMsg: l10n.gNotAgain,
             onDeny: () async {
               await EzConfig.setBool(partialContactsKey, false);
               if (dialogContext.mounted) Navigator.of(dialogContext).pop();
