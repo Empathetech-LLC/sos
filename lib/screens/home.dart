@@ -331,7 +331,7 @@ class _HomeScreenState extends State<HomeScreen>
                   acceptMessage: l10n.gOk,
                   onAccept: () async {
                     broadcastOverlay.hide();
-                    if (!Platform.isIOS) await Permission.sms.request();
+                    if (Platform.isAndroid) await Permission.sms.request();
                     final LocationPermission choice =
                         await Geolocator.requestPermission();
 

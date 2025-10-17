@@ -8,6 +8,7 @@ import '../../utils/export.dart';
 import '../../widgets/export.dart';
 import 'package:efui_bios/efui_bios.dart';
 
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -24,8 +25,6 @@ class SettingsHomeScreen extends StatefulWidget {
 class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   // Gather the theme data //
 
-  final bool isIOS = isApple();
-
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = ezL10n(context);
 
@@ -36,7 +35,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   // Define custom functions //
 
   Future<bool> canSet(String key, bool value) async {
-    if (value == false || isIOS) return true;
+    if (value == false || Platform.isIOS) return true;
 
     final PermissionStatus canSMS = await Permission.sms.request();
 
@@ -76,7 +75,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
           ),
           ezSpacer,
 
-          if (!isIOS) ...<Widget>[
+          if (Platform.isAndroid) ...<Widget>[
             // SOS on close
             EzSwitchPair(
               text: l10n.ssSOSOnClose,
