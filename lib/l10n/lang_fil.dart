@@ -12,6 +12,12 @@ class LangFil extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get gReminder => 'Paalala';
+
+  @override
+  String get gNotAgain => 'Wag ka nang magpakita ulit';
+
+  @override
   String get sosLastKnown => 'Huling napag-alamang lokasyon';
 
   @override
@@ -119,7 +125,12 @@ class LangFil extends Lang {
       'Kailangan ng InstaSOS ang access sa iyong mga contact para gumana nang maayos.';
 
   @override
-  String get hsNoNumber => 'Dapat may numero ang contact.';
+  String get hsPartialContacts =>
+      'Ipapakita ng Apple ang lahat ng mga contact, hindi lamang ang mga ibinahagi sa InstaSOS.\nUpang magbahagi ng higit pang mga contact, pumunta sa iOS Settings -> Apps -> InstaSOS';
+
+  @override
+  String get hsNumError =>
+      'Ang contact ay pribado o walang numero ng telepono.';
 
   @override
   String get rsSharedHeader => 'May karapatan kang...';
@@ -207,4 +218,8 @@ class LangFil extends Lang {
 
   @override
   String get ssAppearance => 'Hitsura';
+
+  @override
+  String get dsLadyLiberty =>
+      'Isang larawan ng Statue of Liberty, na may preview ng listahan ng mga karapatan.';
 }

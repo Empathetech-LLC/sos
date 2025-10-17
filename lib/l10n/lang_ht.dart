@@ -12,6 +12,12 @@ class LangHt extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get gReminder => 'Rapèl';
+
+  @override
+  String get gNotAgain => 'Pa montre ankò';
+
+  @override
   String get sosLastKnown => 'Dènye kote yo te konnen ou ye a';
 
   @override
@@ -116,7 +122,11 @@ class LangHt extends Lang {
       'InstaSOS bezwen aksè a kontak ou yo pou li fonksyone kòrèkteman.';
 
   @override
-  String get hsNoNumber => 'Kontak la dwe genyen yon nimewo telefòn.';
+  String get hsPartialContacts =>
+      'Apple ap montre tout kontak yo, pa sèlman sa yo pataje ak InstaSOS.\nPou pataje plis kontak, ale nan Anviwònman iOS -> Aplikasyon -> InstaSOS';
+
+  @override
+  String get hsNumError => 'Kontak la prive oubyen li pa gen nimewo telefòn.';
 
   @override
   String get rsSharedHeader => 'Ou gen dwa pou...';
@@ -205,4 +215,8 @@ class LangHt extends Lang {
 
   @override
   String get ssAppearance => 'Aparans';
+
+  @override
+  String get dsLadyLiberty =>
+      'Yon foto Estati Libète a, avèk yon aperçu sou lis dwa yo.';
 }

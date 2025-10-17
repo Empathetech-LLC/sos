@@ -115,6 +115,18 @@ abstract class Lang {
   /// **'Ok'**
   String get gOk;
 
+  /// No description provided for @gReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder'**
+  String get gReminder;
+
+  /// No description provided for @gNotAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t show again'**
+  String get gNotAgain;
+
   /// No description provided for @sosLastKnown.
   ///
   /// In en, this message translates to:
@@ -301,11 +313,17 @@ abstract class Lang {
   /// **'InstaSOS needs access to your contacts to function properly.'**
   String get hsNeedContacts;
 
-  /// No description provided for @hsNoNumber.
+  /// No description provided for @hsPartialContacts.
   ///
   /// In en, this message translates to:
-  /// **'The contact must have a phone number.'**
-  String get hsNoNumber;
+  /// **'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, go to iOS Settings -> Apps -> InstaSOS'**
+  String get hsPartialContacts;
+
+  /// No description provided for @hsNumError.
+  ///
+  /// In en, this message translates to:
+  /// **'The contact is private or does not have a phone number.'**
+  String get hsNumError;
 
   /// No description provided for @rsSharedHeader.
   ///
@@ -462,6 +480,12 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'Appearance'**
   String get ssAppearance;
+
+  /// No description provided for @dsLadyLiberty.
+  ///
+  /// In en, this message translates to:
+  /// **'A picture of the Statue of Liberty, with a preview of the rights list.'**
+  String get dsLadyLiberty;
 }
 
 class _LangDelegate extends LocalizationsDelegate<Lang> {

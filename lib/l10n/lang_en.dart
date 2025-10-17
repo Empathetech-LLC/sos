@@ -12,6 +12,12 @@ class LangEn extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get gReminder => 'Reminder';
+
+  @override
+  String get gNotAgain => 'Don\'t show again';
+
+  @override
   String get sosLastKnown => 'Last known location';
 
   @override
@@ -116,7 +122,12 @@ class LangEn extends Lang {
       'InstaSOS needs access to your contacts to function properly.';
 
   @override
-  String get hsNoNumber => 'The contact must have a phone number.';
+  String get hsPartialContacts =>
+      'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, go to iOS Settings -> Apps -> InstaSOS';
+
+  @override
+  String get hsNumError =>
+      'The contact is private or does not have a phone number.';
 
   @override
   String get rsSharedHeader => 'You have the right to...';
@@ -205,6 +216,10 @@ class LangEn extends Lang {
 
   @override
   String get ssAppearance => 'Appearance';
+
+  @override
+  String get dsLadyLiberty =>
+      'A picture of the Statue of Liberty, with a preview of the rights list.';
 }
 
 /// The translations for English, as used in the United States (`en_US`).
@@ -215,6 +230,12 @@ class LangEnUs extends LangEn {
   String get gOk => 'Ok';
 
   @override
+  String get gReminder => 'Reminder';
+
+  @override
+  String get gNotAgain => 'Don\'t show again';
+
+  @override
   String get sosLastKnown => 'Last known location';
 
   @override
@@ -319,7 +340,12 @@ class LangEnUs extends LangEn {
       'InstaSOS needs access to your contacts to function properly.';
 
   @override
-  String get hsNoNumber => 'The contact must have a phone number.';
+  String get hsPartialContacts =>
+      'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, go to iOS Settings -> Apps -> InstaSOS';
+
+  @override
+  String get hsNumError =>
+      'The contact is private or does not have a phone number.';
 
   @override
   String get rsSharedHeader => 'You have the right to...';
@@ -408,4 +434,8 @@ class LangEnUs extends LangEn {
 
   @override
   String get ssAppearance => 'Appearance';
+
+  @override
+  String get dsLadyLiberty =>
+      'A picture of the Statue of Liberty, with a preview of the rights list.';
 }

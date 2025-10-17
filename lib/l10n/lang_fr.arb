@@ -4,6 +4,8 @@
 
 
   "gOk": "Ok",
+  "gReminder": "Rappel",
+  "gNotAgain": "Ne plus afficher",
 
   "sosLastKnown": "Dernière localisation connue",
   "sosNeedSMS": "SOS a besoin d'une autorisation SMS pour fonctionner correctement.",
@@ -42,7 +44,8 @@
   "hsIOSRightsTutorial": "Si vous activez l'appareil photo et prenez une photo ou enregistrez une vidéo, vous pourrez la partager immédiatement.\n\nAppuyez sur le marteau ou appuyez longuement au centre de l'écran pour afficher la liste de vos droits.",
   
   "hsNeedContacts": "InstaSOS a besoin d'accéder à vos contacts pour fonctionner correctement.",
-  "hsNoNumber": "Le contact doit avoir un numéro de téléphone.",
+  "hsPartialContacts": "Apple affichera tous les contacts, pas seulement ceux partagés avec InstaSOS.\nPour partager plus de contacts, accédez à Paramètres iOS -> Applications -> InstaSOS",
+  "hsNumError": "Le contact est privé ou n'a pas de numéro de téléphone.",
   
   
   
@@ -82,5 +85,9 @@
   "ssAddHint": "Ajouter un autre contact",
   "ssLinkType": "Type de lien",
   
-  "ssAppearance": "Apparence"
+  "ssAppearance": "Apparence",
+
+
+
+  "dsLadyLiberty": "Une photo de la Statue de la Liberté, avec un aperçu de la liste des droits."
 }

@@ -10,16 +10,17 @@ class SosScaffold extends StatelessWidget {
   /// [Scaffold.body] passthrough
   final Widget body;
 
-  /// [FloatingActionButton]
-  final Widget? fab;
+  /// [FloatingActionButton]s to add on top of the [EzUpdaterFAB]
+  /// BYO spacing widgets
+  final List<Widget>? fabs;
 
   /// Standardized [Scaffold] for all of the EFUI example app's screens
-  const SosScaffold(this.body, {super.key, this.fab});
+  const SosScaffold(this.body, {super.key, this.fabs});
 
   @override
   Widget build(BuildContext context) {
     const Widget updater = EzUpdaterFAB(
-      appVersion: '1.4.1',
+      appVersion: '1.5.0',
       versionSource:
           'https://raw.githubusercontent.com/Empathetech-LLC/sos/refs/heads/main/APP_VERSION',
       gPlay:
@@ -28,16 +29,14 @@ class SosScaffold extends StatelessWidget {
       github: 'https://github.com/Empathetech-LLC/sos/releases',
     );
 
-    return EzAdaptiveScaffold(
+    return EzAdaptiveParent(
       small: SelectionArea(
         child: Scaffold(
           body: SafeArea(child: body),
-          floatingActionButton: fab == null
-              ? updater
-              : Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[updater, const EzSpacer(), fab!],
-                ),
+          floatingActionButton: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[updater, if (fabs != null) ...fabs!],
+          ),
           floatingActionButtonLocation: EzConfig.get(isLeftyKey)
               ? FloatingActionButtonLocation.startFloat
               : FloatingActionButtonLocation.endFloat,

@@ -12,6 +12,12 @@ class LangZh extends Lang {
   String get gOk => '确定';
 
   @override
+  String get gReminder => '提醒';
+
+  @override
+  String get gNotAgain => '不再显示';
+
+  @override
   String get sosLastKnown => '已知最后位置';
 
   @override
@@ -113,7 +119,11 @@ class LangZh extends Lang {
   String get hsNeedContacts => 'InstaSOS 需要访问您的联系人以正常运行。';
 
   @override
-  String get hsNoNumber => '联系人必须包含电话号码。';
+  String get hsPartialContacts =>
+      'Apple 将显示所有联系人，而不仅仅是与 InstaSOS 共享的联系人。\n要分享更多联系人，请前往 iOS 设置 -> 应用 -> InstaSOS';
+
+  @override
+  String get hsNumError => '该联系人是私人联系人或没有电话号码。';
 
   @override
   String get rsSharedHeader => '您有权...';
@@ -193,6 +203,9 @@ class LangZh extends Lang {
 
   @override
   String get ssAppearance => '界面外观';
+
+  @override
+  String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -203,6 +216,12 @@ class LangZhCn extends LangZh {
   String get gOk => '确定';
 
   @override
+  String get gReminder => '提醒';
+
+  @override
+  String get gNotAgain => '不再显示';
+
+  @override
   String get sosLastKnown => '已知最后位置';
 
   @override
@@ -304,7 +323,11 @@ class LangZhCn extends LangZh {
   String get hsNeedContacts => 'InstaSOS 需要访问您的联系人以正常运行。';
 
   @override
-  String get hsNoNumber => '联系人必须包含电话号码。';
+  String get hsPartialContacts =>
+      'Apple 将显示所有联系人，而不仅仅是与 InstaSOS 共享的联系人。\n要分享更多联系人，请前往 iOS 设置 -> 应用 -> InstaSOS';
+
+  @override
+  String get hsNumError => '该联系人是私人联系人或没有电话号码。';
 
   @override
   String get rsSharedHeader => '您有权...';
@@ -384,4 +407,7 @@ class LangZhCn extends LangZh {
 
   @override
   String get ssAppearance => '界面外观';
+
+  @override
+  String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';
 }

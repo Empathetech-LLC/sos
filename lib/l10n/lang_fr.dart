@@ -12,6 +12,12 @@ class LangFr extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get gReminder => 'Rappel';
+
+  @override
+  String get gNotAgain => 'Ne plus afficher';
+
+  @override
   String get sosLastKnown => 'Dernière localisation connue';
 
   @override
@@ -121,7 +127,12 @@ class LangFr extends Lang {
       'InstaSOS a besoin d\'accéder à vos contacts pour fonctionner correctement.';
 
   @override
-  String get hsNoNumber => 'Le contact doit avoir un numéro de téléphone.';
+  String get hsPartialContacts =>
+      'Apple affichera tous les contacts, pas seulement ceux partagés avec InstaSOS.\nPour partager plus de contacts, accédez à Paramètres iOS -> Applications -> InstaSOS';
+
+  @override
+  String get hsNumError =>
+      'Le contact est privé ou n\'a pas de numéro de téléphone.';
 
   @override
   String get rsSharedHeader => 'Vous avez le droit de...';
@@ -210,4 +221,8 @@ class LangFr extends Lang {
 
   @override
   String get ssAppearance => 'Apparence';
+
+  @override
+  String get dsLadyLiberty =>
+      'Une photo de la Statue de la Liberté, avec un aperçu de la liste des droits.';
 }

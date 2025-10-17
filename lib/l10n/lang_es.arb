@@ -4,6 +4,8 @@
   
   
   "gOk": "Ok",
+  "gReminder": "Recordatorio",
+  "gNotAgain": "No volver a mostrar",
 
   "sosLastKnown": "Última localización conocida",
   "sosNeedSMS": "SOS necesita poder enviar SMS para funcionar bien.",
@@ -42,7 +44,8 @@
   "hsIOSRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un vídeo, podrás compartirlo al momento.\n\nMantén pulsado el mazo para mostrar una lista de tus derechos",
   
   "hsNeedContacts": "InstaSOS necesita acceso a tus contactos para funcionar bien.",
-  "hsNoNumber": "El contacto debe tener un número",
+  "hsPartialContacts": "Apple mostrará todos los contactos, no solo aquellos compartidos con InstaSOS.\nPara compartir más contactos, vaya a Configuración de iOS -> Aplicaciones -> InstaSOS",
+  "hsNumError": "El contacto es privado o no tiene número de teléfono.",
 
 
 
@@ -82,5 +85,9 @@
   "ssAddHint": "Añadir otro contacto",
   "ssLinkType": "Tipo de enlace",
 
-  "ssAppearance": "Apariencia"
+  "ssAppearance": "Apariencia",
+
+
+
+  "dsLadyLiberty": "Una imagen de la Estatua de la Libertad, con una vista previa de la lista de derechos."
 }

@@ -12,6 +12,12 @@ class LangAr extends Lang {
   String get gOk => 'حسنًا';
 
   @override
+  String get gReminder => 'تذكير';
+
+  @override
+  String get gNotAgain => 'لا تظهر مرة أخرى';
+
+  @override
   String get sosLastKnown => 'آخر موقع معروف';
 
   @override
@@ -116,7 +122,11 @@ class LangAr extends Lang {
       'يحتاج تطبيق InstaSOS إلى الوصول إلى جهات الاتصال الخاصة بك ليعمل بشكل صحيح.';
 
   @override
-  String get hsNoNumber => 'يجب أن يكون لدى جهة الاتصال رقم هاتف.';
+  String get hsPartialContacts =>
+      'ستعرض Apple جميع جهات الاتصال، وليس فقط تلك التي تمت مشاركتها مع InstaSOS.\nلمشاركة المزيد من جهات الاتصال، انتقل إلى إعدادات iOS -> التطبيقات -> InstaSOS';
+
+  @override
+  String get hsNumError => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف.';
 
   @override
   String get rsSharedHeader => 'لديك الحق في...';
@@ -204,6 +214,9 @@ class LangAr extends Lang {
 
   @override
   String get ssAppearance => 'المظهر';
+
+  @override
+  String get dsLadyLiberty => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -214,6 +227,12 @@ class LangArEg extends LangAr {
   String get gOk => 'حسنًا';
 
   @override
+  String get gReminder => 'تذكير';
+
+  @override
+  String get gNotAgain => 'لا تظهر مرة أخرى';
+
+  @override
   String get sosLastKnown => 'آخر موقع معروف';
 
   @override
@@ -318,7 +337,11 @@ class LangArEg extends LangAr {
       'يحتاج تطبيق InstaSOS إلى الوصول إلى جهات الاتصال الخاصة بك ليعمل بشكل صحيح.';
 
   @override
-  String get hsNoNumber => 'يجب أن يكون لدى جهة الاتصال رقم هاتف.';
+  String get hsPartialContacts =>
+      'ستعرض Apple جميع جهات الاتصال، وليس فقط تلك التي تمت مشاركتها مع InstaSOS.\nلمشاركة المزيد من جهات الاتصال، انتقل إلى إعدادات iOS -> التطبيقات -> InstaSOS';
+
+  @override
+  String get hsNumError => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف.';
 
   @override
   String get rsSharedHeader => 'لديك الحق في...';
@@ -406,4 +429,7 @@ class LangArEg extends LangAr {
 
   @override
   String get ssAppearance => 'المظهر';
+
+  @override
+  String get dsLadyLiberty => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';
 }

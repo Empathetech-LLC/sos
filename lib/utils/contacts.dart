@@ -10,6 +10,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+
+/// :
+const String contactSplit = ':';
 
 /// Prompt the user to save their first contact
 /// Users must select at least one emergency contact to use the app
@@ -17,11 +21,10 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 Future<List<String>?> addEMC(
   BuildContext context,
   List<String>? curr, {
+  required Lang l10n,
+  required EFUILang el10n,
   bool loop = true,
 }) async {
-  late final Lang l10n = Lang.of(context)!;
-  late final EFUILang el10n = ezL10n(context);
-
   // Check for first run
   if (curr == null || curr.isEmpty) {
     curr = <String>[];
@@ -44,18 +47,14 @@ Future<List<String>?> addEMC(
             EzMaterialAction(text: el10n.gCancel, onPressed: () => exit(0)),
             EzMaterialAction(
               text: l10n.gOk,
-              onPressed: () async {
-                await openAppSettings();
-              },
+              onPressed: () => openAppSettings(),
             ),
           ],
           <EzCupertinoAction>[
             EzCupertinoAction(text: el10n.gCancel, onPressed: () => exit(0)),
             EzCupertinoAction(
               text: l10n.gOk,
-              onPressed: () async {
-                await openAppSettings();
-              },
+              onPressed: () => openAppSettings(),
             ),
           ],
         ),
@@ -71,32 +70,98 @@ Future<List<String>?> addEMC(
     }
   }
 
-  // Save the first emergency contact
+  // Permission granted, make it so
   Contact? contact;
+  String? initials;
+  String? number;
+
+  // The way iOS handles partial contacts is hot garbage
+  // Best thing we can do is remind users that they will see all contacts, not just the shared ones
+  if (Platform.isIOS && EzConfig.get(partialContactsKey) == true) {
+    final bool show = await Permission.contacts.isLimited;
+
+    if (show && context.mounted) {
+      await showPlatformDialog(
+        context: context,
+        builder: (BuildContext dialogContext) {
+          late List<Widget> materialActions;
+          late List<Widget> cupertinoActions;
+
+          (materialActions, cupertinoActions) = ezActionPairs(
+            context: context,
+            confirmMsg: l10n.gOk,
+            onConfirm: () => Navigator.of(dialogContext).pop(),
+            denyMsg: l10n.gNotAgain,
+            onDeny: () async {
+              await EzConfig.setBool(partialContactsKey, false);
+              if (dialogContext.mounted) Navigator.of(dialogContext).pop();
+            },
+            denyIsDestructive: true,
+          );
+
+          return EzAlertDialog(
+            title: Text(l10n.gReminder, textAlign: TextAlign.center),
+            content: Text(l10n.hsPartialContacts, textAlign: TextAlign.center),
+            materialActions: materialActions,
+            cupertinoActions: cupertinoActions,
+            needsClose: false,
+          );
+        },
+      );
+    }
+  }
+
   while (true) {
     contact = await FlutterContacts.openExternalPick();
 
-    if (contact == null ||
-        (contact.phones.isEmpty || contact.phones.first.number.isEmpty)) {
+    // Check for user cancel
+    if (contact == null) {
+      if (loop) continue; // else...
+      return curr;
+    }
+
+    if (contact.phones.isEmpty) {
       if (context.mounted) {
         // Invalid contact, warn the user and optionally retry
         await ezSnackBar(
           context: context,
-          message: l10n.hsNoNumber,
+          message: l10n.hsNumError,
         ).closed;
       }
-    } else if (curr.contains(contact.phones.first.number)) {
-      // Contact already exists, exit func with no changes
-      return curr;
     } else {
-      // Valid contact, escape the loop
-      break;
+      // We have a valid contact, now validate the phone number
+      number = contact.phones
+          .firstWhere((Phone phone) => phone.number.isNotEmpty,
+              orElse: () => contact!.phones.first)
+          .number;
+
+      if (number.isEmpty) {
+        if (context.mounted) {
+          await ezSnackBar(
+            context: context,
+            message: l10n.hsNumError,
+          ).closed;
+        }
+      } else {
+        // We have a number, remove any dupes then break the loop
+        curr.removeWhere((String emc) => emc.contains(number!));
+        break;
+      }
     }
 
     if (!loop) return curr;
   }
 
-  curr.add(contact.phones.first.number);
+  initials = contact.displayName.isNotEmpty
+      ? contact.displayName
+              .split(' ')
+              .where((String name) => name.isNotEmpty)
+              .map((String name) => name[0].toUpperCase())
+              .join() +
+          contactSplit
+      : '';
+
+  curr.add(initials + number);
   await EzConfig.setStringList(emcKey, curr);
   return curr;
 }

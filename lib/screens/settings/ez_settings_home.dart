@@ -6,6 +6,7 @@
 import '../export.dart';
 import '../../utils/export.dart';
 import '../../widgets/export.dart';
+import 'package:efui_bios/efui_bios.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -20,10 +21,6 @@ class EzSettingsHomeScreen extends StatefulWidget {
 
 class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
   // Gather the theme data //
-
-  static const EzSpacer spacer = EzSpacer();
-  static const EzSeparator separator = EzSeparator();
-  static const EzDivider divider = EzDivider();
 
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = ezL10n(context);
@@ -40,45 +37,45 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
             children: <Widget>[
               // Global settings
               const EzDominantHandSwitch(),
-              spacer,
+              ezSpacer,
 
               const EzThemeModeSwitch(),
-              divider,
+              ezDivider,
 
               EzElevatedIconButton(
                 onPressed: () => context.goNamed(colorSettingsPath),
                 icon: EzIcon(Icons.navigate_next),
                 label: el10n.csPageTitle,
               ),
-              spacer,
+              ezSpacer,
 
               EzElevatedIconButton(
                 onPressed: () => context.goNamed(designSettingsPath),
                 icon: EzIcon(Icons.navigate_next),
                 label: el10n.dsPageTitle,
               ),
-              spacer,
+              ezSpacer,
 
               EzElevatedIconButton(
                 onPressed: () => context.goNamed(layoutSettingsPath),
                 icon: EzIcon(Icons.navigate_next),
                 label: el10n.lsPageTitle,
               ),
-              spacer,
+              ezSpacer,
 
               EzElevatedIconButton(
                 onPressed: () => context.goNamed(textSettingsPath),
                 icon: EzIcon(Icons.navigate_next),
                 label: el10n.tsPageTitle,
               ),
-              divider,
+              ezDivider,
 
               const EzQuickConfig(
                 videoGame: false,
                 chalkboard: false,
                 fancyPants: false,
               ),
-              spacer,
+              ezSpacer,
 
               EzResetButton(
                 onConfirm: () async {
@@ -89,17 +86,26 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
                   setState(() {});
                 },
               ),
-              separator,
+              ezSeparator,
             ],
           ),
         ),
         useImageDecoration: false,
       ),
-      fab: EzConfigFAB(
-        context,
-        appName: appName,
-        androidPackage: packageName,
-      ),
+      fabs: <Widget>[
+        ezSpacer,
+        EzConfigFAB(
+          context,
+          appName: appName,
+          androidPackage: packageName,
+        ),
+        ezSpacer,
+        const EzBackFAB(
+          hold4Feedback: true,
+          appName: appName,
+          supportEmail: empathSupport,
+        ),
+      ],
     );
   }
 }

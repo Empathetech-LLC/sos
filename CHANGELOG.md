@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0] - 2025-10-16
+### Added
+- Text background opacity mirror to design settings, with a preview of the rights list
+- EzConfigFAB to appearance settings screens
+
+### Updated
+- Contacts list
+  - Better spacing/styling
+  - Contact tiles now have initials
+  - Fixed an iOS bug
+    - Updated the messaging on iOS when users select to share some contacts
+  - No longer shows a toast when you cancel
+- Fixed i(Pad)OS sharing bug
+  - Affected feedback and media sharing, both fixed
+
 ## [1.4.1] - 2025-09-25
 ### Added
 - Resources to the README(s)

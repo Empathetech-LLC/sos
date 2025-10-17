@@ -1,6 +1,6 @@
 name: sos
 description: "Document everything. Stay safe out there."
-version: 1.4.1+14
+version: 1.5.0+15
 publish_to: 'none'
 
 environment:
@@ -53,6 +53,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/images/icon.png
+    - assets/images/og-baddie.jpg
 
 flutter_launcher_icons:
   image_path: assets/images/icon.png

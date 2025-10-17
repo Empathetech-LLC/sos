@@ -6,7 +6,9 @@
 import '../export.dart';
 import '../../utils/export.dart';
 import '../../widgets/export.dart';
+import 'package:efui_bios/efui_bios.dart';
 
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -23,12 +25,6 @@ class SettingsHomeScreen extends StatefulWidget {
 class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   // Gather the theme data //
 
-  final bool isIOS = isApple();
-
-  static const EzSpacer spacer = EzSpacer();
-  static const EzSeparator separator = EzSeparator();
-  static const EzDivider divider = EzDivider();
-
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = ezL10n(context);
 
@@ -39,7 +35,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   // Define custom functions //
 
   Future<bool> canSet(String key, bool value) async {
-    if (value == false || isIOS) return true;
+    if (value == false || Platform.isIOS) return true;
 
     final PermissionStatus canSMS = await Permission.sms.request();
 
@@ -61,7 +57,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
         EzScrollView(children: <Widget>[
           // Functionality disclaimer
           EzWarning(el10n.ssRestartReminder),
-          spacer,
+          ezSpacer,
 
           // Language
           EzLocaleSetting(
@@ -69,7 +65,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             skip: <Locale>{arabic, english, chinese}, // Dupes
             protest: true,
           ),
-          divider,
+          ezDivider,
 
           // SOS on open
           EzSwitchPair(
@@ -77,10 +73,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             valueKey: onOpenKey,
             canChange: (bool choice) => canSet(onOpenKey, choice),
           ),
+          ezSpacer,
 
-          if (!isIOS) ...<Widget>[
-            spacer,
-
+          if (Platform.isAndroid) ...<Widget>[
             // SOS on close
             EzSwitchPair(
               text: l10n.ssSOSOnClose,
@@ -119,7 +114,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 );
               },
             ),
-            spacer,
+            ezSpacer,
 
             // SOS on interrupt
             EzSwitchPair(
@@ -127,7 +122,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               valueKey: onInterruptKey,
               canChange: (bool choice) => canSet(onInterruptKey, choice),
             ),
-            spacer,
+            ezSpacer,
           ],
 
           // Auto-share media
@@ -135,11 +130,11 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             text: l10n.ssAutoShare,
             valueKey: autoShareKey,
           ),
-          divider,
+          ezDivider,
 
           // EMC
           const ContactList(),
-          spacer,
+          ezSeparator,
 
           // Link type
           EzScrollView(
@@ -153,7 +148,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 style: Theme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
-              EzMargin(),
+              ezMargin,
               EzDropdownMenu<LinkType>(
                 widthEntries: <String>[LinkType.google.label],
                 dropdownMenuEntries: LinkType.values
@@ -175,7 +170,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               ),
             ],
           ),
-          divider,
+          ezDivider,
 
           // Appearance
           EzElevatedIconButton(
@@ -183,11 +178,18 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             icon: EzIcon(Icons.navigate_next),
             label: l10n.ssAppearance,
           ),
-          separator,
+          ezSeparator,
         ]),
         useImageDecoration: false,
       ),
-      fab: EzBackFAB(context, showHome: true),
+      fabs: const <Widget>[
+        ezSpacer,
+        EzBackFAB(
+          hold4Feedback: true,
+          appName: appName,
+          supportEmail: empathSupport,
+        ),
+      ],
     );
   }
 }

@@ -4,6 +4,8 @@
   
   
   "gOk": "Ok",
+  "gReminder": "Rapèl",
+  "gNotAgain": "Pa montre ankò",
 
   "sosLastKnown": "Dènye kote yo te konnen ou ye a",
   "sosNeedSMS": "SOS bezwen pèmisyon SMS pou li fonksyone byen.",
@@ -42,7 +44,8 @@
   "hsIOSRightsTutorial": "Si ou aktive kamera a, epi ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPeze sou ikòn balans jistis la oswa peze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.",
   
   "hsNeedContacts": "InstaSOS bezwen aksè a kontak ou yo pou li fonksyone kòrèkteman.",
-  "hsNoNumber": "Kontak la dwe genyen yon nimewo telefòn.",
+  "hsPartialContacts": "Apple ap montre tout kontak yo, pa sèlman sa yo pataje ak InstaSOS.\nPou pataje plis kontak, ale nan Anviwònman iOS -> Aplikasyon -> InstaSOS",
+  "hsNumError": "Kontak la prive oubyen li pa gen nimewo telefòn.",
 
 
 
@@ -82,5 +85,9 @@
   "ssAddHint": "Ajoute yon lòt kontak",
   "ssLinkType": "Kalite lyen",
 
-  "ssAppearance": "Aparans"
+  "ssAppearance": "Aparans",
+
+
+
+  "dsLadyLiberty": "Yon foto Estati Libète a, avèk yon aperçu sou lis dwa yo."
 }

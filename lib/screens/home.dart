@@ -42,8 +42,6 @@ class _HomeScreenState extends State<HomeScreen>
   final double spacing = EzConfig.get(spacingKey);
   late final double spargin = spacing + margin;
 
-  static const EzSeparator separator = EzSeparator();
-
   final double iconSize = EzConfig.get(iconSizeKey);
   final bool isLefty = EzConfig.get(isLeftyKey);
 
@@ -211,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen>
     final bool newUser = emc == null || emc!.isEmpty;
 
     // Verify the emergency contacts
-    if (newUser) emc = await addEMC(context, emc);
+    if (newUser) emc = await addEMC(context, emc, l10n: l10n, el10n: el10n);
 
     // Check for auto SOS
     final bool taskRunning = EzConfig.get(taskRunningKey);
@@ -333,7 +331,7 @@ class _HomeScreenState extends State<HomeScreen>
                   acceptMessage: l10n.gOk,
                   onAccept: () async {
                     broadcastOverlay.hide();
-                    if (!Platform.isIOS) await Permission.sms.request();
+                    if (Platform.isAndroid) await Permission.sms.request();
                     final LocationPermission choice =
                         await Geolocator.requestPermission();
 
@@ -508,13 +506,19 @@ class _HomeScreenState extends State<HomeScreen>
                               await saveToGallery(image.path, true);
 
                               // Attempt to share (config based)
-                              if (autoShare) {
+                              if (autoShare && context.mounted) {
+                                final RenderBox? box =
+                                    context.findRenderObject() as RenderBox?;
+
                                 await SharePlus.instance.share(ShareParams(
                                   text: await getCoordinates(
                                     linkType.base,
                                     l10n,
                                   ),
                                   files: <XFile>[image],
+                                  sharePositionOrigin:
+                                      box!.localToGlobal(Offset.zero) &
+                                          box.size,
                                 ));
                               }
                             } catch (e) {
@@ -527,7 +531,7 @@ class _HomeScreenState extends State<HomeScreen>
                             }
                           },
                         ),
-                  separator,
+                  ezSeparator,
 
                   // Record
                   OverlayPortal(
@@ -599,13 +603,19 @@ class _HomeScreenState extends State<HomeScreen>
                                 await saveToGallery(mp4Path, false);
 
                                 // Attempt to share the video (config based)
-                                if (autoShare) {
+                                if (autoShare && context.mounted) {
+                                  final RenderBox? box =
+                                      context.findRenderObject() as RenderBox?;
+
                                   await SharePlus.instance.share(ShareParams(
                                     text: await getCoordinates(
                                       linkType.base,
                                       l10n,
                                     ),
                                     files: <XFile>[XFile(mp4Path)],
+                                    sharePositionOrigin:
+                                        box!.localToGlobal(Offset.zero) &
+                                            box.size,
                                   ));
                                 }
                               } catch (e) {
@@ -660,7 +670,7 @@ class _HomeScreenState extends State<HomeScreen>
                             },
                           ),
                   ),
-                  separator,
+                  ezSeparator,
 
                   // Flash
                   camera == null

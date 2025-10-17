@@ -4,6 +4,8 @@
   
   
   "gOk": "Ok",
+  "gReminder": "Reminder",
+  "gNotAgain": "Don't show again",
 
   "sosLastKnown": "Last known location",
   "sosNeedSMS": "SOS needs SMS permission to function properly.",
@@ -42,7 +44,8 @@
   "hsIOSRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.",
   
   "hsNeedContacts": "InstaSOS needs access to your contacts to function properly.",
-  "hsNoNumber": "The contact must have a phone number.",
+  "hsPartialContacts": "Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, go to iOS Settings -> Apps -> InstaSOS",
+  "hsNumError": "The contact is private or does not have a phone number.",
 
 
 
@@ -82,5 +85,9 @@
   "ssAddHint": "Add another contact",
   "ssLinkType": "Link type",
 
-  "ssAppearance": "Appearance"
+  "ssAppearance": "Appearance",
+
+  
+
+  "dsLadyLiberty": "A picture of the Statue of Liberty, with a preview of the rights list."
 }
