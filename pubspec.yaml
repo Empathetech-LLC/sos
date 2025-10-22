@@ -1,6 +1,6 @@
 name: sos
 description: "Document everything. Stay safe out there."
-version: 1.5.0+15
+version: 1.5.1+16
 publish_to: 'none'
 
 environment:

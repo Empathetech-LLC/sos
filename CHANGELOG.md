@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.1] - 2025-10-22
+### Added
+- Multi-select dialog for contacts with multiple numbers
+
 ## [1.5.0] - 2025-10-16
 ### Added
 - Text background opacity mirror to design settings, with a preview of the rights list
