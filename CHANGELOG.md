@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.1] - 2025-10-22
+### Updated
+- If a contact has multiple numbers, all will be added (previously just the first)
+  - Only added batch adding, not removing; if a user doesn't want all versions of a contact, they can remove the extras manually
+
 ## [1.5.0] - 2025-10-16
 ### Added
 - Text background opacity mirror to design settings, with a preview of the rights list

@@ -26,11 +26,8 @@ class DesignSettingsScreen extends StatelessWidget {
           themedSettingsPrepend: <Widget>[
             // Text Background Opacity mirror
             EzElevatedIconButton(
-              onPressed: () => showModalBottomSheet(
+              onPressed: () => ezModal(
                   context: context,
-                  useSafeArea: true,
-                  isScrollControlled: true,
-                  constraints: const BoxConstraints(minWidth: double.infinity),
                   builder: (_) {
                     final bool isDark = isDarkTheme(context);
                     final ColorScheme colorScheme =
