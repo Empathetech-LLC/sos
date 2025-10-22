@@ -73,7 +73,7 @@ Future<List<String>?> addEMC(
   // Permission granted, make it so
   Contact? contact;
   String? initials;
-  String? number;
+  List<String>? numbers;
 
   // The way iOS handles partial contacts is hot garbage
   // Best thing we can do is remind users that they will see all contacts, not just the shared ones
@@ -121,21 +121,21 @@ Future<List<String>?> addEMC(
     }
 
     if (contact.phones.isEmpty) {
+      // Invalid contact, warn the user and optionally retry
       if (context.mounted) {
-        // Invalid contact, warn the user and optionally retry
         await ezSnackBar(
           context: context,
           message: l10n.hsNumError,
         ).closed;
       }
     } else {
-      // We have a valid contact, now validate the phone number
-      number = contact.phones
-          .firstWhere((Phone phone) => phone.number.isNotEmpty,
-              orElse: () => contact!.phones.first)
-          .number;
+      // We have a valid contact, gather the phones with numbers
+      final List<Phone> phones = contact.phones
+          .where((Phone phone) => phone.number.isNotEmpty)
+          .toList();
 
-      if (number.isEmpty) {
+      if (phones.isEmpty) {
+        // No valid numbers, warn the user and optionally retry
         if (context.mounted) {
           await ezSnackBar(
             context: context,
@@ -143,8 +143,13 @@ Future<List<String>?> addEMC(
           ).closed;
         }
       } else {
-        // We have a number, remove any dupes then break the loop
-        curr.removeWhere((String emc) => emc.contains(number!));
+        // We have at least one valid number, proceed
+        numbers = phones.map((Phone phone) => phone.number).toList();
+
+        // Remove dupes
+        for (final String number in numbers) {
+          curr.removeWhere((String emc) => emc.contains(number));
+        }
         break;
       }
     }
@@ -161,7 +166,10 @@ Future<List<String>?> addEMC(
           contactSplit
       : '';
 
-  curr.add(initials + number);
+  for (final String number in numbers) {
+    curr.add(initials + number);
+  }
+
   await EzConfig.setStringList(emcKey, curr);
   return curr;
 }
