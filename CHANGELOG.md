@@ -3,8 +3,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [1.5.1] - 2025-10-22
-### Added
-- Multi-select dialog for contacts with multiple numbers
+### Updated
+- If a contact has multiple numbers, all will be added (previously just the first)
+  - Only added batch adding, not removing; if a user doesn't want all versions of a contact, they can remove the extras manually
 
 ## [1.5.0] - 2025-10-16
 ### Added
