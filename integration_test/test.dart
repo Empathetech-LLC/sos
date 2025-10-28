@@ -4,6 +4,7 @@
  */
 
 import 'package:sos/main.dart';
+import 'package:sos/utils/consts.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -24,7 +25,7 @@ void main() async {
     preferences: prefs,
     defaults: empathMobileConfig,
     fallbackLang: await EFUILang.delegate.load(americanEnglish),
-    assetPaths: <String>{},
+    assetPaths: assetPaths,
   );
 
   // Run the tests //
