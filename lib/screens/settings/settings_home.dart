@@ -187,6 +187,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
         HelpFAB(),
         ezSpacer,
         EzBackFAB(
+          showHome: true,
           hold4Feedback: true,
           appName: appName,
           supportEmail: empathSupport,
