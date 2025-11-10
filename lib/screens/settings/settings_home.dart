@@ -182,11 +182,11 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
         ]),
         useImageDecoration: false,
       ),
-      fabs: <Widget>[
+      fabs: const <Widget>[
         ezSpacer,
-        HelpFAB(context),
+        HelpFAB(),
         ezSpacer,
-        const EzBackFAB(
+        EzBackFAB(
           hold4Feedback: true,
           appName: appName,
           supportEmail: empathSupport,
