@@ -61,7 +61,8 @@ class HelpFAB extends StatelessWidget {
                     ezSpacer,
                   ],
 
-                  // Expandable FAQ
+                  //* Expandable FAQ *//
+
                   ExpansionTile(
                     title: Text(
                       'FAQ',
@@ -69,21 +70,44 @@ class HelpFAB extends StatelessWidget {
                       textAlign: TextAlign.start,
                     ),
                     children: <Widget>[
-                      // Shared
+                      // Shared I //
+
                       ListTile(
                         title: Text(
-                          'Shared item(s)',
+                          'Where does the list come from?',
                           style: textTheme.bodyLarge,
                           textAlign: TextAlign.start,
                         ),
                         onTap: doNothing,
                       ),
 
-                      // Android specific
+                      // Android specific //
+
                       if (Platform.isAndroid) ...<Widget>[
+                        // Clarity on platform settings
                         ListTile(
                           title: Text(
-                            'Android item(s)',
+                            'What do the settings do?',
+                            style: textTheme.bodyLarge,
+                            textAlign: TextAlign.start,
+                          ),
+                          onTap: doNothing,
+                        ),
+
+                        // Clarity for platform headache(s)
+                        ListTile(
+                          title: Text(
+                            "Texts with 'Location unavailable'?",
+                            style: textTheme.bodyLarge,
+                            textAlign: TextAlign.start,
+                          ),
+                          onTap: doNothing,
+                        ),
+
+                        // Clarity on feature disparity
+                        ListTile(
+                          title: Text(
+                            'My friend has less options?',
                             style: textTheme.bodyLarge,
                             textAlign: TextAlign.start,
                           ),
@@ -93,15 +117,48 @@ class HelpFAB extends StatelessWidget {
 
                       // iOS specific
                       if (Platform.isIOS) ...<Widget>[
+                        // Clarity on platform settings
                         ListTile(
                           title: Text(
-                            'iOS item(s)',
+                            'What do the settings do?',
+                            style: textTheme.bodyLarge,
+                            textAlign: TextAlign.start,
+                          ),
+                          onTap: doNothing,
+                        ),
+
+                        // Clarity for platform headache(s)
+                        ListTile(
+                          title: Text(
+                            'Contact has no number/is private?',
+                            style: textTheme.bodyLarge,
+                            textAlign: TextAlign.start,
+                          ),
+                          onTap: doNothing,
+                        ),
+
+                        // Clarity on feature disparity
+                        ListTile(
+                          title: Text(
+                            'My friend has more options?',
                             style: textTheme.bodyLarge,
                             textAlign: TextAlign.start,
                           ),
                           onTap: doNothing,
                         ),
                       ],
+
+                      // Shared II //
+
+                      // Contribution callout
+                      ListTile(
+                        title: Text(
+                          'Why is X language not included?',
+                          style: textTheme.bodyLarge,
+                          textAlign: TextAlign.start,
+                        ),
+                        onTap: doNothing,
+                      ),
                     ],
                   ),
                 ],
