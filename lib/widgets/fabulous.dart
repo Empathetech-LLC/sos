@@ -35,137 +35,131 @@ class HelpFAB extends StatelessWidget {
           minHeight: double.infinity,
           minWidth: double.infinity,
         ),
-        builder: (_) {
-          bool showTutorials = EzConfig.get(tutorialKey);
+        builder: (BuildContext modalContext) => EzScrollView(
+          children: <Widget>[
+            // Reset tutorial (conditional)
+            if (EzConfig.get(tutorialKey) != true) ...<Widget>[
+              EzElevatedButton(
+                text: 'Reset tutorial',
+                onPressed: () async {
+                  await EzConfig.setBool(tutorialKey, true);
+                  if (modalContext.mounted) {
+                    Navigator.of(modalContext).pop();
+                  }
+                  if (context.mounted) {
+                    ezSnackBar(
+                      context: context,
+                      message: 'The tutorial will replay on next launch',
+                      undo: () => EzConfig.setBool(tutorialKey, false),
+                    );
+                  }
+                },
+              ),
+              ezSpacer,
+            ],
 
-          return StatefulBuilder(
-            builder: (BuildContext modalContext, StateSetter modalState) {
-              return EzScrollView(
-                children: <Widget>[
-                  // Reset tutorial (conditional)
-                  if (!showTutorials) ...<Widget>[
-                    EzElevatedButton(
-                      text: 'Reset tutorial',
-                      onPressed: () async {
-                        await EzConfig.setBool(tutorialKey, true);
-                        modalState(() => showTutorials = true);
+            //* Expandable FAQ *//
 
-                        if (context.mounted) {
-                          ezSnackBar(
-                            context: context,
-                            message: 'Do they have to close and reopen?',
-                          );
-                        }
-                      },
-                    ),
-                    ezSpacer,
-                  ],
+            ExpansionTile(
+              title: Text(
+                'FAQ',
+                style: textTheme.titleLarge,
+                textAlign: TextAlign.start,
+              ),
+              children: <Widget>[
+                // Shared I //
 
-                  //* Expandable FAQ *//
+                ListTile(
+                  title: Text(
+                    'Where does the list come from?',
+                    style: textTheme.bodyLarge,
+                    textAlign: TextAlign.start,
+                  ),
+                  onTap: doNothing,
+                ),
 
-                  ExpansionTile(
+                // Android specific //
+
+                if (Platform.isAndroid) ...<Widget>[
+                  // Clarity on platform settings
+                  ListTile(
                     title: Text(
-                      'FAQ',
-                      style: textTheme.titleLarge,
+                      'What do the settings do?',
+                      style: textTheme.bodyLarge,
                       textAlign: TextAlign.start,
                     ),
-                    children: <Widget>[
-                      // Shared I //
+                    onTap: doNothing,
+                  ),
 
-                      ListTile(
-                        title: Text(
-                          'Where does the list come from?',
-                          style: textTheme.bodyLarge,
-                          textAlign: TextAlign.start,
-                        ),
-                        onTap: doNothing,
-                      ),
+                  // Clarity for platform headache(s)
+                  ListTile(
+                    title: Text(
+                      "Texts with 'Location unavailable'?",
+                      style: textTheme.bodyLarge,
+                      textAlign: TextAlign.start,
+                    ),
+                    onTap: doNothing,
+                  ),
 
-                      // Android specific //
-
-                      if (Platform.isAndroid) ...<Widget>[
-                        // Clarity on platform settings
-                        ListTile(
-                          title: Text(
-                            'What do the settings do?',
-                            style: textTheme.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                          onTap: doNothing,
-                        ),
-
-                        // Clarity for platform headache(s)
-                        ListTile(
-                          title: Text(
-                            "Texts with 'Location unavailable'?",
-                            style: textTheme.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                          onTap: doNothing,
-                        ),
-
-                        // Clarity on feature disparity
-                        ListTile(
-                          title: Text(
-                            'My friend has less options?',
-                            style: textTheme.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                          onTap: doNothing,
-                        ),
-                      ],
-
-                      // iOS specific
-                      if (Platform.isIOS) ...<Widget>[
-                        // Clarity on platform settings
-                        ListTile(
-                          title: Text(
-                            'What do the settings do?',
-                            style: textTheme.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                          onTap: doNothing,
-                        ),
-
-                        // Clarity for platform headache(s)
-                        ListTile(
-                          title: Text(
-                            'Contact has no number/is private?',
-                            style: textTheme.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                          onTap: doNothing,
-                        ),
-
-                        // Clarity on feature disparity
-                        ListTile(
-                          title: Text(
-                            'My friend has more options?',
-                            style: textTheme.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                          onTap: doNothing,
-                        ),
-                      ],
-
-                      // Shared II //
-
-                      // Contribution callout
-                      ListTile(
-                        title: Text(
-                          'Why is X language not included?',
-                          style: textTheme.bodyLarge,
-                          textAlign: TextAlign.start,
-                        ),
-                        onTap: doNothing,
-                      ),
-                    ],
+                  // Clarity on feature disparity
+                  ListTile(
+                    title: Text(
+                      'My friend has less options?',
+                      style: textTheme.bodyLarge,
+                      textAlign: TextAlign.start,
+                    ),
+                    onTap: doNothing,
                   ),
                 ],
-              );
-            },
-          );
-        },
+
+                // iOS specific
+                if (Platform.isIOS) ...<Widget>[
+                  // Clarity on platform settings
+                  ListTile(
+                    title: Text(
+                      'What do the settings do?',
+                      style: textTheme.bodyLarge,
+                      textAlign: TextAlign.start,
+                    ),
+                    onTap: doNothing,
+                  ),
+
+                  // Clarity for platform headache(s)
+                  ListTile(
+                    title: Text(
+                      'Contact has no number/is private?',
+                      style: textTheme.bodyLarge,
+                      textAlign: TextAlign.start,
+                    ),
+                    onTap: doNothing,
+                  ),
+
+                  // Clarity on feature disparity
+                  ListTile(
+                    title: Text(
+                      'My friend has more options?',
+                      style: textTheme.bodyLarge,
+                      textAlign: TextAlign.start,
+                    ),
+                    onTap: doNothing,
+                  ),
+                ],
+
+                // Shared II //
+
+                // Contribution callout
+                ListTile(
+                  title: Text(
+                    'Why is X language not included?',
+                    style: textTheme.bodyLarge,
+                    textAlign: TextAlign.start,
+                  ),
+                  onTap: doNothing,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
       tooltip: ezL10n(context).gHelp,
       child: EzIcon(PlatformIcons(context).help),
