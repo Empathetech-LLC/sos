@@ -7,6 +7,7 @@ import '../utils/export.dart';
 
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
@@ -42,61 +43,59 @@ class HelpFAB extends StatelessWidget {
           minWidth: double.infinity,
         ),
         builder: (BuildContext modalContext) => EzScrollView(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             //* Expandable FAQ *//
 
-            Text(
-              'FAQ',
-              style: textTheme.titleLarge,
-              textAlign: TextAlign.start,
+            Center(
+              child: Text(
+                'FAQ',
+                style: textTheme.titleLarge,
+                textAlign: TextAlign.center,
+              ),
             ),
-            const EzTranslationsPendingNotice(), // TODO: check visuals/spacing
+            const Center(child: EzTranslationsPendingNotice()),
+            // TODO: check visuals/spacing
             ezMargin,
 
             // Shared I //
 
             ExpansionTile(
               title: Text(
-                'Where does the list come from?',
+                'How was the rights list made?',
                 style: textTheme.bodyLarge,
                 textAlign: TextAlign.start,
               ),
+              expandedCrossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'The list of rights was compiled from several public sources, including:',
+                  'The rights list was compiled from several public sources, including:',
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
-                Padding(
-                  padding: Directionality.of(context) == TextDirection.ltr
-                      ? EdgeInsets.only(left: margin)
-                      : EdgeInsets.only(right: margin),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      EzLink(
-                        'ACLU Know Your Rights',
-                        url: Uri.parse('https://www.aclu.org/know-your-rights'),
-                        hint: el10n.gOpen, // TODO: better?
-                        textAlign: TextAlign.start,
-                      ),
-                      EzLink(
-                        'IMMDEF Resources',
-                        url: Uri.parse('https://www.immdef.org/resources'),
-                        hint: el10n.gOpen,
-                        textAlign: TextAlign.start,
-                      ),
-                      EzLink(
-                        'Dunk the Vote: The Black Book',
-                        url: Uri.parse(
-                            'https://dunkthevote4ever.org/project/the-black-book-know-your-rights/'),
-                        hint: el10n.gOpen,
-                        textAlign: TextAlign.start,
-                      ),
-                    ],
-                  ),
+                EzLink(
+                  'ACLU Know Your Rights',
+                  url: Uri.parse('https://www.aclu.org/know-your-rights'),
+                  hint: el10n.gOpen, // TODO: better?
+                  textAlign: TextAlign.start,
+                  padding: EdgeInsets.only(left: margin),
                 ),
+                EzLink(
+                  'IMMDEF Resources',
+                  url: Uri.parse('https://www.immdef.org/resources'),
+                  hint: el10n.gOpen,
+                  textAlign: TextAlign.start,
+                  padding: EdgeInsets.only(left: margin),
+                ),
+                EzLink(
+                  'Dunk the Vote: The Black Book',
+                  url: Uri.parse(
+                      'https://dunkthevote4ever.org/project/the-black-book-know-your-rights/'),
+                  hint: el10n.gOpen,
+                  textAlign: TextAlign.start,
+                  padding: EdgeInsets.only(left: margin),
+                ),
+                ezStartLine,
                 EzRichText(
                   <InlineSpan>[
                     EzPlainText(
@@ -112,6 +111,7 @@ class HelpFAB extends StatelessWidget {
                       textAlign: TextAlign.start,
                     ),
                   ],
+                  textBackground: false,
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
@@ -127,6 +127,7 @@ class HelpFAB extends StatelessWidget {
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
+                expandedCrossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     'SOS on open: when enabled, an SOS broadcast will being immediately on app launch. Not recommended for most users, as it could lead to accidental broadcasts.',
@@ -141,7 +142,7 @@ class HelpFAB extends StatelessWidget {
                   ), // TODO: use the pre-existing l10n, with the new ending
                   ezStartLine,
                   Text(
-                    "SOS on interrupted recording: when enabled, if a video recording is active and InstaSOS loses focus for any reason (minimized, switched apps, screen off), an SOS broadcast will begin.\nIt is recommended to enable either this or 'SOS on close' (or both).",
+                    'SOS on interrupted recording: when enabled, if a video recording is active and InstaSOS loses focus for any reason (minimized, switched apps, screen off), an SOS broadcast will begin.\nIt is recommended to enable either this or "SOS on close" (or both).',
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
@@ -159,7 +160,7 @@ class HelpFAB extends StatelessWidget {
                   ),
                   ezStartLine,
                   Text(
-                    "Link type: how your location will be delivered to your emergency contacts. 'Google Maps', 'Apple Maps', and 'Waze' will send a clickable link for the corresponding service. 'Coordinates' will send your latitude and longitude as plain text.",
+                    'Link type: how your location will be delivered to your emergency contacts. "Google Maps", "Apple Maps", and "Waze" will send a clickable link for the corresponding service. "Coordinates" will send your latitude and longitude as plain text.',
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
@@ -169,20 +170,22 @@ class HelpFAB extends StatelessWidget {
               // Clarity for platform headache(s)
               ExpansionTile(
                 title: Text(
-                  "Texts with 'Location unavailable'?",
+                  'SOS says "Location unavailable"?',
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
+                expandedCrossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   EzRichText(
                     <InlineSpan>[
                       EzPlainText(
                         text:
-                            "To improve SOS reliability, please enable 'Allow all the time' in the ",
+                            'To improve SOS reliability, please enable "Allow all the time" in the ',
                         style: textTheme.bodyLarge,
                       ),
                       EzInlineLink(
                         'location permissions',
+                        onTap: openAppSettings,
                         hint: el10n.gOpen,
                       ),
                       EzPlainText(
@@ -190,11 +193,13 @@ class HelpFAB extends StatelessWidget {
                         style: textTheme.bodyLarge,
                       ),
                     ],
+                    textBackground: false,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
+                  ezStartLine,
                   Text(
-                    'InstaSOS only accesses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.',
+                    'The app only uses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.',
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
@@ -211,6 +216,7 @@ class HelpFAB extends StatelessWidget {
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
+                expandedCrossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     'SOS on open: when enabled, an SOS broadcast will being immediately on app launch. Not recommended for most users, as it could lead to accidental broadcasts.',
@@ -245,6 +251,7 @@ class HelpFAB extends StatelessWidget {
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
+                expandedCrossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     'If you are (unexpectedly) seeing this message when adding an emergency contact, it is likely InstaSOS does not have permission to access that contact.',
@@ -261,6 +268,7 @@ class HelpFAB extends StatelessWidget {
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
+                expandedCrossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     'The missing features require SMS automation, and Apple does not allow developers to automate text messages (without a paid service).',
@@ -285,33 +293,53 @@ class HelpFAB extends StatelessWidget {
                 style: textTheme.bodyLarge,
                 textAlign: TextAlign.start,
               ),
+              expandedCrossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  'It would be irresponsible to use machine translation for the rights list. Please consider contributing time and/or resources to help expand the language options.',
+                EzRichText(
+                  <InlineSpan>[
+                    EzPlainText(
+                      text:
+                          'It would be irresponsible to use machine translation for the rights list. Please consider ',
+                      style: textTheme.bodyLarge,
+                    ),
+                    EzInlineLink(
+                      'contributing',
+                      url:
+                          Uri.parse('https://www.empathetech.net/#/contribute'),
+                      hint: el10n.gOpen,
+                    ),
+                    EzPlainText(
+                      text: ' to help expand the language options.',
+                      style: textTheme.bodyLarge,
+                    ),
+                  ],
+                  textBackground: false,
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
-                ), // TODO: Update for link(s)
+                ),
               ],
             ),
 
             // Reset tutorial (conditional)
             if (EzConfig.get(tutorialKey) != true) ...<Widget>[
               ezSpacer,
-              EzElevatedButton(
-                text: 'Reset tutorial',
-                onPressed: () async {
-                  await EzConfig.setBool(tutorialKey, true);
-                  if (modalContext.mounted) {
-                    Navigator.of(modalContext).pop();
-                  }
-                  if (context.mounted) {
-                    ezSnackBar(
-                      context: context,
-                      message: 'The tutorial will replay on next launch',
-                      undo: () => EzConfig.setBool(tutorialKey, false),
-                    );
-                  }
-                },
+              Center(
+                child: EzElevatedButton(
+                  text: 'Reset tutorial',
+                  onPressed: () async {
+                    await EzConfig.setBool(tutorialKey, true);
+                    if (modalContext.mounted) {
+                      Navigator.of(modalContext).pop();
+                    }
+                    if (context.mounted) {
+                      ezSnackBar(
+                        context: context,
+                        message: 'The tutorial will replay on next launch',
+                        undo: () => EzConfig.setBool(tutorialKey, false),
+                      );
+                    }
+                  },
+                ),
               ),
               EzSpacer(space: EzConfig.get(spacingKey) * 1.5),
             ],
