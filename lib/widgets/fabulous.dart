@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
+// TODO: l10n
+
 const Widget updater = EzUpdaterFAB(
   appVersion: '1.5.1',
   versionSource:
@@ -37,103 +39,139 @@ class HelpFAB extends StatelessWidget {
         ),
         builder: (BuildContext modalContext) => EzScrollView(
           children: <Widget>[
-            //* Expandable FAQ *//
+            //* Expandable FAQ(s) *//
+
+            Text(
+              'FAQ',
+              style: textTheme.titleLarge,
+              textAlign: TextAlign.start,
+            ),
+            ezMargin,
+
+            // Shared I //
 
             ExpansionTile(
               title: Text(
-                'FAQ',
-                style: textTheme.titleLarge,
+                'Where does the list come from?',
+                style: textTheme.bodyLarge,
                 textAlign: TextAlign.start,
               ),
               children: <Widget>[
-                // Shared I //
-
-                ListTile(
-                  title: Text(
-                    'Where does the list come from?',
-                    style: textTheme.bodyLarge,
-                    textAlign: TextAlign.start,
-                  ),
-                  onTap: doNothing,
+                Text(
+                  'Answer',
+                  style: textTheme.bodyLarge,
                 ),
+              ],
+            ),
 
-                // Android specific //
-
-                if (Platform.isAndroid) ...<Widget>[
-                  // Clarity on platform settings
-                  ListTile(
-                    title: Text(
-                      'What do the settings do?',
-                      style: textTheme.bodyLarge,
-                      textAlign: TextAlign.start,
-                    ),
-                    onTap: doNothing,
-                  ),
-
-                  // Clarity for platform headache(s)
-                  ListTile(
-                    title: Text(
-                      "Texts with 'Location unavailable'?",
-                      style: textTheme.bodyLarge,
-                      textAlign: TextAlign.start,
-                    ),
-                    onTap: doNothing,
-                  ),
-
-                  // Clarity on feature disparity
-                  ListTile(
-                    title: Text(
-                      'My friend has less options?',
-                      style: textTheme.bodyLarge,
-                      textAlign: TextAlign.start,
-                    ),
-                    onTap: doNothing,
-                  ),
-                ],
-
-                // iOS specific
-                if (Platform.isIOS) ...<Widget>[
-                  // Clarity on platform settings
-                  ListTile(
-                    title: Text(
-                      'What do the settings do?',
-                      style: textTheme.bodyLarge,
-                      textAlign: TextAlign.start,
-                    ),
-                    onTap: doNothing,
-                  ),
-
-                  // Clarity for platform headache(s)
-                  ListTile(
-                    title: Text(
-                      'Contact has no number/is private?',
-                      style: textTheme.bodyLarge,
-                      textAlign: TextAlign.start,
-                    ),
-                    onTap: doNothing,
-                  ),
-
-                  // Clarity on feature disparity
-                  ListTile(
-                    title: Text(
-                      'My friend has more options?',
-                      style: textTheme.bodyLarge,
-                      textAlign: TextAlign.start,
-                    ),
-                    onTap: doNothing,
-                  ),
-                ],
-
-                // Shared II //
-
-                // Contribution callout
-                ListTile(
-                  title: Text(
-                    'Why is X language not included?',
+            // Android specific //
+            if (Platform.isAndroid) ...<Widget>[
+              // Clarity on platform settings
+              ExpansionTile(
+                title: Text(
+                  'What do the settings do?',
+                  style: textTheme.bodyLarge,
+                  textAlign: TextAlign.start,
+                ),
+                children: <Widget>[
+                  Text(
+                    'Answer',
                     style: textTheme.bodyLarge,
-                    textAlign: TextAlign.start,
                   ),
-                  onTap: doNothing,
+                ],
+              ),
+
+              // Clarity for platform headache(s)
+              ExpansionTile(
+                title: Text(
+                  "Texts with 'Location unavailable'?",
+                  style: textTheme.bodyLarge,
+                  textAlign: TextAlign.start,
+                ),
+                children: <Widget>[
+                  Text(
+                    'Answer',
+                    style: textTheme.bodyLarge,
+                  ),
+                ],
+              ),
+
+              // Clarity on feature disparity
+              ExpansionTile(
+                title: Text(
+                  'My friend has less options?',
+                  style: textTheme.bodyLarge,
+                  textAlign: TextAlign.start,
+                ),
+                children: <Widget>[
+                  Text(
+                    'Answer',
+                    style: textTheme.bodyLarge,
+                  ),
+                ],
+              ),
+            ],
+
+            // iOS Specific //
+            if (Platform.isIOS) ...<Widget>[
+              // Clarity on platform settings
+              ExpansionTile(
+                title: Text(
+                  'What do the settings do?',
+                  style: textTheme.bodyLarge,
+                  textAlign: TextAlign.start,
+                ),
+                children: <Widget>[
+                  Text(
+                    'Answer',
+                    style: textTheme.bodyLarge,
+                  ),
+                ],
+              ),
+
+              // Clarity for platform headache(s)
+              ExpansionTile(
+                title: Text(
+                  'Contact has no number/is private?',
+                  style: textTheme.bodyLarge,
+                  textAlign: TextAlign.start,
+                ),
+                children: <Widget>[
+                  Text(
+                    'Answer',
+                    style: textTheme.bodyLarge,
+                  ),
+                ],
+              ),
+
+              // Clarity on feature disparity
+              ExpansionTile(
+                title: Text(
+                  'My friend has more options?',
+                  style: textTheme.bodyLarge,
+                  textAlign: TextAlign.start,
+                ),
+                children: <Widget>[
+                  Text(
+                    'Answer',
+                    style: textTheme.bodyLarge,
+                  ),
+                ],
+              ),
+            ],
+
+            // Shared II //
+
+            ExpansionTile(
+              title: Text(
+                'Why is X language not included?',
+                style: textTheme.bodyLarge,
+                textAlign: TextAlign.start,
+              ),
+              children: <Widget>[
+                Text(
+                  'Answer',
+                  style: textTheme.bodyLarge,
                 ),
               ],
             ),
