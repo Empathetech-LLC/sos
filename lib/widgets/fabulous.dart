@@ -47,6 +47,7 @@ class HelpFAB extends StatelessWidget {
               style: textTheme.titleLarge,
               textAlign: TextAlign.start,
             ),
+            const EzTranslationsPendingNotice(), // TODO: check visuals/spacing
             ezMargin,
 
             // Shared I //
