@@ -37,27 +37,6 @@ class HelpFAB extends StatelessWidget {
         ),
         builder: (BuildContext modalContext) => EzScrollView(
           children: <Widget>[
-            // Reset tutorial (conditional)
-            if (EzConfig.get(tutorialKey) != true) ...<Widget>[
-              EzElevatedButton(
-                text: 'Reset tutorial',
-                onPressed: () async {
-                  await EzConfig.setBool(tutorialKey, true);
-                  if (modalContext.mounted) {
-                    Navigator.of(modalContext).pop();
-                  }
-                  if (context.mounted) {
-                    ezSnackBar(
-                      context: context,
-                      message: 'The tutorial will replay on next launch',
-                      undo: () => EzConfig.setBool(tutorialKey, false),
-                    );
-                  }
-                },
-              ),
-              ezSpacer,
-            ],
-
             //* Expandable FAQ *//
 
             ExpansionTile(
@@ -158,6 +137,28 @@ class HelpFAB extends StatelessWidget {
                 ),
               ],
             ),
+
+            // Reset tutorial (conditional)
+            if (EzConfig.get(tutorialKey) != true) ...<Widget>[
+              ezSpacer,
+              EzElevatedButton(
+                text: 'Reset tutorial',
+                onPressed: () async {
+                  await EzConfig.setBool(tutorialKey, true);
+                  if (modalContext.mounted) {
+                    Navigator.of(modalContext).pop();
+                  }
+                  if (context.mounted) {
+                    ezSnackBar(
+                      context: context,
+                      message: 'The tutorial will replay on next launch',
+                      undo: () => EzConfig.setBool(tutorialKey, false),
+                    );
+                  }
+                },
+              ),
+              EzSpacer(space: EzConfig.get(spacingKey) * 1.5),
+            ],
           ],
         ),
       ),
