@@ -60,6 +60,7 @@ class HelpFAB extends StatelessWidget {
                 Text(
                   'Answer',
                   style: textTheme.bodyLarge,
+                  textAlign: TextAlign.start,
                 ),
               ],
             ),
@@ -77,6 +78,7 @@ class HelpFAB extends StatelessWidget {
                   Text(
                     'Answer',
                     style: textTheme.bodyLarge,
+                    textAlign: TextAlign.start,
                   ),
                 ],
               ),
@@ -92,6 +94,7 @@ class HelpFAB extends StatelessWidget {
                   Text(
                     'Answer',
                     style: textTheme.bodyLarge,
+                    textAlign: TextAlign.start,
                   ),
                 ],
               ),
@@ -107,6 +110,7 @@ class HelpFAB extends StatelessWidget {
                   Text(
                     'Answer',
                     style: textTheme.bodyLarge,
+                    textAlign: TextAlign.start,
                   ),
                 ],
               ),
@@ -125,6 +129,7 @@ class HelpFAB extends StatelessWidget {
                   Text(
                     'Answer',
                     style: textTheme.bodyLarge,
+                    textAlign: TextAlign.start,
                   ),
                 ],
               ),
@@ -140,6 +145,7 @@ class HelpFAB extends StatelessWidget {
                   Text(
                     'Answer',
                     style: textTheme.bodyLarge,
+                    textAlign: TextAlign.start,
                   ),
                 ],
               ),
@@ -155,6 +161,7 @@ class HelpFAB extends StatelessWidget {
                   Text(
                     'Answer',
                     style: textTheme.bodyLarge,
+                    textAlign: TextAlign.start,
                   ),
                 ],
               ),
@@ -172,6 +179,7 @@ class HelpFAB extends StatelessWidget {
                 Text(
                   'Answer',
                   style: textTheme.bodyLarge,
+                  textAlign: TextAlign.start,
                 ),
               ],
             ),
