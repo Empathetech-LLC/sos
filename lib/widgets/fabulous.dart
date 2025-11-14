@@ -28,6 +28,9 @@ class HelpFAB extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double margin = EzConfig.get(marginKey);
+
+    final EFUILang el10n = ezL10n(context);
     final TextTheme textTheme = Theme.of(context).textTheme;
 
     return FloatingActionButton(
@@ -64,32 +67,55 @@ class HelpFAB extends StatelessWidget {
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
-                Text(
-                  'ACLU Know Your Rights',
+                Padding(
+                  padding: Directionality.of(context) == TextDirection.ltr
+                      ? EdgeInsets.only(left: margin)
+                      : EdgeInsets.only(right: margin),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      EzLink(
+                        'ACLU Know Your Rights',
+                        url: Uri.parse('https://www.aclu.org/know-your-rights'),
+                        hint: el10n.gOpen, // TODO: better?
+                        textAlign: TextAlign.start,
+                      ),
+                      EzLink(
+                        'IMMDEF Resources',
+                        url: Uri.parse('https://www.immdef.org/resources'),
+                        hint: el10n.gOpen,
+                        textAlign: TextAlign.start,
+                      ),
+                      EzLink(
+                        'Dunk the Vote: The Black Book',
+                        url: Uri.parse(
+                            'https://dunkthevote4ever.org/project/the-black-book-know-your-rights/'),
+                        hint: el10n.gOpen,
+                        textAlign: TextAlign.start,
+                      ),
+                    ],
+                  ),
+                ),
+                EzRichText(
+                  <InlineSpan>[
+                    EzPlainText(
+                      text: 'Another useful resource: ',
+                      style: textTheme.bodyLarge,
+                    ),
+                    EzInlineLink(
+                      'How to document ICE',
+                      url: Uri.parse(
+                          'https://lab.witness.org/projects/eyes-on-ice/'),
+                      hint: el10n.gOpen,
+                      style: textTheme.bodyLarge,
+                      textAlign: TextAlign.start,
+                    ),
+                  ],
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
-                Text(
-                  'IMMDEF Resources',
-                  style: textTheme.bodyLarge,
-                  textAlign: TextAlign.start,
-                ),
-                Text(
-                  'Dunk the Vote: The Black Book',
-                  style: textTheme.bodyLarge,
-                  textAlign: TextAlign.start,
-                ),
-                Text(
-                  'Another useful resource:',
-                  style: textTheme.bodyLarge,
-                  textAlign: TextAlign.start,
-                ),
-                Text(
-                  'How to document ICE',
-                  style: textTheme.bodyLarge,
-                  textAlign: TextAlign.start,
-                ),
-              ], // TODO: Update for link(s)
+              ],
             ),
 
             // Android specific //
@@ -148,8 +174,27 @@ class HelpFAB extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
                 children: <Widget>[
+                  EzRichText(
+                    <InlineSpan>[
+                      EzPlainText(
+                        text:
+                            "To improve SOS reliability, please enable 'Allow all the time' in the ",
+                        style: textTheme.bodyLarge,
+                      ),
+                      EzInlineLink(
+                        'location permissions',
+                        hint: el10n.gOpen,
+                      ),
+                      EzPlainText(
+                        text: '.',
+                        style: textTheme.bodyLarge,
+                      ),
+                    ],
+                    style: textTheme.bodyLarge,
+                    textAlign: TextAlign.start,
+                  ),
                   Text(
-                    'Answer', // TODO
+                    'InstaSOS only accesses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.',
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
@@ -273,7 +318,7 @@ class HelpFAB extends StatelessWidget {
           ],
         ),
       ),
-      tooltip: ezL10n(context).gHelp,
+      tooltip: el10n.gHelp,
       child: EzIcon(PlatformIcons(context).help),
     );
   }
