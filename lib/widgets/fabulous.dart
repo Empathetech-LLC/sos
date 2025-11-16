@@ -54,8 +54,11 @@ class HelpFAB extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            const Center(child: EzTranslationsPendingNotice()),
-            // TODO: check visuals/spacing
+            Center(
+                child: EzTranslationsPendingNotice(
+              header: ezMargin,
+              footer: ezMargin,
+            )),
             ezMargin,
 
             // Shared I //
