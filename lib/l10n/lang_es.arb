@@ -89,40 +89,40 @@
 
 
 
-  "faqName": "FAQ",
+  "faqName": "Preguntas Frecuentes",
 
   "faqListQ": "¿Cómo se elaboró la lista de derechos?",
-  "faqListA1": "La lista de derechos se compiló a partir de varias fuentes públicas, entre ellas:",
+  "faqListA1": "La lista de derechos fue recopilada de varias fuentes públicas, incluyendo:",
   "faqListA2": "Otro recurso útil: ",
 
-  "faqSettings": "¿Qué función cumplen los ajustes?",
-  "faqOnOpen": "SOS al abrir: si está activado, se iniciará una alerta SOS inmediatamente al abrir la aplicación. No se recomienda para la mayoría de los usuarios, ya que podría provocar alertas accidentales.",
-  "faqOnInterrupt": "SOS en caso de grabación interrumpida: cuando está habilitada, si una grabación de video está activa e InstaSOS pierde el foco por cualquier motivo (minimización, cambio de aplicaciones, pantalla apagada), se iniciará una transmisión de SOS. Se recomienda habilitar esta opción o \"SOS al cerrar\" (o ambas).",
-  "faqAutoShare": "Compartir contenido multimedia automáticamente: cuando esté habilitada, las opciones nativas para compartir aparecerán tan pronto como finalice un vídeo o se tome una foto.",
-  "faqEMC": "Contactos de emergencia: las personas a las que se enviará tu ubicación mientras esté activa una transmisión de SOS.",
-  "faqLink": "Tipo de enlace: cómo se enviará tu ubicación a tus contactos de emergencia. «Google Maps», «Apple Maps» y «Waze» enviarán un enlace directo al servicio correspondiente. «Coordenadas» enviará tu latitud y longitud como texto sin formato.",
+  "faqSettings": "¿Qué función tienen los ajustes?",
+  "faqOnOpen": "SOS al abrir: cuando está activado, se iniciará una transmisión de SOS inmediatamente al abrir la aplicación. No se recomienda para la mayoría de los usuarios, ya que podría causar transmisiones accidentales.",
+  "faqOnInterrupt": "SOS al interrumpir grabación: cuando está activado, si hay una grabación de video activa e InstaSOS pasa a segundo plano por cualquier motivo (minimizada, cambio de aplicación, pantalla apagada), se iniciará una transmisión de SOS.\nSe recomienda activar esta opción o \"SOS al cerrar\" (o ambas).",
+  "faqAutoShare": "Compartir medios automáticamente: cuando está activado, las opciones nativas para compartir aparecerán tan pronto como finalice un video o se tome una foto.",
+  "faqEMC": "Contactos de emergencia: las personas a las que se enviará tu ubicación mientras una transmisión de SOS esté activa.",
+  "faqLink": "Tipo de enlace: cómo se entregará tu ubicación a tus contactos de emergencia. \"Google Maps\", \"Apple Maps\" y \"Waze\" enviarán un enlace en el que se puede hacer clic para el servicio correspondiente. \"Coordenadas\" enviará tu latitud y longitud como texto sin formato.",
 
-  "faqUnavailable": "SOS dice \"Ubicación no disponible\".",
-  "faqReliability": "Para mejorar la fiabilidad del SOS, habilite \"Permitir siempre\" en los ",
+  "faqUnavailable": "¿El SOS dice \"Ubicación no disponible\"?",
+  "faqReliability": "Para mejorar la fiabilidad del SOS, por favor activa \"Permitir todo el tiempo\" en los ",
   "faqLocationPermissions": "permisos de ubicación",
-  "faqLocationTrust": "La aplicación solo utiliza tu ubicación mientras una alerta SOS está activa. Ni InstaSOS ni Empathetech LLC rastrean, almacenan ni venden datos de usuario.",
+  "faqLocationTrust": "La aplicación solo usa tu ubicación mientras hay una transmisión de SOS activa. Ni InstaSOS ni Empathetech LLC rastrean, almacenan o venden datos de usuarios.",
 
   "faqPrivateContact": "¿El contacto es privado o no tiene número de teléfono?",
-  "faqContactPermissions": "Si recibe este mensaje al agregar un contacto de emergencia, InstaSOS no tiene permiso para acceder a ese contacto.",
-  "faqUpdateContacts": "Puedes actualizar los permisos de contacto en la ",
-  "faqOSSettings": "configuración de iOS",
+  "faqContactPermissions": "Si recibes este mensaje al añadir un contacto de emergencia, InstaSOS no tiene permiso para acceder a ese contacto.",
+  "faqUpdateContacts": "Puedes actualizar los permisos de contactos en los ",
+  "faqOSSettings": "ajustes de iOS",
 
   "faqMissing": "¿Por qué faltan algunas funciones de Android?",
-  "faqRestricted": "Las funciones que faltan requieren la automatización de SMS, y Apple no permite a los desarrolladores automatizar los mensajes de texto (sin un servicio de pago).",
-  "faqShortcuts": "¿Qué ocurre con los atajos de iOS?\nTambién existen restricciones para acceder a los atajos de usuario, lo que afectaría a funciones cruciales. Principalmente: interrumpiría las grabaciones de vídeo.",
+  "faqRestricted": "Las funciones que faltan requieren automatización de SMS, y Apple no permite a los desarrolladores automatizar mensajes de texto (sin un servicio de pago).",
+  "faqShortcuts": "¿Qué hay de los atajos de iOS?\nTambién existen restricciones para acceder a los atajos del usuario, lo que rompería funciones cruciales. Principalmente: interrumpiría las grabaciones de video.",
 
   "faqLanguages": "¿Por qué no está disponible el idioma X?",
-  "faqResponsible": "Sería irresponsable utilizar la traducción automática para la lista de derechos. Considere la posibilidad ",
-  "faqContributing": "de contribuir",
-  "faqExpand": " para ayudar a ampliar las opciones de idiomas.",
+  "faqResponsible": "Sería irresponsable usar traducción automática para la lista de derechos. Por favor considera ",
+  "faqContributing": "contribuir",
+  "faqExpand": " para ayudar a expandir las opciones de idioma.",
 
-  "faqReset": "Tutorial de reinicio",
-  "faqResetSnack": "El tutorial se reproducirá en el próximo lanzamiento.",
+  "faqReset": "Restablecer tutorial",
+  "faqResetSnack": "El tutorial se reproducirá de nuevo en el próximo inicio.",
 
 
 
