@@ -205,6 +205,87 @@ class LangZh extends Lang {
   String get ssAppearance => '界面外观';
 
   @override
+  String get faqName => '';
+
+  @override
+  String get faqListQ => '';
+
+  @override
+  String get faqListA1 => '';
+
+  @override
+  String get faqListA2 => '';
+
+  @override
+  String get faqSettings => '';
+
+  @override
+  String get faqOnOpen => '';
+
+  @override
+  String get faqOnInterrupt => '';
+
+  @override
+  String get faqAutoShare => '';
+
+  @override
+  String get faqEMC => '';
+
+  @override
+  String get faqLink => '';
+
+  @override
+  String get faqUnavailable => '';
+
+  @override
+  String get faqReliability => '';
+
+  @override
+  String get faqLocationPermissions => '';
+
+  @override
+  String get faqLocationTrust => '';
+
+  @override
+  String get faqPrivateContact => '';
+
+  @override
+  String get faqContactPermissions => '';
+
+  @override
+  String get faqUpdateContacts => '';
+
+  @override
+  String get faqOSSettings => '';
+
+  @override
+  String get faqMissing => '';
+
+  @override
+  String get faqRestricted => '';
+
+  @override
+  String get faqShortcuts => '';
+
+  @override
+  String get faqLanguages => '';
+
+  @override
+  String get faqResponsible => '';
+
+  @override
+  String get faqContributing => '';
+
+  @override
+  String get faqExpand => '';
+
+  @override
+  String get faqReset => '';
+
+  @override
+  String get faqResetSnack => '';
+
+  @override
   String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';
 }
 
@@ -407,6 +488,87 @@ class LangZhCn extends LangZh {
 
   @override
   String get ssAppearance => '界面外观';
+
+  @override
+  String get faqName => '';
+
+  @override
+  String get faqListQ => '';
+
+  @override
+  String get faqListA1 => '';
+
+  @override
+  String get faqListA2 => '';
+
+  @override
+  String get faqSettings => '';
+
+  @override
+  String get faqOnOpen => '';
+
+  @override
+  String get faqOnInterrupt => '';
+
+  @override
+  String get faqAutoShare => '';
+
+  @override
+  String get faqEMC => '';
+
+  @override
+  String get faqLink => '';
+
+  @override
+  String get faqUnavailable => '';
+
+  @override
+  String get faqReliability => '';
+
+  @override
+  String get faqLocationPermissions => '';
+
+  @override
+  String get faqLocationTrust => '';
+
+  @override
+  String get faqPrivateContact => '';
+
+  @override
+  String get faqContactPermissions => '';
+
+  @override
+  String get faqUpdateContacts => '';
+
+  @override
+  String get faqOSSettings => '';
+
+  @override
+  String get faqMissing => '';
+
+  @override
+  String get faqRestricted => '';
+
+  @override
+  String get faqShortcuts => '';
+
+  @override
+  String get faqLanguages => '';
+
+  @override
+  String get faqResponsible => '';
+
+  @override
+  String get faqContributing => '';
+
+  @override
+  String get faqExpand => '';
+
+  @override
+  String get faqReset => '';
+
+  @override
+  String get faqResetSnack => '';
 
   @override
   String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';

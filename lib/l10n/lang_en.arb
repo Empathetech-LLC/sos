@@ -76,7 +76,7 @@
   
   "ssSOSOnOpen": "SOS on open",
   "ssSOSOnClose": "SOS on close",
-  "ssSOSOnCloseHint": "When enabled, a safe close button will be shown opposite the settings.",
+  "ssSOSOnCloseHint": "When enabled, a safe close (thumbs up) button will be appear on the home page, opposite the settings. If InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.",
   "ssVideoSOS": "SOS on interrupted recording",
   "ssAutoShare": "Auto-share media",
 
@@ -87,6 +87,43 @@
 
   "ssAppearance": "Appearance",
 
+
+
+  "faqName": "FAQ",
+
+  "faqListQ": "How was the rights list made?",
+  "faqListA1": "The rights list was compiled from several public sources, including:",
+  "faqListA2": "Another useful resource: ",
+
+  "faqSettings": "What do the settings do?",
+  "faqOnOpen": "SOS on open: when enabled, an SOS broadcast will begin immediately upon app launch. Not recommended for most users, as it could lead to accidental broadcasts.",
+  "faqOnInterrupt": "SOS on interrupted recording: when enabled, if a video recording is active and InstaSOS loses focus for any reason (minimized, switched apps, screen off), an SOS broadcast will begin.\nIt is recommended to enable either this or \"SOS on close\" (or both).",
+  "faqAutoShare": "Auto-share media: when enabled, the native share options will appear as soon as a video completes or a photo is taken.",
+  "faqEMC": "Emergency contacts: the people that will be sent your location while an SOS broadcast is active.",
+  "faqLink": "Link type: how your location will be delivered to your emergency contacts. \"Google Maps\", \"Apple Maps\", and \"Waze\" will send a clickable link for the corresponding service. \"Coordinates\" will send your latitude and longitude as plain text.",
+
+  "faqUnavailable": "SOS says \"Location unavailable\"?",
+  "faqReliability": "To improve SOS reliability, please enable \"Allow all the time\" in the ",
+  "faqLocationPermissions": "location permissions",
+  "faqLocationTrust": "The app only uses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.",
+
+  "faqPrivateContact": "The contact is private or does not have a phone number?",
+  "faqContactPermissions": "If you get this message when adding an emergency contact, InstaSOS does not have permission to access that contact.",
+  "faqUpdateContacts": "You can update contact permissions in the ",
+  "faqOSSettings": "iOS settings",
+
+  "faqMissing": "Why are some Android features missing?",
+  "faqRestricted": "The missing features require SMS automation, and Apple does not allow developers to automate text messages (without a paid service).",
+  "faqShortcuts": "What about iOS shortcuts?\nThere are also restrictions on accessing user shortcuts, which would break crucial features. Primarily: it would interrupt video recordings.",
+
+  "faqLanguages": "Why is X language not available?",
+  "faqResponsible": "It would be irresponsible to use machine translation for the rights list. Please consider ",
+  "faqContributing": "contributing",
+  "faqExpand": " to help expand the language options.",
+
+  "faqReset": "Reset tutorial",
+  "faqResetSnack": "The tutorial will replay on next launch.",
+  
   
 
   "dsLadyLiberty": "A picture of the Statue of Liberty, with a preview of the rights list."

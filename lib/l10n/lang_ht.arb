@@ -89,5 +89,42 @@
 
 
 
+  "faqName": "",
+
+  "faqListQ": "",
+  "faqListA1": "",
+  "faqListA2": "",
+
+  "faqSettings": "",
+  "faqOnOpen": "",
+  "faqOnInterrupt": "",
+  "faqAutoShare": "",
+  "faqEMC": "",
+  "faqLink": "",
+
+  "faqUnavailable": "",
+  "faqReliability": "",
+  "faqLocationPermissions": "",
+  "faqLocationTrust": "",
+
+  "faqPrivateContact": "",
+  "faqContactPermissions": "",
+  "faqUpdateContacts": "",
+  "faqOSSettings": "",
+
+  "faqMissing": "",
+  "faqRestricted": "",
+  "faqShortcuts": "",
+
+  "faqLanguages": "",
+  "faqResponsible": "",
+  "faqContributing": "",
+  "faqExpand": "",
+
+  "faqReset": "",
+  "faqResetSnack": "",
+
+
+
   "dsLadyLiberty": "Yon foto Estati Libète a, avèk yon aperçu sou lis dwa yo."
 }

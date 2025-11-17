@@ -89,5 +89,42 @@
 
 
 
+  "faqName": "",
+
+  "faqListQ": "",
+  "faqListA1": "",
+  "faqListA2": "",
+
+  "faqSettings": "",
+  "faqOnOpen": "",
+  "faqOnInterrupt": "",
+  "faqAutoShare": "",
+  "faqEMC": "",
+  "faqLink": "",
+
+  "faqUnavailable": "",
+  "faqReliability": "",
+  "faqLocationPermissions": "",
+  "faqLocationTrust": "",
+
+  "faqPrivateContact": "",
+  "faqContactPermissions": "",
+  "faqUpdateContacts": "",
+  "faqOSSettings": "",
+
+  "faqMissing": "",
+  "faqRestricted": "",
+  "faqShortcuts": "",
+
+  "faqLanguages": "",
+  "faqResponsible": "",
+  "faqContributing": "",
+  "faqExpand": "",
+
+  "faqReset": "",
+  "faqResetSnack": "",
+
+
+
   "dsLadyLiberty": "Une photo de la Statue de la Liberté, avec un aperçu de la liste des droits."
 }

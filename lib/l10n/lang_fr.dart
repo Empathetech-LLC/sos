@@ -223,6 +223,87 @@ class LangFr extends Lang {
   String get ssAppearance => 'Apparence';
 
   @override
+  String get faqName => '';
+
+  @override
+  String get faqListQ => '';
+
+  @override
+  String get faqListA1 => '';
+
+  @override
+  String get faqListA2 => '';
+
+  @override
+  String get faqSettings => '';
+
+  @override
+  String get faqOnOpen => '';
+
+  @override
+  String get faqOnInterrupt => '';
+
+  @override
+  String get faqAutoShare => '';
+
+  @override
+  String get faqEMC => '';
+
+  @override
+  String get faqLink => '';
+
+  @override
+  String get faqUnavailable => '';
+
+  @override
+  String get faqReliability => '';
+
+  @override
+  String get faqLocationPermissions => '';
+
+  @override
+  String get faqLocationTrust => '';
+
+  @override
+  String get faqPrivateContact => '';
+
+  @override
+  String get faqContactPermissions => '';
+
+  @override
+  String get faqUpdateContacts => '';
+
+  @override
+  String get faqOSSettings => '';
+
+  @override
+  String get faqMissing => '';
+
+  @override
+  String get faqRestricted => '';
+
+  @override
+  String get faqShortcuts => '';
+
+  @override
+  String get faqLanguages => '';
+
+  @override
+  String get faqResponsible => '';
+
+  @override
+  String get faqContributing => '';
+
+  @override
+  String get faqExpand => '';
+
+  @override
+  String get faqReset => '';
+
+  @override
+  String get faqResetSnack => '';
+
+  @override
   String get dsLadyLiberty =>
       'Une photo de la Statue de la Liberté, avec un aperçu de la liste des droits.';
 }
