@@ -11,7 +11,8 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-// TODO: l10n
+// ignore_for_file: constant_identifier_names
+
 // TODO: make sure SOS on close doesn't activate for links
 
 const Widget updater = EzUpdaterFAB(
@@ -23,6 +24,13 @@ const Widget updater = EzUpdaterFAB(
   github: 'https://github.com/Empathetech-LLC/sos/releases',
 );
 
+const String _ACLU = 'https://www.aclu.org/know-your-rights';
+const String _IMMDEF = 'https://www.immdef.org/resources';
+const String _dunk =
+    'https://dunkthevote4ever.org/project/the-black-book-know-your-rights/';
+const String _howTo = 'https://lab.witness.org/projects/eyes-on-ice/';
+const String _contributeLink = 'https://www.empathetech.net/#/contribute';
+
 class HelpFAB extends StatelessWidget {
   /// Opens an [ezModal] with an FAQ and a button for resetting to tutorial(s)
   const HelpFAB({super.key});
@@ -32,6 +40,8 @@ class HelpFAB extends StatelessWidget {
     final double margin = EzConfig.get(marginKey);
 
     final EFUILang el10n = ezL10n(context);
+    final Lang l10n = Lang.of(context)!;
+
     final TextTheme textTheme = Theme.of(context).textTheme;
 
     return FloatingActionButton(
@@ -49,52 +59,52 @@ class HelpFAB extends StatelessWidget {
 
             Center(
               child: Text(
-                'FAQ',
+                l10n.faqName,
                 style: textTheme.titleLarge,
                 textAlign: TextAlign.center,
               ),
             ),
             Center(
-                child: EzTranslationsPendingNotice(
-              header: ezMargin,
-              footer: ezMargin,
-            )),
+              child: EzTranslationsPendingNotice(
+                header: ezMargin,
+                footer: ezMargin,
+              ),
+            ),
             ezMargin,
 
             // Shared I //
 
             ExpansionTile(
               title: Text(
-                'How was the rights list made?',
+                l10n.faqListQ,
                 style: textTheme.bodyLarge,
                 textAlign: TextAlign.start,
               ),
               expandedCrossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'The rights list was compiled from several public sources, including:',
+                  l10n.faqListA1,
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
                 EzLink(
                   'ACLU Know Your Rights',
-                  url: Uri.parse('https://www.aclu.org/know-your-rights'),
-                  hint: el10n.gOpen, // TODO: better?
+                  url: Uri.parse(_ACLU),
+                  hint: el10n.gOpenLink,
                   textAlign: TextAlign.start,
                   padding: EdgeInsets.only(left: margin),
                 ),
                 EzLink(
                   'IMMDEF Resources',
-                  url: Uri.parse('https://www.immdef.org/resources'),
-                  hint: el10n.gOpen,
+                  url: Uri.parse(_IMMDEF),
+                  hint: el10n.gOpenLink,
                   textAlign: TextAlign.start,
                   padding: EdgeInsets.only(left: margin),
                 ),
                 EzLink(
                   'Dunk the Vote: The Black Book',
-                  url: Uri.parse(
-                      'https://dunkthevote4ever.org/project/the-black-book-know-your-rights/'),
-                  hint: el10n.gOpen,
+                  url: Uri.parse(_dunk),
+                  hint: el10n.gOpenLink,
                   textAlign: TextAlign.start,
                   padding: EdgeInsets.only(left: margin),
                 ),
@@ -102,14 +112,13 @@ class HelpFAB extends StatelessWidget {
                 EzRichText(
                   <InlineSpan>[
                     EzPlainText(
-                      text: 'Another useful resource: ',
+                      text: l10n.faqListA2,
                       style: textTheme.bodyLarge,
                     ),
                     EzInlineLink(
                       'How to document ICE',
-                      url: Uri.parse(
-                          'https://lab.witness.org/projects/eyes-on-ice/'),
-                      hint: el10n.gOpen,
+                      url: Uri.parse(_howTo),
+                      hint: el10n.gOpenLink,
                       style: textTheme.bodyLarge,
                       textAlign: TextAlign.start,
                     ),
@@ -126,44 +135,44 @@ class HelpFAB extends StatelessWidget {
               // Clarity on platform settings
               ExpansionTile(
                 title: Text(
-                  'What do the settings do?',
+                  l10n.faqSettings,
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'SOS on open: when enabled, an SOS broadcast will being immediately on app launch. Not recommended for most users, as it could lead to accidental broadcasts.',
+                    l10n.faqOnOpen,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
-                    'SOS on close: when enabled, a safe close (thumbs up) button will appear on the home page, opposite the settings. If InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.',
-                    style: textTheme.bodyLarge,
-                    textAlign: TextAlign.start,
-                  ), // TODO: use the pre-existing l10n, with the new ending
-                  ezStartLine,
-                  Text(
-                    'SOS on interrupted recording: when enabled, if a video recording is active and InstaSOS loses focus for any reason (minimized, switched apps, screen off), an SOS broadcast will begin.\nIt is recommended to enable either this or "SOS on close" (or both).',
+                    '${l10n.ssSOSOnClose}: ${l10n.ssSOSOnCloseHint}',
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
-                    'Auto-share media: when enabled, the native share options will appear as soon as a video completes or a photo is taken.',
+                    l10n.faqOnInterrupt,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
-                    'Emergency contacts: the people that will be sent your location while an SOS broadcast is active.',
+                    l10n.faqAutoShare,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
-                    'Link type: how your location will be delivered to your emergency contacts. "Google Maps", "Apple Maps", and "Waze" will send a clickable link for the corresponding service. "Coordinates" will send your latitude and longitude as plain text.',
+                    l10n.faqEMC,
+                    style: textTheme.bodyLarge,
+                    textAlign: TextAlign.start,
+                  ),
+                  ezStartLine,
+                  Text(
+                    l10n.faqLink,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
@@ -173,7 +182,7 @@ class HelpFAB extends StatelessWidget {
               // Clarity for platform headache(s)
               ExpansionTile(
                 title: Text(
-                  'SOS says "Location unavailable"?',
+                  l10n.faqUnavailable,
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
@@ -182,14 +191,13 @@ class HelpFAB extends StatelessWidget {
                   EzRichText(
                     <InlineSpan>[
                       EzPlainText(
-                        text:
-                            'To improve SOS reliability, please enable "Allow all the time" in the ',
+                        text: l10n.faqReliability,
                         style: textTheme.bodyLarge,
                       ),
                       EzInlineLink(
-                        'location permissions',
+                        l10n.faqLocationPermissions,
                         onTap: openAppSettings,
-                        hint: el10n.gOpen,
+                        hint: el10n.gOpenLink,
                       ),
                       EzPlainText(
                         text: '.',
@@ -202,7 +210,7 @@ class HelpFAB extends StatelessWidget {
                   ),
                   ezStartLine,
                   Text(
-                    'The app only uses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.',
+                    l10n.faqLocationTrust,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
@@ -215,32 +223,32 @@ class HelpFAB extends StatelessWidget {
               // Clarity on platform settings
               ExpansionTile(
                 title: Text(
-                  'What do the settings do?',
+                  l10n.faqSettings,
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'SOS on open: when enabled, an SOS broadcast will being immediately on app launch. Not recommended for most users, as it could lead to accidental broadcasts.',
+                    l10n.faqOnOpen,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
-                    'Auto-share media: when enabled, the native share options will appear as soon as a video completes or a photo is taken.',
+                    l10n.faqAutoShare,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
-                    'Emergency contacts: the people that will be sent your location while an SOS broadcast is active.',
+                    l10n.faqEMC,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
-                    "Link type: how your location will be delivered to your emergency contacts. 'Google Maps', 'Apple Maps', and 'Waze' will send a clickable link for the corresponding service. 'Coordinates' will send your latitude and longitude as plain text.",
+                    l10n.faqLink,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
@@ -250,37 +258,58 @@ class HelpFAB extends StatelessWidget {
               // Clarity for platform headache(s)
               ExpansionTile(
                 title: Text(
-                  'The contact is private or does not have a phone number?',
+                  l10n.faqPrivateContact,
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'If you are (unexpectedly) seeing this message when adding an emergency contact, it is likely InstaSOS does not have permission to access that contact.',
+                    l10n.faqContactPermissions,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
-                  ), // TODO: Update for link(s)
+                  ),
+                  ezStartLine,
+                  EzRichText(
+                    <InlineSpan>[
+                      EzPlainText(
+                        text: l10n.faqUpdateContacts,
+                        style: textTheme.bodyLarge,
+                      ),
+                      EzInlineLink(
+                        l10n.faqOSSettings,
+                        onTap: openAppSettings,
+                        hint: el10n.gOpenLink,
+                      ),
+                      EzPlainText(
+                        text: '.',
+                        style: textTheme.bodyLarge,
+                      )
+                    ],
+                    textBackground: false,
+                    style: textTheme.bodyLarge,
+                    textAlign: TextAlign.start,
+                  )
                 ],
               ),
 
               // Clarity on feature disparity
               ExpansionTile(
                 title: Text(
-                  'Why are some Android features missing?',
+                  l10n.faqMissing,
                   style: textTheme.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'The missing features require SMS automation, and Apple does not allow developers to automate text messages (without a paid service).',
+                    l10n.faqRestricted,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
-                    'What about iOS shortcuts?\nThere are also restrictions on accessing user shortcuts, which would break crucial features. Chiefly: it would interrupt video recordings.',
+                    l10n.faqShortcuts,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
@@ -292,7 +321,7 @@ class HelpFAB extends StatelessWidget {
 
             ExpansionTile(
               title: Text(
-                'Why is X language not available?',
+                l10n.faqLanguages,
                 style: textTheme.bodyLarge,
                 textAlign: TextAlign.start,
               ),
@@ -301,18 +330,16 @@ class HelpFAB extends StatelessWidget {
                 EzRichText(
                   <InlineSpan>[
                     EzPlainText(
-                      text:
-                          'It would be irresponsible to use machine translation for the rights list. Please consider ',
+                      text: l10n.faqResponsible,
                       style: textTheme.bodyLarge,
                     ),
                     EzInlineLink(
-                      'contributing',
-                      url:
-                          Uri.parse('https://www.empathetech.net/#/contribute'),
-                      hint: el10n.gOpen,
+                      l10n.faqContributing,
+                      url: Uri.parse(_contributeLink),
+                      hint: el10n.gOpenLink,
                     ),
                     EzPlainText(
-                      text: ' to help expand the language options.',
+                      text: l10n.faqExpand,
                       style: textTheme.bodyLarge,
                     ),
                   ],
@@ -328,7 +355,7 @@ class HelpFAB extends StatelessWidget {
               ezSpacer,
               Center(
                 child: EzElevatedButton(
-                  text: 'Reset tutorial',
+                  text: l10n.faqReset,
                   onPressed: () async {
                     await EzConfig.setBool(tutorialKey, true);
                     if (modalContext.mounted) {
@@ -337,7 +364,7 @@ class HelpFAB extends StatelessWidget {
                     if (context.mounted) {
                       ezSnackBar(
                         context: context,
-                        message: 'The tutorial will replay on next launch',
+                        message: l10n.faqResetSnack,
                         undo: () => EzConfig.setBool(tutorialKey, false),
                       );
                     }
