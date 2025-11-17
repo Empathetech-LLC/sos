@@ -205,85 +205,90 @@ class LangZh extends Lang {
   String get ssAppearance => '界面外观';
 
   @override
-  String get faqName => '';
+  String get faqName => '常见问题';
 
   @override
-  String get faqListQ => '';
+  String get faqListQ => '权利列表是如何制定的？';
 
   @override
-  String get faqListA1 => '';
+  String get faqListA1 => '权利列表汇编自多个公共来源，包括：';
 
   @override
-  String get faqListA2 => '';
+  String get faqListA2 => '另一个有用的资源：';
 
   @override
-  String get faqSettings => '';
+  String get faqSettings => '这些设置有什么作用？';
 
   @override
-  String get faqOnOpen => '';
+  String get faqOnOpen =>
+      '启动时触发 SOS：启用后，应用程序启动时将立即开始 SOS 广播。不建议大多数用户使用，因为这可能导致意外误发。';
 
   @override
-  String get faqOnInterrupt => '';
+  String get faqOnInterrupt =>
+      '录制中断时触发 SOS：启用后，如果正在录制视频且 InstaSOS 因任何原因（最小化、切换应用、屏幕关闭）失去焦点，将开始 SOS 广播。\n建议启用此选项或“关闭时触发 SOS”（或两者都启用）。';
 
   @override
-  String get faqAutoShare => '';
+  String get faqAutoShare => '自动分享媒体：启用后，一旦视频完成或拍下照片，将立即出现系统原生分享选项。';
 
   @override
-  String get faqEMC => '';
+  String get faqEMC => '紧急联系人：当 SOS 广播激活时，将接收您位置信息的人员。';
 
   @override
-  String get faqLink => '';
+  String get faqLink =>
+      '链接类型：您的位置将如何发送给紧急联系人。“Google Maps”、“Apple Maps”和“Waze”将发送相应服务的可点击链接。“Coordinates”将以纯文本形式发送您的经纬度。';
 
   @override
-  String get faqUnavailable => '';
+  String get faqUnavailable => 'SOS 显示“无法获取位置”？';
 
   @override
-  String get faqReliability => '';
+  String get faqReliability => '为了提高 SOS 的可靠性，请务必在';
 
   @override
-  String get faqLocationPermissions => '';
+  String get faqLocationPermissions => '位置权限设置中选择“始终允许”';
 
   @override
-  String get faqLocationTrust => '';
+  String get faqLocationTrust =>
+      '本应用仅在 SOS 广播激活时使用您的位置。InstaSOS 和 Empathetech LLC 均不会跟踪、存储或出售用户数据。';
 
   @override
-  String get faqPrivateContact => '';
+  String get faqPrivateContact => '联系人是私密的或没有电话号码？';
 
   @override
-  String get faqContactPermissions => '';
+  String get faqContactPermissions =>
+      '如果您在添加紧急联系人时收到此消息，说明 InstaSOS 没有权限访问该联系人。';
 
   @override
-  String get faqUpdateContacts => '';
+  String get faqUpdateContacts => '您可以更新联系人权限，请前往';
 
   @override
-  String get faqOSSettings => '';
+  String get faqOSSettings => 'iOS 设置';
 
   @override
-  String get faqMissing => '';
+  String get faqMissing => '为什么缺少某些 Android 功能？';
 
   @override
-  String get faqRestricted => '';
+  String get faqRestricted => '缺失的功能需要短信自动化，而 Apple 不允许开发者自动发送短信（除非使用付费服务）。';
 
   @override
-  String get faqShortcuts => '';
+  String get faqShortcuts => 'iOS 快捷指令呢？\n访问用户快捷指令也受到限制，这会破坏关键功能。主要是：它会中断视频录制。';
 
   @override
-  String get faqLanguages => '';
+  String get faqLanguages => '为什么不支持 X 语言？';
 
   @override
-  String get faqResponsible => '';
+  String get faqResponsible => '对权利列表使用机器翻译是不负责任的。请考虑';
 
   @override
-  String get faqContributing => '';
+  String get faqContributing => '贡献翻译';
 
   @override
-  String get faqExpand => '';
+  String get faqExpand => '以帮助扩展语言选项。';
 
   @override
-  String get faqReset => '';
+  String get faqReset => '重置教程';
 
   @override
-  String get faqResetSnack => '';
+  String get faqResetSnack => '教程将在下次启动时重播。';
 
   @override
   String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';
@@ -490,85 +495,90 @@ class LangZhCn extends LangZh {
   String get ssAppearance => '界面外观';
 
   @override
-  String get faqName => '';
+  String get faqName => '常见问题';
 
   @override
-  String get faqListQ => '';
+  String get faqListQ => '权利列表是如何制定的？';
 
   @override
-  String get faqListA1 => '';
+  String get faqListA1 => '权利列表汇编自多个公共来源，包括：';
 
   @override
-  String get faqListA2 => '';
+  String get faqListA2 => '另一个有用的资源：';
 
   @override
-  String get faqSettings => '';
+  String get faqSettings => '这些设置有什么作用？';
 
   @override
-  String get faqOnOpen => '';
+  String get faqOnOpen =>
+      '启动时触发 SOS：启用后，应用程序启动时将立即开始 SOS 广播。不建议大多数用户使用，因为这可能导致意外误发。';
 
   @override
-  String get faqOnInterrupt => '';
+  String get faqOnInterrupt =>
+      '录制中断时触发 SOS：启用后，如果正在录制视频且 InstaSOS 因任何原因（最小化、切换应用、屏幕关闭）失去焦点，将开始 SOS 广播。\n建议启用此选项或“关闭时触发 SOS”（或两者都启用）。';
 
   @override
-  String get faqAutoShare => '';
+  String get faqAutoShare => '自动分享媒体：启用后，一旦视频完成或拍下照片，将立即出现系统原生分享选项。';
 
   @override
-  String get faqEMC => '';
+  String get faqEMC => '紧急联系人：当 SOS 广播激活时，将接收您位置信息的人员。';
 
   @override
-  String get faqLink => '';
+  String get faqLink =>
+      '链接类型：您的位置将如何发送给紧急联系人。“Google Maps”、“Apple Maps”和“Waze”将发送相应服务的可点击链接。“Coordinates”将以纯文本形式发送您的经纬度。';
 
   @override
-  String get faqUnavailable => '';
+  String get faqUnavailable => 'SOS 显示“无法获取位置”？';
 
   @override
-  String get faqReliability => '';
+  String get faqReliability => '为了提高 SOS 的可靠性，请务必在';
 
   @override
-  String get faqLocationPermissions => '';
+  String get faqLocationPermissions => '位置权限设置中选择“始终允许”';
 
   @override
-  String get faqLocationTrust => '';
+  String get faqLocationTrust =>
+      '本应用仅在 SOS 广播激活时使用您的位置。InstaSOS 和 Empathetech LLC 均不会跟踪、存储或出售用户数据。';
 
   @override
-  String get faqPrivateContact => '';
+  String get faqPrivateContact => '联系人是私密的或没有电话号码？';
 
   @override
-  String get faqContactPermissions => '';
+  String get faqContactPermissions =>
+      '如果您在添加紧急联系人时收到此消息，说明 InstaSOS 没有权限访问该联系人。';
 
   @override
-  String get faqUpdateContacts => '';
+  String get faqUpdateContacts => '您可以更新联系人权限，请前往';
 
   @override
-  String get faqOSSettings => '';
+  String get faqOSSettings => 'iOS 设置';
 
   @override
-  String get faqMissing => '';
+  String get faqMissing => '为什么缺少某些 Android 功能？';
 
   @override
-  String get faqRestricted => '';
+  String get faqRestricted => '缺失的功能需要短信自动化，而 Apple 不允许开发者自动发送短信（除非使用付费服务）。';
 
   @override
-  String get faqShortcuts => '';
+  String get faqShortcuts => 'iOS 快捷指令呢？\n访问用户快捷指令也受到限制，这会破坏关键功能。主要是：它会中断视频录制。';
 
   @override
-  String get faqLanguages => '';
+  String get faqLanguages => '为什么不支持 X 语言？';
 
   @override
-  String get faqResponsible => '';
+  String get faqResponsible => '对权利列表使用机器翻译是不负责任的。请考虑';
 
   @override
-  String get faqContributing => '';
+  String get faqContributing => '贡献翻译';
 
   @override
-  String get faqExpand => '';
+  String get faqExpand => '以帮助扩展语言选项。';
 
   @override
-  String get faqReset => '';
+  String get faqReset => '重置教程';
 
   @override
-  String get faqResetSnack => '';
+  String get faqResetSnack => '教程将在下次启动时重播。';
 
   @override
   String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';

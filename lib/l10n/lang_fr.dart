@@ -223,85 +223,101 @@ class LangFr extends Lang {
   String get ssAppearance => 'Apparence';
 
   @override
-  String get faqName => '';
+  String get faqName => 'FAQ';
 
   @override
-  String get faqListQ => '';
+  String get faqListQ => 'Comment la liste des droits a-t-elle été établie ?';
 
   @override
-  String get faqListA1 => '';
+  String get faqListA1 =>
+      'La liste des droits a été compilée à partir de plusieurs sources publiques, notamment :';
 
   @override
-  String get faqListA2 => '';
+  String get faqListA2 => 'Une autre ressource utile : ';
 
   @override
-  String get faqSettings => '';
+  String get faqSettings => 'À quoi servent les paramètres ?';
 
   @override
-  String get faqOnOpen => '';
+  String get faqOnOpen =>
+      'SOS à l\'ouverture : lorsqu\'activé, un signal SOS commencera immédiatement au lancement de l\'application. Non recommandé pour la plupart des utilisateurs, car cela pourrait entraîner des alertes accidentelles.';
 
   @override
-  String get faqOnInterrupt => '';
+  String get faqOnInterrupt =>
+      'SOS en cas d\'interruption : lorsqu\'activé, si un enregistrement vidéo est en cours et qu\'InstaSOS passe en arrière-plan (minimisée, changement d\'application, écran éteint), un signal SOS commencera.\nIl est recommandé d\'activer cette option ou « SOS à la fermeture » (ou les deux).';
 
   @override
-  String get faqAutoShare => '';
+  String get faqAutoShare =>
+      'Partage automatique : lorsqu\'activé, les options de partage natives apparaîtront dès qu\'une vidéo se termine ou qu\'une photo est prise.';
 
   @override
-  String get faqEMC => '';
+  String get faqEMC =>
+      'Contacts d\'urgence : les personnes qui recevront votre localisation pendant qu\'un signal SOS est actif.';
 
   @override
-  String get faqLink => '';
+  String get faqLink =>
+      'Type de lien : la manière dont votre localisation sera transmise à vos contacts d\'urgence. « Google Maps », « Apple Maps » et « Waze » enverront un lien cliquable pour le service correspondant. « Coordonnées » enverra votre latitude et longitude sous forme de texte brut.';
 
   @override
-  String get faqUnavailable => '';
+  String get faqUnavailable => 'Le SOS indique « Localisation indisponible » ?';
 
   @override
-  String get faqReliability => '';
+  String get faqReliability =>
+      'Pour améliorer la fiabilité du SOS, veuillez activer « Toujours autoriser » dans les ';
 
   @override
-  String get faqLocationPermissions => '';
+  String get faqLocationPermissions => 'autorisations de localisation';
 
   @override
-  String get faqLocationTrust => '';
+  String get faqLocationTrust =>
+      'L\'application utilise votre localisation uniquement lorsqu\'un signal SOS est actif. Ni InstaSOS ni Empathetech LLC ne suivent, ne stockent ou ne vendent les données des utilisateurs.';
 
   @override
-  String get faqPrivateContact => '';
+  String get faqPrivateContact =>
+      'Le contact est privé ou n\'a pas de numéro de téléphone ?';
 
   @override
-  String get faqContactPermissions => '';
+  String get faqContactPermissions =>
+      'Si vous recevez ce message lors de l\'ajout d\'un contact d\'urgence, InstaSOS n\'a pas la permission d\'accéder à ce contact.';
 
   @override
-  String get faqUpdateContacts => '';
+  String get faqUpdateContacts =>
+      'Vous pouvez mettre à jour les permissions de contacts dans les ';
 
   @override
-  String get faqOSSettings => '';
+  String get faqOSSettings => 'réglages iOS';
 
   @override
-  String get faqMissing => '';
+  String get faqMissing =>
+      'Pourquoi certaines fonctionnalités Android sont-elles manquantes ?';
 
   @override
-  String get faqRestricted => '';
+  String get faqRestricted =>
+      'Les fonctionnalités manquantes nécessitent l\'automatisation des SMS, et Apple n\'autorise pas les développeurs à automatiser les messages texte (sans service payant).';
 
   @override
-  String get faqShortcuts => '';
+  String get faqShortcuts =>
+      'Qu\'en est-il des Raccourcis iOS ?\nIl existe également des restrictions sur l\'accès aux raccourcis utilisateur, ce qui briserait des fonctionnalités cruciales. Principalement : cela interromprait les enregistrements vidéo.';
 
   @override
-  String get faqLanguages => '';
+  String get faqLanguages =>
+      'Pourquoi la langue X n\'est-elle pas disponible ?';
 
   @override
-  String get faqResponsible => '';
+  String get faqResponsible =>
+      'Il serait irresponsable d\'utiliser la traduction automatique pour la liste des droits. Veuillez envisager de ';
 
   @override
-  String get faqContributing => '';
+  String get faqContributing => 'contribuer';
 
   @override
-  String get faqExpand => '';
+  String get faqExpand => ' pour aider à élargir les options de langue.';
 
   @override
-  String get faqReset => '';
+  String get faqReset => 'Réinitialiser le tutoriel';
 
   @override
-  String get faqResetSnack => '';
+  String get faqResetSnack => 'Le tutoriel sera relancé au prochain démarrage.';
 
   @override
   String get dsLadyLiberty =>

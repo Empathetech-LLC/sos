@@ -89,40 +89,40 @@
 
 
 
-  "faqName": "",
+  "faqName": "FAQ",
 
-  "faqListQ": "",
-  "faqListA1": "",
-  "faqListA2": "",
+  "faqListQ": "Comment la liste des droits a-t-elle été établie ?",
+  "faqListA1": "La liste des droits a été compilée à partir de plusieurs sources publiques, notamment :",
+  "faqListA2": "Une autre ressource utile : ",
 
-  "faqSettings": "",
-  "faqOnOpen": "",
-  "faqOnInterrupt": "",
-  "faqAutoShare": "",
-  "faqEMC": "",
-  "faqLink": "",
+  "faqSettings": "À quoi servent les paramètres ?",
+  "faqOnOpen": "SOS à l'ouverture : lorsqu'activé, un signal SOS commencera immédiatement au lancement de l'application. Non recommandé pour la plupart des utilisateurs, car cela pourrait entraîner des alertes accidentelles.",
+  "faqOnInterrupt": "SOS en cas d'interruption : lorsqu'activé, si un enregistrement vidéo est en cours et qu'InstaSOS passe en arrière-plan (minimisée, changement d'application, écran éteint), un signal SOS commencera.\nIl est recommandé d'activer cette option ou « SOS à la fermeture » (ou les deux).",
+  "faqAutoShare": "Partage automatique : lorsqu'activé, les options de partage natives apparaîtront dès qu'une vidéo se termine ou qu'une photo est prise.",
+  "faqEMC": "Contacts d'urgence : les personnes qui recevront votre localisation pendant qu'un signal SOS est actif.",
+  "faqLink": "Type de lien : la manière dont votre localisation sera transmise à vos contacts d'urgence. « Google Maps », « Apple Maps » et « Waze » enverront un lien cliquable pour le service correspondant. « Coordonnées » enverra votre latitude et longitude sous forme de texte brut.",
 
-  "faqUnavailable": "",
-  "faqReliability": "",
-  "faqLocationPermissions": "",
-  "faqLocationTrust": "",
+  "faqUnavailable": "Le SOS indique « Localisation indisponible » ?",
+  "faqReliability": "Pour améliorer la fiabilité du SOS, veuillez activer « Toujours autoriser » dans les ",
+  "faqLocationPermissions": "autorisations de localisation",
+  "faqLocationTrust": "L'application utilise votre localisation uniquement lorsqu'un signal SOS est actif. Ni InstaSOS ni Empathetech LLC ne suivent, ne stockent ou ne vendent les données des utilisateurs.",
 
-  "faqPrivateContact": "",
-  "faqContactPermissions": "",
-  "faqUpdateContacts": "",
-  "faqOSSettings": "",
+  "faqPrivateContact": "Le contact est privé ou n'a pas de numéro de téléphone ?",
+  "faqContactPermissions": "Si vous recevez ce message lors de l'ajout d'un contact d'urgence, InstaSOS n'a pas la permission d'accéder à ce contact.",
+  "faqUpdateContacts": "Vous pouvez mettre à jour les permissions de contacts dans les ",
+  "faqOSSettings": "réglages iOS",
 
-  "faqMissing": "",
-  "faqRestricted": "",
-  "faqShortcuts": "",
+  "faqMissing": "Pourquoi certaines fonctionnalités Android sont-elles manquantes ?",
+  "faqRestricted": "Les fonctionnalités manquantes nécessitent l'automatisation des SMS, et Apple n'autorise pas les développeurs à automatiser les messages texte (sans service payant).",
+  "faqShortcuts": "Qu'en est-il des Raccourcis iOS ?\nIl existe également des restrictions sur l'accès aux raccourcis utilisateur, ce qui briserait des fonctionnalités cruciales. Principalement : cela interromprait les enregistrements vidéo.",
 
-  "faqLanguages": "",
-  "faqResponsible": "",
-  "faqContributing": "",
-  "faqExpand": "",
+  "faqLanguages": "Pourquoi la langue X n'est-elle pas disponible ?",
+  "faqResponsible": "Il serait irresponsable d'utiliser la traduction automatique pour la liste des droits. Veuillez envisager de ",
+  "faqContributing": "contribuer",
+  "faqExpand": " pour aider à élargir les options de langue.",
 
-  "faqReset": "",
-  "faqResetSnack": "",
+  "faqReset": "Réinitialiser le tutoriel",
+  "faqResetSnack": "Le tutoriel sera relancé au prochain démarrage.",
 
 
 

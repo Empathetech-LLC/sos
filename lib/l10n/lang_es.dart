@@ -219,54 +219,54 @@ class LangEs extends Lang {
   String get ssAppearance => 'Apariencia';
 
   @override
-  String get faqName => 'FAQ';
+  String get faqName => 'Preguntas Frecuentes';
 
   @override
   String get faqListQ => '¿Cómo se elaboró la lista de derechos?';
 
   @override
   String get faqListA1 =>
-      'La lista de derechos se compiló a partir de varias fuentes públicas, entre ellas:';
+      'La lista de derechos fue recopilada de varias fuentes públicas, incluyendo:';
 
   @override
   String get faqListA2 => 'Otro recurso útil: ';
 
   @override
-  String get faqSettings => '¿Qué función cumplen los ajustes?';
+  String get faqSettings => '¿Qué función tienen los ajustes?';
 
   @override
   String get faqOnOpen =>
-      'SOS al abrir: si está activado, se iniciará una alerta SOS inmediatamente al abrir la aplicación. No se recomienda para la mayoría de los usuarios, ya que podría provocar alertas accidentales.';
+      'SOS al abrir: cuando está activado, se iniciará una transmisión de SOS inmediatamente al abrir la aplicación. No se recomienda para la mayoría de los usuarios, ya que podría causar transmisiones accidentales.';
 
   @override
   String get faqOnInterrupt =>
-      'SOS en caso de grabación interrumpida: cuando está habilitada, si una grabación de video está activa e InstaSOS pierde el foco por cualquier motivo (minimización, cambio de aplicaciones, pantalla apagada), se iniciará una transmisión de SOS. Se recomienda habilitar esta opción o \"SOS al cerrar\" (o ambas).';
+      'SOS al interrumpir grabación: cuando está activado, si hay una grabación de video activa e InstaSOS pasa a segundo plano por cualquier motivo (minimizada, cambio de aplicación, pantalla apagada), se iniciará una transmisión de SOS.\nSe recomienda activar esta opción o \"SOS al cerrar\" (o ambas).';
 
   @override
   String get faqAutoShare =>
-      'Compartir contenido multimedia automáticamente: cuando esté habilitada, las opciones nativas para compartir aparecerán tan pronto como finalice un vídeo o se tome una foto.';
+      'Compartir medios automáticamente: cuando está activado, las opciones nativas para compartir aparecerán tan pronto como finalice un video o se tome una foto.';
 
   @override
   String get faqEMC =>
-      'Contactos de emergencia: las personas a las que se enviará tu ubicación mientras esté activa una transmisión de SOS.';
+      'Contactos de emergencia: las personas a las que se enviará tu ubicación mientras una transmisión de SOS esté activa.';
 
   @override
   String get faqLink =>
-      'Tipo de enlace: cómo se enviará tu ubicación a tus contactos de emergencia. «Google Maps», «Apple Maps» y «Waze» enviarán un enlace directo al servicio correspondiente. «Coordenadas» enviará tu latitud y longitud como texto sin formato.';
+      'Tipo de enlace: cómo se entregará tu ubicación a tus contactos de emergencia. \"Google Maps\", \"Apple Maps\" y \"Waze\" enviarán un enlace en el que se puede hacer clic para el servicio correspondiente. \"Coordenadas\" enviará tu latitud y longitud como texto sin formato.';
 
   @override
-  String get faqUnavailable => 'SOS dice \"Ubicación no disponible\".';
+  String get faqUnavailable => '¿El SOS dice \"Ubicación no disponible\"?';
 
   @override
   String get faqReliability =>
-      'Para mejorar la fiabilidad del SOS, habilite \"Permitir siempre\" en los ';
+      'Para mejorar la fiabilidad del SOS, por favor activa \"Permitir todo el tiempo\" en los ';
 
   @override
   String get faqLocationPermissions => 'permisos de ubicación';
 
   @override
   String get faqLocationTrust =>
-      'La aplicación solo utiliza tu ubicación mientras una alerta SOS está activa. Ni InstaSOS ni Empathetech LLC rastrean, almacenan ni venden datos de usuario.';
+      'La aplicación solo usa tu ubicación mientras hay una transmisión de SOS activa. Ni InstaSOS ni Empathetech LLC rastrean, almacenan o venden datos de usuarios.';
 
   @override
   String get faqPrivateContact =>
@@ -274,45 +274,45 @@ class LangEs extends Lang {
 
   @override
   String get faqContactPermissions =>
-      'Si recibe este mensaje al agregar un contacto de emergencia, InstaSOS no tiene permiso para acceder a ese contacto.';
+      'Si recibes este mensaje al añadir un contacto de emergencia, InstaSOS no tiene permiso para acceder a ese contacto.';
 
   @override
   String get faqUpdateContacts =>
-      'Puedes actualizar los permisos de contacto en la ';
+      'Puedes actualizar los permisos de contactos en los ';
 
   @override
-  String get faqOSSettings => 'configuración de iOS';
+  String get faqOSSettings => 'ajustes de iOS';
 
   @override
   String get faqMissing => '¿Por qué faltan algunas funciones de Android?';
 
   @override
   String get faqRestricted =>
-      'Las funciones que faltan requieren la automatización de SMS, y Apple no permite a los desarrolladores automatizar los mensajes de texto (sin un servicio de pago).';
+      'Las funciones que faltan requieren automatización de SMS, y Apple no permite a los desarrolladores automatizar mensajes de texto (sin un servicio de pago).';
 
   @override
   String get faqShortcuts =>
-      '¿Qué ocurre con los atajos de iOS?\nTambién existen restricciones para acceder a los atajos de usuario, lo que afectaría a funciones cruciales. Principalmente: interrumpiría las grabaciones de vídeo.';
+      '¿Qué hay de los atajos de iOS?\nTambién existen restricciones para acceder a los atajos del usuario, lo que rompería funciones cruciales. Principalmente: interrumpiría las grabaciones de video.';
 
   @override
   String get faqLanguages => '¿Por qué no está disponible el idioma X?';
 
   @override
   String get faqResponsible =>
-      'Sería irresponsable utilizar la traducción automática para la lista de derechos. Considere la posibilidad ';
+      'Sería irresponsable usar traducción automática para la lista de derechos. Por favor considera ';
 
   @override
-  String get faqContributing => 'de contribuir';
+  String get faqContributing => 'contribuir';
 
   @override
-  String get faqExpand => ' para ayudar a ampliar las opciones de idiomas.';
+  String get faqExpand => ' para ayudar a expandir las opciones de idioma.';
 
   @override
-  String get faqReset => 'Tutorial de reinicio';
+  String get faqReset => 'Restablecer tutorial';
 
   @override
   String get faqResetSnack =>
-      'El tutorial se reproducirá en el próximo lanzamiento.';
+      'El tutorial se reproducirá de nuevo en el próximo inicio.';
 
   @override
   String get dsLadyLiberty =>
