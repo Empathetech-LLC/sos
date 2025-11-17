@@ -13,7 +13,8 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 // ignore_for_file: constant_identifier_names
 
-// TODO: make sure SOS on close doesn't activate for links
+// TODO: add a notice: This will begin a broadcast. Conitnue or cancel.
+// TODO: add it as a req locally, or to the Widget(s)? Make sure it plays nice with iOS
 
 const Widget updater = EzUpdaterFAB(
   appVersion: '1.5.1',
