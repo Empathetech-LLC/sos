@@ -42,6 +42,12 @@ class LangAr extends Lang {
   String get hsSafeCloseHint => 'كل شيء واضح. أغلق التطبيق بدون SOS.';
 
   @override
+  String get hsAutoSOS => 'SOS تلقائي';
+
+  @override
+  String get hsStop => 'إيقاف';
+
+  @override
   String get hsCameraHint => 'التقط صورة.';
 
   @override
@@ -188,11 +194,15 @@ class LangAr extends Lang {
   String get ssSOSOnOpen => 'SOS مفتوح';
 
   @override
-  String get ssSOSOnClose => 'SOS مغلق';
+  String get ssSOSOnClose => 'SOS عند الإغلاق';
 
   @override
   String get ssSOSOnCloseHint =>
       'عند تفعيلها، سيظهر زر إغلاق آمن (إشارة إعجاب) على الصفحة الرئيسية، مقابل الإعدادات. إذا فقد InstaSOS تركيزه لأي سبب باستثناء زر إغلاق الأمان (تصغير، أو تشغيل التطبيقات، أو إيقاف تشغيل الشاشة)، فسيبدأ بث استغاثة.';
+
+  @override
+  String get ssCloseOffWarning =>
+      'سيغلق التطبيق تلقائيًا لمنع البث غير المقصود.';
 
   @override
   String get ssVideoSOS => 'SOS عند انقطاع التسجيل';
@@ -308,6 +318,10 @@ class LangAr extends Lang {
   @override
   String get faqResetSnack =>
       'سيتم إعادة تشغيل الشرح التوضيحي عند الفتح في المرة القادمة.';
+
+  @override
+  String get faqOnCloseWarning =>
+      'تم تفعيل \"SOS عند الإغلاق\". سيؤدي هذا إلى بدء بث.';
 
   @override
   String get dsLadyLiberty => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';
@@ -351,6 +365,12 @@ class LangArEg extends LangAr {
   String get hsSafeCloseHint => 'كل شيء واضح. أغلق التطبيق بدون SOS.';
 
   @override
+  String get hsAutoSOS => 'SOS تلقائي';
+
+  @override
+  String get hsStop => 'إيقاف';
+
+  @override
   String get hsCameraHint => 'التقط صورة.';
 
   @override
@@ -497,11 +517,15 @@ class LangArEg extends LangAr {
   String get ssSOSOnOpen => 'SOS مفتوح';
 
   @override
-  String get ssSOSOnClose => 'SOS مغلق';
+  String get ssSOSOnClose => 'SOS عند الإغلاق';
 
   @override
   String get ssSOSOnCloseHint =>
       'عند تفعيلها، سيظهر زر إغلاق آمن (إشارة إعجاب) على الصفحة الرئيسية، مقابل الإعدادات. إذا فقد InstaSOS تركيزه لأي سبب باستثناء زر إغلاق الأمان (تصغير، أو تشغيل التطبيقات، أو إيقاف تشغيل الشاشة)، فسيبدأ بث استغاثة.';
+
+  @override
+  String get ssCloseOffWarning =>
+      'سيغلق التطبيق تلقائيًا لمنع البث غير المقصود.';
 
   @override
   String get ssVideoSOS => 'SOS عند انقطاع التسجيل';
@@ -617,6 +641,10 @@ class LangArEg extends LangAr {
   @override
   String get faqResetSnack =>
       'سيتم إعادة تشغيل الشرح التوضيحي عند الفتح في المرة القادمة.';
+
+  @override
+  String get faqOnCloseWarning =>
+      'تم تفعيل \"SOS عند الإغلاق\". سيؤدي هذا إلى بدء بث.';
 
   @override
   String get dsLadyLiberty => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';

@@ -19,6 +19,9 @@
   "hsEndSOS": "Nagbo-broadcast ang SOS. I-activate para ihinto.",
   "hsSafeCloseHint": "Clear na lahat. Isara ang app nang walang SOS.",
 
+  "hsAutoSOS": "Auto SOS",
+  "hsStop": "Itigil",
+
   "hsCameraHint": "Kunan ng larawan.",
   "hsPreviewHint": "Pindutin nang matagal para ipakita ang iyong mga karapatan.",
   "hsShowRights": "Ipakita ang iyong mga karapatan.",
@@ -75,8 +78,9 @@
 
   
   "ssSOSOnOpen": "SOS sa pagbukas",
-  "ssSOSOnClose": "SOS sa pagsara",
+  "ssSOSOnClose": "SOS sa pag-sarado",
   "ssSOSOnCloseHint": "Kapag naka-enable, lalabas ang isang button na \"safe close\" (thumbs up) sa home page, sa tapat ng mga setting. Kung mawawala ang focus ng InstaSOS sa anumang dahilan maliban sa button na \"safe close\" (minimize, naka-switch ang apps, naka-off ang screen), magsisimula ang isang SOS broadcast.",
+  "ssCloseOffWarning": "Kusang magsasara ang app upang maiwasan ang hindi sinasadyang pag-broadcast.",
   "ssVideoSOS": "SOS sa naputol na recording",
   "ssAutoShare": "Auto-share ng media",
 
@@ -97,7 +101,7 @@
 
   "faqSettings": "Para saan ang mga settings?",
   "faqOnOpen": "SOS sa pagbukas: kapag naka-enable, magsisimula agad ang SOS broadcast pagkalunsad ng app. Hindi inirerekomenda para sa karamihan, dahil maaari itong magdulot ng aksidenteng broadcast.",
-  "faqOnInterrupt": "SOS kapag naantala ang recording: kapag naka-enable, kung aktibo ang video recording at nawala sa focus ang InstaSOS sa anumang dahilan (na-minimize, lumipat ng app, namatay ang screen), magsisimula ang SOS broadcast.\nInirerekomendang i-enable ito o ang \"SOS sa pagsara\" (o pareho).",
+  "faqOnInterrupt": "SOS kapag naantala ang recording: kapag naka-enable, kung aktibo ang video recording at nawala sa focus ang InstaSOS sa anumang dahilan (na-minimize, lumipat ng app, namatay ang screen), magsisimula ang SOS broadcast.\nInirerekomendang i-enable ito o ang \"SOS sa pag-sarado\" (o pareho).",
   "faqAutoShare": "Auto-share media: kapag naka-enable, lalabas ang mga native share option sa oras na matapos ang video o makakuha ng litrato.",
   "faqEMC": "Emergency contacts: ang mga taong padadalhan ng iyong lokasyon habang aktibo ang isang SOS broadcast.",
   "faqLink": "Uri ng link: paano ipadadala ang iyong lokasyon sa iyong emergency contacts. Ang \"Google Maps\", \"Apple Maps\", at \"Waze\" ay magpapadala ng naki-click na link para sa kaukulang serbisyo. Ang \"Coordinates\" ay magpapadala ng iyong latitude at longitude bilang plain text.",
@@ -123,6 +127,8 @@
 
   "faqReset": "I-reset ang tutorial",
   "faqResetSnack": "Muling i-pe-play ang tutorial sa susunod na pagbukas.",
+
+  "faqOnCloseWarning": "Naka-enable ang \"SOS sa pag-sarado\". Magsisimula ito ng broadcast.",
 
 
 

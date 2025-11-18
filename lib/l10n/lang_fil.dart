@@ -44,6 +44,12 @@ class LangFil extends Lang {
       'Clear na lahat. Isara ang app nang walang SOS.';
 
   @override
+  String get hsAutoSOS => 'Auto SOS';
+
+  @override
+  String get hsStop => 'Itigil';
+
+  @override
   String get hsCameraHint => 'Kunan ng larawan.';
 
   @override
@@ -192,11 +198,15 @@ class LangFil extends Lang {
   String get ssSOSOnOpen => 'SOS sa pagbukas';
 
   @override
-  String get ssSOSOnClose => 'SOS sa pagsara';
+  String get ssSOSOnClose => 'SOS sa pag-sarado';
 
   @override
   String get ssSOSOnCloseHint =>
       'Kapag naka-enable, lalabas ang isang button na \"safe close\" (thumbs up) sa home page, sa tapat ng mga setting. Kung mawawala ang focus ng InstaSOS sa anumang dahilan maliban sa button na \"safe close\" (minimize, naka-switch ang apps, naka-off ang screen), magsisimula ang isang SOS broadcast.';
+
+  @override
+  String get ssCloseOffWarning =>
+      'Kusang magsasara ang app upang maiwasan ang hindi sinasadyang pag-broadcast.';
 
   @override
   String get ssVideoSOS => 'SOS sa naputol na recording';
@@ -241,7 +251,7 @@ class LangFil extends Lang {
 
   @override
   String get faqOnInterrupt =>
-      'SOS kapag naantala ang recording: kapag naka-enable, kung aktibo ang video recording at nawala sa focus ang InstaSOS sa anumang dahilan (na-minimize, lumipat ng app, namatay ang screen), magsisimula ang SOS broadcast.\nInirerekomendang i-enable ito o ang \"SOS sa pagsara\" (o pareho).';
+      'SOS kapag naantala ang recording: kapag naka-enable, kung aktibo ang video recording at nawala sa focus ang InstaSOS sa anumang dahilan (na-minimize, lumipat ng app, namatay ang screen), magsisimula ang SOS broadcast.\nInirerekomendang i-enable ito o ang \"SOS sa pag-sarado\" (o pareho).';
 
   @override
   String get faqAutoShare =>
@@ -316,6 +326,10 @@ class LangFil extends Lang {
   @override
   String get faqResetSnack =>
       'Muling i-pe-play ang tutorial sa susunod na pagbukas.';
+
+  @override
+  String get faqOnCloseWarning =>
+      'Naka-enable ang \"SOS sa pag-sarado\". Magsisimula ito ng broadcast.';
 
   @override
   String get dsLadyLiberty =>

@@ -45,6 +45,12 @@ class LangFr extends Lang {
   String get hsSafeCloseHint => 'Tout va bien. Fermer l\'application sans SOS.';
 
   @override
+  String get hsAutoSOS => 'SOS auto';
+
+  @override
+  String get hsStop => 'Arrêter';
+
+  @override
   String get hsCameraHint => 'Prendre une photo.';
 
   @override
@@ -202,6 +208,10 @@ class LangFr extends Lang {
       'Lorsqu\'il est activé, un bouton de fermeture sécurisée s\'affiche en face des paramètres.';
 
   @override
+  String get ssCloseOffWarning =>
+      'L\'application se fermera automatiquement pour éviter les diffusions involontaires.';
+
+  @override
   String get ssVideoSOS => 'SOS en cas d\'enregistrement interrompu';
 
   @override
@@ -318,6 +328,10 @@ class LangFr extends Lang {
 
   @override
   String get faqResetSnack => 'Le tutoriel sera relancé au prochain démarrage.';
+
+  @override
+  String get faqOnCloseWarning =>
+      '\"SOS à la fermeture\" est activé. Cela lancera une diffusion.';
 
   @override
   String get dsLadyLiberty =>

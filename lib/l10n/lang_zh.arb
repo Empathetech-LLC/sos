@@ -19,6 +19,9 @@
   "hsEndSOS": "SOS正在广播，点击以停止。",
   "hsSafeCloseHint": "一切安全，可直接关闭应用。",
 
+  "hsAutoSOS": "自动SOS",
+  "hsStop": "停止",
+
   "hsCameraHint": "拍摄照片。",
   "hsPreviewHint": "长按可切换权限查看模式。",
   "hsShowRights": "显示您的权限。",
@@ -77,6 +80,7 @@
   "ssSOSOnOpen": "打开应用时启动SOS",
   "ssSOSOnClose": "关闭应用时启动SOS",
   "ssSOSOnCloseHint": "启用后，在设置按钮对侧会显示一个“安全关闭”按钮。",
+  "ssCloseOffWarning": "应用程序将自动关闭，以防止意外播出。",
   "ssVideoSOS": "录像中断自动启动SOS",
   "ssAutoShare": "自动共享媒体",
 
@@ -123,6 +127,8 @@
 
   "faqReset": "重置教程",
   "faqResetSnack": "教程将在下次启动时重播。",
+
+  "faqOnCloseWarning": "“关闭时求救”已启用。这将开始广播。",
 
 
 

@@ -19,6 +19,9 @@
   "hsEndSOS": "SOS ap difize. Peze pou sispann li.",
   "hsSafeCloseHint": "Tout bagay OK. Fèmen aplikasyon an san SOS.",
 
+  "hsAutoSOS": "SOS otomatik",
+  "hsStop": "Rete",
+
   "hsCameraHint": "Pran yon foto.",
   "hsPreviewHint": "Peze pandan plizyè segond pou ou wè dwa ou yo.",
   "hsShowRights": "Afiche dwa ou yo",
@@ -74,9 +77,10 @@
 
 
   
-  "ssSOSOnOpen": "SOS lè ou ouvè aplikasyon an",
-  "ssSOSOnClose": "SOS lè ou fèmen aplikasyon an",
+  "ssSOSOnOpen": "SOS lè ouvè",
+  "ssSOSOnClose": "SOS lè fèmen",
   "ssSOSOnCloseHint": "Lè sa aktive, ou ap wè yon bouton ki pèmèt ou sòti an san pwoblèm anfas bouton anviwònman an.",
+  "ssCloseOffWarning": "Aplikasyon an ap fèmen otomatikman pou evite emisyon aksidantèl.",
   "ssVideoSOS": "SOS si anrejistreman an entèwonp",
   "ssAutoShare": "Pataje medya otomatikman",
 
@@ -97,7 +101,7 @@
 
   "faqSettings": "Kisa paramèt yo fè?",
   "faqOnOpen": "SOS lè w louvri: lè li aktive, yon siyal SOS ap kòmanse voye imedyatman lè aplikasyon an louvri. Nou pa rekòmande sa pou pifò itilizatè, paske li ka lakòz fo alèt pa aksidan.",
-  "faqOnInterrupt": "SOS sou entèripsyon anrejistreman: lè li aktive, si yon anrejistreman videyo ap fèt epi InstaSOS pèdi priyorite pou nenpòt rezon (minimize, chanje aplikasyon, ekran etenn), yon siyal SOS ap kòmanse voye.\nLi rekòmande pou aktive swa opsyon sa a oswa \"SOS sou fèmti\" (oswa toude).",
+  "faqOnInterrupt": "SOS sou entèripsyon anrejistreman: lè li aktive, si yon anrejistreman videyo ap fèt epi InstaSOS pèdi priyorite pou nenpòt rezon (minimize, chanje aplikasyon, ekran etenn), yon siyal SOS ap kòmanse voye.\nLi rekòmande pou aktive swa opsyon sa a oswa \"SOS lè fèmen\" (oswa toude).",
   "faqAutoShare": "Pataje medya otomatikman: lè li aktive, opsyon pataje natif yo ap parèt le pli vit ke yon videyo fini oswa yon foto fèt.",
   "faqEMC": "Kontak ijans: moun yo ki pral resevwa pozisyon ou pandan yon siyal SOS ap voye.",
   "faqLink": "Tip lyen: kijan y ap voye pozisyon ou bay kontak ijans ou yo. \"Google Maps\", \"Apple Maps\", ak \"Waze\" ap voye yon lyen ou ka klike pou sèvis korespondan an. \"Coordinates\" ap voye latitid ak lonjitid ou kòm tèks senp.",
@@ -123,6 +127,8 @@
 
   "faqReset": "Reyajiste titoryèl la",
   "faqResetSnack": "Titoryèl la pral jwe ankò nan pwochen lansman an.",
+
+  "faqOnCloseWarning": "\"SOS lè fèmen\" aktive. Sa pral kòmanse yon difizyon.",
 
 
 

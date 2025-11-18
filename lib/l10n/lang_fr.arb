@@ -19,6 +19,9 @@
   "hsEndSOS": "Le SOS est en cours de diffusion. Activez pour arrêter.",
   "hsSafeCloseHint": "Tout va bien. Fermer l'application sans SOS.",
 
+  "hsAutoSOS": "SOS auto",
+  "hsStop": "Arrêter",
+
   "hsCameraHint": "Prendre une photo.",
   "hsPreviewHint": "Appuyez longuement pour basculer votre vue des droits.",
   "hsShowRights": "Afficher vos droits.",
@@ -77,6 +80,7 @@
   "ssSOSOnOpen": "SOS à l'ouverture",
   "ssSOSOnClose": "SOS à la fermeture",
   "ssSOSOnCloseHint": "Lorsqu'il est activé, un bouton de fermeture sécurisée s'affiche en face des paramètres.",
+  "ssCloseOffWarning": "L'application se fermera automatiquement pour éviter les diffusions involontaires.",
   "ssVideoSOS": "SOS en cas d'enregistrement interrompu",
   "ssAutoShare": "Partage automatique de médias",
   
@@ -123,6 +127,8 @@
 
   "faqReset": "Réinitialiser le tutoriel",
   "faqResetSnack": "Le tutoriel sera relancé au prochain démarrage.",
+
+  "faqOnCloseWarning": "\"SOS à la fermeture\" est activé. Cela lancera une diffusion.",
 
 
 

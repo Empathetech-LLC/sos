@@ -175,6 +175,18 @@ abstract class Lang {
   /// **'All clear. Close the app without SOS.'**
   String get hsSafeCloseHint;
 
+  /// No description provided for @hsAutoSOS.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto SOS'**
+  String get hsAutoSOS;
+
+  /// No description provided for @hsStop.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop'**
+  String get hsStop;
+
   /// No description provided for @hsCameraHint.
   ///
   /// In en, this message translates to:
@@ -439,6 +451,12 @@ abstract class Lang {
   /// **'When enabled, a safe close (thumbs up) button will be appear on the home page, opposite the settings. If InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.'**
   String get ssSOSOnCloseHint;
 
+  /// No description provided for @ssCloseOffWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'The app will auto-close to prevent unintentional broadcasts.'**
+  String get ssCloseOffWarning;
+
   /// No description provided for @ssVideoSOS.
   ///
   /// In en, this message translates to:
@@ -642,6 +660,12 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'The tutorial will replay on next launch.'**
   String get faqResetSnack;
+
+  /// No description provided for @faqOnCloseWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'\"SOS on close\" is enabled. This will start a broadcast.'**
+  String get faqOnCloseWarning;
 
   /// No description provided for @dsLadyLiberty.
   ///

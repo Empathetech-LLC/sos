@@ -19,6 +19,9 @@
   "hsEndSOS": "SOS en transmisión. Activar para detener.",
   "hsSafeCloseHint": "Despejado. Cierra la app sin SOS.",
 
+  "hsAutoSOS": "SOS automático",
+  "hsStop": "Detener",
+
   "hsCameraHint": "Toma una foto",
   "hsPreviewHint": "Mantén pulsado para mostrar tus derechos",
   "hsShowRights": "Muestra tus derechos",
@@ -75,8 +78,9 @@
 
   
   "ssSOSOnOpen": "SOS al abrirse",
-  "ssSOSOnClose": "SOS al cerrarse",
+  "ssSOSOnClose": "SOS al cerrar",
   "ssSOSOnCloseHint": "Cuando esté activada, aparecerá un botón de cierre seguro (pulgar hacia arriba) en la página principal, junto a la configuración. Si InstaSOS pierde el foco por cualquier motivo que no sea el botón de cierre seguro (minimización, cambio de aplicaciones, pantalla apagada), se iniciará una transmisión de SOS.",
+  "ssCloseOffWarning": "La aplicación se cerrará automáticamente para evitar transmisiones accidentales.",
   "ssVideoSOS": "SOS al interrumpir la grabación",
   "ssAutoShare": "Compartir medios automáticamente",
 
@@ -123,6 +127,8 @@
 
   "faqReset": "Restablecer tutorial",
   "faqResetSnack": "El tutorial se reproducirá de nuevo en el próximo inicio.",
+
+  "faqOnCloseWarning": "\"SOS al cerrar\" está habilitado. Esto iniciará una transmisión.",
 
 
 

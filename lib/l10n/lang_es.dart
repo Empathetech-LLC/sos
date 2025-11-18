@@ -42,6 +42,12 @@ class LangEs extends Lang {
   String get hsSafeCloseHint => 'Despejado. Cierra la app sin SOS.';
 
   @override
+  String get hsAutoSOS => 'SOS automático';
+
+  @override
+  String get hsStop => 'Detener';
+
+  @override
   String get hsCameraHint => 'Toma una foto';
 
   @override
@@ -191,11 +197,15 @@ class LangEs extends Lang {
   String get ssSOSOnOpen => 'SOS al abrirse';
 
   @override
-  String get ssSOSOnClose => 'SOS al cerrarse';
+  String get ssSOSOnClose => 'SOS al cerrar';
 
   @override
   String get ssSOSOnCloseHint =>
       'Cuando esté activada, aparecerá un botón de cierre seguro (pulgar hacia arriba) en la página principal, junto a la configuración. Si InstaSOS pierde el foco por cualquier motivo que no sea el botón de cierre seguro (minimización, cambio de aplicaciones, pantalla apagada), se iniciará una transmisión de SOS.';
+
+  @override
+  String get ssCloseOffWarning =>
+      'La aplicación se cerrará automáticamente para evitar transmisiones accidentales.';
 
   @override
   String get ssVideoSOS => 'SOS al interrumpir la grabación';
@@ -313,6 +323,10 @@ class LangEs extends Lang {
   @override
   String get faqResetSnack =>
       'El tutorial se reproducirá de nuevo en el próximo inicio.';
+
+  @override
+  String get faqOnCloseWarning =>
+      '\"SOS al cerrar\" está habilitado. Esto iniciará una transmisión.';
 
   @override
   String get dsLadyLiberty =>

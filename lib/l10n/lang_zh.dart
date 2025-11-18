@@ -42,6 +42,12 @@ class LangZh extends Lang {
   String get hsSafeCloseHint => '一切安全，可直接关闭应用。';
 
   @override
+  String get hsAutoSOS => '自动SOS';
+
+  @override
+  String get hsStop => '停止';
+
+  @override
   String get hsCameraHint => '拍摄照片。';
 
   @override
@@ -184,6 +190,9 @@ class LangZh extends Lang {
   String get ssSOSOnCloseHint => '启用后，在设置按钮对侧会显示一个“安全关闭”按钮。';
 
   @override
+  String get ssCloseOffWarning => '应用程序将自动关闭，以防止意外播出。';
+
+  @override
   String get ssVideoSOS => '录像中断自动启动SOS';
 
   @override
@@ -289,6 +298,9 @@ class LangZh extends Lang {
 
   @override
   String get faqResetSnack => '教程将在下次启动时重播。';
+
+  @override
+  String get faqOnCloseWarning => '“关闭时求救”已启用。这将开始广播。';
 
   @override
   String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';
@@ -332,6 +344,12 @@ class LangZhCn extends LangZh {
   String get hsSafeCloseHint => '一切安全，可直接关闭应用。';
 
   @override
+  String get hsAutoSOS => '自动SOS';
+
+  @override
+  String get hsStop => '停止';
+
+  @override
   String get hsCameraHint => '拍摄照片。';
 
   @override
@@ -474,6 +492,9 @@ class LangZhCn extends LangZh {
   String get ssSOSOnCloseHint => '启用后，在设置按钮对侧会显示一个“安全关闭”按钮。';
 
   @override
+  String get ssCloseOffWarning => '应用程序将自动关闭，以防止意外播出。';
+
+  @override
   String get ssVideoSOS => '录像中断自动启动SOS';
 
   @override
@@ -579,6 +600,9 @@ class LangZhCn extends LangZh {
 
   @override
   String get faqResetSnack => '教程将在下次启动时重播。';
+
+  @override
+  String get faqOnCloseWarning => '“关闭时求救”已启用。这将开始广播。';
 
   @override
   String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';

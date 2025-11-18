@@ -42,6 +42,12 @@ class LangEn extends Lang {
   String get hsSafeCloseHint => 'All clear. Close the app without SOS.';
 
   @override
+  String get hsAutoSOS => 'Auto SOS';
+
+  @override
+  String get hsStop => 'Stop';
+
+  @override
   String get hsCameraHint => 'Take a photo.';
 
   @override
@@ -197,6 +203,10 @@ class LangEn extends Lang {
       'When enabled, a safe close (thumbs up) button will be appear on the home page, opposite the settings. If InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
 
   @override
+  String get ssCloseOffWarning =>
+      'The app will auto-close to prevent unintentional broadcasts.';
+
+  @override
   String get ssVideoSOS => 'SOS on interrupted recording';
 
   @override
@@ -310,6 +320,10 @@ class LangEn extends Lang {
 
   @override
   String get faqResetSnack => 'The tutorial will replay on next launch.';
+
+  @override
+  String get faqOnCloseWarning =>
+      '\"SOS on close\" is enabled. This will start a broadcast.';
 
   @override
   String get dsLadyLiberty =>
@@ -354,6 +368,12 @@ class LangEnUs extends LangEn {
   String get hsSafeCloseHint => 'All clear. Close the app without SOS.';
 
   @override
+  String get hsAutoSOS => 'Auto SOS';
+
+  @override
+  String get hsStop => 'Stop';
+
+  @override
   String get hsCameraHint => 'Take a photo.';
 
   @override
@@ -509,6 +529,10 @@ class LangEnUs extends LangEn {
       'When enabled, a safe close (thumbs up) button will be appear on the home page, opposite the settings. If InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
 
   @override
+  String get ssCloseOffWarning =>
+      'The app will auto-close to prevent unintentional broadcasts.';
+
+  @override
   String get ssVideoSOS => 'SOS on interrupted recording';
 
   @override
@@ -622,6 +646,10 @@ class LangEnUs extends LangEn {
 
   @override
   String get faqResetSnack => 'The tutorial will replay on next launch.';
+
+  @override
+  String get faqOnCloseWarning =>
+      '\"SOS on close\" is enabled. This will start a broadcast.';
 
   @override
   String get dsLadyLiberty =>

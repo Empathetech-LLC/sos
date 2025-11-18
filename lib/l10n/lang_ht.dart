@@ -42,6 +42,12 @@ class LangHt extends Lang {
   String get hsSafeCloseHint => 'Tout bagay OK. Fèmen aplikasyon an san SOS.';
 
   @override
+  String get hsAutoSOS => 'SOS otomatik';
+
+  @override
+  String get hsStop => 'Rete';
+
+  @override
   String get hsCameraHint => 'Pran yon foto.';
 
   @override
@@ -186,14 +192,18 @@ class LangHt extends Lang {
       'Pou konsilte yon avoka. Si yo arete fòmèlman, ou gen dwa gen yon avoka leta.';
 
   @override
-  String get ssSOSOnOpen => 'SOS lè ou ouvè aplikasyon an';
+  String get ssSOSOnOpen => 'SOS lè ouvè';
 
   @override
-  String get ssSOSOnClose => 'SOS lè ou fèmen aplikasyon an';
+  String get ssSOSOnClose => 'SOS lè fèmen';
 
   @override
   String get ssSOSOnCloseHint =>
       'Lè sa aktive, ou ap wè yon bouton ki pèmèt ou sòti an san pwoblèm anfas bouton anviwònman an.';
+
+  @override
+  String get ssCloseOffWarning =>
+      'Aplikasyon an ap fèmen otomatikman pou evite emisyon aksidantèl.';
 
   @override
   String get ssVideoSOS => 'SOS si anrejistreman an entèwonp';
@@ -238,7 +248,7 @@ class LangHt extends Lang {
 
   @override
   String get faqOnInterrupt =>
-      'SOS sou entèripsyon anrejistreman: lè li aktive, si yon anrejistreman videyo ap fèt epi InstaSOS pèdi priyorite pou nenpòt rezon (minimize, chanje aplikasyon, ekran etenn), yon siyal SOS ap kòmanse voye.\nLi rekòmande pou aktive swa opsyon sa a oswa \"SOS sou fèmti\" (oswa toude).';
+      'SOS sou entèripsyon anrejistreman: lè li aktive, si yon anrejistreman videyo ap fèt epi InstaSOS pèdi priyorite pou nenpòt rezon (minimize, chanje aplikasyon, ekran etenn), yon siyal SOS ap kòmanse voye.\nLi rekòmande pou aktive swa opsyon sa a oswa \"SOS lè fèmen\" (oswa toude).';
 
   @override
   String get faqAutoShare =>
@@ -310,6 +320,10 @@ class LangHt extends Lang {
   @override
   String get faqResetSnack =>
       'Titoryèl la pral jwe ankò nan pwochen lansman an.';
+
+  @override
+  String get faqOnCloseWarning =>
+      '\"SOS lè fèmen\" aktive. Sa pral kòmanse yon difizyon.';
 
   @override
   String get dsLadyLiberty =>

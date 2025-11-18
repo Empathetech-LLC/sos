@@ -19,6 +19,9 @@
   "hsEndSOS": "SOS is broadcasting. Activate to stop.",
   "hsSafeCloseHint": "All clear. Close the app without SOS.",
 
+  "hsAutoSOS": "Auto SOS",
+  "hsStop": "Stop",
+
   "hsCameraHint": "Take a photo.",
   "hsPreviewHint": "Long press to toggle your rights view.",
   "hsShowRights": "Show your rights.",
@@ -77,6 +80,7 @@
   "ssSOSOnOpen": "SOS on open",
   "ssSOSOnClose": "SOS on close",
   "ssSOSOnCloseHint": "When enabled, a safe close (thumbs up) button will be appear on the home page, opposite the settings. If InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.",
+  "ssCloseOffWarning": "The app will auto-close to prevent unintentional broadcasts.",
   "ssVideoSOS": "SOS on interrupted recording",
   "ssAutoShare": "Auto-share media",
 
@@ -123,6 +127,8 @@
 
   "faqReset": "Reset tutorial",
   "faqResetSnack": "The tutorial will replay on next launch.",
+
+  "faqOnCloseWarning": "\"SOS on close\" is enabled. This will start a broadcast.",
   
   
 
