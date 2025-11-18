@@ -109,7 +109,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                                   textAlign: TextAlign.center,
                                 ),
                                 content: Text(
-                                  'The app will auto-close to prevent unintentional broadcasts.', // TODO: l10n
+                                  l10n.ssCloseOffWarning,
                                   textAlign: TextAlign.center,
                                 ),
                                 materialActions: materialActions,

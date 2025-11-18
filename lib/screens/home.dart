@@ -135,11 +135,11 @@ class _HomeScreenState extends State<HomeScreen>
     if (showSnack && mounted) {
       ezSnackBar(
         context: context,
-        message: 'Auto SOS', // TODO: l10n
+        message: l10n.hsAutoSOS,
         undo: () async {
-          // TODO: make it say stop, not undo
           stopForegroundSOS();
         },
+        undoMessage: l10n.hsStop,
       );
     }
   }
