@@ -90,11 +90,8 @@ class HelpFAB extends StatelessWidget {
       heroTag: 'help_fab',
       onPressed: () => ezModal(
         context: context,
-        constraints: const BoxConstraints(
-          minHeight: double.infinity,
-          minWidth: double.infinity,
-        ),
         builder: (BuildContext mContext) => EzScrollView(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             //* Expandable FAQ *//
@@ -109,7 +106,7 @@ class HelpFAB extends StatelessWidget {
             Center(
               child: EzTranslationsPendingNotice(
                 header: ezMargin,
-                footer: ezMargin,
+                footer: const SizedBox.shrink(),
               ),
             ),
             ezMargin,
@@ -412,8 +409,8 @@ class HelpFAB extends StatelessWidget {
                   },
                 ),
               ),
-              EzSpacer(space: EzConfig.get(spacingKey) * 1.5),
             ],
+            EzSpacer(space: EzConfig.get(spacingKey) * 1.5),
           ],
         ),
       ),
