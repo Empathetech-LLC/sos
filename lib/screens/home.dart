@@ -121,6 +121,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   /// [foregroundSOS] every 5 minutes
   Future<void> startForegroundSOS() async {
+    // TODO: add snack for auto-starts
     // Cleanup any existing timer and send an immediate SOS
     sosTimer?.cancel();
     await foregroundSOS(emc: emc, linkType: linkType, l10n: l10n);
