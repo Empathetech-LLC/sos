@@ -14,9 +14,6 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 // ignore_for_file: constant_identifier_names
 
-// TODO: add a notice: This will begin a broadcast. Conitnue or cancel.
-// TODO: add it as a req locally, or to the Widget(s)? Make sure it plays nice with iOS
-
 const Widget updater = EzUpdaterFAB(
   appVersion: '1.5.1',
   versionSource:
@@ -73,8 +70,9 @@ class HelpFAB extends StatelessWidget {
             return EzAlertDialog(
               title: Text(el10n.gAttention, textAlign: TextAlign.center),
               content: Text(
-                  '\"SOS on close\" is enabled. This will start a broadcast.',
-                  textAlign: TextAlign.center), // TODO: l10n
+                l10n.faqOnCloseWarning,
+                textAlign: TextAlign.center,
+              ),
               materialActions: materialActions,
               cupertinoActions: cupertinoActions,
               needsClose: false,
