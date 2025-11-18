@@ -83,18 +83,18 @@ Future<List<String>?> addEMC(
     if (show && context.mounted) {
       await showPlatformDialog(
         context: context,
-        builder: (BuildContext dialogContext) {
+        builder: (BuildContext dContext) {
           late List<Widget> materialActions;
           late List<Widget> cupertinoActions;
 
           (materialActions, cupertinoActions) = ezActionPairs(
             context: context,
             confirmMsg: l10n.gOk,
-            onConfirm: () => Navigator.of(dialogContext).pop(),
+            onConfirm: () => Navigator.of(dContext).pop(),
             denyMsg: l10n.gNotAgain,
             onDeny: () async {
               await EzConfig.setBool(partialContactsKey, false);
-              if (dialogContext.mounted) Navigator.of(dialogContext).pop();
+              if (dContext.mounted) Navigator.of(dContext).pop();
             },
             denyIsDestructive: true,
           );
