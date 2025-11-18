@@ -120,8 +120,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   /// [foregroundSOS] every 5 minutes
-  Future<void> startForegroundSOS() async {
-    // TODO: add snack for auto-starts
+  Future<void> startForegroundSOS({bool showSnack = false}) async {
     // Cleanup any existing timer and send an immediate SOS
     sosTimer?.cancel();
     await foregroundSOS(emc: emc, linkType: linkType, l10n: l10n);
@@ -132,6 +131,17 @@ class _HomeScreenState extends State<HomeScreen>
       (_) => foregroundSOS(emc: emc, linkType: linkType, l10n: l10n),
     );
     setState(() {});
+
+    if (showSnack && mounted) {
+      ezSnackBar(
+        context: context,
+        message: 'Auto SOS', // TODO: l10n
+        undo: () async {
+          // TODO: make it say stop, not undo
+          stopForegroundSOS();
+        },
+      );
+    }
   }
 
   /// Cancel the [sosTimer]
@@ -216,7 +226,7 @@ class _HomeScreenState extends State<HomeScreen>
     final bool taskRunning = EzConfig.get(taskRunningKey);
 
     if (taskRunning) await stopBackgroundSOS();
-    if (sosOnOpen || taskRunning) await startForegroundSOS();
+    if (sosOnOpen || taskRunning) await startForegroundSOS(showSnack: true);
 
     // Setup the camera/preview
     if (newUser && context.mounted) {
@@ -771,7 +781,7 @@ class _HomeScreenState extends State<HomeScreen>
         // Check SOS state
         if (EzConfig.get(taskRunningKey) == true) {
           await stopBackgroundSOS();
-          await startForegroundSOS();
+          await startForegroundSOS(showSnack: true);
         }
         break;
     }
