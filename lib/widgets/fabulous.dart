@@ -7,6 +7,7 @@ import '../utils/export.dart';
 
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
@@ -38,12 +39,54 @@ class HelpFAB extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Gather the theme data //
+
     final double margin = EzConfig.get(marginKey);
 
     final EFUILang el10n = ezL10n(context);
     final Lang l10n = Lang.of(context)!;
 
     final TextTheme textTheme = Theme.of(context).textTheme;
+
+    // Define custom functions //
+
+    void followLink(String url) async {
+      bool launch = true;
+
+      if (EzConfig.get(onCloseKey) == true) {
+        launch = await showPlatformDialog(
+          context: context,
+          builder: (BuildContext dContext) {
+            late final List<Widget> materialActions;
+            late final List<Widget> cupertinoActions;
+
+            (materialActions, cupertinoActions) = ezActionPairs(
+              context: context,
+              confirmMsg: el10n.gContinue,
+              confirmIsDestructive: true,
+              onConfirm: () => Navigator.of(dContext).pop(true),
+              denyMsg: el10n.gCancel,
+              denyIsDefault: true,
+              onDeny: () => Navigator.of(dContext).pop(false),
+            );
+
+            return EzAlertDialog(
+              title: Text(el10n.gAttention, textAlign: TextAlign.center),
+              content: Text(
+                  '\"SOS on close\" is enabled. This will start a broadcast.',
+                  textAlign: TextAlign.center), // TODO: l10n
+              materialActions: materialActions,
+              cupertinoActions: cupertinoActions,
+              needsClose: false,
+            );
+          },
+        );
+      }
+
+      if (launch) launchUrl(Uri.parse(url));
+    }
+
+    // Return the build //
 
     return FloatingActionButton(
       heroTag: 'help_fab',
@@ -53,7 +96,7 @@ class HelpFAB extends StatelessWidget {
           minHeight: double.infinity,
           minWidth: double.infinity,
         ),
-        builder: (BuildContext modalContext) => EzScrollView(
+        builder: (BuildContext mContext) => EzScrollView(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             //* Expandable FAQ *//
@@ -90,21 +133,21 @@ class HelpFAB extends StatelessWidget {
                 ),
                 EzLink(
                   'ACLU Know Your Rights',
-                  url: Uri.parse(_ACLU),
+                  onTap: () => followLink(_ACLU),
                   hint: el10n.gOpenLink,
                   textAlign: TextAlign.start,
                   padding: EdgeInsets.only(left: margin),
                 ),
                 EzLink(
                   'IMMDEF Resources',
-                  url: Uri.parse(_IMMDEF),
+                  onTap: () => followLink(_IMMDEF),
                   hint: el10n.gOpenLink,
                   textAlign: TextAlign.start,
                   padding: EdgeInsets.only(left: margin),
                 ),
                 EzLink(
                   'Dunk the Vote: The Black Book',
-                  url: Uri.parse(_dunk),
+                  onTap: () => followLink(_dunk),
                   hint: el10n.gOpenLink,
                   textAlign: TextAlign.start,
                   padding: EdgeInsets.only(left: margin),
@@ -118,7 +161,7 @@ class HelpFAB extends StatelessWidget {
                     ),
                     EzInlineLink(
                       'How to document ICE',
-                      url: Uri.parse(_howTo),
+                      onTap: () => followLink(_howTo),
                       hint: el10n.gOpenLink,
                       style: textTheme.bodyLarge,
                       textAlign: TextAlign.start,
@@ -336,7 +379,7 @@ class HelpFAB extends StatelessWidget {
                     ),
                     EzInlineLink(
                       l10n.faqContributing,
-                      url: Uri.parse(_contributeLink),
+                      onTap: () => followLink(_contributeLink),
                       hint: el10n.gOpenLink,
                     ),
                     EzPlainText(
@@ -359,9 +402,8 @@ class HelpFAB extends StatelessWidget {
                   text: l10n.faqReset,
                   onPressed: () async {
                     await EzConfig.setBool(tutorialKey, true);
-                    if (modalContext.mounted) {
-                      Navigator.of(modalContext).pop();
-                    }
+                    if (mContext.mounted) Navigator.of(mContext).pop();
+
                     if (context.mounted) {
                       ezSnackBar(
                         context: context,
