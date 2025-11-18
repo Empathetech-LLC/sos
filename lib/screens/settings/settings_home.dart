@@ -83,8 +83,44 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               canChange: (bool choice) async {
                 final bool check1 = await canSet(onCloseKey, choice);
                 final bool? check2 = (choice == false)
-                    ? true // Don't confirm to turn off
+                    ? context.mounted
+                        // Confirm immediate closure to prevent accidental broadcasts
+                        ? await showPlatformDialog<bool>(
+                            context: context,
+                            builder: (BuildContext dContext) {
+                              late final List<EzMaterialAction> materialActions;
+                              late final List<EzCupertinoAction>
+                                  cupertinoActions;
+
+                              (materialActions, cupertinoActions) =
+                                  ezActionPairs(
+                                context: context,
+                                confirmMsg: l10n.gOk,
+                                confirmIsDefault: true,
+                                onConfirm: () =>
+                                    Navigator.of(dContext).pop(true),
+                                denyMsg: el10n.gCancel,
+                                onDeny: () => Navigator.of(dContext).pop(false),
+                              );
+
+                              return EzAlertDialog(
+                                title: Text(
+                                  el10n.gAttention,
+                                  textAlign: TextAlign.center,
+                                ),
+                                content: Text(
+                                  'The app will auto-close to prevent unintentional broadcasts.', // TODO: l10n
+                                  textAlign: TextAlign.center,
+                                ),
+                                materialActions: materialActions,
+                                cupertinoActions: cupertinoActions,
+                                needsClose: false,
+                              );
+                            },
+                          )
+                        : true
                     : context.mounted
+                        // Confirm the user wants to enable this setting
                         ? await showPlatformDialog<bool>(
                             context: context,
                             builder: (BuildContext dContext) {
@@ -121,6 +157,10 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                         : false;
 
                 return check1 && (check2 ?? false);
+              },
+              onChangedCallback: (bool? value) {
+                // Exit the app when turning off to avoid accidental broadcasts
+                if (value == false) exit(0);
               },
             ),
             ezSpacer,
