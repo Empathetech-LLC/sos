@@ -19,6 +19,9 @@
   "hsEndSOS": "Nagbo-broadcast ang SOS. I-activate para ihinto.",
   "hsSafeCloseHint": "Clear na lahat. Isara ang app nang walang SOS.",
 
+  "hsAutoSOS": "Auto SOS",
+  "hsStop": "Itigil",
+
   "hsCameraHint": "Kunan ng larawan.",
   "hsPreviewHint": "Pindutin nang matagal para ipakita ang iyong mga karapatan.",
   "hsShowRights": "Ipakita ang iyong mga karapatan.",
@@ -75,8 +78,9 @@
 
   
   "ssSOSOnOpen": "SOS sa pagbukas",
-  "ssSOSOnClose": "SOS sa pagsara",
-  "ssSOSOnCloseHint": "Kapag naka-enable, makikita ang safe close button sa tapat ng settings.",
+  "ssSOSOnClose": "SOS sa pag-sarado",
+  "ssSOSOnCloseHint": "Kapag naka-enable, lalabas ang isang button na \"safe close\" (thumbs up) sa home page, sa tapat ng mga setting. Kung mawawala ang focus ng InstaSOS sa anumang dahilan maliban sa button na \"safe close\" (minimize, naka-switch ang apps, naka-off ang screen), magsisimula ang isang SOS broadcast.",
+  "ssCloseOffWarning": "Kusang magsasara ang app upang maiwasan ang hindi sinasadyang pag-broadcast.",
   "ssVideoSOS": "SOS sa naputol na recording",
   "ssAutoShare": "Auto-share ng media",
 
@@ -86,6 +90,45 @@
   "ssLinkType": "Uri ng link",
 
   "ssAppearance": "Hitsura",
+
+
+  
+  "faqName": "FAQ",
+
+  "faqListQ": "Paano binuo ang listahan ng mga karapatan?",
+  "faqListA1": "Ang listahan ng mga karapatan ay tinipon mula sa ilang pampublikong sanggunian, kabilang ang:",
+  "faqListA2": "Isa pang kapaki-pakinabang na sanggunian: ",
+
+  "faqSettings": "Para saan ang mga settings?",
+  "faqOnOpen": "SOS sa pagbukas: kapag naka-enable, magsisimula agad ang SOS broadcast pagkalunsad ng app. Hindi inirerekomenda para sa karamihan, dahil maaari itong magdulot ng aksidenteng broadcast.",
+  "faqOnInterrupt": "SOS kapag naantala ang recording: kapag naka-enable, kung aktibo ang video recording at nawala sa focus ang InstaSOS sa anumang dahilan (na-minimize, lumipat ng app, namatay ang screen), magsisimula ang SOS broadcast.\nInirerekomendang i-enable ito o ang \"SOS sa pag-sarado\" (o pareho).",
+  "faqAutoShare": "Auto-share media: kapag naka-enable, lalabas ang mga native share option sa oras na matapos ang video o makakuha ng litrato.",
+  "faqEMC": "Emergency contacts: ang mga taong padadalhan ng iyong lokasyon habang aktibo ang isang SOS broadcast.",
+  "faqLink": "Uri ng link: paano ipadadala ang iyong lokasyon sa iyong emergency contacts. Ang \"Google Maps\", \"Apple Maps\", at \"Waze\" ay magpapadala ng naki-click na link para sa kaukulang serbisyo. Ang \"Coordinates\" ay magpapadala ng iyong latitude at longitude bilang plain text.",
+
+  "faqUnavailable": "Sinasabi ba ng SOS na \"Location unavailable\"?",
+  "faqReliability": "Upang mas maging maasahan ang SOS, paki-enable ang \"Allow all the time\" sa ",
+  "faqLocationPermissions": "location permissions",
+  "faqLocationTrust": "Ginagamit lamang ng app ang iyong lokasyon habang aktibo ang isang SOS broadcast. Hindi sinusubaybayan, iniimbak, o ibinebenta ng InstaSOS o Empathetech LLC ang data ng user.",
+
+  "faqPrivateContact": "Ang contact ay pribado o walang numero ng telepono?",
+  "faqContactPermissions": "Kung natanggap mo ang mensaheng ito habang nagdadagdag ng emergency contact, walang pahintulot ang InstaSOS na i-access ang contact na iyon.",
+  "faqUpdateContacts": "Maaari mong i-update ang contact permissions sa ",
+  "faqOSSettings": "iOS settings",
+
+  "faqMissing": "Bakit nawawala ang ilang Android features?",
+  "faqRestricted": "Ang mga nawawalang features ay nangangailangan ng SMS automation, at hindi pinapayagan ng Apple ang mga developer na i-automate ang mga text message (nang walang bayad na serbisyo).",
+  "faqShortcuts": "Paano naman ang iOS shortcuts?\nMayroon ding mga paghihigpit sa pag-access sa mga shortcut ng user, na makakasira sa mahahalagang feature. Pangunahin: maaantala nito ang mga video recording.",
+
+  "faqLanguages": "Bakit hindi available ang X na wika?",
+  "faqResponsible": "Iresponsableng gumamit ng machine translation para sa listahan ng mga karapatan. Mangyaring isaalang-alang ang ",
+  "faqContributing": "pag-contribute",
+  "faqExpand": " upang makatulong na palawakin ang mga opsyon sa wika.",
+
+  "faqReset": "I-reset ang tutorial",
+  "faqResetSnack": "Muling i-pe-play ang tutorial sa susunod na pagbukas.",
+
+  "faqOnCloseWarning": "Naka-enable ang \"SOS sa pag-sarado\". Magsisimula ito ng broadcast.",
 
 
 

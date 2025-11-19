@@ -80,38 +80,87 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             EzSwitchPair(
               text: l10n.ssSOSOnClose,
               valueKey: onCloseKey,
-              canChange: (bool choice) => canSet(onCloseKey, choice),
-              onChangedCallback: (bool? choice) async {
-                if (choice != true) return;
+              canChange: (bool choice) async {
+                final bool check1 = await canSet(onCloseKey, choice);
+                final bool? check2 = (choice == false)
+                    ? context.mounted
+                        // Confirm immediate closure to prevent accidental broadcasts
+                        ? await showPlatformDialog<bool>(
+                            context: context,
+                            builder: (BuildContext dContext) {
+                              late final List<EzMaterialAction> materialActions;
+                              late final List<EzCupertinoAction>
+                                  cupertinoActions;
 
-                await showPlatformDialog<bool>(
-                  context: context,
-                  builder: (_) => EzAlertDialog(
-                    title: Text(
-                      el10n.gAttention,
-                      textAlign: TextAlign.center,
-                    ),
-                    contents: <Widget>[
-                      Text(
-                        l10n.ssSOSOnCloseHint,
-                        textAlign: TextAlign.center,
-                      )
-                    ],
-                    materialActions: <Widget>[
-                      EzMaterialAction(
-                        text: l10n.gOk,
-                        onPressed: () => Navigator.of(context).pop(true),
-                      ),
-                    ],
-                    cupertinoActions: <Widget>[
-                      EzCupertinoAction(
-                        text: l10n.gOk,
-                        onPressed: () => Navigator.of(context).pop(true),
-                      ),
-                    ],
-                    needsClose: false,
-                  ),
-                );
+                              (materialActions, cupertinoActions) =
+                                  ezActionPairs(
+                                context: context,
+                                confirmMsg: l10n.gOk,
+                                confirmIsDefault: true,
+                                onConfirm: () =>
+                                    Navigator.of(dContext).pop(true),
+                                denyMsg: el10n.gCancel,
+                                onDeny: () => Navigator.of(dContext).pop(false),
+                              );
+
+                              return EzAlertDialog(
+                                title: Text(
+                                  el10n.gAttention,
+                                  textAlign: TextAlign.center,
+                                ),
+                                content: Text(
+                                  l10n.ssCloseOffWarning,
+                                  textAlign: TextAlign.center,
+                                ),
+                                materialActions: materialActions,
+                                cupertinoActions: cupertinoActions,
+                                needsClose: false,
+                              );
+                            },
+                          )
+                        : true
+                    : context.mounted
+                        // Confirm the user wants to enable this setting
+                        ? await showPlatformDialog<bool>(
+                            context: context,
+                            builder: (BuildContext dContext) {
+                              late final List<EzMaterialAction> materialActions;
+                              late final List<EzCupertinoAction>
+                                  cupertinoActions;
+
+                              (materialActions, cupertinoActions) =
+                                  ezActionPairs(
+                                context: context,
+                                confirmMsg: l10n.gOk,
+                                confirmIsDefault: true,
+                                onConfirm: () =>
+                                    Navigator.of(dContext).pop(true),
+                                denyMsg: el10n.gCancel,
+                                onDeny: () => Navigator.of(dContext).pop(false),
+                              );
+
+                              return EzAlertDialog(
+                                title: Text(
+                                  el10n.gAttention,
+                                  textAlign: TextAlign.center,
+                                ),
+                                content: Text(
+                                  l10n.ssSOSOnCloseHint,
+                                  textAlign: TextAlign.center,
+                                ),
+                                materialActions: materialActions,
+                                cupertinoActions: cupertinoActions,
+                                needsClose: false,
+                              );
+                            },
+                          )
+                        : false;
+
+                return check1 && (check2 ?? false);
+              },
+              onChangedCallback: (bool? value) {
+                // Exit the app when turning off to avoid accidental broadcasts
+                if (value == false) exit(0);
               },
             ),
             ezSpacer,
@@ -184,7 +233,10 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
       ),
       fabs: const <Widget>[
         ezSpacer,
+        HelpFAB(),
+        ezSpacer,
         EzBackFAB(
+          showHome: true,
           hold4Feedback: true,
           appName: appName,
           supportEmail: empathSupport,

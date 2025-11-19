@@ -42,6 +42,12 @@ class LangAr extends Lang {
   String get hsSafeCloseHint => 'كل شيء واضح. أغلق التطبيق بدون SOS.';
 
   @override
+  String get hsAutoSOS => 'SOS تلقائي';
+
+  @override
+  String get hsStop => 'إيقاف';
+
+  @override
   String get hsCameraHint => 'التقط صورة.';
 
   @override
@@ -188,11 +194,15 @@ class LangAr extends Lang {
   String get ssSOSOnOpen => 'SOS مفتوح';
 
   @override
-  String get ssSOSOnClose => 'SOS مغلق';
+  String get ssSOSOnClose => 'SOS عند الإغلاق';
 
   @override
   String get ssSOSOnCloseHint =>
-      'عند التمكين، سيظهر زر إغلاق آمن مقابل الإعدادات.';
+      'عند تفعيلها، سيظهر زر إغلاق آمن (إشارة إعجاب) على الصفحة الرئيسية، مقابل الإعدادات. إذا فقد InstaSOS تركيزه لأي سبب باستثناء زر إغلاق الأمان (تصغير، أو تشغيل التطبيقات، أو إيقاف تشغيل الشاشة)، فسيبدأ بث استغاثة.';
+
+  @override
+  String get ssCloseOffWarning =>
+      'سيغلق التطبيق تلقائيًا لمنع البث غير المقصود.';
 
   @override
   String get ssVideoSOS => 'SOS عند انقطاع التسجيل';
@@ -214,6 +224,104 @@ class LangAr extends Lang {
 
   @override
   String get ssAppearance => 'المظهر';
+
+  @override
+  String get faqName => 'الأسئلة الشائعة';
+
+  @override
+  String get faqListQ => 'كيف تم إعداد قائمة الحقوق؟';
+
+  @override
+  String get faqListA1 =>
+      'تم تجميع قائمة الحقوق من عدة مصادر عامة، بما في ذلك:';
+
+  @override
+  String get faqListA2 => 'مورد مفيد آخر: ';
+
+  @override
+  String get faqSettings => 'ما هي وظيفة الإعدادات؟';
+
+  @override
+  String get faqOnOpen =>
+      'الاستغاثة عند الفتح: عند التفعيل، سيبدأ بث الاستغاثة فور تشغيل التطبيق. لا يُنصح به لمعظم المستخدمين، حيث قد يؤدي إلى إرسال نداءات عن طريق الخطأ.';
+
+  @override
+  String get faqOnInterrupt =>
+      'الاستغاثة عند توقف التسجيل: عند التفعيل، إذا كان تسجيل الفيديو نشطاً وفقد InstaSOS التركيز لأي سبب (تم تصغيره، التبديل بين التطبيقات، إغلاق الشاشة)، سيبدأ بث الاستغاثة.\nيُنصح بتفعيل هذا الخيار أو \"الاستغاثة عند الإغلاق\" (أو كليهما).';
+
+  @override
+  String get faqAutoShare =>
+      'المشاركة التلقائية للوسائط: عند التفعيل، ستظهر خيارات المشاركة الأصلية بمجرد اكتمال الفيديو أو التقاط صورة.';
+
+  @override
+  String get faqEMC =>
+      'جهات اتصال الطوارئ: الأشخاص الذين سيتم إرسال موقعك إليهم أثناء نشاط بث الاستغاثة.';
+
+  @override
+  String get faqLink =>
+      'نوع الرابط: كيف سيتم تسليم موقعك إلى جهات الاتصال. \"خرائط Google\" و\"خرائط Apple\" و\"Waze\" سترسل رابطاً قابلاً للنقر للخدمة المقابلة. \"الإحداثيات\" سترسل خطي العرض والطول كنص عادي.';
+
+  @override
+  String get faqUnavailable => 'الاستغاثة تقول \"الموقع غير متاح\"؟';
+
+  @override
+  String get faqReliability =>
+      'لتحسين موثوقية الاستغاثة، يرجى تفعيل خيار \"السماح طوال الوقت\" في ';
+
+  @override
+  String get faqLocationPermissions => 'أذونات الموقع';
+
+  @override
+  String get faqLocationTrust =>
+      'يستخدم التطبيق موقعك فقط أثناء نشاط بث الاستغاثة. لا تقوم InstaSOS ولا Empathetech LLC بتتبع بيانات المستخدم أو تخزينها أو بيعها.';
+
+  @override
+  String get faqPrivateContact => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف؟';
+
+  @override
+  String get faqContactPermissions =>
+      'إذا ظهرت لك هذه الرسالة عند إضافة جهة اتصال للطوارئ، فهذا يعني أن InstaSOS ليس لديه إذن للوصول إلى جهة الاتصال تلك.';
+
+  @override
+  String get faqUpdateContacts => 'يمكنك تحديث أذونات جهات الاتصال في ';
+
+  @override
+  String get faqOSSettings => 'إعدادات iOS';
+
+  @override
+  String get faqMissing => 'لماذا بعض ميزات Android مفقودة؟';
+
+  @override
+  String get faqRestricted =>
+      'الميزات المفقودة تتطلب أتمتة الرسائل القصيرة (SMS)، ولا تسمح Apple للمطورين بأتمتة الرسائل النصية (بدون خدمة مدفوعة).';
+
+  @override
+  String get faqShortcuts =>
+      'ماذا عن اختصارات iOS؟\nهناك أيضاً قيود على الوصول إلى اختصارات المستخدم، مما قد يؤدي إلى تعطيل ميزات حاسمة. بشكل أساسي: قد يؤدي ذلك إلى مقاطعة تسجيلات الفيديو.';
+
+  @override
+  String get faqLanguages => 'لماذا اللغة X غير متوفرة؟';
+
+  @override
+  String get faqResponsible =>
+      'سيكون من غير المسؤول استخدام الترجمة الآلية لقائمة الحقوق. يرجى التفكير في ';
+
+  @override
+  String get faqContributing => 'المساهمة';
+
+  @override
+  String get faqExpand => ' للمساعدة في توسيع خيارات اللغة.';
+
+  @override
+  String get faqReset => 'إعادة تعيين الشرح التوضيحي';
+
+  @override
+  String get faqResetSnack =>
+      'سيتم إعادة تشغيل الشرح التوضيحي عند الفتح في المرة القادمة.';
+
+  @override
+  String get faqOnCloseWarning =>
+      'تم تفعيل \"SOS عند الإغلاق\". سيؤدي هذا إلى بدء بث.';
 
   @override
   String get dsLadyLiberty => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';
@@ -257,6 +365,12 @@ class LangArEg extends LangAr {
   String get hsSafeCloseHint => 'كل شيء واضح. أغلق التطبيق بدون SOS.';
 
   @override
+  String get hsAutoSOS => 'SOS تلقائي';
+
+  @override
+  String get hsStop => 'إيقاف';
+
+  @override
   String get hsCameraHint => 'التقط صورة.';
 
   @override
@@ -403,11 +517,15 @@ class LangArEg extends LangAr {
   String get ssSOSOnOpen => 'SOS مفتوح';
 
   @override
-  String get ssSOSOnClose => 'SOS مغلق';
+  String get ssSOSOnClose => 'SOS عند الإغلاق';
 
   @override
   String get ssSOSOnCloseHint =>
-      'عند التمكين، سيظهر زر إغلاق آمن مقابل الإعدادات.';
+      'عند تفعيلها، سيظهر زر إغلاق آمن (إشارة إعجاب) على الصفحة الرئيسية، مقابل الإعدادات. إذا فقد InstaSOS تركيزه لأي سبب باستثناء زر إغلاق الأمان (تصغير، أو تشغيل التطبيقات، أو إيقاف تشغيل الشاشة)، فسيبدأ بث استغاثة.';
+
+  @override
+  String get ssCloseOffWarning =>
+      'سيغلق التطبيق تلقائيًا لمنع البث غير المقصود.';
 
   @override
   String get ssVideoSOS => 'SOS عند انقطاع التسجيل';
@@ -429,6 +547,104 @@ class LangArEg extends LangAr {
 
   @override
   String get ssAppearance => 'المظهر';
+
+  @override
+  String get faqName => 'الأسئلة الشائعة';
+
+  @override
+  String get faqListQ => 'كيف تم إعداد قائمة الحقوق؟';
+
+  @override
+  String get faqListA1 =>
+      'تم تجميع قائمة الحقوق من عدة مصادر عامة، بما في ذلك:';
+
+  @override
+  String get faqListA2 => 'مورد مفيد آخر: ';
+
+  @override
+  String get faqSettings => 'ما هي وظيفة الإعدادات؟';
+
+  @override
+  String get faqOnOpen =>
+      'الاستغاثة عند الفتح: عند التفعيل، سيبدأ بث الاستغاثة فور تشغيل التطبيق. لا يُنصح به لمعظم المستخدمين، حيث قد يؤدي إلى إرسال نداءات عن طريق الخطأ.';
+
+  @override
+  String get faqOnInterrupt =>
+      'الاستغاثة عند توقف التسجيل: عند التفعيل، إذا كان تسجيل الفيديو نشطاً وفقد InstaSOS التركيز لأي سبب (تم تصغيره، التبديل بين التطبيقات، إغلاق الشاشة)، سيبدأ بث الاستغاثة.\nيُنصح بتفعيل هذا الخيار أو \"الاستغاثة عند الإغلاق\" (أو كليهما).';
+
+  @override
+  String get faqAutoShare =>
+      'المشاركة التلقائية للوسائط: عند التفعيل، ستظهر خيارات المشاركة الأصلية بمجرد اكتمال الفيديو أو التقاط صورة.';
+
+  @override
+  String get faqEMC =>
+      'جهات اتصال الطوارئ: الأشخاص الذين سيتم إرسال موقعك إليهم أثناء نشاط بث الاستغاثة.';
+
+  @override
+  String get faqLink =>
+      'نوع الرابط: كيف سيتم تسليم موقعك إلى جهات الاتصال. \"خرائط Google\" و\"خرائط Apple\" و\"Waze\" سترسل رابطاً قابلاً للنقر للخدمة المقابلة. \"الإحداثيات\" سترسل خطي العرض والطول كنص عادي.';
+
+  @override
+  String get faqUnavailable => 'الاستغاثة تقول \"الموقع غير متاح\"؟';
+
+  @override
+  String get faqReliability =>
+      'لتحسين موثوقية الاستغاثة، يرجى تفعيل خيار \"السماح طوال الوقت\" في ';
+
+  @override
+  String get faqLocationPermissions => 'أذونات الموقع';
+
+  @override
+  String get faqLocationTrust =>
+      'يستخدم التطبيق موقعك فقط أثناء نشاط بث الاستغاثة. لا تقوم InstaSOS ولا Empathetech LLC بتتبع بيانات المستخدم أو تخزينها أو بيعها.';
+
+  @override
+  String get faqPrivateContact => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف؟';
+
+  @override
+  String get faqContactPermissions =>
+      'إذا ظهرت لك هذه الرسالة عند إضافة جهة اتصال للطوارئ، فهذا يعني أن InstaSOS ليس لديه إذن للوصول إلى جهة الاتصال تلك.';
+
+  @override
+  String get faqUpdateContacts => 'يمكنك تحديث أذونات جهات الاتصال في ';
+
+  @override
+  String get faqOSSettings => 'إعدادات iOS';
+
+  @override
+  String get faqMissing => 'لماذا بعض ميزات Android مفقودة؟';
+
+  @override
+  String get faqRestricted =>
+      'الميزات المفقودة تتطلب أتمتة الرسائل القصيرة (SMS)، ولا تسمح Apple للمطورين بأتمتة الرسائل النصية (بدون خدمة مدفوعة).';
+
+  @override
+  String get faqShortcuts =>
+      'ماذا عن اختصارات iOS؟\nهناك أيضاً قيود على الوصول إلى اختصارات المستخدم، مما قد يؤدي إلى تعطيل ميزات حاسمة. بشكل أساسي: قد يؤدي ذلك إلى مقاطعة تسجيلات الفيديو.';
+
+  @override
+  String get faqLanguages => 'لماذا اللغة X غير متوفرة؟';
+
+  @override
+  String get faqResponsible =>
+      'سيكون من غير المسؤول استخدام الترجمة الآلية لقائمة الحقوق. يرجى التفكير في ';
+
+  @override
+  String get faqContributing => 'المساهمة';
+
+  @override
+  String get faqExpand => ' للمساعدة في توسيع خيارات اللغة.';
+
+  @override
+  String get faqReset => 'إعادة تعيين الشرح التوضيحي';
+
+  @override
+  String get faqResetSnack =>
+      'سيتم إعادة تشغيل الشرح التوضيحي عند الفتح في المرة القادمة.';
+
+  @override
+  String get faqOnCloseWarning =>
+      'تم تفعيل \"SOS عند الإغلاق\". سيؤدي هذا إلى بدء بث.';
 
   @override
   String get dsLadyLiberty => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';

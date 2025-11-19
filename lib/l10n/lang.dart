@@ -175,6 +175,18 @@ abstract class Lang {
   /// **'All clear. Close the app without SOS.'**
   String get hsSafeCloseHint;
 
+  /// No description provided for @hsAutoSOS.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto SOS'**
+  String get hsAutoSOS;
+
+  /// No description provided for @hsStop.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop'**
+  String get hsStop;
+
   /// No description provided for @hsCameraHint.
   ///
   /// In en, this message translates to:
@@ -436,8 +448,14 @@ abstract class Lang {
   /// No description provided for @ssSOSOnCloseHint.
   ///
   /// In en, this message translates to:
-  /// **'When enabled, a safe close button will be shown opposite the settings.'**
+  /// **'When enabled, a safe close (thumbs up) button will be appear on the home page, opposite the settings. If InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.'**
   String get ssSOSOnCloseHint;
+
+  /// No description provided for @ssCloseOffWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'The app will auto-close to prevent unintentional broadcasts.'**
+  String get ssCloseOffWarning;
 
   /// No description provided for @ssVideoSOS.
   ///
@@ -480,6 +498,174 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'Appearance'**
   String get ssAppearance;
+
+  /// No description provided for @faqName.
+  ///
+  /// In en, this message translates to:
+  /// **'FAQ'**
+  String get faqName;
+
+  /// No description provided for @faqListQ.
+  ///
+  /// In en, this message translates to:
+  /// **'How was the rights list made?'**
+  String get faqListQ;
+
+  /// No description provided for @faqListA1.
+  ///
+  /// In en, this message translates to:
+  /// **'The rights list was compiled from several public sources, including:'**
+  String get faqListA1;
+
+  /// No description provided for @faqListA2.
+  ///
+  /// In en, this message translates to:
+  /// **'Another useful resource: '**
+  String get faqListA2;
+
+  /// No description provided for @faqSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'What do the settings do?'**
+  String get faqSettings;
+
+  /// No description provided for @faqOnOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS on open: when enabled, an SOS broadcast will begin immediately upon app launch. Not recommended for most users, as it could lead to accidental broadcasts.'**
+  String get faqOnOpen;
+
+  /// No description provided for @faqOnInterrupt.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS on interrupted recording: when enabled, if a video recording is active and InstaSOS loses focus for any reason (minimized, switched apps, screen off), an SOS broadcast will begin.\nIt is recommended to enable either this or \"SOS on close\" (or both).'**
+  String get faqOnInterrupt;
+
+  /// No description provided for @faqAutoShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto-share media: when enabled, the native share options will appear as soon as a video completes or a photo is taken.'**
+  String get faqAutoShare;
+
+  /// No description provided for @faqEMC.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency contacts: the people that will be sent your location while an SOS broadcast is active.'**
+  String get faqEMC;
+
+  /// No description provided for @faqLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Link type: how your location will be delivered to your emergency contacts. \"Google Maps\", \"Apple Maps\", and \"Waze\" will send a clickable link for the corresponding service. \"Coordinates\" will send your latitude and longitude as plain text.'**
+  String get faqLink;
+
+  /// No description provided for @faqUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS says \"Location unavailable\"?'**
+  String get faqUnavailable;
+
+  /// No description provided for @faqReliability.
+  ///
+  /// In en, this message translates to:
+  /// **'To improve SOS reliability, please enable \"Allow all the time\" in the '**
+  String get faqReliability;
+
+  /// No description provided for @faqLocationPermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'location permissions'**
+  String get faqLocationPermissions;
+
+  /// No description provided for @faqLocationTrust.
+  ///
+  /// In en, this message translates to:
+  /// **'The app only uses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.'**
+  String get faqLocationTrust;
+
+  /// No description provided for @faqPrivateContact.
+  ///
+  /// In en, this message translates to:
+  /// **'The contact is private or does not have a phone number?'**
+  String get faqPrivateContact;
+
+  /// No description provided for @faqContactPermissions.
+  ///
+  /// In en, this message translates to:
+  /// **'If you get this message when adding an emergency contact, InstaSOS does not have permission to access that contact.'**
+  String get faqContactPermissions;
+
+  /// No description provided for @faqUpdateContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'You can update contact permissions in the '**
+  String get faqUpdateContacts;
+
+  /// No description provided for @faqOSSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'iOS settings'**
+  String get faqOSSettings;
+
+  /// No description provided for @faqMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'Why are some Android features missing?'**
+  String get faqMissing;
+
+  /// No description provided for @faqRestricted.
+  ///
+  /// In en, this message translates to:
+  /// **'The missing features require SMS automation, and Apple does not allow developers to automate text messages (without a paid service).'**
+  String get faqRestricted;
+
+  /// No description provided for @faqShortcuts.
+  ///
+  /// In en, this message translates to:
+  /// **'What about iOS shortcuts?\nThere are also restrictions on accessing user shortcuts, which would break crucial features. Primarily: it would interrupt video recordings.'**
+  String get faqShortcuts;
+
+  /// No description provided for @faqLanguages.
+  ///
+  /// In en, this message translates to:
+  /// **'Why is X language not available?'**
+  String get faqLanguages;
+
+  /// No description provided for @faqResponsible.
+  ///
+  /// In en, this message translates to:
+  /// **'It would be irresponsible to use machine translation for the rights list. Please consider '**
+  String get faqResponsible;
+
+  /// No description provided for @faqContributing.
+  ///
+  /// In en, this message translates to:
+  /// **'contributing'**
+  String get faqContributing;
+
+  /// No description provided for @faqExpand.
+  ///
+  /// In en, this message translates to:
+  /// **' to help expand the language options.'**
+  String get faqExpand;
+
+  /// No description provided for @faqReset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset tutorial'**
+  String get faqReset;
+
+  /// No description provided for @faqResetSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'The tutorial will replay on next launch.'**
+  String get faqResetSnack;
+
+  /// No description provided for @faqOnCloseWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'\"SOS on close\" is enabled. This will start a broadcast.'**
+  String get faqOnCloseWarning;
 
   /// No description provided for @dsLadyLiberty.
   ///

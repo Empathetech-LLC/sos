@@ -42,6 +42,12 @@ class LangEn extends Lang {
   String get hsSafeCloseHint => 'All clear. Close the app without SOS.';
 
   @override
+  String get hsAutoSOS => 'Auto SOS';
+
+  @override
+  String get hsStop => 'Stop';
+
+  @override
   String get hsCameraHint => 'Take a photo.';
 
   @override
@@ -194,7 +200,11 @@ class LangEn extends Lang {
 
   @override
   String get ssSOSOnCloseHint =>
-      'When enabled, a safe close button will be shown opposite the settings.';
+      'When enabled, a safe close (thumbs up) button will be appear on the home page, opposite the settings. If InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
+
+  @override
+  String get ssCloseOffWarning =>
+      'The app will auto-close to prevent unintentional broadcasts.';
 
   @override
   String get ssVideoSOS => 'SOS on interrupted recording';
@@ -216,6 +226,104 @@ class LangEn extends Lang {
 
   @override
   String get ssAppearance => 'Appearance';
+
+  @override
+  String get faqName => 'FAQ';
+
+  @override
+  String get faqListQ => 'How was the rights list made?';
+
+  @override
+  String get faqListA1 =>
+      'The rights list was compiled from several public sources, including:';
+
+  @override
+  String get faqListA2 => 'Another useful resource: ';
+
+  @override
+  String get faqSettings => 'What do the settings do?';
+
+  @override
+  String get faqOnOpen =>
+      'SOS on open: when enabled, an SOS broadcast will begin immediately upon app launch. Not recommended for most users, as it could lead to accidental broadcasts.';
+
+  @override
+  String get faqOnInterrupt =>
+      'SOS on interrupted recording: when enabled, if a video recording is active and InstaSOS loses focus for any reason (minimized, switched apps, screen off), an SOS broadcast will begin.\nIt is recommended to enable either this or \"SOS on close\" (or both).';
+
+  @override
+  String get faqAutoShare =>
+      'Auto-share media: when enabled, the native share options will appear as soon as a video completes or a photo is taken.';
+
+  @override
+  String get faqEMC =>
+      'Emergency contacts: the people that will be sent your location while an SOS broadcast is active.';
+
+  @override
+  String get faqLink =>
+      'Link type: how your location will be delivered to your emergency contacts. \"Google Maps\", \"Apple Maps\", and \"Waze\" will send a clickable link for the corresponding service. \"Coordinates\" will send your latitude and longitude as plain text.';
+
+  @override
+  String get faqUnavailable => 'SOS says \"Location unavailable\"?';
+
+  @override
+  String get faqReliability =>
+      'To improve SOS reliability, please enable \"Allow all the time\" in the ';
+
+  @override
+  String get faqLocationPermissions => 'location permissions';
+
+  @override
+  String get faqLocationTrust =>
+      'The app only uses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.';
+
+  @override
+  String get faqPrivateContact =>
+      'The contact is private or does not have a phone number?';
+
+  @override
+  String get faqContactPermissions =>
+      'If you get this message when adding an emergency contact, InstaSOS does not have permission to access that contact.';
+
+  @override
+  String get faqUpdateContacts => 'You can update contact permissions in the ';
+
+  @override
+  String get faqOSSettings => 'iOS settings';
+
+  @override
+  String get faqMissing => 'Why are some Android features missing?';
+
+  @override
+  String get faqRestricted =>
+      'The missing features require SMS automation, and Apple does not allow developers to automate text messages (without a paid service).';
+
+  @override
+  String get faqShortcuts =>
+      'What about iOS shortcuts?\nThere are also restrictions on accessing user shortcuts, which would break crucial features. Primarily: it would interrupt video recordings.';
+
+  @override
+  String get faqLanguages => 'Why is X language not available?';
+
+  @override
+  String get faqResponsible =>
+      'It would be irresponsible to use machine translation for the rights list. Please consider ';
+
+  @override
+  String get faqContributing => 'contributing';
+
+  @override
+  String get faqExpand => ' to help expand the language options.';
+
+  @override
+  String get faqReset => 'Reset tutorial';
+
+  @override
+  String get faqResetSnack => 'The tutorial will replay on next launch.';
+
+  @override
+  String get faqOnCloseWarning =>
+      '\"SOS on close\" is enabled. This will start a broadcast.';
 
   @override
   String get dsLadyLiberty =>
@@ -260,6 +368,12 @@ class LangEnUs extends LangEn {
   String get hsSafeCloseHint => 'All clear. Close the app without SOS.';
 
   @override
+  String get hsAutoSOS => 'Auto SOS';
+
+  @override
+  String get hsStop => 'Stop';
+
+  @override
   String get hsCameraHint => 'Take a photo.';
 
   @override
@@ -412,7 +526,11 @@ class LangEnUs extends LangEn {
 
   @override
   String get ssSOSOnCloseHint =>
-      'When enabled, a safe close button will be shown opposite the settings.';
+      'When enabled, a safe close (thumbs up) button will be appear on the home page, opposite the settings. If InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
+
+  @override
+  String get ssCloseOffWarning =>
+      'The app will auto-close to prevent unintentional broadcasts.';
 
   @override
   String get ssVideoSOS => 'SOS on interrupted recording';
@@ -434,6 +552,104 @@ class LangEnUs extends LangEn {
 
   @override
   String get ssAppearance => 'Appearance';
+
+  @override
+  String get faqName => 'FAQ';
+
+  @override
+  String get faqListQ => 'How was the rights list made?';
+
+  @override
+  String get faqListA1 =>
+      'The rights list was compiled from several public sources, including:';
+
+  @override
+  String get faqListA2 => 'Another useful resource: ';
+
+  @override
+  String get faqSettings => 'What do the settings do?';
+
+  @override
+  String get faqOnOpen =>
+      'SOS on open: when enabled, an SOS broadcast will begin immediately upon app launch. Not recommended for most users, as it could lead to accidental broadcasts.';
+
+  @override
+  String get faqOnInterrupt =>
+      'SOS on interrupted recording: when enabled, if a video recording is active and InstaSOS loses focus for any reason (minimized, switched apps, screen off), an SOS broadcast will begin.\nIt is recommended to enable either this or \"SOS on close\" (or both).';
+
+  @override
+  String get faqAutoShare =>
+      'Auto-share media: when enabled, the native share options will appear as soon as a video completes or a photo is taken.';
+
+  @override
+  String get faqEMC =>
+      'Emergency contacts: the people that will be sent your location while an SOS broadcast is active.';
+
+  @override
+  String get faqLink =>
+      'Link type: how your location will be delivered to your emergency contacts. \"Google Maps\", \"Apple Maps\", and \"Waze\" will send a clickable link for the corresponding service. \"Coordinates\" will send your latitude and longitude as plain text.';
+
+  @override
+  String get faqUnavailable => 'SOS says \"Location unavailable\"?';
+
+  @override
+  String get faqReliability =>
+      'To improve SOS reliability, please enable \"Allow all the time\" in the ';
+
+  @override
+  String get faqLocationPermissions => 'location permissions';
+
+  @override
+  String get faqLocationTrust =>
+      'The app only uses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.';
+
+  @override
+  String get faqPrivateContact =>
+      'The contact is private or does not have a phone number?';
+
+  @override
+  String get faqContactPermissions =>
+      'If you get this message when adding an emergency contact, InstaSOS does not have permission to access that contact.';
+
+  @override
+  String get faqUpdateContacts => 'You can update contact permissions in the ';
+
+  @override
+  String get faqOSSettings => 'iOS settings';
+
+  @override
+  String get faqMissing => 'Why are some Android features missing?';
+
+  @override
+  String get faqRestricted =>
+      'The missing features require SMS automation, and Apple does not allow developers to automate text messages (without a paid service).';
+
+  @override
+  String get faqShortcuts =>
+      'What about iOS shortcuts?\nThere are also restrictions on accessing user shortcuts, which would break crucial features. Primarily: it would interrupt video recordings.';
+
+  @override
+  String get faqLanguages => 'Why is X language not available?';
+
+  @override
+  String get faqResponsible =>
+      'It would be irresponsible to use machine translation for the rights list. Please consider ';
+
+  @override
+  String get faqContributing => 'contributing';
+
+  @override
+  String get faqExpand => ' to help expand the language options.';
+
+  @override
+  String get faqReset => 'Reset tutorial';
+
+  @override
+  String get faqResetSnack => 'The tutorial will replay on next launch.';
+
+  @override
+  String get faqOnCloseWarning =>
+      '\"SOS on close\" is enabled. This will start a broadcast.';
 
   @override
   String get dsLadyLiberty =>

@@ -42,6 +42,12 @@ class LangHt extends Lang {
   String get hsSafeCloseHint => 'Tout bagay OK. Fèmen aplikasyon an san SOS.';
 
   @override
+  String get hsAutoSOS => 'SOS otomatik';
+
+  @override
+  String get hsStop => 'Rete';
+
+  @override
   String get hsCameraHint => 'Pran yon foto.';
 
   @override
@@ -186,14 +192,18 @@ class LangHt extends Lang {
       'Pou konsilte yon avoka. Si yo arete fòmèlman, ou gen dwa gen yon avoka leta.';
 
   @override
-  String get ssSOSOnOpen => 'SOS lè ou ouvè aplikasyon an';
+  String get ssSOSOnOpen => 'SOS lè ouvè';
 
   @override
-  String get ssSOSOnClose => 'SOS lè ou fèmen aplikasyon an';
+  String get ssSOSOnClose => 'SOS lè fèmen';
 
   @override
   String get ssSOSOnCloseHint =>
-      'Lè sa aktive, ou ap wè yon bouton ki pèmèt ou sòti an san pwoblèm anfas bouton anviwònman an.';
+      'Lè li aktive, yon bouton pou fèmen an sekirite (gwo pous anlè) ap parèt sou paj dakèy la, anfas paramèt yo. Si InstaSOS pèdi atansyon pou nenpòt rezon eksepte bouton fèmen an sekirite a (minimize, chanje aplikasyon, ekran etenn), yon emisyon SOS ap kòmanse.';
+
+  @override
+  String get ssCloseOffWarning =>
+      'Aplikasyon an ap fèmen otomatikman pou evite emisyon aksidantèl.';
 
   @override
   String get ssVideoSOS => 'SOS si anrejistreman an entèwonp';
@@ -215,6 +225,105 @@ class LangHt extends Lang {
 
   @override
   String get ssAppearance => 'Aparans';
+
+  @override
+  String get faqName => 'FAQ';
+
+  @override
+  String get faqListQ => 'Kijan lis dwa yo te fèt?';
+
+  @override
+  String get faqListA1 =>
+      'Lis dwa yo te konpile apati plizyè sous piblik, tankou:';
+
+  @override
+  String get faqListA2 => 'Yon lòt resous itil: ';
+
+  @override
+  String get faqSettings => 'Kisa paramèt yo fè?';
+
+  @override
+  String get faqOnOpen =>
+      'SOS lè w louvri: lè li aktive, yon siyal SOS ap kòmanse voye imedyatman lè aplikasyon an louvri. Nou pa rekòmande sa pou pifò itilizatè, paske li ka lakòz fo alèt pa aksidan.';
+
+  @override
+  String get faqOnInterrupt =>
+      'SOS sou entèripsyon anrejistreman: lè li aktive, si yon anrejistreman videyo ap fèt epi InstaSOS pèdi priyorite pou nenpòt rezon (minimize, chanje aplikasyon, ekran etenn), yon siyal SOS ap kòmanse voye.\nLi rekòmande pou aktive swa opsyon sa a oswa \"SOS lè fèmen\" (oswa toude).';
+
+  @override
+  String get faqAutoShare =>
+      'Pataje medya otomatikman: lè li aktive, opsyon pataje natif yo ap parèt le pli vit ke yon videyo fini oswa yon foto fèt.';
+
+  @override
+  String get faqEMC =>
+      'Kontak ijans: moun yo ki pral resevwa pozisyon ou pandan yon siyal SOS ap voye.';
+
+  @override
+  String get faqLink =>
+      'Tip lyen: kijan y ap voye pozisyon ou bay kontak ijans ou yo. \"Google Maps\", \"Apple Maps\", ak \"Waze\" ap voye yon lyen ou ka klike pou sèvis korespondan an. \"Coordinates\" ap voye latitid ak lonjitid ou kòm tèks senp.';
+
+  @override
+  String get faqUnavailable => 'SOS di \"Location unavailable\"?';
+
+  @override
+  String get faqReliability =>
+      'Pou amelyore fyabilite SOS, tanpri aktive \"Allow all the time\" (Pèmèt tout tan) nan ';
+
+  @override
+  String get faqLocationPermissions => 'pèmisyon pozisyon yo';
+
+  @override
+  String get faqLocationTrust =>
+      'Aplikasyon an itilize pozisyon ou sèlman lè yon siyal SOS ap voye. Ni InstaSOS, ni Empathetech LLC pa swiv, estoke, oswa vann done itilizatè yo.';
+
+  @override
+  String get faqPrivateContact =>
+      'Kontak la prive oswa li pa gen nimewo telefòn?';
+
+  @override
+  String get faqContactPermissions =>
+      'Si ou resevwa mesaj sa a lè w ap ajoute yon kontak ijans, InstaSOS pa gen pèmisyon pou jwenn aksès a kontak sa a.';
+
+  @override
+  String get faqUpdateContacts => 'Ou ka mete ajou pèmisyon kontak yo nan ';
+
+  @override
+  String get faqOSSettings => 'paramèt iOS yo';
+
+  @override
+  String get faqMissing => 'Poukisa kèk fonksyon Android manke?';
+
+  @override
+  String get faqRestricted =>
+      'Fonksyon ki manke yo mande otomatizasyon SMS, epi Apple pa pèmèt devlopè yo otomatize mesaj tèks (san yon sèvis peye).';
+
+  @override
+  String get faqShortcuts =>
+      'E rakousi iOS yo?\nGenyen tou restriksyon sou aksè a rakousi itilizatè yo, ki ta ka kraze fonksyon enpòtan yo. Prensipalman: li ta entèwonp anrejistreman videyo yo.';
+
+  @override
+  String get faqLanguages => 'Poukisa lang X pa disponib?';
+
+  @override
+  String get faqResponsible =>
+      'Li t ap irèsponsab pou itilize tradiksyon machin pou lis dwa yo. Tanpri konsidere ';
+
+  @override
+  String get faqContributing => 'kontribye';
+
+  @override
+  String get faqExpand => ' pou ede elaji opsyon lang yo.';
+
+  @override
+  String get faqReset => 'Reyajiste titoryèl la';
+
+  @override
+  String get faqResetSnack =>
+      'Titoryèl la pral jwe ankò nan pwochen lansman an.';
+
+  @override
+  String get faqOnCloseWarning =>
+      '\"SOS lè fèmen\" aktive. Sa pral kòmanse yon difizyon.';
 
   @override
   String get dsLadyLiberty =>
