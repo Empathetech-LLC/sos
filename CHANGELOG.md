@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.2] - 2025-11-18
+### Added
+- Help FAB to the first settings page/settings home
+  - Contains an FAQ and a button to reset the tutorials
+    - FAQ is machine translated; this is communicated in the app as well
+      - The rights list will always be human translated
+- Auto-SOS toast with optional "Stop" button
+
+### Updated
+- SOS on close setting
+  - Improved clarity on how it works
+  - App will auto-close when it's switched off (communicated via alert dialog) to prevent accidental broadcasts
+
 ## [1.5.1] - 2025-10-22
 ### Updated
 - If a contact has multiple numbers, all will be added (previously just the first)

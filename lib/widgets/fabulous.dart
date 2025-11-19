@@ -15,7 +15,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 // ignore_for_file: constant_identifier_names
 
 const Widget updater = EzUpdaterFAB(
-  appVersion: '1.5.1',
+  appVersion: '1.5.2',
   versionSource:
       'https://raw.githubusercontent.com/Empathetech-LLC/sos/refs/heads/main/APP_VERSION',
   gPlay: 'https://play.google.com/store/apps/details?id=net.empathetech.sos',
