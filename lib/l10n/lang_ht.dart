@@ -199,7 +199,7 @@ class LangHt extends Lang {
 
   @override
   String get ssSOSOnCloseHint =>
-      'Lè sa aktive, ou ap wè yon bouton ki pèmèt ou sòti an san pwoblèm anfas bouton anviwònman an.';
+      'Lè li aktive, yon bouton pou fèmen an sekirite (gwo pous anlè) ap parèt sou paj dakèy la, anfas paramèt yo. Si InstaSOS pèdi atansyon pou nenpòt rezon eksepte bouton fèmen an sekirite a (minimize, chanje aplikasyon, ekran etenn), yon emisyon SOS ap kòmanse.';
 
   @override
   String get ssCloseOffWarning =>

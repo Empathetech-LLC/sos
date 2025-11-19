@@ -79,7 +79,7 @@
   
   "ssSOSOnOpen": "SOS lè ouvè",
   "ssSOSOnClose": "SOS lè fèmen",
-  "ssSOSOnCloseHint": "Lè sa aktive, ou ap wè yon bouton ki pèmèt ou sòti an san pwoblèm anfas bouton anviwònman an.",
+  "ssSOSOnCloseHint": "Lè li aktive, yon bouton pou fèmen an sekirite (gwo pous anlè) ap parèt sou paj dakèy la, anfas paramèt yo. Si InstaSOS pèdi atansyon pou nenpòt rezon eksepte bouton fèmen an sekirite a (minimize, chanje aplikasyon, ekran etenn), yon emisyon SOS ap kòmanse.",
   "ssCloseOffWarning": "Aplikasyon an ap fèmen otomatikman pou evite emisyon aksidantèl.",
   "ssVideoSOS": "SOS si anrejistreman an entèwonp",
   "ssAutoShare": "Pataje medya otomatikman",

@@ -187,7 +187,8 @@ class LangZh extends Lang {
   String get ssSOSOnClose => '关闭应用时启动SOS';
 
   @override
-  String get ssSOSOnCloseHint => '启用后，在设置按钮对侧会显示一个“安全关闭”按钮。';
+  String get ssSOSOnCloseHint =>
+      '启用后，主页上设置按钮对面会出现一个安全关闭（点赞）按钮。如果 InstaSOS 因除安全关闭按钮以外的任何原因失去焦点（例如最小化、切换应用、屏幕关闭），则会开始发出 SOS 求救信号。';
 
   @override
   String get ssCloseOffWarning => '应用程序将自动关闭，以防止意外播出。';
@@ -489,7 +490,8 @@ class LangZhCn extends LangZh {
   String get ssSOSOnClose => '关闭应用时启动SOS';
 
   @override
-  String get ssSOSOnCloseHint => '启用后，在设置按钮对侧会显示一个“安全关闭”按钮。';
+  String get ssSOSOnCloseHint =>
+      '启用后，主页上设置按钮对面会出现一个安全关闭（点赞）按钮。如果 InstaSOS 因除安全关闭按钮以外的任何原因失去焦点（例如最小化、切换应用、屏幕关闭），则会开始发出 SOS 求救信号。';
 
   @override
   String get ssCloseOffWarning => '应用程序将自动关闭，以防止意外播出。';

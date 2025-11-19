@@ -205,7 +205,7 @@ class LangFr extends Lang {
 
   @override
   String get ssSOSOnCloseHint =>
-      'Lorsqu\'il est activé, un bouton de fermeture sécurisée s\'affiche en face des paramètres.';
+      'Une fois activée, une icône de fermeture sécurisée (pouce levé) apparaît sur la page d\'accueil, en face des paramètres. Si InstaSOS perd le focus pour une raison autre que l\'activation de cette icône (application réduite, changement d\'application, écran éteint), une diffusion SOS est déclenchée.';
 
   @override
   String get ssCloseOffWarning =>

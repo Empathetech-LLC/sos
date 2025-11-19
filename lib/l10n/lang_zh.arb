@@ -79,7 +79,7 @@
 
   "ssSOSOnOpen": "打开应用时启动SOS",
   "ssSOSOnClose": "关闭应用时启动SOS",
-  "ssSOSOnCloseHint": "启用后，在设置按钮对侧会显示一个“安全关闭”按钮。",
+  "ssSOSOnCloseHint": "启用后，主页上设置按钮对面会出现一个安全关闭（点赞）按钮。如果 InstaSOS 因除安全关闭按钮以外的任何原因失去焦点（例如最小化、切换应用、屏幕关闭），则会开始发出 SOS 求救信号。",
   "ssCloseOffWarning": "应用程序将自动关闭，以防止意外播出。",
   "ssVideoSOS": "录像中断自动启动SOS",
   "ssAutoShare": "自动共享媒体",
