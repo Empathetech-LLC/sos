@@ -13,7 +13,7 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 const String appName = 'InstaSOS';
 
 /// net.empathetech.sos
-const String packageName = 'net.empathetech.sos';
+const String androidPackage = 'net.empathetech.sos';
 
 // BTS settings //
 
@@ -89,6 +89,21 @@ final Map<String, Object> sosConfig = <String, Object>{
   // Color
   videoColorKey: 0xFFFF0000,
 };
+
+/// [ezConfigSaver] extraKeys
+const List<String> extraKeys = <String>[
+  tutorialKey,
+  partialContactsKey,
+  savedTabKey,
+  // taskRunningKey,
+  onOpenKey,
+  onCloseKey,
+  onInterruptKey,
+  autoShareKey,
+  // emcKey,
+  linkTypeKey,
+  videoColorKey,
+];
 
 // Local assets //
 
