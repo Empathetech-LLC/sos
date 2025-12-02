@@ -111,7 +111,7 @@ Future<String> getCoordinates(String linkBase, Lang l10n) async {
   }
 }
 
-const MethodChannel platform = MethodChannel('$packageName/broadcast');
+const MethodChannel platform = MethodChannel('$androidPackage/broadcast');
 
 /// Call the [MethodChannel] to send a foregroundSOS
 /// Includes error handling
