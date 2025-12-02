@@ -85,6 +85,9 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
                   });
                   setState(() {});
                 },
+                extraKeys: extraKeys,
+                appName: appName,
+                androidPackage: androidPackage,
               ),
               ezSeparator,
             ],
@@ -96,8 +99,9 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
         ezSpacer,
         EzConfigFAB(
           context,
+          extraKeys: extraKeys,
           appName: appName,
-          androidPackage: packageName,
+          androidPackage: androidPackage,
         ),
         ezSpacer,
         const EzBackFAB(

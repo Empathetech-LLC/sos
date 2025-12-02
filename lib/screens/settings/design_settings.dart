@@ -115,6 +115,9 @@ class DesignSettingsScreen extends StatelessWidget {
             ),
             ezSpacer,
           ],
+          extraSaveKeys: extraKeys,
+          appName: appName,
+          androidPackage: androidPackage,
         ),
         useImageDecoration: false,
       ),
@@ -122,8 +125,9 @@ class DesignSettingsScreen extends StatelessWidget {
         ezSpacer,
         EzConfigFAB(
           context,
+          extraKeys: extraKeys,
           appName: appName,
-          androidPackage: packageName,
+          androidPackage: androidPackage,
         ),
         ezSpacer,
         const EzBackFAB(

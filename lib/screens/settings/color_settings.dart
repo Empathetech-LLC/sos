@@ -34,6 +34,9 @@ class ColorSettingsScreen extends StatelessWidget {
               lightOnSurfaceKey,
               lightSurfaceContainerKey,
             ],
+            extraSaveKeys: extraKeys,
+            appName: appName,
+            androidPackage: androidPackage,
           ),
           useImageDecoration: false,
         ),
@@ -41,8 +44,9 @@ class ColorSettingsScreen extends StatelessWidget {
           ezSpacer,
           EzConfigFAB(
             context,
+            extraKeys: extraKeys,
             appName: appName,
-            androidPackage: packageName,
+            androidPackage: androidPackage,
           ),
           ezSpacer,
           const EzBackFAB(

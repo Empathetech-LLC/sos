@@ -17,13 +17,22 @@ class TextSettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SosScaffold(
-        EzScreen(EzTextSettings(target: target), useImageDecoration: false),
+        EzScreen(
+          EzTextSettings(
+            target: target,
+            extraSaveKeys: extraKeys,
+            appName: appName,
+            androidPackage: androidPackage,
+          ),
+          useImageDecoration: false,
+        ),
         fabs: <Widget>[
           ezSpacer,
           EzConfigFAB(
             context,
+            extraKeys: extraKeys,
             appName: appName,
-            androidPackage: packageName,
+            androidPackage: androidPackage,
           ),
           ezSpacer,
           const EzBackFAB(
