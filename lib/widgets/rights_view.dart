@@ -116,7 +116,7 @@ class _RightsViewState extends State<RightsView> {
     return Visibility(
       visible: !widget.hide,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: EzConfig.get(marginKey)),
+        padding: EdgeInsets.symmetric(horizontal: EzConfig.margin),
         child: EzScrollView(
           crossAxisAlignment: CrossAxisAlignment.start,
           // Header

@@ -105,7 +105,7 @@ class DesignSettingsScreen extends StatelessWidget {
                             icon: EzIcon(PlatformIcons(context).refresh),
                             label: el10n.gReset,
                           ),
-                          EzSpacer(space: EzConfig.get(spacingKey) * 1.5),
+                          EzSpacer(space: EzConfig.spacing * 1.5),
                         ],
                       ),
                     );
