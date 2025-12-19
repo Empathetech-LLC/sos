@@ -15,10 +15,21 @@ const String appName = 'InstaSOS';
 /// net.empathetech.sos
 const String androidPackage = 'net.empathetech.sos';
 
-// BTS settings //
+// Local assets //
 
-/// showTutorial
-const String tutorialKey = 'showTutorial';
+/// assets/images/og-baddie.jpg
+const String ladyLiberty = 'assets/images/og-baddie.jpg';
+
+/// [ladyLiberty]
+const Set<String> assetPaths = <String>{ladyLiberty};
+
+const Map<String, String> credits = <String, String>{
+  ladyLiberty: 'Public domain; CC0 1.0 Universal',
+};
+
+//* EzConfig *//
+
+// BTS settings //
 
 /// showContactsMsg
 const String partialContactsKey = 'showContactsMsg';
@@ -26,28 +37,30 @@ const String partialContactsKey = 'showContactsMsg';
 /// savedTab
 const String savedTabKey = 'savedTab';
 
-/// walking
-const String walkingTab = 'walking';
+/// taskRunning
+const String taskRunningKey = 'taskRunning';
 
-/// driving
-const String drivingTab = 'driving';
+/// showTutorial
+const String tutorialKey = 'showTutorial';
+
+/// [partialContactsKey], [savedTabKey], [taskRunningKey], [tutorialKey]
+const Map<String, Type> allBTSKeys = <String, Type>{
+  partialContactsKey: bool,
+  savedTabKey: String,
+  taskRunningKey: bool,
+  tutorialKey: bool,
+};
 
 /// atHome
 const String atHomeTab = 'atHome';
 
-/// taskRunning
-const String taskRunningKey = 'taskRunning';
+/// driving
+const String drivingTab = 'driving';
 
-// SOS settings //
+/// walking
+const String walkingTab = 'walking';
 
-/// notifyOnOpen
-const String onOpenKey = 'sosOnOpen';
-
-/// notifyOnClose
-const String onCloseKey = 'sosOnClose';
-
-/// sosOnInterrupt
-const String onInterruptKey = 'sosOnInterrupt';
+// Broadcast settings //
 
 /// autoShareMedia
 const String autoShareKey = 'autoShareMedia';
@@ -55,13 +68,36 @@ const String autoShareKey = 'autoShareMedia';
 /// emc
 const String emcKey = 'emc';
 
+/// notifyOnClose
+const String onCloseKey = 'sosOnClose';
+
+/// sosOnInterrupt
+const String onInterruptKey = 'sosOnInterrupt';
+
+/// notifyOnOpen
+const String onOpenKey = 'sosOnOpen';
+
 /// linkType
 const String linkTypeKey = 'linkType';
+
+const Map<String, Type> allBroadcastKeys = <String, Type>{
+  autoShareKey: bool,
+  emcKey: List<String>,
+  onCloseKey: bool,
+  onInterruptKey: bool,
+  onOpenKey: bool,
+  linkTypeKey: String,
+};
 
 // Color settings //
 
 /// Video
 const String videoColorKey = 'Video';
+
+/// [videoColorKey]
+const Map<String, Type> allSOSColorKeys = <String, Type>{
+  videoColorKey: int,
+};
 
 // EzConfig default //
 
@@ -73,17 +109,17 @@ final Map<String, Object> sosConfig = <String, Object>{
   lightTextBackgroundOpacityKey: 0.8,
 
   // BTS
-  tutorialKey: true,
   partialContactsKey: true,
   savedTabKey: walkingTab,
   taskRunningKey: false,
+  tutorialKey: true,
 
   // SOS
-  onOpenKey: false,
-  onCloseKey: false,
-  onInterruptKey: true,
   autoShareKey: true,
   emcKey: <String>[],
+  onCloseKey: false,
+  onInterruptKey: true,
+  onOpenKey: false,
   linkTypeKey: LinkType.google.name,
 
   // Color
@@ -92,27 +128,28 @@ final Map<String, Object> sosConfig = <String, Object>{
 
 /// [ezConfigSaver] extraKeys
 const List<String> extraKeys = <String>[
-  tutorialKey,
+  // BTS
   partialContactsKey,
   savedTabKey,
   // taskRunningKey,
-  onOpenKey,
-  onCloseKey,
-  onInterruptKey,
+  tutorialKey,
+
+  // Broadcast
   autoShareKey,
   // emcKey,
+  onCloseKey,
+  onInterruptKey,
+  onOpenKey,
   linkTypeKey,
+
+  // Color
   videoColorKey,
 ];
 
-// Local assets //
-
-/// assets/images/og-baddie.jpg
-const String ladyLiberty = 'assets/images/og-baddie.jpg';
-
-/// [ladyLiberty]
-const Set<String> assetPaths = <String>{ladyLiberty};
-
-const Map<String, String> credits = <String, String>{
-  ladyLiberty: 'Public domain; CC0 1.0 Universal',
+/// For [EzConfig.init]
+const Map<String, Type> allSOSKeys = <String, Type>{
+  ...allEZConfigKeys,
+  ...allBTSKeys,
+  ...allBroadcastKeys,
+  ...allSOSColorKeys,
 };

@@ -25,13 +25,14 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
 
-  final SharedPreferencesAsync preferences = SharedPreferencesAsync();
   EzConfig.init(
     assetPaths: assetPaths,
     defaults: sosConfig,
     fallbackLang: await EFUILang.delegate.load(americanEnglish),
-    preferences: preferences,
-    storedKeys: await preferences.getKeys(),
+    preferences: await SharedPreferencesWithCache.create(
+      cacheOptions:
+          SharedPreferencesWithCacheOptions(allowList: allSOSKeys.keys.toSet()),
+    ),
   );
 
   // Run the app //

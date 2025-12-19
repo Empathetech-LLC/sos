@@ -18,13 +18,14 @@ void main() async {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
 
-  final SharedPreferencesAsync preferences = SharedPreferencesAsync();
   EzConfig.init(
     assetPaths: assetPaths,
     defaults: empathMobileConfig,
     fallbackLang: await EFUILang.delegate.load(americanEnglish),
-    preferences: preferences,
-    storedKeys: await preferences.getKeys(),
+    preferences: await SharedPreferencesWithCache.create(
+      cacheOptions:
+          SharedPreferencesWithCacheOptions(allowList: allSOSKeys.keys.toSet()),
+    ),
   );
 
   // Run the tests //
