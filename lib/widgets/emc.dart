@@ -19,24 +19,25 @@ class ContactList extends StatefulWidget {
 class _ContactListState extends State<ContactList> {
   // Gather the fixed theme data //
 
-  final double margin = EzConfig.get(marginKey);
-  final double padding = EzConfig.get(paddingKey);
-  final double spacing = EzConfig.get(spacingKey);
-  final double iconSize = EzConfig.get(iconSizeKey);
-
-  late final EzSpacer listSpacer = EzSpacer(space: spacing - margin * 2);
-
   late final Lang l10n = Lang.of(context)!;
   late final EFUILang el10n = ezL10n(context);
-
-  // Return the build //
 
   List<String> emc = EzConfig.get(emcKey);
 
   @override
   Widget build(BuildContext context) {
+    // Gather the contextual theme data //
+
+    final double margin = EzConfig.margin;
+    final double padding = EzConfig.padding;
+    final double spacing = EzConfig.spacing;
+    final double iconSize = EzConfig.iconSize;
+    final EzSpacer listSpacer = EzSpacer(space: spacing - margin * 2);
+
     final TextTheme textTheme = Theme.of(context).textTheme;
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
+
+    // Return the build //
 
     return Column(
       mainAxisSize: MainAxisSize.min,

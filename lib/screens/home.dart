@@ -37,11 +37,6 @@ class _HomeScreenState extends State<HomeScreen>
   late final double safeTop = MediaQuery.paddingOf(context).top;
   late final double safeBottom = MediaQuery.paddingOf(context).bottom;
 
-  final double margin = EzConfig.get(marginKey);
-  final double padding = EzConfig.get(paddingKey);
-  final double spacing = EzConfig.get(spacingKey);
-  late final double spargin = spacing + margin;
-
   final double iconSize = EzConfig.get(iconSizeKey);
   final bool isLefty = EzConfig.get(isLeftyKey);
 
@@ -246,6 +241,10 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     // Gather the contextual theme data //
+
+    final double margin = EzConfig.margin;
+    final double spacing = EzConfig.spacing;
+    final double spargin = spacing + margin;
 
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final Color rightsBackgroundColor = Theme.of(context)

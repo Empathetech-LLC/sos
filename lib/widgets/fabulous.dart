@@ -38,7 +38,7 @@ class HelpFAB extends StatelessWidget {
   Widget build(BuildContext context) {
     // Gather the theme data //
 
-    final double margin = EzConfig.get(marginKey);
+    final double margin = EzConfig.margin;
 
     final EFUILang el10n = ezL10n(context);
     final Lang l10n = Lang.of(context)!;
@@ -410,7 +410,7 @@ class HelpFAB extends StatelessWidget {
                 ),
               ),
             ],
-            EzSpacer(space: EzConfig.get(spacingKey) * 1.5),
+            EzSpacer(space: EzConfig.spacing * 1.5),
           ],
         ),
       ),
