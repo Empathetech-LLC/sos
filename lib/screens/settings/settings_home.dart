@@ -52,6 +52,10 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    const EzSpacer ezSpacer = EzSpacer();
+    const EzSeparator ezSeparator = EzSeparator();
+    const EzDivider ezDivider = EzDivider();
+
     return SosScaffold(
       EzScreen(
         EzScrollView(children: <Widget>[
@@ -197,7 +201,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 style: Theme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
-              ezMargin,
+              EzMargin(),
               EzDropdownMenu<LinkType>(
                 widthEntries: <String>[LinkType.google.label],
                 dropdownMenuEntries: LinkType.values

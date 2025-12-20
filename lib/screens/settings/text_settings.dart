@@ -27,14 +27,14 @@ class TextSettingsScreen extends StatelessWidget {
           useImageDecoration: false,
         ),
         fabs: <Widget>[
-          ezSpacer,
+          const EzSpacer(),
           EzConfigFAB(
             context,
             extraKeys: extraKeys,
             appName: appName,
             androidPackage: androidPackage,
           ),
-          ezSpacer,
+          const EzSpacer(),
           const EzBackFAB(
             hold4Feedback: true,
             appName: appName,
