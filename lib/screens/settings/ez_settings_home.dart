@@ -29,6 +29,9 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    const EzSpacer ezSpacer = EzSpacer();
+    const EzDivider ezDivider = EzDivider();
+
     return SosScaffold(
       EzScreen(
         Center(
@@ -89,7 +92,7 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
                 appName: appName,
                 androidPackage: androidPackage,
               ),
-              ezSeparator,
+              const EzSeparator(),
             ],
           ),
         ),
