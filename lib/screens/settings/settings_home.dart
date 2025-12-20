@@ -59,17 +59,13 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
     return SosScaffold(
       EzScreen(
         EzScrollView(children: <Widget>[
-          // Functionality disclaimer
-          EzWarning(el10n.ssRestartReminder),
-          ezSpacer,
-
           // Language
           EzLocaleSetting(
             locales: Lang.supportedLocales,
             skip: <Locale>{arabic, english, chinese}, // Dupes
             protest: true,
           ),
-          ezDivider,
+          ezSeparator,
 
           // SOS on open
           EzSwitchPair(
