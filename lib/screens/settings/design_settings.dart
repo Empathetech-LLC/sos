@@ -16,6 +16,8 @@ class DesignSettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const EzSpacer ezSpacer = EzSpacer();
+
     final Lang l10n = Lang.of(context)!;
     final EFUILang el10n = ezL10n(context);
 

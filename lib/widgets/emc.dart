@@ -49,7 +49,7 @@ class _ContactListState extends State<ContactList> {
           scrollDirection: Axis.horizontal,
           children: <Widget>[
             Text(l10n.ssEMC, style: textTheme.titleLarge),
-            ezRowMargin,
+            EzMargin(vertical: false),
             EzIconButton(
               icon: Icon(
                 PlatformIcons(context).addCircledOutline,
@@ -65,7 +65,7 @@ class _ContactListState extends State<ContactList> {
             ),
           ],
         ),
-        ezMargin,
+        EzMargin(),
 
         // List of numbers (with remove buttons)
         ConstrainedBox(
@@ -170,7 +170,7 @@ class _ContactTile extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
               ),
-              ezRowMargin,
+              EzMargin(vertical: false),
             ],
 
             // Number
@@ -179,7 +179,7 @@ class _ContactTile extends StatelessWidget {
               style: textTheme.bodyLarge,
               textAlign: TextAlign.start,
             ),
-            ezRowSpacer,
+            const EzSpacer(vertical: false),
 
             // Remove button
             EzIconButton(
