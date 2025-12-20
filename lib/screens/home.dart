@@ -242,6 +242,8 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     // Gather the contextual theme data //
 
+    const EzSeparator ezSeparator = EzSeparator();
+
     final double margin = EzConfig.margin;
     final double spacing = EzConfig.spacing;
     final double spargin = spacing + margin;
