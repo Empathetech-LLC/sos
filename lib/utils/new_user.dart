@@ -14,7 +14,6 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 /// App closes on cancel
 Future<dynamic> firstContactMsg(BuildContext context) {
   final Lang l10n = Lang.of(context)!;
-  final EFUILang el10n = ezL10n(context);
 
   final (
     List<EzMaterialAction> materialActions,
@@ -23,10 +22,10 @@ Future<dynamic> firstContactMsg(BuildContext context) {
     context: context,
     onConfirm: Navigator.of(context).pop,
     confirmIsDefault: true,
-    confirmMsg: el10n.gContinue,
+    confirmMsg: EzConfig.l10n.gContinue,
     onDeny: () => exit(0),
     denyIsDestructive: true,
-    denyMsg: el10n.gCancel,
+    denyMsg: EzConfig.l10n.gCancel,
   );
 
   return showPlatformDialog(
@@ -45,7 +44,6 @@ Future<dynamic> firstContactMsg(BuildContext context) {
 /// Returns false if the user would rather skip
 Future<dynamic> permissionsMsg(BuildContext context) {
   final Lang l10n = Lang.of(context)!;
-  final EFUILang el10n = ezL10n(context);
 
   final (
     List<EzMaterialAction> materialActions,
@@ -56,7 +54,7 @@ Future<dynamic> permissionsMsg(BuildContext context) {
     confirmIsDefault: true,
     confirmMsg: l10n.gOk,
     onDeny: () => Navigator.of(context).pop(false),
-    denyMsg: el10n.gNo,
+    denyMsg: EzConfig.l10n.gNo,
   );
 
   return showPlatformDialog(

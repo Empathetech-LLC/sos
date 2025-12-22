@@ -28,7 +28,7 @@ void main() async {
   EzConfig.init(
     assetPaths: assetPaths,
     defaults: sosConfig,
-    fallbackLang: await EFUILang.delegate.load(americanEnglish),
+    l10nFallback: await EFUILang.delegate.load(americanEnglish),
     preferences: await SharedPreferencesWithCache.create(
       cacheOptions:
           SharedPreferencesWithCacheOptions(allowList: allSOSKeys.keys.toSet()),
@@ -41,14 +41,12 @@ void main() async {
   runApp(BetterFeedback(
     theme: empathFeedbackLight,
     darkTheme: empathFeedbackDark,
-    themeMode: EzConfig.getThemeMode(),
     localizationsDelegates: <LocalizationsDelegate<dynamic>>[
       EzFeedbackLD(),
       CreoleMaterialLocalizations.delegate,
       CreoleCupertinoLocalizations.delegate,
       const CreoleWidgetsLocalizationsDelegate(),
     ],
-    localeOverride: EzConfig.getLocale(),
     child: const SOS(),
   ));
 }
@@ -85,7 +83,7 @@ class SOS extends StatelessWidget {
           const CreoleWidgetsLocalizationsDelegate(),
         },
         supportedLocales: Lang.supportedLocales,
-        locale: EzConfig.getLocale(),
+        locale: EzConfig.locale,
 
         // App title
         title: appName,

@@ -22,7 +22,6 @@ Future<List<String>?> addEMC(
   BuildContext context,
   List<String>? curr, {
   required Lang l10n,
-  required EFUILang el10n,
   bool loop = true,
 }) async {
   // Check for first run
@@ -40,18 +39,20 @@ Future<List<String>?> addEMC(
     if (context.mounted) {
       await ezLogAlert(
         context,
-        title: el10n.gError,
+        title: EzConfig.l10n.gError,
         message: l10n.hsNeedContacts,
         customActions: (
           <EzMaterialAction>[
-            EzMaterialAction(text: el10n.gCancel, onPressed: () => exit(0)),
+            EzMaterialAction(
+                text: EzConfig.l10n.gCancel, onPressed: () => exit(0)),
             EzMaterialAction(
               text: l10n.gOk,
               onPressed: () => openAppSettings(),
             ),
           ],
           <EzCupertinoAction>[
-            EzCupertinoAction(text: el10n.gCancel, onPressed: () => exit(0)),
+            EzCupertinoAction(
+                text: EzConfig.l10n.gCancel, onPressed: () => exit(0)),
             EzCupertinoAction(
               text: l10n.gOk,
               onPressed: () => openAppSettings(),

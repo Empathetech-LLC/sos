@@ -19,7 +19,6 @@ class DesignSettingsScreen extends StatelessWidget {
     const EzSpacer ezSpacer = EzSpacer();
 
     final Lang l10n = Lang.of(context)!;
-    final EFUILang el10n = ezL10n(context);
 
     return SosScaffold(
       EzScreen(
@@ -105,7 +104,7 @@ class DesignSettingsScreen extends StatelessWidget {
                               });
                             },
                             icon: EzIcon(PlatformIcons(context).refresh),
-                            label: el10n.gReset,
+                            label: EzConfig.l10n.gReset,
                           ),
                           EzSpacer(space: EzConfig.spacing * 1.5),
                         ],
@@ -113,7 +112,7 @@ class DesignSettingsScreen extends StatelessWidget {
                     );
                   }),
               icon: const Icon(Icons.opacity),
-              label: el10n.tsTextBackground,
+              label: EzConfig.l10n.tsTextBackground,
             ),
             ezSpacer,
           ],

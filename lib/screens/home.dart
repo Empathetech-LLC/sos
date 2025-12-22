@@ -38,7 +38,6 @@ class _HomeScreenState extends State<HomeScreen>
   late final double safeBottom = MediaQuery.paddingOf(context).bottom;
 
   final double iconSize = EzConfig.get(iconSizeKey);
-  final bool isLefty = EzConfig.get(isLeftyKey);
 
   // Color
 
@@ -47,7 +46,6 @@ class _HomeScreenState extends State<HomeScreen>
 
   // Text
   late final Lang l10n = Lang.of(context)!;
-  late final EFUILang el10n = ezL10n(context);
 
   // Define the build data //
 
@@ -215,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen>
     final bool newUser = emc == null || emc!.isEmpty;
 
     // Verify the emergency contacts
-    if (newUser) emc = await addEMC(context, emc, l10n: l10n, el10n: el10n);
+    if (newUser) emc = await addEMC(context, emc, l10n: l10n);
 
     // Check for auto SOS
     final bool taskRunning = EzConfig.get(taskRunningKey);
@@ -242,11 +240,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     // Gather the contextual theme data //
 
-    const EzSeparator ezSeparator = EzSeparator();
-
-    final double margin = EzConfig.margin;
-    final double spacing = EzConfig.spacing;
-    final double spargin = spacing + margin;
+    final double spargin = EzConfig.spacing + EzConfig.margin;
 
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final Color rightsBackgroundColor = Theme.of(context)
@@ -333,7 +327,7 @@ class _HomeScreenState extends State<HomeScreen>
               child: OverlayPortal(
                 controller: broadcastOverlay,
                 overlayChildBuilder: (_) => EzTutorial(
-                  top: safeTop + spargin + iconSize * 1.5 + spacing,
+                  top: safeTop + spargin + iconSize * 1.5 + EzConfig.spacing,
                   left: 0,
                   right: 0,
                   title: '3/5',
@@ -361,7 +355,7 @@ class _HomeScreenState extends State<HomeScreen>
                         },
                         confirmMsg: l10n.gOk,
                         onDeny: () => Navigator.of(context).pop(false),
-                        denyMsg: el10n.gNo,
+                        denyMsg: EzConfig.l10n.gNo,
                       );
 
                       await showDialog(
@@ -423,15 +417,19 @@ class _HomeScreenState extends State<HomeScreen>
 
           // Settings
           Positioned(
-            top: margin,
-            right: isLefty ? null : margin,
-            left: isLefty ? margin : null,
+            top: EzConfig.margin,
+            right: EzConfig.isLefty ? null : EzConfig.margin,
+            left: EzConfig.isLefty ? EzConfig.margin : null,
             child: OverlayPortal(
               controller: settingsOverlay,
               overlayChildBuilder: (_) => EzTutorial(
-                top: safeTop + margin,
-                right: isLefty ? 0 : margin + iconSize + spacing,
-                left: isLefty ? margin + iconSize + spacing : 0,
+                top: safeTop + EzConfig.margin,
+                right: EzConfig.isLefty
+                    ? 0
+                    : EzConfig.margin + iconSize + EzConfig.spacing,
+                left: EzConfig.isLefty
+                    ? EzConfig.margin + iconSize + EzConfig.spacing
+                    : 0,
                 title: '4/5',
                 content: l10n.hsSettingsTutorial,
                 acceptMessage: l10n.gOk,
@@ -443,13 +441,12 @@ class _HomeScreenState extends State<HomeScreen>
               child: EzIconButton(
                 icon: Icon(
                   PlatformIcons(context).settings,
-                  semanticLabel: el10n.ssPageTitle,
+                  semanticLabel: EzConfig.l10n.ssPageTitle,
                 ),
                 enabled: !recording,
                 onPressed: () => context.goNamed(settingsHomePath),
                 onLongPress: () => ezFeedback(
                   parentContext: context,
-                  l10n: el10n,
                   supportEmail: empathSupport,
                   appName: appName,
                 ),
@@ -459,9 +456,9 @@ class _HomeScreenState extends State<HomeScreen>
 
           // Safe close - iff sosOnClose is true
           Positioned(
-            top: margin,
-            right: isLefty ? margin : null,
-            left: isLefty ? null : margin,
+            top: EzConfig.margin,
+            right: EzConfig.isLefty ? EzConfig.margin : null,
+            left: EzConfig.isLefty ? null : EzConfig.margin,
             child: Visibility(
               visible: sosOnClose,
               child: EzIconButton(
@@ -480,7 +477,7 @@ class _HomeScreenState extends State<HomeScreen>
 
           // Controls
           Positioned(
-            bottom: spacing,
+            bottom: EzConfig.spacing,
             left: 0,
             right: 0,
             child: Center(
@@ -543,13 +540,16 @@ class _HomeScreenState extends State<HomeScreen>
                             }
                           },
                         ),
-                  ezSeparator,
+                  EzConfig.layout.separator,
 
                   // Record
                   OverlayPortal(
                     controller: recordOverlay,
                     overlayChildBuilder: (_) => EzTutorial(
-                      bottom: safeBottom + spargin + iconSize * 2 + spacing,
+                      bottom: safeBottom +
+                          spargin +
+                          iconSize * 2 +
+                          EzConfig.spacing,
                       left: 0,
                       right: 0,
                       title: '5/5',
@@ -682,7 +682,7 @@ class _HomeScreenState extends State<HomeScreen>
                             },
                           ),
                   ),
-                  ezSeparator,
+                  EzConfig.layout.separator,
 
                   // Flash
                   camera == null

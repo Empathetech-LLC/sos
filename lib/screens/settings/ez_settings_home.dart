@@ -23,7 +23,6 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
   // Gather the theme data //
 
   late final Lang l10n = Lang.of(context)!;
-  late final EFUILang el10n = ezL10n(context);
 
   // Return the build //
 
@@ -48,28 +47,28 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
               EzElevatedIconButton(
                 onPressed: () => context.goNamed(colorSettingsPath),
                 icon: EzIcon(Icons.navigate_next),
-                label: el10n.csPageTitle,
+                label: EzConfig.l10n.csPageTitle,
               ),
               ezSpacer,
 
               EzElevatedIconButton(
                 onPressed: () => context.goNamed(designSettingsPath),
                 icon: EzIcon(Icons.navigate_next),
-                label: el10n.dsPageTitle,
+                label: EzConfig.l10n.dsPageTitle,
               ),
               ezSpacer,
 
               EzElevatedIconButton(
                 onPressed: () => context.goNamed(layoutSettingsPath),
                 icon: EzIcon(Icons.navigate_next),
-                label: el10n.lsPageTitle,
+                label: EzConfig.l10n.lsPageTitle,
               ),
               ezSpacer,
 
               EzElevatedIconButton(
                 onPressed: () => context.goNamed(textSettingsPath),
                 icon: EzIcon(Icons.navigate_next),
-                label: el10n.tsPageTitle,
+                label: EzConfig.l10n.tsPageTitle,
               ),
               ezDivider,
 

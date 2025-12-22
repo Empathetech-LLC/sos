@@ -20,7 +20,6 @@ class _ContactListState extends State<ContactList> {
   // Gather the fixed theme data //
 
   late final Lang l10n = Lang.of(context)!;
-  late final EFUILang el10n = ezL10n(context);
 
   List<String> emc = EzConfig.get(emcKey);
 
@@ -28,11 +27,8 @@ class _ContactListState extends State<ContactList> {
   Widget build(BuildContext context) {
     // Gather the contextual theme data //
 
-    final double margin = EzConfig.margin;
-    final double padding = EzConfig.padding;
-    final double spacing = EzConfig.spacing;
-    final double iconSize = EzConfig.iconSize;
-    final EzSpacer listSpacer = EzSpacer(space: spacing - margin * 2);
+    final EzSpacer listSpacer =
+        EzSpacer(space: EzConfig.spacing - EzConfig.margin * 2);
 
     final TextTheme textTheme = Theme.of(context).textTheme;
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
@@ -56,9 +52,8 @@ class _ContactListState extends State<ContactList> {
                 semanticLabel: l10n.ssAddHint,
               ),
               onPressed: () async {
-                emc = await addEMC(context, emc,
-                        loop: false, l10n: l10n, el10n: el10n) ??
-                    emc;
+                emc =
+                    await addEMC(context, emc, loop: false, l10n: l10n) ?? emc;
                 setState(() {});
               },
               tooltip: l10n.ssAddHint,
@@ -99,12 +94,8 @@ class _ContactListState extends State<ContactList> {
                       setState(() {});
                     },
                     l10n: l10n,
-                    el10n: el10n,
                     textTheme: textTheme,
                     colorScheme: colorScheme,
-                    margin: margin,
-                    padding: padding,
-                    iconSize: iconSize,
                   ));
                   acc.add(listSpacer);
                   return acc;
@@ -124,12 +115,8 @@ class _ContactTile extends StatelessWidget {
   final bool enabled;
   final VoidCallback onRemove;
   final Lang l10n;
-  final EFUILang el10n;
   final TextTheme textTheme;
   final ColorScheme colorScheme;
-  final double margin;
-  final double padding;
-  final double iconSize;
 
   const _ContactTile({
     super.key,
@@ -141,17 +128,13 @@ class _ContactTile extends StatelessWidget {
 
     // Theme parameters
     required this.l10n,
-    required this.el10n,
     required this.textTheme,
     required this.colorScheme,
-    required this.margin,
-    required this.padding,
-    required this.iconSize,
   });
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: EdgeInsets.all(margin),
+        padding: EdgeInsets.all(EzConfig.margin),
         child: EzScrollView(
           reverseHands: true,
           showScrollHint: true,
@@ -161,7 +144,7 @@ class _ContactTile extends StatelessWidget {
             // Initials coin (if available)
             if (initials != null) ...<Widget>[
               CircleAvatar(
-                radius: padding + iconSize / 2,
+                radius: EzConfig.padding + EzConfig.iconSize / 2,
                 foregroundColor: colorScheme.onSurface,
                 backgroundColor: colorScheme.surfaceContainer,
                 child: Text(
@@ -186,7 +169,7 @@ class _ContactTile extends StatelessWidget {
               icon: Icon(
                 PlatformIcons(context).removeCircledOutline,
                 semanticLabel:
-                    '${l10n.ssRemoveHint}.${enabled ? '' : ' ${el10n.gDisabled}.'}',
+                    '${l10n.ssRemoveHint}.${enabled ? '' : ' ${EzConfig.l10n.gDisabled}.'}',
               ),
               enabled: enabled,
               onPressed: onRemove,

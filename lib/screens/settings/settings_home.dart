@@ -26,7 +26,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   // Gather the theme data //
 
   late final Lang l10n = Lang.of(context)!;
-  late final EFUILang el10n = ezL10n(context);
 
   // Define the build data //
 
@@ -99,13 +98,13 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                                 confirmIsDefault: true,
                                 onConfirm: () =>
                                     Navigator.of(dContext).pop(true),
-                                denyMsg: el10n.gCancel,
+                                denyMsg: EzConfig.l10n.gCancel,
                                 onDeny: () => Navigator.of(dContext).pop(false),
                               );
 
                               return EzAlertDialog(
                                 title: Text(
-                                  el10n.gAttention,
+                                  EzConfig.l10n.gAttention,
                                   textAlign: TextAlign.center,
                                 ),
                                 content: Text(
@@ -135,13 +134,13 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                                 confirmIsDefault: true,
                                 onConfirm: () =>
                                     Navigator.of(dContext).pop(true),
-                                denyMsg: el10n.gCancel,
+                                denyMsg: EzConfig.l10n.gCancel,
                                 onDeny: () => Navigator.of(dContext).pop(false),
                               );
 
                               return EzAlertDialog(
                                 title: Text(
-                                  el10n.gAttention,
+                                  EzConfig.l10n.gAttention,
                                   textAlign: TextAlign.center,
                                 ),
                                 content: Text(

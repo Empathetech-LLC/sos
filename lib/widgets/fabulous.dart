@@ -38,9 +38,6 @@ class HelpFAB extends StatelessWidget {
   Widget build(BuildContext context) {
     // Gather the theme data //
 
-    final double margin = EzConfig.margin;
-
-    final EFUILang el10n = ezL10n(context);
     final Lang l10n = Lang.of(context)!;
 
     final TextTheme textTheme = Theme.of(context).textTheme;
@@ -59,16 +56,17 @@ class HelpFAB extends StatelessWidget {
 
             (materialActions, cupertinoActions) = ezActionPairs(
               context: context,
-              confirmMsg: el10n.gContinue,
+              confirmMsg: EzConfig.l10n.gContinue,
               confirmIsDestructive: true,
               onConfirm: () => Navigator.of(dContext).pop(true),
-              denyMsg: el10n.gCancel,
+              denyMsg: EzConfig.l10n.gCancel,
               denyIsDefault: true,
               onDeny: () => Navigator.of(dContext).pop(false),
             );
 
             return EzAlertDialog(
-              title: Text(el10n.gAttention, textAlign: TextAlign.center),
+              title:
+                  Text(EzConfig.l10n.gAttention, textAlign: TextAlign.center),
               content: Text(
                 l10n.faqOnCloseWarning,
                 textAlign: TextAlign.center,
@@ -129,23 +127,23 @@ class HelpFAB extends StatelessWidget {
                 EzLink(
                   'ACLU Know Your Rights',
                   onTap: () => followLink(_ACLU),
-                  hint: el10n.gOpenLink,
+                  hint: EzConfig.l10n.gOpenLink,
                   textAlign: TextAlign.start,
-                  padding: EdgeInsets.only(left: margin),
+                  padding: EdgeInsets.only(left: EzConfig.margin),
                 ),
                 EzLink(
                   'IMMDEF Resources',
                   onTap: () => followLink(_IMMDEF),
-                  hint: el10n.gOpenLink,
+                  hint: EzConfig.l10n.gOpenLink,
                   textAlign: TextAlign.start,
-                  padding: EdgeInsets.only(left: margin),
+                  padding: EdgeInsets.only(left: EzConfig.margin),
                 ),
                 EzLink(
                   'Dunk the Vote: The Black Book',
                   onTap: () => followLink(_dunk),
-                  hint: el10n.gOpenLink,
+                  hint: EzConfig.l10n.gOpenLink,
                   textAlign: TextAlign.start,
-                  padding: EdgeInsets.only(left: margin),
+                  padding: EdgeInsets.only(left: EzConfig.margin),
                 ),
                 ezStartLine,
                 EzRichText(
@@ -157,7 +155,7 @@ class HelpFAB extends StatelessWidget {
                     EzInlineLink(
                       'How to document ICE',
                       onTap: () => followLink(_howTo),
-                      hint: el10n.gOpenLink,
+                      hint: EzConfig.l10n.gOpenLink,
                       style: textTheme.bodyLarge,
                       textAlign: TextAlign.start,
                     ),
@@ -236,7 +234,7 @@ class HelpFAB extends StatelessWidget {
                       EzInlineLink(
                         l10n.faqLocationPermissions,
                         onTap: openAppSettings,
-                        hint: el10n.gOpenLink,
+                        hint: EzConfig.l10n.gOpenLink,
                       ),
                       EzPlainText(
                         text: '.',
@@ -318,7 +316,7 @@ class HelpFAB extends StatelessWidget {
                       EzInlineLink(
                         l10n.faqOSSettings,
                         onTap: openAppSettings,
-                        hint: el10n.gOpenLink,
+                        hint: EzConfig.l10n.gOpenLink,
                       ),
                       EzPlainText(
                         text: '.',
@@ -375,7 +373,7 @@ class HelpFAB extends StatelessWidget {
                     EzInlineLink(
                       l10n.faqContributing,
                       onTap: () => followLink(_contributeLink),
-                      hint: el10n.gOpenLink,
+                      hint: EzConfig.l10n.gOpenLink,
                     ),
                     EzPlainText(
                       text: l10n.faqExpand,
@@ -414,7 +412,7 @@ class HelpFAB extends StatelessWidget {
           ],
         ),
       ),
-      tooltip: el10n.gHelp,
+      tooltip: EzConfig.l10n.gHelp,
       child: EzIcon(PlatformIcons(context).help),
     );
   }
