@@ -84,7 +84,7 @@ class SOS extends StatelessWidget {
           const CreoleWidgetsLocalizationsDelegate(),
         },
         supportedLocales: Lang.supportedLocales,
-        locale: EzConfig.locale,
+        locale: EzConfig.provider.storedLocale,
 
         // App title
         title: appName,
