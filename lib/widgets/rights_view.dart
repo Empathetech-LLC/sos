@@ -128,7 +128,7 @@ class _RightsViewState extends State<RightsView> {
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
-            const EzSpacer(),
+            EzConfig.layout.spacer,
 
             // Switcher
             Center(
@@ -159,7 +159,7 @@ class _RightsViewState extends State<RightsView> {
                 },
               ),
             ),
-            const EzSeparator(),
+            EzConfig.layout.separator,
 
             // Shared rights I
             rightsBlock(l10n.rsSharedRemainSilent, bodyStyle),

@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen>
   late final double safeTop = MediaQuery.paddingOf(context).top;
   late final double safeBottom = MediaQuery.paddingOf(context).bottom;
 
-  final double iconSize = EzConfig.get(iconSizeKey);
+  final double iconSize = EzConfig.iconSize;
 
   // Color
 

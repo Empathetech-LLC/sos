@@ -196,7 +196,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 style: Theme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
-              EzMargin(),
+              EzConfig.layout.margin,
               EzDropdownMenu<LinkType>(
                 widthEntries: <String>[LinkType.google.label],
                 dropdownMenuEntries: LinkType.values

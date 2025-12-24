@@ -24,14 +24,14 @@ class LayoutSettingsScreen extends StatelessWidget {
           useImageDecoration: false,
         ),
         fabs: <Widget>[
-          const EzSpacer(),
+          EzConfig.layout.spacer,
           EzConfigFAB(
             context,
             extraKeys: extraKeys,
             appName: appName,
             androidPackage: androidPackage,
           ),
-          const EzSpacer(),
+          EzConfig.layout.spacer,
           const EzBackFAB(
             hold4Feedback: true,
             appName: appName,

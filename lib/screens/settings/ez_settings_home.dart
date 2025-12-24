@@ -91,7 +91,7 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
                 appName: appName,
                 androidPackage: androidPackage,
               ),
-              const EzSeparator(),
+              EzConfig.layout.separator,
             ],
           ),
         ),

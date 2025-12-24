@@ -59,14 +59,17 @@ class SOS extends StatelessWidget {
   Widget build(BuildContext context) {
     // Prep the router //
 
-    final int animDuration = EzConfig.get(animationDurationKey);
-    final TargetPlatform currPlatform = getBasePlatform();
-
     GoTransition.defaultCurve = Curves.easeInOut;
-    GoTransition.defaultDuration = Duration(milliseconds: animDuration);
+    GoTransition.defaultDuration =
+        Duration(milliseconds: EzConfig.animDuration);
 
     Page<dynamic> getTransition(BuildContext context, GoRouterState state) =>
-        ezGoTransition(context, state, animDuration, currPlatform);
+        ezGoTransition(
+          context,
+          state,
+          EzConfig.animDuration,
+          getBasePlatform(),
+        );
 
     // Return the app //
 

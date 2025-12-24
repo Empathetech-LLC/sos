@@ -60,7 +60,7 @@ class _ContactListState extends State<ContactList> {
             ),
           ],
         ),
-        EzMargin(),
+        EzConfig.layout.margin,
 
         // List of numbers (with remove buttons)
         ConstrainedBox(

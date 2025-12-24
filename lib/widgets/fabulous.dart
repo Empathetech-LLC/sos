@@ -103,11 +103,11 @@ class HelpFAB extends StatelessWidget {
             ),
             Center(
               child: EzTranslationsPendingNotice(
-                header: EzMargin(),
+                header: EzConfig.layout.margin,
                 footer: const SizedBox.shrink(),
               ),
             ),
-            EzMargin(),
+            EzConfig.layout.margin,
 
             // Shared I //
 
@@ -389,7 +389,7 @@ class HelpFAB extends StatelessWidget {
 
             // Reset tutorial (conditional)
             if (EzConfig.get(tutorialKey) != true) ...<Widget>[
-              const EzSpacer(),
+              EzConfig.layout.spacer,
               Center(
                 child: EzElevatedButton(
                   text: l10n.faqReset,
