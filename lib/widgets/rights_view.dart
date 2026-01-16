@@ -116,7 +116,7 @@ class _RightsViewState extends State<RightsView> {
     return Visibility(
       visible: !widget.hide,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: EzConfig.margin),
+        padding: EdgeInsets.symmetric(horizontal: EzConfig.margining),
         child: EzScrollView(
           crossAxisAlignment: CrossAxisAlignment.start,
           // Header
@@ -128,7 +128,7 @@ class _RightsViewState extends State<RightsView> {
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
-            EzConfig.layout.spacer,
+            EzConfig.spacer,
 
             // Switcher
             Center(
@@ -159,7 +159,7 @@ class _RightsViewState extends State<RightsView> {
                 },
               ),
             ),
-            EzConfig.layout.separator,
+            EzConfig.separator,
 
             // Shared rights I
             rightsBlock(l10n.rsSharedRemainSilent, bodyStyle),
