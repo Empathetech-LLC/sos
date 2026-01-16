@@ -8,21 +8,21 @@
 export 'error.dart';
 export 'home.dart';
 
-export 'settings/settings_home.dart';
+export 'settings/home.dart';
 
-export 'settings/ez_settings_home.dart';
-export 'settings/color_settings.dart';
-export 'settings/design_settings.dart';
-export 'settings/layout_settings.dart';
-export 'settings/text_settings.dart';
+export 'settings/appearance.dart';
+export 'settings/color.dart';
+export 'settings/design.dart';
+export 'settings/layout.dart';
+export 'settings/text.dart';
 
 // Route names //
 
 /// settings-home
 const String settingsHomePath = 'settings-home';
 
-/// ez-settings-home
-const String ezSettingsHomePath = 'ez-settings-home';
+/// appearance-home
+const String appearanceSettingsPath = 'appearance-settings';
 
 /// color-settings
 const String colorSettingsPath = 'color-settings';

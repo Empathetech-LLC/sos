@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 /// :
 const String contactSplit = ':';
@@ -41,24 +40,16 @@ Future<List<String>?> addEMC(
         context,
         title: EzConfig.l10n.gError,
         message: l10n.hsNeedContacts,
-        customActions: (
-          <EzMaterialAction>[
-            EzMaterialAction(
-                text: EzConfig.l10n.gCancel, onPressed: () => exit(0)),
-            EzMaterialAction(
-              text: l10n.gOk,
-              onPressed: () => openAppSettings(),
-            ),
-          ],
-          <EzCupertinoAction>[
-            EzCupertinoAction(
-                text: EzConfig.l10n.gCancel, onPressed: () => exit(0)),
-            EzCupertinoAction(
-              text: l10n.gOk,
-              onPressed: () => openAppSettings(),
-            ),
-          ],
-        ),
+        customActions: <EzMaterialAction>[
+          EzMaterialAction(
+            text: EzConfig.l10n.gCancel,
+            onPressed: () => exit(0),
+          ),
+          EzMaterialAction(
+            text: l10n.gOk,
+            onPressed: () => openAppSettings(),
+          ),
+        ],
       );
     } else {
       // This also runs when the app returns to the foreground
@@ -82,13 +73,12 @@ Future<List<String>?> addEMC(
     final bool show = await Permission.contacts.isLimited;
 
     if (show && context.mounted) {
-      await showPlatformDialog(
+      await showDialog(
         context: context,
-        builder: (BuildContext dContext) {
-          late List<Widget> materialActions;
-          late List<Widget> cupertinoActions;
-
-          (materialActions, cupertinoActions) = ezActionPairs(
+        builder: (BuildContext dContext) => EzAlertDialog(
+          title: Text(l10n.gReminder, textAlign: TextAlign.center),
+          content: Text(l10n.hsPartialContacts, textAlign: TextAlign.center),
+          actions: ezActionPair(
             context: context,
             confirmMsg: l10n.gOk,
             onConfirm: () => Navigator.of(dContext).pop(),
@@ -98,16 +88,9 @@ Future<List<String>?> addEMC(
               if (dContext.mounted) Navigator.of(dContext).pop();
             },
             denyIsDestructive: true,
-          );
-
-          return EzAlertDialog(
-            title: Text(l10n.gReminder, textAlign: TextAlign.center),
-            content: Text(l10n.hsPartialContacts, textAlign: TextAlign.center),
-            materialActions: materialActions,
-            cupertinoActions: cupertinoActions,
-            needsClose: false,
-          );
-        },
+          ),
+          needsClose: false,
+        ),
       );
     }
   }
@@ -124,10 +107,7 @@ Future<List<String>?> addEMC(
     if (contact.phones.isEmpty) {
       // Invalid contact, warn the user and optionally retry
       if (context.mounted) {
-        await ezSnackBar(
-          context: context,
-          message: l10n.hsNumError,
-        ).closed;
+        await ezSnackBar(context: context, message: l10n.hsNumError).closed;
       }
     } else {
       // We have a valid contact, gather the phones with numbers
@@ -138,10 +118,7 @@ Future<List<String>?> addEMC(
       if (phones.isEmpty) {
         // No valid numbers, warn the user and optionally retry
         if (context.mounted) {
-          await ezSnackBar(
-            context: context,
-            message: l10n.hsNumError,
-          ).closed;
+          await ezSnackBar(context: context, message: l10n.hsNumError).closed;
         }
       } else {
         // We have at least one valid number, proceed
