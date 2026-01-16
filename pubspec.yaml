@@ -22,19 +22,19 @@ dependencies:
 
   # Community
   after_layout: ^1.2.0
-  efui_bios:
-    path: ../efui_bios
-  empathetech_flutter_ui: 
-    path: ../empathetech_flutter_ui
   permission_handler: ^12.0.1
-  feedback: ^3.2.0
   flutter_contacts: ^1.1.9+2
   flutter_localized_locales: ^2.0.5
-  flutter_platform_widgets: ^9.0.0
   gal: ^2.3.2
   geolocator: ^14.0.2
   go_transitions: ^0.8.3
   share_plus: ^12.0.1
+
+  # Empathetech
+  efui_bios:
+    path: ../efui_bios
+  empathetech_flutter_ui: 
+    path: ../empathetech_flutter_ui
 
 dev_dependencies:
   dependency_validator: ^5.0.3
