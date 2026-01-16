@@ -10,13 +10,16 @@ import 'package:efui_bios/efui_bios.dart';
 import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-class LayoutSettingsScreen extends StatelessWidget {
-  const LayoutSettingsScreen({super.key});
+class TextSettingsScreen extends StatelessWidget {
+  final EzTSType? target;
+
+  const TextSettingsScreen({super.key, this.target});
 
   @override
   Widget build(BuildContext context) => SosScaffold(
-        const EzScreen(
-          EzLayoutSettings(
+        EzScreen(
+          EzTextSettings(
+            target: target,
             extraSaveKeys: extraKeys,
             appName: appName,
             androidPackage: androidPackage,
@@ -24,14 +27,14 @@ class LayoutSettingsScreen extends StatelessWidget {
           useImageDecoration: false,
         ),
         fabs: <Widget>[
-          EzConfig.layout.spacer,
+          EzConfig.spacer,
           EzConfigFAB(
             context,
             extraKeys: extraKeys,
             appName: appName,
             androidPackage: androidPackage,
           ),
-          EzConfig.layout.spacer,
+          EzConfig.spacer,
           const EzBackFAB(
             hold4Feedback: true,
             appName: appName,

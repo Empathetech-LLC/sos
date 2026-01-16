@@ -12,14 +12,15 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-class EzSettingsHomeScreen extends StatefulWidget {
-  const EzSettingsHomeScreen({super.key});
+class AppearanceSettingsScreen extends StatefulWidget {
+  const AppearanceSettingsScreen({super.key});
 
   @override
-  State<EzSettingsHomeScreen> createState() => _EzSettingsHomeScreenState();
+  State<AppearanceSettingsScreen> createState() =>
+      _AppearanceSettingsScreenState();
 }
 
-class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
+class _AppearanceSettingsScreenState extends State<AppearanceSettingsScreen> {
   // Gather the theme data //
 
   late final Lang l10n = Lang.of(context)!;
@@ -91,7 +92,7 @@ class _EzSettingsHomeScreenState extends State<EzSettingsHomeScreen> {
                 appName: appName,
                 androidPackage: androidPackage,
               ),
-              EzConfig.layout.separator,
+              EzConfig.separator,
             ],
           ),
         ),
