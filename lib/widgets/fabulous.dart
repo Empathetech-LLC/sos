@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 // ignore_for_file: constant_identifier_names
 
@@ -48,13 +47,18 @@ class HelpFAB extends StatelessWidget {
       bool launch = true;
 
       if (EzConfig.get(onCloseKey) == true) {
-        launch = await showPlatformDialog(
+        launch = await showDialog(
           context: context,
-          builder: (BuildContext dContext) {
-            late final List<Widget> materialActions;
-            late final List<Widget> cupertinoActions;
-
-            (materialActions, cupertinoActions) = ezActionPairs(
+          builder: (BuildContext dContext) => EzAlertDialog(
+            title: Text(
+              EzConfig.l10n.gAttention,
+              textAlign: TextAlign.center,
+            ),
+            content: Text(
+              l10n.faqOnCloseWarning,
+              textAlign: TextAlign.center,
+            ),
+            actions: ezActionPair(
               context: context,
               confirmMsg: EzConfig.l10n.gContinue,
               confirmIsDestructive: true,
@@ -62,20 +66,9 @@ class HelpFAB extends StatelessWidget {
               denyMsg: EzConfig.l10n.gCancel,
               denyIsDefault: true,
               onDeny: () => Navigator.of(dContext).pop(false),
-            );
-
-            return EzAlertDialog(
-              title:
-                  Text(EzConfig.l10n.gAttention, textAlign: TextAlign.center),
-              content: Text(
-                l10n.faqOnCloseWarning,
-                textAlign: TextAlign.center,
-              ),
-              materialActions: materialActions,
-              cupertinoActions: cupertinoActions,
-              needsClose: false,
-            );
-          },
+            ),
+            needsClose: false,
+          ),
         );
       }
 
@@ -103,14 +96,13 @@ class HelpFAB extends StatelessWidget {
             ),
             Center(
               child: EzTranslationsPendingNotice(
-                header: EzConfig.layout.margin,
+                header: EzConfig.margin,
                 footer: const SizedBox.shrink(),
               ),
             ),
-            EzConfig.layout.margin,
+            EzConfig.margin,
 
             // Shared I //
-
             ExpansionTile(
               title: Text(
                 l10n.faqListQ,
@@ -129,21 +121,21 @@ class HelpFAB extends StatelessWidget {
                   onTap: () => followLink(_ACLU),
                   hint: EzConfig.l10n.gOpenLink,
                   textAlign: TextAlign.start,
-                  padding: EdgeInsets.only(left: EzConfig.margin),
+                  padding: EdgeInsets.only(left: EzConfig.marginVal),
                 ),
                 EzLink(
                   'IMMDEF Resources',
                   onTap: () => followLink(_IMMDEF),
                   hint: EzConfig.l10n.gOpenLink,
                   textAlign: TextAlign.start,
-                  padding: EdgeInsets.only(left: EzConfig.margin),
+                  padding: EdgeInsets.only(left: EzConfig.marginVal),
                 ),
                 EzLink(
                   'Dunk the Vote: The Black Book',
                   onTap: () => followLink(_dunk),
                   hint: EzConfig.l10n.gOpenLink,
                   textAlign: TextAlign.start,
-                  padding: EdgeInsets.only(left: EzConfig.margin),
+                  padding: EdgeInsets.only(left: EzConfig.marginVal),
                 ),
                 ezStartLine,
                 EzRichText(
@@ -236,10 +228,7 @@ class HelpFAB extends StatelessWidget {
                         onTap: openAppSettings,
                         hint: EzConfig.l10n.gOpenLink,
                       ),
-                      EzPlainText(
-                        text: '.',
-                        style: textTheme.bodyLarge,
-                      ),
+                      EzPlainText(text: '.', style: textTheme.bodyLarge),
                     ],
                     textBackground: false,
                     style: textTheme.bodyLarge,
@@ -318,15 +307,12 @@ class HelpFAB extends StatelessWidget {
                         onTap: openAppSettings,
                         hint: EzConfig.l10n.gOpenLink,
                       ),
-                      EzPlainText(
-                        text: '.',
-                        style: textTheme.bodyLarge,
-                      )
+                      EzPlainText(text: '.', style: textTheme.bodyLarge),
                     ],
                     textBackground: false,
                     style: textTheme.bodyLarge,
                     textAlign: TextAlign.start,
-                  )
+                  ),
                 ],
               ),
 
@@ -389,7 +375,7 @@ class HelpFAB extends StatelessWidget {
 
             // Reset tutorial (conditional)
             if (EzConfig.get(tutorialKey) != true) ...<Widget>[
-              EzConfig.layout.spacer,
+              EzConfig.spacer,
               Center(
                 child: EzElevatedButton(
                   text: l10n.faqReset,
@@ -413,7 +399,7 @@ class HelpFAB extends StatelessWidget {
         ),
       ),
       tooltip: EzConfig.l10n.gHelp,
-      child: EzIcon(PlatformIcons(context).help),
+      child: EzIcon(Icons.help),
     );
   }
 }

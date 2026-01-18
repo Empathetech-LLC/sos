@@ -7,7 +7,6 @@ import '../utils/export.dart';
 
 import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 class ContactList extends StatefulWidget {
   const ContactList({super.key});
@@ -28,7 +27,7 @@ class _ContactListState extends State<ContactList> {
     // Gather the contextual theme data //
 
     final EzSpacer listSpacer =
-        EzSpacer(space: EzConfig.spacing - EzConfig.margin * 2);
+        EzSpacer(space: EzConfig.spacing - EzConfig.marginVal * 2);
 
     final TextTheme textTheme = Theme.of(context).textTheme;
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
@@ -48,7 +47,7 @@ class _ContactListState extends State<ContactList> {
             EzMargin(vertical: false),
             EzIconButton(
               icon: Icon(
-                PlatformIcons(context).addCircledOutline,
+                Icons.add_circle_outline,
                 semanticLabel: l10n.ssAddHint,
               ),
               onPressed: () async {
@@ -60,7 +59,7 @@ class _ContactListState extends State<ContactList> {
             ),
           ],
         ),
-        EzConfig.layout.margin,
+        EzConfig.margin,
 
         // List of numbers (with remove buttons)
         ConstrainedBox(
@@ -68,39 +67,39 @@ class _ContactListState extends State<ContactList> {
           child: Card(
             child: EzScrollView(
               mainAxisSize: MainAxisSize.min,
-              children: emc.fold<List<Widget>>(
-                <Widget>[],
-                (List<Widget> acc, String contact) {
-                  final List<String> parts = contact.split(contactSplit);
-                  late final String? initials;
-                  late final String number;
+              children: emc.fold<List<Widget>>(<Widget>[], (
+                List<Widget> acc,
+                String contact,
+              ) {
+                final List<String> parts = contact.split(contactSplit);
+                late final String? initials;
+                late final String number;
 
-                  if (parts.length == 2) {
-                    initials = parts.first;
-                    number = parts.last;
-                  } else {
-                    initials = null;
-                    number = contact;
-                  }
+                if (parts.length == 2) {
+                  initials = parts.first;
+                  number = parts.last;
+                } else {
+                  initials = null;
+                  number = contact;
+                }
 
-                  acc.add(_ContactTile(
-                    key: ValueKey<String>(contact),
-                    initials: initials,
-                    number: number,
-                    enabled: emc.length > 1,
-                    onRemove: () async {
-                      emc.remove(contact);
-                      await EzConfig.setStringList(emcKey, emc);
-                      setState(() {});
-                    },
-                    l10n: l10n,
-                    textTheme: textTheme,
-                    colorScheme: colorScheme,
-                  ));
-                  acc.add(listSpacer);
-                  return acc;
-                },
-              ).sublist(0, emc.length * 2 - 1), // Remove trailing spacer
+                acc.add(_ContactTile(
+                  key: ValueKey<String>(contact),
+                  initials: initials,
+                  number: number,
+                  enabled: emc.length > 1,
+                  onRemove: () async {
+                    emc.remove(contact);
+                    await EzConfig.setStringList(emcKey, emc);
+                    setState(() {});
+                  },
+                  l10n: l10n,
+                  textTheme: textTheme,
+                  colorScheme: colorScheme,
+                ));
+                acc.add(listSpacer);
+                return acc;
+              }).sublist(0, emc.length * 2 - 1), // Remove trailing spacer
             ),
           ),
         ),
@@ -134,7 +133,7 @@ class _ContactTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: EdgeInsets.all(EzConfig.margin),
+        padding: EdgeInsets.all(EzConfig.marginVal),
         child: EzScrollView(
           reverseHands: true,
           showScrollHint: true,
@@ -167,7 +166,7 @@ class _ContactTile extends StatelessWidget {
             // Remove button
             EzIconButton(
               icon: Icon(
-                PlatformIcons(context).removeCircledOutline,
+                Icons.remove_circle_outline,
                 semanticLabel:
                     '${l10n.ssRemoveHint}.${enabled ? '' : ' ${EzConfig.l10n.gDisabled}.'}',
               ),

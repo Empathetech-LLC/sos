@@ -6,7 +6,6 @@
 import '../screens/export.dart';
 import '../utils/export.dart';
 import '../widgets/export.dart';
-import 'package:efui_bios/efui_bios.dart';
 
 import 'dart:io';
 import 'dart:async';
@@ -20,7 +19,6 @@ import 'package:after_layout/after_layout.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -240,7 +238,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     // Gather the contextual theme data //
 
-    final double spargin = EzConfig.spacing + EzConfig.margin;
+    final double spargin = EzConfig.spacing + EzConfig.marginVal;
 
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final Color rightsBackgroundColor = Theme.of(context)
@@ -263,10 +261,7 @@ class _HomeScreenState extends State<HomeScreen>
                 width: double.infinity,
                 color: colorScheme.surface,
                 child: camera == null
-                    ? Visibility(
-                        visible: showRights,
-                        child: const RightsView(),
-                      )
+                    ? Visibility(visible: showRights, child: const RightsView())
                     : Stack(children: <Widget>[
                         Center(
                           child: Semantics(
@@ -308,9 +303,10 @@ class _HomeScreenState extends State<HomeScreen>
                     return EzText(
                       elapsed.toString().split('.').first,
                       backgroundColor: videoColor,
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            color: videoTextColor,
-                          ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelLarge
+                          ?.copyWith(color: videoTextColor),
                     );
                   },
                 ),
@@ -344,20 +340,6 @@ class _HomeScreenState extends State<HomeScreen>
                     if (choice == LocationPermission.whileInUse &&
                         Platform.isAndroid &&
                         context.mounted) {
-                      final (
-                        List<EzMaterialAction>,
-                        List<EzCupertinoAction>
-                      ) customActions = ezActionPairs(
-                        context: context,
-                        onConfirm: () async {
-                          await openAppSettings();
-                          if (context.mounted) Navigator.of(context).pop();
-                        },
-                        confirmMsg: l10n.gOk,
-                        onDeny: () => Navigator.of(context).pop(false),
-                        denyMsg: EzConfig.l10n.gNo,
-                      );
-
                       await showDialog(
                         context: context,
                         builder: (_) => EzAlertDialog(
@@ -369,10 +351,18 @@ class _HomeScreenState extends State<HomeScreen>
                             Text(
                               l10n.hsPermissionsAlways,
                               textAlign: TextAlign.center,
-                            )
+                            ),
                           ],
-                          materialActions: customActions.$1,
-                          cupertinoActions: customActions.$2,
+                          actions: ezActionPair(
+                            context: context,
+                            onConfirm: () async {
+                              await openAppSettings();
+                              if (context.mounted) Navigator.of(context).pop();
+                            },
+                            confirmMsg: l10n.gOk,
+                            onDeny: () => Navigator.of(context).pop(false),
+                            denyMsg: EzConfig.l10n.gNo,
+                          ),
                           needsClose: false,
                         ),
                       );
@@ -417,18 +407,18 @@ class _HomeScreenState extends State<HomeScreen>
 
           // Settings
           Positioned(
-            top: EzConfig.margin,
-            right: EzConfig.isLefty ? null : EzConfig.margin,
-            left: EzConfig.isLefty ? EzConfig.margin : null,
+            top: EzConfig.marginVal,
+            right: EzConfig.isLefty ? null : EzConfig.marginVal,
+            left: EzConfig.isLefty ? EzConfig.marginVal : null,
             child: OverlayPortal(
               controller: settingsOverlay,
               overlayChildBuilder: (_) => EzTutorial(
-                top: safeTop + EzConfig.margin,
+                top: safeTop + EzConfig.marginVal,
                 right: EzConfig.isLefty
                     ? 0
-                    : EzConfig.margin + iconSize + EzConfig.spacing,
+                    : EzConfig.marginVal + iconSize + EzConfig.spacing,
                 left: EzConfig.isLefty
-                    ? EzConfig.margin + iconSize + EzConfig.spacing
+                    ? EzConfig.marginVal + iconSize + EzConfig.spacing
                     : 0,
                 title: '4/5',
                 content: l10n.hsSettingsTutorial,
@@ -440,30 +430,25 @@ class _HomeScreenState extends State<HomeScreen>
               ),
               child: EzIconButton(
                 icon: Icon(
-                  PlatformIcons(context).settings,
+                  Icons.settings,
                   semanticLabel: EzConfig.l10n.ssPageTitle,
                 ),
                 enabled: !recording,
                 onPressed: () => context.goNamed(settingsHomePath),
-                onLongPress: () => ezFeedback(
-                  parentContext: context,
-                  supportEmail: empathSupport,
-                  appName: appName,
-                ),
               ),
             ),
           ),
 
           // Safe close - iff sosOnClose is true
           Positioned(
-            top: EzConfig.margin,
-            right: EzConfig.isLefty ? EzConfig.margin : null,
-            left: EzConfig.isLefty ? null : EzConfig.margin,
+            top: EzConfig.marginVal,
+            right: EzConfig.isLefty ? EzConfig.marginVal : null,
+            left: EzConfig.isLefty ? null : EzConfig.marginVal,
             child: Visibility(
               visible: sosOnClose,
               child: EzIconButton(
                 icon: Icon(
-                  PlatformIcons(context).thumbUp,
+                  Icons.thumb_up,
                   semanticLabel: l10n.hsSafeCloseHint,
                 ),
                 enabled: !recording,
@@ -491,7 +476,7 @@ class _HomeScreenState extends State<HomeScreen>
                       ? EzIconButton(
                           icon: showRights
                               ? Icon(
-                                  PlatformIcons(context).eyeSlash,
+                                  Icons.visibility_off,
                                   semanticLabel: l10n.hsHideRights,
                                 )
                               : Icon(
@@ -503,7 +488,7 @@ class _HomeScreenState extends State<HomeScreen>
                         )
                       : EzIconButton(
                           icon: Icon(
-                            PlatformIcons(context).photoCamera,
+                            Icons.camera,
                             semanticLabel: l10n.hsCameraHint,
                           ),
                           onPressed: () async {
@@ -540,7 +525,7 @@ class _HomeScreenState extends State<HomeScreen>
                             }
                           },
                         ),
-                  EzConfig.layout.separator,
+                  EzConfig.separator,
 
                   // Record
                   OverlayPortal(
@@ -682,7 +667,7 @@ class _HomeScreenState extends State<HomeScreen>
                             },
                           ),
                   ),
-                  EzConfig.layout.separator,
+                  EzConfig.separator,
 
                   // Flash
                   camera == null

@@ -8,12 +8,10 @@ import './utils/export.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:feedback/feedback.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_transitions/go_transitions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 
 void main() async {
@@ -31,25 +29,16 @@ void main() async {
     localeFallback: americanEnglish,
     l10nFallback: await EFUILang.delegate.load(americanEnglish),
     preferences: await SharedPreferencesWithCache.create(
-      cacheOptions:
-          SharedPreferencesWithCacheOptions(allowList: allSOSKeys.keys.toSet()),
+      cacheOptions: SharedPreferencesWithCacheOptions(
+        allowList: allSOSKeys.keys.toSet(),
+      ),
     ),
   );
 
   // Run the app //
   // With a feedback wrapper
 
-  runApp(BetterFeedback(
-    theme: empathFeedbackLight,
-    darkTheme: empathFeedbackDark,
-    localizationsDelegates: <LocalizationsDelegate<dynamic>>[
-      EzFeedbackLD(),
-      CreoleMaterialLocalizations.delegate,
-      CreoleCupertinoLocalizations.delegate,
-      const CreoleWidgetsLocalizationsDelegate(),
-    ],
-    child: const SOS(),
-  ));
+  runApp(const SOS());
 }
 
 class SOS extends StatelessWidget {
@@ -68,7 +57,7 @@ class SOS extends StatelessWidget {
     // Return the app //
 
     return EzAppProvider(
-      app: PlatformApp.router(
+      app: MaterialApp.router(
         debugShowCheckedModeBanner: false,
 
         // Language handlers
@@ -104,9 +93,9 @@ class SOS extends StatelessWidget {
                   pageBuilder: getTransition,
                   routes: <RouteBase>[
                     GoRoute(
-                      path: ezSettingsHomePath,
-                      name: ezSettingsHomePath,
-                      builder: (_, __) => const EzSettingsHomeScreen(),
+                      path: appearanceSettingsPath,
+                      name: appearanceSettingsPath,
+                      builder: (_, __) => const AppearanceSettingsScreen(),
                       pageBuilder: getTransition,
                       routes: <RouteBase>[
                         GoRoute(
@@ -119,14 +108,16 @@ class SOS extends StatelessWidget {
                               path: EzCSType.quick.path,
                               name: EzCSType.quick.name,
                               builder: (_, __) => const ColorSettingsScreen(
-                                  target: EzCSType.quick),
+                                target: EzCSType.quick,
+                              ),
                               pageBuilder: getTransition,
                             ),
                             GoRoute(
                               path: EzCSType.advanced.path,
                               name: EzCSType.advanced.name,
                               builder: (_, __) => const ColorSettingsScreen(
-                                  target: EzCSType.advanced),
+                                target: EzCSType.advanced,
+                              ),
                               pageBuilder: getTransition,
                             ),
                           ],
@@ -153,14 +144,16 @@ class SOS extends StatelessWidget {
                               path: EzTSType.quick.path,
                               name: EzTSType.quick.name,
                               builder: (_, __) => const TextSettingsScreen(
-                                  target: EzTSType.quick),
+                                target: EzTSType.quick,
+                              ),
                               pageBuilder: getTransition,
                             ),
                             GoRoute(
                               path: EzTSType.advanced.path,
                               name: EzTSType.advanced.name,
                               builder: (_, __) => const TextSettingsScreen(
-                                  target: EzTSType.advanced),
+                                target: EzTSType.advanced,
+                              ),
                               pageBuilder: getTransition,
                             ),
                           ],
