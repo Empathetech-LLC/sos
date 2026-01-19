@@ -56,7 +56,7 @@ class SOS extends StatelessWidget {
 
     // Return the app //
 
-    return EzAppProvider(
+    return EzConfigurableApp(
       app: MaterialApp.router(
         debugShowCheckedModeBanner: false,
 
@@ -74,6 +74,11 @@ class SOS extends StatelessWidget {
 
         // App title
         title: appName,
+
+        // App theme
+        themeMode: EzConfig.provider.themeMode,
+        darkTheme: EzConfig.provider.darkTheme,
+        theme: EzConfig.provider.lightTheme,
 
         // Router (page) config
         routerConfig: GoRouter(
