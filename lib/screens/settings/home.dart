@@ -6,7 +6,6 @@
 import '../export.dart';
 import '../../utils/export.dart';
 import '../../widgets/export.dart';
-import 'package:efui_bios/efui_bios.dart';
 
 import 'dart:io';
 import 'package:flutter/material.dart';
@@ -214,12 +213,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
         ezSpacer,
         HelpFAB(),
         ezSpacer,
-        EzBackFAB(
-          showHome: true,
-          hold4Feedback: true,
-          appName: appName,
-          supportEmail: empathSupport,
-        ),
+        EzBackFAB(showHome: true),
       ],
     );
   }

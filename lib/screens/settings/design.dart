@@ -5,7 +5,6 @@
 
 import '../../utils/export.dart';
 import '../../widgets/export.dart';
-import 'package:efui_bios/efui_bios.dart';
 
 import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
@@ -15,8 +14,6 @@ class DesignSettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const EzSpacer ezSpacer = EzSpacer();
-
     final Lang l10n = Lang.of(context)!;
 
     return SosScaffold(
@@ -67,7 +64,7 @@ class DesignSettingsScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        ezSpacer,
+                        EzConfig.spacer,
 
                         // Slider
                         ConstrainedBox(
@@ -93,7 +90,7 @@ class DesignSettingsScreen extends StatelessWidget {
                                 EzConfig.setDouble(opacityKey, value),
                           ),
                         ),
-                        ezSpacer,
+                        EzConfig.spacer,
 
                         // Local reset
                         EzElevatedIconButton(
@@ -119,7 +116,7 @@ class DesignSettingsScreen extends StatelessWidget {
               icon: const Icon(Icons.opacity),
               label: EzConfig.l10n.tsTextBackground,
             ),
-            ezSpacer,
+            EzConfig.spacer,
           ],
           extraSaveKeys: extraKeys,
           appName: appName,
@@ -128,19 +125,15 @@ class DesignSettingsScreen extends StatelessWidget {
         useImageDecoration: false,
       ),
       fabs: <Widget>[
-        ezSpacer,
+        EzConfig.spacer,
         EzConfigFAB(
           context,
           extraKeys: extraKeys,
           appName: appName,
           androidPackage: androidPackage,
         ),
-        ezSpacer,
-        const EzBackFAB(
-          hold4Feedback: true,
-          appName: appName,
-          supportEmail: empathSupport,
-        ),
+        EzConfig.spacer,
+        const EzBackFAB(),
       ],
     );
   }

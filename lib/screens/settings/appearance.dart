@@ -6,7 +6,6 @@
 import '../export.dart';
 import '../../utils/export.dart';
 import '../../widgets/export.dart';
-import 'package:efui_bios/efui_bios.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -107,11 +106,7 @@ class _AppearanceSettingsScreenState extends State<AppearanceSettingsScreen> {
           androidPackage: androidPackage,
         ),
         ezSpacer,
-        const EzBackFAB(
-          hold4Feedback: true,
-          appName: appName,
-          supportEmail: empathSupport,
-        ),
+        const EzBackFAB(),
       ],
     );
   }

@@ -5,7 +5,6 @@
 
 import '../../utils/export.dart';
 import '../../widgets/export.dart';
-import 'package:efui_bios/efui_bios.dart';
 
 import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
@@ -35,11 +34,7 @@ class TextSettingsScreen extends StatelessWidget {
             androidPackage: androidPackage,
           ),
           EzConfig.spacer,
-          const EzBackFAB(
-            hold4Feedback: true,
-            appName: appName,
-            supportEmail: empathSupport,
-          ),
+          const EzBackFAB(),
         ],
       );
 }
