@@ -46,28 +46,28 @@ class _AppearanceSettingsScreenState extends State<AppearanceSettingsScreen> {
 
               EzElevatedIconButton(
                 onPressed: () => context.goNamed(colorSettingsPath),
-                icon: EzIcon(Icons.navigate_next),
+                icon: const Icon(Icons.navigate_next),
                 label: EzConfig.l10n.csPageTitle,
               ),
               ezSpacer,
 
               EzElevatedIconButton(
                 onPressed: () => context.goNamed(designSettingsPath),
-                icon: EzIcon(Icons.navigate_next),
+                icon: const Icon(Icons.navigate_next),
                 label: EzConfig.l10n.dsPageTitle,
               ),
               ezSpacer,
 
               EzElevatedIconButton(
                 onPressed: () => context.goNamed(layoutSettingsPath),
-                icon: EzIcon(Icons.navigate_next),
+                icon: const Icon(Icons.navigate_next),
                 label: EzConfig.l10n.lsPageTitle,
               ),
               ezSpacer,
 
               EzElevatedIconButton(
                 onPressed: () => context.goNamed(textSettingsPath),
-                icon: EzIcon(Icons.navigate_next),
+                icon: const Icon(Icons.navigate_next),
                 label: EzConfig.l10n.tsPageTitle,
               ),
               ezDivider,

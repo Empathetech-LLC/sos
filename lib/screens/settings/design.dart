@@ -104,7 +104,7 @@ class DesignSettingsScreen extends StatelessWidget {
                               );
                             });
                           },
-                          icon: EzIcon(Icons.refresh),
+                          icon: const Icon(Icons.refresh),
                           label: EzConfig.l10n.gReset,
                         ),
                         EzSpacer(space: EzConfig.spacing * 1.5),

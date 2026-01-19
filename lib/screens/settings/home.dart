@@ -201,7 +201,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             // Appearance
             EzElevatedIconButton(
               onPressed: () => context.goNamed(appearanceSettingsPath),
-              icon: EzIcon(Icons.navigate_next),
+              icon: const Icon(Icons.navigate_next),
               label: l10n.ssAppearance,
             ),
             ezSeparator,
