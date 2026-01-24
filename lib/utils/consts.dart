@@ -32,7 +32,7 @@ const Map<String, String> credits = <String, String>{
 // BTS settings //
 
 /// showContactsMsg
-const String partialContactsKey = 'showContactsMsg';
+const String showContactsMsgKey = 'showContactsMsg';
 
 /// savedTab
 const String savedTabKey = 'savedTab';
@@ -43,9 +43,9 @@ const String taskRunningKey = 'taskRunning';
 /// showTutorial
 const String tutorialKey = 'showTutorial';
 
-/// [partialContactsKey], [savedTabKey], [taskRunningKey], [tutorialKey]
-const Map<String, Type> allBTSKeys = <String, Type>{
-  partialContactsKey: bool,
+/// [showContactsMsgKey], [savedTabKey], [taskRunningKey], [tutorialKey]
+const Map<String, Type> sosBTSKeys = <String, Type>{
+  showContactsMsgKey: bool,
   savedTabKey: String,
   taskRunningKey: bool,
   tutorialKey: bool,
@@ -63,29 +63,29 @@ const String walkingTab = 'walking';
 // Broadcast settings //
 
 /// autoShareMedia
-const String autoShareKey = 'autoShareMedia';
+const String autoShareMediaKey = 'autoShareMedia';
 
 /// emc
 const String emcKey = 'emc';
 
 /// notifyOnClose
-const String onCloseKey = 'sosOnClose';
+const String sosOnCloseKey = 'sosOnClose';
 
 /// sosOnInterrupt
-const String onInterruptKey = 'sosOnInterrupt';
+const String sosOnInterruptKey = 'sosOnInterrupt';
 
 /// notifyOnOpen
-const String onOpenKey = 'sosOnOpen';
+const String sosOnOpenKey = 'sosOnOpen';
 
 /// linkType
 const String linkTypeKey = 'linkType';
 
-const Map<String, Type> allBroadcastKeys = <String, Type>{
-  autoShareKey: bool,
+const Map<String, Type> sosBroadcastKeys = <String, Type>{
+  autoShareMediaKey: bool,
   emcKey: List<String>,
-  onCloseKey: bool,
-  onInterruptKey: bool,
-  onOpenKey: bool,
+  sosOnCloseKey: bool,
+  sosOnInterruptKey: bool,
+  sosOnOpenKey: bool,
   linkTypeKey: String,
 };
 
@@ -95,7 +95,7 @@ const Map<String, Type> allBroadcastKeys = <String, Type>{
 const String videoColorKey = 'Video';
 
 /// [videoColorKey]
-const Map<String, Type> allSOSColorKeys = <String, Type>{
+const Map<String, Type> sosColorKeys = <String, Type>{
   videoColorKey: int,
 };
 
@@ -109,47 +109,32 @@ final Map<String, Object> sosConfig = <String, Object>{
   lightTextBackgroundOpacityKey: 0.8,
 
   // BTS
-  partialContactsKey: true,
+  showContactsMsgKey: true,
   savedTabKey: walkingTab,
   taskRunningKey: false,
   tutorialKey: true,
 
   // SOS
-  autoShareKey: true,
+  autoShareMediaKey: true,
   emcKey: <String>[],
-  onCloseKey: false,
-  onInterruptKey: true,
-  onOpenKey: false,
+  sosOnCloseKey: false,
+  sosOnInterruptKey: true,
+  sosOnOpenKey: false,
   linkTypeKey: LinkType.google.name,
 
   // Color
   videoColorKey: 0xFFFF0000,
 };
 
-/// [ezConfigSaver] extraKeys
-const List<String> extraKeys = <String>[
-  // BTS
-  partialContactsKey,
-  savedTabKey,
-  // taskRunningKey,
-  tutorialKey,
-
-  // Broadcast
-  autoShareKey,
-  // emcKey,
-  onCloseKey,
-  onInterruptKey,
-  onOpenKey,
-  linkTypeKey,
-
-  // Color
-  videoColorKey,
-];
-
 /// For [EzConfig.init]
 const Map<String, Type> allSOSKeys = <String, Type>{
   ...allEZConfigKeys,
-  ...allBTSKeys,
-  ...allBroadcastKeys,
-  ...allSOSColorKeys,
+  ...sosBTSKeys,
+  ...sosBroadcastKeys,
+  ...sosColorKeys,
+};
+
+final Set<String> neverResetKeys = <String>{
+  ...sosBTSKeys.keys,
+  ...sosBroadcastKeys.keys,
 };
