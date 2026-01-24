@@ -68,8 +68,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             // SOS on open
             EzSwitchPair(
               text: l10n.ssSOSOnOpen,
-              valueKey: onOpenKey,
-              canChange: (bool choice) => canSet(onOpenKey, choice),
+              valueKey: sosOnOpenKey,
+              canChange: (bool choice) => canSet(sosOnOpenKey, choice),
             ),
             ezSpacer,
 
@@ -77,9 +77,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               // SOS on close
               EzSwitchPair(
                 text: l10n.ssSOSOnClose,
-                valueKey: onCloseKey,
+                valueKey: sosOnCloseKey,
                 canChange: (bool choice) async {
-                  final bool check1 = await canSet(onCloseKey, choice);
+                  final bool check1 = await canSet(sosOnCloseKey, choice);
                   final bool? check2 = (choice == false)
                       ? context.mounted
                           // Confirm immediate closure to prevent accidental broadcasts
@@ -148,14 +148,14 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               // SOS on interrupt
               EzSwitchPair(
                 text: l10n.ssVideoSOS,
-                valueKey: onInterruptKey,
-                canChange: (bool choice) => canSet(onInterruptKey, choice),
+                valueKey: sosOnInterruptKey,
+                canChange: (bool choice) => canSet(sosOnInterruptKey, choice),
               ),
               ezSpacer,
             ],
 
             // Auto-share media
-            EzSwitchPair(text: l10n.ssAutoShare, valueKey: autoShareKey),
+            EzSwitchPair(text: l10n.ssAutoShare, valueKey: autoShareMediaKey),
             ezDivider,
 
             // EMC

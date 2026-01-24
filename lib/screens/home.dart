@@ -53,11 +53,11 @@ class _HomeScreenState extends State<HomeScreen>
 
   Timer? sosTimer;
 
-  final bool sosOnOpen = EzConfig.get(onOpenKey);
-  final bool sosOnClose = EzConfig.get(onCloseKey);
-  final bool sosOnInterrupt = EzConfig.get(onInterruptKey);
+  final bool sosOnOpen = EzConfig.get(sosOnOpenKey);
+  final bool sosOnClose = EzConfig.get(sosOnCloseKey);
+  final bool sosOnInterrupt = EzConfig.get(sosOnInterruptKey);
 
-  final bool autoShare = EzConfig.get(autoShareKey);
+  final bool autoShare = EzConfig.get(autoShareMediaKey);
 
   final LinkType linkType = LinkConfig.fromName(EzConfig.get(linkTypeKey));
 

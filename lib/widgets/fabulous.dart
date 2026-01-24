@@ -46,7 +46,7 @@ class HelpFAB extends StatelessWidget {
     void followLink(String url) async {
       bool launch = true;
 
-      if (EzConfig.get(onCloseKey) == true) {
+      if (EzConfig.get(sosOnCloseKey) == true) {
         launch = await showDialog(
           context: context,
           builder: (BuildContext dContext) => EzAlertDialog(

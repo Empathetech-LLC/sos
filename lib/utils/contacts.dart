@@ -69,7 +69,7 @@ Future<List<String>?> addEMC(
 
   // The way iOS handles partial contacts is hot garbage
   // Best thing we can do is remind users that they will see all contacts, not just the shared ones
-  if (Platform.isIOS && EzConfig.get(partialContactsKey) == true) {
+  if (Platform.isIOS && EzConfig.get(showContactsMsgKey) == true) {
     final bool show = await Permission.contacts.isLimited;
 
     if (show && context.mounted) {
@@ -84,7 +84,7 @@ Future<List<String>?> addEMC(
             onConfirm: () => Navigator.of(dContext).pop(),
             denyMsg: l10n.gNotAgain,
             onDeny: () async {
-              await EzConfig.setBool(partialContactsKey, false);
+              await EzConfig.setBool(showContactsMsgKey, false);
               if (dContext.mounted) Navigator.of(dContext).pop();
             },
             denyIsDestructive: true,
