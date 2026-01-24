@@ -87,7 +87,7 @@ class _AppearanceSettingsScreenState extends State<AppearanceSettingsScreen> {
                   });
                   setState(() {});
                 },
-                extraKeys: extraKeys,
+                skip: neverResetKeys,
                 appName: appName,
                 androidPackage: androidPackage,
               ),
@@ -101,7 +101,6 @@ class _AppearanceSettingsScreenState extends State<AppearanceSettingsScreen> {
         ezSpacer,
         EzConfigFAB(
           context,
-          extraKeys: extraKeys,
           appName: appName,
           androidPackage: androidPackage,
         ),

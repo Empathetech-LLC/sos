@@ -20,7 +20,7 @@ class DesignSettingsScreen extends StatelessWidget {
       EzScreen(
         EzDesignSettings(
           includeBackgroundImage: false,
-          themedSettingsPrepend: <Widget>[
+          beforeDesign: <Widget>[
             // Text Background Opacity mirror
             EzElevatedIconButton(
               onPressed: () => ezModal(
@@ -118,7 +118,6 @@ class DesignSettingsScreen extends StatelessWidget {
             ),
             EzConfig.spacer,
           ],
-          extraSaveKeys: extraKeys,
           appName: appName,
           androidPackage: androidPackage,
         ),
@@ -128,7 +127,6 @@ class DesignSettingsScreen extends StatelessWidget {
         EzConfig.spacer,
         EzConfigFAB(
           context,
-          extraKeys: extraKeys,
           appName: appName,
           androidPackage: androidPackage,
         ),

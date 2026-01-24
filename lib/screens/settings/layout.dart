@@ -16,7 +16,6 @@ class LayoutSettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) => SosScaffold(
         const EzScreen(
           EzLayoutSettings(
-            extraSaveKeys: extraKeys,
             appName: appName,
             androidPackage: androidPackage,
           ),
@@ -26,7 +25,6 @@ class LayoutSettingsScreen extends StatelessWidget {
           EzConfig.spacer,
           EzConfigFAB(
             context,
-            extraKeys: extraKeys,
             appName: appName,
             androidPackage: androidPackage,
           ),

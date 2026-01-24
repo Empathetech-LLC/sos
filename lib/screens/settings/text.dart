@@ -19,7 +19,6 @@ class TextSettingsScreen extends StatelessWidget {
         EzScreen(
           EzTextSettings(
             target: target,
-            extraSaveKeys: extraKeys,
             appName: appName,
             androidPackage: androidPackage,
           ),
@@ -29,7 +28,6 @@ class TextSettingsScreen extends StatelessWidget {
           EzConfig.spacer,
           EzConfigFAB(
             context,
-            extraKeys: extraKeys,
             appName: appName,
             androidPackage: androidPackage,
           ),

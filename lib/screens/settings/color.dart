@@ -33,7 +33,6 @@ class ColorSettingsScreen extends StatelessWidget {
               lightOnSurfaceKey,
               lightSurfaceContainerKey,
             ],
-            extraSaveKeys: extraKeys,
             appName: appName,
             androidPackage: androidPackage,
           ),
@@ -43,7 +42,6 @@ class ColorSettingsScreen extends StatelessWidget {
           EzConfig.spacer,
           EzConfigFAB(
             context,
-            extraKeys: extraKeys,
             appName: appName,
             androidPackage: androidPackage,
           ),
