@@ -87,7 +87,7 @@ class _AppearanceSettingsScreenState extends State<AppearanceSettingsScreen> {
                   });
                   setState(() {});
                 },
-                skip: neverResetKeys,
+                resetSkip: neverResetKeys,
                 appName: appName,
                 androidPackage: androidPackage,
               ),
