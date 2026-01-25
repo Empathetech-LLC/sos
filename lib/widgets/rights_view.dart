@@ -44,10 +44,6 @@ class RightsView extends StatefulWidget {
 }
 
 class _RightsViewState extends State<RightsView> {
-  // Gather the theme data //
-
-  late final Lang l10n = Lang.of(context)!;
-
   // Define the build data //
 
   late Location currentTab = getTab(EzConfig.get(savedTabKey));
@@ -65,7 +61,7 @@ class _RightsViewState extends State<RightsView> {
     }
   }
 
-  Widget populateTab(TextStyle? style) {
+  Widget populateTab(Lang l10n, TextStyle? style) {
     switch (currentTab) {
       case Location.walking:
         return Column(
@@ -111,6 +107,7 @@ class _RightsViewState extends State<RightsView> {
 
   @override
   Widget build(BuildContext context) {
+    final Lang l10n = Lang.of(context)!;
     final TextStyle? bodyStyle = Theme.of(context).textTheme.bodyLarge;
 
     return Visibility(
@@ -166,7 +163,7 @@ class _RightsViewState extends State<RightsView> {
             rightsBlock(l10n.rsSharedDocument, bodyStyle),
 
             // Situational rights
-            populateTab(bodyStyle),
+            populateTab(l10n, bodyStyle),
 
             // Shared rights II
             rightsBlock(l10n.rsSharedSign, bodyStyle),

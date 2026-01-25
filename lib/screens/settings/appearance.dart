@@ -20,93 +20,84 @@ class AppearanceSettingsScreen extends StatefulWidget {
 }
 
 class _AppearanceSettingsScreenState extends State<AppearanceSettingsScreen> {
-  // Gather the theme data //
-
-  late final Lang l10n = Lang.of(context)!;
-
   // Return the build //
 
   @override
-  Widget build(BuildContext context) {
-    const EzSpacer ezSpacer = EzSpacer();
-    const EzDivider ezDivider = EzDivider();
+  Widget build(BuildContext context) => SosScaffold(
+        EzScreen(
+          Center(
+            child: EzScrollView(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                // Global settings
+                const EzDominantHandSwitch(),
+                EzConfig.spacer,
 
-    return SosScaffold(
-      EzScreen(
-        Center(
-          child: EzScrollView(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              // Global settings
-              const EzDominantHandSwitch(),
-              ezSpacer,
+                const EzThemeModeSwitch(),
+                EzConfig.divider,
 
-              const EzThemeModeSwitch(),
-              ezDivider,
+                EzElevatedIconButton(
+                  onPressed: () => context.goNamed(colorSettingsPath),
+                  icon: const Icon(Icons.navigate_next),
+                  label: EzConfig.l10n.csPageTitle,
+                ),
+                EzConfig.spacer,
 
-              EzElevatedIconButton(
-                onPressed: () => context.goNamed(colorSettingsPath),
-                icon: const Icon(Icons.navigate_next),
-                label: EzConfig.l10n.csPageTitle,
-              ),
-              ezSpacer,
+                EzElevatedIconButton(
+                  onPressed: () => context.goNamed(designSettingsPath),
+                  icon: const Icon(Icons.navigate_next),
+                  label: EzConfig.l10n.dsPageTitle,
+                ),
+                EzConfig.spacer,
 
-              EzElevatedIconButton(
-                onPressed: () => context.goNamed(designSettingsPath),
-                icon: const Icon(Icons.navigate_next),
-                label: EzConfig.l10n.dsPageTitle,
-              ),
-              ezSpacer,
+                EzElevatedIconButton(
+                  onPressed: () => context.goNamed(layoutSettingsPath),
+                  icon: const Icon(Icons.navigate_next),
+                  label: EzConfig.l10n.lsPageTitle,
+                ),
+                EzConfig.spacer,
 
-              EzElevatedIconButton(
-                onPressed: () => context.goNamed(layoutSettingsPath),
-                icon: const Icon(Icons.navigate_next),
-                label: EzConfig.l10n.lsPageTitle,
-              ),
-              ezSpacer,
+                EzElevatedIconButton(
+                  onPressed: () => context.goNamed(textSettingsPath),
+                  icon: const Icon(Icons.navigate_next),
+                  label: EzConfig.l10n.tsPageTitle,
+                ),
+                EzConfig.divider,
 
-              EzElevatedIconButton(
-                onPressed: () => context.goNamed(textSettingsPath),
-                icon: const Icon(Icons.navigate_next),
-                label: EzConfig.l10n.tsPageTitle,
-              ),
-              ezDivider,
+                const EzQuickConfig(
+                  videoGame: false,
+                  chalkboard: false,
+                  fancyPants: false,
+                ),
+                EzConfig.spacer,
 
-              const EzQuickConfig(
-                videoGame: false,
-                chalkboard: false,
-                fancyPants: false,
-              ),
-              ezSpacer,
-
-              EzResetButton(
-                onConfirm: () async {
-                  await EzConfig.removeKeys(<String>{
-                    ...allEZConfigKeys.keys,
-                    videoColorKey,
-                  });
-                  setState(() {});
-                },
-                resetSkip: neverResetKeys,
-                appName: appName,
-                androidPackage: androidPackage,
-              ),
-              EzConfig.separator,
-            ],
+                EzResetButton(
+                  onConfirm: () async {
+                    await EzConfig.removeKeys(<String>{
+                      ...allEZConfigKeys.keys,
+                      videoColorKey,
+                    });
+                    setState(() {});
+                  },
+                  resetSkip: neverResetKeys,
+                  appName: appName,
+                  androidPackage: androidPackage,
+                ),
+                EzConfig.separator,
+              ],
+            ),
           ),
+          useImageDecoration: false,
         ),
-        useImageDecoration: false,
-      ),
-      fabs: <Widget>[
-        ezSpacer,
-        EzConfigFAB(
-          context,
-          appName: appName,
-          androidPackage: androidPackage,
-        ),
-        ezSpacer,
-        const EzBackFAB(),
-      ],
-    );
-  }
+        fabs: <Widget>[
+          EzConfig.spacer,
+          EzConfigFAB(
+            context,
+            appName: appName,
+            androidPackage: androidPackage,
+          ),
+          EzConfig.spacer,
+          const EzBackFAB(),
+        ],
+      );
 }

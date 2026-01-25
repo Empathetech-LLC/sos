@@ -42,9 +42,6 @@ class _HomeScreenState extends State<HomeScreen>
   final Color videoColor = Color(EzConfig.get(videoColorKey));
   late final Color videoTextColor = getTextColor(videoColor);
 
-  // Text
-  late final Lang l10n = Lang.of(context)!;
-
   // Define the build data //
 
   // Core
@@ -111,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   /// [foregroundSOS] every 5 minutes
-  Future<void> startForegroundSOS({bool showSnack = false}) async {
+  Future<void> startForegroundSOS(Lang l10n, {bool showSnack = false}) async {
     // Cleanup any existing timer and send an immediate SOS
     sosTimer?.cancel();
     await foregroundSOS(emc: emc, linkType: linkType, l10n: l10n);
@@ -142,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   /// Assumes an [emc] null/empty check has already been done
-  Future<void> startBackgroundSOS() async {
+  Future<void> startBackgroundSOS(Lang l10n) async {
     try {
       await backgroundSOS(emc!, l10n);
     } catch (e) {
@@ -208,6 +205,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void afterFirstLayout(BuildContext context) async {
+    final Lang l10n = Lang.of(context)!;
     final bool newUser = emc == null || emc!.isEmpty;
 
     // Verify the emergency contacts
@@ -217,7 +215,9 @@ class _HomeScreenState extends State<HomeScreen>
     final bool taskRunning = EzConfig.get(taskRunningKey);
 
     if (taskRunning) await stopBackgroundSOS();
-    if (sosOnOpen || taskRunning) await startForegroundSOS(showSnack: true);
+    if (sosOnOpen || taskRunning) {
+      await startForegroundSOS(l10n, showSnack: true);
+    }
 
     // Setup the camera/preview
     if (newUser && context.mounted) {
@@ -246,6 +246,8 @@ class _HomeScreenState extends State<HomeScreen>
         .style!
         .backgroundColor!
         .resolve(<WidgetState>{WidgetState.focused})!;
+
+    final Lang l10n = Lang.of(context)!;
 
     // Return the build //
 
@@ -397,7 +399,7 @@ class _HomeScreenState extends State<HomeScreen>
                             return;
                           }
 
-                          await startForegroundSOS();
+                          await startForegroundSOS(l10n);
                         },
                         onLongPress: openSOSPermissions,
                       ),
@@ -690,6 +692,8 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) async {
+    final Lang l10n = Lang.of(context)!;
+
     switch (state) {
       case AppLifecycleState.detached:
       case AppLifecycleState.paused:
@@ -710,7 +714,7 @@ class _HomeScreenState extends State<HomeScreen>
               !alreadyRunning &&
               (active || sosOnClose || sosOnInterrupt)) {
             if (active) stopForegroundSOS();
-            await startBackgroundSOS();
+            await startBackgroundSOS(l10n);
           }
 
           // Attempt to save the partial recording
@@ -745,7 +749,7 @@ class _HomeScreenState extends State<HomeScreen>
           // SOS based on user state/settings
           if (Platform.isAndroid && !alreadyRunning && (active || sosOnClose)) {
             if (active) stopForegroundSOS();
-            await startBackgroundSOS();
+            await startBackgroundSOS(l10n);
           }
         }
         break;
@@ -767,7 +771,7 @@ class _HomeScreenState extends State<HomeScreen>
         // Check SOS state
         if (EzConfig.get(taskRunningKey) == true) {
           await stopBackgroundSOS();
-          await startForegroundSOS(showSnack: true);
+          await startForegroundSOS(l10n, showSnack: true);
         }
         break;
     }

@@ -21,17 +21,13 @@ class SettingsHomeScreen extends StatefulWidget {
 }
 
 class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
-  // Gather the theme data //
-
-  late final Lang l10n = Lang.of(context)!;
-
   // Define the build data //
 
   LinkType linkType = LinkConfig.fromName(EzConfig.get(linkTypeKey));
 
   // Define custom functions //
 
-  Future<bool> canSet(String key, bool value) async {
+  Future<bool> canSet(String key, bool value, Lang l10n) async {
     if (value == false || Platform.isIOS) return true;
 
     final PermissionStatus canSMS = await Permission.sms.request();
@@ -49,9 +45,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const EzSpacer ezSpacer = EzSpacer();
-    const EzSeparator ezSeparator = EzSeparator();
-    const EzDivider ezDivider = EzDivider();
+    final Lang l10n = Lang.of(context)!;
 
     return SosScaffold(
       EzScreen(
@@ -63,15 +57,15 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               skip: <Locale>{arabic, english, chinese}, // Dupes
               protest: true,
             ),
-            ezSeparator,
+            EzConfig.separator,
 
             // SOS on open
             EzSwitchPair(
               text: l10n.ssSOSOnOpen,
               valueKey: sosOnOpenKey,
-              canChange: (bool choice) => canSet(sosOnOpenKey, choice),
+              canChange: (bool choice) => canSet(sosOnOpenKey, choice, l10n),
             ),
-            ezSpacer,
+            EzConfig.spacer,
 
             if (Platform.isAndroid) ...<Widget>[
               // SOS on close
@@ -79,7 +73,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 text: l10n.ssSOSOnClose,
                 valueKey: sosOnCloseKey,
                 canChange: (bool choice) async {
-                  final bool check1 = await canSet(sosOnCloseKey, choice);
+                  final bool check1 = await canSet(sosOnCloseKey, choice, l10n);
                   final bool? check2 = (choice == false)
                       ? context.mounted
                           // Confirm immediate closure to prevent accidental broadcasts
@@ -143,24 +137,25 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                   if (value == false) exit(0);
                 },
               ),
-              ezSpacer,
+              EzConfig.spacer,
 
               // SOS on interrupt
               EzSwitchPair(
                 text: l10n.ssVideoSOS,
                 valueKey: sosOnInterruptKey,
-                canChange: (bool choice) => canSet(sosOnInterruptKey, choice),
+                canChange: (bool choice) =>
+                    canSet(sosOnInterruptKey, choice, l10n),
               ),
-              ezSpacer,
+              EzConfig.spacer,
             ],
 
             // Auto-share media
             EzSwitchPair(text: l10n.ssAutoShare, valueKey: autoShareMediaKey),
-            ezDivider,
+            EzConfig.divider,
 
             // EMC
             const ContactList(),
-            ezSeparator,
+            EzConfig.separator,
 
             // Link type
             EzScrollView(
@@ -196,7 +191,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 ),
               ],
             ),
-            ezDivider,
+            EzConfig.divider,
 
             // Appearance
             EzElevatedIconButton(
@@ -204,16 +199,16 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               icon: const Icon(Icons.navigate_next),
               label: l10n.ssAppearance,
             ),
-            ezSeparator,
+            EzConfig.separator,
           ],
         ),
         useImageDecoration: false,
       ),
-      fabs: const <Widget>[
-        ezSpacer,
-        HelpFAB(),
-        ezSpacer,
-        EzBackFAB(showHome: true),
+      fabs: <Widget>[
+        EzConfig.spacer,
+        const HelpFAB(),
+        EzConfig.spacer,
+        const EzBackFAB(showHome: true),
       ],
     );
   }

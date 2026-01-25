@@ -16,10 +16,7 @@ class ContactList extends StatefulWidget {
 }
 
 class _ContactListState extends State<ContactList> {
-  // Gather the fixed theme data //
-
-  late final Lang l10n = Lang.of(context)!;
-
+  // Define the build data //
   List<String> emc = EzConfig.get(emcKey);
 
   @override
@@ -29,8 +26,10 @@ class _ContactListState extends State<ContactList> {
     final EzSpacer listSpacer =
         EzSpacer(space: EzConfig.spacing - EzConfig.marginVal * 2);
 
-    final TextTheme textTheme = Theme.of(context).textTheme;
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
+
+    final Lang l10n = Lang.of(context)!;
+    final TextTheme textTheme = Theme.of(context).textTheme;
 
     // Return the build //
 
