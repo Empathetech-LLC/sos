@@ -35,18 +35,11 @@ class _HomeScreenState extends State<HomeScreen>
   late final double safeTop = MediaQuery.paddingOf(context).top;
   late final double safeBottom = MediaQuery.paddingOf(context).bottom;
 
-  final double iconSize = EzConfig.iconSize;
-
-  // Color
-
-  final Color videoColor = Color(EzConfig.get(videoColorKey));
-  late final Color videoTextColor = getTextColor(videoColor);
-
   // Define the build data //
 
   // Core
   /// EMergency Contacts; [List] of phone number [String]s
-  List<String>? emc = EzConfig.get(emcKey);
+  List<String>? emc = EzConfig.get(emcKey); // TODO: provider (prolly below too)
 
   Timer? sosTimer;
 
@@ -246,6 +239,9 @@ class _HomeScreenState extends State<HomeScreen>
         .style!
         .backgroundColor!
         .resolve(<WidgetState>{WidgetState.focused})!;
+    final Color videoColor = Color(EzConfig.get(
+        videoColorKey)); // TODO: theme awareness and use a provider (prolly above too)
+    final Color videoTextColor = getTextColor(videoColor);
 
     final Lang l10n = Lang.of(context)!;
 
@@ -325,7 +321,10 @@ class _HomeScreenState extends State<HomeScreen>
               child: OverlayPortal(
                 controller: broadcastOverlay,
                 overlayChildBuilder: (_) => EzTutorial(
-                  top: safeTop + spargin + iconSize * 1.5 + EzConfig.spacing,
+                  top: safeTop +
+                      spargin +
+                      EzConfig.iconSize * 1.5 +
+                      EzConfig.spacing,
                   left: 0,
                   right: 0,
                   title: '3/5',
@@ -376,13 +375,13 @@ class _HomeScreenState extends State<HomeScreen>
                 child: sosTimer?.isActive == true
                     ? EzIconButton(
                         icon: const SOSIcon(),
-                        iconSize: iconSize * 1.5,
+                        iconSize: EzConfig.iconSize * 1.5,
                         onPressed: stopForegroundSOS,
                         onLongPress: openSOSPermissions,
                       )
                     : EzIconButton(
                         icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
-                        iconSize: iconSize * 1.5,
+                        iconSize: EzConfig.iconSize * 1.5,
                         onPressed: () async {
                           final PermissionStatus smsStatus = Platform.isIOS
                               ? PermissionStatus.granted
@@ -418,9 +417,9 @@ class _HomeScreenState extends State<HomeScreen>
                 top: safeTop + EzConfig.marginVal,
                 right: EzConfig.isLefty
                     ? 0
-                    : EzConfig.marginVal + iconSize + EzConfig.spacing,
+                    : EzConfig.marginVal + EzConfig.iconSize + EzConfig.spacing,
                 left: EzConfig.isLefty
-                    ? EzConfig.marginVal + iconSize + EzConfig.spacing
+                    ? EzConfig.marginVal + EzConfig.iconSize + EzConfig.spacing
                     : 0,
                 title: '4/5',
                 content: l10n.hsSettingsTutorial,
@@ -535,7 +534,7 @@ class _HomeScreenState extends State<HomeScreen>
                     overlayChildBuilder: (_) => EzTutorial(
                       bottom: safeBottom +
                           spargin +
-                          iconSize * 2 +
+                          EzConfig.iconSize * 2 +
                           EzConfig.spacing,
                       left: 0,
                       right: 0,
@@ -563,7 +562,7 @@ class _HomeScreenState extends State<HomeScreen>
                               Icons.stop,
                               semanticLabel: l10n.hsEndRecord,
                             ),
-                            iconSize: iconSize * 2,
+                            iconSize: EzConfig.iconSize * 2,
                             onPressed: () async {
                               late final XFile? video;
                               try {
@@ -636,7 +635,7 @@ class _HomeScreenState extends State<HomeScreen>
                               Icons.circle,
                               semanticLabel: l10n.hsStartRecord,
                             ),
-                            iconSize: iconSize * 2,
+                            iconSize: EzConfig.iconSize * 2,
                             onPressed: () async {
                               if (camera == null) {
                                 final bool hasAccess = await initCamera();

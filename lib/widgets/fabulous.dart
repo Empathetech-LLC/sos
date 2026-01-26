@@ -35,10 +35,9 @@ class HelpFAB extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Gather the theme data //
+    // Gather the contextual theme data //
 
     final Lang l10n = Lang.of(context)!;
-
     final TextTheme textTheme = Theme.of(context).textTheme;
 
     // Define custom functions //
