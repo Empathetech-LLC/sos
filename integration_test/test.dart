@@ -4,7 +4,7 @@
  */
 
 import 'package:sos/main.dart';
-import 'package:sos/utils/consts.dart';
+import 'package:sos/utils/export.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -36,7 +36,10 @@ void main() async {
     () {
       testWidgets('Test randomizer', (WidgetTester tester) async {
         ezLog('Loading SOS');
-        await tester.pumpWidget(const SOS());
+        await tester.pumpWidget(SOS(SOSCache(
+          locale: americanEnglish,
+          l10n: await Lang.delegate.load(americanEnglish),
+        )));
         await tester.pumpAndSettle();
       });
     },
