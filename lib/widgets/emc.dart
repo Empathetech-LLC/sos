@@ -17,21 +17,15 @@ class ContactList extends StatefulWidget {
 
 class _ContactListState extends State<ContactList> {
   // Define the build data //
+
   List<String> emc = EzConfig.get(emcKey);
+
+  // Return the build //
 
   @override
   Widget build(BuildContext context) {
-    // Gather the contextual theme data //
-
     final EzSpacer listSpacer =
         EzSpacer(space: EzConfig.spacing - EzConfig.marginVal * 2);
-
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-
-    final Lang l10n = Lang.of(context)!;
-    final TextTheme textTheme = Theme.of(context).textTheme;
-
-    // Return the build //
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -42,7 +36,7 @@ class _ContactListState extends State<ContactList> {
           mainAxisSize: MainAxisSize.min,
           scrollDirection: Axis.horizontal,
           children: <Widget>[
-            Text(l10n.ssEMC, style: textTheme.titleLarge),
+            Text(l10n.ssEMC, style: EzConfig.styles.titleLarge),
             EzMargin(vertical: false),
             EzIconButton(
               icon: Icon(
@@ -92,9 +86,6 @@ class _ContactListState extends State<ContactList> {
                     await EzConfig.setStringList(emcKey, emc);
                     setState(() {});
                   },
-                  l10n: l10n,
-                  textTheme: textTheme,
-                  colorScheme: colorScheme,
                 ));
                 acc.add(listSpacer);
                 return acc;
@@ -112,22 +103,13 @@ class _ContactTile extends StatelessWidget {
   final String number;
   final bool enabled;
   final VoidCallback onRemove;
-  final Lang l10n;
-  final TextTheme textTheme;
-  final ColorScheme colorScheme;
 
   const _ContactTile({
     super.key,
-    // Core parameters
     required this.initials,
     required this.number,
     required this.enabled,
     required this.onRemove,
-
-    // Theme parameters
-    required this.l10n,
-    required this.textTheme,
-    required this.colorScheme,
   });
 
   @override
@@ -143,11 +125,11 @@ class _ContactTile extends StatelessWidget {
             if (initials != null) ...<Widget>[
               CircleAvatar(
                 radius: EzConfig.padding + EzConfig.iconSize / 2,
-                foregroundColor: colorScheme.onSurface,
-                backgroundColor: colorScheme.surfaceContainer,
+                foregroundColor: EzConfig.colors.onSurface,
+                backgroundColor: EzConfig.colors.surfaceContainer,
                 child: Text(
                   initials!,
-                  style: textTheme.bodyLarge,
+                  style: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
               ),
@@ -157,7 +139,7 @@ class _ContactTile extends StatelessWidget {
             // Number
             Text(
               number,
-              style: textTheme.bodyLarge,
+              style: EzConfig.styles.bodyLarge,
               textAlign: TextAlign.start,
             ),
             const EzSpacer(vertical: false),

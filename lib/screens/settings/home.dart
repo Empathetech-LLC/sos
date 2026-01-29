@@ -166,7 +166,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 // Label
                 EzText(
                   l10n.ssLinkType,
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.center,
                 ),
                 EzConfig.margin,

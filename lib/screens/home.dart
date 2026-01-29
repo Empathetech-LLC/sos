@@ -37,19 +37,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   // Define the build data //
 
-  // Core
-  /// EMergency Contacts; [List] of phone number [String]s
-  List<String>? emc = EzConfig.get(emcKey); // TODO: provider (prolly below too)
-
   Timer? sosTimer;
-
-  final bool sosOnOpen = EzConfig.get(sosOnOpenKey);
-  final bool sosOnClose = EzConfig.get(sosOnCloseKey);
-  final bool sosOnInterrupt = EzConfig.get(sosOnInterruptKey);
-
-  final bool autoShare = EzConfig.get(autoShareMediaKey);
-
-  final LinkType linkType = LinkConfig.fromName(EzConfig.get(linkTypeKey));
 
   // Tutorial
   final OverlayPortalController broadcastOverlay =
@@ -233,7 +221,6 @@ class _HomeScreenState extends State<HomeScreen>
 
     final double spargin = EzConfig.spacing + EzConfig.marginVal;
 
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final Color rightsBackgroundColor = Theme.of(context)
         .textButtonTheme
         .style!
@@ -257,7 +244,7 @@ class _HomeScreenState extends State<HomeScreen>
               child: Container(
                 height: heightOf(context) * 0.667,
                 width: double.infinity,
-                color: colorScheme.surface,
+                color: EzConfig.colors.surface,
                 child: camera == null
                     ? Visibility(visible: showRights, child: const RightsView())
                     : Stack(children: <Widget>[
@@ -301,9 +288,7 @@ class _HomeScreenState extends State<HomeScreen>
                     return EzText(
                       elapsed.toString().split('.').first,
                       backgroundColor: videoColor,
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge
+                      style: EzConfig.styles.labelLarge
                           ?.copyWith(color: videoTextColor),
                     );
                   },
@@ -629,7 +614,8 @@ class _HomeScreenState extends State<HomeScreen>
                         : EzIconButton(
                             style: IconButton.styleFrom(
                               foregroundColor: videoColor,
-                              side: BorderSide(color: colorScheme.onSurface),
+                              side:
+                                  BorderSide(color: EzConfig.colors.onSurface),
                             ),
                             icon: Icon(
                               Icons.circle,

@@ -33,15 +33,10 @@ class HelpFAB extends StatelessWidget {
   /// Opens an [ezModal] with an FAQ and a button for resetting to tutorial(s)
   const HelpFAB({super.key});
 
+  // Define custom functions //
+
   @override
   Widget build(BuildContext context) {
-    // Gather the contextual theme data //
-
-    final Lang l10n = Lang.of(context)!;
-    final TextTheme textTheme = Theme.of(context).textTheme;
-
-    // Define custom functions //
-
     void followLink(String url) async {
       bool launch = true;
 
@@ -89,7 +84,7 @@ class HelpFAB extends StatelessWidget {
             Center(
               child: Text(
                 l10n.faqName,
-                style: textTheme.titleLarge,
+                style: EzConfig.styles.titleLarge,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -105,14 +100,14 @@ class HelpFAB extends StatelessWidget {
             ExpansionTile(
               title: Text(
                 l10n.faqListQ,
-                style: textTheme.bodyLarge,
+                style: EzConfig.styles.bodyLarge,
                 textAlign: TextAlign.start,
               ),
               expandedCrossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
                   l10n.faqListA1,
-                  style: textTheme.bodyLarge,
+                  style: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
                 EzLink(
@@ -141,18 +136,18 @@ class HelpFAB extends StatelessWidget {
                   <InlineSpan>[
                     EzPlainText(
                       text: l10n.faqListA2,
-                      style: textTheme.bodyLarge,
+                      style: EzConfig.styles.bodyLarge,
                     ),
                     EzInlineLink(
                       'How to document ICE',
                       onTap: () => followLink(_howTo),
                       hint: EzConfig.l10n.gOpenLink,
-                      style: textTheme.bodyLarge,
+                      style: EzConfig.styles.bodyLarge,
                       textAlign: TextAlign.start,
                     ),
                   ],
                   textBackground: false,
-                  style: textTheme.bodyLarge,
+                  style: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
               ],
@@ -164,44 +159,44 @@ class HelpFAB extends StatelessWidget {
               ExpansionTile(
                 title: Text(
                   l10n.faqSettings,
-                  style: textTheme.bodyLarge,
+                  style: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     l10n.faqOnOpen,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
                     '${l10n.ssSOSOnClose}: ${l10n.ssSOSOnCloseHint}',
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
                     l10n.faqOnInterrupt,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
                     l10n.faqAutoShare,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
                     l10n.faqEMC,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
                     l10n.faqLink,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                 ],
@@ -211,7 +206,7 @@ class HelpFAB extends StatelessWidget {
               ExpansionTile(
                 title: Text(
                   l10n.faqUnavailable,
-                  style: textTheme.bodyLarge,
+                  style: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
@@ -220,23 +215,23 @@ class HelpFAB extends StatelessWidget {
                     <InlineSpan>[
                       EzPlainText(
                         text: l10n.faqReliability,
-                        style: textTheme.bodyLarge,
+                        style: EzConfig.styles.bodyLarge,
                       ),
                       EzInlineLink(
                         l10n.faqLocationPermissions,
                         onTap: openAppSettings,
                         hint: EzConfig.l10n.gOpenLink,
                       ),
-                      EzPlainText(text: '.', style: textTheme.bodyLarge),
+                      EzPlainText(text: '.', style: EzConfig.styles.bodyLarge),
                     ],
                     textBackground: false,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
                     l10n.faqLocationTrust,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                 ],
@@ -249,32 +244,32 @@ class HelpFAB extends StatelessWidget {
               ExpansionTile(
                 title: Text(
                   l10n.faqSettings,
-                  style: textTheme.bodyLarge,
+                  style: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     l10n.faqOnOpen,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
                     l10n.faqAutoShare,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
                     l10n.faqEMC,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
                     l10n.faqLink,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                 ],
@@ -284,14 +279,14 @@ class HelpFAB extends StatelessWidget {
               ExpansionTile(
                 title: Text(
                   l10n.faqPrivateContact,
-                  style: textTheme.bodyLarge,
+                  style: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     l10n.faqContactPermissions,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
@@ -299,17 +294,17 @@ class HelpFAB extends StatelessWidget {
                     <InlineSpan>[
                       EzPlainText(
                         text: l10n.faqUpdateContacts,
-                        style: textTheme.bodyLarge,
+                        style: EzConfig.styles.bodyLarge,
                       ),
                       EzInlineLink(
                         l10n.faqOSSettings,
                         onTap: openAppSettings,
                         hint: EzConfig.l10n.gOpenLink,
                       ),
-                      EzPlainText(text: '.', style: textTheme.bodyLarge),
+                      EzPlainText(text: '.', style: EzConfig.styles.bodyLarge),
                     ],
                     textBackground: false,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                 ],
@@ -319,20 +314,20 @@ class HelpFAB extends StatelessWidget {
               ExpansionTile(
                 title: Text(
                   l10n.faqMissing,
-                  style: textTheme.bodyLarge,
+                  style: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     l10n.faqRestricted,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                   ezStartLine,
                   Text(
                     l10n.faqShortcuts,
-                    style: textTheme.bodyLarge,
+                    style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
                 ],
@@ -344,7 +339,7 @@ class HelpFAB extends StatelessWidget {
             ExpansionTile(
               title: Text(
                 l10n.faqLanguages,
-                style: textTheme.bodyLarge,
+                style: EzConfig.styles.bodyLarge,
                 textAlign: TextAlign.start,
               ),
               expandedCrossAxisAlignment: CrossAxisAlignment.start,
@@ -353,7 +348,7 @@ class HelpFAB extends StatelessWidget {
                   <InlineSpan>[
                     EzPlainText(
                       text: l10n.faqResponsible,
-                      style: textTheme.bodyLarge,
+                      style: EzConfig.styles.bodyLarge,
                     ),
                     EzInlineLink(
                       l10n.faqContributing,
@@ -362,11 +357,11 @@ class HelpFAB extends StatelessWidget {
                     ),
                     EzPlainText(
                       text: l10n.faqExpand,
-                      style: textTheme.bodyLarge,
+                      style: EzConfig.styles.bodyLarge,
                     ),
                   ],
                   textBackground: false,
-                  style: textTheme.bodyLarge,
+                  style: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.start,
                 ),
               ],

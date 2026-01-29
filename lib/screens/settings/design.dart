@@ -26,15 +26,12 @@ class DesignSettingsScreen extends StatelessWidget {
               onPressed: () => ezModal(
                 context: context,
                 builder: (_) {
-                  final bool isDark = isDarkTheme(context);
-                  final ColorScheme colorScheme = Theme.of(context).colorScheme;
-
-                  final String opacityKey = isDark
+                  final String opacityKey = EzConfig.isDark
                       ? darkTextBackgroundOpacityKey
                       : lightTextBackgroundOpacityKey;
 
                   double opacity = EzConfig.get(opacityKey);
-                  Color background = colorScheme.surface.withValues(
+                  Color background = EzConfig.colors.surface.withValues(
                     alpha: opacity,
                   );
 
@@ -46,7 +43,7 @@ class DesignSettingsScreen extends StatelessWidget {
                         Container(
                           width: double.infinity,
                           height: heightOf(context) * 0.667,
-                          color: colorScheme.surface,
+                          color: EzConfig.colors.surface,
                           child: Stack(
                             children: <Widget>[
                               Center(
@@ -82,7 +79,7 @@ class DesignSettingsScreen extends StatelessWidget {
                             // Slider functions
                             onChanged: (double value) => setModal(() {
                               opacity = value;
-                              background = colorScheme.surface.withValues(
+                              background = EzConfig.colors.surface.withValues(
                                 alpha: opacity,
                               );
                             }),
@@ -99,7 +96,7 @@ class DesignSettingsScreen extends StatelessWidget {
 
                             setModal(() {
                               opacity = EzConfig.getDefault(opacityKey);
-                              background = colorScheme.surface.withValues(
+                              background = EzConfig.colors.surface.withValues(
                                 alpha: opacity,
                               );
                             });

@@ -61,16 +61,16 @@ class _RightsViewState extends State<RightsView> {
     }
   }
 
-  Widget populateTab(Lang l10n, TextStyle? style) {
+  Widget populateTab() {
     switch (currentTab) {
       case Location.walking:
         return Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            rightsBlock(l10n.rsMobilePockets, style),
-            rightsBlock(l10n.rsMobileQuestion, style),
-            rightsBlock(l10n.rsMobileLeave, style),
+            rightsBlock(l10n.rsMobilePockets),
+            rightsBlock(l10n.rsMobileQuestion),
+            rightsBlock(l10n.rsMobileLeave),
           ],
         );
       case Location.driving:
@@ -78,38 +78,33 @@ class _RightsViewState extends State<RightsView> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            rightsBlock(l10n.rsMobilePockets, style),
-            rightsBlock(l10n.rsMobileQuestion, style),
-            rightsBlock(l10n.rsMobileLeave, style),
-            rightsBlock(l10n.rsDriveSearch, style),
-            rightsBlock(l10n.rsDriveID, style),
-            rightsBlock(l10n.rsDriveWarrant, style),
+            rightsBlock(l10n.rsMobilePockets),
+            rightsBlock(l10n.rsMobileQuestion),
+            rightsBlock(l10n.rsMobileLeave),
+            rightsBlock(l10n.rsDriveSearch),
+            rightsBlock(l10n.rsDriveID),
+            rightsBlock(l10n.rsDriveWarrant),
           ],
         );
       case Location.home:
         return Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            rightsBlock(l10n.rsHomeWarrant, style),
-          ],
+          children: <Widget>[rightsBlock(l10n.rsHomeWarrant)],
         );
     }
   }
 
-  Text rightsBlock(String text, TextStyle? style) => Text(
+  Text rightsBlock(String text) => Text(
         '$text\n',
         textAlign: TextAlign.start,
-        style: style,
+        style: EzConfig.styles.bodyLarge,
       );
 
   // Return the build //
 
   @override
   Widget build(BuildContext context) {
-    final Lang l10n = Lang.of(context)!;
-    final TextStyle? bodyStyle = Theme.of(context).textTheme.bodyLarge;
-
     return Visibility(
       visible: !widget.hide,
       child: Padding(
@@ -122,7 +117,7 @@ class _RightsViewState extends State<RightsView> {
               child: Text(
                 l10n.rsSharedHeader,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.titleLarge,
+                style: EzConfig.styles.titleLarge,
               ),
             ),
             EzConfig.spacer,
@@ -159,16 +154,16 @@ class _RightsViewState extends State<RightsView> {
             EzConfig.separator,
 
             // Shared rights I
-            rightsBlock(l10n.rsSharedRemainSilent, bodyStyle),
-            rightsBlock(l10n.rsSharedDocument, bodyStyle),
+            rightsBlock(l10n.rsSharedRemainSilent),
+            rightsBlock(l10n.rsSharedDocument),
 
             // Situational rights
-            populateTab(l10n, bodyStyle),
+            populateTab(),
 
             // Shared rights II
-            rightsBlock(l10n.rsSharedSign, bodyStyle),
-            rightsBlock(l10n.rsSharedFingerprint, bodyStyle),
-            rightsBlock(l10n.rsSharedLawyer, bodyStyle),
+            rightsBlock(l10n.rsSharedSign),
+            rightsBlock(l10n.rsSharedFingerprint),
+            rightsBlock(l10n.rsSharedLawyer),
           ],
         ),
       ),
