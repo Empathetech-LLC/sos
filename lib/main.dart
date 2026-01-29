@@ -38,11 +38,17 @@ void main() async {
 
   // Run the app //
 
-  runApp(const SOS());
+  runApp(SOS(SOSCache(
+    locale: americanEnglish,
+    l10n: await Lang.delegate
+        .load(americanEnglish), // TODO: this could lead to a mismatch
+  )));
 }
 
 class SOS extends StatelessWidget {
-  const SOS({super.key});
+  final SOSCache appCache;
+
+  const SOS(this.appCache, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +62,7 @@ class SOS extends StatelessWidget {
         const CreoleWidgetsLocalizationsDelegate(),
       },
       supportedLocales: Lang.supportedLocales,
+      appCache: appCache,
       appName: appName,
       routerConfig: GoRouter(
         initialLocation: homePath,
