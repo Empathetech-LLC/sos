@@ -9,19 +9,14 @@ import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-// Enum(s) //
+// Enum //
 
 const String _google = 'google';
 const String _apple = 'apple';
 const String _waze = 'waze';
 const String _raw = 'raw';
 
-enum LinkType {
-  google,
-  apple,
-  waze,
-  raw,
-}
+enum LinkType { google, apple, waze, raw }
 
 extension LinkConfig on LinkType {
   String get name {
@@ -63,7 +58,7 @@ extension LinkConfig on LinkType {
     }
   }
 
-  static LinkType fromName(String name) {
+  static LinkType lookup(String name) {
     switch (name) {
       case _apple:
         return LinkType.apple;

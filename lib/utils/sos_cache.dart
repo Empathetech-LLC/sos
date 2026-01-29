@@ -41,4 +41,4 @@ bool get sosOnClose => EzConfig.get(sosOnCloseKey);
 bool get sosOnInterrupt => EzConfig.get(sosOnInterruptKey);
 
 bool get autoShare => EzConfig.get(autoShareMediaKey);
-LinkType get linkType => LinkConfig.fromName(EzConfig.get(linkTypeKey));
+LinkType get linkType => LinkConfig.lookup(EzConfig.get(linkTypeKey));

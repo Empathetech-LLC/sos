@@ -23,7 +23,7 @@ class SettingsHomeScreen extends StatefulWidget {
 class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   // Define the build data //
 
-  LinkType linkType = LinkConfig.fromName(EzConfig.get(linkTypeKey));
+  LinkType linkType = LinkConfig.lookup(EzConfig.get(linkTypeKey));
 
   // Define custom functions //
 
