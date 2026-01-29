@@ -18,9 +18,8 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
-    DeviceOrientation.portraitUp,
-  ]);
+  await SystemChrome.setPreferredOrientations(
+      <DeviceOrientation>[DeviceOrientation.portraitUp]);
 
   // Initialize EzConfig //
 
@@ -38,17 +37,23 @@ void main() async {
 
   // Run the app //
 
-  runApp(SOS(SOSCache(
-    locale: americanEnglish,
-    l10n: await Lang.delegate
-        .load(americanEnglish), // TODO: this could lead to a mismatch
-  )));
+  final (Locale storedLocale, EFUILang storedEFUILang) = await ezStoredL10n();
+  final Lang storedLang = await Lang.delegate.load(storedLocale);
+
+  runApp(SOS(storedLocale, storedEFUILang, storedLang));
 }
 
 class SOS extends StatelessWidget {
-  final SOSCache appCache;
+  final Locale storedLocale;
+  final EFUILang storedEFUILang;
+  final Lang storedLang;
 
-  const SOS(this.appCache, {super.key});
+  const SOS(
+    this.storedLocale,
+    this.storedEFUILang,
+    this.storedLang, {
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +67,9 @@ class SOS extends StatelessWidget {
         const CreoleWidgetsLocalizationsDelegate(),
       },
       supportedLocales: Lang.supportedLocales,
-      appCache: appCache,
+      locale: storedLocale,
+      el10n: storedEFUILang,
+      appCache: SOSCache(storedLocale, storedLang),
       appName: appName,
       routerConfig: GoRouter(
         initialLocation: homePath,
@@ -88,22 +95,16 @@ class SOS extends StatelessWidget {
                     name: appearanceSettingsPath,
                     pageBuilder: (BuildContext context, GoRouterState state) =>
                         ezPageBuilder(
-                      context,
-                      state,
-                      const AppearanceSettingsScreen(),
-                    ),
+                            context, state, const AppearanceSettingsScreen()),
                     routes: <RouteBase>[
                       // Color settings
                       GoRoute(
                         path: colorSettingsPath,
                         name: colorSettingsPath,
-                        pageBuilder:
-                            (BuildContext context, GoRouterState state) =>
-                                ezPageBuilder(
-                          context,
-                          state,
-                          const ColorSettingsScreen(),
-                        ),
+                        pageBuilder: (BuildContext context,
+                                GoRouterState state) =>
+                            ezPageBuilder(
+                                context, state, const ColorSettingsScreen()),
                         routes: <RouteBase>[
                           GoRoute(
                             path: EzCSType.quick.path,
@@ -135,26 +136,20 @@ class SOS extends StatelessWidget {
                       GoRoute(
                         path: designSettingsPath,
                         name: designSettingsPath,
-                        pageBuilder:
-                            (BuildContext context, GoRouterState state) =>
-                                ezPageBuilder(
-                          context,
-                          state,
-                          const DesignSettingsScreen(),
-                        ),
+                        pageBuilder: (BuildContext context,
+                                GoRouterState state) =>
+                            ezPageBuilder(
+                                context, state, const DesignSettingsScreen()),
                       ),
 
                       // Layout settings
                       GoRoute(
                         path: layoutSettingsPath,
                         name: layoutSettingsPath,
-                        pageBuilder:
-                            (BuildContext context, GoRouterState state) =>
-                                ezPageBuilder(
-                          context,
-                          state,
-                          const LayoutSettingsScreen(),
-                        ),
+                        pageBuilder: (BuildContext context,
+                                GoRouterState state) =>
+                            ezPageBuilder(
+                                context, state, const LayoutSettingsScreen()),
                       ),
 
                       // Text settings
@@ -164,10 +159,7 @@ class SOS extends StatelessWidget {
                         pageBuilder:
                             (BuildContext context, GoRouterState state) =>
                                 ezPageBuilder(
-                          context,
-                          state,
-                          const TextSettingsScreen(),
-                        ),
+                                    context, state, const TextSettingsScreen()),
                         routes: <RouteBase>[
                           GoRoute(
                             path: EzTSType.quick.path,
