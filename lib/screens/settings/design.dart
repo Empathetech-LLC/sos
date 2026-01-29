@@ -14,8 +14,6 @@ class DesignSettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Lang l10n = Lang.of(context)!;
-
     return SosScaffold(
       EzScreen(
         EzDesignSettings(

@@ -24,8 +24,6 @@ class _FlashButtonState extends State<FlashButton> {
 
   @override
   Widget build(BuildContext context) {
-    final Lang l10n = Lang.of(context)!;
-
     return EzIconButton(
       enabled: works,
       icon: switch (widget.camera.value.flashMode) {

@@ -39,17 +39,13 @@ class _PulsingIconWidgetState extends State<SOSIcon>
   // Return the build //
 
   @override
-  Widget build(BuildContext context) {
-    final Lang l10n = Lang.of(context)!;
-
-    return AnimatedBuilder(
-      animation: ping,
-      builder: (_, __) => Icon(
-        ping.value < 0.5 ? Icons.notifications : Icons.notifications_active,
-        semanticLabel: l10n.hsEndSOS,
-      ),
-    );
-  }
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: ping,
+        builder: (_, __) => Icon(
+          ping.value < 0.5 ? Icons.notifications : Icons.notifications_active,
+          semanticLabel: l10n.hsEndSOS,
+        ),
+      );
 
   @override
   void dispose() {

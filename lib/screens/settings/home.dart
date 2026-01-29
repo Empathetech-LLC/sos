@@ -45,8 +45,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final Lang l10n = Lang.of(context)!;
-
     return SosScaffold(
       EzScreen(
         EzScrollView(

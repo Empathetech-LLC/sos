@@ -14,9 +14,8 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 Future<dynamic> firstContactMsg(BuildContext context) => showDialog(
       context: context,
       builder: (_) => EzAlertDialog(
-        title: Text(Lang.of(context)!.hsWelcome, textAlign: TextAlign.center),
-        content:
-            Text(Lang.of(context)!.hsAppTutorial, textAlign: TextAlign.center),
+        title: Text(l10n.hsWelcome, textAlign: TextAlign.center),
+        content: Text(l10n.hsAppTutorial, textAlign: TextAlign.center),
         actions: ezActionPair(
           context: context,
           onConfirm: Navigator.of(context).pop,
@@ -35,15 +34,14 @@ Future<dynamic> firstContactMsg(BuildContext context) => showDialog(
 Future<dynamic> permissionsMsg(BuildContext context) => showDialog(
       context: context,
       builder: (_) => EzAlertDialog(
-        title: Text(Lang.of(context)!.hsPermissionsTutorialTitle,
-            textAlign: TextAlign.center),
-        content: Text(Lang.of(context)!.hsPermissionsTutorial,
-            textAlign: TextAlign.center),
+        title:
+            Text(l10n.hsPermissionsTutorialTitle, textAlign: TextAlign.center),
+        content: Text(l10n.hsPermissionsTutorial, textAlign: TextAlign.center),
         actions: ezActionPair(
           context: context,
           onConfirm: () => Navigator.of(context).pop(true),
           confirmIsDefault: true,
-          confirmMsg: Lang.of(context)!.gOk,
+          confirmMsg: l10n.gOk,
           onDeny: () => Navigator.of(context).pop(false),
           denyMsg: EzConfig.l10n.gNo,
         ),

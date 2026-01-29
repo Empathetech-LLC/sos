@@ -186,7 +186,6 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void afterFirstLayout(BuildContext context) async {
-    final Lang l10n = Lang.of(context)!;
     final bool newUser = emc == null || emc!.isEmpty;
 
     // Verify the emergency contacts
@@ -229,8 +228,6 @@ class _HomeScreenState extends State<HomeScreen>
     final Color videoColor = Color(EzConfig.get(
         videoColorKey)); // TODO: theme awareness and use a provider (prolly above too)
     final Color videoTextColor = getTextColor(videoColor);
-
-    final Lang l10n = Lang.of(context)!;
 
     // Return the build //
 
@@ -677,8 +674,6 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) async {
-    final Lang l10n = Lang.of(context)!;
-
     switch (state) {
       case AppLifecycleState.detached:
       case AppLifecycleState.paused:
