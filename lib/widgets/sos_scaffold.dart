@@ -6,7 +6,6 @@
 import './export.dart';
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class SosScaffold extends StatelessWidget {
@@ -21,21 +20,18 @@ class SosScaffold extends StatelessWidget {
   const SosScaffold(this.body, {super.key, this.fabs});
 
   @override
-  Widget build(BuildContext context) => Consumer<EzConfigProvider>(
-        builder: (_, EzConfigProvider provider, __) => EzAdaptiveParent(
-          key: ValueKey<int>(provider.seed),
-          small: SelectionArea(
-            child: Scaffold(
-              body: SafeArea(child: body),
-              floatingActionButton: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[updater, if (fabs != null) ...fabs!],
-              ),
-              floatingActionButtonLocation: EzConfig.isLefty
-                  ? FloatingActionButtonLocation.startFloat
-                  : FloatingActionButtonLocation.endFloat,
-              resizeToAvoidBottomInset: false,
+  Widget build(BuildContext context) => EzAdaptiveParent(
+        small: SelectionArea(
+          child: Scaffold(
+            body: SafeArea(child: body),
+            floatingActionButton: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[updater, if (fabs != null) ...fabs!],
             ),
+            floatingActionButtonLocation: EzConfig.isLefty
+                ? FloatingActionButtonLocation.startFloat
+                : FloatingActionButtonLocation.endFloat,
+            resizeToAvoidBottomInset: false,
           ),
         ),
       );
