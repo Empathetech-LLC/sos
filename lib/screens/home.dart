@@ -225,9 +225,6 @@ class _HomeScreenState extends State<HomeScreen>
         .style!
         .backgroundColor!
         .resolve(<WidgetState>{WidgetState.focused})!;
-    final Color videoColor = Color(EzConfig.get(
-        videoColorKey)); // TODO: theme awareness and use a provider (prolly above too)
-    final Color videoTextColor = getTextColor(videoColor);
 
     // Return the build //
 
