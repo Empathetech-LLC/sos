@@ -21,24 +21,22 @@ class SosScaffold extends StatelessWidget {
   const SosScaffold(this.body, {super.key, this.fabs});
 
   @override
-  Widget build(BuildContext context) {
-    return EzAdaptiveParent(
-      small: Consumer<EzConfigProvider>(
-        builder: (_, EzConfigProvider provider, __) => SelectionArea(
-          child: Scaffold(
-            key: ValueKey<int>(provider.seed),
-            body: SafeArea(child: body),
-            floatingActionButton: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[updater, if (fabs != null) ...fabs!],
+  Widget build(BuildContext context) => Consumer<EzConfigProvider>(
+        builder: (_, EzConfigProvider provider, __) => EzAdaptiveParent(
+          key: ValueKey<int>(provider.seed),
+          small: SelectionArea(
+            child: Scaffold(
+              body: SafeArea(child: body),
+              floatingActionButton: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[updater, if (fabs != null) ...fabs!],
+              ),
+              floatingActionButtonLocation: EzConfig.isLefty
+                  ? FloatingActionButtonLocation.startFloat
+                  : FloatingActionButtonLocation.endFloat,
+              resizeToAvoidBottomInset: false,
             ),
-            floatingActionButtonLocation: EzConfig.isLefty
-                ? FloatingActionButtonLocation.startFloat
-                : FloatingActionButtonLocation.endFloat,
-            resizeToAvoidBottomInset: false,
           ),
         ),
-      ),
-    );
-  }
+      );
 }
