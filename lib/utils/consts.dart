@@ -92,11 +92,13 @@ const Map<String, Type> sosBroadcastKeys = <String, Type>{
 // Color settings //
 
 /// Video
-const String videoColorKey = 'Video';
+const String darkVideoColorKey = 'darkVideoColor';
+const String lightVideoColorKey = 'lightVideoColor';
 
-/// [videoColorKey]
+/// [dark, light] x videoColorKey
 const Map<String, Type> sosColorKeys = <String, Type>{
-  videoColorKey: int,
+  darkVideoColorKey: int,
+  lightVideoColorKey: int,
 };
 
 // EzConfig default //
@@ -123,7 +125,8 @@ final Map<String, Object> sosConfig = <String, Object>{
   linkTypeKey: LinkType.google.name,
 
   // Color
-  videoColorKey: 0xFFFF0000,
+  darkVideoColorKey: 0xFFFF0000,
+  lightVideoColorKey: 0xFFFF0000,
 };
 
 /// For [EzConfig.init]
