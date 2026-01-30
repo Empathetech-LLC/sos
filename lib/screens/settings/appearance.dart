@@ -72,13 +72,10 @@ class _AppearanceSettingsScreenState extends State<AppearanceSettingsScreen> {
                 EzConfig.spacer,
 
                 EzResetButton(
-                  onConfirm: () async {
-                    await EzConfig.removeKeys(<String>{
-                      ...allEZConfigKeys.keys,
-                      videoColorKey,
-                    });
-                    setState(() {});
-                  },
+                  onConfirm: () => EzConfig.removeKeys(<String>{
+                    ...allEZConfigKeys.keys,
+                    EzConfig.isDark ? darkVideoColorKey : lightVideoColorKey,
+                  }),
                   resetSkip: neverResetKeys,
                   appName: appName,
                   androidPackage: androidPackage,
