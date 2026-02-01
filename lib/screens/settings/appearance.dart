@@ -12,7 +12,7 @@ import 'package:go_router/go_router.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class AppearanceSettingsScreen extends StatefulWidget {
-  const AppearanceSettingsScreen({super.key});
+  AppearanceSettingsScreen() : super(key: ValueKey<int>(EzConfig.seed));
 
   @override
   State<AppearanceSettingsScreen> createState() =>

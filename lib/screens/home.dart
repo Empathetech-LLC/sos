@@ -21,7 +21,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  HomeScreen() : super(key: ValueKey<int>(EzConfig.seed));
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
