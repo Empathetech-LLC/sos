@@ -80,14 +80,14 @@ class SOS extends StatelessWidget {
             path: homePath,
             name: homePath,
             pageBuilder: (BuildContext context, GoRouterState state) =>
-                ezPageBuilder(context, state, const HomeScreen()),
+                ezPageBuilder(context, state, HomeScreen()),
             routes: <RouteBase>[
               // Settings home
               GoRoute(
                 path: settingsHomePath,
                 name: settingsHomePath,
                 pageBuilder: (BuildContext context, GoRouterState state) =>
-                    ezPageBuilder(context, state, const SettingsHomeScreen()),
+                    ezPageBuilder(context, state, SettingsHomeScreen()),
                 routes: <RouteBase>[
                   // Appearance settings
                   GoRoute(
@@ -95,16 +95,16 @@ class SOS extends StatelessWidget {
                     name: appearanceSettingsPath,
                     pageBuilder: (BuildContext context, GoRouterState state) =>
                         ezPageBuilder(
-                            context, state, const AppearanceSettingsScreen()),
+                            context, state, AppearanceSettingsScreen()),
                     routes: <RouteBase>[
                       // Color settings
                       GoRoute(
                         path: colorSettingsPath,
                         name: colorSettingsPath,
-                        pageBuilder: (BuildContext context,
-                                GoRouterState state) =>
-                            ezPageBuilder(
-                                context, state, const ColorSettingsScreen()),
+                        pageBuilder:
+                            (BuildContext context, GoRouterState state) =>
+                                ezPageBuilder(
+                                    context, state, ColorSettingsScreen()),
                         routes: <RouteBase>[
                           GoRoute(
                             path: EzCSType.quick.path,
@@ -112,10 +112,10 @@ class SOS extends StatelessWidget {
                             pageBuilder:
                                 (BuildContext context, GoRouterState state) =>
                                     ezPageBuilder(
-                              context,
-                              state,
-                              const ColorSettingsScreen(target: EzCSType.quick),
-                            ),
+                                        context,
+                                        state,
+                                        ColorSettingsScreen(
+                                            target: EzCSType.quick)),
                           ),
                           GoRoute(
                             path: EzCSType.advanced.path,
@@ -123,11 +123,10 @@ class SOS extends StatelessWidget {
                             pageBuilder:
                                 (BuildContext context, GoRouterState state) =>
                                     ezPageBuilder(
-                              context,
-                              state,
-                              const ColorSettingsScreen(
-                                  target: EzCSType.advanced),
-                            ),
+                                        context,
+                                        state,
+                                        ColorSettingsScreen(
+                                            target: EzCSType.advanced)),
                           ),
                         ],
                       ),
@@ -136,41 +135,37 @@ class SOS extends StatelessWidget {
                       GoRoute(
                         path: designSettingsPath,
                         name: designSettingsPath,
-                        pageBuilder: (BuildContext context,
-                                GoRouterState state) =>
-                            ezPageBuilder(
-                                context, state, const DesignSettingsScreen()),
+                        pageBuilder:
+                            (BuildContext context, GoRouterState state) =>
+                                ezPageBuilder(
+                                    context, state, DesignSettingsScreen()),
                       ),
 
                       // Layout settings
                       GoRoute(
                         path: layoutSettingsPath,
                         name: layoutSettingsPath,
-                        pageBuilder: (BuildContext context,
-                                GoRouterState state) =>
-                            ezPageBuilder(
-                                context, state, const LayoutSettingsScreen()),
+                        pageBuilder:
+                            (BuildContext context, GoRouterState state) =>
+                                ezPageBuilder(
+                                    context, state, LayoutSettingsScreen()),
                       ),
 
                       // Text settings
                       GoRoute(
                         path: textSettingsPath,
                         name: textSettingsPath,
-                        pageBuilder:
-                            (BuildContext context, GoRouterState state) =>
-                                ezPageBuilder(
-                                    context, state, const TextSettingsScreen()),
+                        pageBuilder: (BuildContext context,
+                                GoRouterState state) =>
+                            ezPageBuilder(context, state, TextSettingsScreen()),
                         routes: <RouteBase>[
                           GoRoute(
                             path: EzTSType.quick.path,
                             name: EzTSType.quick.name,
-                            pageBuilder:
-                                (BuildContext context, GoRouterState state) =>
-                                    ezPageBuilder(
-                              context,
-                              state,
-                              const TextSettingsScreen(target: EzTSType.quick),
-                            ),
+                            pageBuilder: (BuildContext context,
+                                    GoRouterState state) =>
+                                ezPageBuilder(context, state,
+                                    TextSettingsScreen(target: EzTSType.quick)),
                           ),
                           GoRoute(
                             path: EzTSType.advanced.path,
@@ -178,11 +173,10 @@ class SOS extends StatelessWidget {
                             pageBuilder:
                                 (BuildContext context, GoRouterState state) =>
                                     ezPageBuilder(
-                              context,
-                              state,
-                              const TextSettingsScreen(
-                                  target: EzTSType.advanced),
-                            ),
+                                        context,
+                                        state,
+                                        TextSettingsScreen(
+                                            target: EzTSType.advanced)),
                           ),
                         ],
                       ),
