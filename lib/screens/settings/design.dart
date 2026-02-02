@@ -113,6 +113,7 @@ class DesignSettingsScreen extends StatelessWidget {
             ),
             EzConfig.spacer,
           ],
+          onRedraw: doNothing,
           appName: appName,
           androidPackage: androidPackage,
         ),
