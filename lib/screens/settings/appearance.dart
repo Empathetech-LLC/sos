@@ -11,16 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-class AppearanceSettingsScreen extends StatefulWidget {
+class AppearanceSettingsScreen extends StatelessWidget {
   AppearanceSettingsScreen() : super(key: ValueKey<int>(EzConfig.seed));
-
-  @override
-  State<AppearanceSettingsScreen> createState() =>
-      _AppearanceSettingsScreenState();
-}
-
-class _AppearanceSettingsScreenState extends State<AppearanceSettingsScreen> {
-  // Return the build //
 
   @override
   Widget build(BuildContext context) => SosScaffold(
@@ -30,10 +22,10 @@ class _AppearanceSettingsScreenState extends State<AppearanceSettingsScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 // Global settings
-                const EzDominantHandSwitch(),
+                const EzDominantHandSwitch(doNothing),
                 EzConfig.spacer,
 
-                const EzThemeModeSwitch(),
+                const EzThemeModeSwitch(doNothing),
                 EzConfig.divider,
 
                 EzElevatedIconButton(
@@ -65,6 +57,7 @@ class _AppearanceSettingsScreenState extends State<AppearanceSettingsScreen> {
                 EzConfig.divider,
 
                 const EzQuickConfig(
+                  doNothing,
                   videoGame: false,
                   chalkboard: false,
                   fancyPants: false,
@@ -72,6 +65,7 @@ class _AppearanceSettingsScreenState extends State<AppearanceSettingsScreen> {
                 EzConfig.spacer,
 
                 EzResetButton(
+                  doNothing,
                   onConfirm: () => EzConfig.removeKeys(<String>{
                     ...allEZConfigKeys.keys,
                     EzConfig.isDark ? darkVideoColorKey : lightVideoColorKey,
