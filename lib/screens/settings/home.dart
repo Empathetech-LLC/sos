@@ -51,6 +51,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
           children: <Widget>[
             // Language
             EzLocaleSetting(
+              () => setState(() {}),
               locales: Lang.supportedLocales,
               skip: <Locale>{arabic, english, chinese}, // Dupes
               protest: true,
