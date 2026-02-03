@@ -23,6 +23,7 @@ const String ladyLiberty = 'assets/images/og-baddie.jpg';
 /// [ladyLiberty]
 const Set<String> assetPaths = <String>{ladyLiberty};
 
+/// [ladyLiberty]
 const Map<String, String> credits = <String, String>{
   ladyLiberty: 'Public domain; CC0 1.0 Universal',
 };
