@@ -58,9 +58,8 @@ class AppearanceSettingsScreen extends StatelessWidget {
 
                 const EzQuickConfig(
                   doNothing,
-                  videoGame: false,
                   chalkboard: false,
-                  fancyPants: false,
+                  nebula: false,
                 ),
                 EzConfig.spacer,
 
