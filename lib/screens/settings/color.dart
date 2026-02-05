@@ -19,6 +19,7 @@ class ColorSettingsScreen extends StatelessWidget {
         EzScreen(
           EzColorSettings(
             target: target,
+            updateBoth: false,
             darkStarterSet: const <String>[
               darkVideoColorKey,
               darkPrimaryKey,
