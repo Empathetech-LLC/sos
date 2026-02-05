@@ -121,7 +121,7 @@ Future<void> foregroundSOS({
 
   final Map<String, dynamic> mapData = <String, dynamic>{};
 
-  if (isApple()) {
+  if (EzConfig.platform == TargetPlatform.iOS) {
     mapData['recipients'] = numbers;
   } else {
     mapData['recipients'] = numbers.join(';');
