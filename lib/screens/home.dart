@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen>
       return true;
     } catch (e) {
       if (e is! CameraException || e.code != 'CameraAccessDenied') {
-        if (mounted) ezLogAlert(context, message: e.toString());
+        if (mounted) await ezLogAlert(context, message: e.toString());
       }
     }
 
@@ -739,7 +739,7 @@ class _HomeScreenState extends State<HomeScreen>
             await camera!.initialize();
           } catch (e) {
             if (e is! CameraException || e.code != 'CameraAccessDenied') {
-              if (mounted) ezLogAlert(context, message: e.toString());
+              if (mounted) await ezLogAlert(context, message: e.toString());
             }
           }
           if (mounted) setState(() {});
