@@ -131,7 +131,7 @@ class HelpFAB extends StatelessWidget {
                   textAlign: TextAlign.start,
                   padding: EdgeInsets.only(left: EzConfig.marginVal),
                 ),
-                ezStartLine,
+                EzConfig.startLine,
                 EzRichText(
                   <InlineSpan>[
                     EzPlainText(
@@ -169,31 +169,31 @@ class HelpFAB extends StatelessWidget {
                     style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
-                  ezStartLine,
+                  EzConfig.startLine,
                   Text(
                     '${l10n.ssSOSOnClose}: ${l10n.ssSOSOnCloseHint}',
                     style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
-                  ezStartLine,
+                  EzConfig.startLine,
                   Text(
                     l10n.faqOnInterrupt,
                     style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
-                  ezStartLine,
+                  EzConfig.startLine,
                   Text(
                     l10n.faqAutoShare,
                     style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
-                  ezStartLine,
+                  EzConfig.startLine,
                   Text(
                     l10n.faqEMC,
                     style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
-                  ezStartLine,
+                  EzConfig.startLine,
                   Text(
                     l10n.faqLink,
                     style: EzConfig.styles.bodyLarge,
@@ -228,7 +228,7 @@ class HelpFAB extends StatelessWidget {
                     style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
-                  ezStartLine,
+                  EzConfig.startLine,
                   Text(
                     l10n.faqLocationTrust,
                     style: EzConfig.styles.bodyLarge,
@@ -254,19 +254,19 @@ class HelpFAB extends StatelessWidget {
                     style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
-                  ezStartLine,
+                  EzConfig.startLine,
                   Text(
                     l10n.faqAutoShare,
                     style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
-                  ezStartLine,
+                  EzConfig.startLine,
                   Text(
                     l10n.faqEMC,
                     style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
-                  ezStartLine,
+                  EzConfig.startLine,
                   Text(
                     l10n.faqLink,
                     style: EzConfig.styles.bodyLarge,
@@ -289,7 +289,7 @@ class HelpFAB extends StatelessWidget {
                     style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
-                  ezStartLine,
+                  EzConfig.startLine,
                   EzRichText(
                     <InlineSpan>[
                       EzPlainText(
@@ -324,7 +324,7 @@ class HelpFAB extends StatelessWidget {
                     style: EzConfig.styles.bodyLarge,
                     textAlign: TextAlign.start,
                   ),
-                  ezStartLine,
+                  EzConfig.startLine,
                   Text(
                     l10n.faqShortcuts,
                     style: EzConfig.styles.bodyLarge,
