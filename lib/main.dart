@@ -72,6 +72,7 @@ class SOS extends StatelessWidget {
       appCache: SOSCache(storedLocale, storedLang),
       appName: appName,
       routerConfig: GoRouter(
+        navigatorKey: ezRootNav,
         initialLocation: homePath,
         errorBuilder: (_, GoRouterState state) => ErrorScreen(state.error),
         routes: <RouteBase>[
