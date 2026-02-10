@@ -131,7 +131,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
                   return check1 && (check2 ?? false);
                 },
-                onChangedCallback: (bool? value) {
+                afterChanged: (bool? value) {
                   // Exit the app when turning off to avoid accidental broadcasts
                   if (value == false) exit(0);
                 },
