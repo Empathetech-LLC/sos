@@ -23,12 +23,12 @@ class SettingsHomeScreen extends StatefulWidget {
 class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   // Define the build data //
 
-  LinkType linkType = LinkConfig.lookup(EzConfig.get(linkTypeKey));
+  LinkType _linkType = linkType;
 
   // Define custom functions //
 
-  Future<bool> canSet(String key, bool value, Lang l10n) async {
-    if (value == false || Platform.isIOS) return true;
+  Future<bool> canSet(String key, bool value) async {
+    if (value == false || isIOS) return true;
 
     final PermissionStatus canSMS = await Permission.sms.request();
 
@@ -62,17 +62,17 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             EzSwitchPair(
               text: l10n.ssSOSOnOpen,
               valueKey: sosOnOpenKey,
-              canChange: (bool choice) => canSet(sosOnOpenKey, choice, l10n),
+              canChange: (bool choice) => canSet(sosOnOpenKey, choice),
             ),
             EzConfig.spacer,
 
-            if (Platform.isAndroid) ...<Widget>[
+            if (!isIOS) ...<Widget>[
               // SOS on close
               EzSwitchPair(
                 text: l10n.ssSOSOnClose,
                 valueKey: sosOnCloseKey,
                 canChange: (bool choice) async {
-                  final bool check1 = await canSet(sosOnCloseKey, choice, l10n);
+                  final bool check1 = await canSet(sosOnCloseKey, choice);
                   final bool? check2 = (choice == false)
                       ? context.mounted
                           // Confirm immediate closure to prevent accidental broadcasts
@@ -142,8 +142,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               EzSwitchPair(
                 text: l10n.ssVideoSOS,
                 valueKey: sosOnInterruptKey,
-                canChange: (bool choice) =>
-                    canSet(sosOnInterruptKey, choice, l10n),
+                canChange: (bool choice) => canSet(sosOnInterruptKey, choice),
               ),
               EzConfig.spacer,
             ],
@@ -173,19 +172,18 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                   widthEntries: <String>[LinkType.google.label],
                   dropdownMenuEntries: LinkType.values
                       .map<DropdownMenuEntry<LinkType>>(
-                        (LinkType type) => DropdownMenuEntry<LinkType>(
-                          value: type,
-                          label: type.label,
-                        ),
-                      )
+                          (LinkType type) => DropdownMenuEntry<LinkType>(
+                                value: type,
+                                label: type.label,
+                              ))
                       .toList(),
                   enableSearch: false,
-                  initialSelection: linkType,
+                  initialSelection: _linkType,
                   onSelected: (LinkType? selection) async {
-                    if (selection == null || selection == linkType) return;
+                    if (selection == null || selection == _linkType) return;
 
                     await EzConfig.setString(linkTypeKey, selection.name);
-                    setState(() => linkType = selection);
+                    setState(() => _linkType = selection);
                   },
                 ),
               ],
@@ -205,9 +203,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
       ),
       fabs: <Widget>[
         EzConfig.spacer,
-        const HelpFAB(),
-        EzConfig.spacer,
         const EzBackFAB(showHome: true),
+        EzConfig.spacer,
+        const HelpFAB(),
       ],
     );
   }

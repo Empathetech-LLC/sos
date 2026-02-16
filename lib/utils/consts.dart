@@ -3,9 +3,7 @@
  * See LICENSE for distribution and usage details.
  */
 
-import 'export.dart';
-
-import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
+import 'package:flutter/services.dart';
 
 // App config //
 
@@ -14,6 +12,9 @@ const String appName = 'InstaSOS';
 
 /// net.empathetech.sos
 const String androidPackage = 'net.empathetech.sos';
+
+/// [androidPackage]/broadcast
+const MethodChannel platform = MethodChannel('$androidPackage/broadcast');
 
 // Local assets //
 
@@ -28,117 +29,23 @@ const Map<String, String> credits = <String, String>{
   ladyLiberty: 'Public domain; CC0 1.0 Universal',
 };
 
-//* EzConfig *//
+// Runtime //
 
-// BTS settings //
+/// :
+const String contactSplit = ':';
 
-/// showContactsMsg
-const String showContactsMsgKey = 'showContactsMsg';
+/// https://www.aclu.org/know-your-rights
+const String acluLink = 'https://www.aclu.org/know-your-rights';
 
-/// savedTab
-const String savedTabKey = 'savedTab';
+/// https://www.immdef.org/resources
+const String immdefLink = 'https://www.immdef.org/resources';
 
-/// taskRunning
-const String taskRunningKey = 'taskRunning';
+/// https://dunkthevote4ever.org/project/the-black-book-know-your-rights/
+const String dunkLink =
+    'https://dunkthevote4ever.org/project/the-black-book-know-your-rights/';
 
-/// showTutorial
-const String showTutorialKey = 'showTutorial';
+/// https://lab.witness.org/projects/eyes-on-ice/
+const String howToLink = 'https://lab.witness.org/projects/eyes-on-ice/';
 
-/// [showContactsMsgKey], [savedTabKey], [taskRunningKey], [showTutorialKey]
-const Map<String, Type> sosBTSKeys = <String, Type>{
-  showContactsMsgKey: bool,
-  savedTabKey: String,
-  taskRunningKey: bool,
-  showTutorialKey: bool,
-};
-
-/// atHome
-const String atHomeTab = 'atHome';
-
-/// driving
-const String drivingTab = 'driving';
-
-/// walking
-const String walkingTab = 'walking';
-
-// Broadcast settings //
-
-/// autoShareMedia
-const String autoShareMediaKey = 'autoShareMedia';
-
-/// emc
-const String emcKey = 'emc';
-
-/// notifyOnClose
-const String sosOnCloseKey = 'sosOnClose';
-
-/// sosOnInterrupt
-const String sosOnInterruptKey = 'sosOnInterrupt';
-
-/// notifyOnOpen
-const String sosOnOpenKey = 'sosOnOpen';
-
-/// linkType
-const String linkTypeKey = 'linkType';
-
-const Map<String, Type> sosBroadcastKeys = <String, Type>{
-  autoShareMediaKey: bool,
-  emcKey: List<String>,
-  sosOnCloseKey: bool,
-  sosOnInterruptKey: bool,
-  sosOnOpenKey: bool,
-  linkTypeKey: String,
-};
-
-// Color settings //
-
-/// Video
-const String darkVideoColorKey = 'darkVideoColor';
-const String lightVideoColorKey = 'lightVideoColor';
-
-/// [dark, light] x videoColorKey
-const Map<String, Type> sosColorKeys = <String, Type>{
-  darkVideoColorKey: int,
-  lightVideoColorKey: int,
-};
-
-// EzConfig default //
-
-/// defaults for [EzConfig.init]
-final Map<String, Object> sosConfig = <String, Object>{
-  // EFUI
-  ...empathMobileConfig,
-  darkTextBackgroundOpacityKey: 0.8,
-  lightTextBackgroundOpacityKey: 0.8,
-
-  // BTS
-  showContactsMsgKey: true,
-  savedTabKey: walkingTab,
-  taskRunningKey: false,
-  showTutorialKey: true,
-
-  // SOS
-  autoShareMediaKey: true,
-  emcKey: <String>[],
-  sosOnCloseKey: false,
-  sosOnInterruptKey: true,
-  sosOnOpenKey: false,
-  linkTypeKey: LinkType.google.name,
-
-  // Color
-  darkVideoColorKey: 0xFFFF0000,
-  lightVideoColorKey: 0xFFFF0000,
-};
-
-/// For [EzConfig.init]
-const Map<String, Type> allSOSKeys = <String, Type>{
-  ...allEZConfigKeys,
-  ...sosBTSKeys,
-  ...sosBroadcastKeys,
-  ...sosColorKeys,
-};
-
-final Set<String> neverResetKeys = <String>{
-  ...sosBTSKeys.keys,
-  ...sosBroadcastKeys.keys,
-};
+/// https://www.empathetech.net/#/contribute
+const String contributeLink = 'https://www.empathetech.net/#/contribute';

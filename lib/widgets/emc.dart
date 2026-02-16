@@ -16,86 +16,80 @@ class ContactList extends StatefulWidget {
 }
 
 class _ContactListState extends State<ContactList> {
-  // Define the build data //
-
-  List<String> emc = EzConfig.get(emcKey);
-
-  // Return the build //
+  List<String> currEMC = List<String>.from(emc ?? <String>[]);
 
   @override
-  Widget build(BuildContext context) {
-    final EzSpacer listSpacer =
-        EzSpacer(space: EzConfig.spacing - EzConfig.marginVal * 2);
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        // Title && add button
-        EzScrollView(
-          reverseHands: true,
-          mainAxisSize: MainAxisSize.min,
-          scrollDirection: Axis.horizontal,
-          children: <Widget>[
-            Text(l10n.ssEMC, style: EzConfig.styles.titleLarge),
-            EzMargin(vertical: false),
-            EzIconButton(
-              icon: Icon(
-                Icons.add_circle_outline,
-                semanticLabel: l10n.ssAddHint,
+  Widget build(BuildContext context) => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          // Title && add button
+          EzScrollView(
+            reverseHands: true,
+            mainAxisSize: MainAxisSize.min,
+            scrollDirection: Axis.horizontal,
+            children: <Widget>[
+              Text(l10n.ssEMC, style: EzConfig.styles.titleLarge),
+              EzConfig.rowMargin,
+              EzIconButton(
+                icon: Icon(
+                  Icons.add_circle_outline,
+                  semanticLabel: l10n.ssAddHint,
+                ),
+                onPressed: () async {
+                  await addEMC(context, loop: false);
+                  setState(() => currEMC = emc ?? currEMC);
+                },
+                tooltip: l10n.ssAddHint,
               ),
-              onPressed: () async {
-                emc =
-                    await addEMC(context, emc, loop: false, l10n: l10n) ?? emc;
-                setState(() {});
-              },
-              tooltip: l10n.ssAddHint,
-            ),
-          ],
-        ),
-        EzConfig.margin,
+            ],
+          ),
+          EzConfig.margin,
 
-        // List of numbers (with remove buttons)
-        ConstrainedBox(
-          constraints: BoxConstraints(maxHeight: heightOf(context) / 3),
-          child: Card(
-            child: EzScrollView(
-              mainAxisSize: MainAxisSize.min,
-              children: emc.fold<List<Widget>>(<Widget>[], (
-                List<Widget> acc,
-                String contact,
-              ) {
-                final List<String> parts = contact.split(contactSplit);
-                late final String? initials;
-                late final String number;
+          // List of numbers (with remove buttons)
+          ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: heightOf(context) / 3),
+            child: Card(
+              child: EzScrollView(
+                mainAxisSize: MainAxisSize.min,
+                // Using fold w/ spacers bc map w/ padding looks weird with screen readers
+                children: currEMC.fold<List<Widget>>(<Widget>[], (
+                  List<Widget> acc,
+                  String contact,
+                ) {
+                  final List<String> parts = contact.split(contactSplit);
+                  late final String? initials;
+                  late final String number;
 
-                if (parts.length == 2) {
-                  initials = parts.first;
-                  number = parts.last;
-                } else {
-                  initials = null;
-                  number = contact;
-                }
+                  if (parts.length == 2) {
+                    initials = parts.first;
+                    number = parts.last;
+                  } else {
+                    initials = null;
+                    number = contact;
+                  }
 
-                acc.add(_ContactTile(
-                  key: ValueKey<String>(contact),
-                  initials: initials,
-                  number: number,
-                  enabled: emc.length > 1,
-                  onRemove: () async {
-                    emc.remove(contact);
-                    await EzConfig.setStringList(emcKey, emc);
-                    setState(() {});
-                  },
-                ));
-                acc.add(listSpacer);
-                return acc;
-              }).sublist(0, emc.length * 2 - 1), // Remove trailing spacer
+                  acc.addAll(<Widget>[
+                    _ContactTile(
+                      key: ValueKey<String>(contact),
+                      initials: initials,
+                      number: number,
+                      enabled: currEMC.length > 1,
+                      onRemove: () async {
+                        currEMC.remove(contact);
+                        await EzConfig.setStringList(emcKey, currEMC);
+                        setState(() => currEMC = emc ?? currEMC);
+                      },
+                    ),
+                    EzSpacer(space: EzConfig.spacing - EzConfig.marginVal * 2),
+                  ]);
+
+                  return acc;
+                }).sublist(0, currEMC.length * 2 - 1), // Remove trailing spacer
+              ),
             ),
           ),
-        ),
-      ],
-    );
-  }
+        ],
+      );
 }
 
 class _ContactTile extends StatelessWidget {
@@ -133,7 +127,7 @@ class _ContactTile extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
               ),
-              EzMargin(vertical: false),
+              EzConfig.rowMargin,
             ],
 
             // Number
@@ -142,7 +136,7 @@ class _ContactTile extends StatelessWidget {
               style: EzConfig.styles.bodyLarge,
               textAlign: TextAlign.start,
             ),
-            const EzSpacer(vertical: false),
+            EzConfig.rowSpacer,
 
             // Remove button
             EzIconButton(

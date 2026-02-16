@@ -32,12 +32,12 @@ class _LayoutSettingsScreenState extends State<LayoutSettingsScreen> {
         ),
         fabs: <Widget>[
           EzConfig.spacer,
+          const EzBackFAB(),
+          EzConfig.spacer,
           EzSettingsDupeFAB(
             updateBoth,
             () => setState(() => updateBoth = !updateBoth),
           ),
-          EzConfig.spacer,
-          const EzBackFAB(),
         ],
       );
 }

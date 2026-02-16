@@ -5,6 +5,8 @@
 
 export 'consts.dart';
 export 'contacts.dart';
+export 'enums.dart';
+export 'ez_config.dart';
 export 'location.dart';
 export 'new_user.dart';
 export 'sos_cache.dart';

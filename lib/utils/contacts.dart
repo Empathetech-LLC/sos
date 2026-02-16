@@ -11,23 +11,13 @@ import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-/// :
-const String contactSplit = ':';
-
 /// Prompt the user to save their first contact
 /// Users must select at least one emergency contact to use the app
 /// Include error handling
-Future<List<String>?> addEMC(
-  BuildContext context,
-  List<String>? curr, {
-  required Lang l10n,
-  bool loop = true,
-}) async {
+Future<void> addEMC(BuildContext context, {bool loop = true}) async {
   // Check for first run
-  if (curr == null || curr.isEmpty) {
-    curr = <String>[];
-    await firstContactMsg(context);
-  }
+  final List<String> currEMC = List<String>.from(emc ?? <String>[]);
+  if (currEMC.isEmpty) await firstContactMsg(context);
 
   // Check contact permissions
   final bool contactsGranted =
@@ -69,7 +59,7 @@ Future<List<String>?> addEMC(
 
   // The way iOS handles partial contacts is hot garbage
   // Best thing we can do is remind users that they will see all contacts, not just the shared ones
-  if (Platform.isIOS && EzConfig.get(showContactsMsgKey) == true) {
+  if (isIOS && EzConfig.get(showContactsMsgKey) == true) {
     final bool show = await Permission.contacts.isLimited;
 
     if (show && context.mounted) {
@@ -100,8 +90,8 @@ Future<List<String>?> addEMC(
 
     // Check for user cancel
     if (contact == null) {
-      if (loop) continue; // else...
-      return curr;
+      if (loop) continue;
+      return;
     }
 
     if (contact.phones.isEmpty) {
@@ -126,13 +116,13 @@ Future<List<String>?> addEMC(
 
         // Remove dupes
         for (final String number in numbers) {
-          curr.removeWhere((String emc) => emc.contains(number));
+          currEMC.removeWhere((String emc) => emc.contains(number));
         }
         break;
       }
     }
 
-    if (!loop) return curr;
+    if (!loop) return;
   }
 
   initials = contact.displayName.isNotEmpty
@@ -145,9 +135,8 @@ Future<List<String>?> addEMC(
       : '';
 
   for (final String number in numbers) {
-    curr.add(initials + number);
+    currEMC.add(initials + number);
   }
 
-  await EzConfig.setStringList(emcKey, curr);
-  return curr;
+  await EzConfig.setStringList(emcKey, currEMC);
 }

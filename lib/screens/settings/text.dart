@@ -7,6 +7,7 @@ import '../../utils/export.dart';
 import '../../widgets/export.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class TextSettingsScreen extends StatefulWidget {
@@ -22,25 +23,31 @@ class _TextSettingsScreenState extends State<TextSettingsScreen> {
   bool updateBoth = false;
 
   @override
-  Widget build(BuildContext context) => SosScaffold(
-        EzScreen(
-          EzTextSettings(
-            target: widget.target,
-            onUpdate: () => setState(() {}),
-            updateBoth: updateBoth,
-            appName: appName,
-            androidPackage: androidPackage,
+  Widget build(BuildContext context) => Consumer<EzConfigProvider>(
+        builder: (_, EzConfigProvider config, __) => SosScaffold(
+          EzScreen(
+            EzTextSettings(
+              target: widget.target,
+              onUpdate: () => setState(() {}),
+              updateBoth: updateBoth,
+              appName: appName,
+              androidPackage: androidPackage,
+            ),
+            useImageDecoration: false,
           ),
-          useImageDecoration: false,
+          fabs: <Widget>[
+            if (config.needsRebuild) ...<Widget>[
+              config.layout.spacer,
+              EzRebuildFAB(() => setState(() {})),
+            ],
+            config.layout.spacer,
+            const EzBackFAB(),
+            config.layout.spacer,
+            EzSettingsDupeFAB(
+              updateBoth,
+              () => setState(() => updateBoth = !updateBoth),
+            ),
+          ],
         ),
-        fabs: <Widget>[
-          EzConfig.spacer,
-          EzSettingsDupeFAB(
-            updateBoth,
-            () => setState(() => updateBoth = !updateBoth),
-          ),
-          EzConfig.spacer,
-          const EzBackFAB(),
-        ],
       );
 }

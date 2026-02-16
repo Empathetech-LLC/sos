@@ -8,32 +8,6 @@ import '../utils/export.dart';
 import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-enum Location { walking, driving, home }
-
-extension LocationConfig on Location {
-  IconData get icon {
-    switch (this) {
-      case Location.walking:
-        return Icons.directions_walk;
-      case Location.driving:
-        return Icons.drive_eta;
-      case Location.home:
-        return Icons.home;
-    }
-  }
-
-  String get name {
-    switch (this) {
-      case Location.walking:
-        return walkingTab;
-      case Location.driving:
-        return drivingTab;
-      case Location.home:
-        return atHomeTab;
-    }
-  }
-}
-
 class RightsView extends StatefulWidget {
   final bool hide;
 
@@ -46,20 +20,9 @@ class RightsView extends StatefulWidget {
 class _RightsViewState extends State<RightsView> {
   // Define the build data //
 
-  late Location currentTab = getTab(EzConfig.get(savedTabKey));
+  Location currentTab = LocationConfig.lookup(EzConfig.get(savedTabKey));
 
   // Define custom functions //
-
-  Location getTab(String? tab) {
-    switch (tab) {
-      case drivingTab:
-        return Location.driving;
-      case atHomeTab:
-        return Location.home;
-      default:
-        return Location.walking;
-    }
-  }
 
   Widget populateTab() {
     switch (currentTab) {
@@ -104,69 +67,67 @@ class _RightsViewState extends State<RightsView> {
   // Return the build //
 
   @override
-  Widget build(BuildContext context) {
-    return Visibility(
-      visible: !widget.hide,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
-        child: EzScrollView(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          // Header
-          children: <Widget>[
-            Center(
-              child: Text(
-                l10n.rsSharedHeader,
-                textAlign: TextAlign.center,
-                style: EzConfig.styles.titleLarge,
+  Widget build(BuildContext context) => Visibility(
+        visible: !widget.hide,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
+          child: EzScrollView(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            // Header
+            children: <Widget>[
+              Center(
+                child: Text(
+                  l10n.rsSharedHeader,
+                  textAlign: TextAlign.center,
+                  style: EzConfig.styles.titleLarge,
+                ),
               ),
-            ),
-            EzConfig.spacer,
+              EzConfig.spacer,
 
-            // Switcher
-            Center(
-              child: SegmentedButton<Location>(
-                segments: <ButtonSegment<Location>>[
-                  ButtonSegment<Location>(
-                    value: Location.walking,
-                    label: Icon(Location.walking.icon),
-                    tooltip: l10n.rsOnFoot,
-                  ),
-                  ButtonSegment<Location>(
-                    value: Location.driving,
-                    label: Icon(Location.driving.icon),
-                    tooltip: l10n.rsWhileDriving,
-                  ),
-                  ButtonSegment<Location>(
-                    value: Location.home,
-                    label: Icon(Location.home.icon),
-                    tooltip: l10n.rsAtHome,
-                  ),
-                ],
-                selected: <Location>{currentTab},
-                showSelectedIcon: false,
-                onSelectionChanged: (Set<Location> selected) async {
-                  currentTab = selected.first;
-                  await EzConfig.setString(savedTabKey, currentTab.name);
-                  setState(() {});
-                },
+              // Switcher
+              Center(
+                child: SegmentedButton<Location>(
+                  segments: <ButtonSegment<Location>>[
+                    ButtonSegment<Location>(
+                      value: Location.walking,
+                      label: Icon(Location.walking.icon),
+                      tooltip: l10n.rsOnFoot,
+                    ),
+                    ButtonSegment<Location>(
+                      value: Location.driving,
+                      label: Icon(Location.driving.icon),
+                      tooltip: l10n.rsWhileDriving,
+                    ),
+                    ButtonSegment<Location>(
+                      value: Location.home,
+                      label: Icon(Location.home.icon),
+                      tooltip: l10n.rsAtHome,
+                    ),
+                  ],
+                  selected: <Location>{currentTab},
+                  showSelectedIcon: false,
+                  onSelectionChanged: (Set<Location> selected) async {
+                    currentTab = selected.first;
+                    await EzConfig.setString(savedTabKey, currentTab.name);
+                    setState(() {});
+                  },
+                ),
               ),
-            ),
-            EzConfig.separator,
+              EzConfig.separator,
 
-            // Shared rights I
-            rightsBlock(l10n.rsSharedRemainSilent),
-            rightsBlock(l10n.rsSharedDocument),
+              // Shared rights I
+              rightsBlock(l10n.rsSharedRemainSilent),
+              rightsBlock(l10n.rsSharedDocument),
 
-            // Situational rights
-            populateTab(),
+              // Situational rights
+              populateTab(),
 
-            // Shared rights II
-            rightsBlock(l10n.rsSharedSign),
-            rightsBlock(l10n.rsSharedFingerprint),
-            rightsBlock(l10n.rsSharedLawyer),
-          ],
+              // Shared rights II
+              rightsBlock(l10n.rsSharedSign),
+              rightsBlock(l10n.rsSharedFingerprint),
+              rightsBlock(l10n.rsSharedLawyer),
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
 }

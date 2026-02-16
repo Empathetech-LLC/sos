@@ -65,10 +65,6 @@ class AppearanceSettingsScreen extends StatelessWidget {
 
                 EzResetButton(
                   doNothing,
-                  onConfirm: () => EzConfig.removeKeys(<String>{
-                    ...allEZConfigKeys.keys,
-                    EzConfig.isDark ? darkVideoColorKey : lightVideoColorKey,
-                  }),
                   resetSkip: neverResetKeys,
                   appName: appName,
                   androidPackage: androidPackage,
@@ -81,13 +77,13 @@ class AppearanceSettingsScreen extends StatelessWidget {
         ),
         fabs: <Widget>[
           EzConfig.spacer,
+          const EzBackFAB(),
+          EzConfig.spacer,
           EzConfigFAB(
             context,
             appName: appName,
             androidPackage: androidPackage,
           ),
-          EzConfig.spacer,
-          const EzBackFAB(),
         ],
       );
 }

@@ -28,6 +28,8 @@ class _ColorSettingsScreenState extends State<ColorSettingsScreen> {
             target: widget.target,
             onUpdate: () => setState(() {}),
             updateBoth: updateBoth,
+            appName: appName,
+            androidPackage: androidPackage,
             darkStarterSet: const <String>[
               darkVideoColorKey,
               darkPrimaryKey,
@@ -42,19 +44,17 @@ class _ColorSettingsScreenState extends State<ColorSettingsScreen> {
               lightOnSurfaceKey,
               lightSurfaceContainerKey,
             ],
-            appName: appName,
-            androidPackage: androidPackage,
           ),
           useImageDecoration: false,
         ),
         fabs: <Widget>[
           EzConfig.spacer,
+          const EzBackFAB(),
+          EzConfig.spacer,
           EzSettingsDupeFAB(
             updateBoth,
             () => setState(() => updateBoth = !updateBoth),
           ),
-          EzConfig.spacer,
-          const EzBackFAB(),
         ],
       );
 }
