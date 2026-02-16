@@ -42,14 +42,14 @@ const String savedTabKey = 'savedTab';
 const String taskRunningKey = 'taskRunning';
 
 /// showTutorial
-const String tutorialKey = 'showTutorial';
+const String showTutorialKey = 'showTutorial';
 
-/// [showContactsMsgKey], [savedTabKey], [taskRunningKey], [tutorialKey]
+/// [showContactsMsgKey], [savedTabKey], [taskRunningKey], [showTutorialKey]
 const Map<String, Type> sosBTSKeys = <String, Type>{
   showContactsMsgKey: bool,
   savedTabKey: String,
   taskRunningKey: bool,
-  tutorialKey: bool,
+  showTutorialKey: bool,
 };
 
 /// atHome
@@ -115,7 +115,7 @@ final Map<String, Object> sosConfig = <String, Object>{
   showContactsMsgKey: true,
   savedTabKey: walkingTab,
   taskRunningKey: false,
-  tutorialKey: true,
+  showTutorialKey: true,
 
   // SOS
   autoShareMediaKey: true,
