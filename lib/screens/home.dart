@@ -29,12 +29,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with AfterLayoutMixin<HomeScreen>, WidgetsBindingObserver {
-  // Gather the fixed theme data //
-
-  // Layout
-  late final double safeTop = MediaQuery.paddingOf(context).top;
-  late final double safeBottom = MediaQuery.paddingOf(context).bottom;
-
   // Define the build data //
 
   Timer? sosTimer;
@@ -71,8 +65,7 @@ class _HomeScreenState extends State<HomeScreen>
 
     final List<CameraDescription> cameras = await availableCameras();
     cameraDesc = cameras.firstWhere(
-      (CameraDescription c) => c.lensDirection == CameraLensDirection.back,
-    );
+        (CameraDescription c) => c.lensDirection == CameraLensDirection.back);
     if (cameraDesc == null) return false;
 
     try {
@@ -84,30 +77,25 @@ class _HomeScreenState extends State<HomeScreen>
         if (mounted) await ezLogAlert(context, message: e.toString());
       }
     }
-
     return false;
   }
 
   /// [foregroundSOS] every 5 minutes
-  Future<void> startForegroundSOS(Lang l10n, {bool showSnack = false}) async {
+  Future<void> startForegroundSOS({bool showSnack = false}) async {
     // Cleanup any existing timer and send an immediate SOS
     sosTimer?.cancel();
-    await foregroundSOS(emc: emc, linkType: linkType, l10n: l10n);
+    await foregroundSOS();
 
     // Initiate a periodic SOS
-    sosTimer = Timer.periodic(
-      const Duration(minutes: 5),
-      (_) => foregroundSOS(emc: emc, linkType: linkType, l10n: l10n),
-    );
+    sosTimer =
+        Timer.periodic(const Duration(minutes: 5), (_) => foregroundSOS());
     setState(() {});
 
     if (showSnack && mounted) {
       ezSnackBar(
         context: context,
         message: l10n.hsAutoSOS,
-        undo: () async {
-          stopForegroundSOS();
-        },
+        undo: () async => stopForegroundSOS(),
         undoMessage: l10n.hsStop,
       );
     }
@@ -120,13 +108,12 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   /// Assumes an [emc] null/empty check has already been done
-  Future<void> startBackgroundSOS(Lang l10n) async {
+  Future<void> startBackgroundSOS() async {
     try {
-      await backgroundSOS(emc!, l10n);
+      await backgroundSOS();
     } catch (e) {
       ezLog(e.toString());
-      // We still want to continue. Could be a partial success...
-      // and setting taskRunningKey to true will trigger foregroundSOS when the app is resumed
+      // We still want to continue. Could be a partial success
     }
     await EzConfig.setBool(taskRunningKey, true);
   }
@@ -139,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen>
         await ezLogAlert(context, message: e.toString());
         // Improvement: check the error code
         // The most likely error is that the task is already stopped
-        // But there are theoretical scenarios where taskRunningKey should remain true
+        // But there could be scenarios where taskRunningKey should remain true
       }
     }
     await EzConfig.setBool(taskRunningKey, false);
@@ -147,9 +134,8 @@ class _HomeScreenState extends State<HomeScreen>
 
   /// Take users to their platform settings if SOS doesn't have the permissions it needs
   Future<void> openSOSPermissions() async {
-    final PermissionStatus smsPerm = Platform.isIOS
-        ? PermissionStatus.granted
-        : await Permission.sms.request();
+    final PermissionStatus smsPerm =
+        isIOS ? PermissionStatus.granted : await Permission.sms.request();
     final LocationPermission geoPerm = await Geolocator.requestPermission();
 
     if (smsPerm == PermissionStatus.denied ||
@@ -163,16 +149,15 @@ class _HomeScreenState extends State<HomeScreen>
   /// Includes error handling
   Future<void> saveToGallery(String path, bool image) async {
     final bool galAccess = await Gal.requestAccess();
+    if (!galAccess) return;
 
-    if (galAccess) {
-      try {
-        image ? await Gal.putImage(path) : await Gal.putVideo(path);
-      } catch (e) {
-        // If this fails, it's likely the user has bigger problems at hand
-        // We can still try to share the file without saving it to the gallery
-        ezLog('Error saving to gallery');
-        ezLog(e.toString());
-      }
+    try {
+      image ? await Gal.putImage(path) : await Gal.putVideo(path);
+    } catch (e) {
+      // If this fails, it's likely the user has bigger problems at hand
+      // We can still try to share the file without saving it to the gallery
+      ezLog('Error saving to gallery');
+      ezLog(e.toString());
     }
   }
 
@@ -186,18 +171,15 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void afterFirstLayout(BuildContext context) async {
-    final bool newUser = emc == null || emc!.isEmpty;
-
-    // Verify the emergency contacts
-    if (newUser) emc = await addEMC(context, emc, l10n: l10n);
+    // Check if there are saved emergency contacts
+    final bool newUser = (emc == null || emc!.isEmpty);
+    if (newUser) await addEMC(context);
 
     // Check for auto SOS
     final bool taskRunning = EzConfig.get(taskRunningKey);
 
     if (taskRunning) await stopBackgroundSOS();
-    if (sosOnOpen || taskRunning) {
-      await startForegroundSOS(l10n, showSnack: true);
-    }
+    if (sosOnOpen || taskRunning) await startForegroundSOS(showSnack: true);
 
     // Setup the camera/preview
     if (newUser && context.mounted) {
@@ -211,22 +193,14 @@ class _HomeScreenState extends State<HomeScreen>
     if (mounted) setState(() {});
 
     // Run the tutorial (if unfinished)
-    if (EzConfig.get(tutorialKey) == true) broadcastOverlay.show();
+    if (showTutorial) broadcastOverlay.show();
   }
+
+  // Return the build //
 
   @override
   Widget build(BuildContext context) {
-    // Gather the contextual theme data //
-
     final double spargin = EzConfig.spacing + EzConfig.marginVal;
-
-    final Color rightsBackgroundColor = Theme.of(context)
-        .textButtonTheme
-        .style!
-        .backgroundColor!
-        .resolve(<WidgetState>{WidgetState.focused})!;
-
-    // Return the build //
 
     return SosScaffold(
       Stack(
@@ -254,7 +228,11 @@ class _HomeScreenState extends State<HomeScreen>
                           child: Container(
                             height: double.infinity,
                             width: double.infinity,
-                            color: rightsBackgroundColor,
+                            color: Theme.of(context)
+                                .textButtonTheme
+                                .style!
+                                .backgroundColor!
+                                .resolve(<WidgetState>{WidgetState.focused}),
                             child: const RightsView(),
                           ),
                         ),
@@ -276,16 +254,15 @@ class _HomeScreenState extends State<HomeScreen>
                     const Duration(seconds: 1),
                     (_) => watch.elapsed.inSeconds,
                   ),
-                  builder: (_, AsyncSnapshot<int> snapshot) {
-                    final Duration elapsed =
-                        Duration(seconds: snapshot.data ?? 0);
-                    return EzText(
-                      elapsed.toString().split('.').first,
-                      backgroundColor: videoColor,
-                      style: EzConfig.styles.labelLarge
-                          ?.copyWith(color: videoTextColor),
-                    );
-                  },
+                  builder: (_, AsyncSnapshot<int> snapshot) => EzText(
+                    Duration(seconds: snapshot.data ?? 0)
+                        .toString()
+                        .split('.')
+                        .first,
+                    backgroundColor: videoColor,
+                    style: EzConfig.styles.labelLarge
+                        ?.copyWith(color: videoTextColor),
+                  ),
                 ),
               ),
             ),
@@ -300,26 +277,27 @@ class _HomeScreenState extends State<HomeScreen>
               child: OverlayPortal(
                 controller: broadcastOverlay,
                 overlayChildBuilder: (_) => EzTutorial(
-                  top: safeTop +
+                  top: safeTop(context) +
                       spargin +
                       EzConfig.iconSize * 1.5 +
                       EzConfig.spacing,
                   left: 0,
                   right: 0,
                   title: '3/5',
-                  content: Platform.isIOS
+                  content: isIOS
                       ? l10n.hsIOSBroadcastTutorial
                       : l10n.hsBroadcastTutorial,
                   acceptMessage: l10n.gOk,
                   onAccept: () async {
                     broadcastOverlay.hide();
-                    if (Platform.isAndroid) await Permission.sms.request();
+                    if (!isIOS) await Permission.sms.request();
                     final LocationPermission choice =
                         await Geolocator.requestPermission();
 
                     if (choice == LocationPermission.whileInUse &&
-                        Platform.isAndroid &&
+                        !isIOS &&
                         context.mounted) {
+                      // Reminder that 'always' is recommended && secure
                       await showDialog(
                         context: context,
                         builder: (_) => EzAlertDialog(
@@ -347,7 +325,6 @@ class _HomeScreenState extends State<HomeScreen>
                         ),
                       );
                     }
-
                     settingsOverlay.show();
                   },
                 ),
@@ -362,7 +339,7 @@ class _HomeScreenState extends State<HomeScreen>
                         icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
                         iconSize: EzConfig.iconSize * 1.5,
                         onPressed: () async {
-                          final PermissionStatus smsStatus = Platform.isIOS
+                          final PermissionStatus smsStatus = isIOS
                               ? PermissionStatus.granted
                               : await Permission.sms.request();
 
@@ -376,8 +353,7 @@ class _HomeScreenState extends State<HomeScreen>
                             }
                             return;
                           }
-
-                          await startForegroundSOS(l10n);
+                          await startForegroundSOS();
                         },
                         onLongPress: openSOSPermissions,
                       ),
@@ -393,13 +369,9 @@ class _HomeScreenState extends State<HomeScreen>
             child: OverlayPortal(
               controller: settingsOverlay,
               overlayChildBuilder: (_) => EzTutorial(
-                top: safeTop + EzConfig.marginVal,
-                right: EzConfig.isLefty
-                    ? 0
-                    : EzConfig.marginVal + EzConfig.iconSize + EzConfig.spacing,
-                left: EzConfig.isLefty
-                    ? EzConfig.marginVal + EzConfig.iconSize + EzConfig.spacing
-                    : 0,
+                top: safeTop(context) + EzConfig.marginVal,
+                right: EzConfig.isLefty ? 0 : spargin + EzConfig.iconSize,
+                left: EzConfig.isLefty ? spargin + EzConfig.iconSize : 0,
                 title: '4/5',
                 content: l10n.hsSettingsTutorial,
                 acceptMessage: l10n.gOk,
@@ -485,10 +457,7 @@ class _HomeScreenState extends State<HomeScreen>
                                     context.findRenderObject() as RenderBox?;
 
                                 await SharePlus.instance.share(ShareParams(
-                                  text: await getCoordinates(
-                                    linkType.base,
-                                    l10n,
-                                  ),
+                                  text: await getCoordinates(linkType.base),
                                   files: <XFile>[image],
                                   sharePositionOrigin:
                                       box!.localToGlobal(Offset.zero) &
@@ -511,7 +480,7 @@ class _HomeScreenState extends State<HomeScreen>
                   OverlayPortal(
                     controller: recordOverlay,
                     overlayChildBuilder: (_) => EzTutorial(
-                      bottom: safeBottom +
+                      bottom: safeBottom(context) +
                           spargin +
                           EzConfig.iconSize * 2 +
                           EzConfig.spacing,
@@ -519,16 +488,16 @@ class _HomeScreenState extends State<HomeScreen>
                       right: 0,
                       title: '5/5',
                       content: camera == null
-                          ? Platform.isIOS
+                          ? isIOS
                               ? l10n.hsIOSRightsTutorial
                               : l10n.hsRightsTutorial
-                          : Platform.isIOS
+                          : isIOS
                               ? l10n.hsIOSVideoTutorial
                               : l10n.hsVideoTutorial,
                       acceptMessage: l10n.gOk,
                       onAccept: () async {
                         recordOverlay.hide();
-                        await EzConfig.setBool(tutorialKey, false);
+                        await EzConfig.setBool(showTutorialKey, false);
                       },
                     ),
                     child: recording
@@ -585,10 +554,7 @@ class _HomeScreenState extends State<HomeScreen>
                                       context.findRenderObject() as RenderBox?;
 
                                   await SharePlus.instance.share(ShareParams(
-                                    text: await getCoordinates(
-                                      linkType.base,
-                                      l10n,
-                                    ),
+                                    text: await getCoordinates(linkType.base),
                                     files: <XFile>[XFile(mp4Path)],
                                     sharePositionOrigin:
                                         box!.localToGlobal(Offset.zero) &
@@ -619,7 +585,6 @@ class _HomeScreenState extends State<HomeScreen>
                             onPressed: () async {
                               if (camera == null) {
                                 final bool hasAccess = await initCamera();
-
                                 if (hasAccess) {
                                   setState(() {});
                                 } else {
@@ -630,7 +595,6 @@ class _HomeScreenState extends State<HomeScreen>
                               try {
                                 await camera!.startVideoRecording();
                                 watch.start();
-
                                 setState(() => recording = true);
                               } catch (e) {
                                 if (context.mounted) {
@@ -642,9 +606,7 @@ class _HomeScreenState extends State<HomeScreen>
                               }
                             },
                             onLongPress: () async {
-                              if (camera == null) {
-                                await openAppSettings();
-                              }
+                              if (camera == null) await openAppSettings();
                             },
                           ),
                   ),
@@ -687,11 +649,11 @@ class _HomeScreenState extends State<HomeScreen>
 
         if (recording) {
           // SOS based on user state/settings
-          if (Platform.isAndroid &&
+          if (!isIOS &&
               !alreadyRunning &&
               (active || sosOnClose || sosOnInterrupt)) {
             if (active) stopForegroundSOS();
-            await startBackgroundSOS(l10n);
+            await startBackgroundSOS();
           }
 
           // Attempt to save the partial recording
@@ -724,9 +686,9 @@ class _HomeScreenState extends State<HomeScreen>
         } else {
           // Not recording
           // SOS based on user state/settings
-          if (Platform.isAndroid && !alreadyRunning && (active || sosOnClose)) {
+          if (!isIOS && !alreadyRunning && (active || sosOnClose)) {
             if (active) stopForegroundSOS();
-            await startBackgroundSOS(l10n);
+            await startBackgroundSOS();
           }
         }
         break;
@@ -748,7 +710,7 @@ class _HomeScreenState extends State<HomeScreen>
         // Check SOS state
         if (EzConfig.get(taskRunningKey) == true) {
           await stopBackgroundSOS();
-          await startForegroundSOS(l10n, showSnack: true);
+          await startForegroundSOS(showSnack: true);
         }
         break;
     }
