@@ -14,14 +14,11 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 
 void main() async {
-  // Setup the app //
+  // Configure the app //
 
   WidgetsFlutterBinding.ensureInitialized();
-
   await SystemChrome.setPreferredOrientations(
       <DeviceOrientation>[DeviceOrientation.portraitUp]);
-
-  // Initialize EzConfig //
 
   EzConfig.init(
     assetPaths: assetPaths,
@@ -38,9 +35,12 @@ void main() async {
   // Run the app //
 
   final (Locale storedLocale, EFUILang storedEFUILang) = await ezStoredL10n();
-  final Lang storedLang = await Lang.delegate.load(storedLocale);
 
-  runApp(SOS(storedLocale, storedEFUILang, storedLang));
+  runApp(SOS(
+    storedLocale,
+    storedEFUILang,
+    await Lang.delegate.load(storedLocale),
+  ));
 }
 
 class SOS extends StatelessWidget {
