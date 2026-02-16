@@ -368,20 +368,20 @@ class HelpFAB extends StatelessWidget {
             ),
 
             // Reset tutorial (conditional)
-            if (EzConfig.get(tutorialKey) != true) ...<Widget>[
+            if (EzConfig.get(showTutorialKey) != true) ...<Widget>[
               EzConfig.spacer,
               Center(
                 child: EzElevatedButton(
                   text: l10n.faqReset,
                   onPressed: () async {
-                    await EzConfig.setBool(tutorialKey, true);
+                    await EzConfig.setBool(showTutorialKey, true);
                     if (mContext.mounted) Navigator.of(mContext).pop();
 
                     if (context.mounted) {
                       ezSnackBar(
                         context: context,
                         message: l10n.faqResetSnack,
-                        undo: () => EzConfig.setBool(tutorialKey, false),
+                        undo: () => EzConfig.setBool(showTutorialKey, false),
                       );
                     }
                   },
