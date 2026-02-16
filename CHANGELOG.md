@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0] - 2025-02-XX
+### Updated
+- EFUI 11.0, enabling live configuration
+  - Overhauled the intro/tutorial thanks to live updates
+    - Users can set/update their language on the first page and all setup is now optional
+
 ## [1.5.2] - 2025-11-18
 ### Added
 - Help FAB to the first settings page/settings home
