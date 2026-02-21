@@ -54,14 +54,14 @@ class _HomeScreenState extends State<HomeScreen>
   // Camera //
 
   /// Initialize the [camera]
-  Future<bool> initCamera() async {
-    if (camera != null) return true;
+  Future<PermissionStatus> initCamera() async {
+    if (camera != null) return PermissionStatus.granted;
 
     if (cameraDesc != null) {
       try {
         camera = CameraController(cameraDesc!, ResolutionPreset.max);
         await camera!.initialize();
-        return true;
+        return PermissionStatus.granted;
       } catch (_) {
         // Continue/try again, might be a permissions thing
         // Actual catch happens below
@@ -70,27 +70,28 @@ class _HomeScreenState extends State<HomeScreen>
 
     final PermissionStatus status = await Permission.camera.request();
     if (status == PermissionStatus.denied ||
+        status == PermissionStatus.restricted ||
         status == PermissionStatus.permanentlyDenied) {
-      return false;
+      return status;
     }
-    await Permission.microphone.request();
+    await Permission.microphone.request(); // Not required
 
     final List<CameraDescription> cameras = await availableCameras();
     cameraDesc = cameras.firstWhere(
         (CameraDescription c) => c.lensDirection == CameraLensDirection.back);
-    if (cameraDesc == null) return false;
+    if (cameraDesc == null) return PermissionStatus.denied;
 
     try {
       camera = CameraController(cameraDesc!, ResolutionPreset.max);
       await camera!.initialize();
-      return true;
+      return PermissionStatus.granted;
     } catch (e) {
       if (e is! CameraException || e.code != 'CameraAccessDenied') {
         if (mounted) await ezLogAlert(context, message: e.toString());
       } else {
         ezLog('CameraException from initCamera.../n${e.toString()}');
       }
-      return false;
+      return PermissionStatus.denied;
     }
   }
 
@@ -152,18 +153,23 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void afterFirstLayout(BuildContext context) async {
-    while (EzConfig.get(setupCompleteKey) != true) {
-      await appSetupDialog(context);
+    // Check for fresh installs
+    if (EzConfig.get(setupCompleteKey) != true) {
+      while (EzConfig.get(setupCompleteKey) != true) {
+        // While loop re-opens the dialog on locale change
+        await appSetupDialog(context, initCamera: initCamera);
+      }
+      if (mounted) setState(() {});
+    } else {
+      // Check for auto SOS
+      final bool taskRunning = EzConfig.get(taskRunningKey);
+      if (taskRunning) await stopBackgroundSOS();
+      if (sosOnOpen || taskRunning) await startForegroundSOS(showSnack: true);
+
+      // Setup the camera/preview
+      await initCamera();
+      if (mounted) setState(() {});
     }
-
-    // Check for auto SOS
-    final bool taskRunning = EzConfig.get(taskRunningKey);
-    if (taskRunning) await stopBackgroundSOS();
-    if (sosOnOpen || taskRunning) await startForegroundSOS(showSnack: true);
-
-    // Setup the camera/preview
-    await initCamera();
-    if (mounted) setState(() {});
 
     // Run the tutorial (if unfinished)
     if (showTutorial) broadcastOverlay.show();
@@ -557,8 +563,13 @@ class _HomeScreenState extends State<HomeScreen>
                             iconSize: EzConfig.iconSize * 2,
                             onPressed: () async {
                               if (camera == null) {
-                                final bool hasAccess = await initCamera();
-                                if (hasAccess) {
+                                final PermissionStatus cameraPerm =
+                                    await initCamera();
+
+                                if (cameraPerm == PermissionStatus.granted ||
+                                    cameraPerm == PermissionStatus.limited ||
+                                    cameraPerm ==
+                                        PermissionStatus.provisional) {
                                   setState(() {});
                                 } else {
                                   return;
