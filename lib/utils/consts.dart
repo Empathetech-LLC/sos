@@ -147,24 +147,28 @@ const Map<String, String> credits = <String, String>{
 //* EzConfig *//
 // BTS settings //
 
-/// showContactsMsg
-const String showContactsMsgKey = 'showContactsMsg';
-
 /// savedTab
 const String savedTabKey = 'savedTab';
 
-/// taskRunning
-const String taskRunningKey = 'taskRunning';
+/// setupComplete
+const String setupCompleteKey = 'setupComplete';
+
+/// showContactsMsg
+const String showContactsMsgKey = 'showContactsMsg';
 
 /// showTutorial
 const String showTutorialKey = 'showTutorial';
 
-/// [showContactsMsgKey], [savedTabKey], [taskRunningKey], [showTutorialKey]
+/// taskRunning
+const String taskRunningKey = 'taskRunning';
+
+/// [savedTabKey], [setupCompleteKey], [showContactsMsgKey], [showTutorialKey], [taskRunningKey]
 const Map<String, Type> sosBTSKeys = <String, Type>{
-  showContactsMsgKey: bool,
   savedTabKey: String,
-  taskRunningKey: bool,
+  setupCompleteKey: bool,
+  showContactsMsgKey: bool,
   showTutorialKey: bool,
+  taskRunningKey: bool,
 };
 
 // Broadcast settings //
@@ -221,10 +225,11 @@ final Map<String, Object> sosConfig = <String, Object>{
   lightTextBackgroundOpacityKey: 0.8,
 
   // BTS
-  showContactsMsgKey: true,
   savedTabKey: walkingTab,
-  taskRunningKey: false,
+  setupCompleteKey: false,
+  showContactsMsgKey: true,
   showTutorialKey: true,
+  taskRunningKey: false,
 
   // SOS
   autoShareMediaKey: true,
