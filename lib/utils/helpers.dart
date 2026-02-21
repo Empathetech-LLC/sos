@@ -4,14 +4,34 @@
  */
 
 import './export.dart';
+import '../widgets/export.dart';
 
 import 'dart:io';
+import 'package:gal/gal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
+
+// Camera //
+
+/// Save the file at [path] to the gallery
+/// Includes error handling
+Future<void> saveToGallery(String path, bool image) async {
+  final bool galAccess = await Gal.requestAccess();
+  if (!galAccess) return;
+
+  try {
+    image ? await Gal.putImage(path) : await Gal.putVideo(path);
+  } catch (e) {
+    // If this fails, it's likely the user has bigger problems at hand
+    // We can still try to share the file without saving it to the gallery
+    ezLog('Error saving to gallery');
+    ezLog(e.toString());
+  }
+}
 
 // Contacts //
 
@@ -21,7 +41,7 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 Future<void> addEMC(BuildContext context, {bool loop = true}) async {
   // Check for first run
   final List<String> currEMC = List<String>.from(emc ?? <String>[]);
-  if (currEMC.isEmpty) await firstContactMsg(context);
+  // TODO?: if (currEMC.isEmpty) await firstContactMsg(context);
 
   // Check contact permissions
   final bool contactsGranted =
@@ -145,6 +165,88 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
   await EzConfig.setStringList(emcKey, currEMC);
 }
 
+// Fresh install //
+
+/// Allow the user to enable what parts of InstaSOS they want
+/// TODO: l10n
+Future<void> appSetupDialog(
+  BuildContext context, {
+  required Future<PermissionStatus> Function() initCamera,
+}) async {
+  final bool? setup = await showDialog(
+    context: context,
+    builder: (BuildContext dContext) => EzAlertDialog(
+      title: Text(l10n.hsWelcome, textAlign: TextAlign.center),
+      contents: <Widget>[
+        // Locale setting
+        EzLocaleSetting(
+          doNothing,
+          locales: Lang.supportedLocales,
+          skip: <Locale>{arabic, english, chinese}, // Dupes
+          protest: true,
+        ),
+        EzConfig.spacer,
+
+        // Have it your way
+        Text(
+          'Something kind',
+          textAlign: TextAlign.center,
+        ),
+        Text(
+          'Setup InstaSOS for your needs. By default, ',
+          textAlign: TextAlign.center,
+        ),
+        EzConfig.divider,
+
+        // Permission checklist //
+
+        // Camera/Microphone
+        CameraCard(initCamera),
+        // TODO: note you will be asked for gallery the first time you save something
+
+        // // Location
+        // EzConfig.spacer,
+        // Card(
+        //   child: EzRow(
+        //     mainAxisSize: MainAxisSize.min,
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: <Widget>[
+        //       Text(),
+        //       EzConfig.rowSpacer,
+        //       EzIconButton(),
+        //     ],
+        //   ),
+        // ),
+
+        // // SMS (Android)
+        // if (!isIOS) ...<Widget>[
+        //   EzConfig.spacer,
+        //   Card(
+        //     child: EzRow(
+        //       mainAxisSize: MainAxisSize.min,
+        //       mainAxisAlignment: MainAxisAlignment.center,
+        //       children: <Widget>[
+        //         Text(),
+        //         EzConfig.rowSpacer,
+        //         EzIconButton(),
+        //       ],
+        //     ),
+        //   ),
+        // ],
+      ],
+      actions: <EzMaterialAction>[
+        EzMaterialAction(
+          text: 'Done',
+          onPressed: () => Navigator.of(dContext).pop(true),
+        ),
+      ],
+      needsClose: false,
+    ),
+  );
+
+  if (setup == true) await EzConfig.setBool(setupCompleteKey, true);
+}
+
 // Location //
 
 /// Currently Android only
@@ -228,48 +330,6 @@ Future<String> getCoordinates(String linkBase) async {
     return l10n.sosError;
   }
 }
-
-// New user //
-
-/// Explains InstaSOS
-/// App closes on cancel
-Future<dynamic> firstContactMsg(BuildContext context) => showDialog(
-      context: context,
-      builder: (_) => EzAlertDialog(
-        title: Text(l10n.hsWelcome, textAlign: TextAlign.center),
-        content: Text(l10n.hsAppTutorial, textAlign: TextAlign.center),
-        actions: ezActionPair(
-          context: context,
-          onConfirm: Navigator.of(context).pop,
-          confirmIsDefault: true,
-          confirmMsg: EzConfig.l10n.gContinue,
-          onDeny: () => exit(0),
-          denyIsDestructive: true,
-          denyMsg: EzConfig.l10n.gCancel,
-        ),
-        needsClose: false,
-      ),
-    );
-
-/// Warns about future permissions
-/// Returns false if the user would rather skip
-Future<dynamic> permissionsMsg(BuildContext context) => showDialog(
-      context: context,
-      builder: (_) => EzAlertDialog(
-        title:
-            Text(l10n.hsPermissionsTutorialTitle, textAlign: TextAlign.center),
-        content: Text(l10n.hsPermissionsTutorial, textAlign: TextAlign.center),
-        actions: ezActionPair(
-          context: context,
-          onConfirm: () => Navigator.of(context).pop(true),
-          confirmIsDefault: true,
-          confirmMsg: l10n.gOk,
-          onDeny: () => Navigator.of(context).pop(false),
-          denyMsg: EzConfig.l10n.gNo,
-        ),
-        needsClose: false,
-      ),
-    );
 
 // Permission //
 
