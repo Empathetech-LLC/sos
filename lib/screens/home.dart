@@ -152,7 +152,9 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void afterFirstLayout(BuildContext context) async {
-    if (freshInstallCheck()) await appSetupDialog(context);
+    while (EzConfig.get(setupCompleteKey) != true) {
+      await appSetupDialog(context);
+    }
 
     // Check for auto SOS
     final bool taskRunning = EzConfig.get(taskRunningKey);
