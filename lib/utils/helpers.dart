@@ -169,78 +169,74 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
 
 /// Allow the user to enable what parts of InstaSOS they want
 /// TODO: l10n
-Future<void> appSetupDialog(
+Future<void> appSetupModal(
   BuildContext context, {
   required Future<PermissionStatus> Function() initCamera,
 }) async {
-  final bool? setup = await showDialog(
+  final bool? setup = await ezModal(
     context: context,
-    builder: (BuildContext dContext) => EzAlertDialog(
-      title: Text(l10n.hsWelcome, textAlign: TextAlign.center),
-      contents: <Widget>[
-        // Locale setting
-        EzLocaleSetting(
-          doNothing,
-          locales: Lang.supportedLocales,
-          skip: <Locale>{arabic, english, chinese}, // Dupes
-          protest: true,
-        ),
-        EzConfig.spacer,
+    enableDrag: false,
+    isDismissible: false,
+    showDragHandle: false,
+    builder: (BuildContext mContext) => Padding(
+      padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
+      child: EzScrollView(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          // Title
+          EzConfig.margin,
+          Text(
+            l10n.hsWelcome,
+            style: EzConfig.styles.titleLarge,
+            textAlign: TextAlign.center,
+          ),
+          EzConfig.margin,
 
-        // Have it your way
-        Text(
-          'Something kind',
-          textAlign: TextAlign.center,
-        ),
-        Text(
-          'Setup InstaSOS for your needs. By default, ',
-          textAlign: TextAlign.center,
-        ),
-        EzConfig.divider,
+          // Locale setting
+          EzLocaleSetting(
+            doNothing,
+            locales: Lang.supportedLocales,
+            skip: <Locale>{arabic, english, chinese}, // Dupes
+            protest: true,
+          ),
+          EzConfig.spacer,
 
-        // Permission checklist //
+          // Have it your way
+          Text(
+            'To start, this is only a Know Your Rights app.\nIn the list below, you can enable more tools by giving them permission.',
+            style: EzConfig.styles.bodyLarge,
+            textAlign: TextAlign.center,
+          ),
+          EzConfig.centerLine,
+          Text(
+            'Everything can be turned on/off at any time.',
+            style: EzConfig.styles.bodyLarge,
+            textAlign: TextAlign.center,
+          ),
+          EzConfig.divider,
 
-        // Camera/Microphone
-        CameraCard(initCamera),
-        // TODO: note you will be asked for gallery the first time you save something
+          // Permission checklist
+          CameraCard(initCamera),
+          EzConfig.spacer,
+          LocationCard(initCamera),
+          if (!isIOS) ...<Widget>[
+            EzConfig.spacer,
+            SMSCard(initCamera),
+          ],
+          EzConfig.separator,
 
-        // // Location
-        // EzConfig.spacer,
-        // Card(
-        //   child: EzRow(
-        //     mainAxisSize: MainAxisSize.min,
-        //     mainAxisAlignment: MainAxisAlignment.center,
-        //     children: <Widget>[
-        //       Text(),
-        //       EzConfig.rowSpacer,
-        //       EzIconButton(),
-        //     ],
-        //   ),
-        // ),
-
-        // // SMS (Android)
-        // if (!isIOS) ...<Widget>[
-        //   EzConfig.spacer,
-        //   Card(
-        //     child: EzRow(
-        //       mainAxisSize: MainAxisSize.min,
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       children: <Widget>[
-        //         Text(),
-        //         EzConfig.rowSpacer,
-        //         EzIconButton(),
-        //       ],
-        //     ),
-        //   ),
-        // ],
-      ],
-      actions: <EzMaterialAction>[
-        EzMaterialAction(
-          text: 'Done',
-          onPressed: () => Navigator.of(dContext).pop(true),
-        ),
-      ],
-      needsClose: false,
+          // Finish/leave
+          EzTextButton(
+            text: EzConfig.l10n.gClose,
+            textStyle: EzConfig.styles.bodyLarge
+                ?.copyWith(color: EzConfig.colors.primary),
+            textAlign: TextAlign.center,
+            style: TextButton.styleFrom(backgroundColor: Colors.transparent),
+            onPressed: () => Navigator.of(mContext).pop(true),
+          ),
+          EzConfig.separator
+        ],
+      ),
     ),
   );
 
