@@ -19,10 +19,10 @@ class SOSCache extends EzAppCache {
   late Color _videoColor;
   late Color _videoTextColor;
 
-  SOSCache(Locale locale, Lang l10n)
+  SOSCache(Locale locale, Lang l10n, bool isDark)
       : _locale = locale,
         _l10n = l10n {
-    _setVideoColors();
+    _setVideoColors(darkInit: isDark);
   }
 
   // Get //
@@ -40,9 +40,10 @@ class SOSCache extends EzAppCache {
     }
   }
 
-  void _setVideoColors() {
-    _videoColor =
-        EzConfig.get(EzConfig.isDark ? darkVideoColorKey : lightVideoColorKey);
+  void _setVideoColors({bool? darkInit}) {
+    _videoColor = Color(EzConfig.get((darkInit ?? EzConfig.isDark)
+        ? darkVideoColorKey
+        : lightVideoColorKey) as int);
     _videoTextColor = getTextColor(_videoColor);
   }
 }
