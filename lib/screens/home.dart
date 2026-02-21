@@ -157,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen>
     if (EzConfig.get(setupCompleteKey) != true) {
       while (EzConfig.get(setupCompleteKey) != true) {
         // While loop re-opens the dialog on locale change
-        await appSetupDialog(context, initCamera: initCamera);
+        await appSetupModal(context, initCamera: initCamera);
       }
       if (mounted) setState(() {});
     } else {
