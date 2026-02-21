@@ -29,19 +29,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with AfterLayoutMixin<HomeScreen>, WidgetsBindingObserver {
-  // Define the build data //
+  //* Define the build data *//
 
-  Timer? sosTimer;
+  // Core //
 
-  // Tutorial
-  final OverlayPortalController broadcastOverlay =
-      OverlayPortalController(debugLabel: 'broadcast');
-  final OverlayPortalController settingsOverlay =
-      OverlayPortalController(debugLabel: 'settings');
-  final OverlayPortalController recordOverlay =
-      OverlayPortalController(debugLabel: 'record');
-
-  // Camera
   CameraDescription? cameraDesc;
   CameraController? camera;
 
@@ -50,11 +41,37 @@ class _HomeScreenState extends State<HomeScreen>
 
   bool showRights = false;
 
-  // Define custom functions //
+  Timer? sosTimer;
+
+  // Tutorial(s) //
+
+  final OverlayPortalController broadcastOverlay =
+      OverlayPortalController(debugLabel: 'broadcast');
+  final OverlayPortalController settingsOverlay =
+      OverlayPortalController(debugLabel: 'settings');
+  final OverlayPortalController recordOverlay =
+      OverlayPortalController(debugLabel: 'record');
+
+  //* Define custom functions *//
+
+  // Camera //
 
   /// Initialize the [camera]
   Future<bool> initCamera() async {
     if (camera != null) return true;
+
+    if (cameraDesc != null) {
+      try {
+        camera = CameraController(cameraDesc!, ResolutionPreset.max);
+        await camera!.initialize();
+        return true;
+      } catch (e) {
+        if (e is! CameraException || e.code != 'CameraAccessDenied') {
+          if (mounted) await ezLogAlert(context, message: e.toString());
+        }
+      }
+      return false;
+    }
 
     final PermissionStatus status = await Permission.camera.request();
     if (status == PermissionStatus.denied ||
@@ -76,8 +93,8 @@ class _HomeScreenState extends State<HomeScreen>
       if (e is! CameraException || e.code != 'CameraAccessDenied') {
         if (mounted) await ezLogAlert(context, message: e.toString());
       }
+      return false;
     }
-    return false;
   }
 
   /// [foregroundSOS] every 5 minutes
@@ -132,19 +149,6 @@ class _HomeScreenState extends State<HomeScreen>
     await EzConfig.setBool(taskRunningKey, false);
   }
 
-  /// Take users to their platform settings if SOS doesn't have the permissions it needs
-  Future<void> openSOSPermissions() async {
-    final PermissionStatus smsPerm =
-        isIOS ? PermissionStatus.granted : await Permission.sms.request();
-    final LocationPermission geoPerm = await Geolocator.requestPermission();
-
-    if (smsPerm == PermissionStatus.denied ||
-        smsPerm == PermissionStatus.permanentlyDenied ||
-        geoPerm != LocationPermission.always) {
-      await openAppSettings();
-    }
-  }
-
   /// Save the file at [path] to the gallery
   /// Includes error handling
   Future<void> saveToGallery(String path, bool image) async {
@@ -161,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen>
     }
   }
 
-  // Init //
+  //* Init *//
 
   @override
   void initState() {
@@ -196,7 +200,7 @@ class _HomeScreenState extends State<HomeScreen>
     if (showTutorial) broadcastOverlay.show();
   }
 
-  // Return the build //
+  //* Return the build *//
 
   @override
   Widget build(BuildContext context) {

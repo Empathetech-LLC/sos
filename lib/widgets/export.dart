@@ -3,9 +3,8 @@
  * See LICENSE for distribution and usage details.
  */
 
-export 'buttons.dart';
 export 'emc.dart';
 export 'fabulous.dart';
-export 'icons.dart';
+export 'home_screen.dart';
 export 'rights_view.dart';
 export 'sos_scaffold.dart';
