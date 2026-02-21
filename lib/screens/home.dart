@@ -9,7 +9,6 @@ import '../widgets/export.dart';
 
 import 'dart:io';
 import 'dart:async';
-import 'package:gal/gal.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -30,7 +29,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with AfterLayoutMixin<HomeScreen>, WidgetsBindingObserver {
   //* Define the build data *//
-
   // Core //
 
   CameraDescription? cameraDesc;
@@ -53,7 +51,6 @@ class _HomeScreenState extends State<HomeScreen>
       OverlayPortalController(debugLabel: 'record');
 
   //* Define custom functions *//
-
   // Camera //
 
   /// Initialize the [camera]
@@ -65,12 +62,10 @@ class _HomeScreenState extends State<HomeScreen>
         camera = CameraController(cameraDesc!, ResolutionPreset.max);
         await camera!.initialize();
         return true;
-      } catch (e) {
-        if (e is! CameraException || e.code != 'CameraAccessDenied') {
-          if (mounted) await ezLogAlert(context, message: e.toString());
-        }
+      } catch (_) {
+        // Continue/try again, might be a permissions thing
+        // Actual catch happens below
       }
-      return false;
     }
 
     final PermissionStatus status = await Permission.camera.request();
@@ -92,6 +87,8 @@ class _HomeScreenState extends State<HomeScreen>
     } catch (e) {
       if (e is! CameraException || e.code != 'CameraAccessDenied') {
         if (mounted) await ezLogAlert(context, message: e.toString());
+      } else {
+        ezLog('CameraException from initCamera.../n${e.toString()}');
       }
       return false;
     }
@@ -104,9 +101,8 @@ class _HomeScreenState extends State<HomeScreen>
     await foregroundSOS();
 
     // Initiate a periodic SOS
-    sosTimer =
-        Timer.periodic(const Duration(minutes: 5), (_) => foregroundSOS());
-    setState(() {});
+    setState(() => sosTimer =
+        Timer.periodic(const Duration(minutes: 5), (_) => foregroundSOS()));
 
     if (showSnack && mounted) {
       ezSnackBar(
@@ -119,10 +115,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   /// Cancel the [sosTimer]
-  void stopForegroundSOS() {
-    sosTimer?.cancel();
-    setState(() {});
-  }
+  void stopForegroundSOS() => setState(() => sosTimer?.cancel());
 
   /// Assumes an [emc] null/empty check has already been done
   Future<void> startBackgroundSOS() async {
@@ -149,22 +142,6 @@ class _HomeScreenState extends State<HomeScreen>
     await EzConfig.setBool(taskRunningKey, false);
   }
 
-  /// Save the file at [path] to the gallery
-  /// Includes error handling
-  Future<void> saveToGallery(String path, bool image) async {
-    final bool galAccess = await Gal.requestAccess();
-    if (!galAccess) return;
-
-    try {
-      image ? await Gal.putImage(path) : await Gal.putVideo(path);
-    } catch (e) {
-      // If this fails, it's likely the user has bigger problems at hand
-      // We can still try to share the file without saving it to the gallery
-      ezLog('Error saving to gallery');
-      ezLog(e.toString());
-    }
-  }
-
   //* Init *//
 
   @override
@@ -175,25 +152,15 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void afterFirstLayout(BuildContext context) async {
-    // Check if there are saved emergency contacts
-    final bool newUser = (emc == null || emc!.isEmpty);
-    if (newUser) await addEMC(context);
+    if (freshInstallCheck()) await appSetupDialog(context);
 
     // Check for auto SOS
     final bool taskRunning = EzConfig.get(taskRunningKey);
-
     if (taskRunning) await stopBackgroundSOS();
     if (sosOnOpen || taskRunning) await startForegroundSOS(showSnack: true);
 
     // Setup the camera/preview
-    if (newUser && context.mounted) {
-      // Allow new users to opt out of camera requests their first time
-      if (await permissionsMsg(context) == true) await initCamera();
-      // Currently, this is just to avoid potential 'request overload'
-      // Users will be asked again later (in the else below)
-    } else {
-      await initCamera();
-    }
+    await initCamera();
     if (mounted) setState(() {});
 
     // Run the tutorial (if unfinished)
