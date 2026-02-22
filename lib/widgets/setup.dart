@@ -103,8 +103,26 @@ class CameraSetup extends StatefulWidget {
 }
 
 class _CameraSetupState extends State<CameraSetup> {
+  // Define the build data //
+
   PermissionStatus? camStatus;
   bool? galStatus;
+
+  // Init //
+
+  void backgroundCheck() async {
+    camStatus = await Permission.camera.status;
+    galStatus = await Gal.hasAccess();
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    backgroundCheck();
+  }
+
+  // Return the build //
 
   @override
   Widget build(BuildContext context) => camStatus == PermissionStatus.granted
@@ -212,7 +230,26 @@ class ContactsSetup extends StatefulWidget {
 }
 
 class _ContactsSetupState extends State<ContactsSetup> {
+  // Define the build data //
+
   bool? allowed;
+
+  // Init //
+
+  void backgroundCheck() async {
+    final PermissionStatus status = await Permission.contacts.status;
+    setState(() => allowed = (!status.isDenied &&
+        !status.isPermanentlyDenied &&
+        !status.isRestricted));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    backgroundCheck();
+  }
+
+  // Return the build //
 
   @override
   Widget build(BuildContext context) => GestureDetector(
@@ -278,7 +315,24 @@ class SMSSetup extends StatefulWidget {
 }
 
 class _SMSSetupState extends State<SMSSetup> {
+  // Define the build data //
+
   PermissionStatus? status;
+
+  // Init //
+
+  void backgroundCheck() async {
+    status = await Permission.sms.status;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    backgroundCheck();
+  }
+
+  // Return the build //
 
   @override
   Widget build(BuildContext context) => GestureDetector(
@@ -340,8 +394,36 @@ class LocationSetup extends StatefulWidget {
   State<LocationSetup> createState() => _LocationSetupState();
 }
 
-class _LocationSetupState extends State<LocationSetup> {
+class _LocationSetupState extends State<LocationSetup>
+    with WidgetsBindingObserver {
+  // Define the build data //
+
   LocationPermission? status;
+
+  // Init //
+
+  void backgroundCheck() async {
+    WidgetsBinding.instance.addObserver(this);
+    if (await Geolocator.isLocationServiceEnabled() != true) return;
+    status = await Geolocator.checkPermission();
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    backgroundCheck();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) async {
+    if (state == AppLifecycleState.resumed) {
+      status = await Geolocator.checkPermission();
+      setState(() {});
+    }
+  }
+
+  // Return the build //
 
   @override
   Widget build(BuildContext context) => GestureDetector(
@@ -419,4 +501,10 @@ class _LocationSetupState extends State<LocationSetup> {
           ),
         ),
       );
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
 }
