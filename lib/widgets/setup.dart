@@ -368,7 +368,7 @@ class _LocationSetupState extends State<LocationSetup> {
               }
 
               final LocationPermission result =
-                  await Geolocator.checkPermission();
+                  await Geolocator.requestPermission();
               if (status != result) setState(() => status = result);
               return;
           }
@@ -403,7 +403,7 @@ class _LocationSetupState extends State<LocationSetup> {
                             Text(
                               status == LocationPermission.whileInUse
                                   ? 'Recommended to enable always. Press again to go to System Settings.'
-                                  : 'Enables location sharing and local rapid response (ICERR)',
+                                  : 'Enables location sharing and local rapid response info (ICERR)',
                               style: EzConfig.styles.labelLarge,
                               textAlign: TextAlign.start,
                             ),
