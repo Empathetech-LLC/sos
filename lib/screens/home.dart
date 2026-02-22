@@ -43,12 +43,12 @@ class _HomeScreenState extends State<HomeScreen>
 
   // Tutorial(s) //
 
-  final OverlayPortalController broadcastOverlay =
-      OverlayPortalController(debugLabel: 'broadcast');
-  final OverlayPortalController settingsOverlay =
+  final OverlayPortalController sosTutorial =
+      OverlayPortalController(debugLabel: 'sos');
+  final OverlayPortalController cameraTutorial =
+      OverlayPortalController(debugLabel: 'camera');
+  final OverlayPortalController settingsTutorial =
       OverlayPortalController(debugLabel: 'settings');
-  final OverlayPortalController recordOverlay =
-      OverlayPortalController(debugLabel: 'record');
 
   //* Define custom functions *//
   // Camera //
@@ -174,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen>
     }
 
     // Run the tutorial (if unfinished)
-    if (showTutorial) broadcastOverlay.show();
+    if (showTutorial) sosTutorial.show();
   }
 
   //* Return the build *//
@@ -256,7 +256,7 @@ class _HomeScreenState extends State<HomeScreen>
             right: 0,
             child: Center(
               child: OverlayPortal(
-                controller: broadcastOverlay,
+                controller: sosTutorial,
                 overlayChildBuilder: (_) => EzTutorial(
                   top: safeTop(context) +
                       spargin +
@@ -264,13 +264,16 @@ class _HomeScreenState extends State<HomeScreen>
                       EzConfig.spacing,
                   left: 0,
                   right: 0,
-                  title: '3/5',
+                  title: EzIcon(
+                    Icons.arrow_upward,
+                    color: EzConfig.colors.onSurface,
+                  ),
                   content: isIOS
                       ? l10n.hsIOSBroadcastTutorial
                       : l10n.hsBroadcastTutorial,
                   acceptMessage: l10n.gOk,
                   onAccept: () async {
-                    broadcastOverlay.hide();
+                    sosTutorial.hide();
                     if (!isIOS) await Permission.sms.request();
                     final LocationPermission choice =
                         await Geolocator.requestPermission();
@@ -306,7 +309,7 @@ class _HomeScreenState extends State<HomeScreen>
                         ),
                       );
                     }
-                    settingsOverlay.show();
+                    settingsTutorial.show();
                   },
                 ),
                 child: sosTimer?.isActive == true
@@ -348,17 +351,20 @@ class _HomeScreenState extends State<HomeScreen>
             right: EzConfig.isLefty ? null : EzConfig.marginVal,
             left: EzConfig.isLefty ? EzConfig.marginVal : null,
             child: OverlayPortal(
-              controller: settingsOverlay,
+              controller: settingsTutorial,
               overlayChildBuilder: (_) => EzTutorial(
                 top: safeTop(context) + EzConfig.marginVal,
                 right: EzConfig.isLefty ? 0 : spargin + EzConfig.iconSize,
                 left: EzConfig.isLefty ? spargin + EzConfig.iconSize : 0,
-                title: '4/5',
+                title: EzIcon(
+                  Icons.arrow_upward,
+                  color: EzConfig.colors.onSurface,
+                ),
                 content: l10n.hsSettingsTutorial,
                 acceptMessage: l10n.gOk,
                 onAccept: () {
-                  settingsOverlay.hide();
-                  recordOverlay.show();
+                  settingsTutorial.hide();
+                  cameraTutorial.show();
                 },
               ),
               child: EzIconButton(
@@ -459,7 +465,7 @@ class _HomeScreenState extends State<HomeScreen>
 
                   // Record
                   OverlayPortal(
-                    controller: recordOverlay,
+                    controller: cameraTutorial,
                     overlayChildBuilder: (_) => EzTutorial(
                       bottom: safeBottom(context) +
                           spargin +
@@ -467,7 +473,10 @@ class _HomeScreenState extends State<HomeScreen>
                           EzConfig.spacing,
                       left: 0,
                       right: 0,
-                      title: '5/5',
+                      title: EzIcon(
+                        Icons.arrow_upward,
+                        color: EzConfig.colors.onSurface,
+                      ),
                       content: camera == null
                           ? isIOS
                               ? l10n.hsIOSRightsTutorial
@@ -477,7 +486,7 @@ class _HomeScreenState extends State<HomeScreen>
                               : l10n.hsVideoTutorial,
                       acceptMessage: l10n.gOk,
                       onAccept: () async {
-                        recordOverlay.hide();
+                        cameraTutorial.hide();
                         await EzConfig.setBool(showTutorialKey, false);
                       },
                     ),
