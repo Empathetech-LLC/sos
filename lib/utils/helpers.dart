@@ -223,33 +223,22 @@ Future<void> appSetupModal(
   if (setup == true) await EzConfig.setBool(setupCompleteKey, true);
 }
 
-// Location //
+// Permission //
 
-/// Currently Android only
-/// Call a custom worker factory to send periodic SOS messages
-/// Does NOT include error handling
-Future<void> backgroundSOS() async {
-  final List<String> currEMC = List<String>.from(emc ?? <String>[]);
-  if (currEMC.isEmpty) return;
+/// Take users to their platform settings if SOS doesn't have the permissions it needs
+Future<void> openSOSPermissions() async {
+  final PermissionStatus smsPerm =
+      isIOS ? PermissionStatus.granted : await Permission.sms.request();
+  final LocationPermission geoPerm = await Geolocator.requestPermission();
 
-  final List<String> numbers = currEMC
-      .map((String contact) => contact.split(contactSplit).last)
-      .toList();
-
-  await platform.invokeMethod<void>(
-    'backgroundSOS',
-    <String, dynamic>{
-      'recipients': numbers.join(';'),
-      'heading': 'SOS - ${l10n.sosLastKnown}',
-    },
-  );
+  if (smsPerm == PermissionStatus.denied ||
+      smsPerm == PermissionStatus.permanentlyDenied ||
+      geoPerm != LocationPermission.always) {
+    await openAppSettings();
+  }
 }
 
-/// Also Android only
-/// Cancel [backgroundSOS]
-/// Does NOT include error handling
-Future<void> cancelBackgroundSOS() =>
-    platform.invokeMethod<void>('cancelBackgroundSOS');
+// SOS //
 
 /// Call the [MethodChannel] to send a foregroundSOS
 /// Includes error handling
@@ -307,17 +296,44 @@ Future<String> getCoordinates(String linkBase) async {
   }
 }
 
-// Permission //
+/// Android only
+/// Call a custom worker factory to send periodic SOS messages
+/// Assumes an [emc] null/empty check has already been done
+Future<void> startBackgroundSOS() async {
+  try {
+    final List<String> currEMC = List<String>.from(emc ?? <String>[]);
+    if (currEMC.isEmpty) return;
 
-/// Take users to their platform settings if SOS doesn't have the permissions it needs
-Future<void> openSOSPermissions() async {
-  final PermissionStatus smsPerm =
-      isIOS ? PermissionStatus.granted : await Permission.sms.request();
-  final LocationPermission geoPerm = await Geolocator.requestPermission();
+    final List<String> numbers = currEMC
+        .map((String contact) => contact.split(contactSplit).last)
+        .toList();
 
-  if (smsPerm == PermissionStatus.denied ||
-      smsPerm == PermissionStatus.permanentlyDenied ||
-      geoPerm != LocationPermission.always) {
-    await openAppSettings();
+    await platform.invokeMethod<void>(
+      'backgroundSOS',
+      <String, dynamic>{
+        'recipients': numbers.join(';'),
+        'heading': 'SOS - ${l10n.sosLastKnown}',
+      },
+    );
+  } catch (e) {
+    ezLog(e.toString());
+    // We still want to continue. Could be a partial success
   }
+  await EzConfig.setBool(taskRunningKey, true);
+}
+
+/// Android only
+/// Safe to send [context], a mounted check is included
+Future<void> stopBackgroundSOS(BuildContext context) async {
+  try {
+    await platform.invokeMethod<void>('cancelBackgroundSOS');
+  } catch (e) {
+    // Improvement: check the error code
+    // The most likely error is that the task is already stopped
+    // But there could be scenarios where taskRunningKey should remain true
+    context.mounted
+        ? await ezLogAlert(context, message: e.toString())
+        : ezLog(e.toString());
+  }
+  await EzConfig.setBool(taskRunningKey, false);
 }
