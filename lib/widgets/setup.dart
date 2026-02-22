@@ -348,9 +348,9 @@ class _LocationSetupState extends State<LocationSetup> {
         onTap: () async {
           switch (status) {
             case LocationPermission.always:
-            case LocationPermission.deniedForever:
               return;
             case LocationPermission.whileInUse:
+            case LocationPermission.deniedForever:
               await openSOSPermissions();
               return;
             case LocationPermission.unableToDetermine:
@@ -361,9 +361,9 @@ class _LocationSetupState extends State<LocationSetup> {
               final bool serviceEnabled =
                   await Geolocator.isLocationServiceEnabled();
               if (!serviceEnabled) {
-                if (context.mounted) {
-                  await ezLogAlert(context, message: l10n.sosDisabled);
-                }
+                (context.mounted)
+                    ? await ezLogAlert(context, message: l10n.sosDisabled)
+                    : ezLog(l10n.sosDisabled);
                 return;
               }
 
