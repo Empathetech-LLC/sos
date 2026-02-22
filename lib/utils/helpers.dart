@@ -41,7 +41,6 @@ Future<void> saveToGallery(String path, bool image) async {
 Future<void> addEMC(BuildContext context, {bool loop = true}) async {
   // Check for first run
   final List<String> currEMC = List<String>.from(emc ?? <String>[]);
-  // TODO?: if (currEMC.isEmpty) await firstContactMsg(context);
 
   // Check contact permissions
   final bool contactsGranted =
@@ -168,7 +167,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
 // Fresh install //
 
 /// Allow the user to enable what parts of InstaSOS they want
-/// TODO: l10n
+/// TODO: l10n and semantics
 Future<void> appSetupModal(
   BuildContext context, {
   required Future<PermissionStatus> Function() initCamera,
@@ -203,38 +202,43 @@ Future<void> appSetupModal(
 
           // Have it your way
           Text(
-            'To start, this is only a Know Your Rights app.\nIn the list below, you can enable more tools by giving them permission.',
+            'Initially, this is only a Know Your Rights app.\nYou can enable more tools by giving them permission in the list below.',
             style: EzConfig.styles.bodyLarge,
             textAlign: TextAlign.center,
           ),
           EzConfig.centerLine,
           Text(
-            'Everything can be turned on/off at any time.',
+            'You can change your mind/permission at any time.',
             style: EzConfig.styles.bodyLarge,
             textAlign: TextAlign.center,
           ),
           EzConfig.divider,
 
           // Permission checklist
-          CameraCard(initCamera),
+          CameraSetup(initCamera),
           EzConfig.spacer,
-          LocationCard(initCamera),
+
+          const ContactsSetup(),
+          EzConfig.spacer,
+
           if (!isIOS) ...<Widget>[
+            const SMSSetup(),
             EzConfig.spacer,
-            SMSCard(initCamera),
           ],
-          EzConfig.separator,
+
+          const LocationSetup(),
+          EzConfig.spacer,
 
           // Finish/leave
           EzTextButton(
-            text: EzConfig.l10n.gClose,
+            text: 'Done',
             textStyle: EzConfig.styles.bodyLarge
                 ?.copyWith(color: EzConfig.colors.primary),
             textAlign: TextAlign.center,
             style: TextButton.styleFrom(backgroundColor: Colors.transparent),
             onPressed: () => Navigator.of(mContext).pop(true),
           ),
-          EzConfig.separator
+          EzSpacer(space: EzConfig.spacing * 1.5),
         ],
       ),
     ),
