@@ -6,7 +6,6 @@
 import './export.dart';
 import '../widgets/export.dart';
 
-import 'dart:io';
 import 'package:gal/gal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -35,44 +34,21 @@ Future<void> saveToGallery(String path, bool image) async {
 
 // Contacts //
 
-/// Prompt the user to save their first contact
-/// Users must select at least one emergency contact to use the app
-/// Include error handling
+/// Open a native contact picker and updates [emc] accordingly
 Future<void> addEMC(BuildContext context, {bool loop = true}) async {
-  // Check for first run
   final List<String> currEMC = List<String>.from(emc ?? <String>[]);
 
   // Check contact permissions
   final bool contactsGranted =
       await FlutterContacts.requestPermission(readonly: true);
 
-  // If denied: re-iterate that SOS is useless without contacts, and exit
-  while (!contactsGranted) {
+  if (!contactsGranted) {
+    // TODO: l10n
     if (context.mounted) {
-      await ezLogAlert(
-        context,
-        title: EzConfig.l10n.gError,
-        message: l10n.hsNeedContacts,
-        customActions: <EzMaterialAction>[
-          EzMaterialAction(
-            text: EzConfig.l10n.gCancel,
-            onPressed: () => exit(0),
-          ),
-          EzMaterialAction(
-            text: l10n.gOk,
-            onPressed: () => openAppSettings(),
-          ),
-        ],
-      );
-    } else {
-      // This also runs when the app returns to the foreground
-      // I think
-      // So check if permission was granted in the meantime
-      if (await Permission.contacts.isDenied ||
-          await Permission.contacts.isPermanentlyDenied) {
-        exit(0);
-      }
+      ezSnackBar(
+          context: context, message: 'Cannot add contacts without permission');
     }
+    return;
   }
 
   // Permission granted, make it so
