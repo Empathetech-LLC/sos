@@ -351,7 +351,7 @@ class _LocationSetupState extends State<LocationSetup> {
               return;
             case LocationPermission.whileInUse:
             case LocationPermission.deniedForever:
-              await openSOSPermissions();
+              await openSOSPermissions(); // TODO: figure out how to recheck when done
               return;
             case LocationPermission.unableToDetermine:
               ezSnackBar(context: context, message: 'Unable to determine');
