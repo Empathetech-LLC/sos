@@ -87,7 +87,9 @@ class _HomeScreenState extends State<HomeScreen>
       return PermissionStatus.granted;
     } catch (e) {
       if (e is! CameraException || e.code != 'CameraAccessDenied') {
-        if (mounted) await ezLogAlert(context, message: e.toString());
+        mounted
+            ? await ezLogAlert(context, message: e.toString())
+            : ezLog(e.toString());
       } else {
         ezLog('CameraException from initCamera.../n${e.toString()}');
       }
@@ -133,12 +135,12 @@ class _HomeScreenState extends State<HomeScreen>
     try {
       await cancelBackgroundSOS();
     } catch (e) {
-      if (mounted) {
-        await ezLogAlert(context, message: e.toString());
-        // Improvement: check the error code
-        // The most likely error is that the task is already stopped
-        // But there could be scenarios where taskRunningKey should remain true
-      }
+      // Improvement: check the error code
+      // The most likely error is that the task is already stopped
+      // But there could be scenarios where taskRunningKey should remain true
+      mounted
+          ? await ezLogAlert(context, message: e.toString())
+          : ezLog(e.toString());
     }
     await EzConfig.setBool(taskRunningKey, false);
   }
@@ -324,12 +326,12 @@ class _HomeScreenState extends State<HomeScreen>
 
                           if (smsStatus == PermissionStatus.denied ||
                               smsStatus == PermissionStatus.permanentlyDenied) {
-                            if (context.mounted) {
-                              await ezLogAlert(
-                                context,
-                                message: l10n.sosNeedSMS,
-                              );
-                            }
+                            (context.mounted)
+                                ? await ezLogAlert(
+                                    context,
+                                    message: l10n.sosNeedSMS,
+                                  )
+                                : ezLog(l10n.sosNeedSMS);
                             return;
                           }
                           await startForegroundSOS();
@@ -444,12 +446,12 @@ class _HomeScreenState extends State<HomeScreen>
                                 ));
                               }
                             } catch (e) {
-                              if (context.mounted) {
-                                await ezLogAlert(
-                                  context,
-                                  message: e.toString(),
-                                );
-                              }
+                              (context.mounted)
+                                  ? await ezLogAlert(
+                                      context,
+                                      message: e.toString(),
+                                    )
+                                  : ezLog(e.toString());
                             }
                           },
                         ),
@@ -496,12 +498,12 @@ class _HomeScreenState extends State<HomeScreen>
                                 // Stop recording
                                 video = await camera!.stopVideoRecording();
                               } catch (e) {
-                                if (context.mounted) {
-                                  await ezLogAlert(
-                                    context,
-                                    message: e.toString(),
-                                  );
-                                }
+                                (context.mounted)
+                                    ? await ezLogAlert(
+                                        context,
+                                        message: e.toString(),
+                                      )
+                                    : ezLog(e.toString());
                               }
                               watch.stop();
 
@@ -541,12 +543,12 @@ class _HomeScreenState extends State<HomeScreen>
                                   ));
                                 }
                               } catch (e) {
-                                if (context.mounted) {
-                                  await ezLogAlert(
-                                    context,
-                                    message: e.toString(),
-                                  );
-                                }
+                                (context.mounted)
+                                    ? await ezLogAlert(
+                                        context,
+                                        message: e.toString(),
+                                      )
+                                    : ezLog(e.toString());
                               }
                             },
                           )
@@ -581,12 +583,12 @@ class _HomeScreenState extends State<HomeScreen>
                                 watch.start();
                                 setState(() => recording = true);
                               } catch (e) {
-                                if (context.mounted) {
-                                  await ezLogAlert(
-                                    context,
-                                    message: e.toString(),
-                                  );
-                                }
+                                (context.mounted)
+                                    ? await ezLogAlert(
+                                        context,
+                                        message: e.toString(),
+                                      )
+                                    : ezLog(e.toString());
                               }
                             },
                             onLongPress: () async {
@@ -685,7 +687,9 @@ class _HomeScreenState extends State<HomeScreen>
             await camera!.initialize();
           } catch (e) {
             if (e is! CameraException || e.code != 'CameraAccessDenied') {
-              if (mounted) await ezLogAlert(context, message: e.toString());
+              mounted
+                  ? await ezLogAlert(context, message: e.toString())
+                  : ezLog(e.toString());
             }
           }
           if (mounted) setState(() {});

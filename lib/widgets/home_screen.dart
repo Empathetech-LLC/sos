@@ -60,7 +60,9 @@ class _FlashButtonState extends State<FlashButton> {
           }
           setState(() {});
         } catch (e) {
-          if (context.mounted) await ezLogAlert(context, message: e.toString());
+          (context.mounted)
+              ? await ezLogAlert(context, message: e.toString())
+              : ezLog(e.toString());
           setState(() => works = false);
         }
       },
