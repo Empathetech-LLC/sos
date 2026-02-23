@@ -203,9 +203,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
       ),
       fabs: <Widget>[
         EzConfig.spacer,
-        const EzBackFAB(showHome: true),
-        EzConfig.spacer,
         const HelpFAB(),
+        EzConfig.spacer,
+        const EzBackFAB(showHome: true),
       ],
     );
   }

@@ -151,12 +151,12 @@ class _DesignSettingsScreenState extends State<DesignSettingsScreen> {
             EzRebuildFAB(() => setState(() {})),
           ],
           config.layout.spacer,
-          const EzBackFAB(),
-          config.layout.spacer,
           EzSettingsDupeFAB(
             updateBoth,
             () => setState(() => updateBoth = !updateBoth),
           ),
+          config.layout.spacer,
+          const EzBackFAB(),
         ],
       ),
     );

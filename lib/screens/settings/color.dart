@@ -49,12 +49,12 @@ class _ColorSettingsScreenState extends State<ColorSettingsScreen> {
         ),
         fabs: <Widget>[
           EzConfig.spacer,
-          const EzBackFAB(),
-          EzConfig.spacer,
           EzSettingsDupeFAB(
             updateBoth,
             () => setState(() => updateBoth = !updateBoth),
           ),
+          EzConfig.spacer,
+          const EzBackFAB(),
         ],
       );
 }
