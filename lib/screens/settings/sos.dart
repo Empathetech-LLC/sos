@@ -31,6 +31,10 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
   // one time per visit to the page that is
   // tell them the settings (and changing them) are useless without the required permissions
   // include a link to the app settings
+  // add checks to link type as well, but diff func cuz diff permissions
+  // obviously don't add a check to emergency contacts
+  // add an "are you sure?" to removing the last contact
+  // yes/no and switch to never mention this again
   Future<bool> canSet(String key, bool value) async {
     if (value == false || isIOS) return true;
 
