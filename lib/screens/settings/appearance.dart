@@ -19,57 +19,57 @@ class AppearanceSettingsScreen extends StatelessWidget {
     return SosScaffold(
       EzScreen(
         Center(
-            child: EzScrollView(children: <Widget>[
-          // Global settings
-          const EzDominantHandSwitch(doNothing),
-          EzConfig.spacer,
+          child: EzScrollView(children: <Widget>[
+            // Global settings
+            const EzDominantHandSwitch(doNothing),
+            EzConfig.spacer,
 
-          const EzThemeModeSwitch(doNothing),
-          EzConfig.divider,
+            const EzThemeModeSwitch(doNothing),
+            EzConfig.divider,
 
-          EzElevatedIconButton(
-            onPressed: () => context.goNamed(colorSettingsPath),
-            icon: const Icon(Icons.navigate_next),
-            label: EzConfig.l10n.csPageTitle,
-          ),
-          EzConfig.spacer,
+            EzElevatedIconButton(
+              onPressed: () => context.goNamed(colorSettingsPath),
+              icon: const Icon(Icons.navigate_next),
+              label: EzConfig.l10n.csPageTitle,
+            ),
+            EzConfig.spacer,
 
-          EzElevatedIconButton(
-            onPressed: () => context.goNamed(designSettingsPath),
-            icon: const Icon(Icons.navigate_next),
-            label: EzConfig.l10n.dsPageTitle,
-          ),
-          EzConfig.spacer,
+            EzElevatedIconButton(
+              onPressed: () => context.goNamed(designSettingsPath),
+              icon: const Icon(Icons.navigate_next),
+              label: EzConfig.l10n.dsPageTitle,
+            ),
+            EzConfig.spacer,
 
-          EzElevatedIconButton(
-            onPressed: () => context.goNamed(layoutSettingsPath),
-            icon: const Icon(Icons.navigate_next),
-            label: EzConfig.l10n.lsPageTitle,
-          ),
-          EzConfig.spacer,
+            EzElevatedIconButton(
+              onPressed: () => context.goNamed(layoutSettingsPath),
+              icon: const Icon(Icons.navigate_next),
+              label: EzConfig.l10n.lsPageTitle,
+            ),
+            EzConfig.spacer,
 
-          EzElevatedIconButton(
-            onPressed: () => context.goNamed(textSettingsPath),
-            icon: const Icon(Icons.navigate_next),
-            label: EzConfig.l10n.tsPageTitle,
-          ),
-          EzConfig.divider,
+            EzElevatedIconButton(
+              onPressed: () => context.goNamed(textSettingsPath),
+              icon: const Icon(Icons.navigate_next),
+              label: EzConfig.l10n.tsPageTitle,
+            ),
+            EzConfig.divider,
 
-          const EzQuickConfig(
-            doNothing,
-            chalkboard: false,
-            nebula: false,
-          ),
-          EzConfig.spacer,
+            const EzQuickConfig(
+              doNothing,
+              chalkboard: false,
+              nebula: false,
+            ),
+            EzConfig.spacer,
 
-          EzResetButton(
-            doNothing,
-            resetSkip: neverResetKeys,
-            appName: appName,
-            androidPackage: androidPackage,
-          ),
-          EzConfig.separator,
-        ])),
+            EzResetButton(
+              doNothing,
+              resetSkip: neverResetKeys,
+              appName: appName,
+              androidPackage: androidPackage,
+            ),
+          ]),
+        ),
         useImageDecoration: false,
       ),
       fabs: <Widget>[
