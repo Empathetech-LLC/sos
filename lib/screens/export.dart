@@ -5,10 +5,12 @@
 
 // Exports //
 
-export 'error.dart';
 export 'home.dart';
+export 'error.dart';
 
 export 'settings/home.dart';
+
+export 'settings/sos.dart';
 
 export 'settings/appearance.dart';
 export 'settings/color.dart';
@@ -20,6 +22,9 @@ export 'settings/text.dart';
 
 /// settings-home
 const String settingsHomePath = 'settings-home';
+
+/// sos-settings
+const String sosSettingsPath = 'sos-settings';
 
 /// appearance-home
 const String appearanceSettingsPath = 'appearance-settings';

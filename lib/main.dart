@@ -94,6 +94,14 @@ class SOS extends StatelessWidget {
                 pageBuilder: (BuildContext context, GoRouterState state) =>
                     ezPageBuilder(context, state, SettingsHomeScreen()),
                 routes: <RouteBase>[
+                  // SOS settings
+                  GoRoute(
+                    path: sosSettingsPath,
+                    name: sosSettingsPath,
+                    pageBuilder: (BuildContext context, GoRouterState state) =>
+                        ezPageBuilder(context, state, SOSSettingsScreen()),
+                  ),
+
                   // Appearance settings
                   GoRoute(
                     path: appearanceSettingsPath,
