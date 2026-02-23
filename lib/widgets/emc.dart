@@ -46,48 +46,51 @@ class _ContactListState extends State<ContactList> {
           EzConfig.margin,
 
           // List of numbers (with remove buttons)
-          ConstrainedBox(
-            constraints: BoxConstraints(maxHeight: heightOf(context) / 3),
-            child: Card(
-              child: EzScrollView(
-                mainAxisSize: MainAxisSize.min,
-                // Using fold w/ spacers bc map w/ padding looks weird with screen readers
-                children: currEMC.fold<List<Widget>>(<Widget>[], (
-                  List<Widget> acc,
-                  String contact,
-                ) {
-                  final List<String> parts = contact.split(contactSplit);
-                  late final String? initials;
-                  late final String number;
+          if (emc != null && emc!.isNotEmpty)
+            ConstrainedBox(
+              constraints: BoxConstraints(maxHeight: heightOf(context) / 3),
+              child: Card(
+                child: EzScrollView(
+                  mainAxisSize: MainAxisSize.min,
+                  // Using fold w/ spacers bc map w/ padding looks weird with screen readers
+                  children: currEMC.fold<List<Widget>>(<Widget>[], (
+                    List<Widget> acc,
+                    String contact,
+                  ) {
+                    final List<String> parts = contact.split(contactSplit);
+                    late final String? initials;
+                    late final String number;
 
-                  if (parts.length == 2) {
-                    initials = parts.first;
-                    number = parts.last;
-                  } else {
-                    initials = null;
-                    number = contact;
-                  }
+                    if (parts.length == 2) {
+                      initials = parts.first;
+                      number = parts.last;
+                    } else {
+                      initials = null;
+                      number = contact;
+                    }
 
-                  acc.addAll(<Widget>[
-                    _ContactTile(
-                      key: ValueKey<String>(contact),
-                      initials: initials,
-                      number: number,
-                      enabled: currEMC.length > 1,
-                      onRemove: () async {
-                        currEMC.remove(contact);
-                        await EzConfig.setStringList(emcKey, currEMC);
-                        setState(() => currEMC = emc ?? currEMC);
-                      },
-                    ),
-                    EzSpacer(space: EzConfig.spacing - EzConfig.marginVal * 2),
-                  ]);
+                    acc.addAll(<Widget>[
+                      _ContactTile(
+                        key: ValueKey<String>(contact),
+                        initials: initials,
+                        number: number,
+                        enabled: currEMC.length > 1,
+                        onRemove: () async {
+                          currEMC.remove(contact);
+                          await EzConfig.setStringList(emcKey, currEMC);
+                          setState(() => currEMC = emc ?? currEMC);
+                        },
+                      ),
+                      EzSpacer(
+                          space: EzConfig.spacing - EzConfig.marginVal * 2),
+                    ]);
 
-                  return acc;
-                }).sublist(0, currEMC.length * 2 - 1), // Remove trailing spacer
+                    return acc;
+                  }).sublist(0, currEMC.length * 2 - 1),
+                  // Removes trailing spacer
+                ),
               ),
             ),
-          ),
         ],
       );
 }
