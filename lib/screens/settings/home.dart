@@ -49,6 +49,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
       EzScreen(
         EzScrollView(
           children: <Widget>[
+            EzHeader(),
+
             // Language
             EzLocaleSetting(
               () => setState(() {}),
@@ -57,6 +59,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               protest: true,
             ),
             EzConfig.separator,
+
+            // TODO: make SOS settings page and add message customization
 
             // SOS on open
             EzSwitchPair(
@@ -153,7 +157,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
             // EMC
             const ContactList(),
-            EzConfig.separator,
+            // Spacer included
 
             // Link type
             EzScrollView(
