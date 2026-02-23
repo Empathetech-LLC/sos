@@ -22,14 +22,11 @@ class _LayoutSettingsScreenState extends State<LayoutSettingsScreen> {
   @override
   Widget build(BuildContext context) => SosScaffold(
         EzScreen(
-          Center(
-            child: EzLayoutSettings(
-              onUpdate: () => setState(() {}),
-              updateBoth: updateBoth,
-              appName: appName,
-              androidPackage: androidPackage,
-              trail: const SizedBox.shrink(),
-            ),
+          EzLayoutSettings(
+            onUpdate: () => setState(() {}),
+            updateBoth: updateBoth,
+            appName: appName,
+            androidPackage: androidPackage,
           ),
           useImageDecoration: false,
         ),
