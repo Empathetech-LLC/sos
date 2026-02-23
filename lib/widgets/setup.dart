@@ -355,7 +355,7 @@ class _SMSSetupState extends State<SMSSetup> {
                   padding: EdgeInsets.all(EzConfig.marginVal),
                   child: status == PermissionStatus.granted
                       ? Text(
-                          'SMS is ready',
+                          'Messages are ready',
                           style: EzConfig.styles.bodyLarge,
                           textAlign: TextAlign.start,
                         )
@@ -364,7 +364,7 @@ class _SMSSetupState extends State<SMSSetup> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              'SMS',
+                              'Messaging',
                               style: EzConfig.styles.bodyLarge,
                               textAlign: TextAlign.start,
                             ),
@@ -436,7 +436,7 @@ class _LocationSetupState extends State<LocationSetup>
               await openSOSPermissions(); // TODO: figure out how to recheck when done
               return;
             case LocationPermission.unableToDetermine:
-              ezSnackBar(context: context, message: 'Unable to determine');
+              ezSnackBar(context, message: 'Unable to determine');
               return;
             case LocationPermission.denied:
             case null:
