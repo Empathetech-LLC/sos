@@ -74,7 +74,6 @@ class _ContactListState extends State<ContactList> {
                         key: ValueKey<String>(contact),
                         initials: initials,
                         number: number,
-                        enabled: currEMC.length > 1,
                         onRemove: () async {
                           currEMC.remove(contact);
                           await EzConfig.setStringList(emcKey, currEMC);
@@ -91,6 +90,8 @@ class _ContactListState extends State<ContactList> {
                 ),
               ),
             ),
+
+          currEMC.isEmpty ? EzConfig.spacer : EzConfig.separator,
         ],
       );
 }
@@ -98,14 +99,12 @@ class _ContactListState extends State<ContactList> {
 class _ContactTile extends StatelessWidget {
   final String? initials;
   final String number;
-  final bool enabled;
   final VoidCallback onRemove;
 
   const _ContactTile({
     super.key,
     required this.initials,
     required this.number,
-    required this.enabled,
     required this.onRemove,
   });
 
@@ -145,10 +144,8 @@ class _ContactTile extends StatelessWidget {
             EzIconButton(
               icon: Icon(
                 Icons.remove_circle_outline,
-                semanticLabel:
-                    '${l10n.ssRemoveHint}.${enabled ? '' : ' ${EzConfig.l10n.gDisabled}.'}',
+                semanticLabel: l10n.ssRemoveHint,
               ),
-              enabled: enabled,
               onPressed: onRemove,
               tooltip: l10n.ssRemoveHint,
             ),
