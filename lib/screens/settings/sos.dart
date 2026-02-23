@@ -25,6 +25,12 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
 
   // Define custom functions //
 
+  // TODO: the following...
+  // check emc too
+  // allow the user to update their settings whenever, canSet should just be a one time alert
+  // one time per visit to the page that is
+  // tell them the settings (and changing them) are useless without the required permissions
+  // include a link to the app settings
   Future<bool> canSet(String key, bool value) async {
     if (value == false || isIOS) return true;
 
