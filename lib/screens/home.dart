@@ -13,7 +13,6 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:after_layout/after_layout.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -28,9 +27,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with AfterLayoutMixin<HomeScreen>, WidgetsBindingObserver {
-  //* Define the build data *//
-  // Core //
+  // Define the build data //
 
+  // Core
   CameraDescription? cameraDesc;
   CameraController? camera;
 
@@ -41,8 +40,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   Timer? sosTimer;
 
-  // Tutorial(s) //
-
+  // Tutorial(s)
   final OverlayPortalController sosTutorial =
       OverlayPortalController(debugLabel: 'sos');
   final OverlayPortalController cameraTutorial =
@@ -50,8 +48,7 @@ class _HomeScreenState extends State<HomeScreen>
   final OverlayPortalController settingsTutorial =
       OverlayPortalController(debugLabel: 'settings');
 
-  //* Define custom functions *//
-  // Camera //
+  // Define custom functions //
 
   /// Initialize the [camera]
   Future<PermissionStatus> initCamera() async {
@@ -69,11 +66,8 @@ class _HomeScreenState extends State<HomeScreen>
     }
 
     final PermissionStatus status = await Permission.camera.request();
-    if (status == PermissionStatus.denied ||
-        status == PermissionStatus.restricted ||
-        status == PermissionStatus.permanentlyDenied) {
-      return status;
-    }
+    if (deniedPermCheck(status)) return status;
+
     await Permission.microphone.request(); // Not required
 
     final List<CameraDescription> cameras = await availableCameras();
@@ -109,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen>
 
     if (showSnack && mounted) {
       ezSnackBar(
-        context: context,
+        context,
         message: l10n.hsAutoSOS,
         undo: () async => stopForegroundSOS(),
         undoMessage: l10n.hsStop,
@@ -120,32 +114,7 @@ class _HomeScreenState extends State<HomeScreen>
   /// Cancel the [sosTimer]
   void stopForegroundSOS() => setState(() => sosTimer?.cancel());
 
-  /// Assumes an [emc] null/empty check has already been done
-  Future<void> startBackgroundSOS() async {
-    try {
-      await backgroundSOS();
-    } catch (e) {
-      ezLog(e.toString());
-      // We still want to continue. Could be a partial success
-    }
-    await EzConfig.setBool(taskRunningKey, true);
-  }
-
-  Future<void> stopBackgroundSOS() async {
-    try {
-      await cancelBackgroundSOS();
-    } catch (e) {
-      // Improvement: check the error code
-      // The most likely error is that the task is already stopped
-      // But there could be scenarios where taskRunningKey should remain true
-      mounted
-          ? await ezLogAlert(context, message: e.toString())
-          : ezLog(e.toString());
-    }
-    await EzConfig.setBool(taskRunningKey, false);
-  }
-
-  //* Init *//
+  // Init //
 
   @override
   void initState() {
@@ -165,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen>
     } else {
       // Check for auto SOS
       final bool taskRunning = EzConfig.get(taskRunningKey);
-      if (taskRunning) await stopBackgroundSOS();
+      if (taskRunning) await stopBackgroundSOS(context);
       if (sosOnOpen || taskRunning) await startForegroundSOS(showSnack: true);
 
       // Setup the camera/preview
@@ -195,7 +164,10 @@ class _HomeScreenState extends State<HomeScreen>
                 width: double.infinity,
                 color: EzConfig.colors.surface,
                 child: camera == null
-                    ? Visibility(visible: showRights, child: const RightsView())
+                    ? Visibility(
+                        visible: showRights,
+                        child: const RightsView(),
+                      )
                     : Stack(children: <Widget>[
                         Center(
                           child: Semantics(
@@ -256,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen>
             right: 0,
             child: Center(
               child: OverlayPortal(
-                controller: sosTutorial,
+                controller: sosTutorial, // TODO: restore counter on all 3
                 overlayChildBuilder: (_) => EzTutorial(
                   top: safeTop(context) +
                       spargin +
@@ -265,50 +237,15 @@ class _HomeScreenState extends State<HomeScreen>
                   left: 0,
                   right: 0,
                   title: EzIcon(
-                    Icons.arrow_upward,
+                    Icons.keyboard_arrow_up,
                     color: EzConfig.colors.onSurface,
                   ),
-                  content: isIOS
+                  content: isIOS // TODO: update lang for new options
                       ? l10n.hsIOSBroadcastTutorial
                       : l10n.hsBroadcastTutorial,
                   acceptMessage: l10n.gOk,
-                  onAccept: () async {
+                  onAccept: () {
                     sosTutorial.hide();
-                    if (!isIOS) await Permission.sms.request();
-                    final LocationPermission choice =
-                        await Geolocator.requestPermission();
-
-                    if (choice == LocationPermission.whileInUse &&
-                        !isIOS &&
-                        context.mounted) {
-                      // Reminder that 'always' is recommended && secure
-                      await showDialog(
-                        context: context,
-                        builder: (_) => EzAlertDialog(
-                          title: Text(
-                            l10n.hsPermissionsTutorialTitle,
-                            textAlign: TextAlign.center,
-                          ),
-                          contents: <Widget>[
-                            Text(
-                              l10n.hsPermissionsAlways,
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                          actions: ezActionPair(
-                            context: context,
-                            onConfirm: () async {
-                              await openAppSettings();
-                              if (context.mounted) Navigator.of(context).pop();
-                            },
-                            confirmMsg: l10n.gOk,
-                            onDeny: () => Navigator.of(context).pop(false),
-                            denyMsg: EzConfig.l10n.gNo,
-                          ),
-                          needsClose: false,
-                        ),
-                      );
-                    }
                     settingsTutorial.show();
                   },
                 ),
@@ -317,18 +254,26 @@ class _HomeScreenState extends State<HomeScreen>
                         icon: const SOSIcon(),
                         iconSize: EzConfig.iconSize * 1.5,
                         onPressed: stopForegroundSOS,
-                        onLongPress: openSOSPermissions,
                       )
                     : EzIconButton(
                         icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
                         iconSize: EzConfig.iconSize * 1.5,
                         onPressed: () async {
+                          // Check contacts
+                          if (emc == null || emc!.isEmpty) {
+                            (context.mounted)
+                                ? ezSnackBar(context,
+                                    message: 'No contacts to alert.')
+                                : ezLog(l10n.sosNeedSMS);
+                            return; // TODO: l10n
+                          }
+
+                          // Check permissions
                           final PermissionStatus smsStatus = isIOS
                               ? PermissionStatus.granted
                               : await Permission.sms.request();
 
-                          if (smsStatus == PermissionStatus.denied ||
-                              smsStatus == PermissionStatus.permanentlyDenied) {
+                          if (deniedPermCheck(smsStatus)) {
                             (context.mounted)
                                 ? await ezLogAlert(
                                     context,
@@ -337,9 +282,10 @@ class _HomeScreenState extends State<HomeScreen>
                                 : ezLog(l10n.sosNeedSMS);
                             return;
                           }
+
+                          // Make it so
                           await startForegroundSOS();
                         },
-                        onLongPress: openSOSPermissions,
                       ),
               ),
             ),
@@ -356,11 +302,16 @@ class _HomeScreenState extends State<HomeScreen>
                 top: safeTop(context) + EzConfig.marginVal,
                 right: EzConfig.isLefty ? 0 : spargin + EzConfig.iconSize,
                 left: EzConfig.isLefty ? spargin + EzConfig.iconSize : 0,
-                title: EzIcon(
-                  Icons.arrow_upward,
-                  color: EzConfig.colors.onSurface,
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    EzIcon(
+                      Icons.keyboard_arrow_right,
+                      color: EzConfig.colors.onSurface,
+                    ),
+                  ],
                 ),
-                content: l10n.hsSettingsTutorial,
+                content: l10n.hsSettingsTutorial, // TODO: center to camera
                 acceptMessage: l10n.gOk,
                 onAccept: () {
                   settingsTutorial.hide();
@@ -427,7 +378,7 @@ class _HomeScreenState extends State<HomeScreen>
                         )
                       : EzIconButton(
                           icon: Icon(
-                            Icons.camera,
+                            Icons.camera_alt,
                             semanticLabel: l10n.hsCameraHint,
                           ),
                           onPressed: () async {
@@ -473,10 +424,6 @@ class _HomeScreenState extends State<HomeScreen>
                           EzConfig.spacing,
                       left: 0,
                       right: 0,
-                      title: EzIcon(
-                        Icons.arrow_upward,
-                        color: EzConfig.colors.onSurface,
-                      ),
                       content: camera == null
                           ? isIOS
                               ? l10n.hsIOSRightsTutorial
@@ -577,10 +524,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 final PermissionStatus cameraPerm =
                                     await initCamera();
 
-                                if (cameraPerm == PermissionStatus.granted ||
-                                    cameraPerm == PermissionStatus.limited ||
-                                    cameraPerm ==
-                                        PermissionStatus.provisional) {
+                                if (allowedPermCheck(cameraPerm)) {
                                   setState(() {});
                                 } else {
                                   return;
@@ -599,9 +543,6 @@ class _HomeScreenState extends State<HomeScreen>
                                       )
                                     : ezLog(e.toString());
                               }
-                            },
-                            onLongPress: () async {
-                              if (camera == null) await openAppSettings();
                             },
                           ),
                   ),
@@ -706,7 +647,9 @@ class _HomeScreenState extends State<HomeScreen>
 
         // Check SOS state
         if (EzConfig.get(taskRunningKey) == true) {
-          await stopBackgroundSOS();
+          // stopBackgroundSOS handles the async context
+          // ignore: use_build_context_synchronously
+          await stopBackgroundSOS(context);
           await startForegroundSOS(showSnack: true);
         }
         break;
