@@ -34,6 +34,7 @@ class _DesignSettingsScreenState extends State<DesignSettingsScreen> {
             includeBackgroundImage: false,
             beforeDesign: <Widget>[
               // Text Background Opacity mirror
+              // TODO: done button and live updates (also double check update both)
               EzElevatedIconButton(
                 onPressed: () async {
                   double opacity = EzConfig.get(EzConfig.isDark
@@ -129,7 +130,7 @@ class _DesignSettingsScreenState extends State<DesignSettingsScreen> {
                             icon: const Icon(Icons.refresh),
                             label: EzConfig.l10n.gReset,
                           ),
-                          EzSpacer(space: EzConfig.spacing * 1.5),
+                          EzSpacer(space: EzConfig.spargin),
                         ],
                       ),
                     ),

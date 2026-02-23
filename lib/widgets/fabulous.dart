@@ -377,7 +377,7 @@ class HelpFAB extends StatelessWidget {
                   ),
                 ),
               ],
-              EzSpacer(space: EzConfig.spacing * 1.5),
+              EzSpacer(space: EzConfig.spargin),
             ],
           ),
         ),

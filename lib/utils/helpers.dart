@@ -213,7 +213,7 @@ Future<void> appSetupModal(
             style: TextButton.styleFrom(backgroundColor: Colors.transparent),
             onPressed: () => Navigator.of(mContext).pop(true),
           ),
-          EzSpacer(space: EzConfig.spacing * 1.5),
+          EzSpacer(space: EzConfig.spargin),
         ],
       ),
     ),
