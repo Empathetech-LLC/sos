@@ -442,7 +442,10 @@ class _HomeScreenState extends State<HomeScreen>
                           ? EzIconButton(
                               style: IconButton.styleFrom(
                                 foregroundColor: videoColor,
-                                side: BorderSide(color: videoTextColor),
+                                side: BorderSide(
+                                  color: videoTextColor,
+                                  width: borderWidth,
+                                ),
                               ),
                               icon: Icon(
                                 Icons.stop,
@@ -513,7 +516,9 @@ class _HomeScreenState extends State<HomeScreen>
                               style: IconButton.styleFrom(
                                 foregroundColor: videoColor,
                                 side: BorderSide(
-                                    color: EzConfig.colors.onSurface),
+                                  color: EzConfig.colors.onSurface,
+                                  width: borderWidth,
+                                ),
                               ),
                               icon: Icon(
                                 Icons.circle,
