@@ -45,8 +45,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
   if (!contactsGranted) {
     // TODO: l10n
     if (context.mounted) {
-      ezSnackBar(
-          context: context, message: 'Cannot add contacts without permission');
+      ezSnackBar(context, message: 'Cannot add contacts without permission');
     }
     return;
   }
@@ -96,7 +95,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
     if (contact.phones.isEmpty) {
       // Invalid contact, warn the user and optionally retry
       if (context.mounted) {
-        await ezSnackBar(context: context, message: l10n.hsNumError).closed;
+        await ezSnackBar(context, message: l10n.hsNumError).closed;
       }
     } else {
       // We have a valid contact, gather the phones with numbers
@@ -107,7 +106,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
       if (phones.isEmpty) {
         // No valid numbers, warn the user and optionally retry
         if (context.mounted) {
-          await ezSnackBar(context: context, message: l10n.hsNumError).closed;
+          await ezSnackBar(context, message: l10n.hsNumError).closed;
         }
       } else {
         // We have at least one valid number, proceed

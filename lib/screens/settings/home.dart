@@ -36,7 +36,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
         canSMS != PermissionStatus.permanentlyDenied) {
       return true;
     } else {
-      if (mounted) ezSnackBar(context: context, message: l10n.sosNeedSMS);
+      if (mounted) ezSnackBar(context, message: l10n.sosNeedSMS);
       return false;
     }
   }
