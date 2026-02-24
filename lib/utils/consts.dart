@@ -153,6 +153,9 @@ const String savedTabKey = 'savedTab';
 /// setupComplete
 const String setupCompleteKey = 'setupComplete';
 
+/// showBackFAB
+const String showBackFABKey = 'showBackFAB';
+
 /// showContactsMsg
 const String showContactsMsgKey = 'showContactsMsg';
 
@@ -162,10 +165,11 @@ const String showTutorialKey = 'showTutorial';
 /// taskRunning
 const String taskRunningKey = 'taskRunning';
 
-/// [savedTabKey], [setupCompleteKey], [showContactsMsgKey], [showTutorialKey], [taskRunningKey]
+/// [savedTabKey], [setupCompleteKey], [showBackFABKey], [showContactsMsgKey], [showTutorialKey], [taskRunningKey]
 const Map<String, Type> sosBTSKeys = <String, Type>{
   savedTabKey: String,
   setupCompleteKey: bool,
+  showBackFABKey: bool,
   showContactsMsgKey: bool,
   showTutorialKey: bool,
   taskRunningKey: bool,
@@ -227,6 +231,7 @@ final Map<String, Object> sosConfig = <String, Object>{
   // BTS
   savedTabKey: walkingTab,
   setupCompleteKey: false,
+  showBackFABKey: true,
   showContactsMsgKey: true,
   showTutorialKey: true,
   taskRunningKey: false,

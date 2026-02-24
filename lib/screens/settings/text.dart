@@ -45,8 +45,10 @@ class _TextSettingsScreenState extends State<TextSettingsScreen> {
               updateBoth,
               () => setState(() => updateBoth = !updateBoth),
             ),
-            config.layout.spacer,
-            const EzBackFAB(),
+            if (showBackFAB) ...<Widget>[
+              config.layout.spacer,
+              const EzBackFAB(),
+            ]
           ],
         ),
       );

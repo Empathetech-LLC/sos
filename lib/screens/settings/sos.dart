@@ -191,7 +191,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
         ),
         useImageDecoration: false,
       ),
-      fabs: <Widget>[EzConfig.spacer, const EzBackFAB()],
+      fabs: showBackFAB ? <Widget>[EzConfig.spacer, const EzBackFAB()] : null,
     );
   }
 }

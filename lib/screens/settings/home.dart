@@ -433,7 +433,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
         ),
         useImageDecoration: false,
       ),
-      fabs: <Widget>[EzConfig.spacer, const EzBackFAB(showHome: true)],
+      fabs: showBackFAB
+          ? <Widget>[EzConfig.spacer, const EzBackFAB(showHome: true)]
+          : null,
     );
   }
 }

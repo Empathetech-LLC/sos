@@ -53,8 +53,10 @@ class _ColorSettingsScreenState extends State<ColorSettingsScreen> {
             updateBoth,
             () => setState(() => updateBoth = !updateBoth),
           ),
-          EzConfig.spacer,
-          const EzBackFAB(),
+          if (showBackFAB) ...<Widget>[
+            EzConfig.spacer,
+            const EzBackFAB(),
+          ]
         ],
       );
 }

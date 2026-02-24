@@ -79,8 +79,10 @@ class AppearanceSettingsScreen extends StatelessWidget {
           appName: appName,
           androidPackage: androidPackage,
         ),
-        EzConfig.spacer,
-        const EzBackFAB(),
+        if (showBackFAB) ...<Widget>[
+          EzConfig.spacer,
+          const EzBackFAB(),
+        ]
       ],
     );
   }
