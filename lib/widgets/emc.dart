@@ -9,7 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class ContactList extends StatefulWidget {
-  const ContactList({super.key});
+  final void Function() onUpdate;
+
+  const ContactList(this.onUpdate, {super.key});
 
   @override
   State<ContactList> createState() => _ContactListState();
@@ -38,6 +40,7 @@ class _ContactListState extends State<ContactList> {
                 onPressed: () async {
                   await addEMC(context, loop: false);
                   setState(() => currEMC = emc ?? currEMC);
+                  widget.onUpdate.call();
                 },
                 tooltip: l10n.ssAddHint,
               ),
@@ -78,6 +81,7 @@ class _ContactListState extends State<ContactList> {
                           currEMC.remove(contact);
                           await EzConfig.setStringList(emcKey, currEMC);
                           setState(() => currEMC = emc ?? currEMC);
+                          widget.onUpdate.call();
                         },
                       ),
                       EzSpacer(
