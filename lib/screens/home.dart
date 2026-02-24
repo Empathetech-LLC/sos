@@ -256,15 +256,6 @@ class _HomeScreenState extends State<HomeScreen>
                           icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
                           iconSize: EzConfig.iconSize * 1.5,
                           onPressed: () async {
-                            // Check contacts
-                            if (emc == null || emc!.isEmpty) {
-                              (context.mounted)
-                                  ? ezSnackBar(context,
-                                      message: 'No contacts to alert.')
-                                  : ezLog(l10n.sosNeedSMS);
-                              return; // TODO: l10n
-                            }
-
                             // Check permissions
                             final PermissionStatus smsStatus = isIOS
                                 ? PermissionStatus.granted
@@ -277,6 +268,19 @@ class _HomeScreenState extends State<HomeScreen>
                                       message: l10n.sosNeedSMS,
                                     )
                                   : ezLog(l10n.sosNeedSMS);
+                              return;
+                            }
+
+                            // Check contacts
+                            if (emc == null || emc!.isEmpty) {
+                              if (context.mounted) {
+                                ezSnackBar(
+                                  context,
+                                  message: 'Please add emergency contacts',
+                                ); // TODO: l10n
+                                await context.pushNamed(sosSettingsPath);
+                                setState(() {});
+                              }
                               return;
                             }
 
@@ -532,9 +536,8 @@ class _HomeScreenState extends State<HomeScreen>
 
                                   if (allowedPermCheck(cameraPerm)) {
                                     setState(() {});
-                                  } else {
-                                    return;
                                   }
+                                  return;
                                 }
 
                                 try {
@@ -556,10 +559,18 @@ class _HomeScreenState extends State<HomeScreen>
 
                     // Flash
                     camera == null
-                        ? const EzIconButton(
-                            icon: Icon(Icons.flash_off),
-                            enabled: false,
-                            onPressed: doNothing,
+                        ? EzIconButton(
+                            icon: const Icon(Icons.flash_off),
+                            fauxDisabled: true,
+                            onPressed: () async {
+                              final PermissionStatus cameraPerm =
+                                  await initCamera();
+
+                              if (allowedPermCheck(cameraPerm)) {
+                                setState(() {});
+                              }
+                              return;
+                            },
                           )
                         : FlashButton(camera!),
                   ],
