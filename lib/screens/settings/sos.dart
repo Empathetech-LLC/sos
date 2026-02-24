@@ -58,7 +58,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
         Center(
           child: EzScrollView(children: <Widget>[
             // EMC
-            const ContactList(),
+            ContactList(() => setState(() {})),
             // Spacer included
 
             // Link type
@@ -99,6 +99,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
 
             // SOS on open
             EzSwitchPair(
+              enabled: emc == null ? false : emc!.isNotEmpty,
               text: l10n.ssSOSOnOpen,
               valueKey: sosOnOpenKey,
               canChange: (bool choice) => canSet(sosOnOpenKey, choice),
@@ -108,6 +109,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
               // SOS on close
               EzConfig.spacer,
               EzSwitchPair(
+                enabled: emc == null ? false : emc!.isNotEmpty,
                 text: l10n.ssSOSOnClose,
                 valueKey: sosOnCloseKey,
                 canChange: (bool choice) async {
@@ -179,6 +181,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
 
               // SOS on interrupt
               EzSwitchPair(
+                enabled: emc == null ? false : emc!.isNotEmpty,
                 text: l10n.ssVideoSOS,
                 valueKey: sosOnInterruptKey,
                 canChange: (bool choice) => canSet(sosOnInterruptKey, choice),
