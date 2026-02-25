@@ -80,12 +80,14 @@ class _HomeScreenState extends State<HomeScreen>
       await camera!.initialize();
       return PermissionStatus.granted;
     } catch (e) {
+      final String message = e.toString();
+
       if (e is! CameraException || e.code != 'CameraAccessDenied') {
-        mounted
-            ? await ezLogAlert(context, message: e.toString())
-            : ezLog(e.toString());
+        (mounted && !message.contains('dispose'))
+            ? await ezLogAlert(context, message: message)
+            : ezLog(message);
       } else {
-        ezLog('CameraException from initCamera.../n${e.toString()}');
+        ezLog('CameraException from initCamera.../n$message');
       }
       return PermissionStatus.denied;
     }
@@ -272,7 +274,7 @@ class _HomeScreenState extends State<HomeScreen>
                             }
 
                             // Check contacts
-                            if (emc == null || emc!.isEmpty) {
+                            if (emc.isEmpty) {
                               if (context.mounted) {
                                 ezSnackBar(
                                   context,
