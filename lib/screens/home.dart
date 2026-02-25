@@ -234,7 +234,7 @@ class _HomeScreenState extends State<HomeScreen>
                     left: 0,
                     right: 0,
                     title: EzIcon(
-                      Icons.keyboard_arrow_up,
+                      Icons.arrow_upward,
                       color: EzConfig.colors.onSurface,
                     ),
                     content: isIOS // TODO: update lang for new options
@@ -311,7 +311,7 @@ class _HomeScreenState extends State<HomeScreen>
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       EzIcon(
-                        Icons.keyboard_arrow_right,
+                        Icons.arrow_forward,
                         color: EzConfig.colors.onSurface,
                       ),
                     ],
@@ -400,7 +400,10 @@ class _HomeScreenState extends State<HomeScreen>
                                       context.findRenderObject() as RenderBox?;
 
                                   await SharePlus.instance.share(ShareParams(
-                                    text: await getCoordinates(linkType.base),
+                                    text: await getCoordinates(
+                                      linkType.base,
+                                      nullable: true,
+                                    ),
                                     files: <XFile>[image],
                                     sharePositionOrigin:
                                         box!.localToGlobal(Offset.zero) &
@@ -439,6 +442,21 @@ class _HomeScreenState extends State<HomeScreen>
                         acceptMessage: l10n.gOk,
                         onAccept: () async {
                           cameraTutorial.hide();
+
+                          await showDialog(
+                            context: context,
+                            builder: (_) => EzAlertDialog(
+                              title: const Text(
+                                'Tutorial complete',
+                                textAlign: TextAlign.center,
+                              ),
+                              content: Text(
+                                "If you're using SOS alerts, please head to the settings page and add your emergency contacts.",
+                                style: EzConfig.styles.bodyLarge,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          );
                           await EzConfig.setBool(showTutorialKey, false);
                         },
                       ),
@@ -499,7 +517,10 @@ class _HomeScreenState extends State<HomeScreen>
                                         .findRenderObject() as RenderBox?;
 
                                     await SharePlus.instance.share(ShareParams(
-                                      text: await getCoordinates(linkType.base),
+                                      text: await getCoordinates(
+                                        linkType.base,
+                                        nullable: true,
+                                      ),
                                       files: <XFile>[XFile(mp4Path)],
                                       sharePositionOrigin:
                                           box!.localToGlobal(Offset.zero) &
