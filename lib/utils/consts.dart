@@ -275,8 +275,8 @@ const String contactSplit = ':';
 /// https://www.aclu.org/know-your-rights
 const String acluLink = 'https://www.aclu.org/know-your-rights';
 
-/// https://www.immdef.org/resources
-const String immdefLink = 'https://www.immdef.org/resources';
+/// https://www.empathetech.net/#/contribute
+const String contributeLink = 'https://www.empathetech.net/#/contribute';
 
 /// https://dunkthevote4ever.org/project/the-black-book-know-your-rights/
 const String dunkLink =
@@ -285,5 +285,15 @@ const String dunkLink =
 /// https://lab.witness.org/projects/eyes-on-ice/
 const String howToLink = 'https://lab.witness.org/projects/eyes-on-ice/';
 
-/// https://www.empathetech.net/#/contribute
-const String contributeLink = 'https://www.empathetech.net/#/contribute';
+/// https://locator.ice.gov/odls/#/search
+const String iceLocatorLink = 'https://locator.ice.gov/odls/#/search';
+
+/// https://icerr.com/
+const String icerrLink = 'https://icerr.com/';
+
+/// https://www.immdef.org/resources
+const String immdefLink = 'https://www.immdef.org/resources';
+
+/// https://nnirr.org/education-resources/community-resources-legal-assistance-recursos-comunitarios-asistencia-legal/immigration-hotlines-lineas-directas-de-inmigracion/
+const String nirrHotlinesLink =
+    'https://nnirr.org/education-resources/community-resources-legal-assistance-recursos-comunitarios-asistencia-legal/immigration-hotlines-lineas-directas-de-inmigracion/';
