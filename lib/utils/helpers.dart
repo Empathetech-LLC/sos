@@ -177,7 +177,9 @@ Future<void> appSetupModal(
 
           // Have it your way
           Text(
-            'Initially, this is only a Know Your Rights app.\nYou can enable more tools by giving them permission in the list below.',
+            showTutorial
+                ? 'Initially, this is only a Know Your Rights app.\nYou can enable more tools by giving them permission in the list below.'
+                : "The latest update was a big one, let's make sure everything is ready below",
             style: EzConfig.styles.bodyLarge,
             textAlign: TextAlign.center,
           ),
@@ -267,12 +269,16 @@ Future<void> foregroundSOS() async {
 /// Gets coordinates from [Geolocator]
 /// Returns the coordinates injected into a Google Maps URL
 /// Includes error handling
-Future<String> getCoordinates(String linkBase) async {
+Future<String?> getCoordinates(String linkBase, {bool nullable = false}) async {
+  late final String? disabled = nullable ? null : l10n.sosDisabled;
+  late final String? denied = nullable ? null : l10n.sosDenied;
+  late final String? errored = nullable ? null : l10n.sosError;
+
   final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!serviceEnabled) return l10n.sosDisabled;
+  if (!serviceEnabled) return disabled;
 
   LocationPermission permission = await Geolocator.checkPermission();
-  if (permission == LocationPermission.deniedForever) return l10n.sosDenied;
+  if (permission == LocationPermission.deniedForever) return denied;
 
   if (permission == LocationPermission.denied) {
     // Changeably denied, ask again
@@ -280,7 +286,7 @@ Future<String> getCoordinates(String linkBase) async {
 
     if (permission == LocationPermission.denied ||
         permission == LocationPermission.deniedForever) {
-      return l10n.sosDenied;
+      return denied;
     }
   }
 
@@ -291,7 +297,7 @@ Future<String> getCoordinates(String linkBase) async {
   } catch (e) {
     ezLog('Error getting coordinates');
     ezLog(e.toString());
-    return l10n.sosError;
+    return errored;
   }
 }
 
