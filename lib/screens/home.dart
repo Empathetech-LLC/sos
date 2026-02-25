@@ -225,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen>
               right: 0,
               child: Center(
                 child: OverlayPortal(
-                  controller: sosTutorial, // TODO: restore counter on all 3
+                  controller: sosTutorial,
                   overlayChildBuilder: (_) => EzTutorial(
                     top: safeTop(context) +
                         EzConfig.spargin +
@@ -240,7 +240,7 @@ class _HomeScreenState extends State<HomeScreen>
                     content: isIOS // TODO: update lang for new options
                         ? l10n.hsIOSBroadcastTutorial
                         : l10n.hsBroadcastTutorial,
-                    acceptMessage: l10n.gOk,
+                    acceptMessage: '1/3\t>>',
                     onAccept: () {
                       sosTutorial.hide();
                       settingsTutorial.show();
@@ -317,7 +317,7 @@ class _HomeScreenState extends State<HomeScreen>
                     ],
                   ),
                   content: l10n.hsSettingsTutorial, // TODO: center to camera
-                  acceptMessage: l10n.gOk,
+                  acceptMessage: '2/3\t>>',
                   onAccept: () {
                     settingsTutorial.hide();
                     cameraTutorial.show();
@@ -432,6 +432,10 @@ class _HomeScreenState extends State<HomeScreen>
                             EzConfig.spacing,
                         left: 0,
                         right: 0,
+                        title: EzIcon(
+                          Icons.arrow_downward,
+                          color: EzConfig.colors.onSurface,
+                        ),
                         content: camera == null
                             ? isIOS
                                 ? l10n.hsIOSRightsTutorial
@@ -439,7 +443,7 @@ class _HomeScreenState extends State<HomeScreen>
                             : isIOS
                                 ? l10n.hsIOSVideoTutorial
                                 : l10n.hsVideoTutorial,
-                        acceptMessage: l10n.gOk,
+                        acceptMessage: '3/3\t>>',
                         onAccept: () async {
                           cameraTutorial.hide();
 
