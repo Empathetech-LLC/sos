@@ -72,7 +72,7 @@ bool get showTutorial => EzConfig.get(showTutorialKey);
 
 bool get autoShare => EzConfig.get(autoShareMediaKey);
 
-List<String>? get emc => EzConfig.get(emcKey);
+List<String> get emc => EzConfig.get(emcKey);
 
 bool get sosOnOpen => EzConfig.get(sosOnOpenKey);
 bool get sosOnClose => EzConfig.get(sosOnCloseKey);
