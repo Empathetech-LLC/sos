@@ -23,13 +23,13 @@ class _ContactListState extends State<ContactList> {
 
   Future<void> addContact() async {
     await addEMC(context, loop: false);
-    setState(() => currEMC = emc ?? currEMC);
+    setState(() => currEMC = emc);
     widget.onUpdate.call();
   }
 
   // Return the build //
 
-  List<String> currEMC = List<String>.from(emc ?? <String>[]);
+  List<String> currEMC = List<String>.from(emc);
 
   @override
   Widget build(BuildContext context) => Column(
@@ -56,67 +56,65 @@ class _ContactListState extends State<ContactList> {
           EzConfig.margin,
 
           // List of numbers (with remove buttons)
-          if (emc != null && emc!.isNotEmpty)
-            ConstrainedBox(
-              constraints: BoxConstraints(maxHeight: heightOf(context) / 3),
-              child: Card(
-                child: EzScrollView(
-                  mainAxisSize: MainAxisSize.min,
-                  // Using fold w/ spacers bc map w/ padding looks weird with screen readers
-                  children: currEMC.isEmpty
-                      // TODO: l10n
-                      ? <Widget>[
-                          EzTextButton(
-                            text: 'Add someone to enable SOS',
-                            onPressed: addContact,
-                            style: TextButton.styleFrom(
-                                padding: EdgeInsets.all(EzConfig.marginVal)),
-                            textStyle: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.center,
+          emc.isEmpty
+              ? EzTextButton(
+                  text: 'Add someone to enable SOS',
+                  onPressed: addContact,
+                  style: TextButton.styleFrom(
+                      padding: EdgeInsets.all(EzConfig.marginVal)),
+                  textStyle: EzConfig.styles.bodyLarge,
+                  textAlign: TextAlign.center,
+                )
+              : ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: heightOf(context) / 3,
+                    maxWidth: widthOf(context) * 0.8,
+                  ),
+                  child: Card(
+                    child: EzScrollView(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      // Using fold w/ spacers bc map w/ padding looks weird with screen readers
+                      children: currEMC.fold<List<Widget>>(<Widget>[], (
+                        List<Widget> acc,
+                        String contact,
+                      ) {
+                        final List<String> parts = contact.split(contactSplit);
+                        late final String? initials;
+                        late final String number;
+
+                        if (parts.length == 2) {
+                          initials = parts.first;
+                          number = parts.last;
+                        } else {
+                          initials = null;
+                          number = contact;
+                        }
+
+                        acc.addAll(<Widget>[
+                          _ContactTile(
+                            key: ValueKey<String>(contact),
+                            initials: initials,
+                            number: number,
+                            onRemove: () async {
+                              currEMC.remove(contact);
+                              await EzConfig.setStringList(emcKey, currEMC);
+                              setState(() => currEMC = emc);
+                              widget.onUpdate.call();
+                            },
                           ),
-                        ]
-                      : currEMC.fold<List<Widget>>(<Widget>[], (
-                          List<Widget> acc,
-                          String contact,
-                        ) {
-                          final List<String> parts =
-                              contact.split(contactSplit);
-                          late final String? initials;
-                          late final String number;
+                          EzSpacer(
+                              space: max(0,
+                                  EzConfig.spacing - EzConfig.marginVal * 2)),
+                        ]);
 
-                          if (parts.length == 2) {
-                            initials = parts.first;
-                            number = parts.last;
-                          } else {
-                            initials = null;
-                            number = contact;
-                          }
-
-                          acc.addAll(<Widget>[
-                            _ContactTile(
-                              key: ValueKey<String>(contact),
-                              initials: initials,
-                              number: number,
-                              onRemove: () async {
-                                currEMC.remove(contact);
-                                await EzConfig.setStringList(emcKey, currEMC);
-                                setState(() => currEMC = emc ?? currEMC);
-                                widget.onUpdate.call();
-                              },
-                            ),
-                            EzSpacer(
-                                space: max(0,
-                                    EzConfig.spacing - EzConfig.marginVal * 2)),
-                          ]);
-
-                          return acc;
-                        }).sublist(0, currEMC.length * 2 - 1),
-                  // Removes trailing spacer
+                        return acc;
+                      }).sublist(0, currEMC.length * 2 - 1),
+                      // Removes trailing spacer
+                    ),
+                  ),
                 ),
-              ),
-            ),
-
-          currEMC.isEmpty ? EzConfig.spacer : EzConfig.separator,
+          EzConfig.separator,
         ],
       );
 }
@@ -136,18 +134,15 @@ class _ContactTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
         padding: EdgeInsets.all(EzConfig.marginVal),
-        child: EzScrollView(
-          reverseHands: true,
-          showScrollHint: true,
-          mainAxisSize: MainAxisSize.min,
-          scrollDirection: Axis.horizontal,
+        child: EzRow(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             // Initials coin (if available)
             if (initials != null) ...<Widget>[
               CircleAvatar(
                 radius: EzConfig.padding + EzConfig.iconSize / 2,
-                foregroundColor: EzConfig.colors.onSurface,
-                backgroundColor: EzConfig.colors.surfaceContainer,
+                foregroundColor: EzConfig.colors.onSecondary,
+                backgroundColor: EzConfig.colors.secondary,
                 child: Text(
                   initials!,
                   style: EzConfig.styles.bodyLarge,
@@ -158,14 +153,16 @@ class _ContactTile extends StatelessWidget {
             ],
 
             // Number
-            Text(
-              number,
-              style: EzConfig.styles.bodyLarge,
-              textAlign: TextAlign.start,
+            Expanded(
+              child: Text(
+                number,
+                style: EzConfig.styles.bodyLarge,
+                textAlign: TextAlign.center,
+              ),
             ),
-            EzConfig.rowSpacer,
 
             // Remove button
+            EzConfig.rowSpacer,
             EzIconButton(
               icon: Icon(
                 Icons.remove_circle_outline,
