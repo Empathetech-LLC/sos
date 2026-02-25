@@ -36,7 +36,7 @@ Future<void> saveToGallery(String path, bool image) async {
 
 /// Open a native contact picker and updates [emc] accordingly
 Future<void> addEMC(BuildContext context, {bool loop = true}) async {
-  final List<String> currEMC = List<String>.from(emc ?? <String>[]);
+  final List<String> currEMC = List<String>.from(emc);
 
   // Check contact permissions
   final bool contactsGranted =
@@ -244,7 +244,7 @@ Future<void> openSOSPermissions() async {
 /// Call the [MethodChannel] to send a foregroundSOS
 /// Includes error handling
 Future<void> foregroundSOS() async {
-  final List<String> currEMC = List<String>.from(emc ?? <String>[]);
+  final List<String> currEMC = List<String>.from(emc);
   if (currEMC.isEmpty) return;
 
   final List<String> numbers = currEMC
@@ -306,7 +306,7 @@ Future<String?> getCoordinates(String linkBase, {bool nullable = false}) async {
 /// Assumes an [emc] null/empty check has already been done
 Future<void> startBackgroundSOS() async {
   try {
-    final List<String> currEMC = List<String>.from(emc ?? <String>[]);
+    final List<String> currEMC = List<String>.from(emc);
     if (currEMC.isEmpty) return;
 
     final List<String> numbers = currEMC
