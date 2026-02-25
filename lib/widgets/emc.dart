@@ -5,6 +5,7 @@
 
 import '../utils/export.dart';
 
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
@@ -18,6 +19,16 @@ class ContactList extends StatefulWidget {
 }
 
 class _ContactListState extends State<ContactList> {
+  // Define custom functions //
+
+  Future<void> addContact() async {
+    await addEMC(context, loop: false);
+    setState(() => currEMC = emc ?? currEMC);
+    widget.onUpdate.call();
+  }
+
+  // Return the build //
+
   List<String> currEMC = List<String>.from(emc ?? <String>[]);
 
   @override
@@ -37,11 +48,7 @@ class _ContactListState extends State<ContactList> {
                   Icons.add_circle_outline,
                   semanticLabel: l10n.ssAddHint,
                 ),
-                onPressed: () async {
-                  await addEMC(context, loop: false);
-                  setState(() => currEMC = emc ?? currEMC);
-                  widget.onUpdate.call();
-                },
+                onPressed: addContact,
                 tooltip: l10n.ssAddHint,
               ),
             ],
@@ -56,40 +63,54 @@ class _ContactListState extends State<ContactList> {
                 child: EzScrollView(
                   mainAxisSize: MainAxisSize.min,
                   // Using fold w/ spacers bc map w/ padding looks weird with screen readers
-                  children: currEMC.fold<List<Widget>>(<Widget>[], (
-                    List<Widget> acc,
-                    String contact,
-                  ) {
-                    final List<String> parts = contact.split(contactSplit);
-                    late final String? initials;
-                    late final String number;
+                  children: currEMC.isEmpty
+                      // TODO: l10n
+                      ? <Widget>[
+                          EzTextButton(
+                            text: 'Add someone to enable SOS',
+                            onPressed: addContact,
+                            style: TextButton.styleFrom(
+                                padding: EdgeInsets.all(EzConfig.marginVal)),
+                            textStyle: EzConfig.styles.bodyLarge,
+                            textAlign: TextAlign.center,
+                          ),
+                        ]
+                      : currEMC.fold<List<Widget>>(<Widget>[], (
+                          List<Widget> acc,
+                          String contact,
+                        ) {
+                          final List<String> parts =
+                              contact.split(contactSplit);
+                          late final String? initials;
+                          late final String number;
 
-                    if (parts.length == 2) {
-                      initials = parts.first;
-                      number = parts.last;
-                    } else {
-                      initials = null;
-                      number = contact;
-                    }
+                          if (parts.length == 2) {
+                            initials = parts.first;
+                            number = parts.last;
+                          } else {
+                            initials = null;
+                            number = contact;
+                          }
 
-                    acc.addAll(<Widget>[
-                      _ContactTile(
-                        key: ValueKey<String>(contact),
-                        initials: initials,
-                        number: number,
-                        onRemove: () async {
-                          currEMC.remove(contact);
-                          await EzConfig.setStringList(emcKey, currEMC);
-                          setState(() => currEMC = emc ?? currEMC);
-                          widget.onUpdate.call();
-                        },
-                      ),
-                      EzSpacer(
-                          space: EzConfig.spacing - EzConfig.marginVal * 2),
-                    ]);
+                          acc.addAll(<Widget>[
+                            _ContactTile(
+                              key: ValueKey<String>(contact),
+                              initials: initials,
+                              number: number,
+                              onRemove: () async {
+                                currEMC.remove(contact);
+                                await EzConfig.setStringList(emcKey, currEMC);
+                                setState(() => currEMC = emc ?? currEMC);
+                                widget.onUpdate.call();
+                              },
+                            ),
+                            EzSpacer(
+                                space: max(0,
+                                    EzConfig.spacing - EzConfig.marginVal * 2)),
+                          ]);
 
-                    return acc;
-                  }).sublist(0, currEMC.length * 2 - 1),
+                          return acc;
+                        }).sublist(0, currEMC.length * 2 - 1),
                   // Removes trailing spacer
                 ),
               ),
