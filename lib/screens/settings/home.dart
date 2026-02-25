@@ -13,6 +13,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
+// TODO: make sure all links are using the onCloseCheck... prolly wanna make an openSOSURL func or summin
+
 class SettingsHomeScreen extends StatefulWidget {
   SettingsHomeScreen() : super(key: ValueKey<int>(EzConfig.seed));
 
@@ -73,6 +75,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             EzConfig.separator,
 
             // Auto-share media
+            // TODO: pictures/videos
             EzSwitchPair(text: l10n.ssAutoShare, valueKey: autoShareMediaKey),
             EzConfig.separator,
 
@@ -90,9 +93,135 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               icon: const Icon(Icons.navigate_next),
               label: l10n.ssAppearance, // TODO: add "settings"
             ),
-            EzConfig.separator,
+            EzConfig.divider,
 
-            // Help/support
+            // Resources
+            // TODO: l10n
+            EzElevatedIconButton(
+              onPressed: () => ezModal(
+                context: context,
+                builder: (BuildContext mContext) => EzScrollView(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    // Community resources //
+                    Center(
+                      child: Text(
+                        'Community resources',
+                        style: EzConfig.styles.titleLarge,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    EzConfig.spacer,
+
+                    // ACLU
+                    EzLink(
+                      'ACLU Know Your Rights',
+                      onTap: () => followLink(context, acluLink),
+                      hint: EzConfig.l10n.gOpenLink,
+                      style: EzConfig.styles.bodyLarge,
+                      backgroundColor: Colors.transparent,
+                      textAlign: TextAlign.center,
+                    ),
+                    EzConfig.spacer,
+
+                    // Dunk the Vote
+                    EzLink(
+                      'Dunk the Vote: The Black Book',
+                      onTap: () => followLink(context, dunkLink),
+                      hint: EzConfig.l10n.gOpenLink,
+                      style: EzConfig.styles.bodyLarge,
+                      backgroundColor: Colors.transparent,
+                      textAlign: TextAlign.center,
+                    ),
+                    EzConfig.spacer,
+
+                    // How to document
+                    EzLink(
+                      'How to document ICE',
+                      onTap: () => followLink(context, howToLink),
+                      hint: EzConfig.l10n.gOpenLink,
+                      style: EzConfig.styles.bodyLarge,
+                      backgroundColor: Colors.transparent,
+                      textAlign: TextAlign.center,
+                    ),
+                    EzConfig.spacer,
+
+                    // ICERR
+                    EzLink(
+                      'ICERR (Rapid Response)',
+                      onTap: () => followLink(context, icerrLink),
+                      hint: 'Open a link to an ice rapid response database.',
+                      style: EzConfig.styles.bodyLarge,
+                      backgroundColor: Colors.transparent,
+                      textAlign: TextAlign.center,
+                    ),
+                    EzConfig.spacer,
+
+                    // IMMDEF
+                    EzLink(
+                      'IMMDEF Resources',
+                      onTap: () => followLink(context, immdefLink),
+                      hint: EzConfig.l10n.gOpenLink,
+                      style: EzConfig.styles.bodyLarge,
+                      backgroundColor: Colors.transparent,
+                      textAlign: TextAlign.center,
+                    ),
+                    EzConfig.spacer,
+
+                    // NNiRR
+                    EzLink(
+                      'NNiRR Immigration Hotlines',
+                      onTap: () => followLink(context, nirrHotlinesLink),
+                      hint:
+                          'Open a link to the National Network for Immigrant and Refugee Rights.',
+                      style: EzConfig.styles.bodyLarge,
+                      backgroundColor: Colors.transparent,
+                      textAlign: TextAlign.center,
+                    ),
+                    EzConfig.divider,
+
+                    // Gov resources //
+                    Center(
+                      child: Text(
+                        'US government resources',
+                        style: EzConfig.styles.titleLarge,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    EzConfig.spacer,
+
+                    // Detainee Locator
+                    EzLink(
+                      'ICE Detainee Locator',
+                      onTap: () => followLink(context, iceLocatorLink),
+                      hint:
+                          'Open a link to the US immigration and customs enforcement site.',
+                      style: EzConfig.styles.bodyLarge,
+                      backgroundColor: Colors.transparent,
+                      textAlign: TextAlign.center,
+                    ),
+                    EzConfig.divider,
+
+                    // Disclaimers
+                    Text(
+                      'None are affiliated with Empathetech LLC',
+                      style: EzConfig.styles.labelLarge,
+                      textAlign: TextAlign.center,
+                    ),
+                    EzTranslationsPendingNotice(
+                      header: EzConfig.margin,
+                      footer: const SizedBox.shrink(),
+                    ),
+                    EzSpacer(space: EzConfig.spargin),
+                  ],
+                ),
+              ),
+              icon: const Icon(Icons.search),
+              label: 'Resources',
+            ),
+            EzConfig.spacer,
+
+            // App support
             EzElevatedIconButton(
               onPressed: () => ezModal(
                 context: context,
@@ -151,25 +280,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                           hint: EzConfig.l10n.gOpenLink,
                           textAlign: TextAlign.start,
                           padding: EdgeInsets.only(left: EzConfig.marginVal),
-                        ),
-                        EzConfig.startLine,
-                        EzRichText(
-                          <InlineSpan>[
-                            EzPlainText(
-                              text: l10n.faqListA2,
-                              style: EzConfig.styles.bodyLarge,
-                            ),
-                            EzInlineLink(
-                              'How to document ICE',
-                              onTap: () => followLink(context, howToLink),
-                              hint: EzConfig.l10n.gOpenLink,
-                              style: EzConfig.styles.bodyLarge,
-                              textAlign: TextAlign.start,
-                            ),
-                          ],
-                          textBackground: false,
-                          style: EzConfig.styles.bodyLarge,
-                          textAlign: TextAlign.start,
                         ),
                       ],
                     ),
@@ -414,9 +524,10 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     Center(
                       child: EzLink(
                         'Contact support',
-                        // TODO: add launch check
-                        url: Uri.parse(
-                            'mailto:support@empathetech.net?subject=InstaSOS%20support'),
+                        onTap: () => followLink(
+                          context,
+                          'mailto:support@empathetech.net?subject=InstaSOS%20support',
+                        ),
                         hint: 'Opens an email to empathetic support',
                         backgroundColor: Colors.transparent,
                       ),
