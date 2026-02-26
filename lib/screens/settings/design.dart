@@ -34,7 +34,6 @@ class _DesignSettingsScreenState extends State<DesignSettingsScreen> {
             includeBackgroundImage: false,
             beforeDesign: <Widget>[
               // Text Background Opacity mirror
-              // TODO: done button and live updates (also double check update both)
               EzElevatedIconButton(
                 onPressed: () async {
                   double opacity = EzConfig.get(EzConfig.isDark
@@ -48,7 +47,8 @@ class _DesignSettingsScreenState extends State<DesignSettingsScreen> {
                   await ezModal(
                     context: context,
                     builder: (_) => StatefulBuilder(
-                      builder: (_, StateSetter setModal) => EzScrollView(
+                      builder: (BuildContext mContext, StateSetter setModal) =>
+                          EzScrollView(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           // Preview
@@ -107,28 +107,44 @@ class _DesignSettingsScreenState extends State<DesignSettingsScreen> {
                           ),
                           EzConfig.spacer,
 
-                          // Local reset
-                          EzElevatedIconButton(
-                            onPressed: () async {
-                              if (updateBoth || EzConfig.isDark) {
-                                await EzConfig.remove(
-                                    darkTextBackgroundOpacityKey);
-                              }
-                              if (updateBoth || !EzConfig.isDark) {
-                                await EzConfig.remove(
-                                    lightTextBackgroundOpacityKey);
-                              }
+                          // Footer
+                          EzRow(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              // Local reset
+                              EzElevatedIconButton(
+                                onPressed: () async {
+                                  if (updateBoth || EzConfig.isDark) {
+                                    await EzConfig.remove(
+                                        darkTextBackgroundOpacityKey);
+                                  }
+                                  if (updateBoth || !EzConfig.isDark) {
+                                    await EzConfig.remove(
+                                        lightTextBackgroundOpacityKey);
+                                  }
 
-                              setModal(() {
-                                opacity = EzConfig.getDefault(EzConfig.isDark
-                                    ? darkTextBackgroundOpacityKey
-                                    : lightTextBackgroundOpacityKey);
-                                background = EzConfig.colors.surface
-                                    .withValues(alpha: opacity);
-                              });
-                            },
-                            icon: const Icon(Icons.refresh),
-                            label: EzConfig.l10n.gReset,
+                                  setModal(() {
+                                    opacity = EzConfig.getDefault(
+                                        EzConfig.isDark
+                                            ? darkTextBackgroundOpacityKey
+                                            : lightTextBackgroundOpacityKey);
+                                    background = EzConfig.colors.surface
+                                        .withValues(alpha: opacity);
+                                  });
+                                },
+                                icon: const Icon(Icons.refresh),
+                                label: EzConfig.l10n.gReset,
+                              ),
+                              EzConfig.rowSpacer,
+
+                              // Done/submit
+                              EzElevatedIconButton(
+                                onPressed: Navigator.of(mContext).pop,
+                                icon: const Icon(Icons.done),
+                                label: 'Done',
+                              ),
+                            ],
                           ),
                           EzSpacer(space: EzConfig.spargin),
                         ],
