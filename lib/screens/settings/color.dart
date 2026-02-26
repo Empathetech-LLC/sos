@@ -31,18 +31,18 @@ class _ColorSettingsScreenState extends State<ColorSettingsScreen> {
             appName: appName,
             androidPackage: androidPackage,
             darkStarterSet: const <String>[
-              darkVideoColorKey, // TODO: fix name
               darkPrimaryKey,
               darkSurfaceKey,
               darkOnSurfaceKey,
               darkSurfaceContainerKey,
+              darkVideoColorKey,
             ],
             lightStarterSet: const <String>[
-              lightVideoColorKey,
               lightPrimaryKey,
               lightSurfaceKey,
               lightOnSurfaceKey,
               lightSurfaceContainerKey,
+              lightVideoColorKey,
             ],
           ),
           useImageDecoration: false,
