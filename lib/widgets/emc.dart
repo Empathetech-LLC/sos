@@ -114,7 +114,6 @@ class _ContactListState extends State<ContactList> {
                     ),
                   ),
                 ),
-          EzConfig.separator,
         ],
       );
 }
