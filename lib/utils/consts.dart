@@ -8,72 +8,72 @@ import 'package:flutter/services.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 //* Enums *//
-// Location (services) //
+// Location Link Type //
 
-enum LinkType { google, apple, waze, raw }
+enum LLType { google, apple, waze, raw }
 
 const String _google = 'google';
 const String _apple = 'apple';
 const String _waze = 'waze';
 const String _raw = 'raw';
 
-extension LinkConfig on LinkType {
+extension LLTypeConfig on LLType {
   String get name {
     switch (this) {
-      case LinkType.google:
+      case LLType.google:
         return _google;
-      case LinkType.apple:
+      case LLType.apple:
         return _apple;
-      case LinkType.waze:
+      case LLType.waze:
         return _waze;
-      case LinkType.raw:
+      case LLType.raw:
         return _raw;
     }
   }
 
   String get label {
     switch (this) {
-      case LinkType.google:
+      case LLType.google:
         return 'Google Maps';
-      case LinkType.apple:
+      case LLType.apple:
         return 'Apple Maps';
-      case LinkType.waze:
+      case LLType.waze:
         return 'Waze';
-      case LinkType.raw:
+      case LLType.raw:
         return 'Coordinates';
     }
   }
 
   String get base {
     switch (this) {
-      case LinkType.google:
+      case LLType.google:
         return 'https://www.google.com/maps?q=';
-      case LinkType.apple:
+      case LLType.apple:
         return 'https://maps.apple.com/?ll=';
-      case LinkType.waze:
+      case LLType.waze:
         return 'https://waze.com/ul?ll=';
-      case LinkType.raw:
+      case LLType.raw:
         return '';
     }
   }
 
-  static LinkType lookup(String name) {
+  static LLType lookup(String name) {
     switch (name) {
       case _apple:
-        return LinkType.apple;
+        return LLType.apple;
       case _waze:
-        return LinkType.waze;
+        return LLType.waze;
       case _raw:
-        return LinkType.raw;
+        return LLType.raw;
       default:
-        return LinkType.google;
+        return LLType.google;
     }
   }
 }
 
-// Location (user rights) //
+// Situation //
 
-enum Location { walking, driving, home }
+enum Situation { walking, driving, home }
 
 /// atHome
 const String atHomeTab = 'atHome';
@@ -84,37 +84,37 @@ const String drivingTab = 'driving';
 /// walking
 const String walkingTab = 'walking';
 
-extension LocationConfig on Location {
+extension SituationConfig on Situation {
   IconData get icon {
     switch (this) {
-      case Location.walking:
+      case Situation.walking:
         return Icons.directions_walk;
-      case Location.driving:
+      case Situation.driving:
         return Icons.drive_eta;
-      case Location.home:
+      case Situation.home:
         return Icons.home;
     }
   }
 
   String get name {
     switch (this) {
-      case Location.walking:
+      case Situation.walking:
         return walkingTab;
-      case Location.driving:
+      case Situation.driving:
         return drivingTab;
-      case Location.home:
+      case Situation.home:
         return atHomeTab;
     }
   }
 
-  static Location lookup(String? tab) {
+  static Situation lookup(String? tab) {
     switch (tab) {
       case drivingTab:
-        return Location.driving;
+        return Situation.driving;
       case atHomeTab:
-        return Location.home;
+        return Situation.home;
       default:
-        return Location.walking;
+        return Situation.walking;
     }
   }
 }
@@ -242,7 +242,7 @@ final Map<String, Object> sosConfig = <String, Object>{
   sosOnCloseKey: false,
   sosOnInterruptKey: true,
   sosOnOpenKey: false,
-  linkTypeKey: LinkType.google.name,
+  linkTypeKey: LLType.google.name,
 
   // Color
   darkVideoColorKey: 0xFFFF0000,
