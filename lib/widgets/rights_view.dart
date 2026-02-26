@@ -20,13 +20,13 @@ class RightsView extends StatefulWidget {
 class _RightsViewState extends State<RightsView> {
   // Define the build data //
 
-  Location currentTab = LocationConfig.lookup(EzConfig.get(savedTabKey));
+  Situation currentTab = SituationConfig.lookup(EzConfig.get(savedTabKey));
 
   // Define custom functions //
 
   Widget populateTab() {
     switch (currentTab) {
-      case Location.walking:
+      case Situation.walking:
         return Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +36,7 @@ class _RightsViewState extends State<RightsView> {
             rightsBlock(l10n.rsMobileLeave),
           ],
         );
-      case Location.driving:
+      case Situation.driving:
         return Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,7 +49,7 @@ class _RightsViewState extends State<RightsView> {
             rightsBlock(l10n.rsDriveWarrant),
           ],
         );
-      case Location.home:
+      case Situation.home:
         return Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,27 +86,27 @@ class _RightsViewState extends State<RightsView> {
 
               // Switcher
               Center(
-                child: SegmentedButton<Location>(
-                  segments: <ButtonSegment<Location>>[
-                    ButtonSegment<Location>(
-                      value: Location.walking,
-                      label: Icon(Location.walking.icon),
+                child: SegmentedButton<Situation>(
+                  segments: <ButtonSegment<Situation>>[
+                    ButtonSegment<Situation>(
+                      value: Situation.walking,
+                      label: Icon(Situation.walking.icon),
                       tooltip: l10n.rsOnFoot,
                     ),
-                    ButtonSegment<Location>(
-                      value: Location.driving,
-                      label: Icon(Location.driving.icon),
+                    ButtonSegment<Situation>(
+                      value: Situation.driving,
+                      label: Icon(Situation.driving.icon),
                       tooltip: l10n.rsWhileDriving,
                     ),
-                    ButtonSegment<Location>(
-                      value: Location.home,
-                      label: Icon(Location.home.icon),
+                    ButtonSegment<Situation>(
+                      value: Situation.home,
+                      label: Icon(Situation.home.icon),
                       tooltip: l10n.rsAtHome,
                     ),
                   ],
-                  selected: <Location>{currentTab},
+                  selected: <Situation>{currentTab},
                   showSelectedIcon: false,
-                  onSelectionChanged: (Set<Location> selected) async {
+                  onSelectionChanged: (Set<Situation> selected) async {
                     currentTab = selected.first;
                     await EzConfig.setString(savedTabKey, currentTab.name);
                     setState(() {});
