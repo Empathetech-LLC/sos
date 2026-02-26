@@ -21,7 +21,7 @@ class SOSSettingsScreen extends StatefulWidget {
 class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
   // Define the build data //
 
-  LinkType _linkType = linkType;
+  LLType _linkType = linkType;
 
   // Define custom functions //
 
@@ -49,7 +49,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
           child: EzScrollView(children: <Widget>[
             // EMC
             ContactList(() => setState(() {})),
-            // Spacer included
+            EzConfig.spacer,
 
             // Link type
             EzScrollView(
@@ -59,23 +59,23 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
               children: <Widget>[
                 // Label
                 EzText(
-                  l10n.ssLinkType,
+                  l10n.ssLinkType, // TODO: location link type
                   style: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.center,
                 ),
                 EzConfig.margin,
-                EzDropdownMenu<LinkType>(
-                  widthEntries: <String>[LinkType.google.label],
-                  dropdownMenuEntries: LinkType.values
-                      .map<DropdownMenuEntry<LinkType>>(
-                          (LinkType type) => DropdownMenuEntry<LinkType>(
+                EzDropdownMenu<LLType>(
+                  widthEntries: <String>[LLType.google.label],
+                  dropdownMenuEntries: LLType.values
+                      .map<DropdownMenuEntry<LLType>>(
+                          (LLType type) => DropdownMenuEntry<LLType>(
                                 value: type,
                                 label: type.label,
                               ))
                       .toList(),
                   enableSearch: false,
                   initialSelection: _linkType,
-                  onSelected: (LinkType? selection) async {
+                  onSelected: (LLType? selection) async {
                     if (selection == null || selection == _linkType) return;
 
                     await EzConfig.setString(linkTypeKey, selection.name);
@@ -85,7 +85,6 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
               ],
             ),
             EzConfig.divider,
-            // TODO: Add message customization
 
             // SOS on open
             EzSwitchPair(
