@@ -171,7 +171,6 @@ Future<void> appSetupModal(
             doNothing,
             locales: Lang.supportedLocales,
             skip: <Locale>{arabic, english, chinese}, // Dupes
-            protest: true,
           ),
           EzConfig.spacer,
 

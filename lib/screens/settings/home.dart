@@ -68,7 +68,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               () => setState(() {}),
               locales: Lang.supportedLocales,
               skip: <Locale>{arabic, english, chinese}, // Dupes
-              protest: true,
             ),
             EzConfig.separator,
 
