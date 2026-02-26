@@ -397,7 +397,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 await saveToGallery(image.path, true);
 
                                 // Attempt to share (config based)
-                                if (autoShare && context.mounted) {
+                                if (autoShareMedia && context.mounted) {
                                   final RenderBox? box =
                                       context.findRenderObject() as RenderBox?;
 
@@ -425,6 +425,8 @@ class _HomeScreenState extends State<HomeScreen>
                     EzConfig.separator,
 
                     // Record
+                    // TODO: include a(n understandle to layman) note that sharing media is native and does not use SOS emc
+                    // TOODO: add that info to the help button/list
                     OverlayPortal(
                       controller: cameraTutorial,
                       overlayChildBuilder: (_) => EzTutorial(
@@ -518,7 +520,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   await saveToGallery(mp4Path, false);
 
                                   // Attempt to share the video (config based)
-                                  if (autoShare && context.mounted) {
+                                  if (autoShareMedia && context.mounted) {
                                     final RenderBox? box = context
                                         .findRenderObject() as RenderBox?;
 
