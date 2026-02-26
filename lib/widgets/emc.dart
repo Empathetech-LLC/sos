@@ -67,7 +67,7 @@ class _ContactListState extends State<ContactList> {
                 )
               : ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxHeight: heightOf(context) / 3,
+                    maxHeight: heightOf(context) * 0.4,
                     maxWidth: widthOf(context) * 0.8,
                   ),
                   child: Card(
