@@ -13,8 +13,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-// TODO: make sure all links are using the onCloseCheck... prolly wanna make an openSOSURL func or summin
-
 class SettingsHomeScreen extends StatefulWidget {
   SettingsHomeScreen() : super(key: ValueKey<int>(EzConfig.seed));
 
