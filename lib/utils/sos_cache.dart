@@ -34,6 +34,7 @@ class SOSCache extends EzAppCache {
   @override
   Future<void> rebuild() async {
     _setVideoColors();
+
     if (_locale != EzConfig.locale) {
       _l10n = await Lang.delegate.load(EzConfig.locale);
       _locale = EzConfig.locale;
@@ -70,12 +71,12 @@ bool get showTutorial => EzConfig.get(showTutorialKey);
 
 // Broadcast //
 
-bool get autoShare => EzConfig.get(autoShareMediaKey);
+bool get autoShareMedia => EzConfig.get(autoShareMediaKey);
 
 List<String> get emc => EzConfig.get(emcKey);
+
+LLType get linkType => LLTypeConfig.lookup(EzConfig.get(linkTypeKey));
 
 bool get sosOnOpen => EzConfig.get(sosOnOpenKey);
 bool get sosOnClose => EzConfig.get(sosOnCloseKey);
 bool get sosOnInterrupt => EzConfig.get(sosOnInterruptKey);
-
-LinkType get linkType => LinkConfig.lookup(EzConfig.get(linkTypeKey));
