@@ -204,7 +204,7 @@ class _CameraSetupState extends State<CameraSetup> {
                           textAlign: TextAlign.start,
                         ),
                         Text(
-                          'Enables video recording',
+                          'Enables video recording.',
                           style: EzConfig.styles.labelLarge,
                           textAlign: TextAlign.start,
                         ),
@@ -288,8 +288,8 @@ class _ContactsSetupState extends State<ContactsSetup> {
                             ),
                             Text(
                               isIOS
-                                  ? 'Enables emergency contact alerts'
-                                  : 'Part 1 of enabling emergency contact alerts',
+                                  ? 'Enables emergency contact alerts.'
+                                  : 'Part 1 of enabling emergency contact alerts.',
                               style: EzConfig.styles.labelLarge,
                               textAlign: TextAlign.start,
                             ),
@@ -355,7 +355,7 @@ class _SMSSetupState extends State<SMSSetup> {
                   padding: EdgeInsets.all(EzConfig.marginVal),
                   child: status == PermissionStatus.granted
                       ? Text(
-                          'Messages are ready',
+                          'Texting is ready',
                           style: EzConfig.styles.bodyLarge,
                           textAlign: TextAlign.start,
                         )
@@ -364,12 +364,12 @@ class _SMSSetupState extends State<SMSSetup> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              'Messaging',
+                              'Texting',
                               style: EzConfig.styles.bodyLarge,
                               textAlign: TextAlign.start,
                             ),
                             Text(
-                              'Part 2 of enabling emergency contact alerts',
+                              'Part 2 of enabling emergency contact alerts.',
                               style: EzConfig.styles.labelLarge,
                               textAlign: TextAlign.start,
                             ),
@@ -485,7 +485,7 @@ class _LocationSetupState extends State<LocationSetup>
                             Text(
                               status == LocationPermission.whileInUse
                                   ? 'Recommended to enable always. Press again to go to System Settings.'
-                                  : 'Enables location sharing and local rapid response info (ICERR)',
+                                  : 'Enables location sharing with emergency contacts.',
                               style: EzConfig.styles.labelLarge,
                               textAlign: TextAlign.start,
                             ),
