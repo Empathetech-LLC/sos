@@ -35,7 +35,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             textAlign: TextAlign.center,
           ),
           content: Text(
-            l10n.faqOnCloseWarning,
+            l10n.gOnCloseWarning,
             textAlign: TextAlign.center,
           ),
           actions: ezActionPair(
@@ -72,7 +72,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             EzConfig.separator,
 
             // Auto-share media
-            // TODO: pictures/videos
             EzSwitchPair(text: l10n.ssAutoShare, valueKey: autoShareMediaKey),
             EzConfig.separator,
 
@@ -80,7 +79,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             EzElevatedIconButton(
               onPressed: () => context.goNamed(sosSettingsPath),
               icon: const Icon(Icons.navigate_next),
-              label: 'SOS settings',
+              label: l10n.ssSOS,
             ),
             EzConfig.spacer,
 
@@ -88,12 +87,11 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             EzElevatedIconButton(
               onPressed: () => context.goNamed(appearanceSettingsPath),
               icon: const Icon(Icons.navigate_next),
-              label: l10n.ssAppearance, // TODO: add "settings"
+              label: l10n.ssAppearance,
             ),
             EzConfig.divider,
 
             // Resources
-            // TODO: l10n
             EzElevatedIconButton(
               onPressed: () => ezModal(
                 context: context,
@@ -103,7 +101,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     // Community resources //
                     Center(
                       child: Text(
-                        'Community resources',
+                        l10n.rmCommunity,
                         style: EzConfig.styles.titleLarge,
                         textAlign: TextAlign.center,
                       ),
@@ -147,7 +145,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     EzLink(
                       'ICERR (Rapid Response)',
                       onTap: () => followLink(context, icerrLink),
-                      hint: 'Open a link to an ice rapid response database.',
+                      hint: EzConfig.l10n.gOpenLink,
                       style: EzConfig.styles.bodyLarge,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
@@ -169,8 +167,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     EzLink(
                       'NNiRR Immigration Hotlines',
                       onTap: () => followLink(context, nirrHotlinesLink),
-                      hint:
-                          'Open a link to the National Network for Immigrant and Refugee Rights.',
+                      hint: EzConfig.l10n.gOpenLink,
                       style: EzConfig.styles.bodyLarge,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
@@ -180,7 +177,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     // Gov resources //
                     Center(
                       child: Text(
-                        'US government resources',
+                        l10n.rmGov,
                         style: EzConfig.styles.titleLarge,
                         textAlign: TextAlign.center,
                       ),
@@ -191,8 +188,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     EzLink(
                       'ICE Detainee Locator',
                       onTap: () => followLink(context, iceLocatorLink),
-                      hint:
-                          'Open a link to the US immigration and customs enforcement site.',
+                      hint: EzConfig.l10n.gOpenLink,
                       style: EzConfig.styles.bodyLarge,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
@@ -201,7 +197,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
                     // Disclaimers
                     Text(
-                      'None are affiliated with Empathetech LLC',
+                      l10n.rmAffiliate,
+                      semanticsLabel: l10n.rmAffiliateFix,
                       style: EzConfig.styles.labelLarge,
                       textAlign: TextAlign.center,
                     ),
@@ -214,328 +211,432 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 ),
               ),
               icon: const Icon(Icons.search),
-              label: 'Resources',
+              label: l10n.ssResources,
             ),
             EzConfig.spacer,
 
             // App support
             EzElevatedIconButton(
-              onPressed: () => ezModal(
-                context: context,
-                builder: (BuildContext mContext) => EzScrollView(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    //* Expandable FAQ *//
-                    // TODO: Audit reabability and re-order to match new layout
-                    Center(
-                      child: Text(
-                        l10n.faqName,
-                        style: EzConfig.styles.titleLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Center(
-                      child: EzTranslationsPendingNotice(
-                        header: EzConfig.margin,
-                        footer: const SizedBox.shrink(),
-                      ),
-                    ),
-                    EzConfig.margin,
+              onPressed: () async {
+                final TextStyle? answer = EzConfig.styles.bodyLarge;
+                final TextStyle? question =
+                    answer?.copyWith(decoration: TextDecoration.underline);
 
-                    // Shared I //
-                    ExpansionTile(
-                      title: Text(
-                        l10n.faqListQ,
-                        style: EzConfig.styles.bodyLarge,
-                        textAlign: TextAlign.start,
-                      ),
-                      expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          l10n.faqListA1,
-                          style: EzConfig.styles.bodyLarge,
-                          textAlign: TextAlign.start,
-                        ),
-                        EzLink(
-                          'ACLU Know Your Rights',
-                          onTap: () => followLink(context, acluLink),
-                          hint: EzConfig.l10n.gOpenLink,
-                          textAlign: TextAlign.start,
-                          padding: EdgeInsets.only(left: EzConfig.marginVal),
-                        ),
-                        EzLink(
-                          'IMMDEF Resources',
-                          onTap: () => followLink(context, immdefLink),
-                          hint: EzConfig.l10n.gOpenLink,
-                          textAlign: TextAlign.start,
-                          padding: EdgeInsets.only(left: EzConfig.marginVal),
-                        ),
-                        EzLink(
-                          'Dunk the Vote: The Black Book',
-                          onTap: () => followLink(context, dunkLink),
-                          hint: EzConfig.l10n.gOpenLink,
-                          textAlign: TextAlign.start,
-                          padding: EdgeInsets.only(left: EzConfig.marginVal),
-                        ),
-                      ],
-                    ),
+                await ezModal(
+                  context: context,
+                  builder: (BuildContext mContext) => EzScrollView(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      //* Expandable FAQ *//
 
-                    // Android specific //
-                    if (!isIOS) ...<Widget>[
-                      // Clarity on platform settings
+                      Center(
+                        child: Text(
+                          l10n.faqName,
+                          style: EzConfig.styles.titleLarge,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      Center(
+                        child: EzTranslationsPendingNotice(
+                          header: EzConfig.margin,
+                          footer: const SizedBox.shrink(),
+                        ),
+                      ),
+                      EzConfig.margin,
+
+                      // Rights list source? - shared //
+
                       ExpansionTile(
                         title: Text(
-                          l10n.faqSettings,
-                          style: EzConfig.styles.bodyLarge,
+                          l10n.faqListQ,
+                          style: answer,
                           textAlign: TextAlign.start,
                         ),
                         expandedCrossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
+                          // From public...
                           Text(
-                            l10n.faqOnOpen,
-                            style: EzConfig.styles.bodyLarge,
+                            l10n.faqListA,
+                            style: answer,
                             textAlign: TextAlign.start,
                           ),
                           EzConfig.startLine,
-                          Text(
-                            '${l10n.bsSOSOnClose}: ${l10n.bsSOSOnCloseHint}',
-                            style: EzConfig.styles.bodyLarge,
+
+                          // Links
+                          EzLink(
+                            'ACLU Know Your Rights',
+                            onTap: () => followLink(context, acluLink),
+                            hint: EzConfig.l10n.gOpenLink,
                             textAlign: TextAlign.start,
+                            padding: EdgeInsets.only(left: EzConfig.marginVal),
                           ),
-                          EzConfig.startLine,
-                          Text(
-                            l10n.faqOnInterrupt,
-                            style: EzConfig.styles.bodyLarge,
+                          EzLink(
+                            'IMMDEF Resources',
+                            onTap: () => followLink(context, immdefLink),
+                            hint: EzConfig.l10n.gOpenLink,
                             textAlign: TextAlign.start,
+                            padding: EdgeInsets.only(left: EzConfig.marginVal),
                           ),
-                          EzConfig.startLine,
-                          Text(
-                            l10n.faqAutoShare,
-                            style: EzConfig.styles.bodyLarge,
+                          EzLink(
+                            'Dunk the Vote: The Black Book',
+                            onTap: () => followLink(context, dunkLink),
+                            hint: EzConfig.l10n.gOpenLink,
                             textAlign: TextAlign.start,
-                          ),
-                          EzConfig.startLine,
-                          Text(
-                            l10n.faqEMC,
-                            style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                          EzConfig.startLine,
-                          Text(
-                            l10n.faqLink,
-                            style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.start,
+                            padding: EdgeInsets.only(left: EzConfig.marginVal),
                           ),
                         ],
                       ),
 
-                      // Clarity for platform headache(s)
-                      ExpansionTile(
-                        title: Text(
-                          l10n.faqUnavailable,
-                          style: EzConfig.styles.bodyLarge,
-                          textAlign: TextAlign.start,
-                        ),
-                        expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          EzRichText(
-                            <InlineSpan>[
-                              EzPlainText(
-                                text: l10n.faqReliability,
-                                style: EzConfig.styles.bodyLarge,
-                              ),
-                              EzInlineLink(
-                                l10n.faqLocationPermissions,
-                                onTap: openAppSettings,
-                                hint: EzConfig.l10n.gOpenLink,
-                              ),
-                              EzPlainText(
-                                text: '.',
-                                style: EzConfig.styles.bodyLarge,
-                              ),
-                            ],
-                            textBackground: false,
-                            style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                          EzConfig.startLine,
-                          Text(
-                            l10n.faqLocationTrust,
-                            style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                        ],
-                      ),
-                    ],
+                      // Android section //
 
-                    // iOS Specific //
-                    if (isIOS) ...<Widget>[
-                      // Clarity on platform settings
-                      ExpansionTile(
-                        title: Text(
-                          l10n.faqSettings,
-                          style: EzConfig.styles.bodyLarge,
-                          textAlign: TextAlign.start,
-                        ),
-                        expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            l10n.faqOnOpen,
-                            style: EzConfig.styles.bodyLarge,
+                      if (!isIOS) ...<Widget>[
+                        // Settings explanation
+                        ExpansionTile(
+                          title: Text(
+                            l10n.faqSettings,
+                            style: answer,
                             textAlign: TextAlign.start,
                           ),
-                          EzConfig.startLine,
-                          Text(
-                            l10n.faqAutoShare,
-                            style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                          EzConfig.startLine,
-                          Text(
-                            l10n.faqEMC,
-                            style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                          EzConfig.startLine,
-                          Text(
-                            l10n.faqLink,
-                            style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                        ],
-                      ),
-
-                      // Clarity for platform headache(s)
-                      ExpansionTile(
-                        title: Text(
-                          l10n.faqPrivateContact,
-                          style: EzConfig.styles.bodyLarge,
-                          textAlign: TextAlign.start,
-                        ),
-                        expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            l10n.faqContactPermissions,
-                            style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                          EzConfig.startLine,
-                          EzRichText(
-                            <InlineSpan>[
-                              EzPlainText(
-                                text: l10n.faqUpdateContacts,
-                                style: EzConfig.styles.bodyLarge,
-                              ),
-                              EzInlineLink(
-                                l10n.faqOSSettings,
-                                onTap: openAppSettings,
-                                hint: EzConfig.l10n.gOpenLink,
-                              ),
-                              EzPlainText(
-                                text: '.',
-                                style: EzConfig.styles.bodyLarge,
-                              ),
-                            ],
-                            textBackground: false,
-                            style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                        ],
-                      ),
-
-                      // Clarity on feature disparity
-                      ExpansionTile(
-                        title: Text(
-                          l10n.faqMissing,
-                          style: EzConfig.styles.bodyLarge,
-                          textAlign: TextAlign.start,
-                        ),
-                        expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            l10n.faqRestricted,
-                            style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                          EzConfig.startLine,
-                          Text(
-                            l10n.faqShortcuts,
-                            style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.start,
-                          ),
-                        ],
-                      ),
-                    ],
-
-                    // Shared II //
-
-                    ExpansionTile(
-                      title: Text(
-                        l10n.faqLanguages,
-                        style: EzConfig.styles.bodyLarge,
-                        textAlign: TextAlign.start,
-                      ),
-                      expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        EzRichText(
-                          <InlineSpan>[
-                            EzPlainText(
-                              text: l10n.faqResponsible,
-                              style: EzConfig.styles.bodyLarge,
+                          expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            // Auto share
+                            EzRichText(
+                              <InlineSpan>[
+                                EzPlainText(
+                                  text: l10n.faqAutoShareQ,
+                                  style: question,
+                                ),
+                                EzPlainText(
+                                  text: l10n.faqAutoShareA,
+                                  style: answer,
+                                ),
+                              ],
+                              textBackground: false,
+                              style: answer,
+                              textAlign: TextAlign.start,
                             ),
-                            EzInlineLink(
-                              l10n.faqContributing,
-                              onTap: () => followLink(context, contributeLink),
-                              hint: EzConfig.l10n.gOpenLink,
+                            EzConfig.startLine,
+
+                            // Location link
+                            EzRichText(
+                              <InlineSpan>[
+                                EzPlainText(
+                                  text: l10n.faqLinkQ,
+                                  style: question,
+                                ),
+                                EzPlainText(
+                                  text: l10n.faqLinkA,
+                                  style: answer,
+                                ),
+                              ],
+                              textBackground: false,
+                              style: answer,
+                              textAlign: TextAlign.start,
                             ),
-                            EzPlainText(
-                              text: l10n.faqExpand,
-                              style: EzConfig.styles.bodyLarge,
+                            EzConfig.startLine,
+
+                            // On open
+                            EzRichText(
+                              <InlineSpan>[
+                                EzPlainText(
+                                  text: l10n.faqOnOpenQ,
+                                  style: question,
+                                ),
+                                EzPlainText(
+                                  text: l10n.faqOnOpenA,
+                                  style: answer,
+                                ),
+                              ],
+                              textBackground: false,
+                              style: answer,
+                              textAlign: TextAlign.start,
+                            ),
+                            EzConfig.startLine,
+
+                            // On close
+                            EzRichText(
+                              <InlineSpan>[
+                                EzPlainText(
+                                  text: '${l10n.bsSOSOnClose}:',
+                                  style: question,
+                                ),
+                                EzPlainText(
+                                  text:
+                                      ' ${l10n.bsSOSOnCloseHint.replaceAll('\n', ' ')}',
+                                  style: answer,
+                                ),
+                              ],
+                              textBackground: false,
+                              style: answer,
+                              textAlign: TextAlign.start,
+                            ),
+                            EzConfig.startLine,
+
+                            // On interrupt
+                            EzRichText(
+                              <InlineSpan>[
+                                EzPlainText(
+                                  text: l10n.faqOnInterruptQ,
+                                  style: question,
+                                ),
+                                EzPlainText(
+                                  text: l10n.faqOnInterruptA,
+                                  style: answer,
+                                ),
+                              ],
+                              textBackground: false,
+                              style: answer,
+                              textAlign: TextAlign.start,
                             ),
                           ],
-                          textBackground: false,
-                          style: EzConfig.styles.bodyLarge,
-                          textAlign: TextAlign.start,
+                        ),
+
+                        // Location unavailable?
+                        ExpansionTile(
+                          title: Text(
+                            l10n.faqUnavailable,
+                            style: answer,
+                            textAlign: TextAlign.start,
+                          ),
+                          expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            EzRichText(
+                              <InlineSpan>[
+                                EzPlainText(
+                                  text: l10n.faqReliability,
+                                  style: answer,
+                                ),
+                                EzInlineLink(
+                                  l10n.faqLocationPermissions,
+                                  onTap: openAppSettings,
+                                  hint: EzConfig.l10n.gOpenLink,
+                                ),
+                                EzPlainText(
+                                  text: '.',
+                                  style: answer,
+                                ),
+                              ],
+                              textBackground: false,
+                              style: answer,
+                              textAlign: TextAlign.start,
+                            ),
+                            EzConfig.startLine,
+                            Text(
+                              l10n.faqLocationTrust,
+                              style: answer,
+                              textAlign: TextAlign.start,
+                            ),
+                          ],
                         ),
                       ],
-                    ),
-                    EzConfig.spacer,
 
-                    // Reset tutorial (conditional)
-                    if (!showTutorial) ...<Widget>[
-                      Center(
-                        child: EzElevatedButton(
-                          text: l10n.faqReset, // TODO: plural
-                          onPressed: () async {
-                            await EzConfig.setBool(showTutorialKey, true);
-                            await EzConfig.redrawUI(doNothing);
-                          },
+                      // iOS section //
+
+                      if (isIOS) ...<Widget>[
+                        // Settings explanation
+                        ExpansionTile(
+                          title: Text(
+                            l10n.faqSettings,
+                            style: answer,
+                            textAlign: TextAlign.start,
+                          ),
+                          expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            // Auto share
+                            EzRichText(
+                              <InlineSpan>[
+                                EzPlainText(
+                                  text: l10n.faqAutoShareQ,
+                                  style: question,
+                                ),
+                                EzPlainText(
+                                  text: l10n.faqAutoShareA,
+                                  style: answer,
+                                ),
+                              ],
+                              textBackground: false,
+                              style: answer,
+                              textAlign: TextAlign.start,
+                            ),
+                            EzConfig.startLine,
+
+                            // Location link
+                            EzRichText(
+                              <InlineSpan>[
+                                EzPlainText(
+                                  text: l10n.faqLinkQ,
+                                  style: question,
+                                ),
+                                EzPlainText(
+                                  text: l10n.faqLinkA,
+                                  style: answer,
+                                ),
+                              ],
+                              textBackground: false,
+                              style: answer,
+                              textAlign: TextAlign.start,
+                            ),
+                            EzConfig.startLine,
+
+                            // On open
+                            EzRichText(
+                              <InlineSpan>[
+                                EzPlainText(
+                                  text: l10n.faqOnOpenQ,
+                                  style: question,
+                                ),
+                                EzPlainText(
+                                  text: l10n.faqOnOpenA,
+                                  style: answer,
+                                ),
+                              ],
+                              textBackground: false,
+                              style: answer,
+                              textAlign: TextAlign.start,
+                            ),
+                          ],
                         ),
+
+                        // Private contact?
+                        ExpansionTile(
+                          title: Text(
+                            l10n.faqPrivateContact,
+                            style: answer,
+                            textAlign: TextAlign.start,
+                          ),
+                          expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              l10n.faqContactPermissions,
+                              style: answer,
+                              textAlign: TextAlign.start,
+                            ),
+                            EzConfig.startLine,
+                            EzRichText(
+                              <InlineSpan>[
+                                EzPlainText(
+                                  text: l10n.faqUpdateContacts,
+                                  style: answer,
+                                ),
+                                EzInlineLink(
+                                  l10n.faqOSSettings,
+                                  onTap: openAppSettings,
+                                  hint: EzConfig.l10n.gOpenLink,
+                                ),
+                                EzPlainText(
+                                  text: '.',
+                                  style: answer,
+                                ),
+                              ],
+                              textBackground: false,
+                              style: answer,
+                              textAlign: TextAlign.start,
+                            ),
+                          ],
+                        ),
+
+                        // Fewer settings than Android?
+                        ExpansionTile(
+                          title: Text(
+                            l10n.faqMissing,
+                            style: answer,
+                            textAlign: TextAlign.start,
+                          ),
+                          expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              l10n.faqRestricted,
+                              style: answer,
+                              textAlign: TextAlign.start,
+                            ),
+                            EzConfig.startLine,
+                            Text(
+                              l10n.faqShortcuts,
+                              style: answer,
+                              textAlign: TextAlign.start,
+                            ),
+                          ],
+                        ),
+                      ],
+
+                      // Missing languages? - shared //
+
+                      ExpansionTile(
+                        title: Text(
+                          l10n.faqLanguages,
+                          style: answer,
+                          textAlign: TextAlign.start,
+                        ),
+                        expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          EzRichText(
+                            <InlineSpan>[
+                              EzPlainText(
+                                text: l10n.faqResponsible,
+                                style: answer,
+                              ),
+                              EzInlineLink(
+                                l10n.faqContributing,
+                                onTap: () =>
+                                    followLink(context, contributeLink),
+                                hint: EzConfig.l10n.gOpenLink,
+                              ),
+                              EzPlainText(
+                                text: l10n.faqExpand,
+                                style: answer,
+                              ),
+                            ],
+                            textBackground: false,
+                            style: answer,
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
                       ),
                       EzConfig.spacer,
-                    ],
 
-                    // Contact support
-                    // TODO: l10n
-                    Center(
-                      child: EzLink(
-                        'Contact support',
-                        onTap: () => followLink(
-                          context,
-                          'mailto:support@empathetech.net?subject=InstaSOS%20support',
+                      // Reset tutorial/contact support //
+
+                      Center(
+                        child: EzScrollView(
+                          reverseHands: true,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          scrollDirection: Axis.horizontal,
+                          children: <Widget>[
+                            // Support
+                            EzElevatedButton(
+                              text: l10n.faqContact,
+                              onPressed: () => followLink(
+                                context,
+                                'mailto:support@empathetech.net?subject=InstaSOS%20support',
+                              ),
+                            ),
+
+                            // Tutorial
+                            if (!showTutorial) ...<Widget>[
+                              EzConfig.rowSpacer,
+                              EzElevatedButton(
+                                text: l10n.faqReset,
+                                onPressed: () async {
+                                  await EzConfig.setBool(showTutorialKey, true);
+                                  if (mContext.mounted) {
+                                    Navigator.of(mContext).pop();
+                                  }
+
+                                  await EzConfig.redrawUI(doNothing);
+                                },
+                              ),
+                            ],
+                          ],
                         ),
-                        hint: 'Opens an email to empathetic support',
-                        backgroundColor: Colors.transparent,
                       ),
-                    ),
-                    EzSpacer(space: EzConfig.spargin),
-                  ],
-                ),
-              ),
+                      EzSpacer(space: EzConfig.spargin),
+                    ],
+                  ),
+                );
+              },
               icon: EzIcon(Icons.help_outline),
-              // TODO: l10n
-              label: 'Support',
+              label: l10n.ssSupport,
             ),
           ]),
         ),

@@ -142,7 +142,7 @@ class _DesignSettingsScreenState extends State<DesignSettingsScreen> {
                               EzElevatedIconButton(
                                 onPressed: Navigator.of(mContext).pop,
                                 icon: const Icon(Icons.done),
-                                label: 'Done',
+                                label: l10n.gDone,
                               ),
                             ],
                           ),
@@ -163,9 +163,9 @@ class _DesignSettingsScreenState extends State<DesignSettingsScreen> {
             afterDesign: <Widget>[
               EzSwitchPair(
                 valueKey: showBackFABKey,
-                text: 'Show back button?',
+                text: l10n.dsShowBack,
                 afterChanged: (_) => EzConfig.redrawUI(redraw),
-              ), // TODO: l10n
+              ),
             ],
           ),
           useImageDecoration: false,

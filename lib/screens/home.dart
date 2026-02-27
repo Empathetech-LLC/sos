@@ -279,8 +279,8 @@ class _HomeScreenState extends State<HomeScreen>
                               if (context.mounted) {
                                 ezSnackBar(
                                   context,
-                                  message: 'Please add emergency contacts',
-                                ); // TODO: l10n
+                                  message: l10n.bsSnackRequest,
+                                );
                                 await context.pushNamed(sosSettingsPath);
                                 setState(() {});
                               }
@@ -449,12 +449,12 @@ class _HomeScreenState extends State<HomeScreen>
                           await showDialog(
                             context: context,
                             builder: (_) => EzAlertDialog(
-                              title: const Text(
-                                'Tutorial complete',
+                              title: Text(
+                                l10n.hsTutorialComplete,
                                 textAlign: TextAlign.center,
                               ),
                               content: Text(
-                                "If you're using SOS alerts, please head to the settings page and add your emergency contacts.",
+                                l10n.hsAddEMC,
                                 style: EzConfig.styles.bodyLarge,
                                 textAlign: TextAlign.center,
                               ),

@@ -58,7 +58,7 @@ class _ContactListState extends State<ContactList> {
           // List of numbers (with remove buttons)
           emc.isEmpty
               ? EzTextButton(
-                  text: 'Add someone to enable SOS',
+                  text: l10n.bsAddSomeone,
                   onPressed: addContact,
                   style: TextButton.styleFrom(
                       padding: EdgeInsets.all(EzConfig.marginVal)),

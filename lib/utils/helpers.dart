@@ -43,9 +43,8 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
       await FlutterContacts.requestPermission(readonly: true);
 
   if (!contactsGranted) {
-    // TODO: l10n
     if (context.mounted) {
-      ezSnackBar(context, message: 'Cannot add contacts without permission');
+      ezSnackBar(context, message: l10n.bsNeedPermission);
     }
     return;
   }
@@ -65,7 +64,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
         context: context,
         builder: (BuildContext dContext) => EzAlertDialog(
           title: Text(l10n.gReminder, textAlign: TextAlign.center),
-          content: Text(l10n.hsPartialContacts, textAlign: TextAlign.center),
+          content: Text(l10n.bsPartialContacts, textAlign: TextAlign.center),
           actions: ezActionPair(
             context: context,
             confirmMsg: l10n.gOk,
@@ -95,7 +94,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
     if (contact.phones.isEmpty) {
       // Invalid contact, warn the user and optionally retry
       if (context.mounted) {
-        await ezSnackBar(context, message: l10n.hsNumError).closed;
+        await ezSnackBar(context, message: l10n.bsNumError).closed;
       }
     } else {
       // We have a valid contact, gather the phones with numbers
@@ -106,7 +105,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
       if (phones.isEmpty) {
         // No valid numbers, warn the user and optionally retry
         if (context.mounted) {
-          await ezSnackBar(context, message: l10n.hsNumError).closed;
+          await ezSnackBar(context, message: l10n.bsNumError).closed;
         }
       } else {
         // We have at least one valid number, proceed
@@ -142,7 +141,6 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
 // Fresh install //
 
 /// Allow the user to enable what parts of InstaSOS they want
-/// TODO: l10n and semantics
 Future<void> appSetupModal(
   BuildContext context, {
   required Future<PermissionStatus> Function() initCamera,
@@ -176,15 +174,13 @@ Future<void> appSetupModal(
 
           // Have it your way
           Text(
-            showTutorial
-                ? 'To start, this is only a Know Your Rights app.\nYou can enable more tools by giving them permission in the list below.'
-                : "The latest update was a big one, let's make sure everything is ready below.",
+            showTutorial ? l10n.hsAppIntro : l10n.hsAppIntroAlt,
             style: EzConfig.styles.bodyLarge,
             textAlign: TextAlign.center,
           ),
           EzConfig.centerLine,
           Text(
-            'You can change your mind/permission at any time.',
+            l10n.hsYourApp,
             style: EzConfig.styles.bodyLarge,
             textAlign: TextAlign.center,
           ),
@@ -207,7 +203,7 @@ Future<void> appSetupModal(
 
           // Finish/leave
           EzTextButton(
-            text: 'Done',
+            text: l10n.gDone,
             textStyle: EzConfig.styles.bodyLarge
                 ?.copyWith(color: EzConfig.colors.primary),
             textAlign: TextAlign.center,

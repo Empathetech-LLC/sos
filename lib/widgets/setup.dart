@@ -12,7 +12,6 @@ import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-// TODO: l10n and semantics
 // Icon generators //
 
 Widget boolIcon(bool? status) {
@@ -146,7 +145,7 @@ class _CameraSetupState extends State<CameraSetup> {
                     padding: EdgeInsets.all(EzConfig.marginVal),
                     child: galStatus == true
                         ? Text(
-                            'Camera is ready',
+                            l10n.hsCameraReady,
                             style: EzConfig.styles.bodyLarge,
                             textAlign: TextAlign.start,
                           )
@@ -155,12 +154,12 @@ class _CameraSetupState extends State<CameraSetup> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                'Gallery',
+                                l10n.hsGallery,
                                 style: EzConfig.styles.bodyLarge,
                                 textAlign: TextAlign.start,
                               ),
                               Text(
-                                'Required to save your recordings.',
+                                l10n.hsAddSave,
                                 style: EzConfig.styles.labelLarge,
                                 textAlign: TextAlign.start,
                               ),
@@ -199,12 +198,12 @@ class _CameraSetupState extends State<CameraSetup> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Camera & Microphone',
+                          l10n.hsCamMic,
                           style: EzConfig.styles.bodyLarge,
                           textAlign: TextAlign.start,
                         ),
                         Text(
-                          'Enables video recording.',
+                          l10n.hsAddRecording,
                           style: EzConfig.styles.labelLarge,
                           textAlign: TextAlign.start,
                         ),
@@ -273,7 +272,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                   padding: EdgeInsets.all(EzConfig.marginVal),
                   child: allowed == true
                       ? Text(
-                          'Contacts are ready',
+                          l10n.hsContactsReady,
                           style: EzConfig.styles.bodyLarge,
                           textAlign: TextAlign.start,
                         )
@@ -282,14 +281,14 @@ class _ContactsSetupState extends State<ContactsSetup> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              'Contacts',
+                              l10n.hsContacts,
                               style: EzConfig.styles.bodyLarge,
                               textAlign: TextAlign.start,
                             ),
                             Text(
                               isIOS
-                                  ? 'Enables emergency contact alerts.'
-                                  : 'Part 1 of enabling emergency contact alerts.',
+                                  ? l10n.hsAddContactsIOS
+                                  : l10n.hsAddContacts,
                               style: EzConfig.styles.labelLarge,
                               textAlign: TextAlign.start,
                             ),
@@ -355,7 +354,7 @@ class _SMSSetupState extends State<SMSSetup> {
                   padding: EdgeInsets.all(EzConfig.marginVal),
                   child: status == PermissionStatus.granted
                       ? Text(
-                          'Texting is ready',
+                          l10n.hsTextingReady,
                           style: EzConfig.styles.bodyLarge,
                           textAlign: TextAlign.start,
                         )
@@ -364,12 +363,12 @@ class _SMSSetupState extends State<SMSSetup> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              'Texting',
+                              l10n.hsTexting,
                               style: EzConfig.styles.bodyLarge,
                               textAlign: TextAlign.start,
                             ),
                             Text(
-                              'Part 2 of enabling emergency contact alerts.',
+                              l10n.hsAddTexting,
                               style: EzConfig.styles.labelLarge,
                               textAlign: TextAlign.start,
                             ),
@@ -436,7 +435,7 @@ class _LocationSetupState extends State<LocationSetup>
               await openSOSPermissions();
               return;
             case LocationPermission.unableToDetermine:
-              ezSnackBar(context, message: 'Unable to determine');
+              ezSnackBar(context, message: l10n.hsUnable);
               return;
             case LocationPermission.denied:
             case null:
@@ -469,7 +468,7 @@ class _LocationSetupState extends State<LocationSetup>
                   padding: EdgeInsets.all(EzConfig.marginVal),
                   child: status == LocationPermission.always
                       ? Text(
-                          'Location is ready',
+                          l10n.hsLocationReady,
                           style: EzConfig.styles.bodyLarge,
                           textAlign: TextAlign.start,
                         )
@@ -478,14 +477,14 @@ class _LocationSetupState extends State<LocationSetup>
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              'Location',
+                              l10n.hsLocation,
                               style: EzConfig.styles.bodyLarge,
                               textAlign: TextAlign.start,
                             ),
                             Text(
                               status == LocationPermission.whileInUse
-                                  ? 'Recommended to enable always. Press again to go to System Settings.'
-                                  : 'Enables location sharing with emergency contacts.',
+                                  ? l10n.hsAddAlways
+                                  : l10n.hsAddLocation,
                               style: EzConfig.styles.labelLarge,
                               textAlign: TextAlign.start,
                             ),

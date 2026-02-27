@@ -31,9 +31,9 @@ class _RightsViewState extends State<RightsView> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            rightsBlock(l10n.rsMobilePockets),
-            rightsBlock(l10n.rsMobileQuestion),
-            rightsBlock(l10n.rsMobileLeave),
+            rightsBlock(l10n.rvMobilePockets),
+            rightsBlock(l10n.rvMobileQuestion),
+            rightsBlock(l10n.rvMobileLeave),
           ],
         );
       case Situation.driving:
@@ -41,19 +41,19 @@ class _RightsViewState extends State<RightsView> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            rightsBlock(l10n.rsMobilePockets),
-            rightsBlock(l10n.rsMobileQuestion),
-            rightsBlock(l10n.rsMobileLeave),
-            rightsBlock(l10n.rsDriveSearch),
-            rightsBlock(l10n.rsDriveID),
-            rightsBlock(l10n.rsDriveWarrant),
+            rightsBlock(l10n.rvMobilePockets),
+            rightsBlock(l10n.rvMobileQuestion),
+            rightsBlock(l10n.rvMobileLeave),
+            rightsBlock(l10n.rvDriveSearch),
+            rightsBlock(l10n.rvDriveID),
+            rightsBlock(l10n.rvDriveWarrant),
           ],
         );
       case Situation.home:
         return Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[rightsBlock(l10n.rsHomeWarrant)],
+          children: <Widget>[rightsBlock(l10n.rvHomeWarrant)],
         );
     }
   }
@@ -77,7 +77,7 @@ class _RightsViewState extends State<RightsView> {
             children: <Widget>[
               Center(
                 child: Text(
-                  l10n.rsSharedHeader,
+                  l10n.rvSharedHeader,
                   textAlign: TextAlign.center,
                   style: EzConfig.styles.titleLarge,
                 ),
@@ -91,17 +91,17 @@ class _RightsViewState extends State<RightsView> {
                     ButtonSegment<Situation>(
                       value: Situation.walking,
                       label: Icon(Situation.walking.icon),
-                      tooltip: l10n.rsOnFoot,
+                      tooltip: l10n.rvOnFoot,
                     ),
                     ButtonSegment<Situation>(
                       value: Situation.driving,
                       label: Icon(Situation.driving.icon),
-                      tooltip: l10n.rsWhileDriving,
+                      tooltip: l10n.rvWhileDriving,
                     ),
                     ButtonSegment<Situation>(
                       value: Situation.home,
                       label: Icon(Situation.home.icon),
-                      tooltip: l10n.rsAtHome,
+                      tooltip: l10n.rvAtHome,
                     ),
                   ],
                   selected: <Situation>{currentTab},
@@ -116,16 +116,16 @@ class _RightsViewState extends State<RightsView> {
               EzConfig.separator,
 
               // Shared rights I
-              rightsBlock(l10n.rsSharedRemainSilent),
-              rightsBlock(l10n.rsSharedDocument),
+              rightsBlock(l10n.rvSharedRemainSilent),
+              rightsBlock(l10n.rvSharedDocument),
 
               // Situational rights
               populateTab(),
 
               // Shared rights II
-              rightsBlock(l10n.rsSharedSign),
-              rightsBlock(l10n.rsSharedFingerprint),
-              rightsBlock(l10n.rsSharedLawyer),
+              rightsBlock(l10n.rvSharedSign),
+              rightsBlock(l10n.rvSharedFingerprint),
+              rightsBlock(l10n.rvSharedLawyer),
             ],
           ),
         ),
