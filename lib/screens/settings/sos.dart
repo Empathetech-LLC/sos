@@ -49,7 +49,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
           child: EzScrollView(children: <Widget>[
             // EMC
             ContactList(() => setState(() {})),
-            EzConfig.spacer,
+            EzConfig.separator,
 
             // Link type
             EzScrollView(
@@ -59,7 +59,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
               children: <Widget>[
                 // Label
                 EzText(
-                  l10n.ssLinkType, // TODO: location link type
+                  l10n.bsLinkType,
                   style: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.center,
                 ),
@@ -89,7 +89,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
             // SOS on open
             EzSwitchPair(
               enabled: emc.isNotEmpty,
-              text: l10n.ssSOSOnOpen,
+              text: l10n.bsSOSOnOpen,
               valueKey: sosOnOpenKey,
               canChange: (bool choice) => canSet(sosOnOpenKey, choice),
             ),
@@ -99,7 +99,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
               EzConfig.spacer,
               EzSwitchPair(
                 enabled: emc.isNotEmpty,
-                text: l10n.ssSOSOnClose,
+                text: l10n.bsSOSOnClose,
                 valueKey: sosOnCloseKey,
                 canChange: (bool choice) async {
                   final bool check1 = await canSet(sosOnCloseKey, choice);
@@ -114,7 +114,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
                                   textAlign: TextAlign.center,
                                 ),
                                 content: Text(
-                                  l10n.ssCloseOffWarning,
+                                  l10n.bsCloseOffWarning,
                                   textAlign: TextAlign.center,
                                 ),
                                 actions: ezActionPair(
@@ -141,7 +141,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
                                   textAlign: TextAlign.center,
                                 ),
                                 content: Text(
-                                  l10n.ssSOSOnCloseHint,
+                                  l10n.bsSOSOnCloseHint,
                                   textAlign: TextAlign.center,
                                 ),
                                 actions: ezActionPair(
@@ -171,7 +171,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
               // SOS on interrupt
               EzSwitchPair(
                 enabled: emc.isNotEmpty,
-                text: l10n.ssVideoSOS,
+                text: l10n.bsVideoSOS,
                 valueKey: sosOnInterruptKey,
                 canChange: (bool choice) => canSet(sosOnInterruptKey, choice),
               ),

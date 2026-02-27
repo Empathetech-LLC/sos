@@ -299,7 +299,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                           ),
                           EzConfig.startLine,
                           Text(
-                            '${l10n.ssSOSOnClose}: ${l10n.ssSOSOnCloseHint}',
+                            '${l10n.bsSOSOnClose}: ${l10n.bsSOSOnCloseHint}',
                             style: EzConfig.styles.bodyLarge,
                             textAlign: TextAlign.start,
                           ),

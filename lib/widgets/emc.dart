@@ -41,15 +41,15 @@ class _ContactListState extends State<ContactList> {
             mainAxisSize: MainAxisSize.min,
             scrollDirection: Axis.horizontal,
             children: <Widget>[
-              Text(l10n.ssEMC, style: EzConfig.styles.titleLarge),
+              Text(l10n.bsEMC, style: EzConfig.styles.titleLarge),
               EzConfig.rowMargin,
               EzIconButton(
                 icon: Icon(
                   Icons.add_circle_outline,
-                  semanticLabel: l10n.ssAddHint,
+                  semanticLabel: l10n.bsAddHint,
                 ),
                 onPressed: addContact,
-                tooltip: l10n.ssAddHint,
+                tooltip: l10n.bsAddHint,
               ),
             ],
           ),
@@ -144,7 +144,10 @@ class _ContactTile extends StatelessWidget {
                 backgroundColor: EzConfig.colors.secondary,
                 child: Text(
                   initials!,
-                  style: EzConfig.styles.bodyLarge,
+                  style: EzConfig.styles.bodyLarge?.copyWith(
+                    color: EzConfig.colors.onSecondary,
+                    fontWeight: FontWeight.bold,
+                  ),
                   textAlign: TextAlign.start,
                 ),
               ),
@@ -165,10 +168,10 @@ class _ContactTile extends StatelessWidget {
             EzIconButton(
               icon: Icon(
                 Icons.remove_circle_outline,
-                semanticLabel: l10n.ssRemoveHint,
+                semanticLabel: l10n.bsRemoveHint,
               ),
               onPressed: onRemove,
-              tooltip: l10n.ssRemoveHint,
+              tooltip: l10n.bsRemoveHint,
             ),
           ],
         ),
