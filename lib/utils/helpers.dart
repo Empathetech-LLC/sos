@@ -177,8 +177,8 @@ Future<void> appSetupModal(
           // Have it your way
           Text(
             showTutorial
-                ? 'Initially, this is only a Know Your Rights app.\nYou can enable more tools by giving them permission in the list below.'
-                : "The latest update was a big one, let's make sure everything is ready below",
+                ? 'To start, this is only a Know Your Rights app.\nYou can enable more tools by giving them permission in the list below.'
+                : "The latest update was a big one, let's make sure everything is ready below.",
             style: EzConfig.styles.bodyLarge,
             textAlign: TextAlign.center,
           ),
