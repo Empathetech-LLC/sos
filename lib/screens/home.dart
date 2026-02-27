@@ -239,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen>
                       Icons.arrow_upward,
                       color: EzConfig.colors.onSurface,
                     ),
-                    content: isIOS // TODO: update lang for new options
+                    content: isIOS
                         ? l10n.hsIOSBroadcastTutorial
                         : l10n.hsBroadcastTutorial,
                     acceptMessage: '1/4\t>>',
@@ -319,7 +319,7 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                     ],
                   ),
-                  content: l10n.hsSettingsTutorial, // TODO: center to camera
+                  content: l10n.hsSettingsTutorial,
                   acceptMessage: '2/4\t>>',
                   onAccept: () {
                     settingsTutorial.hide();
