@@ -37,16 +37,12 @@
   "hsAppTutorial": "Li pataje pozisyon ou ak kontak ijans ou yo lè gen sitiyasyon kriz.\n\nTanpri chwazi yon kontak ijans.\nYonn pou kounye a, ou ka ajoute plis apre.",
   "hsPermissionsTutorialTitle": "Si ou vle",
   "hsPermissionsTutorial": "InstaSOS kapab kolekte epi pataje prèv tou.\n\nLi ap mande aksè a kamera, mikwo, avèk galri pou sa.",
-  "hsPermissionsAlways": "Tanpri mete pozisyon sou 'toujou otorize'.\nLi ap sèlman itilize lè SOS aktif.",
   "hsBroadcastTutorial": "Aktive SOS pou voye mesaj otomatik bay kontak ijans ou yo.\n\nSi InstaSOS gen aksè a pozisyon ou, li ap mete l nan mesaj yo.\n\nMesaj yo ap kontinye ale menm si telefòn nan fèmen.\n\nOu ka swa dezaktive SOS oswa fèmen aplikasyon an nèt pou sispann voye mesaj ale.",
   "hsIOSBroadcastTutorial": "Aktive SOS pou voye mesaj otomatik bay kontak ijans ou yo.\n\nSi InstaSOS gen aksè apozisyon ou, li ap mete l nan mesaj yo.",
   "hsSettingsTutorial": "Ou kapab...\n\n- Ajoute plis kontak ijans\n- Setup SOS otomatik\n- Chanje lang aplikasyon an, epi\n- Mete aparans aplikasyon an ajou\n\nnan anviwònman yo.\n\nPeze bouton anviwònman an pandan plizyè segond pou bay fidbak sou aplikasyon an.",
   "hsVideoTutorial": "Lè ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPa defo, si yon anrejistreman entèwonp, SOS ap aktive otomatikman.\n\nPeze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.",
   "hsIOSVideoTutorial": "Lè ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPez mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo",
-  "hsRightsTutorial": "Si ou aktive kamera a, epi ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPa defo, si yon anrejistreman entèwonp, SOS ap aktive otomatikman.\n\nPeze sou ikòn balans jistis la oswa peze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.",
-  "hsIOSRightsTutorial": "Si ou aktive kamera a, epi ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPeze sou ikòn balans jistis la oswa peze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.",
   
-  "hsNeedContacts": "InstaSOS bezwen aksè a kontak ou yo pou li fonksyone kòrèkteman.",
   "hsPartialContacts": "Apple ap montre tout kontak yo, pa sèlman sa yo pataje ak InstaSOS.\nPou pataje plis kontak, ale nan Anviwònman iOS -> Aplikasyon -> InstaSOS",
   "hsNumError": "Kontak la prive oubyen li pa gen nimewo telefòn.",
 
@@ -126,7 +122,6 @@
   "faqExpand": " pou ede elaji opsyon lang yo.",
 
   "faqReset": "Reyajiste titoryèl la",
-  "faqResetSnack": "Titoryèl la pral jwe ankò nan pwochen lansman an.",
 
   "faqOnCloseWarning": "\"SOS lè fèmen\" aktive. Sa pral kòmanse yon difizyon.",
 

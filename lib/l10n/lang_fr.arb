@@ -37,16 +37,12 @@
   "hsAppTutorial": "Votre statut est partagé avec les contacts d'urgence en cas de crise.\n\nVeuillez choisir un contact d'urgence.\nUn seul pour l'instant ; vous pourrez en ajouter d'autres ultérieurement.",
   "hsPermissionsTutorialTitle": "Si vous le souhaitez",
   "hsPermissionsTutorial": "InstaSOS peut également recueillir et partager des preuves.\n\nPour ce faire, l'accès à la caméra, au microphone et à la galerie sera requis.",
-  "hsPermissionsAlways": "Veuillez définir la localisation sur \"Toujours autoriser\". Elle ne sera utilisée que lorsque le SOS est actif.",
   "hsBroadcastTutorial": "Activez le SOS pour envoyer automatiquement des SMS à vos contacts d'urgence.\n\nSi InstaSOS a accès à votre localisation, celle-ci sera incluse dans les SMS.\n\nLes SMS continueront d'être envoyés même lorsque le téléphone est verrouillé.\n\nDésactivez le SOS ou fermez complètement l'application pour arrêter les SMS.",
   "hsIOSBroadcastTutorial": "Activez le SOS pour envoyer automatiquement des SMS à vos contacts d'urgence.\n\nSi InstaSOS a accès à votre localisation, celle-ci sera incluse dans les SMS.",
   "hsSettingsTutorial": "Vous pouvez…\n\n- Ajouter d'autres contacts d'urgence\n- Configurer le SOS automatique\n- Modifier la langue de l'application\n- Mettre à jour l'apparence de l'application\n\ndans les paramètres.\n\nMaintenez le bouton Paramètres enfoncé pour partager votre retour sur l'application.",
   "hsVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, le SOS s'active automatiquement.\n\nAppuyez longuement au centre de l'écran pour afficher la liste de vos droits.",
   "hsIOSVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nAppuyez longuement au centre de l'écran pour afficher la liste de vos droits.",
-  "hsRightsTutorial": "Si vous activez l'appareil photo et prenez une photo ou enregistrez une vidéo, vous pourrez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, le SOS s'active automatiquement.\n\nAppuyez sur le marteau ou appuyez longuement au centre de l'écran pour afficher la liste de vos droits.",
-  "hsIOSRightsTutorial": "Si vous activez l'appareil photo et prenez une photo ou enregistrez une vidéo, vous pourrez la partager immédiatement.\n\nAppuyez sur le marteau ou appuyez longuement au centre de l'écran pour afficher la liste de vos droits.",
   
-  "hsNeedContacts": "InstaSOS a besoin d'accéder à vos contacts pour fonctionner correctement.",
   "hsPartialContacts": "Apple affichera tous les contacts, pas seulement ceux partagés avec InstaSOS.\nPour partager plus de contacts, accédez à Paramètres iOS -> Applications -> InstaSOS",
   "hsNumError": "Le contact est privé ou n'a pas de numéro de téléphone.",
   
@@ -126,7 +122,6 @@
   "faqExpand": " pour aider à élargir les options de langue.",
 
   "faqReset": "Réinitialiser le tutoriel",
-  "faqResetSnack": "Le tutoriel sera relancé au prochain démarrage.",
 
   "faqOnCloseWarning": "\"SOS à la fermeture\" est activé. Cela lancera une diffusion.",
 

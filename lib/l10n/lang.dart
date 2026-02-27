@@ -271,59 +271,35 @@ abstract class Lang {
   /// **'InstaSOS can also gather and share evidence.\n\nIt will ask for camera, microphone, and gallery access to do so.'**
   String get hsPermissionsTutorial;
 
-  /// No description provided for @hsPermissionsAlways.
-  ///
-  /// In en, this message translates to:
-  /// **'Please set location to always allow.\nIt will only be used while SOS is active.'**
-  String get hsPermissionsAlways;
-
   /// No description provided for @hsBroadcastTutorial.
   ///
   /// In en, this message translates to:
-  /// **'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.'**
+  /// **'Activate SOS to automatically text your emergency contacts.\n\nWhen InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nManually deactivate SOS or fully close the app to stop the texts.'**
   String get hsBroadcastTutorial;
 
   /// No description provided for @hsIOSBroadcastTutorial.
   ///
   /// In en, this message translates to:
-  /// **'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.'**
+  /// **'Activate SOS to automatically text your emergency contacts.\n\nWhen InstaSOS has access to your location, it will be included in the texts.'**
   String get hsIOSBroadcastTutorial;
 
   /// No description provided for @hsSettingsTutorial.
   ///
   /// In en, this message translates to:
-  /// **'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s language, and\n- Update the app\'s appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.'**
+  /// **'- Configure your SOS broadcast\n- Customize the app\'s appearance\n- Access more resources and support\n\nin the settings.'**
   String get hsSettingsTutorial;
 
   /// No description provided for @hsVideoTutorial.
   ///
   /// In en, this message translates to:
-  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nLong press the center preview to show a list of your rights.'**
+  /// **'When you take a picture or record a video, you can share it right away.\n\nBy default, if a recording is interrupted, an SOS broadcast will start automatically.\n\nLong press the camera preview to see your rights.'**
   String get hsVideoTutorial;
 
   /// No description provided for @hsIOSVideoTutorial.
   ///
   /// In en, this message translates to:
-  /// **'When you take a picture or record a video, you will be able to share it right away.\n\nLong press the center preview to show a list of your rights.'**
+  /// **'When you take a picture or record a video, you can share it right away.\n\nLong press the camera preview to see your rights.'**
   String get hsIOSVideoTutorial;
-
-  /// No description provided for @hsRightsTutorial.
-  ///
-  /// In en, this message translates to:
-  /// **'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or long press the center of the screen to show a list of your rights.'**
-  String get hsRightsTutorial;
-
-  /// No description provided for @hsIOSRightsTutorial.
-  ///
-  /// In en, this message translates to:
-  /// **'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.'**
-  String get hsIOSRightsTutorial;
-
-  /// No description provided for @hsNeedContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'InstaSOS needs access to your contacts to function properly.'**
-  String get hsNeedContacts;
 
   /// No description provided for @hsPartialContacts.
   ///
@@ -433,71 +409,59 @@ abstract class Lang {
   /// **'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.'**
   String get rsSharedLawyer;
 
-  /// No description provided for @ssSOSOnOpen.
-  ///
-  /// In en, this message translates to:
-  /// **'SOS on open'**
-  String get ssSOSOnOpen;
-
-  /// No description provided for @ssSOSOnClose.
-  ///
-  /// In en, this message translates to:
-  /// **'SOS on close'**
-  String get ssSOSOnClose;
-
-  /// No description provided for @ssSOSOnCloseHint.
-  ///
-  /// In en, this message translates to:
-  /// **'When enabled, a safe close (thumbs up) button will be appear on the home page, opposite the settings. If InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.'**
-  String get ssSOSOnCloseHint;
-
-  /// No description provided for @ssCloseOffWarning.
-  ///
-  /// In en, this message translates to:
-  /// **'The app will auto-close to prevent unintentional broadcasts.'**
-  String get ssCloseOffWarning;
-
-  /// No description provided for @ssVideoSOS.
-  ///
-  /// In en, this message translates to:
-  /// **'SOS on interrupted recording'**
-  String get ssVideoSOS;
-
   /// No description provided for @ssAutoShare.
   ///
   /// In en, this message translates to:
   /// **'Auto-share media'**
   String get ssAutoShare;
 
-  /// No description provided for @ssEMC.
+  /// No description provided for @ssSOS.
   ///
   /// In en, this message translates to:
-  /// **'Emergency contacts'**
-  String get ssEMC;
-
-  /// No description provided for @ssRemoveHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Remove contact'**
-  String get ssRemoveHint;
-
-  /// No description provided for @ssAddHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Add another contact'**
-  String get ssAddHint;
-
-  /// No description provided for @ssLinkType.
-  ///
-  /// In en, this message translates to:
-  /// **'Link type'**
-  String get ssLinkType;
+  /// **'SOS settings'**
+  String get ssSOS;
 
   /// No description provided for @ssAppearance.
   ///
   /// In en, this message translates to:
-  /// **'Appearance'**
+  /// **'Appearance settings'**
   String get ssAppearance;
+
+  /// No description provided for @ssResources.
+  ///
+  /// In en, this message translates to:
+  /// **'Resources'**
+  String get ssResources;
+
+  /// No description provided for @rsCommunity.
+  ///
+  /// In en, this message translates to:
+  /// **'Community resources'**
+  String get rsCommunity;
+
+  /// No description provided for @rsGov.
+  ///
+  /// In en, this message translates to:
+  /// **'US government resources'**
+  String get rsGov;
+
+  /// No description provided for @rsAffiliate.
+  ///
+  /// In en, this message translates to:
+  /// **'None are affiliated with Empathetech LLC'**
+  String get rsAffiliate;
+
+  /// No description provided for @rsAffiliateFix.
+  ///
+  /// In en, this message translates to:
+  /// **'None are affiliated with Empathetic LLC'**
+  String get rsAffiliateFix;
+
+  /// No description provided for @ssSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Support'**
+  String get ssSupport;
 
   /// No description provided for @faqName.
   ///
@@ -655,17 +619,65 @@ abstract class Lang {
   /// **'Reset tutorial'**
   String get faqReset;
 
-  /// No description provided for @faqResetSnack.
-  ///
-  /// In en, this message translates to:
-  /// **'The tutorial will replay on next launch.'**
-  String get faqResetSnack;
-
   /// No description provided for @faqOnCloseWarning.
   ///
   /// In en, this message translates to:
   /// **'\"SOS on close\" is enabled. This will start a broadcast.'**
   String get faqOnCloseWarning;
+
+  /// No description provided for @bsEMC.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency contacts'**
+  String get bsEMC;
+
+  /// No description provided for @bsRemoveHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove contact'**
+  String get bsRemoveHint;
+
+  /// No description provided for @bsAddHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add another contact'**
+  String get bsAddHint;
+
+  /// No description provided for @bsLinkType.
+  ///
+  /// In en, this message translates to:
+  /// **'Link type'**
+  String get bsLinkType;
+
+  /// No description provided for @bsSOSOnOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS on open'**
+  String get bsSOSOnOpen;
+
+  /// No description provided for @bsSOSOnClose.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS on close'**
+  String get bsSOSOnClose;
+
+  /// No description provided for @bsSOSOnCloseHint.
+  ///
+  /// In en, this message translates to:
+  /// **'A safe close (thumbs up) button will be appear on the home page, opposite the settings.\nIf InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.'**
+  String get bsSOSOnCloseHint;
+
+  /// No description provided for @bsCloseOffWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'The app will auto-close to prevent unintentional broadcasts.'**
+  String get bsCloseOffWarning;
+
+  /// No description provided for @bsVideoSOS.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS on interrupted recording'**
+  String get bsVideoSOS;
 
   /// No description provided for @dsLadyLiberty.
   ///

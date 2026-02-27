@@ -37,16 +37,12 @@
   "hsAppTutorial": "It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.",
   "hsPermissionsTutorialTitle": "If you want",
   "hsPermissionsTutorial": "InstaSOS can also gather and share evidence.\n\nIt will ask for camera, microphone, and gallery access to do so.",
-  "hsPermissionsAlways": "Please set location to always allow.\nIt will only be used while SOS is active.",
-  "hsBroadcastTutorial": "Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.",
-  "hsIOSBroadcastTutorial": "Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.",
-  "hsSettingsTutorial": "You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app's language, and\n- Update the app's appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.",
-  "hsVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nLong press the center preview to show a list of your rights.",
-  "hsIOSVideoTutorial": "When you take a picture or record a video, you will be able to share it right away.\n\nLong press the center preview to show a list of your rights.",
-  "hsRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or long press the center of the screen to show a list of your rights.",
-  "hsIOSRightsTutorial": "If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.",
+  "hsBroadcastTutorial": "Activate SOS to automatically text your emergency contacts.\n\nWhen InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nManually deactivate SOS or fully close the app to stop the texts.",
+  "hsIOSBroadcastTutorial": "Activate SOS to automatically text your emergency contacts.\n\nWhen InstaSOS has access to your location, it will be included in the texts.",
+  "hsSettingsTutorial": "- Configure your SOS broadcast\n- Customize the app's appearance\n- Access more resources and support\n\nin the settings.",
+  "hsVideoTutorial": "When you take a picture or record a video, you can share it right away.\n\nBy default, if a recording is interrupted, an SOS broadcast will start automatically.\n\nLong press the camera preview to see your rights.",
+  "hsIOSVideoTutorial": "When you take a picture or record a video, you can share it right away.\n\nLong press the camera preview to see your rights.",
   
-  "hsNeedContacts": "InstaSOS needs access to your contacts to function properly.",
   "hsPartialContacts": "Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, go to iOS Settings -> Apps -> InstaSOS",
   "hsNumError": "The contact is private or does not have a phone number.",
 
@@ -77,22 +73,18 @@
 
 
   
-  "ssSOSOnOpen": "SOS on open",
-  "ssSOSOnClose": "SOS on close",
-  "ssSOSOnCloseHint": "When enabled, a safe close (thumbs up) button will be appear on the home page, opposite the settings. If InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.",
-  "ssCloseOffWarning": "The app will auto-close to prevent unintentional broadcasts.",
-  "ssVideoSOS": "SOS on interrupted recording",
   "ssAutoShare": "Auto-share media",
 
-  "ssEMC": "Emergency contacts",
-  "ssRemoveHint": "Remove contact",
-  "ssAddHint": "Add another contact",
-  "ssLinkType": "Link type",
+  "ssSOS": "SOS settings",
+  "ssAppearance": "Appearance settings",
 
-  "ssAppearance": "Appearance",
+  "ssResources": "Resources",
+  "rsCommunity": "Community resources",
+  "rsGov": "US government resources",
+  "rsAffiliate": "None are affiliated with Empathetech LLC",
+  "rsAffiliateFix": "None are affiliated with Empathetic LLC",
 
-
-
+  "ssSupport": "Support",
   "faqName": "FAQ",
 
   "faqListQ": "How was the rights list made?",
@@ -126,9 +118,21 @@
   "faqExpand": " to help expand the language options.",
 
   "faqReset": "Reset tutorial",
-  "faqResetSnack": "The tutorial will replay on next launch.",
 
   "faqOnCloseWarning": "\"SOS on close\" is enabled. This will start a broadcast.",
+
+
+
+  "bsEMC": "Emergency contacts",
+  "bsRemoveHint": "Remove contact",
+  "bsAddHint": "Add another contact",
+  "bsLinkType": "Link type",
+
+  "bsSOSOnOpen": "SOS on open",
+  "bsSOSOnClose": "SOS on close",
+  "bsSOSOnCloseHint": "A safe close (thumbs up) button will be appear on the home page, opposite the settings.\nIf InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.",
+  "bsCloseOffWarning": "The app will auto-close to prevent unintentional broadcasts.",
+  "bsVideoSOS": "SOS on interrupted recording",
   
   
 

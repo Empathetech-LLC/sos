@@ -37,16 +37,12 @@
   "hsAppTutorial": "Comparte tu estado con contactos de emergencia durante una crisis.\n\nElige un contacto de emergencia.\nSolo uno por ahora, luego podrás añadir más",
   "hsPermissionsTutorialTitle": "Si quieres",
   "hsPermissionsTutorial": "InstaSOS también puede obtener y compartir evidencia.\n\nPara ello, pedirá acceso a la cámara, al micrófono y a la galería.",
-  "hsPermissionsAlways": "Pon que siempre tenga acceso a tu ubicación.\nSolo se utilizará mientras SOS esté activo",
   "hsBroadcastTutorial": "Activa el SOS para enviar SMS automáticamente a tus contactos de emergencia.\n\nSi InstaSOS tiene acceso a tu ubicación, se incluirá en los mensajes.\n\nSeguirán enviándose SMS aunque el dispositivo esté bloqueado.\n\nDesactiva el SOS o cierra la aplicación para dejar de enviar mensajes.",
   "hsIOSBroadcastTutorial": "Activa el SOS para enviar SMS automáticamente a tus contactos de emergencia.\n\nSi InstaSOS tiene acceso a tu ubicación, se incluirá en los mensajes",
   "hsSettingsTutorial": "Puedes...\n\n- Añadir más contactos de emergencia\n- Configurar SMS automáticos\n- Cambiar el idioma y\n- editar la apariencia de la aplicación\n\nen las opciones.\n\nMantén pulsado el botón de opciones para enviar feedback.",
   "hsVideoTutorial": "Cuando tomes una foto o grabes un vídeo, podrás compartirlo al instante.\n\nPor defecto, si se interrumpe una grabación, SOS se activará automáticamente.\n\nMantén pulsada la vista previa central para mostrar una lista de tus derechos.",
   "hsIOSVideoTutorial": "Cuando tomes una foto o grabes un vídeo, podrás compartirlo al instante.\n\nMantén pulsada la vista previa central para mostrar una lista de tus derechos.",
-  "hsRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un vídeo, podrás compartirlo al momento.\n\nPor defecto, si se interrumpe una grabación, SOS se activará automáticamente.\n\nMantén pulsado el mazo para mostrar una lista de tus derechos",
-  "hsIOSRightsTutorial": "Si habilitas la cámara y tomas una foto o grabas un vídeo, podrás compartirlo al momento.\n\nMantén pulsado el mazo para mostrar una lista de tus derechos",
   
-  "hsNeedContacts": "InstaSOS necesita acceso a tus contactos para funcionar bien.",
   "hsPartialContacts": "Apple mostrará todos los contactos, no solo aquellos compartidos con InstaSOS.\nPara compartir más contactos, vaya a Configuración de iOS -> Aplicaciones -> InstaSOS",
   "hsNumError": "El contacto es privado o no tiene número de teléfono.",
 
@@ -126,7 +122,6 @@
   "faqExpand": " para ayudar a expandir las opciones de idioma.",
 
   "faqReset": "Restablecer tutorial",
-  "faqResetSnack": "El tutorial se reproducirá de nuevo en el próximo inicio.",
 
   "faqOnCloseWarning": "\"SOS al cerrar\" está habilitado. Esto iniciará una transmisión.",
 

@@ -93,10 +93,6 @@ class LangEs extends Lang {
       'InstaSOS también puede obtener y compartir evidencia.\n\nPara ello, pedirá acceso a la cámara, al micrófono y a la galería.';
 
   @override
-  String get hsPermissionsAlways =>
-      'Pon que siempre tenga acceso a tu ubicación.\nSolo se utilizará mientras SOS esté activo';
-
-  @override
   String get hsBroadcastTutorial =>
       'Activa el SOS para enviar SMS automáticamente a tus contactos de emergencia.\n\nSi InstaSOS tiene acceso a tu ubicación, se incluirá en los mensajes.\n\nSeguirán enviándose SMS aunque el dispositivo esté bloqueado.\n\nDesactiva el SOS o cierra la aplicación para dejar de enviar mensajes.';
 
@@ -115,18 +111,6 @@ class LangEs extends Lang {
   @override
   String get hsIOSVideoTutorial =>
       'Cuando tomes una foto o grabes un vídeo, podrás compartirlo al instante.\n\nMantén pulsada la vista previa central para mostrar una lista de tus derechos.';
-
-  @override
-  String get hsRightsTutorial =>
-      'Si habilitas la cámara y tomas una foto o grabas un vídeo, podrás compartirlo al momento.\n\nPor defecto, si se interrumpe una grabación, SOS se activará automáticamente.\n\nMantén pulsado el mazo para mostrar una lista de tus derechos';
-
-  @override
-  String get hsIOSRightsTutorial =>
-      'Si habilitas la cámara y tomas una foto o grabas un vídeo, podrás compartirlo al momento.\n\nMantén pulsado el mazo para mostrar una lista de tus derechos';
-
-  @override
-  String get hsNeedContacts =>
-      'InstaSOS necesita acceso a tus contactos para funcionar bien.';
 
   @override
   String get hsPartialContacts =>
@@ -194,39 +178,31 @@ class LangEs extends Lang {
       'Consultar a un abogado. Si te han arrestado formalmente, tienes derecho a un abogado de oficio.';
 
   @override
-  String get ssSOSOnOpen => 'SOS al abrirse';
-
-  @override
-  String get ssSOSOnClose => 'SOS al cerrar';
-
-  @override
-  String get ssSOSOnCloseHint =>
-      'Cuando esté activada, aparecerá un botón de cierre seguro (pulgar hacia arriba) en la página principal, junto a la configuración. Si InstaSOS pierde el foco por cualquier motivo que no sea el botón de cierre seguro (minimización, cambio de aplicaciones, pantalla apagada), se iniciará una transmisión de SOS.';
-
-  @override
-  String get ssCloseOffWarning =>
-      'La aplicación se cerrará automáticamente para evitar transmisiones accidentales.';
-
-  @override
-  String get ssVideoSOS => 'SOS al interrumpir la grabación';
-
-  @override
   String get ssAutoShare => 'Compartir medios automáticamente';
 
   @override
-  String get ssEMC => 'Contactos de emergencia';
-
-  @override
-  String get ssRemoveHint => 'Eliminar contacto';
-
-  @override
-  String get ssAddHint => 'Añadir otro contacto';
-
-  @override
-  String get ssLinkType => 'Tipo de enlace';
+  String get ssSOS => 'SOS settings';
 
   @override
   String get ssAppearance => 'Apariencia';
+
+  @override
+  String get ssResources => 'Resources';
+
+  @override
+  String get rsCommunity => 'Community resources';
+
+  @override
+  String get rsGov => 'US government resources';
+
+  @override
+  String get rsAffiliate => 'None are affiliated with Empathetech LLC';
+
+  @override
+  String get rsAffiliateFix => 'None are affiliated with Empathetic LLC';
+
+  @override
+  String get ssSupport => 'Support';
 
   @override
   String get faqName => 'Preguntas Frecuentes';
@@ -321,12 +297,37 @@ class LangEs extends Lang {
   String get faqReset => 'Restablecer tutorial';
 
   @override
-  String get faqResetSnack =>
-      'El tutorial se reproducirá de nuevo en el próximo inicio.';
-
-  @override
   String get faqOnCloseWarning =>
       '\"SOS al cerrar\" está habilitado. Esto iniciará una transmisión.';
+
+  @override
+  String get bsEMC => 'Emergency contacts';
+
+  @override
+  String get bsRemoveHint => 'Remove contact';
+
+  @override
+  String get bsAddHint => 'Add another contact';
+
+  @override
+  String get bsLinkType => 'Link type';
+
+  @override
+  String get bsSOSOnOpen => 'SOS on open';
+
+  @override
+  String get bsSOSOnClose => 'SOS on close';
+
+  @override
+  String get bsSOSOnCloseHint =>
+      'A safe close (thumbs up) button will be appear on the home page, opposite the settings.\nIf InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
+
+  @override
+  String get bsCloseOffWarning =>
+      'The app will auto-close to prevent unintentional broadcasts.';
+
+  @override
+  String get bsVideoSOS => 'SOS on interrupted recording';
 
   @override
   String get dsLadyLiberty =>

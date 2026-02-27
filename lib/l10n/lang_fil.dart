@@ -95,10 +95,6 @@ class LangFil extends Lang {
       'Maaaring mangolekta at magbahagi ng ebidensya ang InstaSOS.\n\nHihingi ito ng access sa camera, mikropono, at gallery.';
 
   @override
-  String get hsPermissionsAlways =>
-      'Itakda ang lokasyon sa \'laging payagan\'.\nGagamitin lamang ito habang aktibo ang SOS.';
-
-  @override
   String get hsBroadcastTutorial =>
       'I-activate ang SOS para awtomatikong mag-tetext sa iyong mga emergency contact.\n\nKung may access ang InstaSOS sa iyong lokasyon, isasama ito sa mga text.\n\nMagpapatuloy ang mga text kahit naka-lock ang telepono.\n\nI-deactivate ang SOS o isara ang app para ihinto ang mga text.';
 
@@ -117,18 +113,6 @@ class LangFil extends Lang {
   @override
   String get hsIOSVideoTutorial =>
       'Kapag kumukuha ka ng larawan o nag-rerecord ng video, maaari mo itong ibahagi agad.\n\nPindutin nang matagal ang gitnang preview para ipakita ang listahan ng iyong mga karapatan.';
-
-  @override
-  String get hsRightsTutorial =>
-      'Kung pinapagana ang camera at kumukuha ng larawan o nag-rerecord ng video, maaari mo itong ibahagi agad.\n\nBy default, kung maputol ang recording, awtomatikong maa-activate ang SOS.\n\nPindutin ang malyeteng icon o pindutin nang matagal ang gitna ng screen para ipakita ang listahan ng iyong mga karapatan.';
-
-  @override
-  String get hsIOSRightsTutorial =>
-      'Kung pinapagana ang camera at kumukuha ng larawan o nag-rerecord ng video, maaari mo itong ibahagi agad.\n\nPindutin ang malyeteng icon o pindutin nang matagal ang gitna ng screen para ipakita ang listahan ng iyong mga karapatan.';
-
-  @override
-  String get hsNeedContacts =>
-      'Kailangan ng InstaSOS ang access sa iyong mga contact para gumana nang maayos.';
 
   @override
   String get hsPartialContacts =>
@@ -195,39 +179,31 @@ class LangFil extends Lang {
       'Kumonsulta sa abogado. Kung pormal kang naaresto, may karapatan kang bigyan ng abogado ng korte.';
 
   @override
-  String get ssSOSOnOpen => 'SOS sa pagbukas';
-
-  @override
-  String get ssSOSOnClose => 'SOS sa pag-sarado';
-
-  @override
-  String get ssSOSOnCloseHint =>
-      'Kapag naka-enable, lalabas ang isang button na \"safe close\" (thumbs up) sa home page, sa tapat ng mga setting. Kung mawawala ang focus ng InstaSOS sa anumang dahilan maliban sa button na \"safe close\" (minimize, naka-switch ang apps, naka-off ang screen), magsisimula ang isang SOS broadcast.';
-
-  @override
-  String get ssCloseOffWarning =>
-      'Kusang magsasara ang app upang maiwasan ang hindi sinasadyang pag-broadcast.';
-
-  @override
-  String get ssVideoSOS => 'SOS sa naputol na recording';
-
-  @override
   String get ssAutoShare => 'Auto-share ng media';
 
   @override
-  String get ssEMC => 'Mga emergency contact';
-
-  @override
-  String get ssRemoveHint => 'Tanggalin ang contact';
-
-  @override
-  String get ssAddHint => 'Magdagdag ng isa pang contact';
-
-  @override
-  String get ssLinkType => 'Uri ng link';
+  String get ssSOS => 'SOS settings';
 
   @override
   String get ssAppearance => 'Hitsura';
+
+  @override
+  String get ssResources => 'Resources';
+
+  @override
+  String get rsCommunity => 'Community resources';
+
+  @override
+  String get rsGov => 'US government resources';
+
+  @override
+  String get rsAffiliate => 'None are affiliated with Empathetech LLC';
+
+  @override
+  String get rsAffiliateFix => 'None are affiliated with Empathetic LLC';
+
+  @override
+  String get ssSupport => 'Support';
 
   @override
   String get faqName => 'FAQ';
@@ -324,12 +300,37 @@ class LangFil extends Lang {
   String get faqReset => 'I-reset ang tutorial';
 
   @override
-  String get faqResetSnack =>
-      'Muling i-pe-play ang tutorial sa susunod na pagbukas.';
-
-  @override
   String get faqOnCloseWarning =>
       'Naka-enable ang \"SOS sa pag-sarado\". Magsisimula ito ng broadcast.';
+
+  @override
+  String get bsEMC => 'Emergency contacts';
+
+  @override
+  String get bsRemoveHint => 'Remove contact';
+
+  @override
+  String get bsAddHint => 'Add another contact';
+
+  @override
+  String get bsLinkType => 'Link type';
+
+  @override
+  String get bsSOSOnOpen => 'SOS on open';
+
+  @override
+  String get bsSOSOnClose => 'SOS on close';
+
+  @override
+  String get bsSOSOnCloseHint =>
+      'A safe close (thumbs up) button will be appear on the home page, opposite the settings.\nIf InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
+
+  @override
+  String get bsCloseOffWarning =>
+      'The app will auto-close to prevent unintentional broadcasts.';
+
+  @override
+  String get bsVideoSOS => 'SOS on interrupted recording';
 
   @override
   String get dsLadyLiberty =>

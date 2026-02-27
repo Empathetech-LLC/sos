@@ -37,16 +37,12 @@
   "hsAppTutorial": "Ibinabahagi nito ang iyong status sa mga emergency contact sa oras ng krisis.\n\nPumili ng isang emergency contact.\nIsa lang muna ngayon, maaari kang magdagdag mamaya.",
   "hsPermissionsTutorialTitle": "Kung nais mo",
   "hsPermissionsTutorial": "Maaaring mangolekta at magbahagi ng ebidensya ang InstaSOS.\n\nHihingi ito ng access sa camera, mikropono, at gallery.",
-  "hsPermissionsAlways": "Itakda ang lokasyon sa 'laging payagan'.\nGagamitin lamang ito habang aktibo ang SOS.",
   "hsBroadcastTutorial": "I-activate ang SOS para awtomatikong mag-tetext sa iyong mga emergency contact.\n\nKung may access ang InstaSOS sa iyong lokasyon, isasama ito sa mga text.\n\nMagpapatuloy ang mga text kahit naka-lock ang telepono.\n\nI-deactivate ang SOS o isara ang app para ihinto ang mga text.",
   "hsIOSBroadcastTutorial": "I-activate ang SOS para awtomatikong mag-text sa iyong mga emergency contact.\n\nKung may access ang InstaSOS sa iyong lokasyon, isasama ito sa mga text.",
   "hsSettingsTutorial": "Maaari kang...\n\n- Magdagdag ng mas maraming emergency contact\n- I-setup ang automatic SOS\n- Palitan ang wika ng app, at\n- I-update ang hitsura ng app\n\nsa settings.\n\nPindutin nang matagal ang settings button para magbigay ng feedback para sa app.",
   "hsVideoTutorial": "Kapag kumukuha ka ng larawan o nag-rerecord ng video, maaari mo itong ibahagi agad.\n\nBy default, kung maputol ang recording, awtomatikong maa-activate ang SOS.\n\nPindutin nang matagal ang gitnang preview para ipakita ang listahan ng iyong mga karapatan.",
   "hsIOSVideoTutorial": "Kapag kumukuha ka ng larawan o nag-rerecord ng video, maaari mo itong ibahagi agad.\n\nPindutin nang matagal ang gitnang preview para ipakita ang listahan ng iyong mga karapatan.",
-  "hsRightsTutorial": "Kung pinapagana ang camera at kumukuha ng larawan o nag-rerecord ng video, maaari mo itong ibahagi agad.\n\nBy default, kung maputol ang recording, awtomatikong maa-activate ang SOS.\n\nPindutin ang malyeteng icon o pindutin nang matagal ang gitna ng screen para ipakita ang listahan ng iyong mga karapatan.",
-  "hsIOSRightsTutorial": "Kung pinapagana ang camera at kumukuha ng larawan o nag-rerecord ng video, maaari mo itong ibahagi agad.\n\nPindutin ang malyeteng icon o pindutin nang matagal ang gitna ng screen para ipakita ang listahan ng iyong mga karapatan.",
   
-  "hsNeedContacts": "Kailangan ng InstaSOS ang access sa iyong mga contact para gumana nang maayos.",
   "hsPartialContacts": "Ipapakita ng Apple ang lahat ng mga contact, hindi lamang ang mga ibinahagi sa InstaSOS.\nUpang magbahagi ng higit pang mga contact, pumunta sa iOS Settings -> Apps -> InstaSOS",
   "hsNumError": "Ang contact ay pribado o walang numero ng telepono.",
 
@@ -126,7 +122,6 @@
   "faqExpand": " upang makatulong na palawakin ang mga opsyon sa wika.",
 
   "faqReset": "I-reset ang tutorial",
-  "faqResetSnack": "Muling i-pe-play ang tutorial sa susunod na pagbukas.",
 
   "faqOnCloseWarning": "Naka-enable ang \"SOS sa pag-sarado\". Magsisimula ito ng broadcast.",
 

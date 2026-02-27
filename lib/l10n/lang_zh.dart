@@ -92,9 +92,6 @@ class LangZh extends Lang {
       'InstaSOS 也可用于采集和分享证据。\n\n系统将请求相机、麦克风和相册访问权限以实现该功能。';
 
   @override
-  String get hsPermissionsAlways => '请将定位权限设置为“始终允许”。\n仅在SOS激活时才会使用定位信息。';
-
-  @override
   String get hsBroadcastTutorial =>
       '激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。\n\n即使设备锁屏，短信也会持续发送。\n\n停止发送可通过关闭SOS或完全退出应用实现。';
 
@@ -112,17 +109,6 @@ class LangZh extends Lang {
 
   @override
   String get hsIOSVideoTutorial => '拍照或录像后，您可以立即分享内容。\n\n长按画面中央可查看权限列表。';
-
-  @override
-  String get hsRightsTutorial =>
-      '启用相机后，拍摄照片或视频内容可即时分享。\n\n默认情况下，录像若被中断，SOS将自动激活。\n\n点击法槌图标或长按屏幕中央可查看您的权限列表。';
-
-  @override
-  String get hsIOSRightsTutorial =>
-      '启用相机后，拍摄照片或视频内容可即时分享。\n\n点击法槌图标或长按屏幕中央可查看您的权限列表。';
-
-  @override
-  String get hsNeedContacts => 'InstaSOS 需要访问您的联系人以正常运行。';
 
   @override
   String get hsPartialContacts =>
@@ -181,38 +167,31 @@ class LangZh extends Lang {
   String get rsSharedLawyer => '您有权联系律师。如您已被正式逮捕，则有权请求法院为您指派律师。';
 
   @override
-  String get ssSOSOnOpen => '打开应用时启动SOS';
-
-  @override
-  String get ssSOSOnClose => '关闭应用时启动SOS';
-
-  @override
-  String get ssSOSOnCloseHint =>
-      '启用后，主页上设置按钮对面会出现一个安全关闭（点赞）按钮。如果 InstaSOS 因除安全关闭按钮以外的任何原因失去焦点（例如最小化、切换应用、屏幕关闭），则会开始发出 SOS 求救信号。';
-
-  @override
-  String get ssCloseOffWarning => '应用程序将自动关闭，以防止意外播出。';
-
-  @override
-  String get ssVideoSOS => '录像中断自动启动SOS';
-
-  @override
   String get ssAutoShare => '自动共享媒体';
 
   @override
-  String get ssEMC => '紧急联系人';
-
-  @override
-  String get ssRemoveHint => '移除联系人';
-
-  @override
-  String get ssAddHint => '添加联系人';
-
-  @override
-  String get ssLinkType => '链接类型';
+  String get ssSOS => 'SOS settings';
 
   @override
   String get ssAppearance => '界面外观';
+
+  @override
+  String get ssResources => 'Resources';
+
+  @override
+  String get rsCommunity => 'Community resources';
+
+  @override
+  String get rsGov => 'US government resources';
+
+  @override
+  String get rsAffiliate => 'None are affiliated with Empathetech LLC';
+
+  @override
+  String get rsAffiliateFix => 'None are affiliated with Empathetic LLC';
+
+  @override
+  String get ssSupport => 'Support';
 
   @override
   String get faqName => '常见问题';
@@ -298,10 +277,36 @@ class LangZh extends Lang {
   String get faqReset => '重置教程';
 
   @override
-  String get faqResetSnack => '教程将在下次启动时重播。';
+  String get faqOnCloseWarning => '“关闭时求救”已启用。这将开始广播。';
 
   @override
-  String get faqOnCloseWarning => '“关闭时求救”已启用。这将开始广播。';
+  String get bsEMC => 'Emergency contacts';
+
+  @override
+  String get bsRemoveHint => 'Remove contact';
+
+  @override
+  String get bsAddHint => 'Add another contact';
+
+  @override
+  String get bsLinkType => 'Link type';
+
+  @override
+  String get bsSOSOnOpen => 'SOS on open';
+
+  @override
+  String get bsSOSOnClose => 'SOS on close';
+
+  @override
+  String get bsSOSOnCloseHint =>
+      'A safe close (thumbs up) button will be appear on the home page, opposite the settings.\nIf InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
+
+  @override
+  String get bsCloseOffWarning =>
+      'The app will auto-close to prevent unintentional broadcasts.';
+
+  @override
+  String get bsVideoSOS => 'SOS on interrupted recording';
 
   @override
   String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';
@@ -395,9 +400,6 @@ class LangZhCn extends LangZh {
       'InstaSOS 也可用于采集和分享证据。\n\n系统将请求相机、麦克风和相册访问权限以实现该功能。';
 
   @override
-  String get hsPermissionsAlways => '请将定位权限设置为“始终允许”。\n仅在SOS激活时才会使用定位信息。';
-
-  @override
   String get hsBroadcastTutorial =>
       '激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。\n\n即使设备锁屏，短信也会持续发送。\n\n停止发送可通过关闭SOS或完全退出应用实现。';
 
@@ -415,17 +417,6 @@ class LangZhCn extends LangZh {
 
   @override
   String get hsIOSVideoTutorial => '拍照或录像后，您可以立即分享内容。\n\n长按画面中央可查看权限列表。';
-
-  @override
-  String get hsRightsTutorial =>
-      '启用相机后，拍摄照片或视频内容可即时分享。\n\n默认情况下，录像若被中断，SOS将自动激活。\n\n点击法槌图标或长按屏幕中央可查看您的权限列表。';
-
-  @override
-  String get hsIOSRightsTutorial =>
-      '启用相机后，拍摄照片或视频内容可即时分享。\n\n点击法槌图标或长按屏幕中央可查看您的权限列表。';
-
-  @override
-  String get hsNeedContacts => 'InstaSOS 需要访问您的联系人以正常运行。';
 
   @override
   String get hsPartialContacts =>
@@ -484,35 +475,7 @@ class LangZhCn extends LangZh {
   String get rsSharedLawyer => '您有权联系律师。如您已被正式逮捕，则有权请求法院为您指派律师。';
 
   @override
-  String get ssSOSOnOpen => '打开应用时启动SOS';
-
-  @override
-  String get ssSOSOnClose => '关闭应用时启动SOS';
-
-  @override
-  String get ssSOSOnCloseHint =>
-      '启用后，主页上设置按钮对面会出现一个安全关闭（点赞）按钮。如果 InstaSOS 因除安全关闭按钮以外的任何原因失去焦点（例如最小化、切换应用、屏幕关闭），则会开始发出 SOS 求救信号。';
-
-  @override
-  String get ssCloseOffWarning => '应用程序将自动关闭，以防止意外播出。';
-
-  @override
-  String get ssVideoSOS => '录像中断自动启动SOS';
-
-  @override
   String get ssAutoShare => '自动共享媒体';
-
-  @override
-  String get ssEMC => '紧急联系人';
-
-  @override
-  String get ssRemoveHint => '移除联系人';
-
-  @override
-  String get ssAddHint => '添加联系人';
-
-  @override
-  String get ssLinkType => '链接类型';
 
   @override
   String get ssAppearance => '界面外观';
@@ -599,9 +562,6 @@ class LangZhCn extends LangZh {
 
   @override
   String get faqReset => '重置教程';
-
-  @override
-  String get faqResetSnack => '教程将在下次启动时重播。';
 
   @override
   String get faqOnCloseWarning => '“关闭时求救”已启用。这将开始广播。';

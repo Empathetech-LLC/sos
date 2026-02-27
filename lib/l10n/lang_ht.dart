@@ -92,10 +92,6 @@ class LangHt extends Lang {
       'InstaSOS kapab kolekte epi pataje prèv tou.\n\nLi ap mande aksè a kamera, mikwo, avèk galri pou sa.';
 
   @override
-  String get hsPermissionsAlways =>
-      'Tanpri mete pozisyon sou \'toujou otorize\'.\nLi ap sèlman itilize lè SOS aktif.';
-
-  @override
   String get hsBroadcastTutorial =>
       'Aktive SOS pou voye mesaj otomatik bay kontak ijans ou yo.\n\nSi InstaSOS gen aksè a pozisyon ou, li ap mete l nan mesaj yo.\n\nMesaj yo ap kontinye ale menm si telefòn nan fèmen.\n\nOu ka swa dezaktive SOS oswa fèmen aplikasyon an nèt pou sispann voye mesaj ale.';
 
@@ -114,18 +110,6 @@ class LangHt extends Lang {
   @override
   String get hsIOSVideoTutorial =>
       'Lè ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPez mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo';
-
-  @override
-  String get hsRightsTutorial =>
-      'Si ou aktive kamera a, epi ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPa defo, si yon anrejistreman entèwonp, SOS ap aktive otomatikman.\n\nPeze sou ikòn balans jistis la oswa peze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.';
-
-  @override
-  String get hsIOSRightsTutorial =>
-      'Si ou aktive kamera a, epi ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPeze sou ikòn balans jistis la oswa peze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.';
-
-  @override
-  String get hsNeedContacts =>
-      'InstaSOS bezwen aksè a kontak ou yo pou li fonksyone kòrèkteman.';
 
   @override
   String get hsPartialContacts =>
@@ -192,39 +176,31 @@ class LangHt extends Lang {
       'Pou konsilte yon avoka. Si yo arete fòmèlman, ou gen dwa gen yon avoka leta.';
 
   @override
-  String get ssSOSOnOpen => 'SOS lè ouvè';
-
-  @override
-  String get ssSOSOnClose => 'SOS lè fèmen';
-
-  @override
-  String get ssSOSOnCloseHint =>
-      'Lè li aktive, yon bouton pou fèmen an sekirite (gwo pous anlè) ap parèt sou paj dakèy la, anfas paramèt yo. Si InstaSOS pèdi atansyon pou nenpòt rezon eksepte bouton fèmen an sekirite a (minimize, chanje aplikasyon, ekran etenn), yon emisyon SOS ap kòmanse.';
-
-  @override
-  String get ssCloseOffWarning =>
-      'Aplikasyon an ap fèmen otomatikman pou evite emisyon aksidantèl.';
-
-  @override
-  String get ssVideoSOS => 'SOS si anrejistreman an entèwonp';
-
-  @override
   String get ssAutoShare => 'Pataje medya otomatikman';
 
   @override
-  String get ssEMC => 'Kontak ijans';
-
-  @override
-  String get ssRemoveHint => 'Retire kontak';
-
-  @override
-  String get ssAddHint => 'Ajoute yon lòt kontak';
-
-  @override
-  String get ssLinkType => 'Kalite lyen';
+  String get ssSOS => 'SOS settings';
 
   @override
   String get ssAppearance => 'Aparans';
+
+  @override
+  String get ssResources => 'Resources';
+
+  @override
+  String get rsCommunity => 'Community resources';
+
+  @override
+  String get rsGov => 'US government resources';
+
+  @override
+  String get rsAffiliate => 'None are affiliated with Empathetech LLC';
+
+  @override
+  String get rsAffiliateFix => 'None are affiliated with Empathetic LLC';
+
+  @override
+  String get ssSupport => 'Support';
 
   @override
   String get faqName => 'FAQ';
@@ -318,12 +294,37 @@ class LangHt extends Lang {
   String get faqReset => 'Reyajiste titoryèl la';
 
   @override
-  String get faqResetSnack =>
-      'Titoryèl la pral jwe ankò nan pwochen lansman an.';
-
-  @override
   String get faqOnCloseWarning =>
       '\"SOS lè fèmen\" aktive. Sa pral kòmanse yon difizyon.';
+
+  @override
+  String get bsEMC => 'Emergency contacts';
+
+  @override
+  String get bsRemoveHint => 'Remove contact';
+
+  @override
+  String get bsAddHint => 'Add another contact';
+
+  @override
+  String get bsLinkType => 'Link type';
+
+  @override
+  String get bsSOSOnOpen => 'SOS on open';
+
+  @override
+  String get bsSOSOnClose => 'SOS on close';
+
+  @override
+  String get bsSOSOnCloseHint =>
+      'A safe close (thumbs up) button will be appear on the home page, opposite the settings.\nIf InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
+
+  @override
+  String get bsCloseOffWarning =>
+      'The app will auto-close to prevent unintentional broadcasts.';
+
+  @override
+  String get bsVideoSOS => 'SOS on interrupted recording';
 
   @override
   String get dsLadyLiberty =>
