@@ -242,7 +242,7 @@ class _HomeScreenState extends State<HomeScreen>
                     content: isIOS // TODO: update lang for new options
                         ? l10n.hsIOSBroadcastTutorial
                         : l10n.hsBroadcastTutorial,
-                    acceptMessage: '1/3\t>>',
+                    acceptMessage: '1/4\t>>',
                     onAccept: () {
                       sosTutorial.hide();
                       settingsTutorial.show();
@@ -255,6 +255,7 @@ class _HomeScreenState extends State<HomeScreen>
                           onPressed: stopForegroundSOS,
                         )
                       : EzIconButton(
+                          fauxDisabled: emc.isEmpty,
                           icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
                           iconSize: EzConfig.iconSize * 1.5,
                           onPressed: () async {
@@ -319,7 +320,7 @@ class _HomeScreenState extends State<HomeScreen>
                     ],
                   ),
                   content: l10n.hsSettingsTutorial, // TODO: center to camera
-                  acceptMessage: '2/3\t>>',
+                  acceptMessage: '2/4\t>>',
                   onAccept: () {
                     settingsTutorial.hide();
                     cameraTutorial.show();
@@ -425,8 +426,6 @@ class _HomeScreenState extends State<HomeScreen>
                     EzConfig.separator,
 
                     // Record
-                    // TODO: include a(n understandle to layman) note that sharing media is native and does not use SOS emc
-                    // TOODO: add that info to the help button/list
                     OverlayPortal(
                       controller: cameraTutorial,
                       overlayChildBuilder: (_) => EzTutorial(
@@ -440,14 +439,10 @@ class _HomeScreenState extends State<HomeScreen>
                           Icons.arrow_downward,
                           color: EzConfig.colors.onSurface,
                         ),
-                        content: camera == null
-                            ? isIOS
-                                ? l10n.hsIOSRightsTutorial
-                                : l10n.hsRightsTutorial
-                            : isIOS
-                                ? l10n.hsIOSVideoTutorial
-                                : l10n.hsVideoTutorial,
-                        acceptMessage: '3/3\t>>',
+                        content: isIOS
+                            ? l10n.hsIOSVideoTutorial
+                            : l10n.hsVideoTutorial,
+                        acceptMessage: '3/4\t>>',
                         onAccept: () async {
                           cameraTutorial.hide();
 
@@ -546,6 +541,7 @@ class _HomeScreenState extends State<HomeScreen>
                               },
                             )
                           : EzIconButton(
+                              fauxDisabled: camera == null,
                               style: IconButton.styleFrom(
                                 foregroundColor: videoColor,
                                 side: BorderSide(
@@ -589,8 +585,8 @@ class _HomeScreenState extends State<HomeScreen>
                     // Flash
                     camera == null
                         ? EzIconButton(
-                            icon: const Icon(Icons.flash_off),
                             fauxDisabled: true,
+                            icon: const Icon(Icons.flash_off),
                             onPressed: () async {
                               final PermissionStatus cameraPerm =
                                   await initCamera();
