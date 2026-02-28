@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen>
       final String message = e.toString();
 
       if (e is! CameraException || e.code != 'CameraAccessDenied') {
-        (mounted && !message.contains('dispose'))
+        (mounted)
             ? await ezLogAlert(context, message: message)
             : ezLog(message);
       } else {
@@ -619,13 +619,9 @@ class _HomeScreenState extends State<HomeScreen>
   void didChangeAppLifecycleState(AppLifecycleState state) async {
     switch (state) {
       case AppLifecycleState.detached:
+      case AppLifecycleState.inactive:
       case AppLifecycleState.paused:
         break; // Do nothing
-
-      case AppLifecycleState.inactive:
-        camera?.dispose();
-        camera = null;
-        break;
 
       case AppLifecycleState.hidden:
         final bool alreadyRunning = EzConfig.get(taskRunningKey);
