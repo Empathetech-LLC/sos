@@ -91,9 +91,80 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             ),
             EzConfig.divider,
 
+            // Permissions
+            EzElevatedIconButton(
+              onPressed: () async => ezModal(
+                context: context,
+                builder: (BuildContext mContext) => Padding(
+                  padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
+                  child: EzScrollView(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      // Intro
+                      Text(
+                        l10n.pmOnlyAdd,
+                        style: EzConfig.styles.bodyLarge,
+                        textAlign: TextAlign.center,
+                      ),
+                      EzConfig.centerLine,
+                      EzRichText(
+                        <InlineSpan>[
+                          EzPlainText(
+                            text: l10n.pmRemoveIn,
+                            style: EzConfig.styles.bodyLarge,
+                          ),
+                          EzInlineLink(
+                            l10n.pmSystem,
+                            onTap: openAppSettings,
+                            hint: EzConfig.l10n.gOpenLink,
+                          ),
+                        ],
+                        textBackground: false,
+                        style: EzConfig.styles.bodyLarge,
+                        textAlign: TextAlign.center,
+                      ),
+                      EzConfig.centerLine,
+                      Text(
+                        l10n.pmSmartButtons,
+                        style: EzConfig.styles.bodyLarge,
+                        textAlign: TextAlign.center,
+                      ),
+                      EzConfig.divider,
+
+                      const ContactsSetup(),
+                      EzConfig.spacer,
+
+                      if (!isIOS) ...<Widget>[
+                        const SMSSetup(),
+                        EzConfig.spacer,
+                      ],
+
+                      const LocationSetup(),
+                      EzConfig.spacer,
+
+                      // Finish/leave
+                      EzTextButton(
+                        text: l10n.gDone,
+                        textStyle: EzConfig.styles.bodyLarge
+                            ?.copyWith(color: EzConfig.colors.primary),
+                        textAlign: TextAlign.center,
+                        style: TextButton.styleFrom(
+                            backgroundColor: Colors.transparent),
+                        onPressed: () => Navigator.of(mContext).pop(true),
+                      ),
+                      EzSpacer(space: EzConfig.spargin),
+                    ],
+                  ),
+                ),
+              ),
+              icon: const Icon(Icons.check),
+              label: l10n.ssPermissions,
+            ),
+            EzConfig.spacer,
+
             // Resources
             EzElevatedIconButton(
-              onPressed: () => ezModal(
+              onPressed: () async => ezModal(
                 context: context,
                 builder: (BuildContext mContext) => EzScrollView(
                   mainAxisSize: MainAxisSize.min,
