@@ -453,6 +453,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                                 ),
                                 EzPlainText(
                                   text: l10n.faqOnInterruptA,
+                                  semanticsLabel: l10n.faqOnInterruptAFix,
                                   style: answer,
                                 ),
                               ],
@@ -495,6 +496,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                             EzConfig.startLine,
                             Text(
                               l10n.faqLocationTrust,
+                              semanticsLabel: l10n.faqLocationTrustFix,
                               style: answer,
                               textAlign: TextAlign.start,
                             ),
@@ -580,6 +582,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                           children: <Widget>[
                             Text(
                               l10n.faqContactPermissions,
+                              semanticsLabel: l10n.faqContactPermissionsFix,
                               style: answer,
                               textAlign: TextAlign.start,
                             ),

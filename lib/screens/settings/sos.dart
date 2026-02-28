@@ -142,6 +142,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
                                 ),
                                 content: Text(
                                   l10n.bsSOSOnCloseHint,
+                                  semanticsLabel: l10n.bsSOSOnCloseHintFix,
                                   textAlign: TextAlign.center,
                                 ),
                                 actions: ezActionPair(

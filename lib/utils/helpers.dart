@@ -64,7 +64,11 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
         context: context,
         builder: (BuildContext dContext) => EzAlertDialog(
           title: Text(l10n.gReminder, textAlign: TextAlign.center),
-          content: Text(l10n.bsPartialContacts, textAlign: TextAlign.center),
+          content: Text(
+            l10n.bsPartialContacts,
+            semanticsLabel: l10n.bsPartialContactsFix,
+            textAlign: TextAlign.center,
+          ),
           actions: ezActionPair(
             context: context,
             confirmMsg: l10n.gOk,
@@ -159,6 +163,7 @@ Future<void> appSetupModal(
           EzConfig.margin,
           Text(
             l10n.hsWelcome,
+            semanticsLabel: l10n.hsWelcomeFix,
             style: EzConfig.styles.titleLarge,
             textAlign: TextAlign.center,
           ),

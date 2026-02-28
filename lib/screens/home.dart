@@ -242,6 +242,9 @@ class _HomeScreenState extends State<HomeScreen>
                     content: isIOS
                         ? l10n.hsIOSBroadcastTutorial
                         : l10n.hsBroadcastTutorial,
+                    contentSemantics: isIOS
+                        ? l10n.hsIOSBroadcastTutorialFix
+                        : l10n.hsBroadcastTutorialFix,
                     acceptMessage: '1/4\t>>',
                     acceptSemantics: l10n.hsOneOfFour,
                     onAccept: () {
