@@ -48,28 +48,28 @@
   
   
   
-  "rsSharedHeader": "Vous avez le droit de...",
+  "rvSharedHeader": "Vous avez le droit de...",
   
-  "rsOnFoot": "Piéton",
-  "rsWhileDriving": "Conducteur",
-  "rsAtHome": "Au domicile",
+  "rvOnFoot": "Piéton",
+  "rvWhileDriving": "Conducteur",
+  "rvAtHome": "Au domicile",
   
-  "rsSharedRemainSilent": "Garder le silence. Ne mentez pas, mais vous n'êtes pas obligé de répondre aux questions.",
-  "rsSharedDocument": "Documenter tout. Vous avez le droit de prendre des photos, d'enregistrer des vidéos et de faire des enregistrements audio.",
+  "rvSharedRemainSilent": "Garder le silence. Ne mentez pas, mais vous n'êtes pas obligé de répondre aux questions.",
+  "rvSharedDocument": "Documenter tout. Vous avez le droit de prendre des photos, d'enregistrer des vidéos et de faire des enregistrements audio.",
   
-  "rsMobilePockets": "Refuser la fouille de vos poches. L'ICE peut procéder à une palpation, mais pas à une fouille.",
-  "rsMobileQuestion": "Poser des questions. Comprenez pourquoi vous avez été arrêté.",
-  "rsMobileLeave": "Partez si vous n’êtes pas en détention.",
+  "rvMobilePockets": "Refuser la fouille de vos poches. L'ICE peut procéder à une palpation, mais pas à une fouille.",
+  "rvMobileQuestion": "Poser des questions. Comprenez pourquoi vous avez été arrêté.",
+  "rvMobileLeave": "Partez si vous n’êtes pas en détention.",
   
-  "rsDriveSearch": "Refuser la fouille de votre véhicule.",
-  "rsDriveID": "Refuser de présenter une pièce d'identité en tant que passager. Seul le conducteur est tenu de présenter une pièce d'identité.",
-  "rsDriveWarrant": "Demander aux agents s'ils ont un mandat. Vous avez le droit de le voir s'ils en ont un. Si un \"mandat\" n'est pas signé par un juge, il n'est pas valide.",
+  "rvDriveSearch": "Refuser la fouille de votre véhicule.",
+  "rvDriveID": "Refuser de présenter une pièce d'identité en tant que passager. Seul le conducteur est tenu de présenter une pièce d'identité.",
+  "rvDriveWarrant": "Demander aux agents s'ils ont un mandat. Vous avez le droit de le voir s'ils en ont un. Si un \"mandat\" n'est pas signé par un juge, il n'est pas valide.",
   
-  "rsHomeWarrant": "Garder votre porte fermée. S'ils ont un mandat, demandez-leur de le glisser sous la porte. Si un \"mandat\" n'est pas signé par un juge, il n'est pas valide. Gardez votre porte fermée.",
+  "rvHomeWarrant": "Garder votre porte fermée. S'ils ont un mandat, demandez-leur de le glisser sous la porte. Si un \"mandat\" n'est pas signé par un juge, il n'est pas valide. Gardez votre porte fermée.",
   
-  "rsSharedSign": "Refuser de signer quoi que ce soit.",
-  "rsSharedFingerprint": "Refuser de vous soumettre à un relevé d'empreintes digitales par l'ICE, sauf si vous êtes en état d'arrestation.",
-  "rsSharedLawyer": "Consulter un avocat. Si vous avez été officiellement arrêté, vous avez droit à un avocat commis d'office.",
+  "rvSharedSign": "Refuser de signer quoi que ce soit.",
+  "rvSharedFingerprint": "Refuser de vous soumettre à un relevé d'empreintes digitales par l'ICE, sauf si vous êtes en état d'arrestation.",
+  "rvSharedLawyer": "Consulter un avocat. Si vous avez été officiellement arrêté, vous avez droit à un avocat commis d'office.",
   
   
   
@@ -92,7 +92,7 @@
   "faqName": "FAQ",
 
   "faqListQ": "Comment la liste des droits a-t-elle été établie ?",
-  "faqListA1": "La liste des droits a été compilée à partir de plusieurs sources publiques, notamment :",
+  "faqListA": "La liste des droits a été compilée à partir de plusieurs sources publiques, notamment :",
   "faqListA2": "Une autre ressource utile : ",
 
   "faqSettings": "À quoi servent les paramètres ?",

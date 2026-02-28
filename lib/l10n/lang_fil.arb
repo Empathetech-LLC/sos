@@ -48,28 +48,28 @@
 
 
 
-  "rsSharedHeader": "May karapatan kang...",
+  "rvSharedHeader": "May karapatan kang...",
 
-  "rsOnFoot": "Habang naglalakad",
-  "rsWhileDriving": "Habang nagmamaneho",
-  "rsAtHome": "Habang nasa bahay",
+  "rvOnFoot": "Habang naglalakad",
+  "rvWhileDriving": "Habang nagmamaneho",
+  "rvAtHome": "Habang nasa bahay",
   
-  "rsSharedRemainSilent": "Manahimik. Huwag magsinungaling, pero hindi mo kailangang sumagot sa mga tanong.",
-  "rsSharedDocument": "I-dokumento ang lahat. May karapatan kang kumuha ng larawan, mag-record ng video, at mag-record ng audio.",
+  "rvSharedRemainSilent": "Manahimik. Huwag magsinungaling, pero hindi mo kailangang sumagot sa mga tanong.",
+  "rvSharedDocument": "I-dokumento ang lahat. May karapatan kang kumuha ng larawan, mag-record ng video, at mag-record ng audio.",
 
-  "rsMobilePockets": "Tumangging ipasuri ang iyong bulsa. Puwedeng kapkapan ka ng ICE, pero hindi puwedeng maghalughog.",
-  "rsMobileQuestion": "Magtanong. Alamin kung bakit ka pinahinto.",
-  "rsMobileLeave": "Umalis ka kung hindi ka pinipigilan.",
+  "rvMobilePockets": "Tumangging ipasuri ang iyong bulsa. Puwedeng kapkapan ka ng ICE, pero hindi puwedeng maghalughog.",
+  "rvMobileQuestion": "Magtanong. Alamin kung bakit ka pinahinto.",
+  "rvMobileLeave": "Umalis ka kung hindi ka pinipigilan.",
 
-  "rsDriveSearch": "Tumangging ipasuri ang iyong sasakyan.",
-  "rsDriveID": "Tumangging magbigay ng ID bilang pasahero. Tanging driver lang ang kailangang magbigay ng ID.",
-  "rsDriveWarrant": "Magtanong kung may warrant ang mga opisyal. May karapatan kang makita ito. Kung walang pirma ng hukom, wala itong bisa.",
+  "rvDriveSearch": "Tumangging ipasuri ang iyong sasakyan.",
+  "rvDriveID": "Tumangging magbigay ng ID bilang pasahero. Tanging driver lang ang kailangang magbigay ng ID.",
+  "rvDriveWarrant": "Magtanong kung may warrant ang mga opisyal. May karapatan kang makita ito. Kung walang pirma ng hukom, wala itong bisa.",
   
-  "rsHomeWarrant": "Panatilihing nakasara ang pinto. Kung may warrant, hilingin na ipasok ito sa ilalim ng pinto. Kung walang pirma ng hukom, wala itong bisa. Panatilihing nakasara ang pinto.",
+  "rvHomeWarrant": "Panatilihing nakasara ang pinto. Kung may warrant, hilingin na ipasok ito sa ilalim ng pinto. Kung walang pirma ng hukom, wala itong bisa. Panatilihing nakasara ang pinto.",
 
-  "rsSharedSign": "Tumangging pumirma ng anuman.",
-  "rsSharedFingerprint": "Tumangging magpa-fingerprint sa ICE maliban kung inaaresto ka.",
-  "rsSharedLawyer": "Kumonsulta sa abogado. Kung pormal kang naaresto, may karapatan kang bigyan ng abogado ng korte.",
+  "rvSharedSign": "Tumangging pumirma ng anuman.",
+  "rvSharedFingerprint": "Tumangging magpa-fingerprint sa ICE maliban kung inaaresto ka.",
+  "rvSharedLawyer": "Kumonsulta sa abogado. Kung pormal kang naaresto, may karapatan kang bigyan ng abogado ng korte.",
 
 
   
@@ -92,7 +92,7 @@
   "faqName": "FAQ",
 
   "faqListQ": "Paano binuo ang listahan ng mga karapatan?",
-  "faqListA1": "Ang listahan ng mga karapatan ay tinipon mula sa ilang pampublikong sanggunian, kabilang ang:",
+  "faqListA": "Ang listahan ng mga karapatan ay tinipon mula sa ilang pampublikong sanggunian, kabilang ang:",
   "faqListA2": "Isa pang kapaki-pakinabang na sanggunian: ",
 
   "faqSettings": "Para saan ang mga settings?",
