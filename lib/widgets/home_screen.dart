@@ -20,12 +20,17 @@ class FlashButton extends StatefulWidget {
 }
 
 class _FlashButtonState extends State<FlashButton> {
-  bool works = true;
+  final Map<FlashMode, bool> working = <FlashMode, bool>{
+    FlashMode.off: true,
+    FlashMode.auto: true,
+    FlashMode.always: true,
+    FlashMode.torch: true,
+  };
 
   @override
   Widget build(BuildContext context) {
     return EzIconButton(
-      enabled: works,
+      enabled: working.values.contains(true),
       icon: switch (widget.camera.value.flashMode) {
         FlashMode.off => Icon(Icons.flash_off, semanticLabel: l10n.hsFlashOff),
         FlashMode.auto =>
@@ -35,36 +40,82 @@ class _FlashButtonState extends State<FlashButton> {
           Icon(Icons.flashlight_on, semanticLabel: l10n.hsFlashTorch),
       },
       onPressed: () async {
-        try {
+        bool hasResult = false;
+
+        while (!hasResult) {
           switch (widget.camera.value.flashMode) {
             case FlashMode.off:
               try {
-                await widget.camera.setFlashMode(FlashMode.auto);
+                if (working[FlashMode.auto] == true) {
+                  await widget.camera.setFlashMode(FlashMode.auto);
+                  hasResult = true;
+                  break;
+                }
+                // else: continue
               } catch (_) {
-                await widget.camera.setFlashMode(FlashMode.torch);
+                working[FlashMode.auto] = false;
+
+                if (!working.values.contains(true)) {
+                  hasResult = true;
+                  break;
+                }
+                // ditto
               }
-              break;
             case FlashMode.auto:
               try {
-                await widget.camera.setFlashMode(FlashMode.always);
+                if (working[FlashMode.always] == true) {
+                  await widget.camera.setFlashMode(FlashMode.always);
+                  hasResult = true;
+                  break;
+                }
+                // else: continue
               } catch (_) {
-                await widget.camera.setFlashMode(FlashMode.torch);
+                working[FlashMode.always] = false;
+
+                if (!working.values.contains(true)) {
+                  hasResult = true;
+                  break;
+                }
+                // ditto
               }
-              break;
             case FlashMode.always:
-              await widget.camera.setFlashMode(FlashMode.torch);
-              break;
+              try {
+                if (working[FlashMode.torch] == true) {
+                  await widget.camera.setFlashMode(FlashMode.torch);
+                  hasResult = true;
+                  break;
+                }
+                // else: continue
+              } catch (_) {
+                working[FlashMode.torch] = false;
+
+                if (!working.values.contains(true)) {
+                  hasResult = true;
+                  break;
+                }
+                // ditto
+              }
             case FlashMode.torch:
-              await widget.camera.setFlashMode(FlashMode.off);
-              break;
+              try {
+                if (working[FlashMode.off] == true) {
+                  await widget.camera.setFlashMode(FlashMode.off);
+                  hasResult = true;
+                  break;
+                }
+                // else: continue
+              } catch (_) {
+                working[FlashMode.off] = false;
+
+                if (!working.values.contains(true)) {
+                  hasResult = true;
+                  break;
+                }
+                // ditto
+              }
           }
-          setState(() {});
-        } catch (e) {
-          (context.mounted)
-              ? await ezLogAlert(context, message: e.toString())
-              : ezLog(e.toString());
-          setState(() => works = false);
         }
+
+        setState(() {});
       },
     );
   }
