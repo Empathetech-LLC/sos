@@ -243,6 +243,7 @@ class _HomeScreenState extends State<HomeScreen>
                         ? l10n.hsIOSBroadcastTutorial
                         : l10n.hsBroadcastTutorial,
                     acceptMessage: '1/4\t>>',
+                    acceptSemantics: l10n.hsOneOfFour,
                     onAccept: () {
                       sosTutorial.hide();
                       settingsTutorial.show();
@@ -320,7 +321,9 @@ class _HomeScreenState extends State<HomeScreen>
                     ],
                   ),
                   content: l10n.hsSettingsTutorial,
+                  contentSemantics: l10n.hsSettingsTutorialFix,
                   acceptMessage: '2/4\t>>',
+                  acceptSemantics: l10n.hsTwoOfFour,
                   onAccept: () {
                     settingsTutorial.hide();
                     cameraTutorial.show();
@@ -443,6 +446,7 @@ class _HomeScreenState extends State<HomeScreen>
                             ? l10n.hsIOSVideoTutorial
                             : l10n.hsVideoTutorial,
                         acceptMessage: '3/4\t>>',
+                        acceptSemantics: l10n.hsThreeOfFour,
                         onAccept: () async {
                           cameraTutorial.hide();
 

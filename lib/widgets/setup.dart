@@ -124,101 +124,121 @@ class _CameraSetupState extends State<CameraSetup> {
   // Return the build //
 
   @override
-  Widget build(BuildContext context) => camStatus == PermissionStatus.granted
-      ? GestureDetector(
-          onTap: () async {
-            if (galStatus == true) return;
-            final bool result = await Gal.requestAccess();
-            if (galStatus != result) setState(() => galStatus = result);
-          },
-          child: Card(
-            shape: RoundedRectangleBorder(
-              side: BorderSide(color: EzConfig.colors.primaryContainer),
-              borderRadius: ezRoundEdge,
+  Widget build(BuildContext context) {
+    return camStatus == PermissionStatus.granted
+        ? GestureDetector(
+            onTap: () async {
+              if (galStatus == true) return;
+              final bool result = await Gal.requestAccess();
+              if (galStatus != result) setState(() => galStatus = result);
+            },
+            child: Semantics(
+              button: galStatus != true,
+              readOnly: galStatus == true,
+              hint: (galStatus == true)
+                  ? l10n.hsCameraReady
+                  : l10n.hsCameraSetupHint,
+              child: ExcludeSemantics(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: EzConfig.colors.primaryContainer),
+                    borderRadius: ezRoundEdge,
+                  ),
+                  child: EzRow(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.all(EzConfig.marginVal),
+                          child: galStatus == true
+                              ? Text(
+                                  l10n.hsCameraReady,
+                                  style: EzConfig.styles.bodyLarge,
+                                  textAlign: TextAlign.start,
+                                )
+                              : Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      l10n.hsGallery,
+                                      style: EzConfig.styles.bodyLarge,
+                                      textAlign: TextAlign.start,
+                                    ),
+                                    Text(
+                                      l10n.hsAddSave,
+                                      style: EzConfig.styles.labelLarge,
+                                      textAlign: TextAlign.start,
+                                    ),
+                                  ],
+                                ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                        child: boolIcon(galStatus),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
-            child: EzRow(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.all(EzConfig.marginVal),
-                    child: galStatus == true
-                        ? Text(
-                            l10n.hsCameraReady,
-                            style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.start,
-                          )
-                        : Column(
+          )
+        : GestureDetector(
+            onTap: () async {
+              if (camStatus == PermissionStatus.granted) return;
+              final PermissionStatus result = await widget.initCamera();
+              if (camStatus != result) setState(() => camStatus = result);
+            },
+            child: Semantics(
+              button: true,
+              readOnly: false,
+              hint: l10n.hsCameraSetupHint,
+              child: ExcludeSemantics(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: EzConfig.colors.primaryContainer),
+                    borderRadius: ezRoundEdge,
+                  ),
+                  child: EzRow(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.all(EzConfig.marginVal),
+                          child: Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                l10n.hsGallery,
+                                l10n.hsCamMic,
                                 style: EzConfig.styles.bodyLarge,
                                 textAlign: TextAlign.start,
                               ),
                               Text(
-                                l10n.hsAddSave,
+                                l10n.hsAddRecording,
                                 style: EzConfig.styles.labelLarge,
                                 textAlign: TextAlign.start,
                               ),
                             ],
                           ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                        child: pStatusIcon(camStatus),
+                      ),
+                    ],
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
-                  child: boolIcon(galStatus),
-                ),
-              ],
+              ),
             ),
-          ),
-        )
-      : GestureDetector(
-          onTap: () async {
-            if (camStatus == PermissionStatus.granted) return;
-            final PermissionStatus result = await widget.initCamera();
-            if (camStatus != result) setState(() => camStatus = result);
-          },
-          child: Card(
-            shape: RoundedRectangleBorder(
-              side: BorderSide(color: EzConfig.colors.primaryContainer),
-              borderRadius: ezRoundEdge,
-            ),
-            child: EzRow(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.all(EzConfig.marginVal),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          l10n.hsCamMic,
-                          style: EzConfig.styles.bodyLarge,
-                          textAlign: TextAlign.start,
-                        ),
-                        Text(
-                          l10n.hsAddRecording,
-                          style: EzConfig.styles.labelLarge,
-                          textAlign: TextAlign.start,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
-                  child: pStatusIcon(camStatus),
-                ),
-              ],
-            ),
-          ),
-        );
+          );
+  }
 }
 
 class ContactsSetup extends StatefulWidget {
@@ -258,49 +278,56 @@ class _ContactsSetupState extends State<ContactsSetup> {
               await FlutterContacts.requestPermission(readonly: true);
           if (allowed != result) setState(() => allowed = result);
         },
-        child: Card(
-          shape: RoundedRectangleBorder(
-            side: BorderSide(color: EzConfig.colors.primaryContainer),
-            borderRadius: ezRoundEdge,
-          ),
-          child: EzRow(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.all(EzConfig.marginVal),
-                  child: allowed == true
-                      ? Text(
-                          l10n.hsContactsReady,
-                          style: EzConfig.styles.bodyLarge,
-                          textAlign: TextAlign.start,
-                        )
-                      : Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              l10n.hsContacts,
+        child: Semantics(
+          button: allowed != true,
+          readOnly: allowed == true,
+          hint: l10n.hsContactsSetupHint,
+          child: ExcludeSemantics(
+            child: Card(
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: EzConfig.colors.primaryContainer),
+                borderRadius: ezRoundEdge,
+              ),
+              child: EzRow(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(EzConfig.marginVal),
+                      child: allowed == true
+                          ? Text(
+                              l10n.hsContactsReady,
                               style: EzConfig.styles.bodyLarge,
                               textAlign: TextAlign.start,
+                            )
+                          : Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  l10n.hsContacts,
+                                  style: EzConfig.styles.bodyLarge,
+                                  textAlign: TextAlign.start,
+                                ),
+                                Text(
+                                  isIOS
+                                      ? l10n.hsAddContactsIOS
+                                      : l10n.hsAddContacts,
+                                  style: EzConfig.styles.labelLarge,
+                                  textAlign: TextAlign.start,
+                                ),
+                              ],
                             ),
-                            Text(
-                              isIOS
-                                  ? l10n.hsAddContactsIOS
-                                  : l10n.hsAddContacts,
-                              style: EzConfig.styles.labelLarge,
-                              textAlign: TextAlign.start,
-                            ),
-                          ],
-                        ),
-                ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                    child: boolIcon(allowed),
+                  ),
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
-                child: boolIcon(allowed),
-              ),
-            ],
+            ),
           ),
         ),
       );
@@ -340,47 +367,54 @@ class _SMSSetupState extends State<SMSSetup> {
           final PermissionStatus result = await Permission.sms.request();
           if (status != result) setState(() => status = result);
         },
-        child: Card(
-          shape: RoundedRectangleBorder(
-            side: BorderSide(color: EzConfig.colors.primaryContainer),
-            borderRadius: ezRoundEdge,
-          ),
-          child: EzRow(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.all(EzConfig.marginVal),
-                  child: status == PermissionStatus.granted
-                      ? Text(
-                          l10n.hsTextingReady,
-                          style: EzConfig.styles.bodyLarge,
-                          textAlign: TextAlign.start,
-                        )
-                      : Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              l10n.hsTexting,
+        child: Semantics(
+          button: status != PermissionStatus.granted,
+          readOnly: status == PermissionStatus.granted,
+          hint: l10n.hsTextingSetupHint,
+          child: ExcludeSemantics(
+            child: Card(
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: EzConfig.colors.primaryContainer),
+                borderRadius: ezRoundEdge,
+              ),
+              child: EzRow(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(EzConfig.marginVal),
+                      child: status == PermissionStatus.granted
+                          ? Text(
+                              l10n.hsTextingReady,
                               style: EzConfig.styles.bodyLarge,
                               textAlign: TextAlign.start,
+                            )
+                          : Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  l10n.hsTexting,
+                                  style: EzConfig.styles.bodyLarge,
+                                  textAlign: TextAlign.start,
+                                ),
+                                Text(
+                                  l10n.hsAddTexting,
+                                  style: EzConfig.styles.labelLarge,
+                                  textAlign: TextAlign.start,
+                                ),
+                              ],
                             ),
-                            Text(
-                              l10n.hsAddTexting,
-                              style: EzConfig.styles.labelLarge,
-                              textAlign: TextAlign.start,
-                            ),
-                          ],
-                        ),
-                ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                    child: pStatusIcon(status),
+                  ),
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
-                child: pStatusIcon(status),
-              ),
-            ],
+            ),
           ),
         ),
       );
@@ -454,49 +488,56 @@ class _LocationSetupState extends State<LocationSetup>
               return;
           }
         },
-        child: Card(
-          shape: RoundedRectangleBorder(
-            side: BorderSide(color: EzConfig.colors.primaryContainer),
-            borderRadius: ezRoundEdge,
-          ),
-          child: EzRow(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.all(EzConfig.marginVal),
-                  child: status == LocationPermission.always
-                      ? Text(
-                          l10n.hsLocationReady,
-                          style: EzConfig.styles.bodyLarge,
-                          textAlign: TextAlign.start,
-                        )
-                      : Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              l10n.hsLocation,
+        child: Semantics(
+          button: status != LocationPermission.always,
+          readOnly: status == LocationPermission.always,
+          hint: l10n.hsLocationSetupHint,
+          child: ExcludeSemantics(
+            child: Card(
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: EzConfig.colors.primaryContainer),
+                borderRadius: ezRoundEdge,
+              ),
+              child: EzRow(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(EzConfig.marginVal),
+                      child: status == LocationPermission.always
+                          ? Text(
+                              l10n.hsLocationReady,
                               style: EzConfig.styles.bodyLarge,
                               textAlign: TextAlign.start,
+                            )
+                          : Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  l10n.hsLocation,
+                                  style: EzConfig.styles.bodyLarge,
+                                  textAlign: TextAlign.start,
+                                ),
+                                Text(
+                                  status == LocationPermission.whileInUse
+                                      ? l10n.hsAddAlways
+                                      : l10n.hsAddLocation,
+                                  style: EzConfig.styles.labelLarge,
+                                  textAlign: TextAlign.start,
+                                ),
+                              ],
                             ),
-                            Text(
-                              status == LocationPermission.whileInUse
-                                  ? l10n.hsAddAlways
-                                  : l10n.hsAddLocation,
-                              style: EzConfig.styles.labelLarge,
-                              textAlign: TextAlign.start,
-                            ),
-                          ],
-                        ),
-                ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                    child: lStatusIcon(status),
+                  ),
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
-                child: lStatusIcon(status),
-              ),
-            ],
+            ),
           ),
         ),
       );
