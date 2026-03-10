@@ -15,6 +15,9 @@ class LangFil extends Lang {
   String get gDone => 'Done';
 
   @override
+  String get gPermission => 'permission';
+
+  @override
   String get gReminder => 'Paalala';
 
   @override

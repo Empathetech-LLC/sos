@@ -15,6 +15,9 @@ class LangZh extends Lang {
   String get gDone => 'Done';
 
   @override
+  String get gPermission => 'permission';
+
+  @override
   String get gReminder => '提醒';
 
   @override

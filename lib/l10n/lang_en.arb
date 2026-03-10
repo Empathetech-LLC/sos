@@ -5,12 +5,13 @@
   
   "gOk": "Ok",
   "gDone": "Done",
+  "gPermission": "permission",
   "gReminder": "Reminder",
   "gNotAgain": "Don't show again",
   "gOnCloseWarning": "\"SOS on close\" is enabled. This will start a broadcast.",
 
   "sosLastKnown": "Last known location",
-  "sosNeedSMS": "SOS needs SMS permission to function properly.",
+  "sosNeedSMS": "SOS needs SMS (texting) ",
   "sosDisabled": "Cannot access location (disabled)",
   "sosDenied": "Cannot access location (denied)",
   "sosError": "Cannot access location (error)",

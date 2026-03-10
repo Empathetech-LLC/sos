@@ -121,6 +121,12 @@ abstract class Lang {
   /// **'Done'**
   String get gDone;
 
+  /// No description provided for @gPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'permission'**
+  String get gPermission;
+
   /// No description provided for @gReminder.
   ///
   /// In en, this message translates to:
@@ -148,7 +154,7 @@ abstract class Lang {
   /// No description provided for @sosNeedSMS.
   ///
   /// In en, this message translates to:
-  /// **'SOS needs SMS permission to function properly.'**
+  /// **'SOS needs SMS (texting) '**
   String get sosNeedSMS;
 
   /// No description provided for @sosDisabled.

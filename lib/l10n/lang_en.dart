@@ -15,6 +15,9 @@ class LangEn extends Lang {
   String get gDone => 'Done';
 
   @override
+  String get gPermission => 'permission';
+
+  @override
   String get gReminder => 'Reminder';
 
   @override
@@ -28,7 +31,7 @@ class LangEn extends Lang {
   String get sosLastKnown => 'Last known location';
 
   @override
-  String get sosNeedSMS => 'SOS needs SMS permission to function properly.';
+  String get sosNeedSMS => 'SOS needs SMS (texting) ';
 
   @override
   String get sosDisabled => 'Cannot access location (disabled)';
@@ -507,6 +510,9 @@ class LangEnUs extends LangEn {
   String get gDone => 'Done';
 
   @override
+  String get gPermission => 'permission';
+
+  @override
   String get gReminder => 'Reminder';
 
   @override
@@ -520,7 +526,7 @@ class LangEnUs extends LangEn {
   String get sosLastKnown => 'Last known location';
 
   @override
-  String get sosNeedSMS => 'SOS needs SMS permission to function properly.';
+  String get sosNeedSMS => 'SOS needs SMS (texting) ';
 
   @override
   String get sosDisabled => 'Cannot access location (disabled)';
