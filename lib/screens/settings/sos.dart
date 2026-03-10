@@ -33,7 +33,6 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
     final bool newPerm = allowedPermCheck(await Permission.sms.request());
     if (newPerm != canSMS) setState(() => canSMS = newPerm);
 
-    if (!newPerm && mounted) ezSnackBar(context, message: l10n.sosNeedSMS);
     return newPerm;
   }
 
@@ -66,6 +65,26 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
       EzScreen(
         Center(
           child: EzScrollView(children: <Widget>[
+            if (!canSMS) ...<Widget>[
+              EzRichText(
+                <InlineSpan>[
+                  EzPlainText(
+                    text: l10n.sosNeedSMS,
+                    style: EzConfig.styles.bodyLarge,
+                  ),
+                  EzInlineLink(
+                    l10n.gPermission,
+                    onTap: openAppSettings,
+                    hint: EzConfig.l10n.gOpenLink,
+                  ),
+                ],
+                textBackground: false,
+                style: EzConfig.styles.bodyLarge,
+                textAlign: TextAlign.center,
+              ),
+              EzConfig.separator,
+            ],
+
             // EMC
             ContactList(
               onUpdate: () => setState(() {}),
