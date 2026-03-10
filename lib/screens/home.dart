@@ -273,6 +273,7 @@ class _HomeScreenState extends State<HomeScreen>
                           fauxDisabled: !canSOS,
                           icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
                           iconSize: EzConfig.iconSize * 1.5,
+                          onLongPress: canSOS ? null : openAppSettings,
                           onPressed: () async {
                             // Check permissions
                             final PermissionStatus smsStatus = isIOS
@@ -283,7 +284,17 @@ class _HomeScreenState extends State<HomeScreen>
                               (context.mounted)
                                   ? await ezLogAlert(
                                       context,
-                                      message: l10n.sosNeedSMS,
+                                      message:
+                                          l10n.sosNeedSMS + l10n.gPermission,
+                                      customActions: <Widget>[
+                                        EzMaterialAction(
+                                            text: EzConfig.l10n.ssPageTitle,
+                                            onPressed: openAppSettings,
+                                            style: EzConfig.styles.bodyLarge
+                                                ?.copyWith(
+                                              color: EzConfig.colors.primary,
+                                            )),
+                                      ],
                                     )
                                   : ezLog(l10n.sosNeedSMS);
                               return;
@@ -573,6 +584,8 @@ class _HomeScreenState extends State<HomeScreen>
                                 semanticLabel: l10n.hsStartRecord,
                               ),
                               iconSize: EzConfig.iconSize * 2,
+                              onLongPress:
+                                  camera == null ? openAppSettings : null,
                               onPressed: () async {
                                 if (camera == null) {
                                   final PermissionStatus cameraPerm =
@@ -615,6 +628,7 @@ class _HomeScreenState extends State<HomeScreen>
                               }
                               return;
                             },
+                            onLongPress: openAppSettings,
                           )
                         : FlashButton(camera!),
                   ],
