@@ -38,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   bool showRights = false;
 
+  bool canSOS = emc.isNotEmpty;
   Timer? sosTimer;
 
   // Tutorial(s)
@@ -118,10 +119,18 @@ class _HomeScreenState extends State<HomeScreen>
 
   // Init //
 
+  // Catches permission removal edge-case; cannot define with async
+  Future<void> smsCheck() async {
+    if (isIOS) return;
+    final bool check = allowedPermCheck(await Permission.sms.status);
+    if (check != canSOS) setState(() => canSOS = check);
+  }
+
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    smsCheck();
   }
 
   @override
@@ -261,7 +270,7 @@ class _HomeScreenState extends State<HomeScreen>
                           onPressed: stopForegroundSOS,
                         )
                       : EzIconButton(
-                          fauxDisabled: emc.isEmpty,
+                          fauxDisabled: !canSOS,
                           icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
                           iconSize: EzConfig.iconSize * 1.5,
                           onPressed: () async {
