@@ -7,6 +7,7 @@ import '../utils/export.dart';
 
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class ContactList extends StatefulWidget {
@@ -55,6 +56,7 @@ class _ContactListState extends State<ContactList> {
                   semanticLabel: l10n.bsAddHint,
                 ),
                 onPressed: addContact,
+                onLongPress: widget.fauxDisabled ? openAppSettings : null,
                 tooltip: l10n.bsAddHint,
               ),
             ],
@@ -67,7 +69,13 @@ class _ContactListState extends State<ContactList> {
                   text: l10n.bsAddSomeone,
                   onPressed: addContact,
                   style: TextButton.styleFrom(
-                      padding: EdgeInsets.all(EzConfig.marginVal)),
+                    padding: EdgeInsets.all(EzConfig.marginVal),
+                    side: widget.fauxDisabled
+                        ? null
+                        : BorderSide(
+                            color: EzConfig.colors.primaryContainer
+                                .withValues(alpha: focusOpacity)),
+                  ),
                   textStyle: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.center,
                 )
@@ -181,7 +189,10 @@ class _ContactTile extends StatelessWidget {
             Expanded(
               child: Text(
                 number,
-                style: EzConfig.styles.bodyLarge,
+                style: fauxDisabled
+                    ? EzConfig.styles.bodyLarge
+                        ?.copyWith(color: EzConfig.colors.outline)
+                    : EzConfig.styles.bodyLarge,
                 textAlign: TextAlign.center,
               ),
             ),
