@@ -649,11 +649,11 @@ abstract class Lang {
   /// **'system settings.'**
   String get pmSystem;
 
-  /// No description provided for @pmSmartButtons.
+  /// No description provided for @pmManualPermission.
   ///
   /// In en, this message translates to:
-  /// **'All buttons will automatically request permission they need.\nThe camera can only be setup on the home screen (by pressing the record button).'**
-  String get pmSmartButtons;
+  /// **'If you remove a permission in the system settings, it must be restored there too.'**
+  String get pmManualPermission;
 
   /// No description provided for @rmCommunity.
   ///

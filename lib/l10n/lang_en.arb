@@ -118,7 +118,7 @@
   "pmOnlyAdd": "This tool only helps to add permissions.",
   "pmRemoveIn": "You can remove permissions in the ",
   "pmSystem": "system settings.",
-  "pmSmartButtons": "All buttons will automatically request permission they need.\nThe camera can only be setup on the home screen (by pressing the record button).",
+  "pmManualPermission": "If you remove a permission in the system settings, it must be restored there too.",
 
   "rmCommunity": "Community resources",
   "rmGov": "US government resources",

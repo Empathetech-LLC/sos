@@ -306,8 +306,8 @@ class LangEs extends Lang {
   String get pmSystem => 'system settings.';
 
   @override
-  String get pmSmartButtons =>
-      'All buttons will automatically request permission they need.\nThe camera can only be setup on the home screen (by pressing the record button).';
+  String get pmManualPermission =>
+      'If you remove a permission in the system settings, it must be restored there too.';
 
   @override
   String get rmCommunity => 'Community resources';
