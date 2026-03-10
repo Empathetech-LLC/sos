@@ -224,21 +224,6 @@ Future<void> appSetupModal(
   if (setup == true) await EzConfig.setBool(setupCompleteKey, true);
 }
 
-// Permission //
-
-/// Take users to their platform settings if SOS doesn't have the permissions it needs
-Future<void> openSOSPermissions() async {
-  final PermissionStatus smsPerm =
-      isIOS ? PermissionStatus.granted : await Permission.sms.request();
-  final LocationPermission geoPerm = await Geolocator.requestPermission();
-
-  if (smsPerm == PermissionStatus.denied ||
-      smsPerm == PermissionStatus.permanentlyDenied ||
-      geoPerm != LocationPermission.always) {
-    await openAppSettings();
-  }
-}
-
 // SOS //
 
 /// Call the [MethodChannel] to send a foregroundSOS
