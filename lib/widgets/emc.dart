@@ -11,8 +11,13 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class ContactList extends StatefulWidget {
   final void Function() onUpdate;
+  final bool fauxDisabled;
 
-  const ContactList(this.onUpdate, {super.key});
+  const ContactList({
+    super.key,
+    required this.onUpdate,
+    required this.fauxDisabled,
+  });
 
   @override
   State<ContactList> createState() => _ContactListState();
@@ -44,6 +49,7 @@ class _ContactListState extends State<ContactList> {
               Text(l10n.bsEMC, style: EzConfig.styles.titleLarge),
               EzConfig.rowMargin,
               EzIconButton(
+                fauxDisabled: widget.fauxDisabled,
                 icon: Icon(
                   Icons.add_circle_outline,
                   semanticLabel: l10n.bsAddHint,
@@ -96,6 +102,7 @@ class _ContactListState extends State<ContactList> {
                             key: ValueKey<String>(contact),
                             initials: initials,
                             number: number,
+                            fauxDisabled: widget.fauxDisabled,
                             onRemove: () async {
                               currEMC.remove(contact);
                               await EzConfig.setStringList(emcKey, currEMC);
@@ -121,12 +128,14 @@ class _ContactListState extends State<ContactList> {
 class _ContactTile extends StatelessWidget {
   final String? initials;
   final String number;
+  final bool fauxDisabled;
   final VoidCallback onRemove;
 
   const _ContactTile({
     super.key,
     required this.initials,
     required this.number,
+    required this.fauxDisabled,
     required this.onRemove,
   });
 
@@ -138,19 +147,33 @@ class _ContactTile extends StatelessWidget {
           children: <Widget>[
             // Initials coin (if available)
             if (initials != null) ...<Widget>[
-              CircleAvatar(
-                radius: EzConfig.padding + EzConfig.iconSize / 2,
-                foregroundColor: EzConfig.colors.onSecondary,
-                backgroundColor: EzConfig.colors.secondary,
-                child: Text(
-                  initials!,
-                  style: EzConfig.styles.bodyLarge?.copyWith(
-                    color: EzConfig.colors.onSecondary,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.start,
-                ),
-              ),
+              fauxDisabled
+                  ? CircleAvatar(
+                      radius: EzConfig.padding + EzConfig.iconSize / 2,
+                      foregroundColor: EzConfig.colors.onSurface,
+                      backgroundColor: EzConfig.colors.outline,
+                      child: Text(
+                        initials!,
+                        style: EzConfig.styles.bodyLarge?.copyWith(
+                          color: EzConfig.colors.onSurface,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                    )
+                  : CircleAvatar(
+                      radius: EzConfig.padding + EzConfig.iconSize / 2,
+                      foregroundColor: EzConfig.colors.onSecondary,
+                      backgroundColor: EzConfig.colors.secondary,
+                      child: Text(
+                        initials!,
+                        style: EzConfig.styles.bodyLarge?.copyWith(
+                          color: EzConfig.colors.onSecondary,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                    ),
               EzConfig.rowMargin,
             ],
 
