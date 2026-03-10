@@ -8,10 +8,16 @@ import UIKit
 import MessageUI
 
 @main
-@objc class AppDelegate: FlutterAppDelegate, MFMessageComposeViewControllerDelegate {
+@objc class AppDelegate: FlutterAppDelegate, FlutterImplicitEngineDelegate, MFMessageComposeViewControllerDelegate {
   override func application(
     _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
+
+  func didInitializeImplicitFlutterEngine(_ engineBridge: FlutterImplicitEngineBridge) {
+    GeneratedPluginRegistrant.register(with: engineBridge.pluginRegistry)
 
     let viewControl : FlutterViewController = window?.rootViewController as! FlutterViewController
     let broadcastChannel = FlutterMethodChannel(name: "net.empathetech.sos/broadcast", binaryMessenger: viewControl.binaryMessenger)
@@ -24,9 +30,6 @@ import MessageUI
       }
       self?.sendSMS(result: result, viewControl: viewControl, arguments: call.arguments as! [String : Any])
     })
-
-    GeneratedPluginRegistrant.register(with: self)
-    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 
   var currSMSControl: MFMessageComposeViewController?
