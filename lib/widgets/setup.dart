@@ -436,7 +436,6 @@ class _LocationSetupState extends State<LocationSetup>
   // Init //
 
   void backgroundCheck() async {
-    WidgetsBinding.instance.addObserver(this);
     if (await Geolocator.isLocationServiceEnabled() != true) return;
     status = await Geolocator.checkPermission();
     setState(() {});
@@ -445,6 +444,7 @@ class _LocationSetupState extends State<LocationSetup>
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     backgroundCheck();
   }
 
