@@ -382,13 +382,13 @@ abstract class Lang {
   /// No description provided for @hsVideoTutorial.
   ///
   /// In en, this message translates to:
-  /// **'When you take a picture or record a video, you can share it right away.\n\nBy default, if a recording is interrupted, an SOS broadcast will start automatically.\n\nLong press the camera preview to see your rights.'**
+  /// **'When you take a picture or record a video, you can share it right away.\n\nBy default, if a recording is interrupted, an SOS broadcast will start automatically.\n\nLong press the camera preview to show/hide your rights.'**
   String get hsVideoTutorial;
 
   /// No description provided for @hsIOSVideoTutorial.
   ///
   /// In en, this message translates to:
-  /// **'When you take a picture or record a video, you can share it right away.\n\nLong press the camera preview to see your rights.'**
+  /// **'When you take a picture or record a video, you can share it right away.\n\nLong press the camera preview to show/hide your rights.'**
   String get hsIOSVideoTutorial;
 
   /// No description provided for @hsTutorialComplete.

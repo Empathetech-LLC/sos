@@ -57,8 +57,8 @@
   "hsSettingsTutorial": "- Configure your SOS broadcast\n- Customize the app's appearance\n- Access more resources and support\n\nin the settings.",
   "hsSettingsTutorialFix": "You can configure your SOS broadcast, customize the app's appearance, and access more resources/support in the settings.",
   "hsThreeOfFour": "Third of four. Continue...",
-  "hsVideoTutorial": "When you take a picture or record a video, you can share it right away.\n\nBy default, if a recording is interrupted, an SOS broadcast will start automatically.\n\nLong press the camera preview to see your rights.",
-  "hsIOSVideoTutorial": "When you take a picture or record a video, you can share it right away.\n\nLong press the camera preview to see your rights.",
+  "hsVideoTutorial": "When you take a picture or record a video, you can share it right away.\n\nBy default, if a recording is interrupted, an SOS broadcast will start automatically.\n\nLong press the camera preview to show/hide your rights.",
+  "hsIOSVideoTutorial": "When you take a picture or record a video, you can share it right away.\n\nLong press the camera preview to show/hide your rights.",
   "hsTutorialComplete": "Tutorial complete",
   "hsAddEMC": "If you're using SOS alerts, please head to the settings page and add your emergency contacts.",
 

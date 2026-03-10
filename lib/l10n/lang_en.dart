@@ -159,11 +159,11 @@ class LangEn extends Lang {
 
   @override
   String get hsVideoTutorial =>
-      'When you take a picture or record a video, you can share it right away.\n\nBy default, if a recording is interrupted, an SOS broadcast will start automatically.\n\nLong press the camera preview to see your rights.';
+      'When you take a picture or record a video, you can share it right away.\n\nBy default, if a recording is interrupted, an SOS broadcast will start automatically.\n\nLong press the camera preview to show/hide your rights.';
 
   @override
   String get hsIOSVideoTutorial =>
-      'When you take a picture or record a video, you can share it right away.\n\nLong press the camera preview to see your rights.';
+      'When you take a picture or record a video, you can share it right away.\n\nLong press the camera preview to show/hide your rights.';
 
   @override
   String get hsTutorialComplete => 'Tutorial complete';
@@ -651,11 +651,11 @@ class LangEnUs extends LangEn {
 
   @override
   String get hsVideoTutorial =>
-      'When you take a picture or record a video, you can share it right away.\n\nBy default, if a recording is interrupted, an SOS broadcast will start automatically.\n\nLong press the camera preview to see your rights.';
+      'When you take a picture or record a video, you can share it right away.\n\nBy default, if a recording is interrupted, an SOS broadcast will start automatically.\n\nLong press the camera preview to show/hide your rights.';
 
   @override
   String get hsIOSVideoTutorial =>
-      'When you take a picture or record a video, you can share it right away.\n\nLong press the camera preview to see your rights.';
+      'When you take a picture or record a video, you can share it right away.\n\nLong press the camera preview to show/hide your rights.';
 
   @override
   String get hsTutorialComplete => 'Tutorial complete';
