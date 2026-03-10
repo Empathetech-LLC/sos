@@ -119,7 +119,7 @@
   "pmOnlyAdd": "This tool only helps to add permissions.",
   "pmRemoveIn": "You can remove permissions in the ",
   "pmSystem": "system settings.",
-  "pmManualPermission": "If you remove a permission in the system settings, it must be restored there too.",
+  "pmManualPermission": "If you removed a permission in the system settings, it must be restored there too.",
 
   "rmCommunity": "Community resources",
   "rmGov": "US government resources",

@@ -309,7 +309,7 @@ class LangHt extends Lang {
 
   @override
   String get pmManualPermission =>
-      'If you remove a permission in the system settings, it must be restored there too.';
+      'If you removed a permission in the system settings, it must be restored there too.';
 
   @override
   String get rmCommunity => 'Community resources';
