@@ -69,12 +69,6 @@ Widget lStatusIcon(LocationPermission? status) {
         Icons.check,
         color: EzConfig.colors.primary,
       );
-    case LocationPermission.whileInUse:
-    case LocationPermission.unableToDetermine:
-      return EzIcon(
-        Icons.check,
-        color: EzConfig.colors.secondary,
-      );
 
     case LocationPermission.denied:
     case LocationPermission.deniedForever:
@@ -82,10 +76,23 @@ Widget lStatusIcon(LocationPermission? status) {
         Icons.cancel_outlined,
         color: EzConfig.colors.error,
       );
+
     case null:
       return EzIcon(
         Icons.help_outline,
         color: EzConfig.colors.primary,
+      );
+
+    case LocationPermission.unableToDetermine:
+      return EzIcon(
+        Icons.check,
+        color: EzConfig.colors.secondary,
+      );
+
+    case LocationPermission.whileInUse:
+      return EzIcon(
+        Icons.check,
+        color: isIOS ? EzConfig.colors.primary : EzConfig.colors.secondary,
       );
   }
 }
@@ -464,13 +471,7 @@ class _LocationSetupState extends State<LocationSetup>
           switch (status) {
             case LocationPermission.always:
               return;
-            case LocationPermission.whileInUse:
-            case LocationPermission.deniedForever:
-              await openSOSPermissions();
-              return;
-            case LocationPermission.unableToDetermine:
-              ezSnackBar(context, message: l10n.hsUnable);
-              return;
+
             case LocationPermission.denied:
             case null:
               final bool serviceEnabled =
@@ -481,10 +482,21 @@ class _LocationSetupState extends State<LocationSetup>
                     : ezLog(l10n.sosDisabled);
                 return;
               }
-
               final LocationPermission result =
                   await Geolocator.requestPermission();
               if (status != result) setState(() => status = result);
+              return;
+
+            case LocationPermission.deniedForever:
+              return;
+
+            case LocationPermission.unableToDetermine:
+              ezSnackBar(context, message: l10n.hsUnable);
+              return;
+
+            case LocationPermission.whileInUse:
+              if (isIOS) return;
+              await openAppSettings();
               return;
           }
         },
