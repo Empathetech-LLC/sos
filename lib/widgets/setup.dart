@@ -517,7 +517,9 @@ class _LocationSetupState extends State<LocationSetup>
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(EzConfig.marginVal),
-                      child: status == LocationPermission.always
+                      child: (status == LocationPermission.always ||
+                              (isIOS &&
+                                  status == LocationPermission.whileInUse))
                           ? Text(
                               l10n.hsLocationReady,
                               style: EzConfig.styles.bodyLarge,
