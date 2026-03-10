@@ -18,9 +18,11 @@ class SOSSettingsScreen extends StatefulWidget {
   State<SOSSettingsScreen> createState() => _SOSSettingsScreenState();
 }
 
-class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
+class _SOSSettingsScreenState extends State<SOSSettingsScreen>
+    with WidgetsBindingObserver {
   // Define the build data //
 
+  bool canSMS = isIOS || emc.isNotEmpty;
   LLType _linkType = linkType;
 
   // Define custom functions //
@@ -28,15 +30,32 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
   Future<bool> canSet(String key, bool value) async {
     if (value == false || isIOS) return true;
 
-    final PermissionStatus canSMS = await Permission.sms.request();
+    final bool newPerm = allowedPermCheck(await Permission.sms.request());
+    if (newPerm != canSMS) setState(() => canSMS = newPerm);
 
-    if (canSMS != PermissionStatus.denied &&
-        canSMS != PermissionStatus.permanentlyDenied) {
-      return true;
-    } else {
-      if (mounted) ezSnackBar(context, message: l10n.sosNeedSMS);
-      return false;
-    }
+    if (!newPerm && mounted) ezSnackBar(context, message: l10n.sosNeedSMS);
+    return newPerm;
+  }
+
+  // Init //
+
+  // Catches permission removal edge-case; cannot define with async
+  Future<void> initPerm() async {
+    if (isIOS) return;
+    final bool check = allowedPermCheck(await Permission.sms.status);
+    if (check != canSMS) setState(() => canSMS = check);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    initPerm();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) async {
+    if (state == AppLifecycleState.resumed) await initPerm();
   }
 
   // Return the build //
@@ -48,7 +67,10 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
         Center(
           child: EzScrollView(children: <Widget>[
             // EMC
-            ContactList(() => setState(() {})),
+            ContactList(
+              onUpdate: () => setState(() {}),
+              fauxDisabled: !canSMS,
+            ),
             EzConfig.separator,
 
             // Link type
@@ -89,6 +111,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
             // SOS on open
             EzSwitchPair(
               enabled: emc.isNotEmpty,
+              fauxDisabled: !canSMS,
               text: l10n.bsSOSOnOpen,
               valueKey: sosOnOpenKey,
               canChange: (bool choice) => canSet(sosOnOpenKey, choice),
@@ -99,6 +122,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
               EzConfig.spacer,
               EzSwitchPair(
                 enabled: emc.isNotEmpty,
+                fauxDisabled: !canSMS,
                 text: l10n.bsSOSOnClose,
                 valueKey: sosOnCloseKey,
                 canChange: (bool choice) async {
@@ -172,6 +196,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> {
               // SOS on interrupt
               EzSwitchPair(
                 enabled: emc.isNotEmpty,
+                fauxDisabled: !canSMS,
                 text: l10n.bsVideoSOS,
                 valueKey: sosOnInterruptKey,
                 canChange: (bool choice) => canSet(sosOnInterruptKey, choice),
