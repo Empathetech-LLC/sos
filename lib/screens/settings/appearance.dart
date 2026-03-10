@@ -65,6 +65,8 @@ class AppearanceSettingsScreen extends StatelessWidget {
             EzResetButton(
               doNothing,
               resetSkip: neverResetKeys,
+              dialogTitle:
+                  '${EzConfig.l10n.gResetAll} ${l10n.ssAppearance.toLowerCase()}?',
               appName: appName,
               androidPackage: androidPackage,
             ),
