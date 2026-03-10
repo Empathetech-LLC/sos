@@ -542,6 +542,8 @@ class _LocationSetupState extends State<LocationSetup>
         ),
       );
 
+  // Cleanup //
+
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
