@@ -77,6 +77,10 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
                     onTap: openAppSettings,
                     hint: EzConfig.l10n.gOpenLink,
                   ),
+                  EzPlainText(
+                    text: '.',
+                    style: EzConfig.styles.bodyLarge,
+                  ),
                 ],
                 textBackground: false,
                 style: EzConfig.styles.bodyLarge,
@@ -227,5 +231,13 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
       ),
       fabs: showBackFAB ? <Widget>[EzConfig.spacer, const EzBackFAB()] : null,
     );
+  }
+
+  // Cleanup //
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
   }
 }
