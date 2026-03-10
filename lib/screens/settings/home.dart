@@ -156,7 +156,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                   ),
                 ),
               ),
-              icon: const Icon(Icons.check),
+              icon: const Icon(Icons.list),
               label: l10n.ssPermissions,
             ),
             EzConfig.spacer,
