@@ -101,14 +101,12 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       // Intro
-                      Text(
-                        l10n.pmOnlyAdd,
-                        style: EzConfig.styles.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                      EzConfig.centerLine,
                       EzRichText(
                         <InlineSpan>[
+                          EzPlainText(
+                            text: '${l10n.pmOnlyAdd}\n',
+                            style: EzConfig.styles.bodyLarge,
+                          ),
                           EzPlainText(
                             text: l10n.pmRemoveIn,
                             style: EzConfig.styles.bodyLarge,
@@ -123,12 +121,14 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                         style: EzConfig.styles.bodyLarge,
                         textAlign: TextAlign.center,
                       ),
-                      EzConfig.centerLine,
-                      Text(
-                        l10n.pmSmartButtons,
-                        style: EzConfig.styles.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
+                      if (isIOS) ...<Widget>[
+                        EzConfig.centerLine,
+                        Text(
+                          l10n.pmManualPermission,
+                          style: EzConfig.styles.bodyLarge,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                       EzConfig.divider,
 
                       const ContactsSetup(),
