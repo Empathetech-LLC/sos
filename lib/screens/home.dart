@@ -132,7 +132,6 @@ class _HomeScreenState extends State<HomeScreen>
         // While loop re-opens the dialog on locale change
         await appSetupModal(context, initCamera: initCamera);
       }
-      if (mounted) setState(() {});
     } else {
       // Check for auto SOS
       final bool taskRunning = EzConfig.get(taskRunningKey);
@@ -141,11 +140,14 @@ class _HomeScreenState extends State<HomeScreen>
 
       // Setup the camera/preview
       await initCamera();
-      if (mounted) setState(() {});
     }
 
     // Run the tutorial (if unfinished)
-    if (showTutorial) sosTutorial.show();
+    if (showTutorial) {
+      sosTutorial.show();
+    } else {
+      if (mounted) setState(() => showRights = true);
+    }
   }
 
   //* Return the build *//
@@ -468,6 +470,7 @@ class _HomeScreenState extends State<HomeScreen>
                             ),
                           );
                           await EzConfig.setBool(showTutorialKey, false);
+                          setState(() => showRights = true);
                         },
                       ),
                       child: recording
