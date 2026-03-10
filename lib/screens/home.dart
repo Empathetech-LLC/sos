@@ -285,7 +285,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   ? await ezLogAlert(
                                       context,
                                       message:
-                                          l10n.sosNeedSMS + l10n.gPermission,
+                                          '${l10n.sosNeedSMS}${l10n.gPermission}.',
                                       customActions: <Widget>[
                                         EzMaterialAction(
                                             text: EzConfig.l10n.ssPageTitle,
