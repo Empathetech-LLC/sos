@@ -121,16 +121,15 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                         style: EzConfig.styles.bodyLarge,
                         textAlign: TextAlign.center,
                       ),
-                      if (isIOS) ...<Widget>[
-                        EzConfig.centerLine,
-                        Text(
-                          l10n.pmManualPermission,
-                          style: EzConfig.styles.bodyLarge,
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                      EzConfig.centerLine,
+                      Text(
+                        l10n.pmManualPermission,
+                        style: EzConfig.styles.bodyLarge,
+                        textAlign: TextAlign.center,
+                      ),
                       EzConfig.divider,
 
+                      // Setup cards
                       const ContactsSetup(),
                       EzConfig.spacer,
 
