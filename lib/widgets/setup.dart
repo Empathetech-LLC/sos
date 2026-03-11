@@ -8,7 +8,7 @@ import '../utils/export.dart';
 import 'package:gal/gal.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:flutter_contacts/flutter_contacts.dart';
+import 'package:flutter_contacts/flutter_contacts.dart' as c;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
@@ -116,7 +116,7 @@ class _CameraSetupState extends State<CameraSetup> {
 
   // Init //
 
-  void backgroundCheck() async {
+  Future<void> backgroundCheck() async {
     camStatus = await Permission.camera.status;
     galStatus = await Gal.hasAccess();
     setState(() {});
@@ -132,10 +132,11 @@ class _CameraSetupState extends State<CameraSetup> {
 
   @override
   Widget build(BuildContext context) {
-    return camStatus == PermissionStatus.granted
+    return allowedPermCheck(camStatus)
         ? GestureDetector(
             onTap: () async {
               if (galStatus == true) return;
+
               final bool result = await Gal.requestAccess();
               if (galStatus != result) setState(() => galStatus = result);
             },
@@ -195,7 +196,8 @@ class _CameraSetupState extends State<CameraSetup> {
           )
         : GestureDetector(
             onTap: () async {
-              if (camStatus == PermissionStatus.granted) return;
+              if (allowedPermCheck(camStatus)) return;
+
               final PermissionStatus result = await widget.initCamera();
               if (camStatus != result) setState(() => camStatus = result);
             },
@@ -258,15 +260,13 @@ class ContactsSetup extends StatefulWidget {
 class _ContactsSetupState extends State<ContactsSetup> {
   // Define the build data //
 
-  bool? allowed;
+  c.PermissionStatus? allowed;
 
   // Init //
 
-  void backgroundCheck() async {
-    final PermissionStatus status = await Permission.contacts.status;
-    setState(() => allowed = (!status.isDenied &&
-        !status.isPermanentlyDenied &&
-        !status.isRestricted));
+  Future<void> backgroundCheck() async {
+    allowed = await c.FlutterContacts.permissions.check(c.PermissionType.read);
+    setState(() {});
   }
 
   @override
@@ -280,14 +280,15 @@ class _ContactsSetupState extends State<ContactsSetup> {
   @override
   Widget build(BuildContext context) => GestureDetector(
         onTap: () async {
-          if (allowed == true) return;
-          final bool result =
-              await FlutterContacts.requestPermission(readonly: true);
+          if (allowedPermCheck(cPermMirror(allowed))) return;
+
+          final c.PermissionStatus result = await c.FlutterContacts.permissions
+              .request(c.PermissionType.read);
           if (allowed != result) setState(() => allowed = result);
         },
         child: Semantics(
-          button: allowed != true,
-          readOnly: allowed == true,
+          button: !allowedPermCheck(cPermMirror(allowed)),
+          readOnly: allowedPermCheck(cPermMirror(allowed)),
           hint: l10n.hsContactsSetupHint,
           child: ExcludeSemantics(
             child: Card(
@@ -302,7 +303,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(EzConfig.marginVal),
-                      child: allowed == true
+                      child: allowedPermCheck(cPermMirror(allowed))
                           ? Text(
                               l10n.hsContactsReady,
                               style: EzConfig.styles.bodyLarge,
@@ -330,7 +331,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
-                    child: boolIcon(allowed),
+                    child: pStatusIcon(cPermMirror(allowed)),
                   ),
                 ],
               ),
@@ -354,7 +355,7 @@ class _SMSSetupState extends State<SMSSetup> {
 
   // Init //
 
-  void backgroundCheck() async {
+  Future<void> backgroundCheck() async {
     status = await Permission.sms.status;
     setState(() {});
   }
@@ -370,13 +371,14 @@ class _SMSSetupState extends State<SMSSetup> {
   @override
   Widget build(BuildContext context) => GestureDetector(
         onTap: () async {
-          if (status == PermissionStatus.granted) return;
+          if (allowedPermCheck(status)) return;
+
           final PermissionStatus result = await Permission.sms.request();
           if (status != result) setState(() => status = result);
         },
         child: Semantics(
-          button: status != PermissionStatus.granted,
-          readOnly: status == PermissionStatus.granted,
+          button: !allowedPermCheck(status),
+          readOnly: allowedPermCheck(status),
           hint: l10n.hsTextingSetupHint,
           child: ExcludeSemantics(
             child: Card(
@@ -391,7 +393,7 @@ class _SMSSetupState extends State<SMSSetup> {
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(EzConfig.marginVal),
-                      child: status == PermissionStatus.granted
+                      child: allowedPermCheck(status)
                           ? Text(
                               l10n.hsTextingReady,
                               style: EzConfig.styles.bodyLarge,
@@ -442,7 +444,7 @@ class _LocationSetupState extends State<LocationSetup>
 
   // Init //
 
-  void backgroundCheck() async {
+  Future<void> backgroundCheck() async {
     if (await Geolocator.isLocationServiceEnabled() != true) return;
     status = await Geolocator.checkPermission();
     setState(() {});
@@ -457,10 +459,7 @@ class _LocationSetupState extends State<LocationSetup>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) async {
-    if (state == AppLifecycleState.resumed) {
-      status = await Geolocator.checkPermission();
-      setState(() {});
-    }
+    if (state == AppLifecycleState.resumed) await backgroundCheck();
   }
 
   // Return the build //
@@ -500,60 +499,113 @@ class _LocationSetupState extends State<LocationSetup>
               return;
           }
         },
-        child: Semantics(
-          button: status != LocationPermission.always,
-          readOnly: status == LocationPermission.always,
-          hint: l10n.hsLocationSetupHint,
-          child: ExcludeSemantics(
-            child: Card(
-              shape: RoundedRectangleBorder(
-                side: BorderSide(color: EzConfig.colors.primaryContainer),
-                borderRadius: ezRoundEdge,
-              ),
-              child: EzRow(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.all(EzConfig.marginVal),
-                      child: (status == LocationPermission.always ||
-                              (isIOS &&
-                                  status == LocationPermission.whileInUse))
-                          ? Text(
-                              l10n.hsLocationReady,
-                              style: EzConfig.styles.bodyLarge,
-                              textAlign: TextAlign.start,
-                            )
-                          : Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  l10n.hsLocation,
-                                  style: EzConfig.styles.bodyLarge,
-                                  textAlign: TextAlign.start,
-                                ),
-                                Text(
-                                  status == LocationPermission.whileInUse
-                                      ? l10n.hsAddAlways
-                                      : l10n.hsAddLocation,
-                                  style: EzConfig.styles.labelLarge,
-                                  textAlign: TextAlign.start,
-                                ),
-                              ],
-                            ),
+        child: isIOS
+            ? Semantics(
+                button: !allowedPermCheck(lPermMirror(status)),
+                readOnly: allowedPermCheck(lPermMirror(status)),
+                hint: l10n.hsLocationSetupHint,
+                child: ExcludeSemantics(
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(color: EzConfig.colors.primaryContainer),
+                      borderRadius: ezRoundEdge,
+                    ),
+                    child: EzRow(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.all(EzConfig.marginVal),
+                            child: allowedPermCheck(lPermMirror(status))
+                                ? Text(
+                                    l10n.hsLocationReady,
+                                    style: EzConfig.styles.bodyLarge,
+                                    textAlign: TextAlign.start,
+                                  )
+                                : Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        l10n.hsLocation,
+                                        style: EzConfig.styles.bodyLarge,
+                                        textAlign: TextAlign.start,
+                                      ),
+                                      Text(
+                                        l10n.hsAddLocation,
+                                        style: EzConfig.styles.labelLarge,
+                                        textAlign: TextAlign.start,
+                                      ),
+                                    ],
+                                  ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: EzConfig.padding),
+                          child: lStatusIcon(status),
+                        ),
+                      ],
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
-                    child: lStatusIcon(status),
+                ),
+              )
+            : Semantics(
+                button: status != LocationPermission.always,
+                readOnly: status == LocationPermission.always,
+                hint: l10n.hsLocationSetupHint,
+                child: ExcludeSemantics(
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(color: EzConfig.colors.primaryContainer),
+                      borderRadius: ezRoundEdge,
+                    ),
+                    child: EzRow(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.all(EzConfig.marginVal),
+                            child: status == LocationPermission.always
+                                ? Text(
+                                    l10n.hsLocationReady,
+                                    style: EzConfig.styles.bodyLarge,
+                                    textAlign: TextAlign.start,
+                                  )
+                                : Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        l10n.hsLocation,
+                                        style: EzConfig.styles.bodyLarge,
+                                        textAlign: TextAlign.start,
+                                      ),
+                                      Text(
+                                        status == LocationPermission.whileInUse
+                                            ? l10n.hsAddAlways
+                                            : l10n.hsAddLocation,
+                                        style: EzConfig.styles.labelLarge,
+                                        textAlign: TextAlign.start,
+                                      ),
+                                    ],
+                                  ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: EzConfig.padding),
+                          child: lStatusIcon(status),
+                        ),
+                      ],
+                    ),
                   ),
-                ],
+                ),
               ),
-            ),
-          ),
-        ),
       );
 
   // Cleanup //
