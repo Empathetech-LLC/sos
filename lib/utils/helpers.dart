@@ -10,7 +10,7 @@ import 'package:gal/gal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:flutter_contacts/flutter_contacts.dart';
+import 'package:flutter_contacts/flutter_contacts.dart' as c;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
@@ -39,10 +39,10 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
   final List<String> currEMC = List<String>.from(emc);
 
   // Check contact permissions
-  final bool contactsGranted =
-      await FlutterContacts.requestPermission(readonly: true);
+  final c.PermissionStatus contactsGranted =
+      await c.FlutterContacts.permissions.request(c.PermissionType.read);
 
-  if (!contactsGranted) {
+  if (!allowedPermCheck(cPermMirror(contactsGranted))) {
     if (context.mounted) {
       ezSnackBar(context, message: l10n.bsNeedPermission);
     }
@@ -50,7 +50,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
   }
 
   // Permission granted, make it so
-  Contact? contact;
+  c.Contact? contact;
   String? initials;
   List<String>? numbers;
 
@@ -87,9 +87,24 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
   }
 
   while (true) {
-    contact = await FlutterContacts.openExternalPick();
+    final String? contactID = await c.FlutterContacts.native.showPicker();
 
     // Check for user cancel
+    if (contactID == null) {
+      if (loop) continue;
+      return;
+    }
+
+    contact = await c.FlutterContacts.get(
+      contactID,
+      properties: <c.ContactProperty>{
+        c.ContactProperty.name,
+        c.ContactProperty.identifiers,
+        c.ContactProperty.phone,
+      },
+    );
+
+    // Check for failure to retrieve
     if (contact == null) {
       if (loop) continue;
       return;
@@ -102,8 +117,8 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
       }
     } else {
       // We have a valid contact, gather the phones with numbers
-      final List<Phone> phones = contact.phones
-          .where((Phone phone) => phone.number.isNotEmpty)
+      final List<c.Phone> phones = contact.phones
+          .where((c.Phone phone) => phone.number.isNotEmpty)
           .toList();
 
       if (phones.isEmpty) {
@@ -113,7 +128,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
         }
       } else {
         // We have at least one valid number, proceed
-        numbers = phones.map((Phone phone) => phone.number).toList();
+        numbers = phones.map((c.Phone phone) => phone.number).toList();
 
         // Remove dupes
         for (final String number in numbers) {
@@ -126,8 +141,8 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
     if (!loop) return;
   }
 
-  initials = contact.displayName.isNotEmpty
-      ? contact.displayName
+  initials = (contact.displayName != null && contact.displayName!.isNotEmpty)
+      ? contact.displayName!
               .split(' ')
               .where((String name) => name.isNotEmpty)
               .map((String name) => name[0].toUpperCase())
@@ -140,6 +155,42 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
   }
 
   await EzConfig.setStringList(emcKey, currEMC);
+}
+
+/// I can't believe you've done this @flutter_contacts
+/// Even if `notDetermined` is a necessary addition, naming the enum the SAME THING is NOT!
+PermissionStatus? cPermMirror(c.PermissionStatus? status) {
+  switch (status) {
+    case c.PermissionStatus.granted:
+      return PermissionStatus.granted;
+    case c.PermissionStatus.limited:
+      return PermissionStatus.limited;
+    case c.PermissionStatus.denied:
+      return PermissionStatus.denied;
+    case c.PermissionStatus.permanentlyDenied:
+      return PermissionStatus.permanentlyDenied;
+    case c.PermissionStatus.restricted:
+      return PermissionStatus.restricted;
+    case c.PermissionStatus.notDetermined:
+    case null:
+      return null;
+  }
+}
+
+/// See what I mean?
+PermissionStatus? lPermMirror(LocationPermission? status) {
+  switch (status) {
+    case LocationPermission.always:
+    case LocationPermission.whileInUse:
+      return PermissionStatus.granted;
+    case LocationPermission.denied:
+      return PermissionStatus.denied;
+    case LocationPermission.deniedForever:
+      return PermissionStatus.permanentlyDenied;
+    case LocationPermission.unableToDetermine:
+    case null:
+      return null;
+  }
 }
 
 // Fresh install //
