@@ -19,22 +19,37 @@ import MessageUI
   func didInitializeImplicitFlutterEngine(_ engineBridge: FlutterImplicitEngineBridge) {
     GeneratedPluginRegistrant.register(with: engineBridge.pluginRegistry)
 
-    let viewControl : FlutterViewController = window?.rootViewController as! FlutterViewController
-    let broadcastChannel = FlutterMethodChannel(name: "net.empathetech.sos/broadcast", binaryMessenger: viewControl.binaryMessenger)
+    let broadcastChannel = FlutterMethodChannel(
+      name: "net.empathetech.sos/broadcast",
+      binaryMessenger: engineBridge.applicationRegistrar.messenger()
+    )
 
     broadcastChannel.setMethodCallHandler({
-      [weak self] (call: FlutterMethodCall, result: FlutterResult) -> Void in
+      [weak self] (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
       guard call.method == "foregroundSOS" else {
         result(FlutterMethodNotImplemented)
         return
       }
-      self?.sendSMS(result: result, viewControl: viewControl, arguments: call.arguments as! [String : Any])
+
+      guard let rootVC = self?.getRootViewController() else {
+        result(FlutterError(code: "UI_UNAVAILABLE", message: "Root view controller not found", details: nil))
+        return
+      }
+
+      self?.sendSMS(result: result, viewControl: rootVC, arguments: call.arguments as! [String : Any])
     })
+  }
+
+  private func getRootViewController() -> UIViewController? {
+    let windowScene = UIApplication.shared.connectedScenes
+      .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
+
+    return windowScene?.windows.first(where: { $0.isKeyWindow })?.rootViewController
   }
 
   var currSMSControl: MFMessageComposeViewController?
 
-  private func sendSMS(result: FlutterResult, viewControl: FlutterViewController , arguments: [String : Any]) {
+  private func sendSMS(result: FlutterResult, viewControl: UIViewController, arguments: [String : Any]) {
     #if targetEnvironment(simulator)
       result(FlutterError(
         code: "device_not_supported",
@@ -58,7 +73,7 @@ import MessageUI
     result(String("SMS_SUCCESS"))
   }
 
-  private func presentSMS(message: String, recipients: [String], on viewControl: FlutterViewController) {
+  private func presentSMS(message: String, recipients: [String], on viewControl: UIViewController) {
     let smsControl = MFMessageComposeViewController()
 
     smsControl.body = message
