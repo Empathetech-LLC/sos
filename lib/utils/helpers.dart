@@ -277,8 +277,53 @@ Future<void> appSetupModal(
 
 // SOS //
 
+/// For Android only
+/// Call a custom worker factory to send periodic SOS messages
+/// Assumes [emc] and permission checks have already been done
+/// Handles platform errors
+Future<void> backgroundSOS() async {
+  final List<String> currEMC = List<String>.from(emc);
+  if (currEMC.isEmpty) return;
+
+  final List<String> numbers = currEMC
+      .map((String contact) => contact.split(contactSplit).last)
+      .toList();
+
+  try {
+    await platform.invokeMethod<void>(
+      'backgroundSOS',
+      <String, dynamic>{
+        'recipients': numbers.join(';'),
+        'heading': 'SOS - ${l10n.sosLastKnown}',
+      },
+    );
+  } catch (e) {
+    ezLog(e.toString());
+    // We still want to continue. Could be a partial success
+  }
+  await EzConfig.setBool(taskRunningKey, true);
+}
+
+/// For Android only
+/// Safe to send [context], a mounted check is included
+/// Handles platform errors, no other checks are required
+Future<void> stopBackgroundSOS(BuildContext context) async {
+  try {
+    await platform.invokeMethod<void>('cancelBackgroundSOS');
+  } catch (e) {
+    // Improvement: check the error code
+    // The most likely error is that the task is already stopped
+    // But there could be scenarios where taskRunningKey should remain true
+    context.mounted
+        ? await ezLogAlert(context, message: e.toString())
+        : ezLog(e.toString());
+  }
+  await EzConfig.setBool(taskRunningKey, false);
+}
+
 /// Call the [MethodChannel] to send a foregroundSOS
-/// Includes error handling
+/// Assumes [emc] and permission checks have already been done
+/// Handles platform errors
 Future<void> foregroundSOS() async {
   final List<String> currEMC = List<String>.from(emc);
   if (currEMC.isEmpty) return;
@@ -335,46 +380,4 @@ Future<String?> getCoordinates(String linkBase, {bool nullable = false}) async {
     ezLog(e.toString());
     return errored;
   }
-}
-
-/// Android only
-/// Call a custom worker factory to send periodic SOS messages
-/// Assumes an [emc] null/empty check has already been done
-Future<void> startBackgroundSOS() async {
-  try {
-    final List<String> currEMC = List<String>.from(emc);
-    if (currEMC.isEmpty) return;
-
-    final List<String> numbers = currEMC
-        .map((String contact) => contact.split(contactSplit).last)
-        .toList();
-
-    await platform.invokeMethod<void>(
-      'backgroundSOS',
-      <String, dynamic>{
-        'recipients': numbers.join(';'),
-        'heading': 'SOS - ${l10n.sosLastKnown}',
-      },
-    );
-  } catch (e) {
-    ezLog(e.toString());
-    // We still want to continue. Could be a partial success
-  }
-  await EzConfig.setBool(taskRunningKey, true);
-}
-
-/// Android only
-/// Safe to send [context], a mounted check is included
-Future<void> stopBackgroundSOS(BuildContext context) async {
-  try {
-    await platform.invokeMethod<void>('cancelBackgroundSOS');
-  } catch (e) {
-    // Improvement: check the error code
-    // The most likely error is that the task is already stopped
-    // But there could be scenarios where taskRunningKey should remain true
-    context.mounted
-        ? await ezLogAlert(context, message: e.toString())
-        : ezLog(e.toString());
-  }
-  await EzConfig.setBool(taskRunningKey, false);
 }
