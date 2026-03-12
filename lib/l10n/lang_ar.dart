@@ -15,9 +15,6 @@ class LangAr extends Lang {
   String get gDone => 'Done';
 
   @override
-  String get gPermission => 'permission';
-
-  @override
   String get gReminder => 'تذكير';
 
   @override
@@ -60,6 +57,10 @@ class LangAr extends Lang {
   String get hsYourApp => 'You can change your mind/permissions at any time.';
 
   @override
+  String get hsHybridTranslation =>
+      'This tutorial is machine translated.\nThe list of rights is human translated.';
+
+  @override
   String get hsCamMic => 'Camera & Microphone';
 
   @override
@@ -76,7 +77,7 @@ class LangAr extends Lang {
 
   @override
   String get hsCameraSetupHint =>
-      'Camera permissions setup. Activate to enable.';
+      'Activate to give Insta-SOS permission to the camera.';
 
   @override
   String get hsContacts => 'Contacts';
@@ -92,7 +93,7 @@ class LangAr extends Lang {
 
   @override
   String get hsContactsSetupHint =>
-      'Contacts permission setup. Activate to enable.';
+      'Activate to give Insta-SOS permission to view your contacts.';
 
   @override
   String get hsTexting => 'Texting';
@@ -104,7 +105,8 @@ class LangAr extends Lang {
   String get hsTextingReady => 'Texting is ready';
 
   @override
-  String get hsTextingSetupHint => 'SMS permission setup. Activate to enable.';
+  String get hsTextingSetupHint =>
+      'Activate to give Insta-SOS permission to send messages.';
 
   @override
   String get hsLocation => 'Location';
@@ -118,25 +120,17 @@ class LangAr extends Lang {
 
   @override
   String get hsAddAlways =>
-      'Recommended to enable always. Press again to go to the System Settings.';
+      'Recommended to enable always. Press again to open the System Settings.';
 
   @override
   String get hsLocationReady => 'Location is ready';
 
   @override
   String get hsLocationSetupHint =>
-      'Location permission setup. Activate to enable.';
+      'Activate to give Insta-SOS permission to view your location.';
 
   @override
   String get hsOneOfFour => 'First of four. Continue...';
-
-  @override
-  String get hsBroadcastTutorial =>
-      'قم بتفعيل SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال في حالات الطوارئ.\n\nإذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.\n\nستستمر الرسائل النصية حتى عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تنشيط SOS أو إغلاق التطبيق بالكامل لإيقاف الرسائل النصية.';
-
-  @override
-  String get hsBroadcastTutorialFix =>
-      'قم بتفعيل SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال في حالات الطوارئ.\n\nإذا كان لدى Insta-SOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.\n\nستستمر الرسائل النصية حتى عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تنشيط SOS أو إغلاق التطبيق بالكامل لإيقاف الرسائل النصية.';
 
   @override
   String get hsIOSBroadcastTutorial =>
@@ -145,6 +139,10 @@ class LangAr extends Lang {
   @override
   String get hsIOSBroadcastTutorialFix =>
       'Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.';
+
+  @override
+  String get hsBroadcastTutorialAndroid =>
+      'The texts will continue when the phone is locked.\n\nManually deactivate SOS or fully close the app to stop the texts.';
 
   @override
   String get hsTwoOfFour => 'Second of four. Continue...';
@@ -185,7 +183,7 @@ class LangAr extends Lang {
   String get hsSafeCloseHint => 'كل شيء واضح. أغلق التطبيق بدون SOS.';
 
   @override
-  String get hsAutoSOS => 'SOS تلقائي';
+  String get hsBroadcasting => 'Broadcasting';
 
   @override
   String get hsStop => 'إيقاف';
@@ -308,7 +306,7 @@ class LangAr extends Lang {
 
   @override
   String get pmManualPermission =>
-      'If you removed a permission in the system settings, it must be restored there too.';
+      'If you remove permissions in the system settings, they must be restored there too.';
 
   @override
   String get rmCommunity => 'Community resources';
@@ -335,36 +333,24 @@ class LangAr extends Lang {
   String get faqSettings => 'ما هي وظيفة الإعدادات؟';
 
   @override
-  String get faqAutoShareQ => 'Auto-share pictures/video:';
-
-  @override
   String get faqAutoShareA =>
       ' uses your phone\'s built in share. It does not use your saved emergency contacts (if any). Sharing is optional and can always be cancelled.';
-
-  @override
-  String get faqLinkQ => 'Link type:';
 
   @override
   String get faqLinkA =>
       ' how your location will be delivered to your emergency contacts. \"Google Maps\", \"Apple Maps\", and \"Waze\" will send a clickable link for the corresponding service. \"Coordinates\" will send your latitude and longitude as plain text.';
 
   @override
-  String get faqOnOpenQ => 'SOS on open:';
-
-  @override
   String get faqOnOpenA =>
       ' an SOS broadcast will begin immediately upon app launch. Not recommended for most users, as it could lead to accidental broadcasts.';
 
   @override
-  String get faqOnInterruptQ => 'SOS on interrupted recording:';
-
-  @override
   String get faqOnInterruptA =>
-      ' if a video recording is active and InstaSOS loses focus for any reason (minimized, switched apps, screen off), an SOS broadcast will begin.\nIt is recommended to enable either this or \"SOS on close\" (or both).';
+      ' if a video is recording and InstaSOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen.\nIt is recommended to enable either this or \"SOS on close\" (or both).';
 
   @override
   String get faqOnInterruptAFix =>
-      ' if a video recording is active and Insta-SOS loses focus for any reason (minimized, switched apps, screen off), an SOS broadcast will begin.\nIt is recommended to enable either this or \"SOS on close\" (or both).';
+      ' if a video is recording and Insta-SOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen.\nIt is recommended to enable either this or \"SOS on close\" (or both).';
 
   @override
   String get faqUnavailable => 'الاستغاثة تقول \"الموقع غير متاح\"؟';
@@ -382,10 +368,7 @@ class LangAr extends Lang {
 
   @override
   String get faqLocationTrustFix =>
-      'The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or Empathetech LLC track, store, or sell user data.';
-
-  @override
-  String get faqPrivateContact => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف؟';
+      'The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or Empathetic LLC track, store, or sell user data.';
 
   @override
   String get faqContactPermissions =>
@@ -393,13 +376,17 @@ class LangAr extends Lang {
 
   @override
   String get faqContactPermissionsFix =>
-      'If you get this message when adding an emergency contact, Insta-SOS does not have permission to access that contact.';
+      'If you get this message when adding an emergency contact, Insta-SOS does not have permission to access that specific contact.';
 
   @override
   String get faqUpdateContacts => 'يمكنك تحديث أذونات جهات الاتصال في ';
 
   @override
-  String get faqOSSettings => 'إعدادات iOS';
+  String get faqSplitClarity1 =>
+      'Giving access to a contact does not make them an emergency contact. Only the numbers listed in the ';
+
+  @override
+  String get faqSplitClarity2 => 'will be contacted during an SOS broadcast.';
 
   @override
   String get faqMissing => 'لماذا بعض ميزات Android مفقودة؟';
@@ -457,15 +444,15 @@ class LangAr extends Lang {
 
   @override
   String get bsPartialContacts =>
-      'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, go to iOS Settings -> Apps -> InstaSOS';
+      'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, open the ';
 
   @override
   String get bsPartialContactsFix =>
-      'Apple will display all contacts, not just those shared with Insta-SOS.\nTo share more contacts, go to iOS Settings -> Apps -> Insta-SOS';
+      'Apple will display all contacts, not just those shared with Insta-SOS.\nTo share more contacts, open the ';
 
   @override
   String get bsNumError =>
-      'The contact is private or does not have a phone number.';
+      'This contact is private or does not have a phone number.';
 
   @override
   String get bsSOSOnOpen => 'SOS on open';
@@ -530,14 +517,6 @@ class LangArEg extends LangAr {
   String get hsWelcomeFix => 'مرحباً بكم في Insta-SOS';
 
   @override
-  String get hsBroadcastTutorial =>
-      'قم بتفعيل SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال في حالات الطوارئ.\n\nإذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.\n\nستستمر الرسائل النصية حتى عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تنشيط SOS أو إغلاق التطبيق بالكامل لإيقاف الرسائل النصية.';
-
-  @override
-  String get hsBroadcastTutorialFix =>
-      'قم بتفعيل SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال في حالات الطوارئ.\n\nإذا كان لدى Insta-SOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.\n\nستستمر الرسائل النصية حتى عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تنشيط SOS أو إغلاق التطبيق بالكامل لإيقاف الرسائل النصية.';
-
-  @override
   String get hsIOSBroadcastTutorial =>
       'قم بتنشيط SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال الخاصة بك في حالات الطوارئ.\n\n إذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.';
 
@@ -561,9 +540,6 @@ class LangArEg extends LangAr {
 
   @override
   String get hsSafeCloseHint => 'كل شيء واضح. أغلق التطبيق بدون SOS.';
-
-  @override
-  String get hsAutoSOS => 'SOS تلقائي';
 
   @override
   String get hsStop => 'إيقاف';
@@ -687,17 +663,11 @@ class LangArEg extends LangAr {
       'يستخدم التطبيق موقعك فقط أثناء نشاط بث الاستغاثة. لا تقوم InstaSOS ولا Empathetech LLC بتتبع بيانات المستخدم أو تخزينها أو بيعها.';
 
   @override
-  String get faqPrivateContact => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف؟';
-
-  @override
   String get faqContactPermissions =>
       'إذا ظهرت لك هذه الرسالة عند إضافة جهة اتصال للطوارئ، فهذا يعني أن InstaSOS ليس لديه إذن للوصول إلى جهة الاتصال تلك.';
 
   @override
   String get faqUpdateContacts => 'يمكنك تحديث أذونات جهات الاتصال في ';
-
-  @override
-  String get faqOSSettings => 'إعدادات iOS';
 
   @override
   String get faqMissing => 'لماذا بعض ميزات Android مفقودة؟';

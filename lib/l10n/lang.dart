@@ -121,12 +121,6 @@ abstract class Lang {
   /// **'Done'**
   String get gDone;
 
-  /// No description provided for @gPermission.
-  ///
-  /// In en, this message translates to:
-  /// **'permission'**
-  String get gPermission;
-
   /// No description provided for @gReminder.
   ///
   /// In en, this message translates to:
@@ -148,13 +142,13 @@ abstract class Lang {
   /// No description provided for @sosLastKnown.
   ///
   /// In en, this message translates to:
-  /// **'Last known location'**
+  /// **'last known location:'**
   String get sosLastKnown;
 
   /// No description provided for @sosNeedSMS.
   ///
   /// In en, this message translates to:
-  /// **'SOS needs SMS (texting) '**
+  /// **'SOS needs SMS (texting) permission.'**
   String get sosNeedSMS;
 
   /// No description provided for @sosDisabled.
@@ -205,6 +199,12 @@ abstract class Lang {
   /// **'You can change your mind/permissions at any time.'**
   String get hsYourApp;
 
+  /// No description provided for @hsHybridTranslation.
+  ///
+  /// In en, this message translates to:
+  /// **'This tutorial is machine translated.\nThe list of rights is human translated.'**
+  String get hsHybridTranslation;
+
   /// No description provided for @hsCamMic.
   ///
   /// In en, this message translates to:
@@ -238,7 +238,7 @@ abstract class Lang {
   /// No description provided for @hsCameraSetupHint.
   ///
   /// In en, this message translates to:
-  /// **'Camera permissions setup. Activate to enable.'**
+  /// **'Activate to give Insta-SOS permission to the camera.'**
   String get hsCameraSetupHint;
 
   /// No description provided for @hsContacts.
@@ -268,7 +268,7 @@ abstract class Lang {
   /// No description provided for @hsContactsSetupHint.
   ///
   /// In en, this message translates to:
-  /// **'Contacts permission setup. Activate to enable.'**
+  /// **'Activate to give Insta-SOS permission to view your contacts.'**
   String get hsContactsSetupHint;
 
   /// No description provided for @hsTexting.
@@ -292,7 +292,7 @@ abstract class Lang {
   /// No description provided for @hsTextingSetupHint.
   ///
   /// In en, this message translates to:
-  /// **'SMS permission setup. Activate to enable.'**
+  /// **'Activate to give Insta-SOS permission to send messages.'**
   String get hsTextingSetupHint;
 
   /// No description provided for @hsLocation.
@@ -316,7 +316,7 @@ abstract class Lang {
   /// No description provided for @hsAddAlways.
   ///
   /// In en, this message translates to:
-  /// **'Recommended to enable always. Press again to go to the System Settings.'**
+  /// **'Recommended to enable always. Press again to open the System Settings.'**
   String get hsAddAlways;
 
   /// No description provided for @hsLocationReady.
@@ -328,7 +328,7 @@ abstract class Lang {
   /// No description provided for @hsLocationSetupHint.
   ///
   /// In en, this message translates to:
-  /// **'Location permission setup. Activate to enable.'**
+  /// **'Activate to give Insta-SOS permission to view your location.'**
   String get hsLocationSetupHint;
 
   /// No description provided for @hsOneOfFour.
@@ -336,18 +336,6 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'First of four. Continue...'**
   String get hsOneOfFour;
-
-  /// No description provided for @hsBroadcastTutorial.
-  ///
-  /// In en, this message translates to:
-  /// **'Activate SOS to automatically text your emergency contacts.\n\nWhen InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nManually deactivate SOS or fully close the app to stop the texts.'**
-  String get hsBroadcastTutorial;
-
-  /// No description provided for @hsBroadcastTutorialFix.
-  ///
-  /// In en, this message translates to:
-  /// **'Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nManually deactivate SOS or fully close the app to stop the texts.'**
-  String get hsBroadcastTutorialFix;
 
   /// No description provided for @hsIOSBroadcastTutorial.
   ///
@@ -360,6 +348,12 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.'**
   String get hsIOSBroadcastTutorialFix;
+
+  /// No description provided for @hsBroadcastTutorialAndroid.
+  ///
+  /// In en, this message translates to:
+  /// **'The texts will continue when the phone is locked.\n\nManually deactivate SOS or fully close the app to stop the texts.'**
+  String get hsBroadcastTutorialAndroid;
 
   /// No description provided for @hsTwoOfFour.
   ///
@@ -427,11 +421,11 @@ abstract class Lang {
   /// **'All clear. Close the app without SOS.'**
   String get hsSafeCloseHint;
 
-  /// No description provided for @hsAutoSOS.
+  /// No description provided for @hsBroadcasting.
   ///
   /// In en, this message translates to:
-  /// **'Auto SOS'**
-  String get hsAutoSOS;
+  /// **'Broadcasting'**
+  String get hsBroadcasting;
 
   /// No description provided for @hsStop.
   ///
@@ -448,7 +442,7 @@ abstract class Lang {
   /// No description provided for @hsPreviewHint.
   ///
   /// In en, this message translates to:
-  /// **'Long press to toggle your rights view.'**
+  /// **'Long press to show/hide your rights.'**
   String get hsPreviewHint;
 
   /// No description provided for @hsShowRights.
@@ -658,7 +652,7 @@ abstract class Lang {
   /// No description provided for @pmManualPermission.
   ///
   /// In en, this message translates to:
-  /// **'If you removed a permission in the system settings, it must be restored there too.'**
+  /// **'If you remove permissions in the system settings, they must be restored there too.'**
   String get pmManualPermission;
 
   /// No description provided for @rmCommunity.
@@ -700,7 +694,7 @@ abstract class Lang {
   /// No description provided for @faqListA.
   ///
   /// In en, this message translates to:
-  /// **'The rights list was compiled from several public sources, including:'**
+  /// **'The list of rights was taken from several public resources, including:'**
   String get faqListA;
 
   /// No description provided for @faqSettings.
@@ -709,23 +703,11 @@ abstract class Lang {
   /// **'How do the settings work?'**
   String get faqSettings;
 
-  /// No description provided for @faqAutoShareQ.
-  ///
-  /// In en, this message translates to:
-  /// **'Auto-share pictures/video:'**
-  String get faqAutoShareQ;
-
   /// No description provided for @faqAutoShareA.
   ///
   /// In en, this message translates to:
   /// **' uses your phone\'s built in share. It does not use your saved emergency contacts (if any). Sharing is optional and can always be cancelled.'**
   String get faqAutoShareA;
-
-  /// No description provided for @faqLinkQ.
-  ///
-  /// In en, this message translates to:
-  /// **'Link type:'**
-  String get faqLinkQ;
 
   /// No description provided for @faqLinkA.
   ///
@@ -733,34 +715,22 @@ abstract class Lang {
   /// **' how your location will be delivered to your emergency contacts. \"Google Maps\", \"Apple Maps\", and \"Waze\" will send a clickable link for the corresponding service. \"Coordinates\" will send your latitude and longitude as plain text.'**
   String get faqLinkA;
 
-  /// No description provided for @faqOnOpenQ.
-  ///
-  /// In en, this message translates to:
-  /// **'SOS on open:'**
-  String get faqOnOpenQ;
-
   /// No description provided for @faqOnOpenA.
   ///
   /// In en, this message translates to:
   /// **' an SOS broadcast will begin immediately upon app launch. Not recommended for most users, as it could lead to accidental broadcasts.'**
   String get faqOnOpenA;
 
-  /// No description provided for @faqOnInterruptQ.
-  ///
-  /// In en, this message translates to:
-  /// **'SOS on interrupted recording:'**
-  String get faqOnInterruptQ;
-
   /// No description provided for @faqOnInterruptA.
   ///
   /// In en, this message translates to:
-  /// **' if a video recording is active and InstaSOS loses focus for any reason (minimized, switched apps, screen off), an SOS broadcast will begin.\nIt is recommended to enable either this or \"SOS on close\" (or both).'**
+  /// **' if a video is recording and InstaSOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen.\nIt is recommended to enable either this or \"SOS on close\" (or both).'**
   String get faqOnInterruptA;
 
   /// No description provided for @faqOnInterruptAFix.
   ///
   /// In en, this message translates to:
-  /// **' if a video recording is active and Insta-SOS loses focus for any reason (minimized, switched apps, screen off), an SOS broadcast will begin.\nIt is recommended to enable either this or \"SOS on close\" (or both).'**
+  /// **' if a video is recording and Insta-SOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen.\nIt is recommended to enable either this or \"SOS on close\" (or both).'**
   String get faqOnInterruptAFix;
 
   /// No description provided for @faqUnavailable.
@@ -790,38 +760,38 @@ abstract class Lang {
   /// No description provided for @faqLocationTrustFix.
   ///
   /// In en, this message translates to:
-  /// **'The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or Empathetech LLC track, store, or sell user data.'**
+  /// **'The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or Empathetic LLC track, store, or sell user data.'**
   String get faqLocationTrustFix;
-
-  /// No description provided for @faqPrivateContact.
-  ///
-  /// In en, this message translates to:
-  /// **'The contact is private or does not have a phone number?'**
-  String get faqPrivateContact;
 
   /// No description provided for @faqContactPermissions.
   ///
   /// In en, this message translates to:
-  /// **'If you get this message when adding an emergency contact, InstaSOS does not have permission to access that contact.'**
+  /// **'If you get this message when adding an emergency contact, InstaSOS does not have permission to access that specific contact.'**
   String get faqContactPermissions;
 
   /// No description provided for @faqContactPermissionsFix.
   ///
   /// In en, this message translates to:
-  /// **'If you get this message when adding an emergency contact, Insta-SOS does not have permission to access that contact.'**
+  /// **'If you get this message when adding an emergency contact, Insta-SOS does not have permission to access that specific contact.'**
   String get faqContactPermissionsFix;
 
   /// No description provided for @faqUpdateContacts.
   ///
   /// In en, this message translates to:
-  /// **'You can update contact permissions in the '**
+  /// **'You can give access to more (or all) contacts in the '**
   String get faqUpdateContacts;
 
-  /// No description provided for @faqOSSettings.
+  /// No description provided for @faqSplitClarity1.
   ///
   /// In en, this message translates to:
-  /// **'iOS settings'**
-  String get faqOSSettings;
+  /// **'Giving access to a contact does not make them an emergency contact. Only the numbers listed in the '**
+  String get faqSplitClarity1;
+
+  /// No description provided for @faqSplitClarity2.
+  ///
+  /// In en, this message translates to:
+  /// **'will be contacted during an SOS broadcast.'**
+  String get faqSplitClarity2;
 
   /// No description provided for @faqMissing.
   ///
@@ -928,19 +898,19 @@ abstract class Lang {
   /// No description provided for @bsPartialContacts.
   ///
   /// In en, this message translates to:
-  /// **'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, go to iOS Settings -> Apps -> InstaSOS'**
+  /// **'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, open the '**
   String get bsPartialContacts;
 
   /// No description provided for @bsPartialContactsFix.
   ///
   /// In en, this message translates to:
-  /// **'Apple will display all contacts, not just those shared with Insta-SOS.\nTo share more contacts, go to iOS Settings -> Apps -> Insta-SOS'**
+  /// **'Apple will display all contacts, not just those shared with Insta-SOS.\nTo share more contacts, open the '**
   String get bsPartialContactsFix;
 
   /// No description provided for @bsNumError.
   ///
   /// In en, this message translates to:
-  /// **'The contact is private or does not have a phone number.'**
+  /// **'This contact is private or does not have a phone number.'**
   String get bsNumError;
 
   /// No description provided for @bsSOSOnOpen.
