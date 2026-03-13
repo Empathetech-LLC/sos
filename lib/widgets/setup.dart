@@ -101,8 +101,15 @@ Widget lStatusIcon(LocationPermission? status) {
 
 class CameraSetup extends StatefulWidget {
   final Future<PermissionStatus> Function() initCamera;
+  final bool locked;
+  final void Function(bool) setLock;
 
-  const CameraSetup(this.initCamera, {super.key});
+  const CameraSetup({
+    super.key,
+    required this.initCamera,
+    required this.locked,
+    required this.setLock,
+  });
 
   @override
   State<CameraSetup> createState() => _CameraSetupState();
@@ -135,10 +142,17 @@ class _CameraSetupState extends State<CameraSetup> {
     return allowedPermCheck(camStatus)
         ? GestureDetector(
             onTap: () async {
+              // Do nothing if already complete
               if (galStatus == true) return;
 
+              // Check permission(s) race
+              if (widget.locked) return;
+              widget.setLock(true);
+
+              // Make it so
               final bool result = await Gal.requestAccess();
               if (galStatus != result) setState(() => galStatus = result);
+              widget.setLock(false);
             },
             child: Semantics(
               button: galStatus != true,
@@ -196,10 +210,17 @@ class _CameraSetupState extends State<CameraSetup> {
           )
         : GestureDetector(
             onTap: () async {
+              // Do nothing if already complete
               if (allowedPermCheck(camStatus)) return;
 
+              // Check permission(s) race
+              if (widget.locked) return;
+              widget.setLock(true);
+
+              // Make it so
               final PermissionStatus result = await widget.initCamera();
               if (camStatus != result) setState(() => camStatus = result);
+              widget.setLock(false);
             },
             child: Semantics(
               button: true,
@@ -251,7 +272,14 @@ class _CameraSetupState extends State<CameraSetup> {
 }
 
 class ContactsSetup extends StatefulWidget {
-  const ContactsSetup({super.key});
+  final bool locked;
+  final void Function(bool) setLock;
+
+  const ContactsSetup({
+    super.key,
+    required this.locked,
+    required this.setLock,
+  });
 
   @override
   State<ContactsSetup> createState() => _ContactsSetupState();
@@ -280,11 +308,18 @@ class _ContactsSetupState extends State<ContactsSetup> {
   @override
   Widget build(BuildContext context) => GestureDetector(
         onTap: () async {
+          // Do nothing if already complete
           if (allowedPermCheck(cPermMirror(allowed))) return;
 
+          // Check permission(s) race
+          if (widget.locked) return;
+          widget.setLock(true);
+
+          // Make it so
           final c.PermissionStatus result = await c.FlutterContacts.permissions
               .request(c.PermissionType.read);
           if (allowed != result) setState(() => allowed = result);
+          widget.setLock(false);
         },
         child: Semantics(
           button: !allowedPermCheck(cPermMirror(allowed)),
@@ -342,7 +377,14 @@ class _ContactsSetupState extends State<ContactsSetup> {
 }
 
 class SMSSetup extends StatefulWidget {
-  const SMSSetup({super.key});
+  final bool locked;
+  final void Function(bool) setLock;
+
+  const SMSSetup({
+    super.key,
+    required this.locked,
+    required this.setLock,
+  });
 
   @override
   State<SMSSetup> createState() => _SMSSetupState();
@@ -371,10 +413,17 @@ class _SMSSetupState extends State<SMSSetup> {
   @override
   Widget build(BuildContext context) => GestureDetector(
         onTap: () async {
+          // Do nothing if already complete
           if (allowedPermCheck(status)) return;
 
+          // Check permission(s) race
+          if (widget.locked) return;
+          widget.setLock(true);
+
+          // Make it so
           final PermissionStatus result = await Permission.sms.request();
           if (status != result) setState(() => status = result);
+          widget.setLock(false);
         },
         child: Semantics(
           button: !allowedPermCheck(status),
@@ -430,7 +479,14 @@ class _SMSSetupState extends State<SMSSetup> {
 }
 
 class LocationSetup extends StatefulWidget {
-  const LocationSetup({super.key});
+  final bool locked;
+  final void Function(bool) setLock;
+
+  const LocationSetup({
+    super.key,
+    required this.locked,
+    required this.setLock,
+  });
 
   @override
   State<LocationSetup> createState() => _LocationSetupState();
@@ -469,10 +525,16 @@ class _LocationSetupState extends State<LocationSetup>
         onTap: () async {
           switch (status) {
             case LocationPermission.always:
+              // Do nothing if already complete
               return;
 
             case LocationPermission.denied:
             case null:
+              // Check permission(s) race
+              if (widget.locked) return;
+              widget.setLock(true);
+
+              // Make it so
               final bool serviceEnabled =
                   await Geolocator.isLocationServiceEnabled();
               if (!serviceEnabled) {
@@ -481,9 +543,11 @@ class _LocationSetupState extends State<LocationSetup>
                     : ezLog(l10n.sosDisabled);
                 return;
               }
+
               final LocationPermission result =
                   await Geolocator.requestPermission();
               if (status != result) setState(() => status = result);
+              widget.setLock(false);
               return;
 
             case LocationPermission.deniedForever:
@@ -494,8 +558,15 @@ class _LocationSetupState extends State<LocationSetup>
               return;
 
             case LocationPermission.whileInUse:
-              if (isIOS) return;
+              if (isIOS) return; // Do nothing if already complete
+
+              // Check permission(s) race
+              if (widget.locked) return;
+              widget.setLock(true);
+
+              // Make it so
               await openAppSettings();
+              widget.setLock(false);
               return;
           }
         },
