@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen>
       (mounted)
           ? await ezLogAlert(
               context,
-              message: '${l10n.sosNeedSMS}${l10n.gPermission}.',
+              message: l10n.sosNeedSMS,
               customActions: <Widget>[
                 EzMaterialAction(
                     text: EzConfig.l10n.ssPageTitle,
@@ -151,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen>
     if (showSnack && mounted) {
       ezSnackBar(
         context,
-        message: l10n.hsAutoSOS, // TODO: add started/improve message
+        message: l10n.hsBroadcasting,
         undo: () async => stopForegroundSOS(),
         undoMessage: l10n.hsStop,
       );
@@ -289,11 +289,11 @@ class _HomeScreenState extends State<HomeScreen>
                     color: EzConfig.colors.onSurface,
                   ),
                   content: isIOS
-                      ? l10n.hsIOSBroadcastTutorial
-                      : l10n.hsBroadcastTutorial,
+                      ? l10n.hsBroadcastTutorial
+                      : '${l10n.hsBroadcastTutorial}\n\n${l10n.hsBroadcastTutorialAndroid}',
                   contentSemantics: isIOS
-                      ? l10n.hsIOSBroadcastTutorialFix
-                      : l10n.hsBroadcastTutorialFix,
+                      ? l10n.hsBroadcastTutorialFix
+                      : '${l10n.hsBroadcastTutorialFix}\n\n${l10n.hsBroadcastTutorialAndroid}',
                   acceptMessage: '1/4\t>>',
                   acceptSemantics: l10n.hsOneOfFour,
                   onAccept: () {
