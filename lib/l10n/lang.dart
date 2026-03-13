@@ -127,6 +127,12 @@ abstract class Lang {
   /// **'Reminder'**
   String get gReminder;
 
+  /// No description provided for @gSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System settings'**
+  String get gSystem;
+
   /// No description provided for @gNotAgain.
   ///
   /// In en, this message translates to:
@@ -202,7 +208,7 @@ abstract class Lang {
   /// No description provided for @hsHybridTranslation.
   ///
   /// In en, this message translates to:
-  /// **'This tutorial is machine translated.\nThe list of rights is human translated.'**
+  /// **'The tutorial and setting are machine translated.\nThe rights list is human translated.'**
   String get hsHybridTranslation;
 
   /// No description provided for @hsCamMic.
@@ -337,17 +343,17 @@ abstract class Lang {
   /// **'First of four. Continue...'**
   String get hsOneOfFour;
 
-  /// No description provided for @hsIOSBroadcastTutorial.
+  /// No description provided for @hsBroadcastTutorial.
   ///
   /// In en, this message translates to:
   /// **'Activate SOS to automatically text your emergency contacts.\n\nWhen InstaSOS has access to your location, it will be included in the texts.'**
-  String get hsIOSBroadcastTutorial;
+  String get hsBroadcastTutorial;
 
-  /// No description provided for @hsIOSBroadcastTutorialFix.
+  /// No description provided for @hsBroadcastTutorialFix.
   ///
   /// In en, this message translates to:
   /// **'Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.'**
-  String get hsIOSBroadcastTutorialFix;
+  String get hsBroadcastTutorialFix;
 
   /// No description provided for @hsBroadcastTutorialAndroid.
   ///
@@ -643,12 +649,6 @@ abstract class Lang {
   /// **'You can remove permissions in the '**
   String get pmRemoveIn;
 
-  /// No description provided for @pmSystem.
-  ///
-  /// In en, this message translates to:
-  /// **'system settings.'**
-  String get pmSystem;
-
   /// No description provided for @pmManualPermission.
   ///
   /// In en, this message translates to:
@@ -943,11 +943,11 @@ abstract class Lang {
   /// **'The app will auto-close to prevent unintentional broadcasts.'**
   String get bsCloseOffWarning;
 
-  /// No description provided for @bsVideoSOS.
+  /// No description provided for @bsSOSOnVideo.
   ///
   /// In en, this message translates to:
   /// **'SOS on interrupted recording'**
-  String get bsVideoSOS;
+  String get bsSOSOnVideo;
 
   /// No description provided for @dsLadyLiberty.
   ///

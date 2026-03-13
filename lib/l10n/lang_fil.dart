@@ -18,6 +18,9 @@ class LangFil extends Lang {
   String get gReminder => 'Paalala';
 
   @override
+  String get gSystem => 'System settings';
+
+  @override
   String get gNotAgain => 'Wag ka nang magpakita ulit';
 
   @override
@@ -59,7 +62,7 @@ class LangFil extends Lang {
 
   @override
   String get hsHybridTranslation =>
-      'This tutorial is machine translated.\nThe list of rights is human translated.';
+      'The tutorial and setting are machine translated.\nThe rights list is human translated.';
 
   @override
   String get hsCamMic => 'Camera & Microphone';
@@ -134,11 +137,11 @@ class LangFil extends Lang {
   String get hsOneOfFour => 'First of four. Continue...';
 
   @override
-  String get hsIOSBroadcastTutorial =>
-      'I-activate ang SOS para awtomatikong mag-text sa iyong mga emergency contact.\n\nKung may access ang InstaSOS sa iyong lokasyon, isasama ito sa mga text.';
+  String get hsBroadcastTutorial =>
+      'I-activate ang SOS para awtomatikong mag-tetext sa iyong mga emergency contact.\n\nKung may access ang InstaSOS sa iyong lokasyon, isasama ito sa mga text.\n\nMagpapatuloy ang mga text kahit naka-lock ang telepono.\n\nI-deactivate ang SOS o isara ang app para ihinto ang mga text.';
 
   @override
-  String get hsIOSBroadcastTutorialFix =>
+  String get hsBroadcastTutorialFix =>
       'Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.';
 
   @override
@@ -303,9 +306,6 @@ class LangFil extends Lang {
 
   @override
   String get pmRemoveIn => 'You can remove permissions in the ';
-
-  @override
-  String get pmSystem => 'system settings.';
 
   @override
   String get pmManualPermission =>
@@ -480,7 +480,7 @@ class LangFil extends Lang {
       'The app will auto-close to prevent unintentional broadcasts.';
 
   @override
-  String get bsVideoSOS => 'SOS on interrupted recording';
+  String get bsSOSOnVideo => 'SOS on interrupted recording';
 
   @override
   String get dsLadyLiberty =>

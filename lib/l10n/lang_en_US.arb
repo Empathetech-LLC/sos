@@ -6,6 +6,7 @@
   "gOk": "Ok",
   "gDone": "Done",
   "gReminder": "Reminder",
+  "gSystem": "System settings",
   "gNotAgain": "Don't show again",
   "gOnCloseWarning": "\"SOS on close\" is enabled. This will start a broadcast.",
 
@@ -22,7 +23,7 @@
   "hsAppIntro": "To start, this is only a Know Your Rights app.\nYou can enable more tools by giving them permission in the list below.",
   "hsAppIntroAlt": "The latest update was a big one, let's make sure everything is ready below.",
   "hsYourApp": "You can change your mind/permissions at any time.",
-  "hsHybridTranslation": "This tutorial is machine translated.\nThe list of rights is human translated.",
+  "hsHybridTranslation": "The tutorial and setting are machine translated.\nThe rights list is human translated.",
 
   "hsCamMic": "Camera & Microphone",
   "hsAddRecording": "Enables video recording.",
@@ -50,8 +51,8 @@
   "hsLocationSetupHint": "Activate to give Insta-SOS permission to view your location.",
 
   "hsOneOfFour": "First of four. Continue...",
-  "hsIOSBroadcastTutorial": "Activate SOS to automatically text your emergency contacts.\n\nWhen InstaSOS has access to your location, it will be included in the texts.",
-  "hsIOSBroadcastTutorialFix": "Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.",
+  "hsBroadcastTutorial": "Activate SOS to automatically text your emergency contacts.\n\nWhen InstaSOS has access to your location, it will be included in the texts.",
+  "hsBroadcastTutorialFix": "Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.",
   "hsBroadcastTutorialAndroid": "The texts will continue when the phone is locked.\n\nManually deactivate SOS or fully close the app to stop the texts.",
   "hsTwoOfFour": "Second of four. Continue...",
   "hsSettingsTutorial": "- Configure your SOS broadcast\n- Customize the app's appearance\n- Access more resources and support\n\nin the settings.",
@@ -117,7 +118,6 @@
 
   "pmOnlyAdd": "This tool only helps to add permissions.",
   "pmRemoveIn": "You can remove permissions in the ",
-  "pmSystem": "system settings.",
   "pmManualPermission": "If you remove permissions in the system settings, they must be restored there too.",
 
   "rmCommunity": "Community resources",
@@ -181,7 +181,7 @@
   "bsSOSOnCloseHint": "A safe close (thumbs up) button will be appear on the home page, opposite the settings.\nIf InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.",
   "bsSOSOnCloseHintFix": "A safe close (thumbs up) button will be appear on the home page, opposite the settings.\nIf Insta-SOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.",
   "bsCloseOffWarning": "The app will auto-close to prevent unintentional broadcasts.",
-  "bsVideoSOS": "SOS on interrupted recording",
+  "bsSOSOnVideo": "SOS on interrupted recording",
   
   
 

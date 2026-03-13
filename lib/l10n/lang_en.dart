@@ -18,6 +18,9 @@ class LangEn extends Lang {
   String get gReminder => 'Reminder';
 
   @override
+  String get gSystem => 'System settings';
+
+  @override
   String get gNotAgain => 'Don\'t show again';
 
   @override
@@ -58,7 +61,7 @@ class LangEn extends Lang {
 
   @override
   String get hsHybridTranslation =>
-      'This tutorial is machine translated.\nThe list of rights is human translated.';
+      'The tutorial and setting are machine translated.\nThe rights list is human translated.';
 
   @override
   String get hsCamMic => 'Camera & Microphone';
@@ -133,11 +136,11 @@ class LangEn extends Lang {
   String get hsOneOfFour => 'First of four. Continue...';
 
   @override
-  String get hsIOSBroadcastTutorial =>
+  String get hsBroadcastTutorial =>
       'Activate SOS to automatically text your emergency contacts.\n\nWhen InstaSOS has access to your location, it will be included in the texts.';
 
   @override
-  String get hsIOSBroadcastTutorialFix =>
+  String get hsBroadcastTutorialFix =>
       'Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.';
 
   @override
@@ -301,9 +304,6 @@ class LangEn extends Lang {
 
   @override
   String get pmRemoveIn => 'You can remove permissions in the ';
-
-  @override
-  String get pmSystem => 'system settings.';
 
   @override
   String get pmManualPermission =>
@@ -476,7 +476,7 @@ class LangEn extends Lang {
       'The app will auto-close to prevent unintentional broadcasts.';
 
   @override
-  String get bsVideoSOS => 'SOS on interrupted recording';
+  String get bsSOSOnVideo => 'SOS on interrupted recording';
 
   @override
   String get dsLadyLiberty =>
@@ -500,6 +500,9 @@ class LangEnUs extends LangEn {
   String get gReminder => 'Reminder';
 
   @override
+  String get gSystem => 'System settings';
+
+  @override
   String get gNotAgain => 'Don\'t show again';
 
   @override
@@ -540,7 +543,7 @@ class LangEnUs extends LangEn {
 
   @override
   String get hsHybridTranslation =>
-      'This tutorial is machine translated.\nThe list of rights is human translated.';
+      'The tutorial and setting are machine translated.\nThe rights list is human translated.';
 
   @override
   String get hsCamMic => 'Camera & Microphone';
@@ -615,11 +618,11 @@ class LangEnUs extends LangEn {
   String get hsOneOfFour => 'First of four. Continue...';
 
   @override
-  String get hsIOSBroadcastTutorial =>
+  String get hsBroadcastTutorial =>
       'Activate SOS to automatically text your emergency contacts.\n\nWhen InstaSOS has access to your location, it will be included in the texts.';
 
   @override
-  String get hsIOSBroadcastTutorialFix =>
+  String get hsBroadcastTutorialFix =>
       'Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.';
 
   @override
@@ -783,9 +786,6 @@ class LangEnUs extends LangEn {
 
   @override
   String get pmRemoveIn => 'You can remove permissions in the ';
-
-  @override
-  String get pmSystem => 'system settings.';
 
   @override
   String get pmManualPermission =>
@@ -958,7 +958,7 @@ class LangEnUs extends LangEn {
       'The app will auto-close to prevent unintentional broadcasts.';
 
   @override
-  String get bsVideoSOS => 'SOS on interrupted recording';
+  String get bsSOSOnVideo => 'SOS on interrupted recording';
 
   @override
   String get dsLadyLiberty =>

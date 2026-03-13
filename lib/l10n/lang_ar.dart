@@ -18,6 +18,9 @@ class LangAr extends Lang {
   String get gReminder => 'تذكير';
 
   @override
+  String get gSystem => 'System settings';
+
+  @override
   String get gNotAgain => 'لا تظهر مرة أخرى';
 
   @override
@@ -58,7 +61,7 @@ class LangAr extends Lang {
 
   @override
   String get hsHybridTranslation =>
-      'This tutorial is machine translated.\nThe list of rights is human translated.';
+      'The tutorial and setting are machine translated.\nThe rights list is human translated.';
 
   @override
   String get hsCamMic => 'Camera & Microphone';
@@ -133,12 +136,12 @@ class LangAr extends Lang {
   String get hsOneOfFour => 'First of four. Continue...';
 
   @override
-  String get hsIOSBroadcastTutorial =>
-      'قم بتنشيط SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال الخاصة بك في حالات الطوارئ.\n\n إذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.';
+  String get hsBroadcastTutorial =>
+      'قم بتفعيل SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال في حالات الطوارئ.\n\nإذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.\n\nستستمر الرسائل النصية حتى عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تنشيط SOS أو إغلاق التطبيق بالكامل لإيقاف الرسائل النصية.';
 
   @override
-  String get hsIOSBroadcastTutorialFix =>
-      'Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.';
+  String get hsBroadcastTutorialFix =>
+      'قم بتفعيل SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال في حالات الطوارئ.\n\nإذا كان لدى Insta-SOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.\n\nستستمر الرسائل النصية حتى عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تنشيط SOS أو إغلاق التطبيق بالكامل لإيقاف الرسائل النصية.';
 
   @override
   String get hsBroadcastTutorialAndroid =>
@@ -300,9 +303,6 @@ class LangAr extends Lang {
 
   @override
   String get pmRemoveIn => 'You can remove permissions in the ';
-
-  @override
-  String get pmSystem => 'system settings.';
 
   @override
   String get pmManualPermission =>
@@ -473,7 +473,7 @@ class LangAr extends Lang {
       'The app will auto-close to prevent unintentional broadcasts.';
 
   @override
-  String get bsVideoSOS => 'SOS on interrupted recording';
+  String get bsSOSOnVideo => 'SOS on interrupted recording';
 
   @override
   String get dsLadyLiberty => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';
@@ -517,8 +517,12 @@ class LangArEg extends LangAr {
   String get hsWelcomeFix => 'مرحباً بكم في Insta-SOS';
 
   @override
-  String get hsIOSBroadcastTutorial =>
-      'قم بتنشيط SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال الخاصة بك في حالات الطوارئ.\n\n إذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.';
+  String get hsBroadcastTutorial =>
+      'قم بتفعيل SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال في حالات الطوارئ.\n\nإذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.\n\nستستمر الرسائل النصية حتى عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تنشيط SOS أو إغلاق التطبيق بالكامل لإيقاف الرسائل النصية.';
+
+  @override
+  String get hsBroadcastTutorialFix =>
+      'قم بتفعيل SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال في حالات الطوارئ.\n\nإذا كان لدى Insta-SOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.\n\nستستمر الرسائل النصية حتى عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تنشيط SOS أو إغلاق التطبيق بالكامل لإيقاف الرسائل النصية.';
 
   @override
   String get hsSettingsTutorial =>

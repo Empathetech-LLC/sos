@@ -18,6 +18,9 @@ class LangFr extends Lang {
   String get gReminder => 'Rappel';
 
   @override
+  String get gSystem => 'System settings';
+
+  @override
   String get gNotAgain => 'Ne plus afficher';
 
   @override
@@ -60,7 +63,7 @@ class LangFr extends Lang {
 
   @override
   String get hsHybridTranslation =>
-      'This tutorial is machine translated.\nThe list of rights is human translated.';
+      'The tutorial and setting are machine translated.\nThe rights list is human translated.';
 
   @override
   String get hsCamMic => 'Camera & Microphone';
@@ -135,11 +138,11 @@ class LangFr extends Lang {
   String get hsOneOfFour => 'First of four. Continue...';
 
   @override
-  String get hsIOSBroadcastTutorial =>
-      'Activez le SOS pour envoyer automatiquement des SMS à vos contacts d\'urgence.\n\nSi InstaSOS a accès à votre localisation, celle-ci sera incluse dans les SMS.';
+  String get hsBroadcastTutorial =>
+      'Activez le SOS pour envoyer automatiquement des SMS à vos contacts d\'urgence.\n\nSi InstaSOS a accès à votre localisation, celle-ci sera incluse dans les SMS.\n\nLes SMS continueront d\'être envoyés même lorsque le téléphone est verrouillé.\n\nDésactivez le SOS ou fermez complètement l\'application pour arrêter les SMS.';
 
   @override
-  String get hsIOSBroadcastTutorialFix =>
+  String get hsBroadcastTutorialFix =>
       'Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.';
 
   @override
@@ -306,9 +309,6 @@ class LangFr extends Lang {
 
   @override
   String get pmRemoveIn => 'You can remove permissions in the ';
-
-  @override
-  String get pmSystem => 'system settings.';
 
   @override
   String get pmManualPermission =>
@@ -483,7 +483,7 @@ class LangFr extends Lang {
       'The app will auto-close to prevent unintentional broadcasts.';
 
   @override
-  String get bsVideoSOS => 'SOS on interrupted recording';
+  String get bsSOSOnVideo => 'SOS on interrupted recording';
 
   @override
   String get dsLadyLiberty =>

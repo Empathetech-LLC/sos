@@ -18,6 +18,9 @@ class LangZh extends Lang {
   String get gReminder => '提醒';
 
   @override
+  String get gSystem => 'System settings';
+
+  @override
   String get gNotAgain => '不再显示';
 
   @override
@@ -58,7 +61,7 @@ class LangZh extends Lang {
 
   @override
   String get hsHybridTranslation =>
-      'This tutorial is machine translated.\nThe list of rights is human translated.';
+      'The tutorial and setting are machine translated.\nThe rights list is human translated.';
 
   @override
   String get hsCamMic => 'Camera & Microphone';
@@ -133,11 +136,11 @@ class LangZh extends Lang {
   String get hsOneOfFour => 'First of four. Continue...';
 
   @override
-  String get hsIOSBroadcastTutorial =>
-      '激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。';
+  String get hsBroadcastTutorial =>
+      '激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。\n\n即使设备锁屏，短信也会持续发送。\n\n停止发送可通过关闭SOS或完全退出应用实现。';
 
   @override
-  String get hsIOSBroadcastTutorialFix =>
+  String get hsBroadcastTutorialFix =>
       'Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.';
 
   @override
@@ -292,9 +295,6 @@ class LangZh extends Lang {
 
   @override
   String get pmRemoveIn => 'You can remove permissions in the ';
-
-  @override
-  String get pmSystem => 'system settings.';
 
   @override
   String get pmManualPermission =>
@@ -461,7 +461,7 @@ class LangZh extends Lang {
       'The app will auto-close to prevent unintentional broadcasts.';
 
   @override
-  String get bsVideoSOS => 'SOS on interrupted recording';
+  String get bsSOSOnVideo => 'SOS on interrupted recording';
 
   @override
   String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';
@@ -502,8 +502,8 @@ class LangZhCn extends LangZh {
   String get hsWelcome => '欢迎使用 InstaSOS';
 
   @override
-  String get hsIOSBroadcastTutorial =>
-      '激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。';
+  String get hsBroadcastTutorial =>
+      '激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。\n\n即使设备锁屏，短信也会持续发送。\n\n停止发送可通过关闭SOS或完全退出应用实现。';
 
   @override
   String get hsSettingsTutorial =>
