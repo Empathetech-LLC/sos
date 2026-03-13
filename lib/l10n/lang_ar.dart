@@ -61,7 +61,7 @@ class LangAr extends Lang {
 
   @override
   String get hsHybridTranslation =>
-      'The tutorial and setting are machine translated.\nThe rights list is human translated.';
+      'The tutorial and settings are machine translated.\nThe rights list is human translated.';
 
   @override
   String get hsCamMic => 'Camera & Microphone';

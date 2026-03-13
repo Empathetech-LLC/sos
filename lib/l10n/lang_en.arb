@@ -23,7 +23,7 @@
   "hsAppIntro": "To start, this is only a Know Your Rights app.\nYou can enable more tools by giving them permission in the list below.",
   "hsAppIntroAlt": "The latest update was a big one, let's make sure everything is ready below.",
   "hsYourApp": "You can change your mind/permissions at any time.",
-  "hsHybridTranslation": "The tutorial and setting are machine translated.\nThe rights list is human translated.",
+  "hsHybridTranslation": "The tutorial and settings are machine translated.\nThe rights list is human translated.",
 
   "hsCamMic": "Camera & Microphone",
   "hsAddRecording": "Enables video recording.",

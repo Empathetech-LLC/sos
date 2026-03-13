@@ -66,25 +66,15 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
         Center(
           child: EzScrollView(children: <Widget>[
             if (!canSMS) ...<Widget>[
-              EzRichText(
-                <InlineSpan>[
-                  EzPlainText(
-                    text: l10n.sosNeedSMS,
-                    style: EzConfig.styles.bodyLarge,
-                  ),
-                  EzInlineLink(
-                    l10n.gPermission,
-                    onTap: openAppSettings,
-                    hint: EzConfig.l10n.gOpenLink,
-                  ),
-                  EzPlainText(
-                    text: '.',
-                    style: EzConfig.styles.bodyLarge,
-                  ),
-                ],
-                textBackground: false,
+              EzText(
+                l10n.sosNeedSMS,
                 style: EzConfig.styles.bodyLarge,
                 textAlign: TextAlign.center,
+              ),
+              EzLink(
+                l10n.gSystem,
+                onTap: openAppSettings,
+                hint: EzConfig.l10n.gOpenLink,
               ),
               EzConfig.separator,
             ],
@@ -220,7 +210,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
               EzSwitchPair(
                 enabled: emc.isNotEmpty,
                 fauxDisabled: !canSMS,
-                text: l10n.bsVideoSOS,
+                text: l10n.bsSOSOnVideo,
                 valueKey: sosOnInterruptKey,
                 canChange: (bool choice) => canSet(sosOnInterruptKey, choice),
               ),

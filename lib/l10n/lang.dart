@@ -208,7 +208,7 @@ abstract class Lang {
   /// No description provided for @hsHybridTranslation.
   ///
   /// In en, this message translates to:
-  /// **'The tutorial and setting are machine translated.\nThe rights list is human translated.'**
+  /// **'The tutorial and settings are machine translated.\nThe rights list is human translated.'**
   String get hsHybridTranslation;
 
   /// No description provided for @hsCamMic.
