@@ -60,7 +60,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
     final bool show = await Permission.contacts.isLimited;
 
     if (show && context.mounted) {
-      await showDialog(
+      final bool leaving = await showDialog(
         context: context,
         builder: (BuildContext dContext) => EzAlertDialog(
           title: Text(l10n.gReminder, textAlign: TextAlign.center),
@@ -72,7 +72,10 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
               ),
               EzInlineLink(
                 l10n.gSystem.toLowerCase(),
-                onTap: openAppSettings,
+                onTap: () async {
+                  Navigator.of(dContext).pop(true);
+                  await openAppSettings();
+                },
                 hint: EzConfig.l10n.gOpenLink,
               ),
               EzPlainText(
@@ -88,6 +91,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
             context: context,
             confirmMsg: l10n.gOk,
             onConfirm: () => Navigator.of(dContext).pop(),
+            confirmIsDefault: true,
             denyMsg: l10n.gNotAgain,
             onDeny: () async {
               await EzConfig.setBool(showContactsMsgKey, false);
@@ -98,6 +102,8 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
           needsClose: false,
         ),
       );
+
+      if (leaving) return;
     }
   }
 
@@ -110,14 +116,22 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
       return;
     }
 
-    contact = await c.FlutterContacts.get(
-      contactID,
-      properties: <c.ContactProperty>{
-        c.ContactProperty.name,
-        c.ContactProperty.identifiers,
-        c.ContactProperty.phone,
-      },
-    );
+    try {
+      contact = await c.FlutterContacts.get(
+        contactID,
+        properties: <c.ContactProperty>{
+          c.ContactProperty.name,
+          c.ContactProperty.identifiers,
+          c.ContactProperty.phone,
+        },
+      );
+    } catch (_) {
+      if (context.mounted) {
+        await ezSnackBar(context, message: l10n.bsNumError).closed;
+      }
+      if (loop) continue;
+      return;
+    }
 
     // Check for failure to retrieve
     if (contact == null) {

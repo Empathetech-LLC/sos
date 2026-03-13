@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen>
   Future<bool> sosChecks() async {
     // Check permissions
     if (!isIOS && deniedPermCheck(await Permission.sms.status)) {
-      (mounted)
+      mounted
           ? await ezLogAlert(
               context,
               message: l10n.sosNeedSMS,
@@ -121,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen>
           message: l10n.bsSnackRequest,
         );
         await context.pushNamed(sosSettingsPath);
-        setState(() {});
+        if (mounted) setState(() {});
       }
       return false;
     }
@@ -144,8 +144,10 @@ class _HomeScreenState extends State<HomeScreen>
     await foregroundSOS();
 
     // Make it so (periodic SOS)
-    setState(() => sosTimer =
-        Timer.periodic(const Duration(minutes: 5), (_) => foregroundSOS()));
+    if (mounted) {
+      setState(() => sosTimer =
+          Timer.periodic(const Duration(minutes: 5), (_) => foregroundSOS()));
+    }
 
     // Double reminder/option to cancel
     if (showSnack && mounted) {
@@ -159,7 +161,9 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   /// Cancel the [sosTimer]
-  void stopForegroundSOS() => setState(() => sosTimer?.cancel());
+  void stopForegroundSOS() {
+    if (mounted) setState(() => sosTimer?.cancel());
+  }
 
   // Init //
 
@@ -206,7 +210,9 @@ class _HomeScreenState extends State<HomeScreen>
           // Camera preview and rights view
           Center(
             child: GestureDetector(
-              onLongPress: () => setState(() => showRights = !showRights),
+              onLongPress: () {
+                if (mounted) setState(() => showRights = !showRights);
+              },
               child: Container(
                 height: heightOf(context) * 0.667,
                 width: double.infinity,
@@ -403,8 +409,11 @@ class _HomeScreenState extends State<HomeScreen>
                                   Icons.gavel,
                                   semanticLabel: l10n.hsShowRights,
                                 ),
-                          onPressed: () =>
-                              setState(() => showRights = !showRights),
+                          onPressed: () {
+                            if (mounted) {
+                              setState(() => showRights = !showRights);
+                            }
+                          },
                         )
                       : EzIconButton(
                           icon: Icon(
@@ -484,7 +493,7 @@ class _HomeScreenState extends State<HomeScreen>
                           ),
                         );
                         await EzConfig.setBool(showTutorialKey, false);
-                        setState(() => showRights = true);
+                        if (mounted) setState(() => showRights = true);
                       },
                     ),
                     child: recording
@@ -517,7 +526,7 @@ class _HomeScreenState extends State<HomeScreen>
                               watch.stop();
 
                               // Update the UI
-                              setState(() => recording = false);
+                              if (mounted) setState(() => recording = false);
                               watch.reset();
 
                               if (video == null) return;
@@ -586,7 +595,7 @@ class _HomeScreenState extends State<HomeScreen>
                                     await initCamera();
 
                                 if (allowedPermCheck(cameraPerm)) {
-                                  setState(() {});
+                                  if (mounted) setState(() {});
                                 }
                                 return;
                               }
@@ -594,7 +603,7 @@ class _HomeScreenState extends State<HomeScreen>
                               try {
                                 await camera!.startVideoRecording();
                                 watch.start();
-                                setState(() => recording = true);
+                                if (mounted) setState(() => recording = true);
                               } catch (e) {
                                 (context.mounted)
                                     ? await ezLogAlert(
@@ -618,7 +627,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 await initCamera();
 
                             if (allowedPermCheck(cameraPerm)) {
-                              setState(() {});
+                              if (mounted) setState(() {});
                             }
                             return;
                           },
@@ -683,7 +692,7 @@ class _HomeScreenState extends State<HomeScreen>
 
           watch.stop();
           watch.reset();
-          setState(() => recording = false);
+          if (mounted) setState(() => recording = false);
         } else {
           // Not recording
           // SOS based on user state/settings

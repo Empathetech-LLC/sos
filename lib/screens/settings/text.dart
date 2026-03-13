@@ -28,7 +28,9 @@ class _TextSettingsScreenState extends State<TextSettingsScreen> {
           EzScreen(
             EzTextSettings(
               target: widget.target,
-              onUpdate: () => setState(() {}),
+              onUpdate: () {
+                if (mounted) setState(() {});
+              },
               updateBoth: updateBoth,
               appName: appName,
               androidPackage: androidPackage,
@@ -38,12 +40,16 @@ class _TextSettingsScreenState extends State<TextSettingsScreen> {
           fabs: <Widget>[
             if (config.needsRebuild) ...<Widget>[
               config.layout.spacer,
-              EzRebuildFAB(() => setState(() {})),
+              EzRebuildFAB(() {
+                if (mounted) setState(() {});
+              }),
             ],
             config.layout.spacer,
             EzSettingsDupeFAB(
               updateBoth,
-              () => setState(() => updateBoth = !updateBoth),
+              () {
+                if (mounted) setState(() => updateBoth = !updateBoth);
+              },
             ),
             if (showBackFAB) ...<Widget>[
               config.layout.spacer,

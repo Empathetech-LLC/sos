@@ -126,7 +126,7 @@ class _CameraSetupState extends State<CameraSetup> {
   Future<void> backgroundCheck() async {
     camStatus = await Permission.camera.status;
     galStatus = await Gal.hasAccess();
-    setState(() {});
+    if (mounted) setState(() {});
   }
 
   @override
@@ -151,7 +151,9 @@ class _CameraSetupState extends State<CameraSetup> {
 
               // Make it so
               final bool result = await Gal.requestAccess();
-              if (galStatus != result) setState(() => galStatus = result);
+              if (galStatus != result) {
+                if (mounted) setState(() => galStatus = result);
+              }
               widget.setLock(false);
             },
             child: Semantics(
@@ -219,7 +221,9 @@ class _CameraSetupState extends State<CameraSetup> {
 
               // Make it so
               final PermissionStatus result = await widget.initCamera();
-              if (camStatus != result) setState(() => camStatus = result);
+              if (camStatus != result) {
+                if (mounted) setState(() => camStatus = result);
+              }
               widget.setLock(false);
             },
             child: Semantics(
@@ -294,7 +298,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
 
   Future<void> backgroundCheck() async {
     allowed = await c.FlutterContacts.permissions.check(c.PermissionType.read);
-    setState(() {});
+    if (mounted) setState(() {});
   }
 
   @override
@@ -318,7 +322,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
           // Make it so
           final c.PermissionStatus result = await c.FlutterContacts.permissions
               .request(c.PermissionType.read);
-          if (allowed != result) setState(() => allowed = result);
+          if (allowed != result) if (mounted) setState(() => allowed = result);
           widget.setLock(false);
         },
         child: Semantics(
@@ -399,7 +403,7 @@ class _SMSSetupState extends State<SMSSetup> {
 
   Future<void> backgroundCheck() async {
     status = await Permission.sms.status;
-    setState(() {});
+    if (mounted) setState(() {});
   }
 
   @override
@@ -422,7 +426,7 @@ class _SMSSetupState extends State<SMSSetup> {
 
           // Make it so
           final PermissionStatus result = await Permission.sms.request();
-          if (status != result) setState(() => status = result);
+          if (status != result) if (mounted) setState(() => status = result);
           widget.setLock(false);
         },
         child: Semantics(
@@ -503,7 +507,7 @@ class _LocationSetupState extends State<LocationSetup>
   Future<void> backgroundCheck() async {
     if (await Geolocator.isLocationServiceEnabled() != true) return;
     status = await Geolocator.checkPermission();
-    setState(() {});
+    if (mounted) setState(() {});
   }
 
   @override
@@ -546,7 +550,9 @@ class _LocationSetupState extends State<LocationSetup>
 
               final LocationPermission result =
                   await Geolocator.requestPermission();
-              if (status != result) setState(() => status = result);
+              if (status != result) {
+                if (mounted) setState(() => status = result);
+              }
               widget.setLock(false);
               return;
 

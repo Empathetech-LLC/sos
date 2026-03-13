@@ -19,7 +19,9 @@ class DesignSettingsScreen extends StatefulWidget {
 
 class _DesignSettingsScreenState extends State<DesignSettingsScreen> {
   bool updateBoth = false;
-  void redraw() => setState(() {});
+  void redraw() {
+    if (mounted) setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -173,12 +175,14 @@ class _DesignSettingsScreenState extends State<DesignSettingsScreen> {
         fabs: <Widget>[
           if (config.needsRebuild) ...<Widget>[
             config.layout.spacer,
-            EzRebuildFAB(() => setState(() {})),
+            EzRebuildFAB(redraw),
           ],
           config.layout.spacer,
           EzSettingsDupeFAB(
             updateBoth,
-            () => setState(() => updateBoth = !updateBoth),
+            () {
+              if (mounted) setState(() => updateBoth = !updateBoth);
+            },
           ),
           if (showBackFAB) ...<Widget>[
             config.layout.spacer,

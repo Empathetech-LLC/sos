@@ -31,7 +31,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
     if (value == false || isIOS) return true;
 
     final bool newPerm = allowedPermCheck(await Permission.sms.request());
-    if (newPerm != canSMS) setState(() => canSMS = newPerm);
+    if (newPerm != canSMS) if (mounted) setState(() => canSMS = newPerm);
 
     return newPerm;
   }
@@ -42,7 +42,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
   Future<void> initPerm() async {
     if (isIOS) return;
     final bool check = allowedPermCheck(await Permission.sms.status);
-    if (check != canSMS) setState(() => canSMS = check);
+    if (check != canSMS) if (mounted) setState(() => canSMS = check);
   }
 
   @override
@@ -82,7 +82,9 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
 
             // EMC
             ContactList(
-              onUpdate: () => setState(() {}),
+              onUpdate: () {
+                if (mounted) setState(() {});
+              },
               fauxDisabled: !canSMS,
             ),
             EzConfig.separator,
@@ -115,7 +117,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
                     if (selection == null || selection == _linkType) return;
 
                     await EzConfig.setString(linkTypeKey, selection.name);
-                    setState(() => _linkType = selection);
+                    if (mounted) setState(() => _linkType = selection);
                   },
                 ),
               ],

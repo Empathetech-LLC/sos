@@ -23,12 +23,17 @@ class SettingsHomeScreen extends StatefulWidget {
 class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   // Define custom functions //
 
-  void followLink(BuildContext context, String url) async {
+  void followLink(
+    String url, {
+    required BuildContext parentContext,
+    required BuildContext modalContext,
+  }) async {
     bool launch = true;
+    if (modalContext.mounted) Navigator.of(modalContext).pop();
 
     if (sosOnClose) {
       launch = await showDialog(
-        context: context,
+        context: parentContext,
         builder: (BuildContext dContext) => EzAlertDialog(
           title: Text(
             EzConfig.l10n.gAttention,
@@ -39,7 +44,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             textAlign: TextAlign.center,
           ),
           actions: ezActionPair(
-            context: context,
+            context: parentContext,
             confirmMsg: EzConfig.l10n.gContinue,
             confirmIsDestructive: true,
             onConfirm: () => Navigator.of(dContext).pop(true),
@@ -65,7 +70,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
           child: EzScrollView(children: <Widget>[
             // Language
             EzLocaleSetting(
-              () => setState(() {}),
+              () {
+                if (mounted) setState(() {});
+              },
               locales: Lang.supportedLocales,
               skip: <Locale>{arabic, english, chinese}, // Dupes
             ),
@@ -118,7 +125,12 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                               ),
                               EzInlineLink(
                                 l10n.gSystem.toLowerCase(),
-                                onTap: openAppSettings,
+                                onTap: () async {
+                                  await openAppSettings();
+                                  if (mContext.mounted) {
+                                    Navigator.of(mContext).pop();
+                                  }
+                                },
                                 hint: EzConfig.l10n.gOpenLink,
                               ),
                               EzPlainText(
@@ -204,7 +216,11 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     // ACLU
                     EzLink(
                       'ACLU Know Your Rights',
-                      onTap: () => followLink(context, acluLink),
+                      onTap: () => followLink(
+                        acluLink,
+                        parentContext: context,
+                        modalContext: mContext,
+                      ),
                       hint: EzConfig.l10n.gOpenLink,
                       style: EzConfig.styles.bodyLarge,
                       backgroundColor: Colors.transparent,
@@ -215,7 +231,11 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     // Dunk the Vote
                     EzLink(
                       'Dunk the Vote: The Black Book',
-                      onTap: () => followLink(context, dunkLink),
+                      onTap: () => followLink(
+                        dunkLink,
+                        parentContext: context,
+                        modalContext: mContext,
+                      ),
                       hint: EzConfig.l10n.gOpenLink,
                       style: EzConfig.styles.bodyLarge,
                       backgroundColor: Colors.transparent,
@@ -226,7 +246,11 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     // How to document
                     EzLink(
                       'How to document ICE',
-                      onTap: () => followLink(context, howToLink),
+                      onTap: () => followLink(
+                        howToLink,
+                        parentContext: context,
+                        modalContext: mContext,
+                      ),
                       hint: EzConfig.l10n.gOpenLink,
                       style: EzConfig.styles.bodyLarge,
                       backgroundColor: Colors.transparent,
@@ -237,7 +261,11 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     // ICERR
                     EzLink(
                       'ICERR (Rapid Response)',
-                      onTap: () => followLink(context, icerrLink),
+                      onTap: () => followLink(
+                        icerrLink,
+                        parentContext: context,
+                        modalContext: mContext,
+                      ),
                       hint: EzConfig.l10n.gOpenLink,
                       style: EzConfig.styles.bodyLarge,
                       backgroundColor: Colors.transparent,
@@ -248,7 +276,11 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     // IMMDEF
                     EzLink(
                       'IMMDEF Resources',
-                      onTap: () => followLink(context, immdefLink),
+                      onTap: () => followLink(
+                        immdefLink,
+                        parentContext: context,
+                        modalContext: mContext,
+                      ),
                       hint: EzConfig.l10n.gOpenLink,
                       style: EzConfig.styles.bodyLarge,
                       backgroundColor: Colors.transparent,
@@ -259,7 +291,11 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     // NNiRR
                     EzLink(
                       'NNiRR Immigration Hotlines',
-                      onTap: () => followLink(context, nirrHotlinesLink),
+                      onTap: () => followLink(
+                        nirrHotlinesLink,
+                        parentContext: context,
+                        modalContext: mContext,
+                      ),
                       hint: EzConfig.l10n.gOpenLink,
                       style: EzConfig.styles.bodyLarge,
                       backgroundColor: Colors.transparent,
@@ -280,7 +316,11 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     // Detainee Locator
                     EzLink(
                       'ICE Detainee Locator',
-                      onTap: () => followLink(context, iceLocatorLink),
+                      onTap: () => followLink(
+                        iceLocatorLink,
+                        parentContext: context,
+                        modalContext: mContext,
+                      ),
                       hint: EzConfig.l10n.gOpenLink,
                       style: EzConfig.styles.bodyLarge,
                       backgroundColor: Colors.transparent,
@@ -349,21 +389,33 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                           // Links
                           EzLink(
                             'ACLU Know Your Rights',
-                            onTap: () => followLink(context, acluLink),
+                            onTap: () => followLink(
+                              acluLink,
+                              parentContext: context,
+                              modalContext: mContext,
+                            ),
                             hint: EzConfig.l10n.gOpenLink,
                             textAlign: TextAlign.start,
                             padding: EdgeInsets.only(left: EzConfig.marginVal),
                           ),
                           EzLink(
                             'IMMDEF Resources',
-                            onTap: () => followLink(context, immdefLink),
+                            onTap: () => followLink(
+                              immdefLink,
+                              parentContext: context,
+                              modalContext: mContext,
+                            ),
                             hint: EzConfig.l10n.gOpenLink,
                             textAlign: TextAlign.start,
                             padding: EdgeInsets.only(left: EzConfig.marginVal),
                           ),
                           EzLink(
                             'Dunk the Vote: The Black Book',
-                            onTap: () => followLink(context, dunkLink),
+                            onTap: () => followLink(
+                              dunkLink,
+                              parentContext: context,
+                              modalContext: mContext,
+                            ),
                             hint: EzConfig.l10n.gOpenLink,
                             textAlign: TextAlign.start,
                             padding: EdgeInsets.only(left: EzConfig.marginVal),
@@ -493,7 +545,12 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                                 ),
                                 EzInlineLink(
                                   l10n.faqLocationPermissions,
-                                  onTap: openAppSettings,
+                                  onTap: () async {
+                                    await openAppSettings();
+                                    if (mContext.mounted) {
+                                      Navigator.of(mContext).pop();
+                                    }
+                                  },
                                   hint: EzConfig.l10n.gOpenLink,
                                 ),
                                 EzPlainText(
@@ -586,7 +643,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                         // Private contact?
                         ExpansionTile(
                           title: Text(
-                            '${l10n.bsNumError}?',
+                            l10n.bsNumError.replaceRange(
+                                l10n.bsNumError.length - 1, null, '?'),
                             style: answer,
                             textAlign: TextAlign.start,
                           ),
@@ -610,7 +668,12 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                                 ),
                                 EzInlineLink(
                                   l10n.gSystem.toLowerCase(),
-                                  onTap: openAppSettings,
+                                  onTap: () async {
+                                    await openAppSettings();
+                                    if (mContext.mounted) {
+                                      Navigator.of(mContext).pop();
+                                    }
+                                  },
                                   hint: EzConfig.l10n.gOpenLink,
                                 ),
                                 EzPlainText(
@@ -633,7 +696,10 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                                 ),
                                 EzInlineLink(
                                   l10n.ssSOS.toLowerCase(),
-                                  onTap: openAppSettings,
+                                  onTap: () {
+                                    Navigator.of(mContext).pop();
+                                    context.goNamed(sosSettingsPath);
+                                  },
                                   hint: EzConfig.l10n.gOpenLink,
                                 ),
                                 EzPlainText(
@@ -690,8 +756,11 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                               ),
                               EzInlineLink(
                                 l10n.faqContributing,
-                                onTap: () =>
-                                    followLink(context, contributeLink),
+                                onTap: () => followLink(
+                                  contributeLink,
+                                  parentContext: context,
+                                  modalContext: mContext,
+                                ),
                                 hint: EzConfig.l10n.gOpenLink,
                               ),
                               EzPlainText(
@@ -719,8 +788,9 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                             EzElevatedButton(
                               text: l10n.faqContact,
                               onPressed: () => followLink(
-                                context,
                                 'mailto:support@empathetech.net?subject=InstaSOS%20support',
+                                parentContext: context,
+                                modalContext: mContext,
                               ),
                             ),
 

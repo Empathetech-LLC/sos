@@ -115,7 +115,7 @@ class _FlashButtonState extends State<FlashButton> {
           }
         }
 
-        setState(() {});
+        if (mounted) setState(() {});
       },
     );
   }

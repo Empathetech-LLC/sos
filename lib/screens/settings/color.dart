@@ -26,7 +26,9 @@ class _ColorSettingsScreenState extends State<ColorSettingsScreen> {
         EzScreen(
           EzColorSettings(
             target: widget.target,
-            onUpdate: () => setState(() {}),
+            onUpdate: () {
+              if (mounted) setState(() {});
+            },
             updateBoth: updateBoth,
             appName: appName,
             androidPackage: androidPackage,
@@ -51,7 +53,9 @@ class _ColorSettingsScreenState extends State<ColorSettingsScreen> {
           EzConfig.spacer,
           EzSettingsDupeFAB(
             updateBoth,
-            () => setState(() => updateBoth = !updateBoth),
+            () {
+              if (mounted) setState(() => updateBoth = !updateBoth);
+            },
           ),
           if (showBackFAB) ...<Widget>[
             EzConfig.spacer,

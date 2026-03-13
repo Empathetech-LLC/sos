@@ -109,7 +109,7 @@ class _RightsViewState extends State<RightsView> {
                   onSelectionChanged: (Set<Situation> selected) async {
                     currentTab = selected.first;
                     await EzConfig.setString(savedTabKey, currentTab.name);
-                    setState(() {});
+                    if (mounted) setState(() {});
                   },
                 ),
               ),

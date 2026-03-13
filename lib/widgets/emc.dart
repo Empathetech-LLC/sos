@@ -29,7 +29,7 @@ class _ContactListState extends State<ContactList> {
 
   Future<void> addContact() async {
     await addEMC(context, loop: false);
-    setState(() => currEMC = emc);
+    if (mounted) setState(() => currEMC = emc);
     widget.onUpdate.call();
   }
 
@@ -114,7 +114,7 @@ class _ContactListState extends State<ContactList> {
                             onRemove: () async {
                               currEMC.remove(contact);
                               await EzConfig.setStringList(emcKey, currEMC);
-                              setState(() => currEMC = emc);
+                              if (mounted) setState(() => currEMC = emc);
                               widget.onUpdate.call();
                             },
                           ),

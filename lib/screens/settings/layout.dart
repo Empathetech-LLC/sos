@@ -23,7 +23,9 @@ class _LayoutSettingsScreenState extends State<LayoutSettingsScreen> {
   Widget build(BuildContext context) => SosScaffold(
         EzScreen(
           EzLayoutSettings(
-            onUpdate: () => setState(() {}),
+            onUpdate: () {
+              if (mounted) setState(() {});
+            },
             updateBoth: updateBoth,
             appName: appName,
             androidPackage: androidPackage,
@@ -34,7 +36,9 @@ class _LayoutSettingsScreenState extends State<LayoutSettingsScreen> {
           EzConfig.spacer,
           EzSettingsDupeFAB(
             updateBoth,
-            () => setState(() => updateBoth = !updateBoth),
+            () {
+              if (mounted) setState(() => updateBoth = !updateBoth);
+            },
           ),
           if (showBackFAB) ...<Widget>[
             EzConfig.spacer,
