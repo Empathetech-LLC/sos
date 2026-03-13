@@ -724,13 +724,13 @@ abstract class Lang {
   /// No description provided for @faqOnInterruptA.
   ///
   /// In en, this message translates to:
-  /// **' if a video is recording and InstaSOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen.\nIt is recommended to enable either this or \"SOS on close\" (or both).'**
+  /// **' if a video is recording and InstaSOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen. It is recommended to enable either this or \"SOS on close\" (or both).'**
   String get faqOnInterruptA;
 
   /// No description provided for @faqOnInterruptAFix.
   ///
   /// In en, this message translates to:
-  /// **' if a video is recording and Insta-SOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen.\nIt is recommended to enable either this or \"SOS on close\" (or both).'**
+  /// **' if a video is recording and Insta-SOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen. It is recommended to enable either this or \"SOS on close\" (or both).'**
   String get faqOnInterruptAFix;
 
   /// No description provided for @faqUnavailable.

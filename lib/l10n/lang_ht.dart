@@ -348,11 +348,11 @@ class LangHt extends Lang {
 
   @override
   String get faqOnInterruptA =>
-      ' if a video is recording and InstaSOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen.\nIt is recommended to enable either this or \"SOS on close\" (or both).';
+      ' if a video is recording and InstaSOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen. It is recommended to enable either this or \"SOS on close\" (or both).';
 
   @override
   String get faqOnInterruptAFix =>
-      ' if a video is recording and Insta-SOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen.\nIt is recommended to enable either this or \"SOS on close\" (or both).';
+      ' if a video is recording and Insta-SOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen. It is recommended to enable either this or \"SOS on close\" (or both).';
 
   @override
   String get faqUnavailable => 'SOS di \"Location unavailable\"?';
