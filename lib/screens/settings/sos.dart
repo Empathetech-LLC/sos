@@ -75,6 +75,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
                 l10n.gSystem,
                 onTap: openAppSettings,
                 hint: EzConfig.l10n.gOpenLink,
+                backgroundColor: EzConfig.colors.surfaceContainer,
               ),
               EzConfig.separator,
             ],
