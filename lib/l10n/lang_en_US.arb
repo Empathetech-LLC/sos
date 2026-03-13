@@ -147,7 +147,7 @@
   "faqContactPermissionsFix": "If you get this message when adding an emergency contact, Insta-SOS does not have permission to access that specific contact.",
   "faqUpdateContacts": "You can give access to more (or all) contacts in the ",
   "faqSplitClarity1": "Giving access to a contact does not make them an emergency contact. Only the numbers listed in the ",
-  "faqSplitClarity2": "will be contacted during an SOS broadcast.",
+  "faqSplitClarity2": " will be contacted during an SOS broadcast.",
 
   "faqMissing": "Why are some Android features missing?",
   "faqRestricted": "The missing features require SMS automation, and Apple does not allow developers to automate text messages (without a paid service).",

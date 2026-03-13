@@ -790,7 +790,7 @@ abstract class Lang {
   /// No description provided for @faqSplitClarity2.
   ///
   /// In en, this message translates to:
-  /// **'will be contacted during an SOS broadcast.'**
+  /// **' will be contacted during an SOS broadcast.'**
   String get faqSplitClarity2;
 
   /// No description provided for @faqMissing.

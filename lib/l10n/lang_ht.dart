@@ -388,7 +388,7 @@ class LangHt extends Lang {
       'Giving access to a contact does not make them an emergency contact. Only the numbers listed in the ';
 
   @override
-  String get faqSplitClarity2 => 'will be contacted during an SOS broadcast.';
+  String get faqSplitClarity2 => ' will be contacted during an SOS broadcast.';
 
   @override
   String get faqMissing => 'Poukisa kèk fonksyon Android manke?';
