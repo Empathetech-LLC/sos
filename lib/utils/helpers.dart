@@ -200,74 +200,98 @@ Future<void> appSetupModal(
   BuildContext context, {
   required Future<PermissionStatus> Function() initCamera,
 }) async {
+  bool locked = false;
+
   final bool? setup = await ezModal(
     context: context,
     enableDrag: false,
     isDismissible: false,
     showDragHandle: false,
-    builder: (BuildContext mContext) => Padding(
-      padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
-      child: EzScrollView(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          // Title
-          EzConfig.margin,
-          Text(
-            l10n.hsWelcome,
-            semanticsLabel: l10n.hsWelcomeFix,
-            style: EzConfig.styles.titleLarge,
-            textAlign: TextAlign.center,
-          ),
-          EzConfig.margin,
-
-          // Locale setting
-          EzLocaleSetting(
-            doNothing,
-            locales: Lang.supportedLocales,
-            skip: <Locale>{arabic, english, chinese}, // Dupes
-          ),
-          EzConfig.spacer,
-
-          // Have it your way
-          Text(
-            showTutorial ? l10n.hsAppIntro : l10n.hsAppIntroAlt,
-            style: EzConfig.styles.bodyLarge,
-            textAlign: TextAlign.center,
-          ),
-          EzConfig.centerLine,
-          Text(
-            l10n.hsYourApp,
-            style: EzConfig.styles.bodyLarge,
-            textAlign: TextAlign.center,
-          ),
-          EzConfig.divider,
-
-          // Permission checklist
-          CameraSetup(initCamera),
-          EzConfig.spacer,
-
-          const ContactsSetup(),
-          EzConfig.spacer,
-
-          if (!isIOS) ...<Widget>[
-            const SMSSetup(),
+    builder: (BuildContext mContext) => StatefulBuilder(
+      builder: (_, StateSetter setModal) => Padding(
+        padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
+        child: EzScrollView(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            // Title
+            EzConfig.margin,
+            Text(
+              l10n.hsWelcome,
+              semanticsLabel: l10n.hsWelcomeFix,
+              style: EzConfig.styles.titleLarge,
+              textAlign: TextAlign.center,
+            ),
             EzConfig.spacer,
+
+            // Locale setting
+            EzLocaleSetting(
+              doNothing,
+              locales: Lang.supportedLocales,
+              skip: <Locale>{arabic, english, chinese}, // Dupes
+            ),
+            EzConfig.spacer,
+
+            // Have it your way
+            Text(
+              showTutorial ? l10n.hsAppIntro : l10n.hsAppIntroAlt,
+              style: EzConfig.styles.bodyLarge,
+              textAlign: TextAlign.center,
+            ),
+            EzConfig.centerLine,
+            Text(
+              l10n.hsYourApp,
+              style: EzConfig.styles.bodyLarge,
+              textAlign: TextAlign.center,
+            ),
+            EzConfig.divider,
+
+            // Permission checklist
+            CameraSetup(
+              initCamera: initCamera,
+              locked: locked,
+              setLock: (bool active) => setModal(() => locked = active),
+            ),
+            EzConfig.spacer,
+
+            ContactsSetup(
+              locked: locked,
+              setLock: (bool active) => setModal(() => locked = active),
+            ),
+            EzConfig.spacer,
+
+            if (!isIOS) ...<Widget>[
+              SMSSetup(
+                locked: locked,
+                setLock: (bool active) => setModal(() => locked = active),
+              ),
+              EzConfig.spacer,
+            ],
+
+            LocationSetup(
+              locked: locked,
+              setLock: (bool active) => setModal(() => locked = active),
+            ),
+            EzConfig.spacer,
+
+            // Finish/leave
+            EzTextButton(
+              text: l10n.gDone,
+              textStyle: EzConfig.styles.bodyLarge
+                  ?.copyWith(color: EzConfig.colors.primary),
+              textAlign: TextAlign.center,
+              style: TextButton.styleFrom(backgroundColor: Colors.transparent),
+              onPressed: () => Navigator.of(mContext).pop(true),
+            ),
+
+            // Hybrid translations notice (conditional)
+            EzTranslationsPendingNotice(
+              message: l10n.hsHybridTranslation,
+              header: EzConfig.spacer,
+              footer: const SizedBox.shrink(),
+            ),
+            EzSpacer(space: EzConfig.spargin),
           ],
-
-          const LocationSetup(),
-          EzConfig.spacer,
-
-          // Finish/leave
-          EzTextButton(
-            text: l10n.gDone,
-            textStyle: EzConfig.styles.bodyLarge
-                ?.copyWith(color: EzConfig.colors.primary),
-            textAlign: TextAlign.center,
-            style: TextButton.styleFrom(backgroundColor: Colors.transparent),
-            onPressed: () => Navigator.of(mContext).pop(true),
-          ),
-          EzSpacer(space: EzConfig.spargin),
-        ],
+        ),
       ),
     ),
   );
