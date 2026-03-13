@@ -93,69 +93,92 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
             // Permissions
             EzElevatedIconButton(
-              onPressed: () async => ezModal(
-                context: context,
-                builder: (BuildContext mContext) => Padding(
-                  padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
-                  child: EzScrollView(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      // Intro
-                      EzRichText(
-                        <InlineSpan>[
-                          EzPlainText(
-                            text: '${l10n.pmOnlyAdd}\n',
+              onPressed: () async {
+                bool locked = false;
+
+                await ezModal(
+                  context: context,
+                  builder: (BuildContext mContext) => StatefulBuilder(
+                    builder: (_, StateSetter setModal) => Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
+                      child: EzScrollView(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          // Intro
+                          EzRichText(
+                            <InlineSpan>[
+                              EzPlainText(
+                                text: '${l10n.pmOnlyAdd}\n',
+                                style: EzConfig.styles.bodyLarge,
+                              ),
+                              EzPlainText(
+                                text: l10n.pmRemoveIn,
+                                style: EzConfig.styles.bodyLarge,
+                              ),
+                              EzInlineLink(
+                                l10n.gSystem.toLowerCase(),
+                                onTap: openAppSettings,
+                                hint: EzConfig.l10n.gOpenLink,
+                              ),
+                              EzPlainText(
+                                text: '.',
+                                style: EzConfig.styles.bodyLarge,
+                              ),
+                            ],
+                            textBackground: false,
                             style: EzConfig.styles.bodyLarge,
+                            textAlign: TextAlign.center,
                           ),
-                          EzPlainText(
-                            text: l10n.pmRemoveIn,
+                          EzConfig.centerLine,
+                          Text(
+                            l10n.pmManualPermission,
                             style: EzConfig.styles.bodyLarge,
+                            textAlign: TextAlign.center,
                           ),
-                          EzInlineLink(
-                            l10n.pmSystem,
-                            onTap: openAppSettings,
-                            hint: EzConfig.l10n.gOpenLink,
+                          EzConfig.divider,
+
+                          // Setup cards
+                          ContactsSetup(
+                            locked: locked,
+                            setLock: (bool active) =>
+                                setModal(() => locked = active),
                           ),
+                          EzConfig.spacer,
+
+                          if (!isIOS) ...<Widget>[
+                            SMSSetup(
+                              locked: locked,
+                              setLock: (bool active) =>
+                                  setModal(() => locked = active),
+                            ),
+                            EzConfig.spacer,
+                          ],
+
+                          LocationSetup(
+                            locked: locked,
+                            setLock: (bool active) =>
+                                setModal(() => locked = active),
+                          ),
+                          EzConfig.spacer,
+
+                          // Finish/leave
+                          EzTextButton(
+                            text: l10n.gDone,
+                            textStyle: EzConfig.styles.bodyLarge
+                                ?.copyWith(color: EzConfig.colors.primary),
+                            textAlign: TextAlign.center,
+                            style: TextButton.styleFrom(
+                                backgroundColor: Colors.transparent),
+                            onPressed: () => Navigator.of(mContext).pop(true),
+                          ),
+                          EzSpacer(space: EzConfig.spargin),
                         ],
-                        textBackground: false,
-                        style: EzConfig.styles.bodyLarge,
-                        textAlign: TextAlign.center,
                       ),
-                      EzConfig.centerLine,
-                      Text(
-                        l10n.pmManualPermission,
-                        style: EzConfig.styles.bodyLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                      EzConfig.divider,
-
-                      // Setup cards
-                      const ContactsSetup(),
-                      EzConfig.spacer,
-
-                      if (!isIOS) ...<Widget>[
-                        const SMSSetup(),
-                        EzConfig.spacer,
-                      ],
-
-                      const LocationSetup(),
-                      EzConfig.spacer,
-
-                      // Finish/leave
-                      EzTextButton(
-                        text: l10n.gDone,
-                        textStyle: EzConfig.styles.bodyLarge
-                            ?.copyWith(color: EzConfig.colors.primary),
-                        textAlign: TextAlign.center,
-                        style: TextButton.styleFrom(
-                            backgroundColor: Colors.transparent),
-                        onPressed: () => Navigator.of(mContext).pop(true),
-                      ),
-                      EzSpacer(space: EzConfig.spargin),
-                    ],
+                    ),
                   ),
-                ),
-              ),
+                );
+              },
               icon: const Icon(Icons.list),
               label: l10n.ssPermissions,
             ),
@@ -272,10 +295,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                       style: EzConfig.styles.labelLarge,
                       textAlign: TextAlign.center,
                     ),
-                    EzTranslationsPendingNotice(
-                      header: EzConfig.margin,
-                      footer: const SizedBox.shrink(),
-                    ),
                     EzSpacer(space: EzConfig.spargin),
                   ],
                 ),
@@ -305,12 +324,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                           l10n.faqName,
                           style: EzConfig.styles.titleLarge,
                           textAlign: TextAlign.center,
-                        ),
-                      ),
-                      Center(
-                        child: EzTranslationsPendingNotice(
-                          header: EzConfig.margin,
-                          footer: const SizedBox.shrink(),
                         ),
                       ),
                       EzConfig.margin,
@@ -374,7 +387,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                             EzRichText(
                               <InlineSpan>[
                                 EzPlainText(
-                                  text: l10n.faqAutoShareQ,
+                                  text: '${l10n.ssAutoShare}:',
                                   style: question,
                                 ),
                                 EzPlainText(
@@ -392,7 +405,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                             EzRichText(
                               <InlineSpan>[
                                 EzPlainText(
-                                  text: l10n.faqLinkQ,
+                                  text: '${l10n.bsLinkType}:',
                                   style: question,
                                 ),
                                 EzPlainText(
@@ -410,7 +423,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                             EzRichText(
                               <InlineSpan>[
                                 EzPlainText(
-                                  text: l10n.faqOnOpenQ,
+                                  text: '${l10n.bsSOSOnOpen}:',
                                   style: question,
                                 ),
                                 EzPlainText(
@@ -447,7 +460,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                             EzRichText(
                               <InlineSpan>[
                                 EzPlainText(
-                                  text: l10n.faqOnInterruptQ,
+                                  text: '${l10n.bsSOSOnVideo}:',
                                   style: question,
                                 ),
                                 EzPlainText(
@@ -519,7 +532,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                             EzRichText(
                               <InlineSpan>[
                                 EzPlainText(
-                                  text: l10n.faqAutoShareQ,
+                                  text: '${l10n.ssAutoShare}:',
                                   style: question,
                                 ),
                                 EzPlainText(
@@ -537,7 +550,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                             EzRichText(
                               <InlineSpan>[
                                 EzPlainText(
-                                  text: l10n.faqLinkQ,
+                                  text: '${l10n.bsLinkType}:',
                                   style: question,
                                 ),
                                 EzPlainText(
@@ -555,7 +568,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                             EzRichText(
                               <InlineSpan>[
                                 EzPlainText(
-                                  text: l10n.faqOnOpenQ,
+                                  text: '${l10n.bsSOSOnOpen}:',
                                   style: question,
                                 ),
                                 EzPlainText(
@@ -573,7 +586,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                         // Private contact?
                         ExpansionTile(
                           title: Text(
-                            l10n.faqPrivateContact,
+                            '${l10n.bsNumError}?',
                             style: answer,
                             textAlign: TextAlign.start,
                           ),
@@ -593,7 +606,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                                   style: answer,
                                 ),
                                 EzInlineLink(
-                                  l10n.faqOSSettings,
+                                  l10n.gSystem.toLowerCase(),
                                   onTap: openAppSettings,
                                   hint: EzConfig.l10n.gOpenLink,
                                 ),
