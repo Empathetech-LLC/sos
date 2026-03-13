@@ -592,6 +592,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                           ),
                           expandedCrossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
+                            // Permission issue
                             Text(
                               l10n.faqContactPermissions,
                               semanticsLabel: l10n.faqContactPermissionsFix,
@@ -599,6 +600,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                               textAlign: TextAlign.start,
                             ),
                             EzConfig.startLine,
+
+                            // Fix here
                             EzRichText(
                               <InlineSpan>[
                                 EzPlainText(
@@ -612,6 +615,29 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                                 ),
                                 EzPlainText(
                                   text: '.',
+                                  style: answer,
+                                ),
+                              ],
+                              textBackground: false,
+                              style: answer,
+                              textAlign: TextAlign.start,
+                            ),
+                            EzConfig.startLine,
+
+                            // Two part-er
+                            EzRichText(
+                              <InlineSpan>[
+                                EzPlainText(
+                                  text: l10n.faqSplitClarity1,
+                                  style: answer,
+                                ),
+                                EzInlineLink(
+                                  l10n.ssSOS.toLowerCase(),
+                                  onTap: openAppSettings,
+                                  hint: EzConfig.l10n.gOpenLink,
+                                ),
+                                EzPlainText(
+                                  text: l10n.faqSplitClarity2,
                                   style: answer,
                                 ),
                               ],
