@@ -15,7 +15,7 @@ class SosScaffold extends StatelessWidget {
   /// BYO spacing widgets
   final List<Widget>? fabs;
 
-  /// Standardized [Scaffold] for all of the EFUI example app's screens
+  /// Standardized [Scaffold] for all screens
   const SosScaffold(this.body, {super.key, this.fabs});
 
   @override
