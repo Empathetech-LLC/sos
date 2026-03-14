@@ -2,11 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.0.0] - 2025-02-XX
+## [2.0.0] - 2026-03-13
 ### Updated
 - EFUI 11.0, enabling live configuration
   - Overhauled the intro/tutorial thanks to live updates
-    - Users can set/update their language on the first page and all setup is now optional
+- Overall user experience, all setup/permissions are now optional
+  - Functionality should be clearer
+
+### Added
+- External resources section in settings
+- Permissions check-in in settings
 
 ## [1.5.2] - 2025-11-18
 ### Added
