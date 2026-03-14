@@ -242,51 +242,51 @@ class LangFil extends Lang {
   String get rvWhileDriving => 'Habang nagmamaneho';
 
   @override
-  String get rvAtHome => 'Sa bahay';
+  String get rvAtHome => 'Habang nasa bahay';
 
   @override
   String get rvSharedRemainSilent =>
-      'Manatiling tahimik. Huwag magsinungaling, ngunit hindi mo kailangang sagutin ang mga tanong.';
+      'Manahimik. Huwag magsinungaling, pero hindi mo kailangang sumagot sa mga tanong.';
 
   @override
   String get rvSharedDocument =>
-      'Idokumento ang lahat. May karapatan kang kumuha ng mga litrato, mag-record ng mga video, at mag-record ng audio.';
+      'I-dokumento ang lahat. May karapatan kang kumuha ng larawan, mag-record ng video, at mag-record ng audio.';
 
   @override
   String get rvMobilePockets =>
-      'Tanggihan ang paghalughog sa iyong mga bulsa. Maaaring mangapkap ang ICE, ngunit hindi maghalughog.';
+      'Tumangging ipasuri ang iyong bulsa. Puwedeng kapkapan ka ng ICE, pero hindi puwedeng maghalughog.';
 
   @override
   String get rvMobileQuestion => 'Magtanong. Alamin kung bakit ka pinahinto.';
 
   @override
-  String get rvMobileLeave => 'Umalis kung hindi ka naman idinedetine.';
+  String get rvMobileLeave => 'Umalis ka kung hindi ka pinipigilan.';
 
   @override
-  String get rvDriveSearch => 'Tanggihan ang paghalughog sa iyong sasakyan.';
+  String get rvDriveSearch => 'Tumangging ipasuri ang iyong sasakyan.';
 
   @override
   String get rvDriveID =>
-      'Tanggihang magbigay ng ID bilang pasahero. Ang driver lamang ang kinakailangang magbigay ng ID.';
+      'Tumangging magbigay ng ID bilang pasahero. Tanging driver lang ang kailangang magbigay ng ID.';
 
   @override
   String get rvDriveWarrant =>
-      'Magtanong kung may warrant ang mga opisyal. May karapatan kang makita ito kung mayroon. Kung ang isang \"warrant\" ay hindi pinirmahan ng hukom, hindi ito balido.';
+      'Magtanong kung may warrant ang mga opisyal. May karapatan kang makita ito. Kung walang pirma ng hukom, wala itong bisa.';
 
   @override
   String get rvHomeWarrant =>
-      'Panatilihing nakasara ang iyong pinto. Kung mayroon silang warrant, hilingin sa kanila na ipasok muna ito sa ilalim ng pinto. Kung ang isang \"warrant\" ay hindi pinirmahan ng hukom, hindi ito balido. Panatilihing nakasara ang iyong pinto.';
+      'Panatilihing nakasara ang pinto. Kung may warrant, hilingin na ipasok ito sa ilalim ng pinto. Kung walang pirma ng hukom, wala itong bisa. Panatilihing nakasara ang pinto.';
 
   @override
-  String get rvSharedSign => 'Tanggihang pumirma ng anuman.';
+  String get rvSharedSign => 'Tumangging pumirma ng anuman.';
 
   @override
   String get rvSharedFingerprint =>
-      'Tanggihang kunan ng fingerprint ng ICE maliban kung ikaw ay inaaresto.';
+      'Tumangging magpa-fingerprint sa ICE maliban kung inaaresto ka.';
 
   @override
   String get rvSharedLawyer =>
-      'Kumonsulta sa isang abogado. Kung pormal kang inaresto, may karapatan ka sa isang abogadong itinalaga ng korte.';
+      'Kumonsulta sa abogado. Kung pormal kang naaresto, may karapatan kang bigyan ng abogado ng korte.';
 
   @override
   String get ssAutoShare => 'Awtomatikong ibahagi ang mga litrato/video';

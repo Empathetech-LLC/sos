@@ -89,25 +89,25 @@
   "rvSharedHeader": "您有权...",
 
   "rvOnFoot": "步行时",
-  "rvWhileDriving": "驾驶时",
-  "rvAtHome": "在家时",
-  
-  "rvSharedRemainSilent": "保持沉默。不要撒谎，但您不必回答问题。",
-  "rvSharedDocument": "记录一切。您有权拍照、录制视频和录音。",
+  "rvWhileDriving": "驾车时",
+  "rvAtHome": "在家中",
 
-  "rvMobilePockets": "拒绝搜查您的口袋。ICE（移民及海关执法局）可以进行拍打搜身，但不能进行搜查。",
-  "rvMobileQuestion": "提出问题。查明您被拦截的原因。",
-  "rvMobileLeave": "如果您没有被拘留，可以直接离开。",
+  "rvSharedRemainSilent": "保持沉默。无需撒谎，但您不必回答任何问题。",
+  "rvSharedDocument": "记录一切。您有权拍照、录像和录音。",
 
-  "rvDriveSearch": "拒绝搜查您的汽车。",
-  "rvDriveID": "作为乘客拒绝提供身份证件。只有驾驶员需要提供身份证件。",
-  "rvDriveWarrant": "询问执法人员是否有搜查令。如果有，您有权查看。如果“搜查令”没有法官签名，则无效。",
-  
-  "rvHomeWarrant": "保持房门关闭。如果他们有搜查令，请要求他们先从门缝下塞进来。如果“搜查令”没有法官签名，则无效。保持房门关闭。",
+  "rvMobilePockets": "拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。",
+  "rvMobileQuestion": "提出疑问。了解为何被拦截。",
+  "rvMobileLeave": "如果您没有被拘留，您有权离开。",
+
+  "rvDriveSearch": "拒绝对车辆进行搜查。",
+  "rvDriveID": "作为乘客可拒绝出示身份证明。只有驾驶员必须出示。",
+  "rvDriveWarrant": "询问警官是否持有搜查令。如有，您有权查看。未由法官签署的“搜查令”无效。",
+
+  "rvHomeWarrant": "保持房门关闭。如对方称持有搜查令，请先让其从门缝递进。未由法官签署的“搜查令”无效。始终保持房门关闭。",
 
   "rvSharedSign": "拒绝签署任何文件。",
-  "rvSharedFingerprint": "拒绝被 ICE 采集指纹，除非您被正式逮捕。",
-  "rvSharedLawyer": "咨询律师。如果您被正式逮捕，您有权获得法庭指定的律师。",
+  "rvSharedFingerprint": "除非被正式逮捕，可拒绝接受移民局采集指纹。",
+  "rvSharedLawyer": "您有权联系律师。如您已被正式逮捕，则有权请求法院为您指派律师。",
 
 
 

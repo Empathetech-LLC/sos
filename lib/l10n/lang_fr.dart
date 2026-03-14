@@ -232,13 +232,13 @@ class LangFr extends Lang {
   String get rvSharedHeader => 'Vous avez le droit de...';
 
   @override
-  String get rvOnFoot => 'À pied';
+  String get rvOnFoot => 'Piéton';
 
   @override
-  String get rvWhileDriving => 'Au volant';
+  String get rvWhileDriving => 'Conducteur';
 
   @override
-  String get rvAtHome => 'À la maison';
+  String get rvAtHome => 'Au domicile';
 
   @override
   String get rvSharedRemainSilent =>
@@ -246,44 +246,44 @@ class LangFr extends Lang {
 
   @override
   String get rvSharedDocument =>
-      'Tout documenter. Vous avez le droit de prendre des photos, d\'enregistrer des vidéos et d\'enregistrer du son.';
+      'Documenter tout. Vous avez le droit de prendre des photos, d\'enregistrer des vidéos et de faire des enregistrements audio.';
 
   @override
   String get rvMobilePockets =>
-      'Refuser une fouille de vos poches. L\'ICE peut vous palper, mais pas vous fouiller.';
+      'Refuser la fouille de vos poches. L\'ICE peut procéder à une palpation, mais pas à une fouille.';
 
   @override
   String get rvMobileQuestion =>
-      'Poser des questions. Découvrez pourquoi vous êtes arrêté.';
+      'Poser des questions. Comprenez pourquoi vous avez été arrêté.';
 
   @override
-  String get rvMobileLeave => 'Partir si vous n\'êtes pas détenu.';
+  String get rvMobileLeave => 'Partez si vous n’êtes pas en détention.';
 
   @override
-  String get rvDriveSearch => 'Refuser une fouille de votre voiture.';
+  String get rvDriveSearch => 'Refuser la fouille de votre véhicule.';
 
   @override
   String get rvDriveID =>
-      'Refuser de fournir une pièce d\'identité en tant que passager. Seul le conducteur est tenu de fournir une pièce d\'identité.';
+      'Refuser de présenter une pièce d\'identité en tant que passager. Seul le conducteur est tenu de présenter une pièce d\'identité.';
 
   @override
   String get rvDriveWarrant =>
-      'Demander si les agents ont un mandat. Vous avez le droit de le voir s\'ils en ont un. Si un \"mandat\" n\'est pas signé par un juge, il n\'est pas valide.';
+      'Demander aux agents s\'ils ont un mandat. Vous avez le droit de le voir s\'ils en ont un. Si un \"mandat\" n\'est pas signé par un juge, il n\'est pas valide.';
 
   @override
   String get rvHomeWarrant =>
-      'Garder votre porte fermée. S\'ils ont un mandat, demandez-leur de le glisser d\'abord sous la porte. Si un \"mandat\" n\'est pas signé par un juge, il n\'est pas valide. Gardez votre porte fermée.';
+      'Garder votre porte fermée. S\'ils ont un mandat, demandez-leur de le glisser sous la porte. Si un \"mandat\" n\'est pas signé par un juge, il n\'est pas valide. Gardez votre porte fermée.';
 
   @override
   String get rvSharedSign => 'Refuser de signer quoi que ce soit.';
 
   @override
   String get rvSharedFingerprint =>
-      'Refuser la prise d\'empreintes digitales par l\'ICE à moins d\'être en état d\'arrestation.';
+      'Refuser de vous soumettre à un relevé d\'empreintes digitales par l\'ICE, sauf si vous êtes en état d\'arrestation.';
 
   @override
   String get rvSharedLawyer =>
-      'De consulter un avocat. Si vous avez été officiellement arrêté, vous avez droit à un avocat commis d\'office.';
+      'Consulter un avocat. Si vous avez été officiellement arrêté, vous avez droit à un avocat commis d\'office.';
 
   @override
   String get ssAutoShare => 'Partage automatique de photos/vidéos';

@@ -219,47 +219,47 @@ class LangZh extends Lang {
   String get rvOnFoot => '步行时';
 
   @override
-  String get rvWhileDriving => '驾驶时';
+  String get rvWhileDriving => '驾车时';
 
   @override
-  String get rvAtHome => '在家时';
+  String get rvAtHome => '在家中';
 
   @override
-  String get rvSharedRemainSilent => '保持沉默。不要撒谎，但您不必回答问题。';
+  String get rvSharedRemainSilent => '保持沉默。无需撒谎，但您不必回答任何问题。';
 
   @override
-  String get rvSharedDocument => '记录一切。您有权拍照、录制视频和录音。';
+  String get rvSharedDocument => '记录一切。您有权拍照、录像和录音。';
 
   @override
-  String get rvMobilePockets => '拒绝搜查您的口袋。ICE（移民及海关执法局）可以进行拍打搜身，但不能进行搜查。';
+  String get rvMobilePockets => '拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。';
 
   @override
-  String get rvMobileQuestion => '提出问题。查明您被拦截的原因。';
+  String get rvMobileQuestion => '提出疑问。了解为何被拦截。';
 
   @override
-  String get rvMobileLeave => '如果您没有被拘留，可以直接离开。';
+  String get rvMobileLeave => '如果您没有被拘留，您有权离开。';
 
   @override
-  String get rvDriveSearch => '拒绝搜查您的汽车。';
+  String get rvDriveSearch => '拒绝对车辆进行搜查。';
 
   @override
-  String get rvDriveID => '作为乘客拒绝提供身份证件。只有驾驶员需要提供身份证件。';
+  String get rvDriveID => '作为乘客可拒绝出示身份证明。只有驾驶员必须出示。';
 
   @override
-  String get rvDriveWarrant => '询问执法人员是否有搜查令。如果有，您有权查看。如果“搜查令”没有法官签名，则无效。';
+  String get rvDriveWarrant => '询问警官是否持有搜查令。如有，您有权查看。未由法官签署的“搜查令”无效。';
 
   @override
   String get rvHomeWarrant =>
-      '保持房门关闭。如果他们有搜查令，请要求他们先从门缝下塞进来。如果“搜查令”没有法官签名，则无效。保持房门关闭。';
+      '保持房门关闭。如对方称持有搜查令，请先让其从门缝递进。未由法官签署的“搜查令”无效。始终保持房门关闭。';
 
   @override
   String get rvSharedSign => '拒绝签署任何文件。';
 
   @override
-  String get rvSharedFingerprint => '拒绝被 ICE 采集指纹，除非您被正式逮捕。';
+  String get rvSharedFingerprint => '除非被正式逮捕，可拒绝接受移民局采集指纹。';
 
   @override
-  String get rvSharedLawyer => '咨询律师。如果您被正式逮捕，您有权获得法庭指定的律师。';
+  String get rvSharedLawyer => '您有权联系律师。如您已被正式逮捕，则有权请求法院为您指派律师。';
 
   @override
   String get ssAutoShare => '自动分享照片/视频';
@@ -671,47 +671,47 @@ class LangZhCn extends LangZh {
   String get rvOnFoot => '步行时';
 
   @override
-  String get rvWhileDriving => '驾驶时';
+  String get rvWhileDriving => '驾车时';
 
   @override
-  String get rvAtHome => '在家时';
+  String get rvAtHome => '在家中';
 
   @override
-  String get rvSharedRemainSilent => '保持沉默。不要撒谎，但您不必回答问题。';
+  String get rvSharedRemainSilent => '保持沉默。无需撒谎，但您不必回答任何问题。';
 
   @override
-  String get rvSharedDocument => '记录一切。您有权拍照、录制视频和录音。';
+  String get rvSharedDocument => '记录一切。您有权拍照、录像和录音。';
 
   @override
-  String get rvMobilePockets => '拒绝搜查您的口袋。ICE（移民及海关执法局）可以进行拍打搜身，但不能进行搜查。';
+  String get rvMobilePockets => '拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。';
 
   @override
-  String get rvMobileQuestion => '提出问题。查明您被拦截的原因。';
+  String get rvMobileQuestion => '提出疑问。了解为何被拦截。';
 
   @override
-  String get rvMobileLeave => '如果您没有被拘留，可以直接离开。';
+  String get rvMobileLeave => '如果您没有被拘留，您有权离开。';
 
   @override
-  String get rvDriveSearch => '拒绝搜查您的汽车。';
+  String get rvDriveSearch => '拒绝对车辆进行搜查。';
 
   @override
-  String get rvDriveID => '作为乘客拒绝提供身份证件。只有驾驶员需要提供身份证件。';
+  String get rvDriveID => '作为乘客可拒绝出示身份证明。只有驾驶员必须出示。';
 
   @override
-  String get rvDriveWarrant => '询问执法人员是否有搜查令。如果有，您有权查看。如果“搜查令”没有法官签名，则无效。';
+  String get rvDriveWarrant => '询问警官是否持有搜查令。如有，您有权查看。未由法官签署的“搜查令”无效。';
 
   @override
   String get rvHomeWarrant =>
-      '保持房门关闭。如果他们有搜查令，请要求他们先从门缝下塞进来。如果“搜查令”没有法官签名，则无效。保持房门关闭。';
+      '保持房门关闭。如对方称持有搜查令，请先让其从门缝递进。未由法官签署的“搜查令”无效。始终保持房门关闭。';
 
   @override
   String get rvSharedSign => '拒绝签署任何文件。';
 
   @override
-  String get rvSharedFingerprint => '拒绝被 ICE 采集指纹，除非您被正式逮捕。';
+  String get rvSharedFingerprint => '除非被正式逮捕，可拒绝接受移民局采集指纹。';
 
   @override
-  String get rvSharedLawyer => '咨询律师。如果您被正式逮捕，您有权获得法庭指定的律师。';
+  String get rvSharedLawyer => '您有权联系律师。如您已被正式逮捕，则有权请求法院为您指派律师。';
 
   @override
   String get ssAutoShare => '自动分享照片/视频';

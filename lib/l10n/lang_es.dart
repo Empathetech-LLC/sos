@@ -9,7 +9,7 @@ class LangEs extends Lang {
   LangEs([String locale = 'es']) : super(locale);
 
   @override
-  String get gOk => 'Aceptar';
+  String get gOk => 'Ok';
 
   @override
   String get gDone => 'Hecho';
@@ -28,19 +28,19 @@ class LangEs extends Lang {
       '\"SOS al cerrar\" está activado. Esto iniciará una transmisión.';
 
   @override
-  String get sosLastKnown => 'última ubicación conocida:';
+  String get sosLastKnown => 'Última ubicación conocida:';
 
   @override
   String get sosNeedSMS => 'SOS necesita permiso de SMS (mensajes de texto).';
 
   @override
-  String get sosDisabled => 'No se puede acceder a la ubicación (desactivado)';
+  String get sosDisabled => 'Ubicación inaccesible (deshabilitado)';
 
   @override
-  String get sosDenied => 'No se puede acceder a la ubicación (denegado)';
+  String get sosDenied => 'Ubicación inaccesible (denegado)';
 
   @override
-  String get sosError => 'No se puede acceder a la ubicación (error)';
+  String get sosError => 'Ubicación inaccesible (error)';
 
   @override
   String get hsWelcome => 'Bienvenido a InstaSOS';
@@ -237,55 +237,55 @@ class LangEs extends Lang {
   String get rvOnFoot => 'A pie';
 
   @override
-  String get rvWhileDriving => 'Mientras conduces';
+  String get rvWhileDriving => 'Al volante';
 
   @override
   String get rvAtHome => 'En casa';
 
   @override
   String get rvSharedRemainSilent =>
-      'Permanecer en silencio. No mientas, pero no tienes que responder preguntas.';
+      'Guarda silencio. No tienes que responder a ninguna pregunta, pero si dices algo, no mientas.';
 
   @override
   String get rvSharedDocument =>
-      'Documentarlo todo. Tienes derecho a tomar fotografías, grabar videos y grabar audio.';
+      'Documéntalo todo. Tienes derecho a hacer fotos, grabar vídeos y audio.';
 
   @override
   String get rvMobilePockets =>
-      'Rechazar un registro de tus bolsillos. ICE puede realizar un cacheo, pero no un registro.';
+      'Niégate a que te registren los bolsillos. El ICE puede cachearte, pero no registrarte.';
 
   @override
   String get rvMobileQuestion =>
-      'Hacer preguntas. Averiguar por qué te están deteniendo.';
+      'Haz preguntas, incluyendo por qué te han hecho detenerte.';
 
   @override
-  String get rvMobileLeave => 'Irte si no estás siendo detenido.';
+  String get rvMobileLeave => 'Salir si no estás detenido.';
 
   @override
-  String get rvDriveSearch => 'Rechazar un registro de tu auto.';
+  String get rvDriveSearch => 'Niégate a que registren tu vehículo.';
 
   @override
   String get rvDriveID =>
-      'Negarte a proporcionar una identificación como pasajero. Solo el conductor está obligado a dar una identificación.';
+      'Si eres pasajero, niégate a proporcionar documentos de identificación. Solo la persona al volante está obligada a identificarse.';
 
   @override
   String get rvDriveWarrant =>
-      'Preguntar si los oficiales tienen una orden. Tienes derecho a verla si la tienen. Si una \"orden\" no está firmada por un juez, no es válida.';
+      'Pregunta si tienen una orden judicial. Tienes derecho a verla si la tienen. Una \"orden judicial\" solo es válida si está firmada por un juez.';
 
   @override
   String get rvHomeWarrant =>
-      'Mantener tu puerta cerrada. Si tienen una orden, pídeles que la pasen por debajo de la puerta primero. Si una \"orden\" no está firmada por un juez, no es válida. Mantén tu puerta cerrada.';
+      'No abras la puerta. Si tienen una orden judicial, pídeles que la pasen primero por debajo de la puerta. Una \"orden judicial\" solo es válida si está firmada por un juez. No abras la puerta.';
 
   @override
-  String get rvSharedSign => 'Negarte a firmar cualquier cosa.';
+  String get rvSharedSign => 'Niégate a firmar cualquier cosa.';
 
   @override
   String get rvSharedFingerprint =>
-      'Negarte a que ICE te tome las huellas dactilares a menos que estés bajo arresto.';
+      'Niégate a que el ICE tome tus huellas dactilares a menos que estés arrestado.';
 
   @override
   String get rvSharedLawyer =>
-      'A consultar a un abogado. Si has sido arrestado formalmente, tienes derecho a un abogado de oficio.';
+      'Consultar a un abogado. Si te han arrestado formalmente, tienes derecho a un abogado de oficio.';
 
   @override
   String get ssAutoShare => 'Compartir fotos/videos automáticamente';

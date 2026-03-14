@@ -232,55 +232,55 @@ class LangHt extends Lang {
   String get rvOnFoot => 'A pye';
 
   @override
-  String get rvWhileDriving => 'Pandan w ap kondwi';
+  String get rvWhileDriving => 'Pandan ou nan machin';
 
   @override
-  String get rvAtHome => 'Lakay ou';
+  String get rvAtHome => 'Lakay';
 
   @override
   String get rvSharedRemainSilent =>
-      'Rete an silans. Pa bay manti, men ou pa oblije reponn kesyon yo.';
+      'Rete an silans. Pa bay manti, men ou pa oblije reponn kesyon.';
 
   @override
   String get rvSharedDocument =>
-      'Dokimante tout bagay. Ou gen dwa fè foto, anrejistre videyo, ak anrejistre odyo.';
+      'Dokimante tout bagay. Ou gen dwa pou ou pran foto, anrejistre videyo, ak odyo.';
 
   @override
   String get rvMobilePockets =>
-      'Refize yon fouy nan pòch ou. ICE ka fè yon ti frap sou rad ou, men yo pa ka fouye w.';
+      'Refize ke yo fouye pòch ou. ICE ka fè yon manyen rapid, men yo pa ka fouye.';
 
   @override
   String get rvMobileQuestion =>
-      'Poze kesyon. Chèche konnen poukisa yo kanpe w la.';
+      'Poze kesyon. Chèche konnen poukisa yo kanpe ou.';
 
   @override
-  String get rvMobileLeave => 'Ale si yo pa kenbe w.';
+  String get rvMobileLeave => 'Ale si yo pa arete ou.';
 
   @override
-  String get rvDriveSearch => 'Refize yon fouy nan machin ou.';
+  String get rvDriveSearch => 'Refize ke yo fouye machin ou.';
 
   @override
   String get rvDriveID =>
-      'Refize bay kat idantite w kòm pasaje. Se sèl chofè a ki oblije bay kat idantite.';
+      'Refize bay ID antan ke pasaje. Sèlman chofè a oblije bay ID.';
 
   @override
   String get rvDriveWarrant =>
-      'Mande si polisye yo gen yon manda. Ou gen dwa wè l si yo genyen l. Si yon \"manda\" pa siyen pa yon jij, li pa valab.';
+      'Mande si ajan yo gen manda. Ou gen dwa wè li si yo genyen. Si pa genyen siyati yon jij sou manda a, li pa valab.';
 
   @override
   String get rvHomeWarrant =>
-      'Kenbe pòt ou fèmen. Si yo gen yon manda, mande yo pou yo glise l anba pòt la anvan. Si yon \"manda\" pa siyen pa yon jij, li pa valab. Kenbe pòt ou fèmen.';
+      'Kenbe pòt ou fèmen. Si yo gen manda, mande yo pou yo fè li pase anba pòt la. Si pa genyen siyati yon jij sou manda a, li pa valab. Kenbe pòt la fèmen.';
 
   @override
-  String get rvSharedSign => 'Refize siyen kèlkeswa dokiman an.';
+  String get rvSharedSign => 'Refize siyen anyen.';
 
   @override
   String get rvSharedFingerprint =>
-      'Refize bay anprent dwèt ou bay ICE amwenske ou anba arestasyon.';
+      'Refize ke ICE pran anprent ou sòf si yo deja arete ou.';
 
   @override
   String get rvSharedLawyer =>
-      'Konsilte yon avoka. Si yo arete w fòmèlman, ou gen dwa jwenn yon avoka tribinal la bay.';
+      'Pou konsilte yon avoka. Si yo arete fòmèlman, ou gen dwa gen yon avoka leta.';
 
   @override
   String get ssAutoShare => 'Pataje foto/videyo otomatikman';
