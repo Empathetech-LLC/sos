@@ -4,50 +4,88 @@
 
 
   "gOk": "Ok",
+  "gDone": "Terminé",
   "gReminder": "Rappel",
+  "gSystem": "Paramètres système",
   "gNotAgain": "Ne plus afficher",
-
-  "sosLastKnown": "Dernière localisation connue",
-  "sosNeedSMS": "SOS a besoin d'une autorisation SMS pour fonctionner correctement.",
-  "sosDisabled": "Impossible d'accéder à la localisation (désactivé)",
-  "sosDenied": "Impossible d'accéder à la localisation (refusé)",
-  "sosError": "Impossible d'accéder à la localisation (erreur)",
+  "gOnCloseWarning": "\"SOS à la fermeture\" est activé. Cela lancera une diffusion.",
 
 
+
+  "sosLastKnown": "dernière position connue :",
+  "sosNeedSMS": "SOS nécessite l'autorisation pour les SMS.",
+  "sosDisabled": "Impossible d'accéder à la position (désactivée)",
+  "sosDenied": "Impossible d'accéder à la position (refusée)",
+  "sosError": "Impossible d'accéder à la position (erreur)",
+
+
+
+  "hsWelcome": "Bienvenue sur InstaSOS",
+  "hsWelcomeFix": "Bienvenue sur Insta-SOS",
+  "hsAppIntro": "Pour commencer, il s'agit uniquement d'une application \"Connaissez vos droits\".\nVous pouvez activer d'autres outils en leur accordant l'autorisation dans la liste ci-dessous.",
+  "hsAppIntroAlt": "La dernière mise à jour était importante, assurons-nous que tout est prêt ci-dessous.",
+  "hsYourApp": "Vous pouvez changer d'avis/d'autorisations à tout moment.",
+  "hsHybridTranslation": "Le tutoriel et les paramètres sont traduits automatiquement.\nLa liste des droits est traduite par des humains.",
+
+  "hsCamMic": "Caméra et microphone",
+  "hsAddRecording": "Active l'enregistrement vidéo.",
+  "hsGallery": "Galerie",
+  "hsAddSave": "Requis pour sauvegarder vos enregistrements.",
+  "hsCameraReady": "La caméra est prête",
+  "hsCameraSetupHint": "Activez pour donner à Insta-SOS l'autorisation d'accéder à la caméra.",
+
+  "hsContacts": "Contacts",
+  "hsAddContacts": "Partie 1 de l'activation des alertes aux contacts d'urgence.",
+  "hsAddContactsIOS": "Active les alertes aux contacts d'urgence.",
+  "hsContactsReady": "Les contacts sont prêts",
+  "hsContactsSetupHint": "Activez pour donner à Insta-SOS l'autorisation d'afficher vos contacts.",
+
+  "hsTexting": "SMS",
+  "hsAddTexting": "Partie 2 de l'activation des alertes aux contacts d'urgence.",
+  "hsTextingReady": "Les SMS sont prêts",
+  "hsTextingSetupHint": "Activez pour donner à Insta-SOS l'autorisation d'envoyer des messages.",
+
+  "hsLocation": "Position",
+  "hsUnable": "Impossible de déterminer",
+  "hsAddLocation": "Active le partage de position avec les contacts d'urgence.",
+  "hsAddAlways": "Recommandé de toujours activer. Appuyez à nouveau pour ouvrir les paramètres système.",
+  "hsLocationReady": "La position est prête",
+  "hsLocationSetupHint": "Activez pour donner à Insta-SOS l'autorisation de voir votre position.",
+
+  "hsOneOfFour": "Un sur quatre. Continuer...",
+  "hsBroadcastTutorial": "Activez SOS pour envoyer automatiquement un SMS à vos contacts d'urgence.\n\nLorsque InstaSOS a accès à votre position, elle sera incluse dans les SMS.",
+  "hsBroadcastTutorialFix": "Activez SOS pour envoyer automatiquement un SMS à vos contacts d'urgence.\n\nLorsque Insta-SOS a accès à votre position, elle sera incluse dans les SMS.",
+  "hsBroadcastTutorialAndroid": "Les SMS continueront lorsque le téléphone est verrouillé.\n\nDésactivez manuellement SOS ou fermez complètement l'application pour arrêter les SMS.",
+  "hsTwoOfFour": "Deux sur quatre. Continuer...",
+  "hsSettingsTutorial": "- Configurez votre diffusion SOS\n- Personnalisez l'apparence de l'application\n- Accédez à plus de ressources et d'assistance\n\ndans les paramètres.",
+  "hsSettingsTutorialFix": "Vous pouvez configurer votre diffusion SOS, personnaliser l'apparence de l'application et accéder à plus de ressources/d'assistance dans les paramètres.",
+  "hsThreeOfFour": "Trois sur quatre. Continuer...",
+  "hsVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, une diffusion SOS démarrera automatiquement.\n\nAppuyez longuement sur l'aperçu de la caméra pour afficher/masquer vos droits.",
+  "hsIOSVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nAppuyez longuement sur l'aperçu de la caméra pour afficher/masquer vos droits.",
+  "hsTutorialComplete": "Tutoriel terminé",
+  "hsAddEMC": "Si vous utilisez les alertes SOS, veuillez vous rendre sur la page des paramètres et ajouter vos contacts d'urgence.",
 
   "hsStartSOS": "Activez pour démarrer la diffusion SOS.",
-  "hsEndSOS": "Le SOS est en cours de diffusion. Activez pour arrêter.",
-  "hsSafeCloseHint": "Tout va bien. Fermer l'application sans SOS.",
+  "hsEndSOS": "SOS en cours de diffusion. Activez pour arrêter.",
+  "hsSafeCloseHint": "Tout va bien. Fermez l'application sans SOS.",
 
-  "hsAutoSOS": "SOS auto",
+  "hsBroadcasting": "Diffusion en cours",
   "hsStop": "Arrêter",
 
   "hsCameraHint": "Prendre une photo.",
-  "hsPreviewHint": "Appuyez longuement pour basculer votre vue des droits.",
+  "hsPreviewHint": "Appui long pour afficher/masquer vos droits.",
   "hsShowRights": "Afficher vos droits.",
-  "hsHideRights": "Cacher vos droits.",
+  "hsHideRights": "Masquer vos droits.",
   "hsStartRecord": "Enregistrer une vidéo.",
-  "hsEndRecord": "Arrêter l'enregistrement.",
-  "hsFlashOff": "Flash désactivé. Activez ce bouton pour activer le flash automatique.",
-  "hsFlashAuto": "Flash automatique. Activez pour activer le flash.",
-  "hsFlashOn": "Flash activé. Activez pour désactiver le flash.",
-  "hsFlashTorch": "Mode torche. Activez pour désactiver le flash.",
+  "hsEndRecord": "Terminer l'enregistrement.",
+  "hsFlashOff": "Flash désactivé. Activez pour allumer le flash automatique.",
+  "hsFlashAuto": "Flash automatique. Activez pour allumer le flash.",
+  "hsFlashOn": "Flash activé. Activez pour éteindre le flash.",
+  "hsFlashTorch": "Mode torche. Activez pour éteindre le flash.",
+  "hsNoFlash": "Le flash de la caméra ne fonctionne pas",
 
-  "hsWelcome": "Bienvenue sur InstaSOS",
-  "hsAppTutorial": "Votre statut est partagé avec les contacts d'urgence en cas de crise.\n\nVeuillez choisir un contact d'urgence.\nUn seul pour l'instant ; vous pourrez en ajouter d'autres ultérieurement.",
-  "hsPermissionsTutorialTitle": "Si vous le souhaitez",
-  "hsPermissionsTutorial": "InstaSOS peut également recueillir et partager des preuves.\n\nPour ce faire, l'accès à la caméra, au microphone et à la galerie sera requis.",
-  "hsBroadcastTutorial": "Activez le SOS pour envoyer automatiquement des SMS à vos contacts d'urgence.\n\nSi InstaSOS a accès à votre localisation, celle-ci sera incluse dans les SMS.\n\nLes SMS continueront d'être envoyés même lorsque le téléphone est verrouillé.\n\nDésactivez le SOS ou fermez complètement l'application pour arrêter les SMS.",
-  "hsIOSBroadcastTutorial": "Activez le SOS pour envoyer automatiquement des SMS à vos contacts d'urgence.\n\nSi InstaSOS a accès à votre localisation, celle-ci sera incluse dans les SMS.",
-  "hsSettingsTutorial": "Vous pouvez…\n\n- Ajouter d'autres contacts d'urgence\n- Configurer le SOS automatique\n- Modifier la langue de l'application\n- Mettre à jour l'apparence de l'application\n\ndans les paramètres.\n\nMaintenez le bouton Paramètres enfoncé pour partager votre retour sur l'application.",
-  "hsVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nPar défaut, si un enregistrement est interrompu, le SOS s'active automatiquement.\n\nAppuyez longuement au centre de l'écran pour afficher la liste de vos droits.",
-  "hsIOSVideoTutorial": "Lorsque vous prenez une photo ou enregistrez une vidéo, vous pouvez la partager immédiatement.\n\nAppuyez longuement au centre de l'écran pour afficher la liste de vos droits.",
-  
-  "hsPartialContacts": "Apple affichera tous les contacts, pas seulement ceux partagés avec InstaSOS.\nPour partager plus de contacts, accédez à Paramètres iOS -> Applications -> InstaSOS",
-  "hsNumError": "Le contact est privé ou n'a pas de numéro de téléphone.",
-  
-  
-  
+
+
   "rvSharedHeader": "Vous avez le droit de...",
   
   "rvOnFoot": "Piéton",
@@ -70,51 +108,58 @@
   "rvSharedSign": "Refuser de signer quoi que ce soit.",
   "rvSharedFingerprint": "Refuser de vous soumettre à un relevé d'empreintes digitales par l'ICE, sauf si vous êtes en état d'arrestation.",
   "rvSharedLawyer": "Consulter un avocat. Si vous avez été officiellement arrêté, vous avez droit à un avocat commis d'office.",
-  
-  
-  
-  "ssSOSOnOpen": "SOS à l'ouverture",
-  "ssSOSOnClose": "SOS à la fermeture",
-  "ssSOSOnCloseHint": "Une fois activée, une icône de fermeture sécurisée (pouce levé) apparaît sur la page d'accueil, en face des paramètres. Si InstaSOS perd le focus pour une raison autre que l'activation de cette icône (application réduite, changement d'application, écran éteint), une diffusion SOS est déclenchée.",
-  "ssCloseOffWarning": "L'application se fermera automatiquement pour éviter les diffusions involontaires.",
-  "ssVideoSOS": "SOS en cas d'enregistrement interrompu",
-  "ssAutoShare": "Partage automatique de médias",
-  
-  "ssEMC": "Contacts d'urgence",
-  "ssRemoveHint": "Supprimer le contact",
-  "ssAddHint": "Ajouter un autre contact",
-  "ssLinkType": "Type de lien",
-  
-  "ssAppearance": "Apparence",
 
 
+
+  "ssAutoShare": "Partage automatique de photos/vidéos",
+
+  "ssSOS": "Paramètres SOS",
+  "ssAppearance": "Paramètres d'apparence",
+
+  "ssPermissions": "Autorisations",
+  "ssResources": "Ressources",
+  "ssSupport": "Assistance",
+
+
+
+  "pmOnlyAdd": "Cet outil aide uniquement à ajouter des autorisations.",
+  "pmRemoveIn": "Vous pouvez supprimer les autorisations dans les ",
+  "pmManualPermission": "Si vous supprimez des autorisations dans les paramètres système, elles doivent y être restaurées également.",
+
+
+  
+  "rmCommunity": "Ressources communautaires",
+  "rmGov": "Ressources du gouvernement américain",
+  "rmAffiliate": "Aucune n'est affiliée à Empathetech LLC",
+  "rmAffiliateFix": "Aucune n'est affiliée à Empathetic LLC",
 
   "faqName": "FAQ",
 
-  "faqListQ": "Comment la liste des droits a-t-elle été établie ?",
-  "faqListA": "La liste des droits a été compilée à partir de plusieurs sources publiques, notamment :",
-  "faqListA2": "Une autre ressource utile : ",
+  "faqListQ": "Comment la liste des droits a-t-elle été élaborée ?",
+  "faqListA": "La liste des droits a été tirée de plusieurs ressources publiques, notamment :",
 
-  "faqSettings": "À quoi servent les paramètres ?",
-  "faqOnOpen": "SOS à l'ouverture : lorsqu'activé, un signal SOS commencera immédiatement au lancement de l'application. Non recommandé pour la plupart des utilisateurs, car cela pourrait entraîner des alertes accidentelles.",
-  "faqOnInterrupt": "SOS en cas d'interruption : lorsqu'activé, si un enregistrement vidéo est en cours et qu'InstaSOS passe en arrière-plan (minimisée, changement d'application, écran éteint), un signal SOS commencera.\nIl est recommandé d'activer cette option ou « SOS à la fermeture » (ou les deux).",
-  "faqAutoShare": "Partage automatique : lorsqu'activé, les options de partage natives apparaîtront dès qu'une vidéo se termine ou qu'une photo est prise.",
-  "faqEMC": "Contacts d'urgence : les personnes qui recevront votre localisation pendant qu'un signal SOS est actif.",
-  "faqLink": "Type de lien : la manière dont votre localisation sera transmise à vos contacts d'urgence. « Google Maps », « Apple Maps » et « Waze » enverront un lien cliquable pour le service correspondant. « Coordonnées » enverra votre latitude et longitude sous forme de texte brut.",
+  "faqSettings": "Comment fonctionnent les paramètres ?",
+  "faqAutoShareA": " utilise le partage intégré de votre téléphone. Il n'utilise pas vos contacts d'urgence enregistrés (le cas échéant). Le partage est facultatif et peut toujours être annulé.",
+  "faqLinkA": " comment votre position sera envoyée à vos contacts d'urgence. \"Google Maps\", \"Apple Maps\" et \"Waze\" enverront un lien cliquable pour le service correspondant. \"Coordonnées\" enverra votre latitude et votre longitude en texte brut.",
+  "faqOnOpenA": " une diffusion SOS commencera immédiatement au lancement de l'application. Non recommandé pour la plupart des utilisateurs, car cela pourrait entraîner des diffusions accidentelles.",
+  "faqOnInterruptA": " si une vidéo est en cours d'enregistrement et qu'InstaSOS perd le focus, une diffusion SOS commencera. Perdre le focus signifie : réduire l'application, changer d'application et/ou verrouiller l'écran. Il est recommandé d'activer ceci ou \"SOS à la fermeture\" (ou les deux).",
+  "faqOnInterruptAFix": " si une vidéo est en cours d'enregistrement et qu'Insta-SOS perd le focus, une diffusion SOS commencera. Perdre le focus signifie : réduire l'application, changer d'application et/ou verrouiller l'écran. Il est recommandé d'activer ceci ou \"SOS à la fermeture\" (ou les deux).",
 
-  "faqUnavailable": "Le SOS indique « Localisation indisponible » ?",
-  "faqReliability": "Pour améliorer la fiabilité du SOS, veuillez activer « Toujours autoriser » dans les ",
+  "faqUnavailable": "SOS indique \"Position indisponible\" ?",
+  "faqReliability": "Pour améliorer la fiabilité du SOS, veuillez activer \"Toujours autoriser\" dans les ",
   "faqLocationPermissions": "autorisations de localisation",
-  "faqLocationTrust": "L'application utilise votre localisation uniquement lorsqu'un signal SOS est actif. Ni InstaSOS ni Empathetech LLC ne suivent, ne stockent ou ne vendent les données des utilisateurs.",
+  "faqLocationTrust": "L'application utilise uniquement votre position lorsqu'une diffusion SOS est active. Ni InstaSOS ni Empathetech LLC ne suivent, ne stockent ou ne vendent les données des utilisateurs.",
+  "faqLocationTrustFix": "L'application utilise uniquement votre position lorsqu'une diffusion SOS est active. Ni Insta-SOS ni Empathetic LLC ne suivent, ne stockent ou ne vendent les données des utilisateurs.",
 
-  "faqPrivateContact": "Le contact est privé ou n'a pas de numéro de téléphone ?",
-  "faqContactPermissions": "Si vous recevez ce message lors de l'ajout d'un contact d'urgence, InstaSOS n'a pas la permission d'accéder à ce contact.",
-  "faqUpdateContacts": "Vous pouvez mettre à jour les permissions de contacts dans les ",
-  "faqOSSettings": "réglages iOS",
+  "faqContactPermissions": "Si vous recevez ce message lors de l'ajout d'un contact d'urgence, InstaSOS n'a pas l'autorisation d'accéder à ce contact spécifique.",
+  "faqContactPermissionsFix": "Si vous recevez ce message lors de l'ajout d'un contact d'urgence, Insta-SOS n'a pas l'autorisation d'accéder à ce contact spécifique.",
+  "faqUpdateContacts": "Vous pouvez donner accès à plus de contacts (ou à tous) dans les ",
+  "faqSplitClarity1": "Donner accès à un contact n'en fait pas un contact d'urgence. Seuls les numéros répertoriés dans les ",
+  "faqSplitClarity2": " seront contactés lors d'une diffusion SOS.",
 
   "faqMissing": "Pourquoi certaines fonctionnalités Android sont-elles manquantes ?",
-  "faqRestricted": "Les fonctionnalités manquantes nécessitent l'automatisation des SMS, et Apple n'autorise pas les développeurs à automatiser les messages texte (sans service payant).",
-  "faqShortcuts": "Qu'en est-il des Raccourcis iOS ?\nIl existe également des restrictions sur l'accès aux raccourcis utilisateur, ce qui briserait des fonctionnalités cruciales. Principalement : cela interromprait les enregistrements vidéo.",
+  "faqRestricted": "Les fonctionnalités manquantes nécessitent l'automatisation des SMS, et Apple n'autorise pas les développeurs à automatiser les messages texte (sans un service payant).",
+  "faqShortcuts": "Qu'en est-il des raccourcis iOS ?\nIl existe également des restrictions sur l'accès aux raccourcis utilisateur, ce qui briserait des fonctionnalités cruciales. Principalement : cela interromprait les enregistrements vidéo.",
 
   "faqLanguages": "Pourquoi la langue X n'est-elle pas disponible ?",
   "faqResponsible": "Il serait irresponsable d'utiliser la traduction automatique pour la liste des droits. Veuillez envisager de ",
@@ -122,10 +167,32 @@
   "faqExpand": " pour aider à élargir les options de langue.",
 
   "faqReset": "Réinitialiser le tutoriel",
+  "faqContact": "Contacter l'assistance",
+  "faqContactHint": "Envoyer un e-mail à Empathetic LLC",
 
-  "faqOnCloseWarning": "\"SOS à la fermeture\" est activé. Cela lancera une diffusion.",
+
+
+  "bsEMC": "Contacts d'urgence",
+  "bsAddSomeone": "Ajouter quelqu'un pour activer le SOS",
+  "bsRemoveHint": "Supprimer le contact",
+  "bsAddHint": "Ajouter un autre contact",
+  "bsLinkType": "Type de lien de position",
+
+  "bsSnackRequest": "Veuillez ajouter des contacts d'urgence",
+  "bsNeedPermission": "Impossible d'ajouter des contacts sans autorisation",
+  "bsPartialContacts": "Apple affichera tous les contacts, pas seulement ceux partagés avec InstaSOS.\nPour partager plus de contacts, ouvrez les ",
+  "bsPartialContactsFix": "Apple affichera tous les contacts, pas seulement ceux partagés avec Insta-SOS.\nPour partager plus de contacts, ouvrez les ",
+  "bsNumError": "Ce contact est privé ou n'a pas de numéro de téléphone.",
+
+  "bsSOSOnOpen": "SOS à l'ouverture",
+  "bsSOSOnClose": "SOS à la fermeture",
+  "bsSOSOnCloseHint": "Un bouton de fermeture sécurisée (pouce en l'air) apparaîtra sur la page d'accueil, à l'opposé des paramètres.\nSi InstaSOS perd le focus pour une raison quelconque à l'exception du bouton de fermeture sécurisée (réduite, changement d'application, écran éteint), une diffusion SOS commencera.",
+  "bsSOSOnCloseHintFix": "Un bouton de fermeture sécurisée (pouce en l'air) apparaîtra sur la page d'accueil, à l'opposé des paramètres.\nSi Insta-SOS perd le focus pour une raison quelconque à l'exception du bouton de fermeture sécurisée (réduite, changement d'application, écran éteint), une diffusion SOS commencera.",
+  "bsCloseOffWarning": "L'application se fermera automatiquement pour éviter les diffusions involontaires.",
+  "bsSOSOnVideo": "SOS lors d'un enregistrement interrompu",
 
 
 
-  "dsLadyLiberty": "Une photo de la Statue de la Liberté, avec un aperçu de la liste des droits."
+  "dsLadyLiberty": "Une photo de la Statue de la Liberté, avec un aperçu de la liste des droits.",
+  "dsShowBack": "Afficher le bouton de retour ?"
 }

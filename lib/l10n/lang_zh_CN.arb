@@ -1,50 +1,88 @@
 {
   "@@locale": "zh_CN",
 
-
-
+  
+  
   "gOk": "确定",
+  "gDone": "完成",
   "gReminder": "提醒",
+  "gSystem": "系统设置",
   "gNotAgain": "不再显示",
-
-  "sosLastKnown": "已知最后位置",
-  "sosNeedSMS": "SOS功能需要短信权限以正常运行。",
-  "sosDisabled": "无法访问定位（已关闭）",
-  "sosDenied": "无法访问定位（权限被拒）",
-  "sosError": "无法访问定位（出错）",
+  "gOnCloseWarning": "已启用“关闭时发送 SOS”。这将触发 SOS 广播。",
 
 
 
-  "hsStartSOS": "启动以开始SOS广播。",
-  "hsEndSOS": "SOS正在广播，点击以停止。",
-  "hsSafeCloseHint": "一切安全，可直接关闭应用。",
+  "sosLastKnown": "最后已知位置：",
+  "sosNeedSMS": "SOS 需要短信（发送信息）权限。",
+  "sosDisabled": "无法获取位置（已禁用）",
+  "sosDenied": "无法获取位置（被拒绝）",
+  "sosError": "无法获取位置（发生错误）",
 
-  "hsAutoSOS": "自动SOS",
-  "hsStop": "停止",
 
-  "hsCameraHint": "拍摄照片。",
-  "hsPreviewHint": "长按可切换权限查看模式。",
-  "hsShowRights": "显示您的权限。",
-  "hsHideRights": "隐藏您的权限。",
-  "hsStartRecord": "开始录像。",
-  "hsEndRecord": "结束录像。",
-  "hsFlashOff": "闪光灯关闭。点击开启自动闪光。",
-  "hsFlashAuto": "自动闪光。点击开启闪光灯。",
-  "hsFlashOn": "闪光灯开启。点击关闭闪光灯。",
-  "hsFlashTorch": "手电模式。点击关闭闪光灯。",
 
   "hsWelcome": "欢迎使用 InstaSOS",
-  "hsAppTutorial": "本应用可在危机时刻迅速将您的状况分享给紧急联系人。\n\n请选择一位紧急联系人。\n目前只需添加一位，后续可随时增添。",
-  "hsPermissionsTutorialTitle": "如果您愿意",
-  "hsPermissionsTutorial": "InstaSOS 也可用于采集和分享证据。\n\n系统将请求相机、麦克风和相册访问权限以实现该功能。",
-  "hsBroadcastTutorial": "激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。\n\n即使设备锁屏，短信也会持续发送。\n\n停止发送可通过关闭SOS或完全退出应用实现。",
-  "hsIOSBroadcastTutorial": "激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。",
-  "hsSettingsTutorial": "您可以在设置中：\n\n- 添加更多紧急联系人\n- 设置自动SOS\n- 更改应用语言\n- 自定义界面外观\n\n长按设置按钮还可提交反馈。",
-  "hsVideoTutorial": "拍照或录像后，您可以立即分享内容。\n\n默认情况下，录像若被中断，SOS将自动激活。\n\n长按画面中央可查看权限列表。",
-  "hsIOSVideoTutorial": "拍照或录像后，您可以立即分享内容。\n\n长按画面中央可查看权限列表。",
-  
-  "hsPartialContacts": "Apple 将显示所有联系人，而不仅仅是与 InstaSOS 共享的联系人。\n要分享更多联系人，请前往 iOS 设置 -> 应用 -> InstaSOS",
-  "hsNumError": "该联系人是私人联系人或没有电话号码。",
+  "hsWelcomeFix": "欢迎使用 Insta-SOS",
+  "hsAppIntro": "首先，这只是一个“了解你的权利 (Know Your Rights)”应用。\n您可以通过在下方的列表中授予权限来启用更多工具。",
+  "hsAppIntroAlt": "最新版本进行了重大更新，请在下方确保一切准备就绪。",
+  "hsYourApp": "您可以随时改变主意或更改权限。",
+  "hsHybridTranslation": "教程和设置是机器翻译的。\n权利列表是人工翻译的。",
+
+  "hsCamMic": "相机和麦克风",
+  "hsAddRecording": "启用视频录制。",
+  "hsGallery": "图库",
+  "hsAddSave": "保存您的录像所需。",
+  "hsCameraReady": "相机已准备就绪",
+  "hsCameraSetupHint": "激活以授予 Insta-SOS 访问相机的权限。",
+
+  "hsContacts": "联系人",
+  "hsAddContacts": "启用紧急联系人警报的第 1 部分。",
+  "hsAddContactsIOS": "启用紧急联系人警报。",
+  "hsContactsReady": "联系人已准备就绪",
+  "hsContactsSetupHint": "激活以授予 Insta-SOS 查看您联系人的权限。",
+
+  "hsTexting": "发短信",
+  "hsAddTexting": "启用紧急联系人警报的第 2 部分。",
+  "hsTextingReady": "短信功能已准备就绪",
+  "hsTextingSetupHint": "激活以授予 Insta-SOS 发送消息的权限。",
+
+  "hsLocation": "位置",
+  "hsUnable": "无法确定",
+  "hsAddLocation": "启用与紧急联系人的位置共享。",
+  "hsAddAlways": "建议设为“始终允许”。再次按下以打开系统设置。",
+  "hsLocationReady": "位置已准备就绪",
+  "hsLocationSetupHint": "激活以授予 Insta-SOS 查看您位置的权限。",
+
+  "hsOneOfFour": "四分之一。继续...",
+  "hsBroadcastTutorial": "激活 SOS 以自动向您的紧急联系人发送短信。\n\n当 InstaSOS 有权访问您的位置时，它将包含在短信中。",
+  "hsBroadcastTutorialFix": "激活 SOS 以自动向您的紧急联系人发送短信。\n\n当 Insta-SOS 有权访问您的位置时，它将包含在短信中。",
+  "hsBroadcastTutorialAndroid": "当手机锁屏时，短信将继续发送。\n\n手动停用 SOS 或完全关闭应用程序以停止发送短信。",
+  "hsTwoOfFour": "四分之二。继续...",
+  "hsSettingsTutorial": "在设置中：\n- 配置您的 SOS 广播\n- 自定义应用的外观\n- 获取更多资源和支持",
+  "hsSettingsTutorialFix": "您可以在设置中配置您的 SOS 广播、自定义应用外观以及获取更多资源和支持。",
+  "hsThreeOfFour": "四分之三。继续...",
+  "hsVideoTutorial": "拍照或录制视频后，您可以立即分享。\n\n默认情况下，如果录制被中断，将自动开始 SOS 广播。\n\n长按相机预览以显示/隐藏您的权利。",
+  "hsIOSVideoTutorial": "拍照或录制视频后，您可以立即分享。\n\n长按相机预览以显示/隐藏您的权利。",
+  "hsTutorialComplete": "教程完成",
+  "hsAddEMC": "如果您使用 SOS 警报，请前往设置页面并添加您的紧急联系人。",
+
+  "hsStartSOS": "激活以开始 SOS 广播。",
+  "hsEndSOS": "SOS 正在广播。激活以停止。",
+  "hsSafeCloseHint": "一切安全。在不触发 SOS 的情况下关闭应用。",
+
+  "hsBroadcasting": "正在广播",
+  "hsStop": "停止",
+
+  "hsCameraHint": "拍张照片。",
+  "hsPreviewHint": "长按以显示/隐藏您的权利。",
+  "hsShowRights": "显示您的权利。",
+  "hsHideRights": "隐藏您的权利。",
+  "hsStartRecord": "录制视频。",
+  "hsEndRecord": "结束录制。",
+  "hsFlashOff": "闪光灯已关。激活以开启自动闪光灯。",
+  "hsFlashAuto": "自动闪光灯。激活以开启闪光灯。",
+  "hsFlashOn": "闪光灯已开。激活以关闭闪光灯。",
+  "hsFlashTorch": "手电筒模式。激活以关闭闪光灯。",
+  "hsNoFlash": "相机闪光灯无法使用",
 
 
 
@@ -73,59 +111,88 @@
 
 
 
-  "ssSOSOnOpen": "打开应用时启动SOS",
-  "ssSOSOnClose": "关闭应用时启动SOS",
-  "ssSOSOnCloseHint": "启用后，主页上设置按钮对面会出现一个安全关闭（点赞）按钮。如果 InstaSOS 因除安全关闭按钮以外的任何原因失去焦点（例如最小化、切换应用、屏幕关闭），则会开始发出 SOS 求救信号。",
-  "ssCloseOffWarning": "应用程序将自动关闭，以防止意外播出。",
-  "ssVideoSOS": "录像中断自动启动SOS",
-  "ssAutoShare": "自动共享媒体",
+  "ssAutoShare": "自动分享照片/视频",
 
-  "ssEMC": "紧急联系人",
-  "ssRemoveHint": "移除联系人",
-  "ssAddHint": "添加联系人",
-  "ssLinkType": "链接类型",
+  "ssSOS": "SOS 设置",
+  "ssAppearance": "外观设置",
 
-  "ssAppearance": "界面外观",
+  "ssPermissions": "权限",
+  "ssResources": "资源",
+  "ssSupport": "支持",
 
+  "pmOnlyAdd": "此工具仅用于添加权限。",
+  "pmRemoveIn": "您可以在以下位置移除权限：",
+  "pmManualPermission": "如果您在系统设置中移除了权限，也必须在那里恢复它们。",
 
 
-  "faqName": "常见问题",
+  
+  "rmCommunity": "社区资源",
+  "rmGov": "美国政府资源",
+  "rmAffiliate": "均不隶属于 Empathetech LLC",
+  "rmAffiliateFix": "均不隶属于 Empathetic LLC",
+
+
+
+  "faqName": "常见问题 (FAQ)",
 
   "faqListQ": "权利列表是如何制定的？",
-  "faqListA": "权利列表汇编自多个公共来源，包括：",
-  "faqListA2": "另一个有用的资源：",
+  "faqListA": "权利列表取自多个公共资源，包括：",
 
-  "faqSettings": "这些设置有什么作用？",
-  "faqOnOpen": "启动时触发 SOS：启用后，应用程序启动时将立即开始 SOS 广播。不建议大多数用户使用，因为这可能导致意外误发。",
-  "faqOnInterrupt": "录制中断时触发 SOS：启用后，如果正在录制视频且 InstaSOS 因任何原因（最小化、切换应用、屏幕关闭）失去焦点，将开始 SOS 广播。\n建议启用此选项或“关闭时触发 SOS”（或两者都启用）。",
-  "faqAutoShare": "自动分享媒体：启用后，一旦视频完成或拍下照片，将立即出现系统原生分享选项。",
-  "faqEMC": "紧急联系人：当 SOS 广播激活时，将接收您位置信息的人员。",
-  "faqLink": "链接类型：您的位置将如何发送给紧急联系人。“Google Maps”、“Apple Maps”和“Waze”将发送相应服务的可点击链接。“Coordinates”将以纯文本形式发送您的经纬度。",
+  "faqSettings": "设置是如何工作的？",
+  "faqAutoShareA": " 使用您手机的内置分享功能。它不使用您保存的紧急联系人（如果有）。分享是可选的，并且可以随时取消。",
+  "faqLinkA": " 您的位置信息将如何发送给您的紧急联系人。“Google 地图”、“Apple 地图”和“Waze”将发送相应服务的可点击链接。“坐标”将以纯文本格式发送您的经纬度。",
+  "faqOnOpenA": " 在应用启动时将立即开始 SOS 广播。不推荐大多数用户使用，因为这可能导致意外广播。",
+  "faqOnInterruptA": " 如果正在录制视频且 InstaSOS 失去焦点，将开始 SOS 广播。失去焦点包括：最小化应用、切换应用和/或锁屏。建议启用此项或“关闭时发送 SOS”（或两者同时启用）。",
+  "faqOnInterruptAFix": " 如果正在录制视频且 Insta-SOS 失去焦点，将开始 SOS 广播。失去焦点包括：最小化应用、切换应用和/或锁屏。建议启用此项或“关闭时发送 SOS”（或两者同时启用）。",
 
-  "faqUnavailable": "SOS 显示“无法获取位置”？",
-  "faqReliability": "为了提高 SOS 的可靠性，请务必在",
-  "faqLocationPermissions": "位置权限设置中选择“始终允许”",
-  "faqLocationTrust": "本应用仅在 SOS 广播激活时使用您的位置。InstaSOS 和 Empathetech LLC 均不会跟踪、存储或出售用户数据。",
+  "faqUnavailable": "SOS 显示“位置不可用”？",
+  "faqReliability": "为了提高 SOS 的可靠性，请在以下位置启用“始终允许”：",
+  "faqLocationPermissions": "位置权限",
+  "faqLocationTrust": "该应用仅在激活 SOS 广播时使用您的位置。InstaSOS 和 Empathetech LLC 均不追踪、存储或出售用户数据。",
+  "faqLocationTrustFix": "该应用仅在激活 SOS 广播时使用您的位置。Insta-SOS 和 Empathetic LLC 均不追踪、存储或出售用户数据。",
 
-  "faqPrivateContact": "联系人是私密的或没有电话号码？",
-  "faqContactPermissions": "如果您在添加紧急联系人时收到此消息，说明 InstaSOS 没有权限访问该联系人。",
-  "faqUpdateContacts": "您可以更新联系人权限，请前往",
-  "faqOSSettings": "iOS 设置",
+  "faqContactPermissions": "如果在添加紧急联系人时收到此消息，则表明 InstaSOS 没有访问该特定联系人的权限。",
+  "faqContactPermissionsFix": "如果在添加紧急联系人时收到此消息，则表明 Insta-SOS 没有访问该特定联系人的权限。",
+  "faqUpdateContacts": "您可以在以下位置授予对更多（或所有）联系人的访问权限：",
+  "faqSplitClarity1": "授予对某位联系人的访问权限并不会使其成为紧急联系人。只有列在",
+  "faqSplitClarity2": " 中的号码才会在 SOS 广播期间收到联系。",
 
-  "faqMissing": "为什么缺少某些 Android 功能？",
-  "faqRestricted": "缺失的功能需要短信自动化，而 Apple 不允许开发者自动发送短信（除非使用付费服务）。",
-  "faqShortcuts": "iOS 快捷指令呢？\n访问用户快捷指令也受到限制，这会破坏关键功能。主要是：它会中断视频录制。",
+  "faqMissing": "为什么缺少某些 Android 上的功能？",
+  "faqRestricted": "缺少的功能需要短信自动化，而苹果 (Apple) 不允许开发者自动发送短信（除非使用付费服务）。",
+  "faqShortcuts": "那 iOS 快捷指令呢？\n对访问用户快捷指令也存在限制，这会破坏关键功能。主要是：它会中断视频录制。",
 
-  "faqLanguages": "为什么不支持 X 语言？",
-  "faqResponsible": "对权利列表使用机器翻译是不负责任的。请考虑",
-  "faqContributing": "贡献翻译",
-  "faqExpand": "以帮助扩展语言选项。",
+  "faqLanguages": "为什么没有 X 语言？",
+  "faqResponsible": "使用机器翻译权利列表是不负责任的。请考虑",
+  "faqContributing": "做出贡献",
+  "faqExpand": " 以帮助扩展语言选项。",
 
   "faqReset": "重置教程",
+  "faqContact": "联系支持",
+  "faqContactHint": "给 Empathetic LLC 发送邮件",
 
-  "faqOnCloseWarning": "“关闭时求救”已启用。这将开始广播。",
 
 
+  "bsEMC": "紧急联系人",
+  "bsAddSomeone": "添加联系人以启用 SOS",
+  "bsRemoveHint": "移除联系人",
+  "bsAddHint": "添加其他联系人",
+  "bsLinkType": "位置链接类型",
 
-  "dsLadyLiberty": "自由女神像的图片，附有权利列表的预览。"
+  "bsSnackRequest": "请添加紧急联系人",
+  "bsNeedPermission": "没有权限无法添加联系人",
+  "bsPartialContacts": "Apple 将显示所有联系人，而不仅仅是与 InstaSOS 共享的联系人。\n要共享更多联系人，请打开",
+  "bsPartialContactsFix": "Apple 将显示所有联系人，而不仅仅是与 Insta-SOS 共享的联系人。\n要共享更多联系人，请打开",
+  "bsNumError": "此联系人是私密的或没有电话号码。",
+
+  "bsSOSOnOpen": "打开时发送 SOS",
+  "bsSOSOnClose": "关闭时发送 SOS",
+  "bsSOSOnCloseHint": "首页上与设置相对的位置将出现一个安全关闭（大拇指向上）按钮。\n如果 InstaSOS 因除了安全关闭按钮以外的任何原因（最小化、切换应用、息屏）失去焦点，将开始 SOS 广播。",
+  "bsSOSOnCloseHintFix": "首页上与设置相对的位置将出现一个安全关闭（大拇指向上）按钮。\n如果 Insta-SOS 因除了安全关闭按钮以外的任何原因（最小化、切换应用、息屏）失去焦点，将开始 SOS 广播。",
+  "bsCloseOffWarning": "应用将自动关闭以防止意外广播。",
+  "bsSOSOnVideo": "录制中断时发送 SOS",
+  
+  
+
+  "dsLadyLiberty": "自由女神像的照片，带有权利列表的预览。",
+  "dsShowBack": "显示返回按钮？"
 }
