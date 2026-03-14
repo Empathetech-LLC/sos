@@ -396,6 +396,7 @@ class _HomeScreenState extends State<HomeScreen>
                 scrollDirection: Axis.horizontal,
                 reverseHands: true,
                 startCentered: true,
+                showScrollHint: true,
                 children: <Widget>[
                   // Take picture/know your rights
                   (camera == null || recording)
