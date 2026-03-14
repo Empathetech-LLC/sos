@@ -9,19 +9,29 @@ class LangAr extends Lang {
   LangAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get gOk => 'حسنًا';
+  String get gOk => 'حسناً';
+
+  @override
+  String get gDone => 'تم';
 
   @override
   String get gReminder => 'تذكير';
 
   @override
+  String get gSystem => 'إعدادات النظام';
+
+  @override
   String get gNotAgain => 'لا تظهر مرة أخرى';
 
   @override
-  String get sosLastKnown => 'آخر موقع معروف';
+  String get gOnCloseWarning =>
+      '\"طلب الاستغاثة عند الإغلاق\" مفعل. سيبدأ هذا بثاً.';
 
   @override
-  String get sosNeedSMS => 'تحتاج خدمة SOS إلى إذن SMS لتعمل بشكل صحيح.';
+  String get sosLastKnown => 'آخر موقع معروف:';
+
+  @override
+  String get sosNeedSMS => 'طلب الاستغاثة (SOS) يحتاج إلى إذن الرسائل القصيرة.';
 
   @override
   String get sosDisabled => 'لا يمكن الوصول إلى الموقع (معطل)';
@@ -33,16 +43,149 @@ class LangAr extends Lang {
   String get sosError => 'لا يمكن الوصول إلى الموقع (خطأ)';
 
   @override
-  String get hsStartSOS => 'قم بالتفعيل لبدء بث SOS.';
+  String get hsWelcome => 'مرحباً بك في InstaSOS';
 
   @override
-  String get hsEndSOS => 'يتم بث SOS. قم بتفعيله لإيقافه.';
+  String get hsWelcomeFix => 'مرحباً بك في Insta-SOS';
 
   @override
-  String get hsSafeCloseHint => 'كل شيء واضح. أغلق التطبيق بدون SOS.';
+  String get hsAppIntro =>
+      'للبدء، هذا مجرد تطبيق لمعرفة حقوقك.\nيمكنك تفعيل المزيد من الأدوات من خلال منحها الإذن في القائمة أدناه.';
 
   @override
-  String get hsAutoSOS => 'SOS تلقائي';
+  String get hsAppIntroAlt =>
+      'التحديث الأخير كان كبيراً، لنتأكد من أن كل شيء جاهز أدناه.';
+
+  @override
+  String get hsYourApp => 'يمكنك تغيير رأيك/أذوناتك في أي وقت.';
+
+  @override
+  String get hsHybridTranslation =>
+      'تمت ترجمة البرنامج التعليمي والإعدادات آلياً.\nقائمة الحقوق تمت ترجمتها بشرياً.';
+
+  @override
+  String get hsCamMic => 'الكاميرا والميكروفون';
+
+  @override
+  String get hsAddRecording => 'يفعّل تسجيل الفيديو.';
+
+  @override
+  String get hsGallery => 'المعرض';
+
+  @override
+  String get hsAddSave => 'مطلوب لحفظ تسجيلاتك.';
+
+  @override
+  String get hsCameraReady => 'الكاميرا جاهزة';
+
+  @override
+  String get hsCameraSetupHint =>
+      'قم بالتفعيل لمنح Insta-SOS إذن الوصول إلى الكاميرا.';
+
+  @override
+  String get hsContacts => 'جهات الاتصال';
+
+  @override
+  String get hsAddContacts => 'الجزء 1 من تفعيل تنبيهات جهات اتصال الطوارئ.';
+
+  @override
+  String get hsAddContactsIOS => 'يفعّل تنبيهات جهات اتصال الطوارئ.';
+
+  @override
+  String get hsContactsReady => 'جهات الاتصال جاهزة';
+
+  @override
+  String get hsContactsSetupHint =>
+      'قم بالتفعيل لمنح Insta-SOS إذن عرض جهات الاتصال الخاصة بك.';
+
+  @override
+  String get hsTexting => 'المراسلة النصية';
+
+  @override
+  String get hsAddTexting => 'الجزء 2 من تفعيل تنبيهات جهات اتصال الطوارئ.';
+
+  @override
+  String get hsTextingReady => 'المراسلة النصية جاهزة';
+
+  @override
+  String get hsTextingSetupHint =>
+      'قم بالتفعيل لمنح Insta-SOS إذن إرسال الرسائل.';
+
+  @override
+  String get hsLocation => 'الموقع';
+
+  @override
+  String get hsUnable => 'غير قادر على التحديد';
+
+  @override
+  String get hsAddLocation => 'يفعّل مشاركة الموقع مع جهات اتصال الطوارئ.';
+
+  @override
+  String get hsAddAlways =>
+      'يوصى بتفعيله دائماً. اضغط مرة أخرى لفتح إعدادات النظام.';
+
+  @override
+  String get hsLocationReady => 'الموقع جاهز';
+
+  @override
+  String get hsLocationSetupHint => 'قم بالتفعيل لمنح Insta-SOS إذن عرض موقعك.';
+
+  @override
+  String get hsOneOfFour => 'الأول من أربعة. متابعة...';
+
+  @override
+  String get hsBroadcastTutorial =>
+      'قم بتفعيل طلب الاستغاثة (SOS) لمراسلة جهات اتصال الطوارئ تلقائياً.\n\nعندما يتمكن InstaSOS من الوصول إلى موقعك، سيتم تضمينه في الرسائل النصية.';
+
+  @override
+  String get hsBroadcastTutorialFix =>
+      'قم بتفعيل طلب الاستغاثة (SOS) لمراسلة جهات اتصال الطوارئ تلقائياً.\n\nعندما يتمكن Insta-SOS من الوصول إلى موقعك، سيتم تضمينه في الرسائل النصية.';
+
+  @override
+  String get hsBroadcastTutorialAndroid =>
+      'ستستمر الرسائل النصية عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تفعيل طلب الاستغاثة (SOS) يدوياً أو أغلق التطبيق بالكامل لإيقاف الرسائل النصية.';
+
+  @override
+  String get hsTwoOfFour => 'الثاني من أربعة. متابعة...';
+
+  @override
+  String get hsSettingsTutorial =>
+      '- قم بإعداد بث طلب الاستغاثة (SOS) الخاص بك\n- خصص مظهر التطبيق\n- الوصول إلى المزيد من الموارد والدعم\n\nفي الإعدادات.';
+
+  @override
+  String get hsSettingsTutorialFix =>
+      'يمكنك إعداد بث طلب الاستغاثة (SOS) الخاص بك، وتخصيص مظهر التطبيق، والوصول إلى المزيد من الموارد/الدعم في الإعدادات.';
+
+  @override
+  String get hsThreeOfFour => 'الثالث من أربعة. متابعة...';
+
+  @override
+  String get hsVideoTutorial =>
+      'عندما تلتقط صورة أو تسجل مقطع فيديو، يمكنك مشاركته على الفور.\n\nافتراضياً، إذا تمت مقاطعة التسجيل، سيبدأ بث طلب الاستغاثة (SOS) تلقائياً.\n\nاضغط مطولاً على معاينة الكاميرا لإظهار/إخفاء حقوقك.';
+
+  @override
+  String get hsIOSVideoTutorial =>
+      'عندما تلتقط صورة أو تسجل مقطع فيديو، يمكنك مشاركته على الفور.\n\nاضغط مطولاً على معاينة الكاميرا لإظهار/إخفاء حقوقك.';
+
+  @override
+  String get hsTutorialComplete => 'اكتمل البرنامج التعليمي';
+
+  @override
+  String get hsAddEMC =>
+      'إذا كنت تستخدم تنبيهات طلب الاستغاثة (SOS)، يرجى التوجه إلى صفحة الإعدادات وإضافة جهات اتصال الطوارئ الخاصة بك.';
+
+  @override
+  String get hsStartSOS => 'قم بالتفعيل لبدء بث طلب الاستغاثة (SOS).';
+
+  @override
+  String get hsEndSOS => 'طلب الاستغاثة (SOS) قيد البث. قم بالتفعيل للإيقاف.';
+
+  @override
+  String get hsSafeCloseHint =>
+      'الوضع آمن. أغلق التطبيق بدون طلب الاستغاثة (SOS).';
+
+  @override
+  String get hsBroadcasting => 'جاري البث';
 
   @override
   String get hsStop => 'إيقاف';
@@ -51,179 +194,131 @@ class LangAr extends Lang {
   String get hsCameraHint => 'التقط صورة.';
 
   @override
-  String get hsPreviewHint => 'اضغط لفترة طويلة لتبديل عرض حقوقك.';
+  String get hsPreviewHint => 'اضغط مطولاً لإظهار/إخفاء حقوقك.';
 
   @override
-  String get hsShowRights => 'أظهر حقوقك.';
+  String get hsShowRights => 'إظهار حقوقك.';
 
   @override
   String get hsHideRights => 'إخفاء حقوقك.';
 
   @override
-  String get hsStartRecord => 'سجل فيديو.';
+  String get hsStartRecord => 'تسجيل مقطع فيديو.';
 
   @override
   String get hsEndRecord => 'إنهاء التسجيل.';
 
   @override
-  String get hsFlashOff => 'الفلاش معطل. قم بتفعيله لتشغيل الفلاش التلقائي.';
+  String get hsFlashOff => 'الفلاش مطفأ. قم بالتفعيل لتشغيل الفلاش التلقائي.';
 
   @override
-  String get hsFlashAuto => 'الفلاش تلقائي. قم بتفعيله لتشغيل الفلاش.';
+  String get hsFlashAuto => 'فلاش تلقائي. قم بالتفعيل لتشغيل الفلاش.';
 
   @override
-  String get hsFlashOn => 'الفلاش يعمل. قم بتفعيله لإيقاف تشغيل الفلاش.';
+  String get hsFlashOn =>
+      'الفلاش قيد التشغيل. قم بالتفعيل لإيقاف تشغيل الفلاش.';
 
   @override
-  String get hsFlashTorch => 'وضع المصباح. قم بتفعيله لإيقاف تشغيل الفلاش.';
+  String get hsFlashTorch => 'وضع المصباح. قم بالتفعيل لإيقاف تشغيل الفلاش.';
 
   @override
-  String get hsWelcome => 'مرحباً بكم في InstaSOS';
+  String get hsNoFlash => 'فلاش الكاميرا لا يعمل';
 
   @override
-  String get hsAppTutorial =>
-      'يشارك حالتك مع جهات الاتصال في حالات الطوارئ في أوقات الأزمات.\n\nالرجاء اختيار جهة اتصال في حالات الطوارئ.\nواحدة فقط في الوقت الحالي، ويمكنك إضافة المزيد لاحقًا.';
+  String get rvSharedHeader => 'لديك الحق في...';
 
   @override
-  String get hsPermissionsTutorialTitle => 'إذا أردت';
+  String get rvOnFoot => 'سيرا على الأقدام';
 
   @override
-  String get hsPermissionsTutorial =>
-      'يمكن لـ InstaSOS أيضًا جمع الأدلة ومشاركتها.\n\nوسيطلب الوصول إلى الكاميرا والميكروفون والمعرض للقيام بذلك.';
+  String get rvWhileDriving => 'أثناء القيادة';
 
   @override
-  String get hsPermissionsAlways =>
-      'يرجى تعيين الموقع للسماح به دائمًا.\nسيتم استخدامه فقط أثناء تنشيط SOS.';
+  String get rvAtHome => 'في البيت';
 
   @override
-  String get hsBroadcastTutorial =>
-      'قم بتفعيل SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال في حالات الطوارئ.\n\nإذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.\n\nستستمر الرسائل النصية حتى عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تنشيط SOS أو إغلاق التطبيق بالكامل لإيقاف الرسائل النصية.';
-
-  @override
-  String get hsIOSBroadcastTutorial =>
-      'قم بتنشيط SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال الخاصة بك في حالات الطوارئ.\n\n إذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.';
-
-  @override
-  String get hsSettingsTutorial =>
-      'يمكنك...\n\n- إضافة المزيد من جهات الاتصال في حالات الطوارئ\n- إعداد خدمة SOS تلقائية\n- تغيير لغة التطبيق، و\n- تحديث مظهر التطبيق\n\nفي الإعدادات.\n\nاضغط باستمرار على زر الإعدادات لتقديم ملاحظات حول التطبيق.';
-
-  @override
-  String get hsVideoTutorial =>
-      'عندما تلتقط صورة أو تسجل مقطع فيديو، ستتمكن من مشاركته على الفور.\n\nافتراضيًا، إذا تمت مقاطعة التسجيل، فسيتم تنشيط SOS تلقائيًا.\n\nاضغط مطولًا على المعاينة المركزية لإظهار قائمة بحقوقك.';
-
-  @override
-  String get hsIOSVideoTutorial =>
-      'عندما تلتقط صورة أو تسجل مقطع فيديو، ستتمكن من مشاركته على الفور.\n\nاضغط لفترة طويلة على المعاينة المركزية لإظهار قائمة بحقوقك.';
-
-  @override
-  String get hsRightsTutorial =>
-      'إذا قمت بتمكين الكاميرا، والتقطت صورة أو سجلت مقطع فيديو، فستتمكن من مشاركته على الفور.\n\nافتراضيًا، إذا تمت مقاطعة التسجيل، فسيتم تنشيط SOS تلقائيًا.\n\nاضغط على المطرقة أو اضغط مطولاً على وسط الشاشة لإظهار قائمة بحقوقك.';
-
-  @override
-  String get hsIOSRightsTutorial =>
-      'إذا قمت بتمكين الكاميرا، والتقطت صورة أو سجلت مقطع فيديو، فستتمكن من مشاركته على الفور.\n\nاضغط على المطرقة أو اضغط لفترة طويلة على وسط الشاشة لإظهار قائمة بحقوقك.';
-
-  @override
-  String get hsNeedContacts =>
-      'يحتاج تطبيق InstaSOS إلى الوصول إلى جهات الاتصال الخاصة بك ليعمل بشكل صحيح.';
-
-  @override
-  String get hsPartialContacts =>
-      'ستعرض Apple جميع جهات الاتصال، وليس فقط تلك التي تمت مشاركتها مع InstaSOS.\nلمشاركة المزيد من جهات الاتصال، انتقل إلى إعدادات iOS -> التطبيقات -> InstaSOS';
-
-  @override
-  String get hsNumError => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف.';
-
-  @override
-  String get rsSharedHeader => 'لديك الحق في...';
-
-  @override
-  String get rsOnFoot => 'سيرا على الأقدام';
-
-  @override
-  String get rsWhileDriving => 'أثناء القيادة';
-
-  @override
-  String get rsAtHome => 'في البيت';
-
-  @override
-  String get rsSharedRemainSilent =>
+  String get rvSharedRemainSilent =>
       'التزم الصمت. لا تكذب، ولكن ليس عليك الإجابة على الأسئلة.';
 
   @override
-  String get rsSharedDocument =>
+  String get rvSharedDocument =>
       'وثّق كل شيء. لديك الحق في التقاط الصور وتسجيل الفيديوهات والتسجيل الصوتي.';
 
   @override
-  String get rsMobilePockets =>
+  String get rvMobilePockets =>
       'ارفض تفتيش جيوبك. يمكن لدائرة الهجرة والجمارك الأمريكية (ICE) إجراء تفتيش جسدي، ولكن ليس تفتيشًا داخليًا.';
 
   @override
-  String get rsMobileQuestion => 'اطرح الأسئلة. اكتشف سبب إيقافك.';
+  String get rvMobileQuestion => 'اطرح الأسئلة. اكتشف سبب إيقافك.';
 
   @override
-  String get rsMobileLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
+  String get rvMobileLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
 
   @override
-  String get rsDriveSearch => 'ارفض تفتيش سيارتك.';
+  String get rvDriveSearch => 'ارفض تفتيش سيارتك.';
 
   @override
-  String get rsDriveID =>
+  String get rvDriveID =>
       'ارفض إبراز بطاقة هوية كراكب. السائق فقط هو المطلوب منه إبرازها.';
 
   @override
-  String get rsDriveWarrant =>
+  String get rvDriveWarrant =>
       'اسأل إن كان لدى الضباط أمر تفتيش. يحق لك الاطلاع عليه إن وُجد. إذا لم يتم توقيع \"الأمر\" من قبل القاضي، فهو غير صالح.';
 
   @override
-  String get rsHomeWarrant =>
+  String get rvHomeWarrant =>
       'أبقِ بابك مغلقًا. إذا كان لديهم أمر تفتيش، فاطلب منهم وضعه تحت الباب أولًا. إذا لم يكن \"الأمر\" موقّعًا من قاضٍ، فهو غير صالح. أبقِ بابك مغلقًا.';
 
   @override
-  String get rsSharedSign => 'ارفض التوقيع على أي شيء.';
+  String get rvSharedSign => 'ارفض التوقيع على أي شيء.';
 
   @override
-  String get rsSharedFingerprint =>
+  String get rvSharedFingerprint =>
       'ارفض أن يتم أخذ بصمات أصابعك من قبل دائرة الهجرة والجمارك الأمريكية إلا إذا كنت تحت الاعتقال.';
 
   @override
-  String get rsSharedLawyer =>
+  String get rvSharedLawyer =>
       'استشارة محامٍ. إذا تم اعتقالك رسميًا، يحق لك الاستعانة بمحامٍ تعينه المحكمة.';
 
   @override
-  String get ssSOSOnOpen => 'SOS مفتوح';
+  String get ssAutoShare => 'مشاركة الصور/مقاطع الفيديو تلقائياً';
 
   @override
-  String get ssSOSOnClose => 'SOS عند الإغلاق';
+  String get ssSOS => 'إعدادات طلب الاستغاثة (SOS)';
 
   @override
-  String get ssSOSOnCloseHint =>
-      'عند تفعيلها، سيظهر زر إغلاق آمن (إشارة إعجاب) على الصفحة الرئيسية، مقابل الإعدادات. إذا فقد InstaSOS تركيزه لأي سبب باستثناء زر إغلاق الأمان (تصغير، أو تشغيل التطبيقات، أو إيقاف تشغيل الشاشة)، فسيبدأ بث استغاثة.';
+  String get ssAppearance => 'إعدادات المظهر';
 
   @override
-  String get ssCloseOffWarning =>
-      'سيغلق التطبيق تلقائيًا لمنع البث غير المقصود.';
+  String get ssPermissions => 'الأذونات';
 
   @override
-  String get ssVideoSOS => 'SOS عند انقطاع التسجيل';
+  String get ssResources => 'الموارد';
 
   @override
-  String get ssAutoShare => 'مشاركة الوسائط تلقائيًا';
+  String get ssSupport => 'الدعم';
 
   @override
-  String get ssEMC => 'جهات الاتصال في حالات الطوارئ';
+  String get pmOnlyAdd => 'هذه الأداة تساعد فقط في إضافة الأذونات.';
 
   @override
-  String get ssRemoveHint => 'إزالة جهة الاتصال';
+  String get pmRemoveIn => 'يمكنك إزالة الأذونات في ';
 
   @override
-  String get ssAddHint => 'إضافة جهة اتصال أخرى';
+  String get pmManualPermission =>
+      'إذا قمت بإزالة الأذونات في إعدادات النظام، يجب استعادتها هناك أيضاً.';
 
   @override
-  String get ssLinkType => 'نوع الرابط';
+  String get rmCommunity => 'موارد المجتمع';
 
   @override
-  String get ssAppearance => 'المظهر';
+  String get rmGov => 'الموارد الحكومية الأمريكية';
+
+  @override
+  String get rmAffiliate => 'لا يتبع أي منها لشركة Empathetech LLC';
+
+  @override
+  String get rmAffiliateFix => 'لا يتبع أي منها لشركة Empathetic LLC';
 
   @override
   String get faqName => 'الأسئلة الشائعة';
@@ -232,75 +327,81 @@ class LangAr extends Lang {
   String get faqListQ => 'كيف تم إعداد قائمة الحقوق؟';
 
   @override
-  String get faqListA1 =>
-      'تم تجميع قائمة الحقوق من عدة مصادر عامة، بما في ذلك:';
+  String get faqListA => 'تم أخذ قائمة الحقوق من عدة موارد عامة، بما في ذلك:';
 
   @override
-  String get faqListA2 => 'مورد مفيد آخر: ';
+  String get faqSettings => 'كيف تعمل الإعدادات؟';
 
   @override
-  String get faqSettings => 'ما هي وظيفة الإعدادات؟';
+  String get faqAutoShareA =>
+      ' يستخدم ميزة المشاركة المدمجة في هاتفك. لا يستخدم جهات اتصال الطوارئ المحفوظة (إن وجدت). المشاركة اختيارية ويمكن إلغاؤها دائماً.';
 
   @override
-  String get faqOnOpen =>
-      'الاستغاثة عند الفتح: عند التفعيل، سيبدأ بث الاستغاثة فور تشغيل التطبيق. لا يُنصح به لمعظم المستخدمين، حيث قد يؤدي إلى إرسال نداءات عن طريق الخطأ.';
+  String get faqLinkA =>
+      ' كيف سيتم إرسال موقعك إلى جهات اتصال الطوارئ الخاصة بك. سيرسل \"خرائط جوجل\" و \"خرائط أبل\" و \"Waze\" رابطاً قابلاً للنقر للخدمة المقابلة. سترسل \"الإحداثيات\" خطوط العرض والطول كنص عادي.';
 
   @override
-  String get faqOnInterrupt =>
-      'الاستغاثة عند توقف التسجيل: عند التفعيل، إذا كان تسجيل الفيديو نشطاً وفقد InstaSOS التركيز لأي سبب (تم تصغيره، التبديل بين التطبيقات، إغلاق الشاشة)، سيبدأ بث الاستغاثة.\nيُنصح بتفعيل هذا الخيار أو \"الاستغاثة عند الإغلاق\" (أو كليهما).';
+  String get faqOnOpenA =>
+      ' سيبدأ بث طلب الاستغاثة (SOS) فوراً عند تشغيل التطبيق. لا يوصى به لمعظم المستخدمين، حيث قد يؤدي إلى عمليات بث غير مقصودة.';
 
   @override
-  String get faqAutoShare =>
-      'المشاركة التلقائية للوسائط: عند التفعيل، ستظهر خيارات المشاركة الأصلية بمجرد اكتمال الفيديو أو التقاط صورة.';
+  String get faqOnInterruptA =>
+      ' إذا كان هناك فيديو قيد التسجيل وفقد InstaSOS التركيز، سيبدأ بث طلب الاستغاثة (SOS). فقدان التركيز يعني: تصغير التطبيق، أو التبديل بين التطبيقات، و/أو قفل الشاشة. يوصى بتفعيل هذا الخيار أو \"طلب الاستغاثة عند الإغلاق\" (أو كليهما).';
 
   @override
-  String get faqEMC =>
-      'جهات اتصال الطوارئ: الأشخاص الذين سيتم إرسال موقعك إليهم أثناء نشاط بث الاستغاثة.';
+  String get faqOnInterruptAFix =>
+      ' إذا كان هناك فيديو قيد التسجيل وفقد Insta-SOS التركيز، سيبدأ بث طلب الاستغاثة (SOS). فقدان التركيز يعني: تصغير التطبيق، أو التبديل بين التطبيقات، و/أو قفل الشاشة. يوصى بتفعيل هذا الخيار أو \"طلب الاستغاثة عند الإغلاق\" (أو كليهما).';
 
   @override
-  String get faqLink =>
-      'نوع الرابط: كيف سيتم تسليم موقعك إلى جهات الاتصال. \"خرائط Google\" و\"خرائط Apple\" و\"Waze\" سترسل رابطاً قابلاً للنقر للخدمة المقابلة. \"الإحداثيات\" سترسل خطي العرض والطول كنص عادي.';
-
-  @override
-  String get faqUnavailable => 'الاستغاثة تقول \"الموقع غير متاح\"؟';
+  String get faqUnavailable => 'يقول طلب الاستغاثة (SOS) \"الموقع غير متوفر\"؟';
 
   @override
   String get faqReliability =>
-      'لتحسين موثوقية الاستغاثة، يرجى تفعيل خيار \"السماح طوال الوقت\" في ';
+      'لتحسين موثوقية طلب الاستغاثة (SOS)، يرجى تفعيل \"السماح طوال الوقت\" في ';
 
   @override
   String get faqLocationPermissions => 'أذونات الموقع';
 
   @override
   String get faqLocationTrust =>
-      'يستخدم التطبيق موقعك فقط أثناء نشاط بث الاستغاثة. لا تقوم InstaSOS ولا Empathetech LLC بتتبع بيانات المستخدم أو تخزينها أو بيعها.';
+      'يستخدم التطبيق موقعك فقط أثناء نشاط بث طلب الاستغاثة (SOS). لا تقوم InstaSOS أو Empathetech LLC بتتبع أو تخزين أو بيع بيانات المستخدم.';
 
   @override
-  String get faqPrivateContact => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف؟';
+  String get faqLocationTrustFix =>
+      'يستخدم التطبيق موقعك فقط أثناء نشاط بث طلب الاستغاثة (SOS). لا تقوم Insta-SOS أو Empathetic LLC بتتبع أو تخزين أو بيع بيانات المستخدم.';
 
   @override
   String get faqContactPermissions =>
-      'إذا ظهرت لك هذه الرسالة عند إضافة جهة اتصال للطوارئ، فهذا يعني أن InstaSOS ليس لديه إذن للوصول إلى جهة الاتصال تلك.';
+      'إذا ظهرت لك هذه الرسالة عند إضافة جهة اتصال للطوارئ، فإن InstaSOS ليس لديه إذن بالوصول إلى جهة الاتصال المحددة هذه.';
 
   @override
-  String get faqUpdateContacts => 'يمكنك تحديث أذونات جهات الاتصال في ';
+  String get faqContactPermissionsFix =>
+      'إذا ظهرت لك هذه الرسالة عند إضافة جهة اتصال للطوارئ، فإن Insta-SOS ليس لديه إذن بالوصول إلى جهة الاتصال المحددة هذه.';
 
   @override
-  String get faqOSSettings => 'إعدادات iOS';
+  String get faqUpdateContacts =>
+      'يمكنك منح الوصول إلى المزيد (أو جميع) جهات الاتصال في ';
+
+  @override
+  String get faqSplitClarity1 =>
+      'منح الوصول إلى جهة اتصال لا يجعلها جهة اتصال للطوارئ. سيتم فقط الاتصال بالأرقام المدرجة في ';
+
+  @override
+  String get faqSplitClarity2 => ' أثناء بث طلب الاستغاثة (SOS).';
 
   @override
   String get faqMissing => 'لماذا بعض ميزات Android مفقودة؟';
 
   @override
   String get faqRestricted =>
-      'الميزات المفقودة تتطلب أتمتة الرسائل القصيرة (SMS)، ولا تسمح Apple للمطورين بأتمتة الرسائل النصية (بدون خدمة مدفوعة).';
+      'تتطلب الميزات المفقودة أتمتة الرسائل القصيرة (SMS)، ولا تسمح Apple للمطورين بأتمتة الرسائل النصية (بدون خدمة مدفوعة).';
 
   @override
   String get faqShortcuts =>
-      'ماذا عن اختصارات iOS؟\nهناك أيضاً قيود على الوصول إلى اختصارات المستخدم، مما قد يؤدي إلى تعطيل ميزات حاسمة. بشكل أساسي: قد يؤدي ذلك إلى مقاطعة تسجيلات الفيديو.';
+      'ماذا عن اختصارات iOS؟\nهناك أيضاً قيود على الوصول إلى اختصارات المستخدم، مما قد يؤدي إلى تعطيل ميزات حاسمة. بشكل أساسي: سيؤدي إلى مقاطعة تسجيلات الفيديو.';
 
   @override
-  String get faqLanguages => 'لماذا اللغة X غير متوفرة؟';
+  String get faqLanguages => 'لماذا لغة X غير متوفرة؟';
 
   @override
   String get faqResponsible =>
@@ -313,18 +414,72 @@ class LangAr extends Lang {
   String get faqExpand => ' للمساعدة في توسيع خيارات اللغة.';
 
   @override
-  String get faqReset => 'إعادة تعيين الشرح التوضيحي';
+  String get faqReset => 'إعادة ضبط البرنامج التعليمي';
 
   @override
-  String get faqResetSnack =>
-      'سيتم إعادة تشغيل الشرح التوضيحي عند الفتح في المرة القادمة.';
+  String get faqContact => 'الاتصال بالدعم';
 
   @override
-  String get faqOnCloseWarning =>
-      'تم تفعيل \"SOS عند الإغلاق\". سيؤدي هذا إلى بدء بث.';
+  String get faqContactHint => 'أرسل بريداً إلكترونياً إلى Empathetic LLC';
+
+  @override
+  String get bsEMC => 'جهات اتصال الطوارئ';
+
+  @override
+  String get bsAddSomeone => 'أضف شخصاً لتفعيل طلب الاستغاثة (SOS)';
+
+  @override
+  String get bsRemoveHint => 'إزالة جهة الاتصال';
+
+  @override
+  String get bsAddHint => 'إضافة جهة اتصال أخرى';
+
+  @override
+  String get bsLinkType => 'نوع رابط الموقع';
+
+  @override
+  String get bsSnackRequest => 'يرجى إضافة جهات اتصال الطوارئ';
+
+  @override
+  String get bsNeedPermission => 'لا يمكن إضافة جهات اتصال بدون إذن';
+
+  @override
+  String get bsPartialContacts =>
+      'ستعرض Apple جميع جهات الاتصال، وليس فقط تلك التي تمت مشاركتها مع InstaSOS.\nلمشاركة المزيد من جهات الاتصال، افتح ';
+
+  @override
+  String get bsPartialContactsFix =>
+      'ستعرض Apple جميع جهات الاتصال، وليس فقط تلك التي تمت مشاركتها مع Insta-SOS.\nلمشاركة المزيد من جهات الاتصال، افتح ';
+
+  @override
+  String get bsNumError => 'جهة الاتصال هذه خاصة أو ليس لديها رقم هاتف.';
+
+  @override
+  String get bsSOSOnOpen => 'طلب الاستغاثة عند الفتح';
+
+  @override
+  String get bsSOSOnClose => 'طلب الاستغاثة عند الإغلاق';
+
+  @override
+  String get bsSOSOnCloseHint =>
+      'سيظهر زر إغلاق آمن (علامة الإعجاب) على الصفحة الرئيسية، مقابل الإعدادات.\nإذا فقد InstaSOS التركيز لأي سبب باستثناء زر الإغلاق الآمن (تصغير التطبيق، التبديل بين التطبيقات، إيقاف الشاشة)، سيبدأ بث طلب الاستغاثة (SOS).';
+
+  @override
+  String get bsSOSOnCloseHintFix =>
+      'سيظهر زر إغلاق آمن (علامة الإعجاب) على الصفحة الرئيسية، مقابل الإعدادات.\nإذا فقد Insta-SOS التركيز لأي سبب باستثناء زر الإغلاق الآمن (تصغير التطبيق، التبديل بين التطبيقات، إيقاف الشاشة)، سيبدأ بث طلب الاستغاثة (SOS).';
+
+  @override
+  String get bsCloseOffWarning =>
+      'سيتم إغلاق التطبيق تلقائياً لمنع عمليات البث غير المقصودة.';
+
+  @override
+  String get bsSOSOnVideo => 'طلب الاستغاثة عند مقاطعة التسجيل';
 
   @override
   String get dsLadyLiberty => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';
+
+  @override
+  String get dsShowBack => 'إظهار زر الرجوع؟';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -332,19 +487,29 @@ class LangArEg extends LangAr {
   LangArEg() : super('ar_EG');
 
   @override
-  String get gOk => 'حسنًا';
+  String get gOk => 'حسناً';
+
+  @override
+  String get gDone => 'تم';
 
   @override
   String get gReminder => 'تذكير';
 
   @override
+  String get gSystem => 'إعدادات النظام';
+
+  @override
   String get gNotAgain => 'لا تظهر مرة أخرى';
 
   @override
-  String get sosLastKnown => 'آخر موقع معروف';
+  String get gOnCloseWarning =>
+      '\"طلب الاستغاثة عند الإغلاق\" مفعل. سيبدأ هذا بثاً.';
 
   @override
-  String get sosNeedSMS => 'تحتاج خدمة SOS إلى إذن SMS لتعمل بشكل صحيح.';
+  String get sosLastKnown => 'آخر موقع معروف:';
+
+  @override
+  String get sosNeedSMS => 'طلب الاستغاثة (SOS) يحتاج إلى إذن الرسائل القصيرة.';
 
   @override
   String get sosDisabled => 'لا يمكن الوصول إلى الموقع (معطل)';
@@ -356,16 +521,149 @@ class LangArEg extends LangAr {
   String get sosError => 'لا يمكن الوصول إلى الموقع (خطأ)';
 
   @override
-  String get hsStartSOS => 'قم بالتفعيل لبدء بث SOS.';
+  String get hsWelcome => 'مرحباً بك في InstaSOS';
 
   @override
-  String get hsEndSOS => 'يتم بث SOS. قم بتفعيله لإيقافه.';
+  String get hsWelcomeFix => 'مرحباً بك في Insta-SOS';
 
   @override
-  String get hsSafeCloseHint => 'كل شيء واضح. أغلق التطبيق بدون SOS.';
+  String get hsAppIntro =>
+      'للبدء، هذا مجرد تطبيق لمعرفة حقوقك.\nيمكنك تفعيل المزيد من الأدوات من خلال منحها الإذن في القائمة أدناه.';
 
   @override
-  String get hsAutoSOS => 'SOS تلقائي';
+  String get hsAppIntroAlt =>
+      'التحديث الأخير كان كبيراً، لنتأكد من أن كل شيء جاهز أدناه.';
+
+  @override
+  String get hsYourApp => 'يمكنك تغيير رأيك/أذوناتك في أي وقت.';
+
+  @override
+  String get hsHybridTranslation =>
+      'تمت ترجمة البرنامج التعليمي والإعدادات آلياً.\nقائمة الحقوق تمت ترجمتها بشرياً.';
+
+  @override
+  String get hsCamMic => 'الكاميرا والميكروفون';
+
+  @override
+  String get hsAddRecording => 'يفعّل تسجيل الفيديو.';
+
+  @override
+  String get hsGallery => 'المعرض';
+
+  @override
+  String get hsAddSave => 'مطلوب لحفظ تسجيلاتك.';
+
+  @override
+  String get hsCameraReady => 'الكاميرا جاهزة';
+
+  @override
+  String get hsCameraSetupHint =>
+      'قم بالتفعيل لمنح Insta-SOS إذن الوصول إلى الكاميرا.';
+
+  @override
+  String get hsContacts => 'جهات الاتصال';
+
+  @override
+  String get hsAddContacts => 'الجزء 1 من تفعيل تنبيهات جهات اتصال الطوارئ.';
+
+  @override
+  String get hsAddContactsIOS => 'يفعّل تنبيهات جهات اتصال الطوارئ.';
+
+  @override
+  String get hsContactsReady => 'جهات الاتصال جاهزة';
+
+  @override
+  String get hsContactsSetupHint =>
+      'قم بالتفعيل لمنح Insta-SOS إذن عرض جهات الاتصال الخاصة بك.';
+
+  @override
+  String get hsTexting => 'المراسلة النصية';
+
+  @override
+  String get hsAddTexting => 'الجزء 2 من تفعيل تنبيهات جهات اتصال الطوارئ.';
+
+  @override
+  String get hsTextingReady => 'المراسلة النصية جاهزة';
+
+  @override
+  String get hsTextingSetupHint =>
+      'قم بالتفعيل لمنح Insta-SOS إذن إرسال الرسائل.';
+
+  @override
+  String get hsLocation => 'الموقع';
+
+  @override
+  String get hsUnable => 'غير قادر على التحديد';
+
+  @override
+  String get hsAddLocation => 'يفعّل مشاركة الموقع مع جهات اتصال الطوارئ.';
+
+  @override
+  String get hsAddAlways =>
+      'يوصى بتفعيله دائماً. اضغط مرة أخرى لفتح إعدادات النظام.';
+
+  @override
+  String get hsLocationReady => 'الموقع جاهز';
+
+  @override
+  String get hsLocationSetupHint => 'قم بالتفعيل لمنح Insta-SOS إذن عرض موقعك.';
+
+  @override
+  String get hsOneOfFour => 'الأول من أربعة. متابعة...';
+
+  @override
+  String get hsBroadcastTutorial =>
+      'قم بتفعيل طلب الاستغاثة (SOS) لمراسلة جهات اتصال الطوارئ تلقائياً.\n\nعندما يتمكن InstaSOS من الوصول إلى موقعك، سيتم تضمينه في الرسائل النصية.';
+
+  @override
+  String get hsBroadcastTutorialFix =>
+      'قم بتفعيل طلب الاستغاثة (SOS) لمراسلة جهات اتصال الطوارئ تلقائياً.\n\nعندما يتمكن Insta-SOS من الوصول إلى موقعك، سيتم تضمينه في الرسائل النصية.';
+
+  @override
+  String get hsBroadcastTutorialAndroid =>
+      'ستستمر الرسائل النصية عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تفعيل طلب الاستغاثة (SOS) يدوياً أو أغلق التطبيق بالكامل لإيقاف الرسائل النصية.';
+
+  @override
+  String get hsTwoOfFour => 'الثاني من أربعة. متابعة...';
+
+  @override
+  String get hsSettingsTutorial =>
+      '- قم بإعداد بث طلب الاستغاثة (SOS) الخاص بك\n- خصص مظهر التطبيق\n- الوصول إلى المزيد من الموارد والدعم\n\nفي الإعدادات.';
+
+  @override
+  String get hsSettingsTutorialFix =>
+      'يمكنك إعداد بث طلب الاستغاثة (SOS) الخاص بك، وتخصيص مظهر التطبيق، والوصول إلى المزيد من الموارد/الدعم في الإعدادات.';
+
+  @override
+  String get hsThreeOfFour => 'الثالث من أربعة. متابعة...';
+
+  @override
+  String get hsVideoTutorial =>
+      'عندما تلتقط صورة أو تسجل مقطع فيديو، يمكنك مشاركته على الفور.\n\nافتراضياً، إذا تمت مقاطعة التسجيل، سيبدأ بث طلب الاستغاثة (SOS) تلقائياً.\n\nاضغط مطولاً على معاينة الكاميرا لإظهار/إخفاء حقوقك.';
+
+  @override
+  String get hsIOSVideoTutorial =>
+      'عندما تلتقط صورة أو تسجل مقطع فيديو، يمكنك مشاركته على الفور.\n\nاضغط مطولاً على معاينة الكاميرا لإظهار/إخفاء حقوقك.';
+
+  @override
+  String get hsTutorialComplete => 'اكتمل البرنامج التعليمي';
+
+  @override
+  String get hsAddEMC =>
+      'إذا كنت تستخدم تنبيهات طلب الاستغاثة (SOS)، يرجى التوجه إلى صفحة الإعدادات وإضافة جهات اتصال الطوارئ الخاصة بك.';
+
+  @override
+  String get hsStartSOS => 'قم بالتفعيل لبدء بث طلب الاستغاثة (SOS).';
+
+  @override
+  String get hsEndSOS => 'طلب الاستغاثة (SOS) قيد البث. قم بالتفعيل للإيقاف.';
+
+  @override
+  String get hsSafeCloseHint =>
+      'الوضع آمن. أغلق التطبيق بدون طلب الاستغاثة (SOS).';
+
+  @override
+  String get hsBroadcasting => 'جاري البث';
 
   @override
   String get hsStop => 'إيقاف';
@@ -374,179 +672,131 @@ class LangArEg extends LangAr {
   String get hsCameraHint => 'التقط صورة.';
 
   @override
-  String get hsPreviewHint => 'اضغط لفترة طويلة لتبديل عرض حقوقك.';
+  String get hsPreviewHint => 'اضغط مطولاً لإظهار/إخفاء حقوقك.';
 
   @override
-  String get hsShowRights => 'أظهر حقوقك.';
+  String get hsShowRights => 'إظهار حقوقك.';
 
   @override
   String get hsHideRights => 'إخفاء حقوقك.';
 
   @override
-  String get hsStartRecord => 'سجل فيديو.';
+  String get hsStartRecord => 'تسجيل مقطع فيديو.';
 
   @override
   String get hsEndRecord => 'إنهاء التسجيل.';
 
   @override
-  String get hsFlashOff => 'الفلاش معطل. قم بتفعيله لتشغيل الفلاش التلقائي.';
+  String get hsFlashOff => 'الفلاش مطفأ. قم بالتفعيل لتشغيل الفلاش التلقائي.';
 
   @override
-  String get hsFlashAuto => 'الفلاش تلقائي. قم بتفعيله لتشغيل الفلاش.';
+  String get hsFlashAuto => 'فلاش تلقائي. قم بالتفعيل لتشغيل الفلاش.';
 
   @override
-  String get hsFlashOn => 'الفلاش يعمل. قم بتفعيله لإيقاف تشغيل الفلاش.';
+  String get hsFlashOn =>
+      'الفلاش قيد التشغيل. قم بالتفعيل لإيقاف تشغيل الفلاش.';
 
   @override
-  String get hsFlashTorch => 'وضع المصباح. قم بتفعيله لإيقاف تشغيل الفلاش.';
+  String get hsFlashTorch => 'وضع المصباح. قم بالتفعيل لإيقاف تشغيل الفلاش.';
 
   @override
-  String get hsWelcome => 'مرحباً بكم في InstaSOS';
+  String get hsNoFlash => 'فلاش الكاميرا لا يعمل';
 
   @override
-  String get hsAppTutorial =>
-      'يشارك حالتك مع جهات الاتصال في حالات الطوارئ في أوقات الأزمات.\n\nالرجاء اختيار جهة اتصال في حالات الطوارئ.\nواحدة فقط في الوقت الحالي، ويمكنك إضافة المزيد لاحقًا.';
+  String get rvSharedHeader => 'لديك الحق في...';
 
   @override
-  String get hsPermissionsTutorialTitle => 'إذا أردت';
+  String get rvOnFoot => 'سيرا على الأقدام';
 
   @override
-  String get hsPermissionsTutorial =>
-      'يمكن لـ InstaSOS أيضًا جمع الأدلة ومشاركتها.\n\nوسيطلب الوصول إلى الكاميرا والميكروفون والمعرض للقيام بذلك.';
+  String get rvWhileDriving => 'أثناء القيادة';
 
   @override
-  String get hsPermissionsAlways =>
-      'يرجى تعيين الموقع للسماح به دائمًا.\nسيتم استخدامه فقط أثناء تنشيط SOS.';
+  String get rvAtHome => 'في البيت';
 
   @override
-  String get hsBroadcastTutorial =>
-      'قم بتفعيل SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال في حالات الطوارئ.\n\nإذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.\n\nستستمر الرسائل النصية حتى عندما يكون الهاتف مقفلاً.\n\nقم بإلغاء تنشيط SOS أو إغلاق التطبيق بالكامل لإيقاف الرسائل النصية.';
-
-  @override
-  String get hsIOSBroadcastTutorial =>
-      'قم بتنشيط SOS لإرسال رسائل نصية تلقائيًا إلى جهات الاتصال الخاصة بك في حالات الطوارئ.\n\n إذا كان لدى InstaSOS إمكانية الوصول إلى موقعك، فسيتم تضمينه في الرسائل النصية.';
-
-  @override
-  String get hsSettingsTutorial =>
-      'يمكنك...\n\n- إضافة المزيد من جهات الاتصال في حالات الطوارئ\n- إعداد خدمة SOS تلقائية\n- تغيير لغة التطبيق، و\n- تحديث مظهر التطبيق\n\nفي الإعدادات.\n\nاضغط باستمرار على زر الإعدادات لتقديم ملاحظات حول التطبيق.';
-
-  @override
-  String get hsVideoTutorial =>
-      'عندما تلتقط صورة أو تسجل مقطع فيديو، ستتمكن من مشاركته على الفور.\n\nافتراضيًا، إذا تمت مقاطعة التسجيل، فسيتم تنشيط SOS تلقائيًا.\n\nاضغط مطولًا على المعاينة المركزية لإظهار قائمة بحقوقك.';
-
-  @override
-  String get hsIOSVideoTutorial =>
-      'عندما تلتقط صورة أو تسجل مقطع فيديو، ستتمكن من مشاركته على الفور.\n\nاضغط لفترة طويلة على المعاينة المركزية لإظهار قائمة بحقوقك.';
-
-  @override
-  String get hsRightsTutorial =>
-      'إذا قمت بتمكين الكاميرا، والتقطت صورة أو سجلت مقطع فيديو، فستتمكن من مشاركته على الفور.\n\nافتراضيًا، إذا تمت مقاطعة التسجيل، فسيتم تنشيط SOS تلقائيًا.\n\nاضغط على المطرقة أو اضغط مطولاً على وسط الشاشة لإظهار قائمة بحقوقك.';
-
-  @override
-  String get hsIOSRightsTutorial =>
-      'إذا قمت بتمكين الكاميرا، والتقطت صورة أو سجلت مقطع فيديو، فستتمكن من مشاركته على الفور.\n\nاضغط على المطرقة أو اضغط لفترة طويلة على وسط الشاشة لإظهار قائمة بحقوقك.';
-
-  @override
-  String get hsNeedContacts =>
-      'يحتاج تطبيق InstaSOS إلى الوصول إلى جهات الاتصال الخاصة بك ليعمل بشكل صحيح.';
-
-  @override
-  String get hsPartialContacts =>
-      'ستعرض Apple جميع جهات الاتصال، وليس فقط تلك التي تمت مشاركتها مع InstaSOS.\nلمشاركة المزيد من جهات الاتصال، انتقل إلى إعدادات iOS -> التطبيقات -> InstaSOS';
-
-  @override
-  String get hsNumError => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف.';
-
-  @override
-  String get rsSharedHeader => 'لديك الحق في...';
-
-  @override
-  String get rsOnFoot => 'سيرا على الأقدام';
-
-  @override
-  String get rsWhileDriving => 'أثناء القيادة';
-
-  @override
-  String get rsAtHome => 'في البيت';
-
-  @override
-  String get rsSharedRemainSilent =>
+  String get rvSharedRemainSilent =>
       'التزم الصمت. لا تكذب، ولكن ليس عليك الإجابة على الأسئلة.';
 
   @override
-  String get rsSharedDocument =>
+  String get rvSharedDocument =>
       'وثّق كل شيء. لديك الحق في التقاط الصور وتسجيل الفيديوهات والتسجيل الصوتي.';
 
   @override
-  String get rsMobilePockets =>
+  String get rvMobilePockets =>
       'ارفض تفتيش جيوبك. يمكن لدائرة الهجرة والجمارك الأمريكية (ICE) إجراء تفتيش جسدي، ولكن ليس تفتيشًا داخليًا.';
 
   @override
-  String get rsMobileQuestion => 'اطرح الأسئلة. اكتشف سبب إيقافك.';
+  String get rvMobileQuestion => 'اطرح الأسئلة. اكتشف سبب إيقافك.';
 
   @override
-  String get rsMobileLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
+  String get rvMobileLeave => 'إرحل إذا لم تكن تحت الإعتقال.';
 
   @override
-  String get rsDriveSearch => 'ارفض تفتيش سيارتك.';
+  String get rvDriveSearch => 'ارفض تفتيش سيارتك.';
 
   @override
-  String get rsDriveID =>
+  String get rvDriveID =>
       'ارفض إبراز بطاقة هوية كراكب. السائق فقط هو المطلوب منه إبرازها.';
 
   @override
-  String get rsDriveWarrant =>
+  String get rvDriveWarrant =>
       'اسأل إن كان لدى الضباط أمر تفتيش. يحق لك الاطلاع عليه إن وُجد. إذا لم يتم توقيع \"الأمر\" من قبل القاضي، فهو غير صالح.';
 
   @override
-  String get rsHomeWarrant =>
+  String get rvHomeWarrant =>
       'أبقِ بابك مغلقًا. إذا كان لديهم أمر تفتيش، فاطلب منهم وضعه تحت الباب أولًا. إذا لم يكن \"الأمر\" موقّعًا من قاضٍ، فهو غير صالح. أبقِ بابك مغلقًا.';
 
   @override
-  String get rsSharedSign => 'ارفض التوقيع على أي شيء.';
+  String get rvSharedSign => 'ارفض التوقيع على أي شيء.';
 
   @override
-  String get rsSharedFingerprint =>
+  String get rvSharedFingerprint =>
       'ارفض أن يتم أخذ بصمات أصابعك من قبل دائرة الهجرة والجمارك الأمريكية إلا إذا كنت تحت الاعتقال.';
 
   @override
-  String get rsSharedLawyer =>
+  String get rvSharedLawyer =>
       'استشارة محامٍ. إذا تم اعتقالك رسميًا، يحق لك الاستعانة بمحامٍ تعينه المحكمة.';
 
   @override
-  String get ssSOSOnOpen => 'SOS مفتوح';
+  String get ssAutoShare => 'مشاركة الصور/مقاطع الفيديو تلقائياً';
 
   @override
-  String get ssSOSOnClose => 'SOS عند الإغلاق';
+  String get ssSOS => 'إعدادات طلب الاستغاثة (SOS)';
 
   @override
-  String get ssSOSOnCloseHint =>
-      'عند تفعيلها، سيظهر زر إغلاق آمن (إشارة إعجاب) على الصفحة الرئيسية، مقابل الإعدادات. إذا فقد InstaSOS تركيزه لأي سبب باستثناء زر إغلاق الأمان (تصغير، أو تشغيل التطبيقات، أو إيقاف تشغيل الشاشة)، فسيبدأ بث استغاثة.';
+  String get ssAppearance => 'إعدادات المظهر';
 
   @override
-  String get ssCloseOffWarning =>
-      'سيغلق التطبيق تلقائيًا لمنع البث غير المقصود.';
+  String get ssPermissions => 'الأذونات';
 
   @override
-  String get ssVideoSOS => 'SOS عند انقطاع التسجيل';
+  String get ssResources => 'الموارد';
 
   @override
-  String get ssAutoShare => 'مشاركة الوسائط تلقائيًا';
+  String get ssSupport => 'الدعم';
 
   @override
-  String get ssEMC => 'جهات الاتصال في حالات الطوارئ';
+  String get pmOnlyAdd => 'هذه الأداة تساعد فقط في إضافة الأذونات.';
 
   @override
-  String get ssRemoveHint => 'إزالة جهة الاتصال';
+  String get pmRemoveIn => 'يمكنك إزالة الأذونات في ';
 
   @override
-  String get ssAddHint => 'إضافة جهة اتصال أخرى';
+  String get pmManualPermission =>
+      'إذا قمت بإزالة الأذونات في إعدادات النظام، يجب استعادتها هناك أيضاً.';
 
   @override
-  String get ssLinkType => 'نوع الرابط';
+  String get rmCommunity => 'موارد المجتمع';
 
   @override
-  String get ssAppearance => 'المظهر';
+  String get rmGov => 'الموارد الحكومية الأمريكية';
+
+  @override
+  String get rmAffiliate => 'لا يتبع أي منها لشركة Empathetech LLC';
+
+  @override
+  String get rmAffiliateFix => 'لا يتبع أي منها لشركة Empathetic LLC';
 
   @override
   String get faqName => 'الأسئلة الشائعة';
@@ -555,75 +805,81 @@ class LangArEg extends LangAr {
   String get faqListQ => 'كيف تم إعداد قائمة الحقوق؟';
 
   @override
-  String get faqListA1 =>
-      'تم تجميع قائمة الحقوق من عدة مصادر عامة، بما في ذلك:';
+  String get faqListA => 'تم أخذ قائمة الحقوق من عدة موارد عامة، بما في ذلك:';
 
   @override
-  String get faqListA2 => 'مورد مفيد آخر: ';
+  String get faqSettings => 'كيف تعمل الإعدادات؟';
 
   @override
-  String get faqSettings => 'ما هي وظيفة الإعدادات؟';
+  String get faqAutoShareA =>
+      ' يستخدم ميزة المشاركة المدمجة في هاتفك. لا يستخدم جهات اتصال الطوارئ المحفوظة (إن وجدت). المشاركة اختيارية ويمكن إلغاؤها دائماً.';
 
   @override
-  String get faqOnOpen =>
-      'الاستغاثة عند الفتح: عند التفعيل، سيبدأ بث الاستغاثة فور تشغيل التطبيق. لا يُنصح به لمعظم المستخدمين، حيث قد يؤدي إلى إرسال نداءات عن طريق الخطأ.';
+  String get faqLinkA =>
+      ' كيف سيتم إرسال موقعك إلى جهات اتصال الطوارئ الخاصة بك. سيرسل \"خرائط جوجل\" و \"خرائط أبل\" و \"Waze\" رابطاً قابلاً للنقر للخدمة المقابلة. سترسل \"الإحداثيات\" خطوط العرض والطول كنص عادي.';
 
   @override
-  String get faqOnInterrupt =>
-      'الاستغاثة عند توقف التسجيل: عند التفعيل، إذا كان تسجيل الفيديو نشطاً وفقد InstaSOS التركيز لأي سبب (تم تصغيره، التبديل بين التطبيقات، إغلاق الشاشة)، سيبدأ بث الاستغاثة.\nيُنصح بتفعيل هذا الخيار أو \"الاستغاثة عند الإغلاق\" (أو كليهما).';
+  String get faqOnOpenA =>
+      ' سيبدأ بث طلب الاستغاثة (SOS) فوراً عند تشغيل التطبيق. لا يوصى به لمعظم المستخدمين، حيث قد يؤدي إلى عمليات بث غير مقصودة.';
 
   @override
-  String get faqAutoShare =>
-      'المشاركة التلقائية للوسائط: عند التفعيل، ستظهر خيارات المشاركة الأصلية بمجرد اكتمال الفيديو أو التقاط صورة.';
+  String get faqOnInterruptA =>
+      ' إذا كان هناك فيديو قيد التسجيل وفقد InstaSOS التركيز، سيبدأ بث طلب الاستغاثة (SOS). فقدان التركيز يعني: تصغير التطبيق، أو التبديل بين التطبيقات، و/أو قفل الشاشة. يوصى بتفعيل هذا الخيار أو \"طلب الاستغاثة عند الإغلاق\" (أو كليهما).';
 
   @override
-  String get faqEMC =>
-      'جهات اتصال الطوارئ: الأشخاص الذين سيتم إرسال موقعك إليهم أثناء نشاط بث الاستغاثة.';
+  String get faqOnInterruptAFix =>
+      ' إذا كان هناك فيديو قيد التسجيل وفقد Insta-SOS التركيز، سيبدأ بث طلب الاستغاثة (SOS). فقدان التركيز يعني: تصغير التطبيق، أو التبديل بين التطبيقات، و/أو قفل الشاشة. يوصى بتفعيل هذا الخيار أو \"طلب الاستغاثة عند الإغلاق\" (أو كليهما).';
 
   @override
-  String get faqLink =>
-      'نوع الرابط: كيف سيتم تسليم موقعك إلى جهات الاتصال. \"خرائط Google\" و\"خرائط Apple\" و\"Waze\" سترسل رابطاً قابلاً للنقر للخدمة المقابلة. \"الإحداثيات\" سترسل خطي العرض والطول كنص عادي.';
-
-  @override
-  String get faqUnavailable => 'الاستغاثة تقول \"الموقع غير متاح\"؟';
+  String get faqUnavailable => 'يقول طلب الاستغاثة (SOS) \"الموقع غير متوفر\"؟';
 
   @override
   String get faqReliability =>
-      'لتحسين موثوقية الاستغاثة، يرجى تفعيل خيار \"السماح طوال الوقت\" في ';
+      'لتحسين موثوقية طلب الاستغاثة (SOS)، يرجى تفعيل \"السماح طوال الوقت\" في ';
 
   @override
   String get faqLocationPermissions => 'أذونات الموقع';
 
   @override
   String get faqLocationTrust =>
-      'يستخدم التطبيق موقعك فقط أثناء نشاط بث الاستغاثة. لا تقوم InstaSOS ولا Empathetech LLC بتتبع بيانات المستخدم أو تخزينها أو بيعها.';
+      'يستخدم التطبيق موقعك فقط أثناء نشاط بث طلب الاستغاثة (SOS). لا تقوم InstaSOS أو Empathetech LLC بتتبع أو تخزين أو بيع بيانات المستخدم.';
 
   @override
-  String get faqPrivateContact => 'جهة الاتصال خاصة أو ليس لديها رقم هاتف؟';
+  String get faqLocationTrustFix =>
+      'يستخدم التطبيق موقعك فقط أثناء نشاط بث طلب الاستغاثة (SOS). لا تقوم Insta-SOS أو Empathetic LLC بتتبع أو تخزين أو بيع بيانات المستخدم.';
 
   @override
   String get faqContactPermissions =>
-      'إذا ظهرت لك هذه الرسالة عند إضافة جهة اتصال للطوارئ، فهذا يعني أن InstaSOS ليس لديه إذن للوصول إلى جهة الاتصال تلك.';
+      'إذا ظهرت لك هذه الرسالة عند إضافة جهة اتصال للطوارئ، فإن InstaSOS ليس لديه إذن بالوصول إلى جهة الاتصال المحددة هذه.';
 
   @override
-  String get faqUpdateContacts => 'يمكنك تحديث أذونات جهات الاتصال في ';
+  String get faqContactPermissionsFix =>
+      'إذا ظهرت لك هذه الرسالة عند إضافة جهة اتصال للطوارئ، فإن Insta-SOS ليس لديه إذن بالوصول إلى جهة الاتصال المحددة هذه.';
 
   @override
-  String get faqOSSettings => 'إعدادات iOS';
+  String get faqUpdateContacts =>
+      'يمكنك منح الوصول إلى المزيد (أو جميع) جهات الاتصال في ';
+
+  @override
+  String get faqSplitClarity1 =>
+      'منح الوصول إلى جهة اتصال لا يجعلها جهة اتصال للطوارئ. سيتم فقط الاتصال بالأرقام المدرجة في ';
+
+  @override
+  String get faqSplitClarity2 => ' أثناء بث طلب الاستغاثة (SOS).';
 
   @override
   String get faqMissing => 'لماذا بعض ميزات Android مفقودة؟';
 
   @override
   String get faqRestricted =>
-      'الميزات المفقودة تتطلب أتمتة الرسائل القصيرة (SMS)، ولا تسمح Apple للمطورين بأتمتة الرسائل النصية (بدون خدمة مدفوعة).';
+      'تتطلب الميزات المفقودة أتمتة الرسائل القصيرة (SMS)، ولا تسمح Apple للمطورين بأتمتة الرسائل النصية (بدون خدمة مدفوعة).';
 
   @override
   String get faqShortcuts =>
-      'ماذا عن اختصارات iOS؟\nهناك أيضاً قيود على الوصول إلى اختصارات المستخدم، مما قد يؤدي إلى تعطيل ميزات حاسمة. بشكل أساسي: قد يؤدي ذلك إلى مقاطعة تسجيلات الفيديو.';
+      'ماذا عن اختصارات iOS؟\nهناك أيضاً قيود على الوصول إلى اختصارات المستخدم، مما قد يؤدي إلى تعطيل ميزات حاسمة. بشكل أساسي: سيؤدي إلى مقاطعة تسجيلات الفيديو.';
 
   @override
-  String get faqLanguages => 'لماذا اللغة X غير متوفرة؟';
+  String get faqLanguages => 'لماذا لغة X غير متوفرة؟';
 
   @override
   String get faqResponsible =>
@@ -636,16 +892,70 @@ class LangArEg extends LangAr {
   String get faqExpand => ' للمساعدة في توسيع خيارات اللغة.';
 
   @override
-  String get faqReset => 'إعادة تعيين الشرح التوضيحي';
+  String get faqReset => 'إعادة ضبط البرنامج التعليمي';
 
   @override
-  String get faqResetSnack =>
-      'سيتم إعادة تشغيل الشرح التوضيحي عند الفتح في المرة القادمة.';
+  String get faqContact => 'الاتصال بالدعم';
 
   @override
-  String get faqOnCloseWarning =>
-      'تم تفعيل \"SOS عند الإغلاق\". سيؤدي هذا إلى بدء بث.';
+  String get faqContactHint => 'أرسل بريداً إلكترونياً إلى Empathetic LLC';
+
+  @override
+  String get bsEMC => 'جهات اتصال الطوارئ';
+
+  @override
+  String get bsAddSomeone => 'أضف شخصاً لتفعيل طلب الاستغاثة (SOS)';
+
+  @override
+  String get bsRemoveHint => 'إزالة جهة الاتصال';
+
+  @override
+  String get bsAddHint => 'إضافة جهة اتصال أخرى';
+
+  @override
+  String get bsLinkType => 'نوع رابط الموقع';
+
+  @override
+  String get bsSnackRequest => 'يرجى إضافة جهات اتصال الطوارئ';
+
+  @override
+  String get bsNeedPermission => 'لا يمكن إضافة جهات اتصال بدون إذن';
+
+  @override
+  String get bsPartialContacts =>
+      'ستعرض Apple جميع جهات الاتصال، وليس فقط تلك التي تمت مشاركتها مع InstaSOS.\nلمشاركة المزيد من جهات الاتصال، افتح ';
+
+  @override
+  String get bsPartialContactsFix =>
+      'ستعرض Apple جميع جهات الاتصال، وليس فقط تلك التي تمت مشاركتها مع Insta-SOS.\nلمشاركة المزيد من جهات الاتصال، افتح ';
+
+  @override
+  String get bsNumError => 'جهة الاتصال هذه خاصة أو ليس لديها رقم هاتف.';
+
+  @override
+  String get bsSOSOnOpen => 'طلب الاستغاثة عند الفتح';
+
+  @override
+  String get bsSOSOnClose => 'طلب الاستغاثة عند الإغلاق';
+
+  @override
+  String get bsSOSOnCloseHint =>
+      'سيظهر زر إغلاق آمن (علامة الإعجاب) على الصفحة الرئيسية، مقابل الإعدادات.\nإذا فقد InstaSOS التركيز لأي سبب باستثناء زر الإغلاق الآمن (تصغير التطبيق، التبديل بين التطبيقات، إيقاف الشاشة)، سيبدأ بث طلب الاستغاثة (SOS).';
+
+  @override
+  String get bsSOSOnCloseHintFix =>
+      'سيظهر زر إغلاق آمن (علامة الإعجاب) على الصفحة الرئيسية، مقابل الإعدادات.\nإذا فقد Insta-SOS التركيز لأي سبب باستثناء زر الإغلاق الآمن (تصغير التطبيق، التبديل بين التطبيقات، إيقاف الشاشة)، سيبدأ بث طلب الاستغاثة (SOS).';
+
+  @override
+  String get bsCloseOffWarning =>
+      'سيتم إغلاق التطبيق تلقائياً لمنع عمليات البث غير المقصودة.';
+
+  @override
+  String get bsSOSOnVideo => 'طلب الاستغاثة عند مقاطعة التسجيل';
 
   @override
   String get dsLadyLiberty => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';
+
+  @override
+  String get dsShowBack => 'إظهار زر الرجوع؟';
 }

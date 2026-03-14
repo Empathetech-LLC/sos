@@ -12,299 +12,448 @@ class LangZh extends Lang {
   String get gOk => '确定';
 
   @override
+  String get gDone => '完成';
+
+  @override
   String get gReminder => '提醒';
+
+  @override
+  String get gSystem => '系统设置';
 
   @override
   String get gNotAgain => '不再显示';
 
   @override
-  String get sosLastKnown => '已知最后位置';
+  String get gOnCloseWarning => '已启用“关闭时发送 SOS”。这将触发 SOS 广播。';
 
   @override
-  String get sosNeedSMS => 'SOS功能需要短信权限以正常运行。';
+  String get sosLastKnown => '最后已知位置：';
 
   @override
-  String get sosDisabled => '无法访问定位（已关闭）';
+  String get sosNeedSMS => 'SOS 需要短信（发送信息）权限。';
 
   @override
-  String get sosDenied => '无法访问定位（权限被拒）';
+  String get sosDisabled => '无法获取位置（已禁用）';
 
   @override
-  String get sosError => '无法访问定位（出错）';
+  String get sosDenied => '无法获取位置（被拒绝）';
 
   @override
-  String get hsStartSOS => '启动以开始SOS广播。';
-
-  @override
-  String get hsEndSOS => 'SOS正在广播，点击以停止。';
-
-  @override
-  String get hsSafeCloseHint => '一切安全，可直接关闭应用。';
-
-  @override
-  String get hsAutoSOS => '自动SOS';
-
-  @override
-  String get hsStop => '停止';
-
-  @override
-  String get hsCameraHint => '拍摄照片。';
-
-  @override
-  String get hsPreviewHint => '长按可切换权限查看模式。';
-
-  @override
-  String get hsShowRights => '显示您的权限。';
-
-  @override
-  String get hsHideRights => '隐藏您的权限。';
-
-  @override
-  String get hsStartRecord => '开始录像。';
-
-  @override
-  String get hsEndRecord => '结束录像。';
-
-  @override
-  String get hsFlashOff => '闪光灯关闭。点击开启自动闪光。';
-
-  @override
-  String get hsFlashAuto => '自动闪光。点击开启闪光灯。';
-
-  @override
-  String get hsFlashOn => '闪光灯开启。点击关闭闪光灯。';
-
-  @override
-  String get hsFlashTorch => '手电模式。点击关闭闪光灯。';
+  String get sosError => '无法获取位置（发生错误）';
 
   @override
   String get hsWelcome => '欢迎使用 InstaSOS';
 
   @override
-  String get hsAppTutorial =>
-      '本应用可在危机时刻迅速将您的状况分享给紧急联系人。\n\n请选择一位紧急联系人。\n目前只需添加一位，后续可随时增添。';
+  String get hsWelcomeFix => '欢迎使用 Insta-SOS';
 
   @override
-  String get hsPermissionsTutorialTitle => '如果您愿意';
+  String get hsAppIntro =>
+      '首先，这只是一个“了解你的权利 (Know Your Rights)”应用。\n您可以通过在下方的列表中授予权限来启用更多工具。';
 
   @override
-  String get hsPermissionsTutorial =>
-      'InstaSOS 也可用于采集和分享证据。\n\n系统将请求相机、麦克风和相册访问权限以实现该功能。';
+  String get hsAppIntroAlt => '最新版本进行了重大更新，请在下方确保一切准备就绪。';
 
   @override
-  String get hsPermissionsAlways => '请将定位权限设置为“始终允许”。\n仅在SOS激活时才会使用定位信息。';
+  String get hsYourApp => '您可以随时改变主意或更改权限。';
+
+  @override
+  String get hsHybridTranslation => '教程和设置是机器翻译的。\n权利列表是人工翻译的。';
+
+  @override
+  String get hsCamMic => '相机和麦克风';
+
+  @override
+  String get hsAddRecording => '启用视频录制。';
+
+  @override
+  String get hsGallery => '图库';
+
+  @override
+  String get hsAddSave => '保存您的录像所需。';
+
+  @override
+  String get hsCameraReady => '相机已准备就绪';
+
+  @override
+  String get hsCameraSetupHint => '激活以授予 Insta-SOS 访问相机的权限。';
+
+  @override
+  String get hsContacts => '联系人';
+
+  @override
+  String get hsAddContacts => '启用紧急联系人警报的第 1 部分。';
+
+  @override
+  String get hsAddContactsIOS => '启用紧急联系人警报。';
+
+  @override
+  String get hsContactsReady => '联系人已准备就绪';
+
+  @override
+  String get hsContactsSetupHint => '激活以授予 Insta-SOS 查看您联系人的权限。';
+
+  @override
+  String get hsTexting => '发短信';
+
+  @override
+  String get hsAddTexting => '启用紧急联系人警报的第 2 部分。';
+
+  @override
+  String get hsTextingReady => '短信功能已准备就绪';
+
+  @override
+  String get hsTextingSetupHint => '激活以授予 Insta-SOS 发送消息的权限。';
+
+  @override
+  String get hsLocation => '位置';
+
+  @override
+  String get hsUnable => '无法确定';
+
+  @override
+  String get hsAddLocation => '启用与紧急联系人的位置共享。';
+
+  @override
+  String get hsAddAlways => '建议设为“始终允许”。再次按下以打开系统设置。';
+
+  @override
+  String get hsLocationReady => '位置已准备就绪';
+
+  @override
+  String get hsLocationSetupHint => '激活以授予 Insta-SOS 查看您位置的权限。';
+
+  @override
+  String get hsOneOfFour => '四分之一。继续...';
 
   @override
   String get hsBroadcastTutorial =>
-      '激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。\n\n即使设备锁屏，短信也会持续发送。\n\n停止发送可通过关闭SOS或完全退出应用实现。';
+      '激活 SOS 以自动向您的紧急联系人发送短信。\n\n当 InstaSOS 有权访问您的位置时，它将包含在短信中。';
 
   @override
-  String get hsIOSBroadcastTutorial =>
-      '激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。';
+  String get hsBroadcastTutorialFix =>
+      '激活 SOS 以自动向您的紧急联系人发送短信。\n\n当 Insta-SOS 有权访问您的位置时，它将包含在短信中。';
+
+  @override
+  String get hsBroadcastTutorialAndroid =>
+      '当手机锁屏时，短信将继续发送。\n\n手动停用 SOS 或完全关闭应用程序以停止发送短信。';
+
+  @override
+  String get hsTwoOfFour => '四分之二。继续...';
 
   @override
   String get hsSettingsTutorial =>
-      '您可以在设置中：\n\n- 添加更多紧急联系人\n- 设置自动SOS\n- 更改应用语言\n- 自定义界面外观\n\n长按设置按钮还可提交反馈。';
+      '在设置中：\n- 配置您的 SOS 广播\n- 自定义应用的外观\n- 获取更多资源和支持';
+
+  @override
+  String get hsSettingsTutorialFix => '您可以在设置中配置您的 SOS 广播、自定义应用外观以及获取更多资源和支持。';
+
+  @override
+  String get hsThreeOfFour => '四分之三。继续...';
 
   @override
   String get hsVideoTutorial =>
-      '拍照或录像后，您可以立即分享内容。\n\n默认情况下，录像若被中断，SOS将自动激活。\n\n长按画面中央可查看权限列表。';
+      '拍照或录制视频后，您可以立即分享。\n\n默认情况下，如果录制被中断，将自动开始 SOS 广播。\n\n长按相机预览以显示/隐藏您的权利。';
 
   @override
-  String get hsIOSVideoTutorial => '拍照或录像后，您可以立即分享内容。\n\n长按画面中央可查看权限列表。';
+  String get hsIOSVideoTutorial => '拍照或录制视频后，您可以立即分享。\n\n长按相机预览以显示/隐藏您的权利。';
 
   @override
-  String get hsRightsTutorial =>
-      '启用相机后，拍摄照片或视频内容可即时分享。\n\n默认情况下，录像若被中断，SOS将自动激活。\n\n点击法槌图标或长按屏幕中央可查看您的权限列表。';
+  String get hsTutorialComplete => '教程完成';
 
   @override
-  String get hsIOSRightsTutorial =>
-      '启用相机后，拍摄照片或视频内容可即时分享。\n\n点击法槌图标或长按屏幕中央可查看您的权限列表。';
+  String get hsAddEMC => '如果您使用 SOS 警报，请前往设置页面并添加您的紧急联系人。';
 
   @override
-  String get hsNeedContacts => 'InstaSOS 需要访问您的联系人以正常运行。';
+  String get hsStartSOS => '激活以开始 SOS 广播。';
 
   @override
-  String get hsPartialContacts =>
-      'Apple 将显示所有联系人，而不仅仅是与 InstaSOS 共享的联系人。\n要分享更多联系人，请前往 iOS 设置 -> 应用 -> InstaSOS';
+  String get hsEndSOS => 'SOS 正在广播。激活以停止。';
 
   @override
-  String get hsNumError => '该联系人是私人联系人或没有电话号码。';
+  String get hsSafeCloseHint => '一切安全。在不触发 SOS 的情况下关闭应用。';
 
   @override
-  String get rsSharedHeader => '您有权...';
+  String get hsBroadcasting => '正在广播';
 
   @override
-  String get rsOnFoot => '步行时';
+  String get hsStop => '停止';
 
   @override
-  String get rsWhileDriving => '驾车时';
+  String get hsCameraHint => '拍张照片。';
 
   @override
-  String get rsAtHome => '在家中';
+  String get hsPreviewHint => '长按以显示/隐藏您的权利。';
 
   @override
-  String get rsSharedRemainSilent => '保持沉默。无需撒谎，但您不必回答任何问题。';
+  String get hsShowRights => '显示您的权利。';
 
   @override
-  String get rsSharedDocument => '记录一切。您有权拍照、录像和录音。';
+  String get hsHideRights => '隐藏您的权利。';
 
   @override
-  String get rsMobilePockets => '拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。';
+  String get hsStartRecord => '录制视频。';
 
   @override
-  String get rsMobileQuestion => '提出疑问。了解为何被拦截。';
+  String get hsEndRecord => '结束录制。';
 
   @override
-  String get rsMobileLeave => '如果您没有被拘留，您有权离开。';
+  String get hsFlashOff => '闪光灯已关。激活以开启自动闪光灯。';
 
   @override
-  String get rsDriveSearch => '拒绝对车辆进行搜查。';
+  String get hsFlashAuto => '自动闪光灯。激活以开启闪光灯。';
 
   @override
-  String get rsDriveID => '作为乘客可拒绝出示身份证明。只有驾驶员必须出示。';
+  String get hsFlashOn => '闪光灯已开。激活以关闭闪光灯。';
 
   @override
-  String get rsDriveWarrant => '询问警官是否持有搜查令。如有，您有权查看。未由法官签署的“搜查令”无效。';
+  String get hsFlashTorch => '手电筒模式。激活以关闭闪光灯。';
 
   @override
-  String get rsHomeWarrant =>
+  String get hsNoFlash => '相机闪光灯无法使用';
+
+  @override
+  String get rvSharedHeader => '您有权...';
+
+  @override
+  String get rvOnFoot => '步行时';
+
+  @override
+  String get rvWhileDriving => '驾车时';
+
+  @override
+  String get rvAtHome => '在家中';
+
+  @override
+  String get rvSharedRemainSilent => '保持沉默。无需撒谎，但您不必回答任何问题。';
+
+  @override
+  String get rvSharedDocument => '记录一切。您有权拍照、录像和录音。';
+
+  @override
+  String get rvMobilePockets => '拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。';
+
+  @override
+  String get rvMobileQuestion => '提出疑问。了解为何被拦截。';
+
+  @override
+  String get rvMobileLeave => '如果您没有被拘留，您有权离开。';
+
+  @override
+  String get rvDriveSearch => '拒绝对车辆进行搜查。';
+
+  @override
+  String get rvDriveID => '作为乘客可拒绝出示身份证明。只有驾驶员必须出示。';
+
+  @override
+  String get rvDriveWarrant => '询问警官是否持有搜查令。如有，您有权查看。未由法官签署的“搜查令”无效。';
+
+  @override
+  String get rvHomeWarrant =>
       '保持房门关闭。如对方称持有搜查令，请先让其从门缝递进。未由法官签署的“搜查令”无效。始终保持房门关闭。';
 
   @override
-  String get rsSharedSign => '拒绝签署任何文件。';
+  String get rvSharedSign => '拒绝签署任何文件。';
 
   @override
-  String get rsSharedFingerprint => '除非被正式逮捕，可拒绝接受移民局采集指纹。';
+  String get rvSharedFingerprint => '除非被正式逮捕，可拒绝接受移民局采集指纹。';
 
   @override
-  String get rsSharedLawyer => '您有权联系律师。如您已被正式逮捕，则有权请求法院为您指派律师。';
+  String get rvSharedLawyer => '您有权联系律师。如您已被正式逮捕，则有权请求法院为您指派律师。';
 
   @override
-  String get ssSOSOnOpen => '打开应用时启动SOS';
+  String get ssAutoShare => '自动分享照片/视频';
 
   @override
-  String get ssSOSOnClose => '关闭应用时启动SOS';
+  String get ssSOS => 'SOS 设置';
 
   @override
-  String get ssSOSOnCloseHint =>
-      '启用后，主页上设置按钮对面会出现一个安全关闭（点赞）按钮。如果 InstaSOS 因除安全关闭按钮以外的任何原因失去焦点（例如最小化、切换应用、屏幕关闭），则会开始发出 SOS 求救信号。';
+  String get ssAppearance => '外观设置';
 
   @override
-  String get ssCloseOffWarning => '应用程序将自动关闭，以防止意外播出。';
+  String get ssPermissions => '权限';
 
   @override
-  String get ssVideoSOS => '录像中断自动启动SOS';
+  String get ssResources => '资源';
 
   @override
-  String get ssAutoShare => '自动共享媒体';
+  String get ssSupport => '支持';
 
   @override
-  String get ssEMC => '紧急联系人';
+  String get pmOnlyAdd => '此工具仅用于添加权限。';
 
   @override
-  String get ssRemoveHint => '移除联系人';
+  String get pmRemoveIn => '您可以在以下位置移除权限：';
 
   @override
-  String get ssAddHint => '添加联系人';
+  String get pmManualPermission => '如果您在系统设置中移除了权限，也必须在那里恢复它们。';
 
   @override
-  String get ssLinkType => '链接类型';
+  String get rmCommunity => '社区资源';
 
   @override
-  String get ssAppearance => '界面外观';
+  String get rmGov => '美国政府资源';
 
   @override
-  String get faqName => '常见问题';
+  String get rmAffiliate => '均不隶属于 Empathetech LLC';
+
+  @override
+  String get rmAffiliateFix => '均不隶属于 Empathetic LLC';
+
+  @override
+  String get faqName => '常见问题 (FAQ)';
 
   @override
   String get faqListQ => '权利列表是如何制定的？';
 
   @override
-  String get faqListA1 => '权利列表汇编自多个公共来源，包括：';
+  String get faqListA => '权利列表取自多个公共资源，包括：';
 
   @override
-  String get faqListA2 => '另一个有用的资源：';
+  String get faqSettings => '设置是如何工作的？';
 
   @override
-  String get faqSettings => '这些设置有什么作用？';
+  String get faqAutoShareA =>
+      ' 使用您手机的内置分享功能。它不使用您保存的紧急联系人（如果有）。分享是可选的，并且可以随时取消。';
 
   @override
-  String get faqOnOpen =>
-      '启动时触发 SOS：启用后，应用程序启动时将立即开始 SOS 广播。不建议大多数用户使用，因为这可能导致意外误发。';
+  String get faqLinkA =>
+      ' 您的位置信息将如何发送给您的紧急联系人。“Google 地图”、“Apple 地图”和“Waze”将发送相应服务的可点击链接。“坐标”将以纯文本格式发送您的经纬度。';
 
   @override
-  String get faqOnInterrupt =>
-      '录制中断时触发 SOS：启用后，如果正在录制视频且 InstaSOS 因任何原因（最小化、切换应用、屏幕关闭）失去焦点，将开始 SOS 广播。\n建议启用此选项或“关闭时触发 SOS”（或两者都启用）。';
+  String get faqOnOpenA => ' 在应用启动时将立即开始 SOS 广播。不推荐大多数用户使用，因为这可能导致意外广播。';
 
   @override
-  String get faqAutoShare => '自动分享媒体：启用后，一旦视频完成或拍下照片，将立即出现系统原生分享选项。';
+  String get faqOnInterruptA =>
+      ' 如果正在录制视频且 InstaSOS 失去焦点，将开始 SOS 广播。失去焦点包括：最小化应用、切换应用和/或锁屏。建议启用此项或“关闭时发送 SOS”（或两者同时启用）。';
 
   @override
-  String get faqEMC => '紧急联系人：当 SOS 广播激活时，将接收您位置信息的人员。';
+  String get faqOnInterruptAFix =>
+      ' 如果正在录制视频且 Insta-SOS 失去焦点，将开始 SOS 广播。失去焦点包括：最小化应用、切换应用和/或锁屏。建议启用此项或“关闭时发送 SOS”（或两者同时启用）。';
 
   @override
-  String get faqLink =>
-      '链接类型：您的位置将如何发送给紧急联系人。“Google Maps”、“Apple Maps”和“Waze”将发送相应服务的可点击链接。“Coordinates”将以纯文本形式发送您的经纬度。';
+  String get faqUnavailable => 'SOS 显示“位置不可用”？';
 
   @override
-  String get faqUnavailable => 'SOS 显示“无法获取位置”？';
+  String get faqReliability => '为了提高 SOS 的可靠性，请在以下位置启用“始终允许”：';
 
   @override
-  String get faqReliability => '为了提高 SOS 的可靠性，请务必在';
-
-  @override
-  String get faqLocationPermissions => '位置权限设置中选择“始终允许”';
+  String get faqLocationPermissions => '位置权限';
 
   @override
   String get faqLocationTrust =>
-      '本应用仅在 SOS 广播激活时使用您的位置。InstaSOS 和 Empathetech LLC 均不会跟踪、存储或出售用户数据。';
+      '该应用仅在激活 SOS 广播时使用您的位置。InstaSOS 和 Empathetech LLC 均不追踪、存储或出售用户数据。';
 
   @override
-  String get faqPrivateContact => '联系人是私密的或没有电话号码？';
+  String get faqLocationTrustFix =>
+      '该应用仅在激活 SOS 广播时使用您的位置。Insta-SOS 和 Empathetic LLC 均不追踪、存储或出售用户数据。';
 
   @override
   String get faqContactPermissions =>
-      '如果您在添加紧急联系人时收到此消息，说明 InstaSOS 没有权限访问该联系人。';
+      '如果在添加紧急联系人时收到此消息，则表明 InstaSOS 没有访问该特定联系人的权限。';
 
   @override
-  String get faqUpdateContacts => '您可以更新联系人权限，请前往';
+  String get faqContactPermissionsFix =>
+      '如果在添加紧急联系人时收到此消息，则表明 Insta-SOS 没有访问该特定联系人的权限。';
 
   @override
-  String get faqOSSettings => 'iOS 设置';
+  String get faqUpdateContacts => '您可以在以下位置授予对更多（或所有）联系人的访问权限：';
 
   @override
-  String get faqMissing => '为什么缺少某些 Android 功能？';
+  String get faqSplitClarity1 => '授予对某位联系人的访问权限并不会使其成为紧急联系人。只有列在';
 
   @override
-  String get faqRestricted => '缺失的功能需要短信自动化，而 Apple 不允许开发者自动发送短信（除非使用付费服务）。';
+  String get faqSplitClarity2 => ' 中的号码才会在 SOS 广播期间收到联系。';
 
   @override
-  String get faqShortcuts => 'iOS 快捷指令呢？\n访问用户快捷指令也受到限制，这会破坏关键功能。主要是：它会中断视频录制。';
+  String get faqMissing => '为什么缺少某些 Android 上的功能？';
 
   @override
-  String get faqLanguages => '为什么不支持 X 语言？';
+  String get faqRestricted =>
+      '缺少的功能需要短信自动化，而苹果 (Apple) 不允许开发者自动发送短信（除非使用付费服务）。';
 
   @override
-  String get faqResponsible => '对权利列表使用机器翻译是不负责任的。请考虑';
+  String get faqShortcuts =>
+      '那 iOS 快捷指令呢？\n对访问用户快捷指令也存在限制，这会破坏关键功能。主要是：它会中断视频录制。';
 
   @override
-  String get faqContributing => '贡献翻译';
+  String get faqLanguages => '为什么没有 X 语言？';
 
   @override
-  String get faqExpand => '以帮助扩展语言选项。';
+  String get faqResponsible => '使用机器翻译权利列表是不负责任的。请考虑';
+
+  @override
+  String get faqContributing => '做出贡献';
+
+  @override
+  String get faqExpand => ' 以帮助扩展语言选项。';
 
   @override
   String get faqReset => '重置教程';
 
   @override
-  String get faqResetSnack => '教程将在下次启动时重播。';
+  String get faqContact => '联系支持';
 
   @override
-  String get faqOnCloseWarning => '“关闭时求救”已启用。这将开始广播。';
+  String get faqContactHint => '给 Empathetic LLC 发送邮件';
 
   @override
-  String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';
+  String get bsEMC => '紧急联系人';
+
+  @override
+  String get bsAddSomeone => '添加联系人以启用 SOS';
+
+  @override
+  String get bsRemoveHint => '移除联系人';
+
+  @override
+  String get bsAddHint => '添加其他联系人';
+
+  @override
+  String get bsLinkType => '位置链接类型';
+
+  @override
+  String get bsSnackRequest => '请添加紧急联系人';
+
+  @override
+  String get bsNeedPermission => '没有权限无法添加联系人';
+
+  @override
+  String get bsPartialContacts =>
+      'Apple 将显示所有联系人，而不仅仅是与 InstaSOS 共享的联系人。\n要共享更多联系人，请打开';
+
+  @override
+  String get bsPartialContactsFix =>
+      'Apple 将显示所有联系人，而不仅仅是与 Insta-SOS 共享的联系人。\n要共享更多联系人，请打开';
+
+  @override
+  String get bsNumError => '此联系人是私密的或没有电话号码。';
+
+  @override
+  String get bsSOSOnOpen => '打开时发送 SOS';
+
+  @override
+  String get bsSOSOnClose => '关闭时发送 SOS';
+
+  @override
+  String get bsSOSOnCloseHint =>
+      '首页上与设置相对的位置将出现一个安全关闭（大拇指向上）按钮。\n如果 InstaSOS 因除了安全关闭按钮以外的任何原因（最小化、切换应用、息屏）失去焦点，将开始 SOS 广播。';
+
+  @override
+  String get bsSOSOnCloseHintFix =>
+      '首页上与设置相对的位置将出现一个安全关闭（大拇指向上）按钮。\n如果 Insta-SOS 因除了安全关闭按钮以外的任何原因（最小化、切换应用、息屏）失去焦点，将开始 SOS 广播。';
+
+  @override
+  String get bsCloseOffWarning => '应用将自动关闭以防止意外广播。';
+
+  @override
+  String get bsSOSOnVideo => '录制中断时发送 SOS';
+
+  @override
+  String get dsLadyLiberty => '自由女神像的照片，带有权利列表的预览。';
+
+  @override
+  String get dsShowBack => '显示返回按钮？';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -315,297 +464,446 @@ class LangZhCn extends LangZh {
   String get gOk => '确定';
 
   @override
+  String get gDone => '完成';
+
+  @override
   String get gReminder => '提醒';
+
+  @override
+  String get gSystem => '系统设置';
 
   @override
   String get gNotAgain => '不再显示';
 
   @override
-  String get sosLastKnown => '已知最后位置';
+  String get gOnCloseWarning => '已启用“关闭时发送 SOS”。这将触发 SOS 广播。';
 
   @override
-  String get sosNeedSMS => 'SOS功能需要短信权限以正常运行。';
+  String get sosLastKnown => '最后已知位置：';
 
   @override
-  String get sosDisabled => '无法访问定位（已关闭）';
+  String get sosNeedSMS => 'SOS 需要短信（发送信息）权限。';
 
   @override
-  String get sosDenied => '无法访问定位（权限被拒）';
+  String get sosDisabled => '无法获取位置（已禁用）';
 
   @override
-  String get sosError => '无法访问定位（出错）';
+  String get sosDenied => '无法获取位置（被拒绝）';
 
   @override
-  String get hsStartSOS => '启动以开始SOS广播。';
-
-  @override
-  String get hsEndSOS => 'SOS正在广播，点击以停止。';
-
-  @override
-  String get hsSafeCloseHint => '一切安全，可直接关闭应用。';
-
-  @override
-  String get hsAutoSOS => '自动SOS';
-
-  @override
-  String get hsStop => '停止';
-
-  @override
-  String get hsCameraHint => '拍摄照片。';
-
-  @override
-  String get hsPreviewHint => '长按可切换权限查看模式。';
-
-  @override
-  String get hsShowRights => '显示您的权限。';
-
-  @override
-  String get hsHideRights => '隐藏您的权限。';
-
-  @override
-  String get hsStartRecord => '开始录像。';
-
-  @override
-  String get hsEndRecord => '结束录像。';
-
-  @override
-  String get hsFlashOff => '闪光灯关闭。点击开启自动闪光。';
-
-  @override
-  String get hsFlashAuto => '自动闪光。点击开启闪光灯。';
-
-  @override
-  String get hsFlashOn => '闪光灯开启。点击关闭闪光灯。';
-
-  @override
-  String get hsFlashTorch => '手电模式。点击关闭闪光灯。';
+  String get sosError => '无法获取位置（发生错误）';
 
   @override
   String get hsWelcome => '欢迎使用 InstaSOS';
 
   @override
-  String get hsAppTutorial =>
-      '本应用可在危机时刻迅速将您的状况分享给紧急联系人。\n\n请选择一位紧急联系人。\n目前只需添加一位，后续可随时增添。';
+  String get hsWelcomeFix => '欢迎使用 Insta-SOS';
 
   @override
-  String get hsPermissionsTutorialTitle => '如果您愿意';
+  String get hsAppIntro =>
+      '首先，这只是一个“了解你的权利 (Know Your Rights)”应用。\n您可以通过在下方的列表中授予权限来启用更多工具。';
 
   @override
-  String get hsPermissionsTutorial =>
-      'InstaSOS 也可用于采集和分享证据。\n\n系统将请求相机、麦克风和相册访问权限以实现该功能。';
+  String get hsAppIntroAlt => '最新版本进行了重大更新，请在下方确保一切准备就绪。';
 
   @override
-  String get hsPermissionsAlways => '请将定位权限设置为“始终允许”。\n仅在SOS激活时才会使用定位信息。';
+  String get hsYourApp => '您可以随时改变主意或更改权限。';
+
+  @override
+  String get hsHybridTranslation => '教程和设置是机器翻译的。\n权利列表是人工翻译的。';
+
+  @override
+  String get hsCamMic => '相机和麦克风';
+
+  @override
+  String get hsAddRecording => '启用视频录制。';
+
+  @override
+  String get hsGallery => '图库';
+
+  @override
+  String get hsAddSave => '保存您的录像所需。';
+
+  @override
+  String get hsCameraReady => '相机已准备就绪';
+
+  @override
+  String get hsCameraSetupHint => '激活以授予 Insta-SOS 访问相机的权限。';
+
+  @override
+  String get hsContacts => '联系人';
+
+  @override
+  String get hsAddContacts => '启用紧急联系人警报的第 1 部分。';
+
+  @override
+  String get hsAddContactsIOS => '启用紧急联系人警报。';
+
+  @override
+  String get hsContactsReady => '联系人已准备就绪';
+
+  @override
+  String get hsContactsSetupHint => '激活以授予 Insta-SOS 查看您联系人的权限。';
+
+  @override
+  String get hsTexting => '发短信';
+
+  @override
+  String get hsAddTexting => '启用紧急联系人警报的第 2 部分。';
+
+  @override
+  String get hsTextingReady => '短信功能已准备就绪';
+
+  @override
+  String get hsTextingSetupHint => '激活以授予 Insta-SOS 发送消息的权限。';
+
+  @override
+  String get hsLocation => '位置';
+
+  @override
+  String get hsUnable => '无法确定';
+
+  @override
+  String get hsAddLocation => '启用与紧急联系人的位置共享。';
+
+  @override
+  String get hsAddAlways => '建议设为“始终允许”。再次按下以打开系统设置。';
+
+  @override
+  String get hsLocationReady => '位置已准备就绪';
+
+  @override
+  String get hsLocationSetupHint => '激活以授予 Insta-SOS 查看您位置的权限。';
+
+  @override
+  String get hsOneOfFour => '四分之一。继续...';
 
   @override
   String get hsBroadcastTutorial =>
-      '激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。\n\n即使设备锁屏，短信也会持续发送。\n\n停止发送可通过关闭SOS或完全退出应用实现。';
+      '激活 SOS 以自动向您的紧急联系人发送短信。\n\n当 InstaSOS 有权访问您的位置时，它将包含在短信中。';
 
   @override
-  String get hsIOSBroadcastTutorial =>
-      '激活SOS后将自动向您的紧急联系人发送短信。\n\n若已授权定位，短信中将包含您的实时位置。';
+  String get hsBroadcastTutorialFix =>
+      '激活 SOS 以自动向您的紧急联系人发送短信。\n\n当 Insta-SOS 有权访问您的位置时，它将包含在短信中。';
+
+  @override
+  String get hsBroadcastTutorialAndroid =>
+      '当手机锁屏时，短信将继续发送。\n\n手动停用 SOS 或完全关闭应用程序以停止发送短信。';
+
+  @override
+  String get hsTwoOfFour => '四分之二。继续...';
 
   @override
   String get hsSettingsTutorial =>
-      '您可以在设置中：\n\n- 添加更多紧急联系人\n- 设置自动SOS\n- 更改应用语言\n- 自定义界面外观\n\n长按设置按钮还可提交反馈。';
+      '在设置中：\n- 配置您的 SOS 广播\n- 自定义应用的外观\n- 获取更多资源和支持';
+
+  @override
+  String get hsSettingsTutorialFix => '您可以在设置中配置您的 SOS 广播、自定义应用外观以及获取更多资源和支持。';
+
+  @override
+  String get hsThreeOfFour => '四分之三。继续...';
 
   @override
   String get hsVideoTutorial =>
-      '拍照或录像后，您可以立即分享内容。\n\n默认情况下，录像若被中断，SOS将自动激活。\n\n长按画面中央可查看权限列表。';
+      '拍照或录制视频后，您可以立即分享。\n\n默认情况下，如果录制被中断，将自动开始 SOS 广播。\n\n长按相机预览以显示/隐藏您的权利。';
 
   @override
-  String get hsIOSVideoTutorial => '拍照或录像后，您可以立即分享内容。\n\n长按画面中央可查看权限列表。';
+  String get hsIOSVideoTutorial => '拍照或录制视频后，您可以立即分享。\n\n长按相机预览以显示/隐藏您的权利。';
 
   @override
-  String get hsRightsTutorial =>
-      '启用相机后，拍摄照片或视频内容可即时分享。\n\n默认情况下，录像若被中断，SOS将自动激活。\n\n点击法槌图标或长按屏幕中央可查看您的权限列表。';
+  String get hsTutorialComplete => '教程完成';
 
   @override
-  String get hsIOSRightsTutorial =>
-      '启用相机后，拍摄照片或视频内容可即时分享。\n\n点击法槌图标或长按屏幕中央可查看您的权限列表。';
+  String get hsAddEMC => '如果您使用 SOS 警报，请前往设置页面并添加您的紧急联系人。';
 
   @override
-  String get hsNeedContacts => 'InstaSOS 需要访问您的联系人以正常运行。';
+  String get hsStartSOS => '激活以开始 SOS 广播。';
 
   @override
-  String get hsPartialContacts =>
-      'Apple 将显示所有联系人，而不仅仅是与 InstaSOS 共享的联系人。\n要分享更多联系人，请前往 iOS 设置 -> 应用 -> InstaSOS';
+  String get hsEndSOS => 'SOS 正在广播。激活以停止。';
 
   @override
-  String get hsNumError => '该联系人是私人联系人或没有电话号码。';
+  String get hsSafeCloseHint => '一切安全。在不触发 SOS 的情况下关闭应用。';
 
   @override
-  String get rsSharedHeader => '您有权...';
+  String get hsBroadcasting => '正在广播';
 
   @override
-  String get rsOnFoot => '步行时';
+  String get hsStop => '停止';
 
   @override
-  String get rsWhileDriving => '驾车时';
+  String get hsCameraHint => '拍张照片。';
 
   @override
-  String get rsAtHome => '在家中';
+  String get hsPreviewHint => '长按以显示/隐藏您的权利。';
 
   @override
-  String get rsSharedRemainSilent => '保持沉默。无需撒谎，但您不必回答任何问题。';
+  String get hsShowRights => '显示您的权利。';
 
   @override
-  String get rsSharedDocument => '记录一切。您有权拍照、录像和录音。';
+  String get hsHideRights => '隐藏您的权利。';
 
   @override
-  String get rsMobilePockets => '拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。';
+  String get hsStartRecord => '录制视频。';
 
   @override
-  String get rsMobileQuestion => '提出疑问。了解为何被拦截。';
+  String get hsEndRecord => '结束录制。';
 
   @override
-  String get rsMobileLeave => '如果您没有被拘留，您有权离开。';
+  String get hsFlashOff => '闪光灯已关。激活以开启自动闪光灯。';
 
   @override
-  String get rsDriveSearch => '拒绝对车辆进行搜查。';
+  String get hsFlashAuto => '自动闪光灯。激活以开启闪光灯。';
 
   @override
-  String get rsDriveID => '作为乘客可拒绝出示身份证明。只有驾驶员必须出示。';
+  String get hsFlashOn => '闪光灯已开。激活以关闭闪光灯。';
 
   @override
-  String get rsDriveWarrant => '询问警官是否持有搜查令。如有，您有权查看。未由法官签署的“搜查令”无效。';
+  String get hsFlashTorch => '手电筒模式。激活以关闭闪光灯。';
 
   @override
-  String get rsHomeWarrant =>
+  String get hsNoFlash => '相机闪光灯无法使用';
+
+  @override
+  String get rvSharedHeader => '您有权...';
+
+  @override
+  String get rvOnFoot => '步行时';
+
+  @override
+  String get rvWhileDriving => '驾车时';
+
+  @override
+  String get rvAtHome => '在家中';
+
+  @override
+  String get rvSharedRemainSilent => '保持沉默。无需撒谎，但您不必回答任何问题。';
+
+  @override
+  String get rvSharedDocument => '记录一切。您有权拍照、录像和录音。';
+
+  @override
+  String get rvMobilePockets => '拒绝搜查口袋。移民执法人员可进行简单搜身，但无权搜查。';
+
+  @override
+  String get rvMobileQuestion => '提出疑问。了解为何被拦截。';
+
+  @override
+  String get rvMobileLeave => '如果您没有被拘留，您有权离开。';
+
+  @override
+  String get rvDriveSearch => '拒绝对车辆进行搜查。';
+
+  @override
+  String get rvDriveID => '作为乘客可拒绝出示身份证明。只有驾驶员必须出示。';
+
+  @override
+  String get rvDriveWarrant => '询问警官是否持有搜查令。如有，您有权查看。未由法官签署的“搜查令”无效。';
+
+  @override
+  String get rvHomeWarrant =>
       '保持房门关闭。如对方称持有搜查令，请先让其从门缝递进。未由法官签署的“搜查令”无效。始终保持房门关闭。';
 
   @override
-  String get rsSharedSign => '拒绝签署任何文件。';
+  String get rvSharedSign => '拒绝签署任何文件。';
 
   @override
-  String get rsSharedFingerprint => '除非被正式逮捕，可拒绝接受移民局采集指纹。';
+  String get rvSharedFingerprint => '除非被正式逮捕，可拒绝接受移民局采集指纹。';
 
   @override
-  String get rsSharedLawyer => '您有权联系律师。如您已被正式逮捕，则有权请求法院为您指派律师。';
+  String get rvSharedLawyer => '您有权联系律师。如您已被正式逮捕，则有权请求法院为您指派律师。';
 
   @override
-  String get ssSOSOnOpen => '打开应用时启动SOS';
+  String get ssAutoShare => '自动分享照片/视频';
 
   @override
-  String get ssSOSOnClose => '关闭应用时启动SOS';
+  String get ssSOS => 'SOS 设置';
 
   @override
-  String get ssSOSOnCloseHint =>
-      '启用后，主页上设置按钮对面会出现一个安全关闭（点赞）按钮。如果 InstaSOS 因除安全关闭按钮以外的任何原因失去焦点（例如最小化、切换应用、屏幕关闭），则会开始发出 SOS 求救信号。';
+  String get ssAppearance => '外观设置';
 
   @override
-  String get ssCloseOffWarning => '应用程序将自动关闭，以防止意外播出。';
+  String get ssPermissions => '权限';
 
   @override
-  String get ssVideoSOS => '录像中断自动启动SOS';
+  String get ssResources => '资源';
 
   @override
-  String get ssAutoShare => '自动共享媒体';
+  String get ssSupport => '支持';
 
   @override
-  String get ssEMC => '紧急联系人';
+  String get pmOnlyAdd => '此工具仅用于添加权限。';
 
   @override
-  String get ssRemoveHint => '移除联系人';
+  String get pmRemoveIn => '您可以在以下位置移除权限：';
 
   @override
-  String get ssAddHint => '添加联系人';
+  String get pmManualPermission => '如果您在系统设置中移除了权限，也必须在那里恢复它们。';
 
   @override
-  String get ssLinkType => '链接类型';
+  String get rmCommunity => '社区资源';
 
   @override
-  String get ssAppearance => '界面外观';
+  String get rmGov => '美国政府资源';
 
   @override
-  String get faqName => '常见问题';
+  String get rmAffiliate => '均不隶属于 Empathetech LLC';
+
+  @override
+  String get rmAffiliateFix => '均不隶属于 Empathetic LLC';
+
+  @override
+  String get faqName => '常见问题 (FAQ)';
 
   @override
   String get faqListQ => '权利列表是如何制定的？';
 
   @override
-  String get faqListA1 => '权利列表汇编自多个公共来源，包括：';
+  String get faqListA => '权利列表取自多个公共资源，包括：';
 
   @override
-  String get faqListA2 => '另一个有用的资源：';
+  String get faqSettings => '设置是如何工作的？';
 
   @override
-  String get faqSettings => '这些设置有什么作用？';
+  String get faqAutoShareA =>
+      ' 使用您手机的内置分享功能。它不使用您保存的紧急联系人（如果有）。分享是可选的，并且可以随时取消。';
 
   @override
-  String get faqOnOpen =>
-      '启动时触发 SOS：启用后，应用程序启动时将立即开始 SOS 广播。不建议大多数用户使用，因为这可能导致意外误发。';
+  String get faqLinkA =>
+      ' 您的位置信息将如何发送给您的紧急联系人。“Google 地图”、“Apple 地图”和“Waze”将发送相应服务的可点击链接。“坐标”将以纯文本格式发送您的经纬度。';
 
   @override
-  String get faqOnInterrupt =>
-      '录制中断时触发 SOS：启用后，如果正在录制视频且 InstaSOS 因任何原因（最小化、切换应用、屏幕关闭）失去焦点，将开始 SOS 广播。\n建议启用此选项或“关闭时触发 SOS”（或两者都启用）。';
+  String get faqOnOpenA => ' 在应用启动时将立即开始 SOS 广播。不推荐大多数用户使用，因为这可能导致意外广播。';
 
   @override
-  String get faqAutoShare => '自动分享媒体：启用后，一旦视频完成或拍下照片，将立即出现系统原生分享选项。';
+  String get faqOnInterruptA =>
+      ' 如果正在录制视频且 InstaSOS 失去焦点，将开始 SOS 广播。失去焦点包括：最小化应用、切换应用和/或锁屏。建议启用此项或“关闭时发送 SOS”（或两者同时启用）。';
 
   @override
-  String get faqEMC => '紧急联系人：当 SOS 广播激活时，将接收您位置信息的人员。';
+  String get faqOnInterruptAFix =>
+      ' 如果正在录制视频且 Insta-SOS 失去焦点，将开始 SOS 广播。失去焦点包括：最小化应用、切换应用和/或锁屏。建议启用此项或“关闭时发送 SOS”（或两者同时启用）。';
 
   @override
-  String get faqLink =>
-      '链接类型：您的位置将如何发送给紧急联系人。“Google Maps”、“Apple Maps”和“Waze”将发送相应服务的可点击链接。“Coordinates”将以纯文本形式发送您的经纬度。';
+  String get faqUnavailable => 'SOS 显示“位置不可用”？';
 
   @override
-  String get faqUnavailable => 'SOS 显示“无法获取位置”？';
+  String get faqReliability => '为了提高 SOS 的可靠性，请在以下位置启用“始终允许”：';
 
   @override
-  String get faqReliability => '为了提高 SOS 的可靠性，请务必在';
-
-  @override
-  String get faqLocationPermissions => '位置权限设置中选择“始终允许”';
+  String get faqLocationPermissions => '位置权限';
 
   @override
   String get faqLocationTrust =>
-      '本应用仅在 SOS 广播激活时使用您的位置。InstaSOS 和 Empathetech LLC 均不会跟踪、存储或出售用户数据。';
+      '该应用仅在激活 SOS 广播时使用您的位置。InstaSOS 和 Empathetech LLC 均不追踪、存储或出售用户数据。';
 
   @override
-  String get faqPrivateContact => '联系人是私密的或没有电话号码？';
+  String get faqLocationTrustFix =>
+      '该应用仅在激活 SOS 广播时使用您的位置。Insta-SOS 和 Empathetic LLC 均不追踪、存储或出售用户数据。';
 
   @override
   String get faqContactPermissions =>
-      '如果您在添加紧急联系人时收到此消息，说明 InstaSOS 没有权限访问该联系人。';
+      '如果在添加紧急联系人时收到此消息，则表明 InstaSOS 没有访问该特定联系人的权限。';
 
   @override
-  String get faqUpdateContacts => '您可以更新联系人权限，请前往';
+  String get faqContactPermissionsFix =>
+      '如果在添加紧急联系人时收到此消息，则表明 Insta-SOS 没有访问该特定联系人的权限。';
 
   @override
-  String get faqOSSettings => 'iOS 设置';
+  String get faqUpdateContacts => '您可以在以下位置授予对更多（或所有）联系人的访问权限：';
 
   @override
-  String get faqMissing => '为什么缺少某些 Android 功能？';
+  String get faqSplitClarity1 => '授予对某位联系人的访问权限并不会使其成为紧急联系人。只有列在';
 
   @override
-  String get faqRestricted => '缺失的功能需要短信自动化，而 Apple 不允许开发者自动发送短信（除非使用付费服务）。';
+  String get faqSplitClarity2 => ' 中的号码才会在 SOS 广播期间收到联系。';
 
   @override
-  String get faqShortcuts => 'iOS 快捷指令呢？\n访问用户快捷指令也受到限制，这会破坏关键功能。主要是：它会中断视频录制。';
+  String get faqMissing => '为什么缺少某些 Android 上的功能？';
 
   @override
-  String get faqLanguages => '为什么不支持 X 语言？';
+  String get faqRestricted =>
+      '缺少的功能需要短信自动化，而苹果 (Apple) 不允许开发者自动发送短信（除非使用付费服务）。';
 
   @override
-  String get faqResponsible => '对权利列表使用机器翻译是不负责任的。请考虑';
+  String get faqShortcuts =>
+      '那 iOS 快捷指令呢？\n对访问用户快捷指令也存在限制，这会破坏关键功能。主要是：它会中断视频录制。';
 
   @override
-  String get faqContributing => '贡献翻译';
+  String get faqLanguages => '为什么没有 X 语言？';
 
   @override
-  String get faqExpand => '以帮助扩展语言选项。';
+  String get faqResponsible => '使用机器翻译权利列表是不负责任的。请考虑';
+
+  @override
+  String get faqContributing => '做出贡献';
+
+  @override
+  String get faqExpand => ' 以帮助扩展语言选项。';
 
   @override
   String get faqReset => '重置教程';
 
   @override
-  String get faqResetSnack => '教程将在下次启动时重播。';
+  String get faqContact => '联系支持';
 
   @override
-  String get faqOnCloseWarning => '“关闭时求救”已启用。这将开始广播。';
+  String get faqContactHint => '给 Empathetic LLC 发送邮件';
 
   @override
-  String get dsLadyLiberty => '自由女神像的图片，附有权利列表的预览。';
+  String get bsEMC => '紧急联系人';
+
+  @override
+  String get bsAddSomeone => '添加联系人以启用 SOS';
+
+  @override
+  String get bsRemoveHint => '移除联系人';
+
+  @override
+  String get bsAddHint => '添加其他联系人';
+
+  @override
+  String get bsLinkType => '位置链接类型';
+
+  @override
+  String get bsSnackRequest => '请添加紧急联系人';
+
+  @override
+  String get bsNeedPermission => '没有权限无法添加联系人';
+
+  @override
+  String get bsPartialContacts =>
+      'Apple 将显示所有联系人，而不仅仅是与 InstaSOS 共享的联系人。\n要共享更多联系人，请打开';
+
+  @override
+  String get bsPartialContactsFix =>
+      'Apple 将显示所有联系人，而不仅仅是与 Insta-SOS 共享的联系人。\n要共享更多联系人，请打开';
+
+  @override
+  String get bsNumError => '此联系人是私密的或没有电话号码。';
+
+  @override
+  String get bsSOSOnOpen => '打开时发送 SOS';
+
+  @override
+  String get bsSOSOnClose => '关闭时发送 SOS';
+
+  @override
+  String get bsSOSOnCloseHint =>
+      '首页上与设置相对的位置将出现一个安全关闭（大拇指向上）按钮。\n如果 InstaSOS 因除了安全关闭按钮以外的任何原因（最小化、切换应用、息屏）失去焦点，将开始 SOS 广播。';
+
+  @override
+  String get bsSOSOnCloseHintFix =>
+      '首页上与设置相对的位置将出现一个安全关闭（大拇指向上）按钮。\n如果 Insta-SOS 因除了安全关闭按钮以外的任何原因（最小化、切换应用、息屏）失去焦点，将开始 SOS 广播。';
+
+  @override
+  String get bsCloseOffWarning => '应用将自动关闭以防止意外广播。';
+
+  @override
+  String get bsSOSOnVideo => '录制中断时发送 SOS';
+
+  @override
+  String get dsLadyLiberty => '自由女神像的照片，带有权利列表的预览。';
+
+  @override
+  String get dsShowBack => '显示返回按钮？';
 }

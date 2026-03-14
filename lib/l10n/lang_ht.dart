@@ -12,320 +12,476 @@ class LangHt extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get gDone => 'Fini';
+
+  @override
   String get gReminder => 'Rapèl';
 
   @override
-  String get gNotAgain => 'Pa montre ankò';
+  String get gSystem => 'Anviwònman sistèm';
 
   @override
-  String get sosLastKnown => 'Dènye kote yo te konnen ou ye a';
+  String get gNotAgain => 'Pa montre sa ankò';
 
   @override
-  String get sosNeedSMS => 'SOS bezwen pèmisyon SMS pou li fonksyone byen.';
+  String get gOnCloseWarning =>
+      '\"SOS lè ou fèmen\" aktive. Sa pral kòmanse yon difizyon.';
 
   @override
-  String get sosDisabled => 'Pa ka jwenn pozisyon an (dezaktive)';
+  String get sosLastKnown => 'dènye kote ou te ye a:';
 
   @override
-  String get sosDenied => 'Pa ka jwenn pozisyon an (refize)';
+  String get sosNeedSMS => 'SOS bezwen pèmisyon pou SMS (voye tèks).';
 
   @override
-  String get sosError => 'Pa ka jwenn pozisyon an (erè)';
+  String get sosDisabled => 'Pa ka jwenn kote ou ye a (dezaktive)';
 
   @override
-  String get hsStartSOS => 'Peze pou lanse alèt SOS la.';
+  String get sosDenied => 'Pa ka jwenn kote ou ye a (refize)';
 
   @override
-  String get hsEndSOS => 'SOS ap difize. Peze pou sispann li.';
+  String get sosError => 'Pa ka jwenn kote ou ye a (erè)';
 
   @override
-  String get hsSafeCloseHint => 'Tout bagay OK. Fèmen aplikasyon an san SOS.';
+  String get hsWelcome => 'Byenvini sou InstaSOS';
 
   @override
-  String get hsAutoSOS => 'SOS otomatik';
+  String get hsWelcomeFix => 'Byenvini sou Insta-SOS';
 
   @override
-  String get hsStop => 'Rete';
+  String get hsAppIntro =>
+      'Pou kòmanse, sa a se sèlman yon aplikasyon pou Konnen Dwa Ou.\nOu ka aktive plis zouti lè w ba yo pèmisyon nan lis anba a.';
 
   @override
-  String get hsCameraHint => 'Pran yon foto.';
+  String get hsAppIntroAlt =>
+      'Dènye aktyalizasyon an te enpòtan, ann asire tout bagay pare anba a.';
 
   @override
-  String get hsPreviewHint => 'Peze pandan plizyè segond pou ou wè dwa ou yo.';
+  String get hsYourApp => 'Ou ka chanje lide/pèmisyon ou yo nenpòt kilè.';
 
   @override
-  String get hsShowRights => 'Afiche dwa ou yo';
+  String get hsHybridTranslation =>
+      'Leson an ak anviwònman yo tradui pa machin.\nLis dwa yo tradui pa moun.';
 
   @override
-  String get hsHideRights => 'Kache dwa ou yo.';
+  String get hsCamMic => 'Kamera ak Mikwofòn';
+
+  @override
+  String get hsAddRecording => 'Pèmèt anrejistreman videyo.';
+
+  @override
+  String get hsGallery => 'Galri';
+
+  @override
+  String get hsAddSave => 'Obligatwa pou sove anrejistreman ou yo.';
+
+  @override
+  String get hsCameraReady => 'Kamera a pare';
+
+  @override
+  String get hsCameraSetupHint =>
+      'Aktive pou bay Insta-SOS pèmisyon pou kamera a.';
+
+  @override
+  String get hsContacts => 'Kontak yo';
+
+  @override
+  String get hsAddContacts => 'Pati 1 pou aktive alèt pou kontak ijans.';
+
+  @override
+  String get hsAddContactsIOS => 'Aktive alèt pou kontak ijans.';
+
+  @override
+  String get hsContactsReady => 'Kontak yo pare';
+
+  @override
+  String get hsContactsSetupHint =>
+      'Aktive pou bay Insta-SOS pèmisyon pou wè kontak ou yo.';
+
+  @override
+  String get hsTexting => 'Voye tèks';
+
+  @override
+  String get hsAddTexting => 'Pati 2 pou aktive alèt pou kontak ijans.';
+
+  @override
+  String get hsTextingReady => 'Voye tèks pare';
+
+  @override
+  String get hsTextingSetupHint =>
+      'Aktive pou bay Insta-SOS pèmisyon pou voye mesaj.';
+
+  @override
+  String get hsLocation => 'Pozisyon';
+
+  @override
+  String get hsUnable => 'Pa kapab detèmine';
+
+  @override
+  String get hsAddLocation =>
+      'Pèmèt pataje kote ou ye a ak kontak ijans ou yo.';
+
+  @override
+  String get hsAddAlways =>
+      'Rekòmande pou aktive toujou. Peze ankò pou louvri Anviwònman Sistèm nan.';
+
+  @override
+  String get hsLocationReady => 'Pozisyon an pare';
+
+  @override
+  String get hsLocationSetupHint =>
+      'Aktive pou bay Insta-SOS pèmisyon pou wè kote ou ye a.';
+
+  @override
+  String get hsOneOfFour => 'Premye sou kat. Kontinye...';
+
+  @override
+  String get hsBroadcastTutorial =>
+      'Aktive SOS pou voye tèks otomatikman bay kontak ijans ou yo.\n\nLè InstaSOS gen aksè a kote ou ye a, li pral enkli l nan tèks yo.';
+
+  @override
+  String get hsBroadcastTutorialFix =>
+      'Aktive SOS pou voye tèks otomatikman bay kontak ijans ou yo.\n\nLè Insta-SOS gen aksè a kote ou ye a, li pral enkli l nan tèks yo.';
+
+  @override
+  String get hsBroadcastTutorialAndroid =>
+      'Tèks yo ap kontinye menm lè telefòn nan fèmen.\n\nDezaktive SOS manyèlman oswa fèmen aplikasyon an nèt pou kanpe tèks yo.';
+
+  @override
+  String get hsTwoOfFour => 'Dezyèm sou kat. Kontinye...';
+
+  @override
+  String get hsSettingsTutorial =>
+      '- Konfigire difizyon SOS ou a\n- Pèsonalize aparans aplikasyon an\n- Jwenn aksè a plis resous ak sipò\n\nnan anviwònman yo.';
+
+  @override
+  String get hsSettingsTutorialFix =>
+      'Ou ka konfigire difizyon SOS ou a, pèsonalize aparans aplikasyon an, epi jwenn aksè a plis resous/sipò nan anviwònman yo.';
+
+  @override
+  String get hsThreeOfFour => 'Twazyèm sou kat. Kontinye...';
+
+  @override
+  String get hsVideoTutorial =>
+      'Lè w fè yon foto oswa anrejistre yon videyo, ou ka pataje l tousuit.\n\nPa defo, si yon anrejistreman entèwonp, yon difizyon SOS ap kòmanse otomatikman.\n\nPeze lontan sou previzyalizasyon kamera a pou montre/kache dwa ou yo.';
+
+  @override
+  String get hsIOSVideoTutorial =>
+      'Lè w fè yon foto oswa anrejistre yon videyo, ou ka pataje l tousuit.\n\nPeze lontan sou previzyalizasyon kamera a pou montre/kache dwa ou yo.';
+
+  @override
+  String get hsTutorialComplete => 'Leson an fini';
+
+  @override
+  String get hsAddEMC =>
+      'Si w ap itilize alèt SOS, tanpri ale nan paj anviwònman an epi ajoute kontak ijans ou yo.';
+
+  @override
+  String get hsStartSOS => 'Aktive pou kòmanse difizyon SOS la.';
+
+  @override
+  String get hsEndSOS => 'SOS la ap difize. Aktive pou w kanpe l.';
+
+  @override
+  String get hsSafeCloseHint =>
+      'Tout bagay anfòm. Fèmen aplikasyon an san SOS.';
+
+  @override
+  String get hsBroadcasting => 'Ap difize';
+
+  @override
+  String get hsStop => 'Kanpe';
+
+  @override
+  String get hsCameraHint => 'Fè yon foto.';
+
+  @override
+  String get hsPreviewHint => 'Peze lontan pou montre/kache dwa w yo.';
+
+  @override
+  String get hsShowRights => 'Montre dwa w yo.';
+
+  @override
+  String get hsHideRights => 'Kache dwa w yo.';
 
   @override
   String get hsStartRecord => 'Anrejistre yon videyo.';
 
   @override
-  String get hsEndRecord => 'Kanpe anrejistreman an.';
+  String get hsEndRecord => 'Fini anrejistreman an.';
 
   @override
-  String get hsFlashOff => 'Flach otomatik. Peze pou limen flach la.';
+  String get hsFlashOff => 'Flash etenn. Aktive pou limen flash otomatik la.';
 
   @override
-  String get hsFlashAuto => 'Flach etenn. Peze pou mete flach otomatik.';
+  String get hsFlashAuto => 'Flash otomatik. Aktive pou limen flash la.';
 
   @override
-  String get hsFlashOn => 'Flach limen. Peze pou etenn flach la.';
+  String get hsFlashOn => 'Flash limen. Aktive pou etenn flash la.';
 
   @override
-  String get hsFlashTorch => 'Mòd lanp. Peze pou etenn flach la.';
+  String get hsFlashTorch => 'Mòd flach. Aktive pou etenn flash la.';
 
   @override
-  String get hsWelcome => 'Byenveni sou InstaSOS';
+  String get hsNoFlash => 'Flash kamera a pa mache';
 
   @override
-  String get hsAppTutorial =>
-      'Li pataje pozisyon ou ak kontak ijans ou yo lè gen sitiyasyon kriz.\n\nTanpri chwazi yon kontak ijans.\nYonn pou kounye a, ou ka ajoute plis apre.';
+  String get rvSharedHeader => 'Ou gen dwa pou...';
 
   @override
-  String get hsPermissionsTutorialTitle => 'Si ou vle';
+  String get rvOnFoot => 'A pye';
 
   @override
-  String get hsPermissionsTutorial =>
-      'InstaSOS kapab kolekte epi pataje prèv tou.\n\nLi ap mande aksè a kamera, mikwo, avèk galri pou sa.';
+  String get rvWhileDriving => 'Pandan ou nan machin';
 
   @override
-  String get hsPermissionsAlways =>
-      'Tanpri mete pozisyon sou \'toujou otorize\'.\nLi ap sèlman itilize lè SOS aktif.';
+  String get rvAtHome => 'Lakay';
 
   @override
-  String get hsBroadcastTutorial =>
-      'Aktive SOS pou voye mesaj otomatik bay kontak ijans ou yo.\n\nSi InstaSOS gen aksè a pozisyon ou, li ap mete l nan mesaj yo.\n\nMesaj yo ap kontinye ale menm si telefòn nan fèmen.\n\nOu ka swa dezaktive SOS oswa fèmen aplikasyon an nèt pou sispann voye mesaj ale.';
-
-  @override
-  String get hsIOSBroadcastTutorial =>
-      'Aktive SOS pou voye mesaj otomatik bay kontak ijans ou yo.\n\nSi InstaSOS gen aksè apozisyon ou, li ap mete l nan mesaj yo.';
-
-  @override
-  String get hsSettingsTutorial =>
-      'Ou kapab...\n\n- Ajoute plis kontak ijans\n- Setup SOS otomatik\n- Chanje lang aplikasyon an, epi\n- Mete aparans aplikasyon an ajou\n\nnan anviwònman yo.\n\nPeze bouton anviwònman an pandan plizyè segond pou bay fidbak sou aplikasyon an.';
-
-  @override
-  String get hsVideoTutorial =>
-      'Lè ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPa defo, si yon anrejistreman entèwonp, SOS ap aktive otomatikman.\n\nPeze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.';
-
-  @override
-  String get hsIOSVideoTutorial =>
-      'Lè ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPez mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo';
-
-  @override
-  String get hsRightsTutorial =>
-      'Si ou aktive kamera a, epi ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPa defo, si yon anrejistreman entèwonp, SOS ap aktive otomatikman.\n\nPeze sou ikòn balans jistis la oswa peze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.';
-
-  @override
-  String get hsIOSRightsTutorial =>
-      'Si ou aktive kamera a, epi ou pran yon foto oswa ou anrejistre yon videyo, ou ap kapab pataje li imedyatman.\n\nPeze sou ikòn balans jistis la oswa peze mitan ekran an pandan plizyè segond pou afiche lis dwa ou yo.';
-
-  @override
-  String get hsNeedContacts =>
-      'InstaSOS bezwen aksè a kontak ou yo pou li fonksyone kòrèkteman.';
-
-  @override
-  String get hsPartialContacts =>
-      'Apple ap montre tout kontak yo, pa sèlman sa yo pataje ak InstaSOS.\nPou pataje plis kontak, ale nan Anviwònman iOS -> Aplikasyon -> InstaSOS';
-
-  @override
-  String get hsNumError => 'Kontak la prive oubyen li pa gen nimewo telefòn.';
-
-  @override
-  String get rsSharedHeader => 'Ou gen dwa pou...';
-
-  @override
-  String get rsOnFoot => 'A pye';
-
-  @override
-  String get rsWhileDriving => 'Pandan ou nan machin';
-
-  @override
-  String get rsAtHome => 'Lakay';
-
-  @override
-  String get rsSharedRemainSilent =>
+  String get rvSharedRemainSilent =>
       'Rete an silans. Pa bay manti, men ou pa oblije reponn kesyon.';
 
   @override
-  String get rsSharedDocument =>
+  String get rvSharedDocument =>
       'Dokimante tout bagay. Ou gen dwa pou ou pran foto, anrejistre videyo, ak odyo.';
 
   @override
-  String get rsMobilePockets =>
+  String get rvMobilePockets =>
       'Refize ke yo fouye pòch ou. ICE ka fè yon manyen rapid, men yo pa ka fouye.';
 
   @override
-  String get rsMobileQuestion =>
+  String get rvMobileQuestion =>
       'Poze kesyon. Chèche konnen poukisa yo kanpe ou.';
 
   @override
-  String get rsMobileLeave => 'Ale si yo pa arete ou.';
+  String get rvMobileLeave => 'Ale si yo pa arete ou.';
 
   @override
-  String get rsDriveSearch => 'Refize ke yo fouye machin ou.';
+  String get rvDriveSearch => 'Refize ke yo fouye machin ou.';
 
   @override
-  String get rsDriveID =>
+  String get rvDriveID =>
       'Refize bay ID antan ke pasaje. Sèlman chofè a oblije bay ID.';
 
   @override
-  String get rsDriveWarrant =>
+  String get rvDriveWarrant =>
       'Mande si ajan yo gen manda. Ou gen dwa wè li si yo genyen. Si pa genyen siyati yon jij sou manda a, li pa valab.';
 
   @override
-  String get rsHomeWarrant =>
+  String get rvHomeWarrant =>
       'Kenbe pòt ou fèmen. Si yo gen manda, mande yo pou yo fè li pase anba pòt la. Si pa genyen siyati yon jij sou manda a, li pa valab. Kenbe pòt la fèmen.';
 
   @override
-  String get rsSharedSign => 'Refize siyen anyen.';
+  String get rvSharedSign => 'Refize siyen anyen.';
 
   @override
-  String get rsSharedFingerprint =>
+  String get rvSharedFingerprint =>
       'Refize ke ICE pran anprent ou sòf si yo deja arete ou.';
 
   @override
-  String get rsSharedLawyer =>
+  String get rvSharedLawyer =>
       'Pou konsilte yon avoka. Si yo arete fòmèlman, ou gen dwa gen yon avoka leta.';
 
   @override
-  String get ssSOSOnOpen => 'SOS lè ouvè';
+  String get ssAutoShare => 'Pataje foto/videyo otomatikman';
 
   @override
-  String get ssSOSOnClose => 'SOS lè fèmen';
+  String get ssSOS => 'Anviwònman SOS';
 
   @override
-  String get ssSOSOnCloseHint =>
-      'Lè li aktive, yon bouton pou fèmen an sekirite (gwo pous anlè) ap parèt sou paj dakèy la, anfas paramèt yo. Si InstaSOS pèdi atansyon pou nenpòt rezon eksepte bouton fèmen an sekirite a (minimize, chanje aplikasyon, ekran etenn), yon emisyon SOS ap kòmanse.';
+  String get ssAppearance => 'Anviwònman aparans';
 
   @override
-  String get ssCloseOffWarning =>
-      'Aplikasyon an ap fèmen otomatikman pou evite emisyon aksidantèl.';
+  String get ssPermissions => 'Pèmisyon yo';
 
   @override
-  String get ssVideoSOS => 'SOS si anrejistreman an entèwonp';
+  String get ssResources => 'Resous yo';
 
   @override
-  String get ssAutoShare => 'Pataje medya otomatikman';
+  String get ssSupport => 'Sipò';
 
   @override
-  String get ssEMC => 'Kontak ijans';
+  String get pmOnlyAdd => 'Zouti sa a sèlman ede ajoute pèmisyon.';
 
   @override
-  String get ssRemoveHint => 'Retire kontak';
+  String get pmRemoveIn => 'Ou ka retire pèmisyon nan ';
 
   @override
-  String get ssAddHint => 'Ajoute yon lòt kontak';
+  String get pmManualPermission =>
+      'Si w retire pèmisyon nan anviwònman sistèm nan, ou dwe remete yo la tou.';
 
   @override
-  String get ssLinkType => 'Kalite lyen';
+  String get rmCommunity => 'Resous kominote a';
 
   @override
-  String get ssAppearance => 'Aparans';
+  String get rmGov => 'Resous gouvènman ameriken an';
 
   @override
-  String get faqName => 'FAQ';
+  String get rmAffiliate => 'Okenn nan yo pa afilye ak Empathetech LLC';
+
+  @override
+  String get rmAffiliateFix => 'Okenn nan yo pa afilye ak Empathetic LLC';
+
+  @override
+  String get faqName => 'Keksyon yo Poze Souvan (FAQ)';
 
   @override
   String get faqListQ => 'Kijan lis dwa yo te fèt?';
 
   @override
-  String get faqListA1 =>
-      'Lis dwa yo te konpile apati plizyè sous piblik, tankou:';
+  String get faqListA => 'Lis dwa yo soti nan plizyè resous piblik, tankou:';
 
   @override
-  String get faqListA2 => 'Yon lòt resous itil: ';
+  String get faqSettings => 'Kijan anviwònman yo fonksyone?';
 
   @override
-  String get faqSettings => 'Kisa paramèt yo fè?';
+  String get faqAutoShareA =>
+      ' itilize opsyon pataje ki sou telefòn ou an. Li pa itilize kontak ijans ou anrejistre yo (si w genyen). Pataje a se opsyonèl epi ou ka toujou anile l.';
 
   @override
-  String get faqOnOpen =>
-      'SOS lè w louvri: lè li aktive, yon siyal SOS ap kòmanse voye imedyatman lè aplikasyon an louvri. Nou pa rekòmande sa pou pifò itilizatè, paske li ka lakòz fo alèt pa aksidan.';
+  String get faqLinkA =>
+      ' kijan y ap voye kote w ye a bay kontak ijans ou yo. \"Google Maps\", \"Apple Maps\", ak \"Waze\" ap voye yon lyen ou ka klike pou sèvis ki koresponn lan. \"Kowòdone\" ap voye latitid ak lonjitid ou an kòm yon tèks senp.';
 
   @override
-  String get faqOnInterrupt =>
-      'SOS sou entèripsyon anrejistreman: lè li aktive, si yon anrejistreman videyo ap fèt epi InstaSOS pèdi priyorite pou nenpòt rezon (minimize, chanje aplikasyon, ekran etenn), yon siyal SOS ap kòmanse voye.\nLi rekòmande pou aktive swa opsyon sa a oswa \"SOS lè fèmen\" (oswa toude).';
+  String get faqOnOpenA =>
+      ' yon difizyon SOS ap kòmanse tousuit lè w louvri aplikasyon an. Nou pa rekòmande sa pou pifò itilizatè yo, paske li ka lakòz difizyon pa aksidan.';
 
   @override
-  String get faqAutoShare =>
-      'Pataje medya otomatikman: lè li aktive, opsyon pataje natif yo ap parèt le pli vit ke yon videyo fini oswa yon foto fèt.';
+  String get faqOnInterruptA =>
+      ' si yon videyo ap anrejistre epi InstaSOS pèdi fokalizasyon, yon difizyon SOS ap kòmanse. Pèdi fokalizasyon vle di: minimize aplikasyon an, chanje aplikasyon, ak/oswa fèmen ekran an. Nou rekòmande pou aktive sa a oswa \"SOS lè ou fèmen\" (oswa toulede).';
 
   @override
-  String get faqEMC =>
-      'Kontak ijans: moun yo ki pral resevwa pozisyon ou pandan yon siyal SOS ap voye.';
+  String get faqOnInterruptAFix =>
+      ' si yon videyo ap anrejistre epi Insta-SOS pèdi fokalizasyon, yon difizyon SOS ap kòmanse. Pèdi fokalizasyon vle di: minimize aplikasyon an, chanje aplikasyon, ak/oswa fèmen ekran an. Nou rekòmande pou aktive sa a oswa \"SOS lè ou fèmen\" (oswa toulede).';
 
   @override
-  String get faqLink =>
-      'Tip lyen: kijan y ap voye pozisyon ou bay kontak ijans ou yo. \"Google Maps\", \"Apple Maps\", ak \"Waze\" ap voye yon lyen ou ka klike pou sèvis korespondan an. \"Coordinates\" ap voye latitid ak lonjitid ou kòm tèks senp.';
-
-  @override
-  String get faqUnavailable => 'SOS di \"Location unavailable\"?';
+  String get faqUnavailable => 'SOS di \"Pozisyon pa disponib\"?';
 
   @override
   String get faqReliability =>
-      'Pou amelyore fyabilite SOS, tanpri aktive \"Allow all the time\" (Pèmèt tout tan) nan ';
+      'Pou amelyore fyabilite SOS la, tanpri aktive \"Pèmèt tout tan\" nan ';
 
   @override
   String get faqLocationPermissions => 'pèmisyon pozisyon yo';
 
   @override
   String get faqLocationTrust =>
-      'Aplikasyon an itilize pozisyon ou sèlman lè yon siyal SOS ap voye. Ni InstaSOS, ni Empathetech LLC pa swiv, estoke, oswa vann done itilizatè yo.';
+      'Aplikasyon an itilize kote w ye a sèlman lè yon difizyon SOS aktive. Ni InstaSOS ni Empathetech LLC pa swiv, ni konsève, ni vann done itilizatè yo.';
 
   @override
-  String get faqPrivateContact =>
-      'Kontak la prive oswa li pa gen nimewo telefòn?';
+  String get faqLocationTrustFix =>
+      'Aplikasyon an itilize kote w ye a sèlman lè yon difizyon SOS aktive. Ni Insta-SOS ni Empathetic LLC pa swiv, ni konsève, ni vann done itilizatè yo.';
 
   @override
   String get faqContactPermissions =>
-      'Si ou resevwa mesaj sa a lè w ap ajoute yon kontak ijans, InstaSOS pa gen pèmisyon pou jwenn aksès a kontak sa a.';
+      'Si w jwenn mesaj sa a lè w ap ajoute yon kontak ijans, InstaSOS pa gen pèmisyon pou jwenn aksè ak kontak sa a.';
 
   @override
-  String get faqUpdateContacts => 'Ou ka mete ajou pèmisyon kontak yo nan ';
+  String get faqContactPermissionsFix =>
+      'Si w jwenn mesaj sa a lè w ap ajoute yon kontak ijans, Insta-SOS pa gen pèmisyon pou jwenn aksè ak kontak sa a.';
 
   @override
-  String get faqOSSettings => 'paramèt iOS yo';
+  String get faqUpdateContacts =>
+      'Ou ka bay aksè ak plis (oswa tout) kontak nan ';
 
   @override
-  String get faqMissing => 'Poukisa kèk fonksyon Android manke?';
+  String get faqSplitClarity1 =>
+      'Lè w bay aksè a yon kontak sa pa fè l tounen yon kontak ijans. Se sèlman nimewo ki nan lis ';
+
+  @override
+  String get faqSplitClarity2 => ' y ap kontakte pandan yon difizyon SOS.';
+
+  @override
+  String get faqMissing => 'Poukisa kèk fonksyon Android pa la?';
 
   @override
   String get faqRestricted =>
-      'Fonksyon ki manke yo mande otomatizasyon SMS, epi Apple pa pèmèt devlopè yo otomatize mesaj tèks (san yon sèvis peye).';
+      'Fonksyon ki pa la yo bezwen yon automatizasyon SMS, epi Apple pa pèmèt devlopè yo otomatize mesaj tèks (san yon sèvis peye).';
 
   @override
   String get faqShortcuts =>
-      'E rakousi iOS yo?\nGenyen tou restriksyon sou aksè a rakousi itilizatè yo, ki ta ka kraze fonksyon enpòtan yo. Prensipalman: li ta entèwonp anrejistreman videyo yo.';
+      'E pou rakoursi iOS yo?\nGen restriksyon tou sou aksè rakoursi itilizatè yo, ki t ap kraze fonksyon enpòtan yo. Sitou: sa ta entèwonp anrejistreman videyo yo.';
 
   @override
-  String get faqLanguages => 'Poukisa lang X pa disponib?';
+  String get faqLanguages => 'Poukisa lang X la pa disponib?';
 
   @override
   String get faqResponsible =>
-      'Li t ap irèsponsab pou itilize tradiksyon machin pou lis dwa yo. Tanpri konsidere ';
+      'Li t ap iresponsab pou nou itilize tradiksyon machin pou lis dwa yo. Tanpri konsidere ';
 
   @override
   String get faqContributing => 'kontribye';
 
   @override
-  String get faqExpand => ' pou ede elaji opsyon lang yo.';
+  String get faqExpand => ' pou ede devlope plis opsyon lang.';
 
   @override
-  String get faqReset => 'Reyajiste titoryèl la';
+  String get faqReset => 'Reyinisyalize leson an';
 
   @override
-  String get faqResetSnack =>
-      'Titoryèl la pral jwe ankò nan pwochen lansman an.';
+  String get faqContact => 'Kontakte sipò a';
 
   @override
-  String get faqOnCloseWarning =>
-      '\"SOS lè fèmen\" aktive. Sa pral kòmanse yon difizyon.';
+  String get faqContactHint => 'Voye imèl bay Empathetic LLC';
+
+  @override
+  String get bsEMC => 'Kontak ijans yo';
+
+  @override
+  String get bsAddSomeone => 'Ajoute yon moun pou aktive SOS';
+
+  @override
+  String get bsRemoveHint => 'Retire kontak';
+
+  @override
+  String get bsAddHint => 'Ajoute yon lòt kontak';
+
+  @override
+  String get bsLinkType => 'Kalite lyen pou pozisyon';
+
+  @override
+  String get bsSnackRequest => 'Tanpri ajoute kontak ijans';
+
+  @override
+  String get bsNeedPermission => 'Pa ka ajoute kontak si w pa gen pèmisyon';
+
+  @override
+  String get bsPartialContacts =>
+      'Apple ap montre tout kontak yo, pa sèlman sa ki pataje ak InstaSOS yo.\nPou pataje plis kontak, louvri ';
+
+  @override
+  String get bsPartialContactsFix =>
+      'Apple ap montre tout kontak yo, pa sèlman sa ki pataje ak Insta-SOS yo.\nPou pataje plis kontak, louvri ';
+
+  @override
+  String get bsNumError =>
+      'Kontak sa a prive oswa li pa genyen yon nimewo telefòn.';
+
+  @override
+  String get bsSOSOnOpen => 'SOS lè aplikasyon an louvri';
+
+  @override
+  String get bsSOSOnClose => 'SOS lè aplikasyon an fèmen';
+
+  @override
+  String get bsSOSOnCloseHint =>
+      'Yon bouton fèmen an sekirite (pous anlè) ap parèt sou paj akèy la, anfas anviwònman yo.\nSi InstaSOS pèdi fokalizasyon pou kèlkeswa rezon an esepte bouton fèmen an sekirite a (minimize, chanje aplikasyon, ekran fèmen), yon difizyon SOS ap kòmanse.';
+
+  @override
+  String get bsSOSOnCloseHintFix =>
+      'Yon bouton fèmen an sekirite (pous anlè) ap parèt sou paj akèy la, anfas anviwònman yo.\nSi Insta-SOS pèdi fokalizasyon pou kèlkeswa rezon an esepte bouton fèmen an sekirite a (minimize, chanje aplikasyon, ekran fèmen), yon difizyon SOS ap kòmanse.';
+
+  @override
+  String get bsCloseOffWarning =>
+      'Aplikasyon an ap fèmen otomatikman pou evite difizyon ou pa vle fè.';
+
+  @override
+  String get bsSOSOnVideo => 'SOS lè anrejistreman entèwonp';
 
   @override
   String get dsLadyLiberty =>
-      'Yon foto Estati Libète a, avèk yon aperçu sou lis dwa yo.';
+      'Yon foto Estati Libète a, avèk yon previzyalizasyon lis dwa yo.';
+
+  @override
+  String get dsShowBack => 'Montre bouton tounen an?';
 }

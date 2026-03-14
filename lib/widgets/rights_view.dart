@@ -1,5 +1,5 @@
 /* sos
- * Copyright (c) 2025 Empathetech LLC. All rights reserved.
+ * Copyright (c) 2026 Empathetech LLC. All rights reserved.
  * See LICENSE for distribution and usage details.
  */
 
@@ -7,32 +7,6 @@ import '../utils/export.dart';
 
 import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
-
-enum Location { walking, driving, home }
-
-extension LocationConfig on Location {
-  IconData get icon {
-    switch (this) {
-      case Location.walking:
-        return Icons.directions_walk;
-      case Location.driving:
-        return Icons.drive_eta;
-      case Location.home:
-        return Icons.home;
-    }
-  }
-
-  String get name {
-    switch (this) {
-      case Location.walking:
-        return walkingTab;
-      case Location.driving:
-        return drivingTab;
-      case Location.home:
-        return atHomeTab;
-    }
-  }
-}
 
 class RightsView extends StatefulWidget {
   final bool hide;
@@ -44,137 +18,116 @@ class RightsView extends StatefulWidget {
 }
 
 class _RightsViewState extends State<RightsView> {
-  // Gather the theme data //
-
-  late final Lang l10n = Lang.of(context)!;
-
   // Define the build data //
 
-  late Location currentTab = getTab(EzConfig.get(savedTabKey));
+  Situation currentTab = SituationConfig.lookup(EzConfig.get(savedTabKey));
 
   // Define custom functions //
 
-  Location getTab(String? tab) {
-    switch (tab) {
-      case drivingTab:
-        return Location.driving;
-      case atHomeTab:
-        return Location.home;
-      default:
-        return Location.walking;
-    }
-  }
-
-  Widget populateTab(TextStyle? style) {
+  Widget populateTab() {
     switch (currentTab) {
-      case Location.walking:
+      case Situation.walking:
         return Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            rightsBlock(l10n.rsMobilePockets, style),
-            rightsBlock(l10n.rsMobileQuestion, style),
-            rightsBlock(l10n.rsMobileLeave, style),
+            rightsBlock(l10n.rvMobilePockets),
+            rightsBlock(l10n.rvMobileQuestion),
+            rightsBlock(l10n.rvMobileLeave),
           ],
         );
-      case Location.driving:
+      case Situation.driving:
         return Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            rightsBlock(l10n.rsMobilePockets, style),
-            rightsBlock(l10n.rsMobileQuestion, style),
-            rightsBlock(l10n.rsMobileLeave, style),
-            rightsBlock(l10n.rsDriveSearch, style),
-            rightsBlock(l10n.rsDriveID, style),
-            rightsBlock(l10n.rsDriveWarrant, style),
+            rightsBlock(l10n.rvMobilePockets),
+            rightsBlock(l10n.rvMobileQuestion),
+            rightsBlock(l10n.rvMobileLeave),
+            rightsBlock(l10n.rvDriveSearch),
+            rightsBlock(l10n.rvDriveID),
+            rightsBlock(l10n.rvDriveWarrant),
           ],
         );
-      case Location.home:
+      case Situation.home:
         return Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            rightsBlock(l10n.rsHomeWarrant, style),
-          ],
+          children: <Widget>[rightsBlock(l10n.rvHomeWarrant)],
         );
     }
   }
 
-  Text rightsBlock(String text, TextStyle? style) => Text(
+  Text rightsBlock(String text) => Text(
         '$text\n',
         textAlign: TextAlign.start,
-        style: style,
+        style: EzConfig.styles.bodyLarge,
       );
 
   // Return the build //
 
   @override
-  Widget build(BuildContext context) {
-    final TextStyle? bodyStyle = Theme.of(context).textTheme.bodyLarge;
-
-    return Visibility(
-      visible: !widget.hide,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: EzConfig.get(marginKey)),
-        child: EzScrollView(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          // Header
-          children: <Widget>[
-            Center(
-              child: Text(
-                l10n.rsSharedHeader,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.titleLarge,
+  Widget build(BuildContext context) => Visibility(
+        visible: !widget.hide,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
+          child: EzScrollView(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            // Header
+            children: <Widget>[
+              Center(
+                child: Text(
+                  l10n.rvSharedHeader,
+                  textAlign: TextAlign.center,
+                  style: EzConfig.styles.titleLarge,
+                ),
               ),
-            ),
-            ezSpacer,
+              EzConfig.spacer,
 
-            // Switcher
-            Center(
-              child: SegmentedButton<Location>(
-                segments: <ButtonSegment<Location>>[
-                  ButtonSegment<Location>(
-                    value: Location.walking,
-                    label: Icon(Location.walking.icon),
-                    tooltip: l10n.rsOnFoot,
-                  ),
-                  ButtonSegment<Location>(
-                    value: Location.driving,
-                    label: Icon(Location.driving.icon),
-                    tooltip: l10n.rsWhileDriving,
-                  ),
-                  ButtonSegment<Location>(
-                    value: Location.home,
-                    label: Icon(Location.home.icon),
-                    tooltip: l10n.rsAtHome,
-                  ),
-                ],
-                selected: <Location>{currentTab},
-                showSelectedIcon: false,
-                onSelectionChanged: (Set<Location> selected) async {
-                  currentTab = selected.first;
-                  await EzConfig.setString(savedTabKey, currentTab.name);
-                  setState(() {});
-                },
+              // Switcher
+              Center(
+                child: SegmentedButton<Situation>(
+                  segments: <ButtonSegment<Situation>>[
+                    ButtonSegment<Situation>(
+                      value: Situation.walking,
+                      label: Icon(Situation.walking.icon),
+                      tooltip: l10n.rvOnFoot,
+                    ),
+                    ButtonSegment<Situation>(
+                      value: Situation.driving,
+                      label: Icon(Situation.driving.icon),
+                      tooltip: l10n.rvWhileDriving,
+                    ),
+                    ButtonSegment<Situation>(
+                      value: Situation.home,
+                      label: Icon(Situation.home.icon),
+                      tooltip: l10n.rvAtHome,
+                    ),
+                  ],
+                  selected: <Situation>{currentTab},
+                  showSelectedIcon: false,
+                  onSelectionChanged: (Set<Situation> selected) async {
+                    currentTab = selected.first;
+                    await EzConfig.setString(savedTabKey, currentTab.name);
+                    if (mounted) setState(() {});
+                  },
+                ),
               ),
-            ),
-            ezSeparator,
+              EzConfig.separator,
 
-            // Shared rights I
-            rightsBlock(l10n.rsSharedRemainSilent, bodyStyle),
-            rightsBlock(l10n.rsSharedDocument, bodyStyle),
+              // Shared rights I
+              rightsBlock(l10n.rvSharedRemainSilent),
+              rightsBlock(l10n.rvSharedDocument),
 
-            // Situational rights
-            populateTab(bodyStyle),
+              // Situational rights
+              populateTab(),
 
-            // Shared rights II
-            rightsBlock(l10n.rsSharedSign, bodyStyle),
-            rightsBlock(l10n.rsSharedFingerprint, bodyStyle),
-            rightsBlock(l10n.rsSharedLawyer, bodyStyle),
-          ],
+              // Shared rights II
+              rightsBlock(l10n.rvSharedSign),
+              rightsBlock(l10n.rvSharedFingerprint),
+              rightsBlock(l10n.rvSharedLawyer),
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
 }

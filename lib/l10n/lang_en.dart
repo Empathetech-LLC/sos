@@ -12,16 +12,26 @@ class LangEn extends Lang {
   String get gOk => 'Ok';
 
   @override
+  String get gDone => 'Done';
+
+  @override
   String get gReminder => 'Reminder';
+
+  @override
+  String get gSystem => 'System settings';
 
   @override
   String get gNotAgain => 'Don\'t show again';
 
   @override
-  String get sosLastKnown => 'Last known location';
+  String get gOnCloseWarning =>
+      '\"SOS on close\" is enabled. This will start a broadcast.';
 
   @override
-  String get sosNeedSMS => 'SOS needs SMS permission to function properly.';
+  String get sosLastKnown => 'last known location:';
+
+  @override
+  String get sosNeedSMS => 'SOS needs SMS (texting) permission.';
 
   @override
   String get sosDisabled => 'Cannot access location (disabled)';
@@ -33,6 +43,140 @@ class LangEn extends Lang {
   String get sosError => 'Cannot access location (error)';
 
   @override
+  String get hsWelcome => 'Welcome to InstaSOS';
+
+  @override
+  String get hsWelcomeFix => 'Welcome to Insta-SOS';
+
+  @override
+  String get hsAppIntro =>
+      'To start, this is only a Know Your Rights app.\nYou can enable more tools by giving them permission in the list below.';
+
+  @override
+  String get hsAppIntroAlt =>
+      'The latest update was a big one, let\'s make sure everything is ready below.';
+
+  @override
+  String get hsYourApp => 'You can change your mind/permissions at any time.';
+
+  @override
+  String get hsHybridTranslation =>
+      'The tutorial and settings are machine translated.\nThe rights list is human translated.';
+
+  @override
+  String get hsCamMic => 'Camera & Microphone';
+
+  @override
+  String get hsAddRecording => 'Enables video recording.';
+
+  @override
+  String get hsGallery => 'Gallery';
+
+  @override
+  String get hsAddSave => 'Required to save your recordings.';
+
+  @override
+  String get hsCameraReady => 'Camera is ready';
+
+  @override
+  String get hsCameraSetupHint =>
+      'Activate to give Insta-SOS permission to the camera.';
+
+  @override
+  String get hsContacts => 'Contacts';
+
+  @override
+  String get hsAddContacts => 'Part 1 of enabling emergency contact alerts.';
+
+  @override
+  String get hsAddContactsIOS => 'Enables emergency contact alerts.';
+
+  @override
+  String get hsContactsReady => 'Contacts are ready';
+
+  @override
+  String get hsContactsSetupHint =>
+      'Activate to give Insta-SOS permission to view your contacts.';
+
+  @override
+  String get hsTexting => 'Texting';
+
+  @override
+  String get hsAddTexting => 'Part 2 of enabling emergency contact alerts.';
+
+  @override
+  String get hsTextingReady => 'Texting is ready';
+
+  @override
+  String get hsTextingSetupHint =>
+      'Activate to give Insta-SOS permission to send messages.';
+
+  @override
+  String get hsLocation => 'Location';
+
+  @override
+  String get hsUnable => 'Unable to determine';
+
+  @override
+  String get hsAddLocation =>
+      'Enables location sharing with emergency contacts.';
+
+  @override
+  String get hsAddAlways =>
+      'Recommended to enable always. Press again to open the System Settings.';
+
+  @override
+  String get hsLocationReady => 'Location is ready';
+
+  @override
+  String get hsLocationSetupHint =>
+      'Activate to give Insta-SOS permission to view your location.';
+
+  @override
+  String get hsOneOfFour => 'First of four. Continue...';
+
+  @override
+  String get hsBroadcastTutorial =>
+      'Activate SOS to automatically text your emergency contacts.\n\nWhen InstaSOS has access to your location, it will be included in the texts.';
+
+  @override
+  String get hsBroadcastTutorialFix =>
+      'Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.';
+
+  @override
+  String get hsBroadcastTutorialAndroid =>
+      'The texts will continue when the phone is locked.\n\nManually deactivate SOS or fully close the app to stop the texts.';
+
+  @override
+  String get hsTwoOfFour => 'Second of four. Continue...';
+
+  @override
+  String get hsSettingsTutorial =>
+      '- Configure your SOS broadcast\n- Customize the app\'s appearance\n- Access more resources and support\n\nin the settings.';
+
+  @override
+  String get hsSettingsTutorialFix =>
+      'You can configure your SOS broadcast, customize the app\'s appearance, and access more resources/support in the settings.';
+
+  @override
+  String get hsThreeOfFour => 'Third of four. Continue...';
+
+  @override
+  String get hsVideoTutorial =>
+      'When you take a picture or record a video, you can share it right away.\n\nBy default, if a recording is interrupted, an SOS broadcast will start automatically.\n\nLong press the camera preview to show/hide your rights.';
+
+  @override
+  String get hsIOSVideoTutorial =>
+      'When you take a picture or record a video, you can share it right away.\n\nLong press the camera preview to show/hide your rights.';
+
+  @override
+  String get hsTutorialComplete => 'Tutorial complete';
+
+  @override
+  String get hsAddEMC =>
+      'If you\'re using SOS alerts, please head to the settings page and add your emergency contacts.';
+
+  @override
   String get hsStartSOS => 'Activate to start SOS broadcast.';
 
   @override
@@ -42,7 +186,7 @@ class LangEn extends Lang {
   String get hsSafeCloseHint => 'All clear. Close the app without SOS.';
 
   @override
-  String get hsAutoSOS => 'Auto SOS';
+  String get hsBroadcasting => 'Broadcasting';
 
   @override
   String get hsStop => 'Stop';
@@ -51,7 +195,7 @@ class LangEn extends Lang {
   String get hsCameraHint => 'Take a photo.';
 
   @override
-  String get hsPreviewHint => 'Long press to toggle your rights view.';
+  String get hsPreviewHint => 'Long press to show/hide your rights.';
 
   @override
   String get hsShowRights => 'Show your rights.';
@@ -78,154 +222,104 @@ class LangEn extends Lang {
   String get hsFlashTorch => 'Torch mode. Activate to turn flash off.';
 
   @override
-  String get hsWelcome => 'Welcome to InstaSOS';
+  String get hsNoFlash => 'Camera flash not working';
 
   @override
-  String get hsAppTutorial =>
-      'It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.';
+  String get rvSharedHeader => 'You have the right to...';
 
   @override
-  String get hsPermissionsTutorialTitle => 'If you want';
+  String get rvOnFoot => 'On foot';
 
   @override
-  String get hsPermissionsTutorial =>
-      'InstaSOS can also gather and share evidence.\n\nIt will ask for camera, microphone, and gallery access to do so.';
+  String get rvWhileDriving => 'While driving';
 
   @override
-  String get hsPermissionsAlways =>
-      'Please set location to always allow.\nIt will only be used while SOS is active.';
+  String get rvAtHome => 'At home';
 
   @override
-  String get hsBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.';
-
-  @override
-  String get hsIOSBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.';
-
-  @override
-  String get hsSettingsTutorial =>
-      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s language, and\n- Update the app\'s appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.';
-
-  @override
-  String get hsVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nLong press the center preview to show a list of your rights.';
-
-  @override
-  String get hsIOSVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nLong press the center preview to show a list of your rights.';
-
-  @override
-  String get hsRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or long press the center of the screen to show a list of your rights.';
-
-  @override
-  String get hsIOSRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.';
-
-  @override
-  String get hsNeedContacts =>
-      'InstaSOS needs access to your contacts to function properly.';
-
-  @override
-  String get hsPartialContacts =>
-      'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, go to iOS Settings -> Apps -> InstaSOS';
-
-  @override
-  String get hsNumError =>
-      'The contact is private or does not have a phone number.';
-
-  @override
-  String get rsSharedHeader => 'You have the right to...';
-
-  @override
-  String get rsOnFoot => 'On foot';
-
-  @override
-  String get rsWhileDriving => 'While driving';
-
-  @override
-  String get rsAtHome => 'At home';
-
-  @override
-  String get rsSharedRemainSilent =>
+  String get rvSharedRemainSilent =>
       'Remain silent. Do not lie, but you don\'t have to answer questions.';
 
   @override
-  String get rsSharedDocument =>
+  String get rvSharedDocument =>
       'Document everything. You have the right to take pictures, record videos, and record audio.';
 
   @override
-  String get rsMobilePockets =>
+  String get rvMobilePockets =>
       'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
 
   @override
-  String get rsMobileQuestion =>
+  String get rvMobileQuestion =>
       'Ask questions. Find out why you are being stopped.';
 
   @override
-  String get rsMobileLeave => 'Leave if you are not being detained.';
+  String get rvMobileLeave => 'Leave if you are not being detained.';
 
   @override
-  String get rsDriveSearch => 'Refuse a search of your car.';
+  String get rvDriveSearch => 'Refuse a search of your car.';
 
   @override
-  String get rsDriveID =>
+  String get rvDriveID =>
       'Refuse to provide ID as a passenger. Only the driver is required to provide ID.';
 
   @override
-  String get rsDriveWarrant =>
+  String get rvDriveWarrant =>
       'Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it\'s not valid.';
 
   @override
-  String get rsHomeWarrant =>
+  String get rvHomeWarrant =>
       'Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.';
 
   @override
-  String get rsSharedSign => 'Refuse to sign anything.';
+  String get rvSharedSign => 'Refuse to sign anything.';
 
   @override
-  String get rsSharedFingerprint =>
+  String get rvSharedFingerprint =>
       'Refuse to be fingerprinted by ICE unless you are under arrest.';
 
   @override
-  String get rsSharedLawyer =>
+  String get rvSharedLawyer =>
       'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.';
 
   @override
-  String get ssSOSOnOpen => 'SOS on open';
+  String get ssAutoShare => 'Auto-share pictures/videos';
 
   @override
-  String get ssSOSOnClose => 'SOS on close';
+  String get ssSOS => 'SOS settings';
 
   @override
-  String get ssSOSOnCloseHint =>
-      'When enabled, a safe close (thumbs up) button will be appear on the home page, opposite the settings. If InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
+  String get ssAppearance => 'Appearance settings';
 
   @override
-  String get ssCloseOffWarning =>
-      'The app will auto-close to prevent unintentional broadcasts.';
+  String get ssPermissions => 'Permissions';
 
   @override
-  String get ssVideoSOS => 'SOS on interrupted recording';
+  String get ssResources => 'Resources';
 
   @override
-  String get ssAutoShare => 'Auto-share media';
+  String get ssSupport => 'Support';
 
   @override
-  String get ssEMC => 'Emergency contacts';
+  String get pmOnlyAdd => 'This tool only helps to add permissions.';
 
   @override
-  String get ssRemoveHint => 'Remove contact';
+  String get pmRemoveIn => 'You can remove permissions in the ';
 
   @override
-  String get ssAddHint => 'Add another contact';
+  String get pmManualPermission =>
+      'If you remove permissions in the system settings, they must be restored there too.';
 
   @override
-  String get ssLinkType => 'Link type';
+  String get rmCommunity => 'Community resources';
 
   @override
-  String get ssAppearance => 'Appearance';
+  String get rmGov => 'US government resources';
+
+  @override
+  String get rmAffiliate => 'None are affiliated with Empathetech LLC';
+
+  @override
+  String get rmAffiliateFix => 'None are affiliated with Empathetic LLC';
 
   @override
   String get faqName => 'FAQ';
@@ -234,34 +328,31 @@ class LangEn extends Lang {
   String get faqListQ => 'How was the rights list made?';
 
   @override
-  String get faqListA1 =>
-      'The rights list was compiled from several public sources, including:';
+  String get faqListA =>
+      'The list of rights was taken from several public resources, including:';
 
   @override
-  String get faqListA2 => 'Another useful resource: ';
+  String get faqSettings => 'How do the settings work?';
 
   @override
-  String get faqSettings => 'What do the settings do?';
+  String get faqAutoShareA =>
+      ' uses your phone\'s built in share. It does not use your saved emergency contacts (if any). Sharing is optional and can always be cancelled.';
 
   @override
-  String get faqOnOpen =>
-      'SOS on open: when enabled, an SOS broadcast will begin immediately upon app launch. Not recommended for most users, as it could lead to accidental broadcasts.';
+  String get faqLinkA =>
+      ' how your location will be delivered to your emergency contacts. \"Google Maps\", \"Apple Maps\", and \"Waze\" will send a clickable link for the corresponding service. \"Coordinates\" will send your latitude and longitude as plain text.';
 
   @override
-  String get faqOnInterrupt =>
-      'SOS on interrupted recording: when enabled, if a video recording is active and InstaSOS loses focus for any reason (minimized, switched apps, screen off), an SOS broadcast will begin.\nIt is recommended to enable either this or \"SOS on close\" (or both).';
+  String get faqOnOpenA =>
+      ' an SOS broadcast will begin immediately upon app launch. Not recommended for most users, as it could lead to accidental broadcasts.';
 
   @override
-  String get faqAutoShare =>
-      'Auto-share media: when enabled, the native share options will appear as soon as a video completes or a photo is taken.';
+  String get faqOnInterruptA =>
+      ' if a video is recording and InstaSOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen. It is recommended to enable either this or \"SOS on close\" (or both).';
 
   @override
-  String get faqEMC =>
-      'Emergency contacts: the people that will be sent your location while an SOS broadcast is active.';
-
-  @override
-  String get faqLink =>
-      'Link type: how your location will be delivered to your emergency contacts. \"Google Maps\", \"Apple Maps\", and \"Waze\" will send a clickable link for the corresponding service. \"Coordinates\" will send your latitude and longitude as plain text.';
+  String get faqOnInterruptAFix =>
+      ' if a video is recording and Insta-SOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen. It is recommended to enable either this or \"SOS on close\" (or both).';
 
   @override
   String get faqUnavailable => 'SOS says \"Location unavailable\"?';
@@ -278,18 +369,27 @@ class LangEn extends Lang {
       'The app only uses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.';
 
   @override
-  String get faqPrivateContact =>
-      'The contact is private or does not have a phone number?';
+  String get faqLocationTrustFix =>
+      'The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or Empathetic LLC track, store, or sell user data.';
 
   @override
   String get faqContactPermissions =>
-      'If you get this message when adding an emergency contact, InstaSOS does not have permission to access that contact.';
+      'If you get this message when adding an emergency contact, InstaSOS does not have permission to access that specific contact.';
 
   @override
-  String get faqUpdateContacts => 'You can update contact permissions in the ';
+  String get faqContactPermissionsFix =>
+      'If you get this message when adding an emergency contact, Insta-SOS does not have permission to access that specific contact.';
 
   @override
-  String get faqOSSettings => 'iOS settings';
+  String get faqUpdateContacts =>
+      'You can give access to more (or all) contacts in the ';
+
+  @override
+  String get faqSplitClarity1 =>
+      'Giving access to a contact does not make them an emergency contact. Only the numbers listed in the ';
+
+  @override
+  String get faqSplitClarity2 => ' will be contacted during an SOS broadcast.';
 
   @override
   String get faqMissing => 'Why are some Android features missing?';
@@ -319,15 +419,71 @@ class LangEn extends Lang {
   String get faqReset => 'Reset tutorial';
 
   @override
-  String get faqResetSnack => 'The tutorial will replay on next launch.';
+  String get faqContact => 'Contact support';
 
   @override
-  String get faqOnCloseWarning =>
-      '\"SOS on close\" is enabled. This will start a broadcast.';
+  String get faqContactHint => 'Email Empathetic LLC';
+
+  @override
+  String get bsEMC => 'Emergency contacts';
+
+  @override
+  String get bsAddSomeone => 'Add someone to enable SOS';
+
+  @override
+  String get bsRemoveHint => 'Remove contact';
+
+  @override
+  String get bsAddHint => 'Add another contact';
+
+  @override
+  String get bsLinkType => 'Location link type';
+
+  @override
+  String get bsSnackRequest => 'Please add emergency contacts';
+
+  @override
+  String get bsNeedPermission => 'Cannot add contacts without permission';
+
+  @override
+  String get bsPartialContacts =>
+      'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, open the ';
+
+  @override
+  String get bsPartialContactsFix =>
+      'Apple will display all contacts, not just those shared with Insta-SOS.\nTo share more contacts, open the ';
+
+  @override
+  String get bsNumError =>
+      'This contact is private or does not have a phone number.';
+
+  @override
+  String get bsSOSOnOpen => 'SOS on open';
+
+  @override
+  String get bsSOSOnClose => 'SOS on close';
+
+  @override
+  String get bsSOSOnCloseHint =>
+      'A safe close (thumbs up) button will be appear on the home page, opposite the settings.\nIf InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
+
+  @override
+  String get bsSOSOnCloseHintFix =>
+      'A safe close (thumbs up) button will be appear on the home page, opposite the settings.\nIf Insta-SOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
+
+  @override
+  String get bsCloseOffWarning =>
+      'The app will auto-close to prevent unintentional broadcasts.';
+
+  @override
+  String get bsSOSOnVideo => 'SOS on interrupted recording';
 
   @override
   String get dsLadyLiberty =>
       'A picture of the Statue of Liberty, with a preview of the rights list.';
+
+  @override
+  String get dsShowBack => 'Show back button?';
 }
 
 /// The translations for English, as used in the United States (`en_US`).
@@ -338,16 +494,26 @@ class LangEnUs extends LangEn {
   String get gOk => 'Ok';
 
   @override
+  String get gDone => 'Done';
+
+  @override
   String get gReminder => 'Reminder';
+
+  @override
+  String get gSystem => 'System settings';
 
   @override
   String get gNotAgain => 'Don\'t show again';
 
   @override
-  String get sosLastKnown => 'Last known location';
+  String get gOnCloseWarning =>
+      '\"SOS on close\" is enabled. This will start a broadcast.';
 
   @override
-  String get sosNeedSMS => 'SOS needs SMS permission to function properly.';
+  String get sosLastKnown => 'last known location:';
+
+  @override
+  String get sosNeedSMS => 'SOS needs SMS (texting) permission.';
 
   @override
   String get sosDisabled => 'Cannot access location (disabled)';
@@ -359,6 +525,140 @@ class LangEnUs extends LangEn {
   String get sosError => 'Cannot access location (error)';
 
   @override
+  String get hsWelcome => 'Welcome to InstaSOS';
+
+  @override
+  String get hsWelcomeFix => 'Welcome to Insta-SOS';
+
+  @override
+  String get hsAppIntro =>
+      'To start, this is only a Know Your Rights app.\nYou can enable more tools by giving them permission in the list below.';
+
+  @override
+  String get hsAppIntroAlt =>
+      'The latest update was a big one, let\'s make sure everything is ready below.';
+
+  @override
+  String get hsYourApp => 'You can change your mind/permissions at any time.';
+
+  @override
+  String get hsHybridTranslation =>
+      'The tutorial and settings are machine translated.\nThe rights list is human translated.';
+
+  @override
+  String get hsCamMic => 'Camera & Microphone';
+
+  @override
+  String get hsAddRecording => 'Enables video recording.';
+
+  @override
+  String get hsGallery => 'Gallery';
+
+  @override
+  String get hsAddSave => 'Required to save your recordings.';
+
+  @override
+  String get hsCameraReady => 'Camera is ready';
+
+  @override
+  String get hsCameraSetupHint =>
+      'Activate to give Insta-SOS permission to the camera.';
+
+  @override
+  String get hsContacts => 'Contacts';
+
+  @override
+  String get hsAddContacts => 'Part 1 of enabling emergency contact alerts.';
+
+  @override
+  String get hsAddContactsIOS => 'Enables emergency contact alerts.';
+
+  @override
+  String get hsContactsReady => 'Contacts are ready';
+
+  @override
+  String get hsContactsSetupHint =>
+      'Activate to give Insta-SOS permission to view your contacts.';
+
+  @override
+  String get hsTexting => 'Texting';
+
+  @override
+  String get hsAddTexting => 'Part 2 of enabling emergency contact alerts.';
+
+  @override
+  String get hsTextingReady => 'Texting is ready';
+
+  @override
+  String get hsTextingSetupHint =>
+      'Activate to give Insta-SOS permission to send messages.';
+
+  @override
+  String get hsLocation => 'Location';
+
+  @override
+  String get hsUnable => 'Unable to determine';
+
+  @override
+  String get hsAddLocation =>
+      'Enables location sharing with emergency contacts.';
+
+  @override
+  String get hsAddAlways =>
+      'Recommended to enable always. Press again to open the System Settings.';
+
+  @override
+  String get hsLocationReady => 'Location is ready';
+
+  @override
+  String get hsLocationSetupHint =>
+      'Activate to give Insta-SOS permission to view your location.';
+
+  @override
+  String get hsOneOfFour => 'First of four. Continue...';
+
+  @override
+  String get hsBroadcastTutorial =>
+      'Activate SOS to automatically text your emergency contacts.\n\nWhen InstaSOS has access to your location, it will be included in the texts.';
+
+  @override
+  String get hsBroadcastTutorialFix =>
+      'Activate SOS to automatically text your emergency contacts.\n\nWhen Insta-SOS has access to your location, it will be included in the texts.';
+
+  @override
+  String get hsBroadcastTutorialAndroid =>
+      'The texts will continue when the phone is locked.\n\nManually deactivate SOS or fully close the app to stop the texts.';
+
+  @override
+  String get hsTwoOfFour => 'Second of four. Continue...';
+
+  @override
+  String get hsSettingsTutorial =>
+      '- Configure your SOS broadcast\n- Customize the app\'s appearance\n- Access more resources and support\n\nin the settings.';
+
+  @override
+  String get hsSettingsTutorialFix =>
+      'You can configure your SOS broadcast, customize the app\'s appearance, and access more resources/support in the settings.';
+
+  @override
+  String get hsThreeOfFour => 'Third of four. Continue...';
+
+  @override
+  String get hsVideoTutorial =>
+      'When you take a picture or record a video, you can share it right away.\n\nBy default, if a recording is interrupted, an SOS broadcast will start automatically.\n\nLong press the camera preview to show/hide your rights.';
+
+  @override
+  String get hsIOSVideoTutorial =>
+      'When you take a picture or record a video, you can share it right away.\n\nLong press the camera preview to show/hide your rights.';
+
+  @override
+  String get hsTutorialComplete => 'Tutorial complete';
+
+  @override
+  String get hsAddEMC =>
+      'If you\'re using SOS alerts, please head to the settings page and add your emergency contacts.';
+
+  @override
   String get hsStartSOS => 'Activate to start SOS broadcast.';
 
   @override
@@ -368,7 +668,7 @@ class LangEnUs extends LangEn {
   String get hsSafeCloseHint => 'All clear. Close the app without SOS.';
 
   @override
-  String get hsAutoSOS => 'Auto SOS';
+  String get hsBroadcasting => 'Broadcasting';
 
   @override
   String get hsStop => 'Stop';
@@ -377,7 +677,7 @@ class LangEnUs extends LangEn {
   String get hsCameraHint => 'Take a photo.';
 
   @override
-  String get hsPreviewHint => 'Long press to toggle your rights view.';
+  String get hsPreviewHint => 'Long press to show/hide your rights.';
 
   @override
   String get hsShowRights => 'Show your rights.';
@@ -404,154 +704,104 @@ class LangEnUs extends LangEn {
   String get hsFlashTorch => 'Torch mode. Activate to turn flash off.';
 
   @override
-  String get hsWelcome => 'Welcome to InstaSOS';
+  String get hsNoFlash => 'Camera flash not working';
 
   @override
-  String get hsAppTutorial =>
-      'It shares your status with emergency contacts in a moment of crisis.\n\nPlease choose an emergency contact.\nJust one for now, you can add more later.';
+  String get rvSharedHeader => 'You have the right to...';
 
   @override
-  String get hsPermissionsTutorialTitle => 'If you want';
+  String get rvOnFoot => 'On foot';
 
   @override
-  String get hsPermissionsTutorial =>
-      'InstaSOS can also gather and share evidence.\n\nIt will ask for camera, microphone, and gallery access to do so.';
+  String get rvWhileDriving => 'While driving';
 
   @override
-  String get hsPermissionsAlways =>
-      'Please set location to always allow.\nIt will only be used while SOS is active.';
+  String get rvAtHome => 'At home';
 
   @override
-  String get hsBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.\n\nThe texts will continue when the phone is locked.\n\nEither deactivate SOS or fully close the app to stop the texts.';
-
-  @override
-  String get hsIOSBroadcastTutorial =>
-      'Activate SOS to automatically text your emergency contacts.\n\nIf InstaSOS has access to your location, it will be included in the texts.';
-
-  @override
-  String get hsSettingsTutorial =>
-      'You can...\n\n- Add more emergency contacts\n- Setup automatic SOS\n- Change the app\'s language, and\n- Update the app\'s appearance\n\nin the settings.\n\nHold the settings button to give feedback for the app.';
-
-  @override
-  String get hsVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nLong press the center preview to show a list of your rights.';
-
-  @override
-  String get hsIOSVideoTutorial =>
-      'When you take a picture or record a video, you will be able to share it right away.\n\nLong press the center preview to show a list of your rights.';
-
-  @override
-  String get hsRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nBy default, if a recording is interrupted, SOS will activate automatically.\n\nHit the gavel or long press the center of the screen to show a list of your rights.';
-
-  @override
-  String get hsIOSRightsTutorial =>
-      'If you enable the camera, and take a picture or record a video, you will be able to share it right away.\n\nHit the gavel or long press the center of the screen to show a list of your rights.';
-
-  @override
-  String get hsNeedContacts =>
-      'InstaSOS needs access to your contacts to function properly.';
-
-  @override
-  String get hsPartialContacts =>
-      'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, go to iOS Settings -> Apps -> InstaSOS';
-
-  @override
-  String get hsNumError =>
-      'The contact is private or does not have a phone number.';
-
-  @override
-  String get rsSharedHeader => 'You have the right to...';
-
-  @override
-  String get rsOnFoot => 'On foot';
-
-  @override
-  String get rsWhileDriving => 'While driving';
-
-  @override
-  String get rsAtHome => 'At home';
-
-  @override
-  String get rsSharedRemainSilent =>
+  String get rvSharedRemainSilent =>
       'Remain silent. Do not lie, but you don\'t have to answer questions.';
 
   @override
-  String get rsSharedDocument =>
+  String get rvSharedDocument =>
       'Document everything. You have the right to take pictures, record videos, and record audio.';
 
   @override
-  String get rsMobilePockets =>
+  String get rvMobilePockets =>
       'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
 
   @override
-  String get rsMobileQuestion =>
+  String get rvMobileQuestion =>
       'Ask questions. Find out why you are being stopped.';
 
   @override
-  String get rsMobileLeave => 'Leave if you are not being detained.';
+  String get rvMobileLeave => 'Leave if you are not being detained.';
 
   @override
-  String get rsDriveSearch => 'Refuse a search of your car.';
+  String get rvDriveSearch => 'Refuse a search of your car.';
 
   @override
-  String get rsDriveID =>
+  String get rvDriveID =>
       'Refuse to provide ID as a passenger. Only the driver is required to provide ID.';
 
   @override
-  String get rsDriveWarrant =>
+  String get rvDriveWarrant =>
       'Ask if the officers have a warrant. You have the right to see it if they do. If a \"warrant\" is not signed by a judge, it\'s not valid.';
 
   @override
-  String get rsHomeWarrant =>
+  String get rvHomeWarrant =>
       'Keep you door shut. If they have a warrant, ask them to slip it under the door first. If a \"warrant\" is not signed by a judge, it\'s not valid. Keep your door shut.';
 
   @override
-  String get rsSharedSign => 'Refuse to sign anything.';
+  String get rvSharedSign => 'Refuse to sign anything.';
 
   @override
-  String get rsSharedFingerprint =>
+  String get rvSharedFingerprint =>
       'Refuse to be fingerprinted by ICE unless you are under arrest.';
 
   @override
-  String get rsSharedLawyer =>
+  String get rvSharedLawyer =>
       'To consult a lawyer. If you have been formally arrested, your are entitled to a court appointed lawyer.';
 
   @override
-  String get ssSOSOnOpen => 'SOS on open';
+  String get ssAutoShare => 'Auto-share pictures/videos';
 
   @override
-  String get ssSOSOnClose => 'SOS on close';
+  String get ssSOS => 'SOS settings';
 
   @override
-  String get ssSOSOnCloseHint =>
-      'When enabled, a safe close (thumbs up) button will be appear on the home page, opposite the settings. If InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
+  String get ssAppearance => 'Appearance settings';
 
   @override
-  String get ssCloseOffWarning =>
-      'The app will auto-close to prevent unintentional broadcasts.';
+  String get ssPermissions => 'Permissions';
 
   @override
-  String get ssVideoSOS => 'SOS on interrupted recording';
+  String get ssResources => 'Resources';
 
   @override
-  String get ssAutoShare => 'Auto-share media';
+  String get ssSupport => 'Support';
 
   @override
-  String get ssEMC => 'Emergency contacts';
+  String get pmOnlyAdd => 'This tool only helps to add permissions.';
 
   @override
-  String get ssRemoveHint => 'Remove contact';
+  String get pmRemoveIn => 'You can remove permissions in the ';
 
   @override
-  String get ssAddHint => 'Add another contact';
+  String get pmManualPermission =>
+      'If you remove permissions in the system settings, they must be restored there too.';
 
   @override
-  String get ssLinkType => 'Link type';
+  String get rmCommunity => 'Community resources';
 
   @override
-  String get ssAppearance => 'Appearance';
+  String get rmGov => 'US government resources';
+
+  @override
+  String get rmAffiliate => 'None are affiliated with Empathetech LLC';
+
+  @override
+  String get rmAffiliateFix => 'None are affiliated with Empathetic LLC';
 
   @override
   String get faqName => 'FAQ';
@@ -560,34 +810,31 @@ class LangEnUs extends LangEn {
   String get faqListQ => 'How was the rights list made?';
 
   @override
-  String get faqListA1 =>
-      'The rights list was compiled from several public sources, including:';
+  String get faqListA =>
+      'The list of rights was taken from several public resources, including:';
 
   @override
-  String get faqListA2 => 'Another useful resource: ';
+  String get faqSettings => 'How do the settings work?';
 
   @override
-  String get faqSettings => 'What do the settings do?';
+  String get faqAutoShareA =>
+      ' uses your phone\'s built in share. It does not use your saved emergency contacts (if any). Sharing is optional and can always be cancelled.';
 
   @override
-  String get faqOnOpen =>
-      'SOS on open: when enabled, an SOS broadcast will begin immediately upon app launch. Not recommended for most users, as it could lead to accidental broadcasts.';
+  String get faqLinkA =>
+      ' how your location will be delivered to your emergency contacts. \"Google Maps\", \"Apple Maps\", and \"Waze\" will send a clickable link for the corresponding service. \"Coordinates\" will send your latitude and longitude as plain text.';
 
   @override
-  String get faqOnInterrupt =>
-      'SOS on interrupted recording: when enabled, if a video recording is active and InstaSOS loses focus for any reason (minimized, switched apps, screen off), an SOS broadcast will begin.\nIt is recommended to enable either this or \"SOS on close\" (or both).';
+  String get faqOnOpenA =>
+      ' an SOS broadcast will begin immediately upon app launch. Not recommended for most users, as it could lead to accidental broadcasts.';
 
   @override
-  String get faqAutoShare =>
-      'Auto-share media: when enabled, the native share options will appear as soon as a video completes or a photo is taken.';
+  String get faqOnInterruptA =>
+      ' if a video is recording and InstaSOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen. It is recommended to enable either this or \"SOS on close\" (or both).';
 
   @override
-  String get faqEMC =>
-      'Emergency contacts: the people that will be sent your location while an SOS broadcast is active.';
-
-  @override
-  String get faqLink =>
-      'Link type: how your location will be delivered to your emergency contacts. \"Google Maps\", \"Apple Maps\", and \"Waze\" will send a clickable link for the corresponding service. \"Coordinates\" will send your latitude and longitude as plain text.';
+  String get faqOnInterruptAFix =>
+      ' if a video is recording and Insta-SOS loses focus, an SOS broadcast will begin. Losing focus being: minimizing the app, switching apps, and/or locking the screen. It is recommended to enable either this or \"SOS on close\" (or both).';
 
   @override
   String get faqUnavailable => 'SOS says \"Location unavailable\"?';
@@ -604,18 +851,27 @@ class LangEnUs extends LangEn {
       'The app only uses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.';
 
   @override
-  String get faqPrivateContact =>
-      'The contact is private or does not have a phone number?';
+  String get faqLocationTrustFix =>
+      'The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or Empathetic LLC track, store, or sell user data.';
 
   @override
   String get faqContactPermissions =>
-      'If you get this message when adding an emergency contact, InstaSOS does not have permission to access that contact.';
+      'If you get this message when adding an emergency contact, InstaSOS does not have permission to access that specific contact.';
 
   @override
-  String get faqUpdateContacts => 'You can update contact permissions in the ';
+  String get faqContactPermissionsFix =>
+      'If you get this message when adding an emergency contact, Insta-SOS does not have permission to access that specific contact.';
 
   @override
-  String get faqOSSettings => 'iOS settings';
+  String get faqUpdateContacts =>
+      'You can give access to more (or all) contacts in the ';
+
+  @override
+  String get faqSplitClarity1 =>
+      'Giving access to a contact does not make them an emergency contact. Only the numbers listed in the ';
+
+  @override
+  String get faqSplitClarity2 => ' will be contacted during an SOS broadcast.';
 
   @override
   String get faqMissing => 'Why are some Android features missing?';
@@ -645,13 +901,69 @@ class LangEnUs extends LangEn {
   String get faqReset => 'Reset tutorial';
 
   @override
-  String get faqResetSnack => 'The tutorial will replay on next launch.';
+  String get faqContact => 'Contact support';
 
   @override
-  String get faqOnCloseWarning =>
-      '\"SOS on close\" is enabled. This will start a broadcast.';
+  String get faqContactHint => 'Email Empathetic LLC';
+
+  @override
+  String get bsEMC => 'Emergency contacts';
+
+  @override
+  String get bsAddSomeone => 'Add someone to enable SOS';
+
+  @override
+  String get bsRemoveHint => 'Remove contact';
+
+  @override
+  String get bsAddHint => 'Add another contact';
+
+  @override
+  String get bsLinkType => 'Location link type';
+
+  @override
+  String get bsSnackRequest => 'Please add emergency contacts';
+
+  @override
+  String get bsNeedPermission => 'Cannot add contacts without permission';
+
+  @override
+  String get bsPartialContacts =>
+      'Apple will display all contacts, not just those shared with InstaSOS.\nTo share more contacts, open the ';
+
+  @override
+  String get bsPartialContactsFix =>
+      'Apple will display all contacts, not just those shared with Insta-SOS.\nTo share more contacts, open the ';
+
+  @override
+  String get bsNumError =>
+      'This contact is private or does not have a phone number.';
+
+  @override
+  String get bsSOSOnOpen => 'SOS on open';
+
+  @override
+  String get bsSOSOnClose => 'SOS on close';
+
+  @override
+  String get bsSOSOnCloseHint =>
+      'A safe close (thumbs up) button will be appear on the home page, opposite the settings.\nIf InstaSOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
+
+  @override
+  String get bsSOSOnCloseHintFix =>
+      'A safe close (thumbs up) button will be appear on the home page, opposite the settings.\nIf Insta-SOS loses focus for any reason except the safe close button (minimized, switched apps, screen off), an SOS broadcast will begin.';
+
+  @override
+  String get bsCloseOffWarning =>
+      'The app will auto-close to prevent unintentional broadcasts.';
+
+  @override
+  String get bsSOSOnVideo => 'SOS on interrupted recording';
 
   @override
   String get dsLadyLiberty =>
       'A picture of the Statue of Liberty, with a preview of the rights list.';
+
+  @override
+  String get dsShowBack => 'Show back button?';
 }

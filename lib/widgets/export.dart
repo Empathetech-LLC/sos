@@ -1,11 +1,10 @@
 /* sos
- * Copyright (c) 2025 Empathetech LLC. All rights reserved.
+ * Copyright (c) 2026 Empathetech LLC. All rights reserved.
  * See LICENSE for distribution and usage details.
  */
 
-export 'buttons.dart';
 export 'emc.dart';
-export 'fabulous.dart';
-export 'icons.dart';
+export 'home_screen.dart';
 export 'rights_view.dart';
+export 'setup.dart';
 export 'sos_scaffold.dart';
