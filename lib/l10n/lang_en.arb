@@ -10,6 +10,8 @@
   "gNotAgain": "Don't show again",
   "gOnCloseWarning": "\"SOS on close\" is enabled. This will start a broadcast.",
 
+
+
   "sosLastKnown": "last known location:",
   "sosNeedSMS": "SOS needs SMS (texting) permission.",
   "sosDisabled": "Cannot access location (disabled)",
@@ -116,14 +118,20 @@
   "ssResources": "Resources",
   "ssSupport": "Support",
 
+
+  
   "pmOnlyAdd": "This tool only helps to add permissions.",
   "pmRemoveIn": "You can remove permissions in the ",
   "pmManualPermission": "If you remove permissions in the system settings, they must be restored there too.",
+
+
 
   "rmCommunity": "Community resources",
   "rmGov": "US government resources",
   "rmAffiliate": "None are affiliated with Empathetech LLC",
   "rmAffiliateFix": "None are affiliated with Empathetic LLC",
+
+
 
   "faqName": "FAQ",
 
