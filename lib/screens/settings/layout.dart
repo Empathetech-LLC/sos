@@ -40,7 +40,7 @@ class _LayoutSettingsScreenState extends State<LayoutSettingsScreen> {
               if (mounted) setState(() => updateBoth = !updateBoth);
             },
           ),
-          if (showBackFAB) ...<Widget>[
+          if (EzConfig.showBackFAB) ...<Widget>[
             EzConfig.spacer,
             const EzBackFAB(),
           ]

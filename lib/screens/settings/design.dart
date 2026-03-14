@@ -161,14 +161,6 @@ class _DesignSettingsScreenState extends State<DesignSettingsScreen> {
               ),
               EzConfig.spacer,
             ],
-            includeIconSize: false,
-            afterDesign: <Widget>[
-              EzSwitchPair(
-                valueKey: showBackFABKey,
-                text: l10n.dsShowBack,
-                afterChanged: (_) => EzConfig.redrawUI(redraw),
-              ),
-            ],
           ),
           useImageDecoration: false,
         ),
@@ -184,7 +176,7 @@ class _DesignSettingsScreenState extends State<DesignSettingsScreen> {
               if (mounted) setState(() => updateBoth = !updateBoth);
             },
           ),
-          if (showBackFAB) ...<Widget>[
+          if (EzConfig.showBackFAB) ...<Widget>[
             config.layout.spacer,
             const EzBackFAB(),
           ]

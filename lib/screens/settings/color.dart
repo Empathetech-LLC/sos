@@ -57,7 +57,7 @@ class _ColorSettingsScreenState extends State<ColorSettingsScreen> {
               if (mounted) setState(() => updateBoth = !updateBoth);
             },
           ),
-          if (showBackFAB) ...<Widget>[
+          if (EzConfig.showBackFAB) ...<Widget>[
             EzConfig.spacer,
             const EzBackFAB(),
           ]

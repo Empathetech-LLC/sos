@@ -66,7 +66,6 @@ Color get videoTextColor => _cache._videoTextColor;
 
 // BTS //
 
-bool get showBackFAB => EzConfig.get(showBackFABKey);
 bool get showTutorial => EzConfig.get(showTutorialKey);
 
 // Broadcast //

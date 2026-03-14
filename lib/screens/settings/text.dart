@@ -51,7 +51,7 @@ class _TextSettingsScreenState extends State<TextSettingsScreen> {
                 if (mounted) setState(() => updateBoth = !updateBoth);
               },
             ),
-            if (showBackFAB) ...<Widget>[
+            if (EzConfig.showBackFAB) ...<Widget>[
               config.layout.spacer,
               const EzBackFAB(),
             ]

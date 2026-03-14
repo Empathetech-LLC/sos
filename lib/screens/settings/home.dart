@@ -824,7 +824,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
         ),
         useImageDecoration: false,
       ),
-      fabs: showBackFAB
+      fabs: EzConfig.showBackFAB
           ? <Widget>[EzConfig.spacer, const EzBackFAB(showHome: true)]
           : null,
     );
