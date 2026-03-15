@@ -176,10 +176,6 @@ class _DesignSettingsScreenState extends State<DesignSettingsScreen> {
               if (mounted) setState(() => updateBoth = !updateBoth);
             },
           ),
-          if (EzConfig.showBackFAB) ...<Widget>[
-            config.layout.spacer,
-            const EzBackFAB(),
-          ]
         ],
       ),
     );

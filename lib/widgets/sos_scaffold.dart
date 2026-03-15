@@ -37,7 +37,12 @@ class SosScaffold extends StatelessWidget {
                       'https://apps.apple.com/us/app/instasos/id6744280817',
                   github: 'https://github.com/Empathetech-LLC/sos/releases',
                 ),
-                if (fabs != null) ...fabs!
+                if (fabs != null) ...fabs!,
+                if (config.layout.showBackFAB &&
+                    ezRootNav.currentState!.canPop()) ...<Widget>[
+                  config.layout.spacer,
+                  const EzBackFAB(),
+                ],
               ],
             ),
             floatingActionButtonLocation: EzConfig.isLefty
