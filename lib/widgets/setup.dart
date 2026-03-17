@@ -99,6 +99,14 @@ Widget lStatusIcon(LocationPermission? status) {
 
 // Setting cards //
 
+OutlinedBorder get cardShape => RoundedRectangleBorder(
+      side: BorderSide(
+        color: EzConfig.colors.primaryContainer,
+        width: EzConfig.borderWidth,
+      ),
+      borderRadius: ezRoundEdge,
+    );
+
 class CameraSetup extends StatefulWidget {
   final Future<PermissionStatus> Function() initCamera;
   final bool locked;
@@ -164,10 +172,7 @@ class _CameraSetupState extends State<CameraSetup> {
                   : l10n.hsCameraSetupHint,
               child: ExcludeSemantics(
                 child: Card(
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(color: EzConfig.colors.primaryContainer),
-                    borderRadius: ezRoundEdge,
-                  ),
+                  shape: cardShape,
                   child: EzRow(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -232,10 +237,7 @@ class _CameraSetupState extends State<CameraSetup> {
               hint: l10n.hsCameraSetupHint,
               child: ExcludeSemantics(
                 child: Card(
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(color: EzConfig.colors.primaryContainer),
-                    borderRadius: ezRoundEdge,
-                  ),
+                  shape: cardShape,
                   child: EzRow(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -331,10 +333,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
           hint: l10n.hsContactsSetupHint,
           child: ExcludeSemantics(
             child: Card(
-              shape: RoundedRectangleBorder(
-                side: BorderSide(color: EzConfig.colors.primaryContainer),
-                borderRadius: ezRoundEdge,
-              ),
+              shape: cardShape,
               child: EzRow(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -435,10 +434,7 @@ class _SMSSetupState extends State<SMSSetup> {
           hint: l10n.hsTextingSetupHint,
           child: ExcludeSemantics(
             child: Card(
-              shape: RoundedRectangleBorder(
-                side: BorderSide(color: EzConfig.colors.primaryContainer),
-                borderRadius: ezRoundEdge,
-              ),
+              shape: cardShape,
               child: EzRow(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -583,10 +579,7 @@ class _LocationSetupState extends State<LocationSetup>
                 hint: l10n.hsLocationSetupHint,
                 child: ExcludeSemantics(
                   child: Card(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(color: EzConfig.colors.primaryContainer),
-                      borderRadius: ezRoundEdge,
-                    ),
+                    shape: cardShape,
                     child: EzRow(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -635,10 +628,7 @@ class _LocationSetupState extends State<LocationSetup>
                 hint: l10n.hsLocationSetupHint,
                 child: ExcludeSemantics(
                   child: Card(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(color: EzConfig.colors.primaryContainer),
-                      borderRadius: ezRoundEdge,
-                    ),
+                    shape: cardShape,
                     child: EzRow(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
