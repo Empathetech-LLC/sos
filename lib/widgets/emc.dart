@@ -74,7 +74,9 @@ class _ContactListState extends State<ContactList> {
                         ? null
                         : BorderSide(
                             color: EzConfig.colors.primaryContainer
-                                .withValues(alpha: focusOpacity)),
+                                .withValues(alpha: focusOpacity),
+                            width: EzConfig.borderWidth,
+                          ),
                   ),
                   textStyle: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.center,
