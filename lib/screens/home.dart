@@ -503,7 +503,7 @@ class _HomeScreenState extends State<HomeScreen>
                               foregroundColor: videoColor,
                               side: BorderSide(
                                 color: videoTextColor,
-                                width: borderWidth,
+                                width: EzConfig.borderWidth,
                               ),
                             ),
                             icon: Icon(
@@ -580,7 +580,7 @@ class _HomeScreenState extends State<HomeScreen>
                               foregroundColor: videoColor,
                               side: BorderSide(
                                 color: EzConfig.colors.onSurface,
-                                width: borderWidth,
+                                width: EzConfig.borderWidth,
                               ),
                             ),
                             icon: Icon(
