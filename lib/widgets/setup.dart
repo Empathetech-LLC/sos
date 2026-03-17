@@ -100,10 +100,7 @@ Widget lStatusIcon(LocationPermission? status) {
 // Setting cards //
 
 OutlinedBorder get cardShape => RoundedRectangleBorder(
-      side: BorderSide(
-        color: EzConfig.colors.primaryContainer,
-        width: EzConfig.borderWidth,
-      ),
+      side: EzConfig.borderSide(EzConfig.colors.primaryContainer),
       borderRadius: ezRoundEdge,
     );
 
