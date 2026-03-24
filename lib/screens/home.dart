@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen>
               message: l10n.sosNeedSMS,
               customActions: <Widget>[
                 EzMaterialAction(
-                    text: EzConfig.l10n.ssPageTitle,
+                    text: EzConfig.l10n.gSettings,
                     onPressed: openAppSettings,
                     style: EzConfig.styles.bodyLarge?.copyWith(
                       color: EzConfig.colors.primary,
@@ -357,7 +357,7 @@ class _HomeScreenState extends State<HomeScreen>
               child: EzIconButton(
                 icon: Icon(
                   Icons.settings,
-                  semanticLabel: EzConfig.l10n.ssPageTitle,
+                  semanticLabel: EzConfig.l10n.gSettings,
                 ),
                 enabled: !recording,
                 onPressed: () => context.goNamed(settingsHomePath),
