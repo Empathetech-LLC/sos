@@ -23,7 +23,7 @@ class SettingsHomeScreen extends StatefulWidget {
 class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   // Define custom functions //
 
-  void followLink(
+  Future<void> followLink(
     String url, {
     required BuildContext parentContext,
     required BuildContext modalContext,
@@ -57,7 +57,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
       );
     }
 
-    if (launch) launchUrl(Uri.parse(url));
+    if (launch) await launchUrl(Uri.parse(url));
   }
 
   // Return the build //
@@ -198,7 +198,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
             // Resources
             EzElevatedIconButton(
-              onPressed: () async => ezModal(
+              onPressed: () => ezModal(
                 context: context,
                 builder: (BuildContext mContext) => EzScrollView(
                   mainAxisSize: MainAxisSize.min,
