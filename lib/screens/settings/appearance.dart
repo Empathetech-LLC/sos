@@ -31,11 +31,14 @@ class AppearanceSettingsScreen extends StatelessWidget {
               EzSettingsSection(
                 position: 0,
                 title: EzConfig.l10n.gGlobal,
-                icon: config.onMobile
-                    ? Icon(config.platform == TargetPlatform.iOS
-                        ? Icons.phone_iphone
-                        : Icons.phone_android)
-                    : const Icon(Icons.computer),
+                icon: Icon(
+                  config.onMobile
+                      ? config.platform == TargetPlatform.iOS
+                          ? Icons.phone_iphone
+                          : Icons.phone_android
+                      : Icons.computer,
+                  semanticLabel: EzConfig.l10n.gGlobal,
+                ),
                 build: const EzGlobalSettings(
                   appName: appName,
                   androidPackage: androidPackage,
@@ -46,7 +49,10 @@ class AppearanceSettingsScreen extends StatelessWidget {
               EzSettingsSection(
                 position: 1,
                 title: EzConfig.l10n.gColor,
-                icon: const Icon(Icons.palette),
+                icon: Icon(
+                  Icons.palette,
+                  semanticLabel: EzConfig.l10n.gColor,
+                ),
                 build: EzColorSettings(
                   advanced: advanced,
                   onUpdate: doNothing,
@@ -73,7 +79,10 @@ class AppearanceSettingsScreen extends StatelessWidget {
               EzSettingsSection(
                 position: 2,
                 title: EzConfig.l10n.gDesign,
-                icon: const Icon(Icons.design_services),
+                icon: Icon(
+                  Icons.design_services,
+                  semanticLabel: EzConfig.l10n.gDesign,
+                ),
                 build: EzDesignSettings(
                   onUpdate: doNothing,
                   appName: appName,
@@ -90,7 +99,10 @@ class AppearanceSettingsScreen extends StatelessWidget {
               EzSettingsSection(
                 position: 3,
                 title: EzConfig.l10n.gLayout,
-                icon: const Icon(Icons.grid_3x3),
+                icon: Icon(
+                  Icons.grid_3x3,
+                  semanticLabel: EzConfig.l10n.gLayout,
+                ),
                 build: const EzLayoutSettings(
                   onUpdate: doNothing,
                   appName: appName,
@@ -102,7 +114,10 @@ class AppearanceSettingsScreen extends StatelessWidget {
               EzSettingsSection(
                 position: 4,
                 title: EzConfig.l10n.gText,
-                icon: const Icon(Icons.text_format),
+                icon: Icon(
+                  Icons.text_format,
+                  semanticLabel: EzConfig.l10n.gText,
+                ),
                 build: EzTextSettings(
                   advanced: advanced,
                   onUpdate: doNothing,
