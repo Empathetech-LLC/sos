@@ -40,6 +40,7 @@ class AppearanceSettingsScreen extends StatelessWidget {
                   semanticLabel: EzConfig.l10n.gGlobal,
                 ),
                 build: const EzGlobalSettings(
+                  excludeLocaleSetting: true,
                   appName: appName,
                   androidPackage: androidPackage,
                 ),
