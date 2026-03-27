@@ -141,7 +141,8 @@ class _HomeScreenState extends State<HomeScreen>
     if (await sosChecks() == false) return;
 
     // Make it so (immediate SOS)
-    await foregroundSOS();
+    final bool started = await foregroundSOS();
+    if (!started) return;
 
     // Make it so (periodic SOS)
     if (mounted) {
