@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.2] - 2026-03-27
+### Fixed
+- Back swipe on iOS
+- Reduced package size
+
 ## [2.0.1] - 2026-03-27
 ### Updated
 - Small tweaks/improvements to the tutorial/setup
