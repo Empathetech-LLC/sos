@@ -99,6 +99,10 @@ class LangAr extends Lang {
       'قم بالتفعيل لمنح Insta-SOS إذن عرض جهات الاتصال الخاصة بك.';
 
   @override
+  String get hsAppleContacts =>
+      'تُخصَّص هذه الخطوة لأذونات التطبيق فقط.\nأنت لا تقوم باختيار جهات اتصال الطوارئ في هذه المرحلة.\n\nيُوصى بالسماح بجميع الأذونات لتجنب أي متاعب لاحقاً.';
+
+  @override
   String get hsTexting => 'المراسلة النصية';
 
   @override
@@ -575,6 +579,10 @@ class LangArEg extends LangAr {
   @override
   String get hsContactsSetupHint =>
       'قم بالتفعيل لمنح Insta-SOS إذن عرض جهات الاتصال الخاصة بك.';
+
+  @override
+  String get hsAppleContacts =>
+      'تُخصَّص هذه الخطوة لأذونات التطبيق فقط.\nأنت لا تقوم باختيار جهات اتصال الطوارئ في هذه المرحلة.\n\nيُوصى بالسماح بجميع الأذونات لتجنب أي متاعب لاحقاً.';
 
   @override
   String get hsTexting => 'المراسلة النصية';

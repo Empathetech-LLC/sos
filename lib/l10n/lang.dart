@@ -277,6 +277,12 @@ abstract class Lang {
   /// **'Activate to give Insta-SOS permission to view your contacts.'**
   String get hsContactsSetupHint;
 
+  /// No description provided for @hsAppleContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'This step is for app permissions only.\nYou are not choosing emergency contacts yet.\n\nIt is recommended to allow all to reduce headaches.'**
+  String get hsAppleContacts;
+
   /// No description provided for @hsTexting.
   ///
   /// In en, this message translates to:

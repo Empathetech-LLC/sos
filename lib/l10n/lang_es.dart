@@ -102,6 +102,10 @@ class LangEs extends Lang {
       'Activar para dar permiso a Insta-SOS para ver tus contactos.';
 
   @override
+  String get hsAppleContacts =>
+      'Este paso es únicamente para los permisos de la aplicación.\nAún no está seleccionando los contactos de emergencia.\n\nSe recomienda conceder todos los permisos para evitar complicaciones.';
+
+  @override
   String get hsTexting => 'Mensajes de texto';
 
   @override
