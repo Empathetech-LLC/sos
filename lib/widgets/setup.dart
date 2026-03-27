@@ -318,7 +318,30 @@ class _ContactsSetupState extends State<ContactsSetup> {
           if (widget.locked) return;
           widget.setLock(true);
 
-          // Make it so
+          // Make it so //
+
+          // iOS reminder
+          if (isIOS) {
+            await showDialog(
+              context: context,
+              builder: (BuildContext dContext) => EzAlertDialog(
+                title: Text(l10n.gReminder, textAlign: TextAlign.center),
+                content: Text(
+                  l10n.hsAppleContacts,
+                  textAlign: TextAlign.center,
+                  style: EzConfig.styles.bodyLarge,
+                ),
+                actions: <EzMaterialAction>[
+                  EzMaterialAction(
+                    text: l10n.gOk,
+                    onPressed: () => Navigator.of(dContext).pop(),
+                  ),
+                ],
+                needsClose: false,
+              ),
+            );
+          }
+
           final c.PermissionStatus result = await c.FlutterContacts.permissions
               .request(c.PermissionType.read);
           if (allowed != result) if (mounted) setState(() => allowed = result);
