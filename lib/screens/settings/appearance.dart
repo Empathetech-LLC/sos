@@ -90,7 +90,7 @@ class AppearanceSettingsScreen extends StatelessWidget {
                   includeBackgroundImage: false,
                   beforeDesign: <Widget>[
                     const _RightsOpacity(),
-                    EzConfig.spacer,
+                    EzConfig.separator,
                   ],
                 ),
               ),
