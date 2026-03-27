@@ -99,6 +99,10 @@ class LangEn extends Lang {
       'Activate to give Insta-SOS permission to view your contacts.';
 
   @override
+  String get hsAppleContacts =>
+      'This step is for app permissions only.\nYou are not choosing emergency contacts yet.\n\nIt is recommended to allow all to reduce headaches.';
+
+  @override
   String get hsTexting => 'Texting';
 
   @override
@@ -579,6 +583,10 @@ class LangEnUs extends LangEn {
   @override
   String get hsContactsSetupHint =>
       'Activate to give Insta-SOS permission to view your contacts.';
+
+  @override
+  String get hsAppleContacts =>
+      'This step is for app permissions only.\nYou are not choosing emergency contacts yet.\n\nIt is recommended to allow all to reduce headaches.';
 
   @override
   String get hsTexting => 'Texting';

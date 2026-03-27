@@ -103,6 +103,10 @@ class LangFil extends Lang {
       'I-activate para bigyan ang Insta-SOS ng pahintulot na tingnan ang iyong mga contact.';
 
   @override
+  String get hsAppleContacts =>
+      'Ang hakbang na ito ay para lamang sa mga pahintulot sa app.\nHindi ka pa pumipili ng mga pang-emergency na contact.\n\nInirerekomenda na pahintulutan ang lahat upang mabawasan ang sakit ng ulo.';
+
+  @override
   String get hsTexting => 'Pagte-text';
 
   @override

@@ -153,9 +153,6 @@ const String savedTabKey = 'savedTab';
 /// setupComplete
 const String setupCompleteKey = 'setupComplete';
 
-/// showBackFAB
-const String showBackFABKey = 'showBackFAB';
-
 /// showContactsMsg
 const String showContactsMsgKey = 'showContactsMsg';
 
@@ -165,11 +162,10 @@ const String showTutorialKey = 'showTutorial';
 /// taskRunning
 const String taskRunningKey = 'taskRunning';
 
-/// [savedTabKey], [setupCompleteKey], [showBackFABKey], [showContactsMsgKey], [showTutorialKey], [taskRunningKey]
+/// [savedTabKey], [setupCompleteKey], [showContactsMsgKey], [showTutorialKey], [taskRunningKey]
 const Map<String, Type> sosBTSKeys = <String, Type>{
   savedTabKey: String,
   setupCompleteKey: bool,
-  showBackFABKey: bool,
   showContactsMsgKey: bool,
   showTutorialKey: bool,
   taskRunningKey: bool,
@@ -225,13 +221,14 @@ const Map<String, Type> sosColorKeys = <String, Type>{
 final Map<String, Object> sosConfig = <String, Object>{
   // EFUI
   ...empathMobileConfig,
+  darkShowBackFABKey: true,
+  lightShowBackFABKey: true,
   darkTextBackgroundOpacityKey: 0.8,
   lightTextBackgroundOpacityKey: 0.8,
 
   // BTS
   savedTabKey: walkingTab,
   setupCompleteKey: false,
-  showBackFABKey: true,
   showContactsMsgKey: true,
   showTutorialKey: true,
   taskRunningKey: false,

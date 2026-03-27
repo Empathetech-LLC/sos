@@ -94,6 +94,10 @@ class LangZh extends Lang {
   String get hsContactsSetupHint => '激活以授予 Insta-SOS 查看您联系人的权限。';
 
   @override
+  String get hsAppleContacts =>
+      '此步骤仅用于设置应用权限。\n您目前尚未选择紧急联系人。\n\n建议允许所有权限，以免后续产生不必要的麻烦。';
+
+  @override
   String get hsTexting => '发短信';
 
   @override
@@ -544,6 +548,10 @@ class LangZhCn extends LangZh {
 
   @override
   String get hsContactsSetupHint => '激活以授予 Insta-SOS 查看您联系人的权限。';
+
+  @override
+  String get hsAppleContacts =>
+      '此步骤仅用于设置应用权限。\n您目前尚未选择紧急联系人。\n\n建议允许所有权限，以免后续产生不必要的麻烦。';
 
   @override
   String get hsTexting => '发短信';

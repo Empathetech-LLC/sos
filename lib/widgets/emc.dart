@@ -72,9 +72,8 @@ class _ContactListState extends State<ContactList> {
                     padding: EdgeInsets.all(EzConfig.marginVal),
                     side: widget.fauxDisabled
                         ? null
-                        : BorderSide(
-                            color: EzConfig.colors.primaryContainer
-                                .withValues(alpha: focusOpacity)),
+                        : EzConfig.borderSide(EzConfig.colors.primaryContainer
+                            .withValues(alpha: focusOpacity)),
                   ),
                   textStyle: EzConfig.styles.bodyLarge,
                   textAlign: TextAlign.center,

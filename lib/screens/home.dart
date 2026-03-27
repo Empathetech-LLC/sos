@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen>
               message: l10n.sosNeedSMS,
               customActions: <Widget>[
                 EzMaterialAction(
-                    text: EzConfig.l10n.ssPageTitle,
+                    text: EzConfig.l10n.gSettings,
                     onPressed: openAppSettings,
                     style: EzConfig.styles.bodyLarge?.copyWith(
                       color: EzConfig.colors.primary,
@@ -141,7 +141,8 @@ class _HomeScreenState extends State<HomeScreen>
     if (await sosChecks() == false) return;
 
     // Make it so (immediate SOS)
-    await foregroundSOS();
+    final bool started = await foregroundSOS();
+    if (!started) return;
 
     // Make it so (periodic SOS)
     if (mounted) {
@@ -357,7 +358,7 @@ class _HomeScreenState extends State<HomeScreen>
               child: EzIconButton(
                 icon: Icon(
                   Icons.settings,
-                  semanticLabel: EzConfig.l10n.ssPageTitle,
+                  semanticLabel: EzConfig.l10n.gSettings,
                 ),
                 enabled: !recording,
                 onPressed: () => context.goNamed(settingsHomePath),
@@ -501,10 +502,7 @@ class _HomeScreenState extends State<HomeScreen>
                         ? EzIconButton(
                             style: IconButton.styleFrom(
                               foregroundColor: videoColor,
-                              side: BorderSide(
-                                color: videoTextColor,
-                                width: borderWidth,
-                              ),
+                              side: EzConfig.borderSide(videoTextColor),
                             ),
                             icon: Icon(
                               Icons.stop,
@@ -578,10 +576,8 @@ class _HomeScreenState extends State<HomeScreen>
                             fauxDisabled: camera == null,
                             style: IconButton.styleFrom(
                               foregroundColor: videoColor,
-                              side: BorderSide(
-                                color: EzConfig.colors.onSurface,
-                                width: borderWidth,
-                              ),
+                              side: EzConfig.borderSide(
+                                  EzConfig.colors.onSurface),
                             ),
                             icon: Icon(
                               Icons.circle,

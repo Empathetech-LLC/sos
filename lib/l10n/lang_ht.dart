@@ -99,6 +99,10 @@ class LangHt extends Lang {
       'Aktive pou bay Insta-SOS pèmisyon pou wè kontak ou yo.';
 
   @override
+  String get hsAppleContacts =>
+      'Etap sa a se sèlman pou pèmisyon aplikasyon yo.\nOu poko chwazi kontak ijans yo.\n\nLi rekòmande pou pèmèt tout moun pou diminye tèt fè mal.';
+
+  @override
   String get hsTexting => 'Voye tèks';
 
   @override
