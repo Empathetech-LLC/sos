@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## [2.0.0] - 2026-03-13
 ### Updated
+- Small tweaks/improvements to the tutorial/setup
+- Settings updates
+- First SOS bug fix
+  - When users started their first SOS - crucially: without all the required permissions - the first message would not send, but the sos timer would start. SOS timer now only starts on successful first message.
+
+## [2.0.0] - 2026-03-13
+### Updated
 - EFUI 11.0, enabling live configuration
   - Overhauled the intro/tutorial thanks to live updates
 - Overall user experience, all setup/permissions are now optional
