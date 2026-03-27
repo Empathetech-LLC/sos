@@ -221,6 +221,8 @@ const Map<String, Type> sosColorKeys = <String, Type>{
 final Map<String, Object> sosConfig = <String, Object>{
   // EFUI
   ...empathMobileConfig,
+  darkShowBackFABKey: true,
+  lightShowBackFABKey: true,
   darkTextBackgroundOpacityKey: 0.8,
   lightTextBackgroundOpacityKey: 0.8,
 
