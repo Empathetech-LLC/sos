@@ -377,9 +377,9 @@ Future<void> stopBackgroundSOS(BuildContext context) async {
 /// Call the [MethodChannel] to send a foregroundSOS
 /// Assumes [emc] and permission checks have already been done
 /// Handles platform errors
-Future<void> foregroundSOS() async {
+Future<bool> foregroundSOS() async {
   final List<String> currEMC = List<String>.from(emc);
-  if (currEMC.isEmpty) return;
+  if (currEMC.isEmpty) return false;
 
   final List<String> numbers = currEMC
       .map((String contact) => contact.split(contactSplit).last)
@@ -390,13 +390,12 @@ Future<void> foregroundSOS() async {
     'recipients': isIOS ? numbers : numbers.join(';'),
   };
 
-  ezLog('Sending SOS (foreground)');
-  ezLog(mapData.toString());
-
   try {
     await platform.invokeMethod<void>('foregroundSOS', mapData);
+    return true;
   } catch (e) {
     ezLog(e.toString());
+    return false;
   }
 }
 
@@ -425,7 +424,6 @@ Future<String?> getCoordinates(String linkBase, {bool nullable = false}) async {
   }
 
   try {
-    ezLog('Building maps link');
     final Position pos = await Geolocator.getCurrentPosition();
     return '$linkBase${pos.latitude.toStringAsFixed(4)},${pos.longitude.toStringAsFixed(4)}';
   } catch (e) {
