@@ -90,12 +90,12 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
           actions: ezActionPair(
             context: context,
             confirmMsg: l10n.gOk,
-            onConfirm: () => Navigator.of(dContext).pop(),
+            onConfirm: () => Navigator.of(dContext).pop(false),
             confirmIsDefault: true,
             denyMsg: l10n.gNotAgain,
             onDeny: () async {
               await EzConfig.setBool(showContactsMsgKey, false);
-              if (dContext.mounted) Navigator.of(dContext).pop();
+              if (dContext.mounted) Navigator.of(dContext).pop(false);
             },
             denyIsDestructive: true,
           ),
