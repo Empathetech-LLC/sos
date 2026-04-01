@@ -28,7 +28,7 @@ class SosScaffold extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 const EzUpdaterFAB(
-                  appVersion: '2.0.2',
+                  appVersion: '2.0.3',
                   versionSource:
                       'https://raw.githubusercontent.com/Empathetech-LLC/sos/refs/heads/main/APP_VERSION',
                   gPlay:
