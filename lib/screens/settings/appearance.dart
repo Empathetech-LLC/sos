@@ -24,113 +24,109 @@ class AppearanceSettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<EzConfigProvider>(
       builder: (_, EzConfigProvider config, __) => SosScaffold(
-        EzScreen(
-          EzSettingsHub(
-            pages: <EzSettingsSection>[
-              // Global
-              EzSettingsSection(
-                position: 0,
-                title: EzConfig.l10n.gGlobal,
-                icon: Icon(
-                  config.onMobile
-                      ? config.platform == TargetPlatform.iOS
-                          ? Icons.phone_iphone
-                          : Icons.phone_android
-                      : Icons.computer,
-                  semanticLabel: EzConfig.l10n.gGlobal,
-                ),
-                build: const EzGlobalSettings(
-                  excludeLocaleSetting: true,
-                  appName: appName,
-                  androidPackage: androidPackage,
-                ),
+        EzScreen(EzSettingsHub(
+          pages: <EzSettingsSection>[
+            // Global
+            EzSettingsSection(
+              position: 0,
+              title: EzConfig.l10n.gGlobal,
+              icon: Icon(
+                config.onMobile
+                    ? config.platform == TargetPlatform.iOS
+                        ? Icons.phone_iphone
+                        : Icons.phone_android
+                    : Icons.computer,
+                semanticLabel: EzConfig.l10n.gGlobal,
               ),
+              build: const EzGlobalSettings(
+                excludeLocaleSetting: true,
+                appName: appName,
+                androidPackage: androidPackage,
+              ),
+            ),
 
-              // Color
-              EzSettingsSection(
-                position: 1,
-                title: EzConfig.l10n.gColor,
-                icon: Icon(
-                  Icons.palette,
-                  semanticLabel: EzConfig.l10n.gColor,
-                ),
-                build: EzColorSettings(
-                  advanced: advanced,
-                  onUpdate: doNothing,
-                  appName: appName,
-                  androidPackage: androidPackage,
-                  darkStarterSet: const <String>[
-                    darkPrimaryKey,
-                    darkSurfaceKey,
-                    darkOnSurfaceKey,
-                    darkSurfaceContainerKey,
-                    darkVideoColorKey,
-                  ],
-                  lightStarterSet: const <String>[
-                    lightPrimaryKey,
-                    lightSurfaceKey,
-                    lightOnSurfaceKey,
-                    lightSurfaceContainerKey,
-                    lightVideoColorKey,
-                  ],
-                ),
+            // Color
+            EzSettingsSection(
+              position: 1,
+              title: EzConfig.l10n.gColor,
+              icon: Icon(
+                Icons.palette,
+                semanticLabel: EzConfig.l10n.gColor,
               ),
+              build: EzColorSettings(
+                advanced: advanced,
+                onUpdate: doNothing,
+                appName: appName,
+                androidPackage: androidPackage,
+                darkStarterSet: const <String>[
+                  darkPrimaryKey,
+                  darkSurfaceKey,
+                  darkOnSurfaceKey,
+                  darkSurfaceContainerKey,
+                  darkVideoColorKey,
+                ],
+                lightStarterSet: const <String>[
+                  lightPrimaryKey,
+                  lightSurfaceKey,
+                  lightOnSurfaceKey,
+                  lightSurfaceContainerKey,
+                  lightVideoColorKey,
+                ],
+              ),
+            ),
 
-              // Design
-              EzSettingsSection(
-                position: 2,
-                title: EzConfig.l10n.gDesign,
-                icon: Icon(
-                  Icons.design_services,
-                  semanticLabel: EzConfig.l10n.gDesign,
-                ),
-                build: EzDesignSettings(
-                  onUpdate: doNothing,
-                  appName: appName,
-                  androidPackage: androidPackage,
-                  includeBackgroundImage: false,
-                  beforeDesign: <Widget>[
-                    const _RightsOpacity(),
-                    EzConfig.separator,
-                  ],
-                ),
+            // Design
+            EzSettingsSection(
+              position: 2,
+              title: EzConfig.l10n.gDesign,
+              icon: Icon(
+                Icons.design_services,
+                semanticLabel: EzConfig.l10n.gDesign,
               ),
+              build: EzDesignSettings(
+                onUpdate: doNothing,
+                appName: appName,
+                androidPackage: androidPackage,
+                beforeDesign: <Widget>[
+                  const _RightsOpacity(),
+                  EzConfig.separator,
+                ],
+              ),
+            ),
 
-              // Layout
-              EzSettingsSection(
-                position: 3,
-                title: EzConfig.l10n.gLayout,
-                icon: Icon(
-                  Icons.grid_3x3,
-                  semanticLabel: EzConfig.l10n.gLayout,
-                ),
-                build: const EzLayoutSettings(
-                  onUpdate: doNothing,
-                  appName: appName,
-                  androidPackage: androidPackage,
-                ),
+            // Layout
+            EzSettingsSection(
+              position: 3,
+              title: EzConfig.l10n.gLayout,
+              icon: Icon(
+                Icons.grid_3x3,
+                semanticLabel: EzConfig.l10n.gLayout,
               ),
+              build: const EzLayoutSettings(
+                onUpdate: doNothing,
+                appName: appName,
+                androidPackage: androidPackage,
+              ),
+            ),
 
-              // Text
-              EzSettingsSection(
-                position: 4,
-                title: EzConfig.l10n.gText,
-                icon: Icon(
-                  Icons.text_format,
-                  semanticLabel: EzConfig.l10n.gText,
-                ),
-                build: EzTextSettings(
-                  advanced: advanced,
-                  onUpdate: doNothing,
-                  appName: appName,
-                  androidPackage: androidPackage,
-                ),
+            // Text
+            EzSettingsSection(
+              position: 4,
+              title: EzConfig.l10n.gText,
+              icon: Icon(
+                Icons.text_format,
+                semanticLabel: EzConfig.l10n.gText,
               ),
-            ],
-            target: target,
-          ),
-          useImageDecoration: false,
-        ),
+              build: EzTextSettings(
+                advanced: advanced,
+                onUpdate: doNothing,
+                appName: appName,
+                androidPackage: androidPackage,
+              ),
+            ),
+          ],
+          target: target,
+        )),
         fabs: <Widget>[
           // Rebuild (conditional)
           if (config.needsRebuild) ...<Widget>[
