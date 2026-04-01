@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.3] - 2026-04-01
+### Updated
+- EFUI aka appearance settings
+- Allowing decoration image on non-home pages
+
 ## [2.0.2] - 2026-03-27
 ### Fixed
 - Back swipe on iOS
