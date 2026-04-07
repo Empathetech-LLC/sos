@@ -259,7 +259,7 @@ class _RightsOpacity extends StatelessWidget {
                     ),
                   ],
                 ),
-                EzSpacer(space: EzConfig.spargin),
+                EzConfig.separator,
               ],
             ),
           ),

@@ -318,7 +318,7 @@ Future<void> appSetupModal(
               header: EzConfig.spacer,
               footer: const SizedBox.shrink(),
             ),
-            EzSpacer(space: EzConfig.spargin),
+            EzConfig.separator,
           ],
         ),
       ),
