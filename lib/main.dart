@@ -70,11 +70,7 @@ class SOS extends StatelessWidget {
       supportedLocales: Lang.supportedLocales,
       locale: storedLocale,
       el10n: storedEFUILang,
-      appCache: SOSCache(
-        storedLocale,
-        storedLang,
-        EzConfig.get(isDarkThemeKey) ?? isDarkTheme(context),
-      ),
+      appCache: SOSCache(storedLocale, storedLang),
       appName: appName,
       routerConfig: GoRouter(
         navigatorKey: ezRootNav,
