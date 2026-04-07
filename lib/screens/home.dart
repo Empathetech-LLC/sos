@@ -278,7 +278,7 @@ class _HomeScreenState extends State<HomeScreen>
 
           // SOS/broadcast button
           Positioned(
-            top: EzConfig.spargin,
+            top: EzConfig.spacing + EzConfig.marginVal,
             left: 0,
             right: 0,
             child: Center(
@@ -286,9 +286,9 @@ class _HomeScreenState extends State<HomeScreen>
                 controller: sosTutorial,
                 overlayChildBuilder: (_) => EzTutorial(
                   top: safeTop(context) +
-                      EzConfig.spargin +
+                      EzConfig.spacing * 2 +
                       EzConfig.iconSize * 1.5 +
-                      EzConfig.spacing,
+                      EzConfig.marginVal,
                   left: 0,
                   right: 0,
                   title: EzIcon(
@@ -333,10 +333,12 @@ class _HomeScreenState extends State<HomeScreen>
               controller: settingsTutorial,
               overlayChildBuilder: (_) => EzTutorial(
                 top: safeTop(context) + EzConfig.marginVal,
-                right:
-                    EzConfig.isLefty ? 0 : EzConfig.spargin + EzConfig.iconSize,
-                left:
-                    EzConfig.isLefty ? EzConfig.spargin + EzConfig.iconSize : 0,
+                right: EzConfig.isLefty
+                    ? 0
+                    : EzConfig.spacing + EzConfig.marginVal + EzConfig.iconSize,
+                left: EzConfig.isLefty
+                    ? EzConfig.spacing + EzConfig.marginVal + EzConfig.iconSize
+                    : 0,
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
@@ -463,9 +465,9 @@ class _HomeScreenState extends State<HomeScreen>
                     controller: cameraTutorial,
                     overlayChildBuilder: (_) => EzTutorial(
                       bottom: safeBottom(context) +
-                          EzConfig.spargin +
+                          EzConfig.spacing * 2 +
                           EzConfig.iconSize * 2 +
-                          EzConfig.spacing,
+                          EzConfig.marginVal,
                       left: 0,
                       right: 0,
                       title: EzIcon(
