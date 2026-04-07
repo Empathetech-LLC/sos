@@ -33,7 +33,7 @@ class SOSCache extends EzAppCache {
   // Set //
 
   @override
-  Future<void> init(bool isDark) async => _setVideoColors(darkInit: isDark);
+  void init(bool isDark) => _setVideoColors(darkInit: isDark);
 
   @override
   Future<void> rebuild() async {
