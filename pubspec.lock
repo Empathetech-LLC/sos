@@ -361,10 +361,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_contacts
-      sha256: "44a9bdaa53beec4ba01b1362e1a6c1981dbc6843b9ebbf20c8d84e17df08c781"
+      sha256: be8e6de65fa7ae4332c812bcd4e8b90c0d74093fbda972ce3ca2f9f34f65e93c
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.1"
+    version: "2.0.2"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -848,10 +848,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider_android
-      sha256: "914a07484c4380e572998d30486e77e0d9cd2faec72fee268086d07bf7f302c9"
+      sha256: "69cbd515a62b94d32a7944f086b2f82b4ac40a1d45bebfc00813a430ab2dabcd"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.0"
+    version: "2.3.1"
   path_provider_foundation:
     dependency: transitive
     description:
