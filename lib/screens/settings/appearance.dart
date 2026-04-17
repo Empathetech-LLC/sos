@@ -84,34 +84,20 @@ class AppearanceSettingsScreen extends StatelessWidget {
                 semanticLabel: EzConfig.l10n.gDesign,
               ),
               build: EzDesignSettings(
+                pageTab: advanced,
                 onUpdate: doNothing,
                 appName: appName,
                 androidPackage: androidPackage,
-                beforeDesign: <Widget>[
+                prependPage: <Widget>[
                   const _RightsOpacity(),
                   EzConfig.separator,
                 ],
               ),
             ),
 
-            // Layout
-            EzSettingsSection(
-              position: 3,
-              title: EzConfig.l10n.gLayout,
-              icon: Icon(
-                Icons.grid_3x3,
-                semanticLabel: EzConfig.l10n.gLayout,
-              ),
-              build: const EzLayoutSettings(
-                onUpdate: doNothing,
-                appName: appName,
-                androidPackage: androidPackage,
-              ),
-            ),
-
             // Text
             EzSettingsSection(
-              position: 4,
+              position: 3,
               title: EzConfig.l10n.gText,
               icon: Icon(
                 Icons.text_format,
