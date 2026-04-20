@@ -23,7 +23,6 @@ void main() async {
 
   EzConfig.init(
     assetPaths: assetPaths,
-    defaults: sosConfig,
     localeFallback: americanEnglish,
     l10nFallback: await EFUILang.delegate.load(americanEnglish),
     preferences: await SharedPreferencesWithCache.create(
@@ -31,6 +30,8 @@ void main() async {
         allowList: allSOSKeys.keys.toSet(),
       ),
     ),
+    defaults: sosConfig,
+    neverReset: neverResetKeys,
   );
 
   // Run the app //
