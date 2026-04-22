@@ -171,7 +171,6 @@ class _CameraSetupState extends State<CameraSetup> {
                 child: Card(
                   shape: cardShape,
                   child: EzRow(
-                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Expanded(
@@ -236,7 +235,6 @@ class _CameraSetupState extends State<CameraSetup> {
                 child: Card(
                   shape: cardShape,
                   child: EzRow(
-                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Expanded(
@@ -355,7 +353,6 @@ class _ContactsSetupState extends State<ContactsSetup> {
             child: Card(
               shape: cardShape,
               child: EzRow(
-                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Expanded(
@@ -456,7 +453,6 @@ class _SMSSetupState extends State<SMSSetup> {
             child: Card(
               shape: cardShape,
               child: EzRow(
-                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Expanded(
@@ -601,7 +597,6 @@ class _LocationSetupState extends State<LocationSetup>
                   child: Card(
                     shape: cardShape,
                     child: EzRow(
-                      mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Expanded(
@@ -650,7 +645,6 @@ class _LocationSetupState extends State<LocationSetup>
                   child: Card(
                     shape: cardShape,
                     child: EzRow(
-                      mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Expanded(

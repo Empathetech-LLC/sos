@@ -109,7 +109,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     padding:
                         EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
                     child: EzScrollView(
-                      mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         // Intro
                         EzRichText(
@@ -200,7 +199,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             onPressed: () => ezModal(
               context: context,
               builder: (BuildContext mContext) => EzScrollView(
-                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   // Community resources //
                   Center(
@@ -353,7 +351,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
               await ezModal(
                 context: context,
                 builder: (BuildContext mContext) => EzScrollView(
-                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     //* Expandable FAQ *//

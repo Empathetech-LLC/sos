@@ -240,7 +240,6 @@ Future<void> appSetupModal(
       builder: (_, StateSetter setModal) => Padding(
         padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
         child: EzScrollView(
-          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             // Title
             EzConfig.margin,

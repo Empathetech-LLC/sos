@@ -181,7 +181,6 @@ class _RightsOpacity extends StatelessWidget {
           builder: (_) => StatefulBuilder(
             builder: (BuildContext mContext, StateSetter setModal) =>
                 EzScrollView(
-              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 // Preview
                 Container(
@@ -240,7 +239,6 @@ class _RightsOpacity extends StatelessWidget {
 
                 // Footer
                 EzRow(
-                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     // Local reset

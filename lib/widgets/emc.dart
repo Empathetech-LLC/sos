@@ -44,7 +44,6 @@ class _ContactListState extends State<ContactList> {
           // Title && add button
           EzScrollView(
             reverseHands: true,
-            mainAxisSize: MainAxisSize.min,
             scrollDirection: Axis.horizontal,
             children: <Widget>[
               Text(l10n.bsEMC, style: EzConfig.styles.titleLarge),
@@ -85,7 +84,6 @@ class _ContactListState extends State<ContactList> {
                   ),
                   child: Card(
                     child: EzScrollView(
-                      mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       // Using fold w/ spacers bc map w/ padding looks weird with screen readers
                       children: currEMC.fold<List<Widget>>(<Widget>[], (

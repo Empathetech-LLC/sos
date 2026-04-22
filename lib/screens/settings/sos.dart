@@ -92,7 +92,6 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
           EzScrollView(
             scrollDirection: Axis.horizontal,
             reverseHands: true,
-            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               // Label
               EzText(
