@@ -322,7 +322,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
           if (isIOS) {
             await showDialog(
               context: context,
-              builder: (BuildContext dContext) => EzAlertDialog(
+              builder: (BuildContext dCon) => EzAlertDialog(
                 title: Text(l10n.gReminder, textAlign: TextAlign.center),
                 content: Text(
                   l10n.hsAppleContacts,
@@ -332,7 +332,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                 actions: <EzMaterialAction>[
                   EzMaterialAction(
                     text: l10n.gOk,
-                    onPressed: () => Navigator.of(dContext).pop(),
+                    onPressed: () => Navigator.of(dCon).pop(),
                   ),
                 ],
                 needsClose: false,

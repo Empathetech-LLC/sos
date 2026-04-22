@@ -62,7 +62,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
     if (show && context.mounted) {
       final bool leaving = await showDialog(
         context: context,
-        builder: (BuildContext dContext) => EzAlertDialog(
+        builder: (BuildContext dCon) => EzAlertDialog(
           title: Text(l10n.gReminder, textAlign: TextAlign.center),
           content: EzRichText(
             <InlineSpan>[
@@ -73,7 +73,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
               EzInlineLink(
                 l10n.gSystem.toLowerCase(),
                 onTap: () async {
-                  Navigator.of(dContext).pop(true);
+                  Navigator.of(dCon).pop(true);
                   await openAppSettings();
                 },
                 hint: EzConfig.l10n.gOpenLink,
@@ -90,12 +90,12 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
           actions: ezActionPair(
             context: context,
             confirmMsg: l10n.gOk,
-            onConfirm: () => Navigator.of(dContext).pop(false),
+            onConfirm: () => Navigator.of(dCon).pop(false),
             confirmIsDefault: true,
             denyMsg: l10n.gNotAgain,
             onDeny: () async {
               await EzConfig.setBool(showContactsMsgKey, false);
-              if (dContext.mounted) Navigator.of(dContext).pop(false);
+              if (dCon.mounted) Navigator.of(dCon).pop(false);
             },
             denyIsDestructive: true,
           ),
@@ -236,7 +236,7 @@ Future<void> appSetupModal(
     enableDrag: false,
     isDismissible: false,
     showDragHandle: false,
-    builder: (BuildContext mContext) => StatefulBuilder(
+    builder: (BuildContext mCon) => StatefulBuilder(
       builder: (_, StateSetter setModal) => Padding(
         padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
         child: EzScrollView(
@@ -308,7 +308,7 @@ Future<void> appSetupModal(
                   ?.copyWith(color: EzConfig.colors.primary),
               textAlign: TextAlign.center,
               style: TextButton.styleFrom(backgroundColor: Colors.transparent),
-              onPressed: () => Navigator.of(mContext).pop(true),
+              onPressed: () => Navigator.of(mCon).pop(true),
             ),
 
             // Hybrid translations notice (conditional)

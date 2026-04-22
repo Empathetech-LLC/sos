@@ -179,8 +179,7 @@ class _RightsOpacity extends StatelessWidget {
         await ezModal(
           context: context,
           builder: (_) => StatefulBuilder(
-            builder: (BuildContext mContext, StateSetter setModal) =>
-                EzScrollView(
+            builder: (BuildContext mCon, StateSetter setModal) => EzScrollView(
               children: <Widget>[
                 // Preview
                 Container(
@@ -266,7 +265,7 @@ class _RightsOpacity extends StatelessWidget {
 
                     // Done/submit
                     EzElevatedIconButton(
-                      onPressed: Navigator.of(mContext).pop,
+                      onPressed: Navigator.of(mCon).pop,
                       icon: const Icon(Icons.done),
                       label: l10n.gDone,
                     ),

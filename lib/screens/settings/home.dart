@@ -34,7 +34,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
     if (sosOnClose) {
       launch = await showDialog(
         context: parentContext,
-        builder: (BuildContext dContext) => EzAlertDialog(
+        builder: (BuildContext dCon) => EzAlertDialog(
           title: Text(
             EzConfig.l10n.gAttention,
             textAlign: TextAlign.center,
@@ -47,10 +47,10 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             context: parentContext,
             confirmMsg: EzConfig.l10n.gContinue,
             confirmIsDestructive: true,
-            onConfirm: () => Navigator.of(dContext).pop(true),
+            onConfirm: () => Navigator.of(dCon).pop(true),
             denyMsg: EzConfig.l10n.gCancel,
             denyIsDefault: true,
-            onDeny: () => Navigator.of(dContext).pop(false),
+            onDeny: () => Navigator.of(dCon).pop(false),
           ),
           needsClose: false,
         ),
@@ -104,7 +104,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
               await ezModal(
                 context: context,
-                builder: (BuildContext mContext) => StatefulBuilder(
+                builder: (BuildContext mCon) => StatefulBuilder(
                   builder: (_, StateSetter setModal) => Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
@@ -125,8 +125,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                               l10n.gSystem.toLowerCase(),
                               onTap: () async {
                                 await openAppSettings();
-                                if (mContext.mounted) {
-                                  Navigator.of(mContext).pop();
+                                if (mCon.mounted) {
+                                  Navigator.of(mCon).pop();
                                 }
                               },
                               hint: EzConfig.l10n.gOpenLink,
@@ -180,7 +180,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                           textAlign: TextAlign.center,
                           style: TextButton.styleFrom(
                               backgroundColor: Colors.transparent),
-                          onPressed: () => Navigator.of(mContext).pop(true),
+                          onPressed: () => Navigator.of(mCon).pop(true),
                         ),
                         EzConfig.separator,
                       ],
@@ -198,7 +198,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
           EzElevatedIconButton(
             onPressed: () => ezModal(
               context: context,
-              builder: (BuildContext mContext) => EzScrollView(
+              builder: (BuildContext mCon) => EzScrollView(
                 children: <Widget>[
                   // Community resources //
                   Center(
@@ -216,7 +216,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     onTap: () => followLink(
                       acluLink,
                       parentContext: context,
-                      modalContext: mContext,
+                      modalContext: mCon,
                     ),
                     hint: EzConfig.l10n.gOpenLink,
                     style: EzConfig.styles.bodyLarge,
@@ -231,7 +231,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     onTap: () => followLink(
                       dunkLink,
                       parentContext: context,
-                      modalContext: mContext,
+                      modalContext: mCon,
                     ),
                     hint: EzConfig.l10n.gOpenLink,
                     style: EzConfig.styles.bodyLarge,
@@ -246,7 +246,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     onTap: () => followLink(
                       howToLink,
                       parentContext: context,
-                      modalContext: mContext,
+                      modalContext: mCon,
                     ),
                     hint: EzConfig.l10n.gOpenLink,
                     style: EzConfig.styles.bodyLarge,
@@ -261,7 +261,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     onTap: () => followLink(
                       icerrLink,
                       parentContext: context,
-                      modalContext: mContext,
+                      modalContext: mCon,
                     ),
                     hint: EzConfig.l10n.gOpenLink,
                     style: EzConfig.styles.bodyLarge,
@@ -276,7 +276,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     onTap: () => followLink(
                       immdefLink,
                       parentContext: context,
-                      modalContext: mContext,
+                      modalContext: mCon,
                     ),
                     hint: EzConfig.l10n.gOpenLink,
                     style: EzConfig.styles.bodyLarge,
@@ -291,7 +291,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     onTap: () => followLink(
                       nirrHotlinesLink,
                       parentContext: context,
-                      modalContext: mContext,
+                      modalContext: mCon,
                     ),
                     hint: EzConfig.l10n.gOpenLink,
                     style: EzConfig.styles.bodyLarge,
@@ -316,7 +316,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                     onTap: () => followLink(
                       iceLocatorLink,
                       parentContext: context,
-                      modalContext: mContext,
+                      modalContext: mCon,
                     ),
                     hint: EzConfig.l10n.gOpenLink,
                     style: EzConfig.styles.bodyLarge,
@@ -350,7 +350,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
 
               await ezModal(
                 context: context,
-                builder: (BuildContext mContext) => EzScrollView(
+                builder: (BuildContext mCon) => EzScrollView(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     //* Expandable FAQ *//
@@ -388,7 +388,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                           onTap: () => followLink(
                             acluLink,
                             parentContext: context,
-                            modalContext: mContext,
+                            modalContext: mCon,
                           ),
                           hint: EzConfig.l10n.gOpenLink,
                           textAlign: TextAlign.start,
@@ -399,7 +399,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                           onTap: () => followLink(
                             immdefLink,
                             parentContext: context,
-                            modalContext: mContext,
+                            modalContext: mCon,
                           ),
                           hint: EzConfig.l10n.gOpenLink,
                           textAlign: TextAlign.start,
@@ -410,7 +410,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                           onTap: () => followLink(
                             dunkLink,
                             parentContext: context,
-                            modalContext: mContext,
+                            modalContext: mCon,
                           ),
                           hint: EzConfig.l10n.gOpenLink,
                           textAlign: TextAlign.start,
@@ -543,8 +543,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                                 l10n.faqLocationPermissions,
                                 onTap: () async {
                                   await openAppSettings();
-                                  if (mContext.mounted) {
-                                    Navigator.of(mContext).pop();
+                                  if (mCon.mounted) {
+                                    Navigator.of(mCon).pop();
                                   }
                                 },
                                 hint: EzConfig.l10n.gOpenLink,
@@ -666,8 +666,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                                 l10n.gSystem.toLowerCase(),
                                 onTap: () async {
                                   await openAppSettings();
-                                  if (mContext.mounted) {
-                                    Navigator.of(mContext).pop();
+                                  if (mCon.mounted) {
+                                    Navigator.of(mCon).pop();
                                   }
                                 },
                                 hint: EzConfig.l10n.gOpenLink,
@@ -693,7 +693,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                               EzInlineLink(
                                 l10n.ssSOS.toLowerCase(),
                                 onTap: () {
-                                  Navigator.of(mContext).pop();
+                                  Navigator.of(mCon).pop();
                                   context.goNamed(sosSettingsPath);
                                 },
                                 hint: EzConfig.l10n.gOpenLink,
@@ -755,7 +755,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                               onTap: () => followLink(
                                 contributeLink,
                                 parentContext: context,
-                                modalContext: mContext,
+                                modalContext: mCon,
                               ),
                               hint: EzConfig.l10n.gOpenLink,
                             ),
@@ -786,7 +786,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                             onPressed: () => followLink(
                               'mailto:support@empathetech.net?subject=InstaSOS%20support',
                               parentContext: context,
-                              modalContext: mContext,
+                              modalContext: mCon,
                             ),
                           ),
 
@@ -797,8 +797,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                               text: l10n.faqReset,
                               onPressed: () async {
                                 await EzConfig.setBool(showTutorialKey, true);
-                                if (mContext.mounted) {
-                                  Navigator.of(mContext).pop();
+                                if (mCon.mounted) {
+                                  Navigator.of(mCon).pop();
                                 }
 
                                 await EzConfig.redrawUI(doNothing);

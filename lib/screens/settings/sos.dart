@@ -146,7 +146,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
                         // Confirm immediate closure to prevent accidental broadcasts
                         ? await showDialog<bool>(
                             context: context,
-                            builder: (BuildContext dContext) => EzAlertDialog(
+                            builder: (BuildContext dCon) => EzAlertDialog(
                               title: Text(
                                 EzConfig.l10n.gAttention,
                                 textAlign: TextAlign.center,
@@ -159,10 +159,9 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
                                 context: context,
                                 confirmMsg: l10n.gOk,
                                 confirmIsDefault: true,
-                                onConfirm: () =>
-                                    Navigator.of(dContext).pop(true),
+                                onConfirm: () => Navigator.of(dCon).pop(true),
                                 denyMsg: EzConfig.l10n.gCancel,
-                                onDeny: () => Navigator.of(dContext).pop(false),
+                                onDeny: () => Navigator.of(dCon).pop(false),
                               ),
                               needsClose: false,
                             ),
@@ -172,7 +171,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
                         // Confirm the user wants to enable this setting
                         ? await showDialog<bool>(
                             context: context,
-                            builder: (BuildContext dContext) => EzAlertDialog(
+                            builder: (BuildContext dCon) => EzAlertDialog(
                               title: Text(
                                 EzConfig.l10n.gAttention,
                                 textAlign: TextAlign.center,
@@ -186,10 +185,9 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
                                 context: context,
                                 confirmMsg: l10n.gOk,
                                 confirmIsDefault: true,
-                                onConfirm: () =>
-                                    Navigator.of(dContext).pop(true),
+                                onConfirm: () => Navigator.of(dCon).pop(true),
                                 denyMsg: EzConfig.l10n.gCancel,
-                                onDeny: () => Navigator.of(dContext).pop(false),
+                                onDeny: () => Navigator.of(dCon).pop(false),
                               ),
                               needsClose: false,
                             ),
