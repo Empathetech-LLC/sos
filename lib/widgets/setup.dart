@@ -182,8 +182,7 @@ class _CameraSetupState extends State<CameraSetup> {
                                   style: EzConfig.styles.bodyLarge,
                                   textAlign: TextAlign.start,
                                 )
-                              : Column(
-                                  mainAxisSize: MainAxisSize.min,
+                              : EzCol(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
@@ -240,8 +239,7 @@ class _CameraSetupState extends State<CameraSetup> {
                       Expanded(
                         child: Padding(
                           padding: EdgeInsets.all(EzConfig.marginVal),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
+                          child: EzCol(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
@@ -364,8 +362,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                               style: EzConfig.styles.bodyLarge,
                               textAlign: TextAlign.start,
                             )
-                          : Column(
-                              mainAxisSize: MainAxisSize.min,
+                          : EzCol(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
@@ -464,8 +461,7 @@ class _SMSSetupState extends State<SMSSetup> {
                               style: EzConfig.styles.bodyLarge,
                               textAlign: TextAlign.start,
                             )
-                          : Column(
-                              mainAxisSize: MainAxisSize.min,
+                          : EzCol(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
@@ -608,8 +604,7 @@ class _LocationSetupState extends State<LocationSetup>
                                     style: EzConfig.styles.bodyLarge,
                                     textAlign: TextAlign.start,
                                   )
-                                : Column(
-                                    mainAxisSize: MainAxisSize.min,
+                                : EzCol(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
@@ -656,8 +651,7 @@ class _LocationSetupState extends State<LocationSetup>
                                     style: EzConfig.styles.bodyLarge,
                                     textAlign: TextAlign.start,
                                   )
-                                : Column(
-                                    mainAxisSize: MainAxisSize.min,
+                                : EzCol(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: <Widget>[

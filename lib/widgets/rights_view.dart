@@ -27,8 +27,7 @@ class _RightsViewState extends State<RightsView> {
   Widget populateTab() {
     switch (currentTab) {
       case Situation.walking:
-        return Column(
-          mainAxisSize: MainAxisSize.min,
+        return EzCol(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             rightsBlock(l10n.rvMobilePockets),
@@ -37,8 +36,7 @@ class _RightsViewState extends State<RightsView> {
           ],
         );
       case Situation.driving:
-        return Column(
-          mainAxisSize: MainAxisSize.min,
+        return EzCol(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             rightsBlock(l10n.rvMobilePockets),
@@ -50,8 +48,7 @@ class _RightsViewState extends State<RightsView> {
           ],
         );
       case Situation.home:
-        return Column(
-          mainAxisSize: MainAxisSize.min,
+        return EzCol(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[rightsBlock(l10n.rvHomeWarrant)],
         );
