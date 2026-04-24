@@ -45,9 +45,8 @@ class AppearanceSettingsScreen extends StatelessWidget {
                 appName: appName,
                 androidPackage: androidPackage,
                 excludeLocaleSetting: true,
-                resetTitle: () => 'Reset all appearance settings?',
+                resetTitle: () => EzConfig.l10n.ssResetAppearance,
               ),
-              // TODO: l10n (lim too)
             ),
 
             // Color //
