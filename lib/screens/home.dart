@@ -219,8 +219,10 @@ class _HomeScreenState extends State<HomeScreen>
                 width: double.infinity,
                 color: EzConfig.colors.surface,
                 child: camera == null
-                    ? Visibility(
+                    ? EzAnimVis(
+                        mod: 0.5,
                         visible: showRights,
+                        force: EzTransitionType.zoom,
                         child: const RightsView(),
                       )
                     : Stack(children: <Widget>[
@@ -231,8 +233,10 @@ class _HomeScreenState extends State<HomeScreen>
                             child: CameraPreview(camera!),
                           ),
                         ),
-                        Visibility(
+                        EzAnimVis(
+                          mod: 0.5,
                           visible: showRights,
+                          force: EzTransitionType.zoom,
                           child: Container(
                             height: double.infinity,
                             width: double.infinity,
@@ -254,8 +258,10 @@ class _HomeScreenState extends State<HomeScreen>
             top: 0,
             left: 0,
             right: 0,
-            child: Visibility(
+            child: EzAnimVis(
+              mod: 0.5,
               visible: recording,
+              force: EzTransitionType.zoom,
               child: Center(
                 child: StreamBuilder<int>(
                   stream: Stream<int>.periodic(
