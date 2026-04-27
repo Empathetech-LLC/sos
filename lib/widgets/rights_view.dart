@@ -9,9 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class RightsView extends StatefulWidget {
-  final bool hide;
-
-  const RightsView({super.key, this.hide = false});
+  const RightsView({super.key});
 
   @override
   State<RightsView> createState() => _RightsViewState();
@@ -64,67 +62,64 @@ class _RightsViewState extends State<RightsView> {
   // Return the build //
 
   @override
-  Widget build(BuildContext context) => Visibility(
-        visible: !widget.hide,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
-          child: EzScrollView(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            // Header
-            children: <Widget>[
-              Center(
-                child: Text(
-                  l10n.rvSharedHeader,
-                  textAlign: TextAlign.center,
-                  style: EzConfig.styles.titleLarge,
-                ),
+  Widget build(BuildContext context) => Padding(
+        padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
+        child: EzScrollView(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          // Header
+          children: <Widget>[
+            Center(
+              child: Text(
+                l10n.rvSharedHeader,
+                textAlign: TextAlign.center,
+                style: EzConfig.styles.titleLarge,
               ),
-              EzConfig.spacer,
+            ),
+            EzConfig.spacer,
 
-              // Switcher
-              Center(
-                child: SegmentedButton<Situation>(
-                  segments: <ButtonSegment<Situation>>[
-                    ButtonSegment<Situation>(
-                      value: Situation.walking,
-                      label: Icon(Situation.walking.icon),
-                      tooltip: l10n.rvOnFoot,
-                    ),
-                    ButtonSegment<Situation>(
-                      value: Situation.driving,
-                      label: Icon(Situation.driving.icon),
-                      tooltip: l10n.rvWhileDriving,
-                    ),
-                    ButtonSegment<Situation>(
-                      value: Situation.home,
-                      label: Icon(Situation.home.icon),
-                      tooltip: l10n.rvAtHome,
-                    ),
-                  ],
-                  selected: <Situation>{currentTab},
-                  showSelectedIcon: false,
-                  onSelectionChanged: (Set<Situation> selected) async {
-                    currentTab = selected.first;
-                    await EzConfig.setString(savedTabKey, currentTab.name);
-                    if (mounted) setState(() {});
-                  },
-                ),
+            // Switcher
+            Center(
+              child: SegmentedButton<Situation>(
+                segments: <ButtonSegment<Situation>>[
+                  ButtonSegment<Situation>(
+                    value: Situation.walking,
+                    label: Icon(Situation.walking.icon),
+                    tooltip: l10n.rvOnFoot,
+                  ),
+                  ButtonSegment<Situation>(
+                    value: Situation.driving,
+                    label: Icon(Situation.driving.icon),
+                    tooltip: l10n.rvWhileDriving,
+                  ),
+                  ButtonSegment<Situation>(
+                    value: Situation.home,
+                    label: Icon(Situation.home.icon),
+                    tooltip: l10n.rvAtHome,
+                  ),
+                ],
+                selected: <Situation>{currentTab},
+                showSelectedIcon: false,
+                onSelectionChanged: (Set<Situation> selected) async {
+                  currentTab = selected.first;
+                  await EzConfig.setString(savedTabKey, currentTab.name);
+                  if (mounted) setState(() {});
+                },
               ),
-              EzConfig.separator,
+            ),
+            EzConfig.separator,
 
-              // Shared rights I
-              rightsBlock(l10n.rvSharedRemainSilent),
-              rightsBlock(l10n.rvSharedDocument),
+            // Shared rights I
+            rightsBlock(l10n.rvSharedRemainSilent),
+            rightsBlock(l10n.rvSharedDocument),
 
-              // Situational rights
-              populateTab(),
+            // Situational rights
+            populateTab(),
 
-              // Shared rights II
-              rightsBlock(l10n.rvSharedSign),
-              rightsBlock(l10n.rvSharedFingerprint),
-              rightsBlock(l10n.rvSharedLawyer),
-            ],
-          ),
+            // Shared rights II
+            rightsBlock(l10n.rvSharedSign),
+            rightsBlock(l10n.rvSharedFingerprint),
+            rightsBlock(l10n.rvSharedLawyer),
+          ],
         ),
       );
 }

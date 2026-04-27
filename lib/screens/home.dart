@@ -374,13 +374,12 @@ class _HomeScreenState extends State<HomeScreen>
             ),
           ),
 
-          // Safe close - iff sosOnClose is true
-          Positioned(
-            top: EzConfig.marginVal,
-            right: EzConfig.isLefty ? EzConfig.marginVal : null,
-            left: EzConfig.isLefty ? null : EzConfig.marginVal,
-            child: Visibility(
-              visible: sosOnClose,
+          // Safe close (conditional)
+          if (sosOnClose)
+            Positioned(
+              top: EzConfig.marginVal,
+              right: EzConfig.isLefty ? EzConfig.marginVal : null,
+              left: EzConfig.isLefty ? null : EzConfig.marginVal,
               child: EzIconButton(
                 icon: Icon(
                   Icons.thumb_up,
@@ -393,7 +392,6 @@ class _HomeScreenState extends State<HomeScreen>
                 },
               ),
             ),
-          ),
 
           // Controls
           Positioned(
