@@ -219,7 +219,7 @@ class _HomeScreenState extends State<HomeScreen>
                         mod: 0.5,
                         visible: showRights,
                         forceType: EzTransitionType.zoom,
-                        child: const RightsView(),
+                        kid: const RightsView(),
                       )
                     : Stack(children: <Widget>[
                         Center(
@@ -233,7 +233,7 @@ class _HomeScreenState extends State<HomeScreen>
                           mod: 0.5,
                           visible: showRights,
                           forceType: EzTransitionType.zoom,
-                          child: Container(
+                          kid: Container(
                             height: double.infinity,
                             width: double.infinity,
                             color: Theme.of(context)
@@ -258,7 +258,7 @@ class _HomeScreenState extends State<HomeScreen>
               mod: 0.5,
               visible: recording,
               forceType: EzTransitionType.zoom,
-              child: Center(
+              kid: Center(
                 child: StreamBuilder<int>(
                   stream: Stream<int>.periodic(
                     const Duration(seconds: 1),
@@ -430,7 +430,8 @@ class _HomeScreenState extends State<HomeScreen>
 
                               // Attempt to share (config based)
                               if (autoShareMedia && context.mounted) {
-                                final RenderBox? box = context.findRenderObject() as RenderBox?;
+                                final RenderBox? box =
+                                    context.findRenderObject() as RenderBox?;
 
                                 await SharePlus.instance.share(ShareParams(
                                   text: await getCoordinates(
