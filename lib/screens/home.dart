@@ -41,10 +41,8 @@ class _HomeScreenState extends State<HomeScreen>
   Timer? sosTimer;
 
   // Tutorial(s)
-  final OverlayPortalController sosTutorial =
-      OverlayPortalController(debugLabel: 'sos');
-  final OverlayPortalController cameraTutorial =
-      OverlayPortalController(debugLabel: 'camera');
+  final OverlayPortalController sosTutorial = OverlayPortalController(debugLabel: 'sos');
+  final OverlayPortalController cameraTutorial = OverlayPortalController(debugLabel: 'camera');
   final OverlayPortalController settingsTutorial =
       OverlayPortalController(debugLabel: 'settings');
 
@@ -71,8 +69,8 @@ class _HomeScreenState extends State<HomeScreen>
     await Permission.microphone.request(); // Not required
 
     final List<CameraDescription> cameras = await availableCameras();
-    cameraDesc = cameras.firstWhere(
-        (CameraDescription c) => c.lensDirection == CameraLensDirection.back);
+    cameraDesc = cameras
+        .firstWhere((CameraDescription c) => c.lensDirection == CameraLensDirection.back);
     if (cameraDesc == null) return PermissionStatus.denied;
 
     try {
@@ -83,9 +81,7 @@ class _HomeScreenState extends State<HomeScreen>
       final String message = e.toString();
 
       if (e is! CameraException || e.code != 'CameraAccessDenied') {
-        (mounted)
-            ? await ezLogAlert(context, message: message)
-            : ezLog(message);
+        (mounted) ? await ezLogAlert(context, message: message) : ezLog(message);
       } else {
         ezLog('CameraException from initCamera.../n$message');
       }
@@ -146,8 +142,8 @@ class _HomeScreenState extends State<HomeScreen>
 
     // Make it so (periodic SOS)
     if (mounted) {
-      setState(() => sosTimer =
-          Timer.periodic(const Duration(minutes: 5), (_) => foregroundSOS()));
+      setState(
+          () => sosTimer = Timer.periodic(const Duration(minutes: 5), (_) => foregroundSOS()));
     }
 
     // Double reminder/option to cancel
@@ -269,13 +265,9 @@ class _HomeScreenState extends State<HomeScreen>
                     (_) => watch.elapsed.inSeconds,
                   ),
                   builder: (_, AsyncSnapshot<int> snapshot) => EzText(
-                    Duration(seconds: snapshot.data ?? 0)
-                        .toString()
-                        .split('.')
-                        .first,
+                    Duration(seconds: snapshot.data ?? 0).toString().split('.').first,
                     backgroundColor: videoColor,
-                    style: EzConfig.styles.labelLarge
-                        ?.copyWith(color: videoTextColor),
+                    style: EzConfig.styles.labelLarge?.copyWith(color: videoTextColor),
                   ),
                 ),
               ),
@@ -438,8 +430,7 @@ class _HomeScreenState extends State<HomeScreen>
 
                               // Attempt to share (config based)
                               if (autoShareMedia && context.mounted) {
-                                final RenderBox? box =
-                                    context.findRenderObject() as RenderBox?;
+                                final RenderBox? box = context.findRenderObject() as RenderBox?;
 
                                 await SharePlus.instance.share(ShareParams(
                                   text: await getCoordinates(
@@ -448,8 +439,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   ),
                                   files: <XFile>[image],
                                   sharePositionOrigin:
-                                      box!.localToGlobal(Offset.zero) &
-                                          box.size,
+                                      box!.localToGlobal(Offset.zero) & box.size,
                                 ));
                               }
                             } catch (e) {
@@ -478,9 +468,7 @@ class _HomeScreenState extends State<HomeScreen>
                         Icons.arrow_downward,
                         color: EzConfig.colors.onSurface,
                       ),
-                      content: isIOS
-                          ? l10n.hsIOSVideoTutorial
-                          : l10n.hsVideoTutorial,
+                      content: isIOS ? l10n.hsIOSVideoTutorial : l10n.hsVideoTutorial,
                       acceptMessage: '3/4\t>>',
                       acceptSemantics: l10n.hsThreeOfFour,
                       onAccept: () async {
@@ -564,8 +552,7 @@ class _HomeScreenState extends State<HomeScreen>
                                     ),
                                     files: <XFile>[XFile(mp4Path)],
                                     sharePositionOrigin:
-                                        box!.localToGlobal(Offset.zero) &
-                                            box.size,
+                                        box!.localToGlobal(Offset.zero) & box.size,
                                   ));
                                 }
                               } catch (e) {
@@ -582,20 +569,17 @@ class _HomeScreenState extends State<HomeScreen>
                             fauxDisabled: camera == null,
                             style: IconButton.styleFrom(
                               foregroundColor: videoColor,
-                              side: EzConfig.borderSide(
-                                  EzConfig.colors.onSurface),
+                              side: EzConfig.borderSide(EzConfig.colors.onSurface),
                             ),
                             icon: Icon(
                               Icons.circle,
                               semanticLabel: l10n.hsStartRecord,
                             ),
                             iconSize: EzConfig.iconSize * 2,
-                            onLongPress:
-                                camera == null ? openAppSettings : null,
+                            onLongPress: camera == null ? openAppSettings : null,
                             onPressed: () async {
                               if (camera == null) {
-                                final PermissionStatus cameraPerm =
-                                    await initCamera();
+                                final PermissionStatus cameraPerm = await initCamera();
 
                                 if (allowedPermCheck(cameraPerm)) {
                                   if (mounted) setState(() {});
@@ -626,8 +610,7 @@ class _HomeScreenState extends State<HomeScreen>
                           fauxDisabled: true,
                           icon: const Icon(Icons.flash_off),
                           onPressed: () async {
-                            final PermissionStatus cameraPerm =
-                                await initCamera();
+                            final PermissionStatus cameraPerm = await initCamera();
 
                             if (allowedPermCheck(cameraPerm)) {
                               if (mounted) setState(() {});
@@ -662,9 +645,7 @@ class _HomeScreenState extends State<HomeScreen>
 
         if (recording) {
           // SOS based on user state/settings
-          if (!isIOS &&
-              !alreadyRunning &&
-              (active || sosOnClose || sosOnInterrupt)) {
+          if (!isIOS && !alreadyRunning && (active || sosOnClose || sosOnInterrupt)) {
             if (active) stopForegroundSOS();
             await startBackgroundSOS();
           }
@@ -714,9 +695,7 @@ class _HomeScreenState extends State<HomeScreen>
             await camera!.initialize();
           } catch (e) {
             if (e is! CameraException || e.code != 'CameraAccessDenied') {
-              mounted
-                  ? await ezLogAlert(context, message: e.toString())
-                  : ezLog(e.toString());
+              mounted ? await ezLogAlert(context, message: e.toString()) : ezLog(e.toString());
             }
           }
           if (mounted) setState(() {});

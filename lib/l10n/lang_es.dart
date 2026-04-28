@@ -57,8 +57,7 @@ class LangEs extends Lang {
       'La última actualización fue importante, asegurémonos de que todo esté listo a continuación.';
 
   @override
-  String get hsYourApp =>
-      'Puedes cambiar de opinión/permisos en cualquier momento.';
+  String get hsYourApp => 'Puedes cambiar de opinión/permisos en cualquier momento.';
 
   @override
   String get hsHybridTranslation =>
@@ -80,19 +79,16 @@ class LangEs extends Lang {
   String get hsCameraReady => 'La cámara está lista';
 
   @override
-  String get hsCameraSetupHint =>
-      'Activar para dar permiso a Insta-SOS para usar la cámara.';
+  String get hsCameraSetupHint => 'Activar para dar permiso a Insta-SOS para usar la cámara.';
 
   @override
   String get hsContacts => 'Contactos';
 
   @override
-  String get hsAddContacts =>
-      'Parte 1 para habilitar las alertas a contactos de emergencia.';
+  String get hsAddContacts => 'Parte 1 para habilitar las alertas a contactos de emergencia.';
 
   @override
-  String get hsAddContactsIOS =>
-      'Habilita las alertas a contactos de emergencia.';
+  String get hsAddContactsIOS => 'Habilita las alertas a contactos de emergencia.';
 
   @override
   String get hsContactsReady => 'Los contactos están listos';
@@ -109,15 +105,13 @@ class LangEs extends Lang {
   String get hsTexting => 'Mensajes de texto';
 
   @override
-  String get hsAddTexting =>
-      'Parte 2 para habilitar las alertas a contactos de emergencia.';
+  String get hsAddTexting => 'Parte 2 para habilitar las alertas a contactos de emergencia.';
 
   @override
   String get hsTextingReady => 'Los mensajes de texto están listos';
 
   @override
-  String get hsTextingSetupHint =>
-      'Activar para dar permiso a Insta-SOS para enviar mensajes.';
+  String get hsTextingSetupHint => 'Activar para dar permiso a Insta-SOS para enviar mensajes.';
 
   @override
   String get hsLocation => 'Ubicación';
@@ -203,8 +197,7 @@ class LangEs extends Lang {
   String get hsCameraHint => 'Tomar una foto.';
 
   @override
-  String get hsPreviewHint =>
-      'Mantener presionado para mostrar/ocultar tus derechos.';
+  String get hsPreviewHint => 'Mantener presionado para mostrar/ocultar tus derechos.';
 
   @override
   String get hsShowRights => 'Mostrar tus derechos.';
@@ -219,8 +212,7 @@ class LangEs extends Lang {
   String get hsEndRecord => 'Finalizar la grabación.';
 
   @override
-  String get hsFlashOff =>
-      'Flash apagado. Activar para encender el flash automático.';
+  String get hsFlashOff => 'Flash apagado. Activar para encender el flash automático.';
 
   @override
   String get hsFlashAuto => 'Flash automático. Activar para encender el flash.';
@@ -259,8 +251,7 @@ class LangEs extends Lang {
       'Niégate a que te registren los bolsillos. El ICE puede cachearte, pero no registrarte.';
 
   @override
-  String get rvMobileQuestion =>
-      'Haz preguntas, incluyendo por qué te han hecho detenerte.';
+  String get rvMobileQuestion => 'Haz preguntas, incluyendo por qué te han hecho detenerte.';
 
   @override
   String get rvMobileLeave => 'Salir si no estás detenido.';
@@ -391,16 +382,14 @@ class LangEs extends Lang {
       'Si recibes este mensaje al agregar un contacto de emergencia, Insta-SOS no tiene permiso para acceder a ese contacto en específico.';
 
   @override
-  String get faqUpdateContacts =>
-      'Puedes dar acceso a más (o todos) los contactos en la ';
+  String get faqUpdateContacts => 'Puedes dar acceso a más (o todos) los contactos en la ';
 
   @override
   String get faqSplitClarity1 =>
       'Dar acceso a un contacto no lo convierte en un contacto de emergencia. Solo los números listados en los ';
 
   @override
-  String get faqSplitClarity2 =>
-      ' serán contactados durante una transmisión SOS.';
+  String get faqSplitClarity2 => ' serán contactados durante una transmisión SOS.';
 
   @override
   String get faqMissing => '¿Por qué faltan algunas funciones de Android?';
@@ -465,8 +454,7 @@ class LangEs extends Lang {
       'Apple mostrará todos los contactos, no solo los compartidos con Insta-SOS.\nPara compartir más contactos, abre la ';
 
   @override
-  String get bsNumError =>
-      'Este contacto es privado o no tiene número de teléfono.';
+  String get bsNumError => 'Este contacto es privado o no tiene número de teléfono.';
 
   @override
   String get bsSOSOnOpen => 'SOS al abrir';

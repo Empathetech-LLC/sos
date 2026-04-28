@@ -48,8 +48,7 @@ class LangZh extends Lang {
   String get hsWelcomeFix => '欢迎使用 Insta-SOS';
 
   @override
-  String get hsAppIntro =>
-      '首先，这只是一个“了解你的权利 (Know Your Rights)”应用。\n您可以通过在下方的列表中授予权限来启用更多工具。';
+  String get hsAppIntro => '首先，这只是一个“了解你的权利 (Know Your Rights)”应用。\n您可以通过在下方的列表中授予权限来启用更多工具。';
 
   @override
   String get hsAppIntroAlt => '最新版本进行了重大更新，请在下方确保一切准备就绪。';
@@ -94,8 +93,7 @@ class LangZh extends Lang {
   String get hsContactsSetupHint => '激活以授予 Insta-SOS 查看您联系人的权限。';
 
   @override
-  String get hsAppleContacts =>
-      '此步骤仅用于设置应用权限。\n您目前尚未选择紧急联系人。\n\n建议允许所有权限，以免后续产生不必要的麻烦。';
+  String get hsAppleContacts => '此步骤仅用于设置应用权限。\n您目前尚未选择紧急联系人。\n\n建议允许所有权限，以免后续产生不必要的麻烦。';
 
   @override
   String get hsTexting => '发短信';
@@ -131,23 +129,20 @@ class LangZh extends Lang {
   String get hsOneOfFour => '四分之一。继续...';
 
   @override
-  String get hsBroadcastTutorial =>
-      '激活 SOS 以自动向您的紧急联系人发送短信。\n\n当 InstaSOS 有权访问您的位置时，它将包含在短信中。';
+  String get hsBroadcastTutorial => '激活 SOS 以自动向您的紧急联系人发送短信。\n\n当 InstaSOS 有权访问您的位置时，它将包含在短信中。';
 
   @override
   String get hsBroadcastTutorialFix =>
       '激活 SOS 以自动向您的紧急联系人发送短信。\n\n当 Insta-SOS 有权访问您的位置时，它将包含在短信中。';
 
   @override
-  String get hsBroadcastTutorialAndroid =>
-      '当手机锁屏时，短信将继续发送。\n\n手动停用 SOS 或完全关闭应用程序以停止发送短信。';
+  String get hsBroadcastTutorialAndroid => '当手机锁屏时，短信将继续发送。\n\n手动停用 SOS 或完全关闭应用程序以停止发送短信。';
 
   @override
   String get hsTwoOfFour => '四分之二。继续...';
 
   @override
-  String get hsSettingsTutorial =>
-      '在设置中：\n- 配置您的 SOS 广播\n- 自定义应用的外观\n- 获取更多资源和支持';
+  String get hsSettingsTutorial => '在设置中：\n- 配置您的 SOS 广播\n- 自定义应用的外观\n- 获取更多资源和支持';
 
   @override
   String get hsSettingsTutorialFix => '您可以在设置中配置您的 SOS 广播、自定义应用外观以及获取更多资源和支持。';
@@ -253,8 +248,7 @@ class LangZh extends Lang {
   String get rvDriveWarrant => '询问警官是否持有搜查令。如有，您有权查看。未由法官签署的“搜查令”无效。';
 
   @override
-  String get rvHomeWarrant =>
-      '保持房门关闭。如对方称持有搜查令，请先让其从门缝递进。未由法官签署的“搜查令”无效。始终保持房门关闭。';
+  String get rvHomeWarrant => '保持房门关闭。如对方称持有搜查令，请先让其从门缝递进。未由法官签署的“搜查令”无效。始终保持房门关闭。';
 
   @override
   String get rvSharedSign => '拒绝签署任何文件。';
@@ -317,8 +311,7 @@ class LangZh extends Lang {
   String get faqSettings => '设置是如何工作的？';
 
   @override
-  String get faqAutoShareA =>
-      ' 使用您手机的内置分享功能。它不使用您保存的紧急联系人（如果有）。分享是可选的，并且可以随时取消。';
+  String get faqAutoShareA => ' 使用您手机的内置分享功能。它不使用您保存的紧急联系人（如果有）。分享是可选的，并且可以随时取消。';
 
   @override
   String get faqLinkA =>
@@ -353,12 +346,10 @@ class LangZh extends Lang {
       '该应用仅在激活 SOS 广播时使用您的位置。Insta-SOS 和 Empathetic LLC 均不追踪、存储或出售用户数据。';
 
   @override
-  String get faqContactPermissions =>
-      '如果在添加紧急联系人时收到此消息，则表明 InstaSOS 没有访问该特定联系人的权限。';
+  String get faqContactPermissions => '如果在添加紧急联系人时收到此消息，则表明 InstaSOS 没有访问该特定联系人的权限。';
 
   @override
-  String get faqContactPermissionsFix =>
-      '如果在添加紧急联系人时收到此消息，则表明 Insta-SOS 没有访问该特定联系人的权限。';
+  String get faqContactPermissionsFix => '如果在添加紧急联系人时收到此消息，则表明 Insta-SOS 没有访问该特定联系人的权限。';
 
   @override
   String get faqUpdateContacts => '您可以在以下位置授予对更多（或所有）联系人的访问权限：';
@@ -373,12 +364,10 @@ class LangZh extends Lang {
   String get faqMissing => '为什么缺少某些 Android 上的功能？';
 
   @override
-  String get faqRestricted =>
-      '缺少的功能需要短信自动化，而苹果 (Apple) 不允许开发者自动发送短信（除非使用付费服务）。';
+  String get faqRestricted => '缺少的功能需要短信自动化，而苹果 (Apple) 不允许开发者自动发送短信（除非使用付费服务）。';
 
   @override
-  String get faqShortcuts =>
-      '那 iOS 快捷指令呢？\n对访问用户快捷指令也存在限制，这会破坏关键功能。主要是：它会中断视频录制。';
+  String get faqShortcuts => '那 iOS 快捷指令呢？\n对访问用户快捷指令也存在限制，这会破坏关键功能。主要是：它会中断视频录制。';
 
   @override
   String get faqLanguages => '为什么没有 X 语言？';
@@ -423,12 +412,10 @@ class LangZh extends Lang {
   String get bsNeedPermission => '没有权限无法添加联系人';
 
   @override
-  String get bsPartialContacts =>
-      'Apple 将显示所有联系人，而不仅仅是与 InstaSOS 共享的联系人。\n要共享更多联系人，请打开';
+  String get bsPartialContacts => 'Apple 将显示所有联系人，而不仅仅是与 InstaSOS 共享的联系人。\n要共享更多联系人，请打开';
 
   @override
-  String get bsPartialContactsFix =>
-      'Apple 将显示所有联系人，而不仅仅是与 Insta-SOS 共享的联系人。\n要共享更多联系人，请打开';
+  String get bsPartialContactsFix => 'Apple 将显示所有联系人，而不仅仅是与 Insta-SOS 共享的联系人。\n要共享更多联系人，请打开';
 
   @override
   String get bsNumError => '此联系人是私密的或没有电话号码。';
@@ -504,8 +491,7 @@ class LangZhCn extends LangZh {
   String get hsWelcomeFix => '欢迎使用 Insta-SOS';
 
   @override
-  String get hsAppIntro =>
-      '首先，这只是一个“了解你的权利 (Know Your Rights)”应用。\n您可以通过在下方的列表中授予权限来启用更多工具。';
+  String get hsAppIntro => '首先，这只是一个“了解你的权利 (Know Your Rights)”应用。\n您可以通过在下方的列表中授予权限来启用更多工具。';
 
   @override
   String get hsAppIntroAlt => '最新版本进行了重大更新，请在下方确保一切准备就绪。';
@@ -550,8 +536,7 @@ class LangZhCn extends LangZh {
   String get hsContactsSetupHint => '激活以授予 Insta-SOS 查看您联系人的权限。';
 
   @override
-  String get hsAppleContacts =>
-      '此步骤仅用于设置应用权限。\n您目前尚未选择紧急联系人。\n\n建议允许所有权限，以免后续产生不必要的麻烦。';
+  String get hsAppleContacts => '此步骤仅用于设置应用权限。\n您目前尚未选择紧急联系人。\n\n建议允许所有权限，以免后续产生不必要的麻烦。';
 
   @override
   String get hsTexting => '发短信';
@@ -587,23 +572,20 @@ class LangZhCn extends LangZh {
   String get hsOneOfFour => '四分之一。继续...';
 
   @override
-  String get hsBroadcastTutorial =>
-      '激活 SOS 以自动向您的紧急联系人发送短信。\n\n当 InstaSOS 有权访问您的位置时，它将包含在短信中。';
+  String get hsBroadcastTutorial => '激活 SOS 以自动向您的紧急联系人发送短信。\n\n当 InstaSOS 有权访问您的位置时，它将包含在短信中。';
 
   @override
   String get hsBroadcastTutorialFix =>
       '激活 SOS 以自动向您的紧急联系人发送短信。\n\n当 Insta-SOS 有权访问您的位置时，它将包含在短信中。';
 
   @override
-  String get hsBroadcastTutorialAndroid =>
-      '当手机锁屏时，短信将继续发送。\n\n手动停用 SOS 或完全关闭应用程序以停止发送短信。';
+  String get hsBroadcastTutorialAndroid => '当手机锁屏时，短信将继续发送。\n\n手动停用 SOS 或完全关闭应用程序以停止发送短信。';
 
   @override
   String get hsTwoOfFour => '四分之二。继续...';
 
   @override
-  String get hsSettingsTutorial =>
-      '在设置中：\n- 配置您的 SOS 广播\n- 自定义应用的外观\n- 获取更多资源和支持';
+  String get hsSettingsTutorial => '在设置中：\n- 配置您的 SOS 广播\n- 自定义应用的外观\n- 获取更多资源和支持';
 
   @override
   String get hsSettingsTutorialFix => '您可以在设置中配置您的 SOS 广播、自定义应用外观以及获取更多资源和支持。';
@@ -709,8 +691,7 @@ class LangZhCn extends LangZh {
   String get rvDriveWarrant => '询问警官是否持有搜查令。如有，您有权查看。未由法官签署的“搜查令”无效。';
 
   @override
-  String get rvHomeWarrant =>
-      '保持房门关闭。如对方称持有搜查令，请先让其从门缝递进。未由法官签署的“搜查令”无效。始终保持房门关闭。';
+  String get rvHomeWarrant => '保持房门关闭。如对方称持有搜查令，请先让其从门缝递进。未由法官签署的“搜查令”无效。始终保持房门关闭。';
 
   @override
   String get rvSharedSign => '拒绝签署任何文件。';
@@ -773,8 +754,7 @@ class LangZhCn extends LangZh {
   String get faqSettings => '设置是如何工作的？';
 
   @override
-  String get faqAutoShareA =>
-      ' 使用您手机的内置分享功能。它不使用您保存的紧急联系人（如果有）。分享是可选的，并且可以随时取消。';
+  String get faqAutoShareA => ' 使用您手机的内置分享功能。它不使用您保存的紧急联系人（如果有）。分享是可选的，并且可以随时取消。';
 
   @override
   String get faqLinkA =>
@@ -809,12 +789,10 @@ class LangZhCn extends LangZh {
       '该应用仅在激活 SOS 广播时使用您的位置。Insta-SOS 和 Empathetic LLC 均不追踪、存储或出售用户数据。';
 
   @override
-  String get faqContactPermissions =>
-      '如果在添加紧急联系人时收到此消息，则表明 InstaSOS 没有访问该特定联系人的权限。';
+  String get faqContactPermissions => '如果在添加紧急联系人时收到此消息，则表明 InstaSOS 没有访问该特定联系人的权限。';
 
   @override
-  String get faqContactPermissionsFix =>
-      '如果在添加紧急联系人时收到此消息，则表明 Insta-SOS 没有访问该特定联系人的权限。';
+  String get faqContactPermissionsFix => '如果在添加紧急联系人时收到此消息，则表明 Insta-SOS 没有访问该特定联系人的权限。';
 
   @override
   String get faqUpdateContacts => '您可以在以下位置授予对更多（或所有）联系人的访问权限：';
@@ -829,12 +807,10 @@ class LangZhCn extends LangZh {
   String get faqMissing => '为什么缺少某些 Android 上的功能？';
 
   @override
-  String get faqRestricted =>
-      '缺少的功能需要短信自动化，而苹果 (Apple) 不允许开发者自动发送短信（除非使用付费服务）。';
+  String get faqRestricted => '缺少的功能需要短信自动化，而苹果 (Apple) 不允许开发者自动发送短信（除非使用付费服务）。';
 
   @override
-  String get faqShortcuts =>
-      '那 iOS 快捷指令呢？\n对访问用户快捷指令也存在限制，这会破坏关键功能。主要是：它会中断视频录制。';
+  String get faqShortcuts => '那 iOS 快捷指令呢？\n对访问用户快捷指令也存在限制，这会破坏关键功能。主要是：它会中断视频录制。';
 
   @override
   String get faqLanguages => '为什么没有 X 语言？';
@@ -879,12 +855,10 @@ class LangZhCn extends LangZh {
   String get bsNeedPermission => '没有权限无法添加联系人';
 
   @override
-  String get bsPartialContacts =>
-      'Apple 将显示所有联系人，而不仅仅是与 InstaSOS 共享的联系人。\n要共享更多联系人，请打开';
+  String get bsPartialContacts => 'Apple 将显示所有联系人，而不仅仅是与 InstaSOS 共享的联系人。\n要共享更多联系人，请打开';
 
   @override
-  String get bsPartialContactsFix =>
-      'Apple 将显示所有联系人，而不仅仅是与 Insta-SOS 共享的联系人。\n要共享更多联系人，请打开';
+  String get bsPartialContactsFix => 'Apple 将显示所有联系人，而不仅仅是与 Insta-SOS 共享的联系人。\n要共享更多联系人，请打开';
 
   @override
   String get bsNumError => '此联系人是私密的或没有电话号码。';

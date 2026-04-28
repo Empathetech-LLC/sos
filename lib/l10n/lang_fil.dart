@@ -31,8 +31,7 @@ class LangFil extends Lang {
   String get sosLastKnown => 'huling kilalang lokasyon:';
 
   @override
-  String get sosNeedSMS =>
-      'Kailangan ng SOS ng pahintulot sa SMS (pagte-text).';
+  String get sosNeedSMS => 'Kailangan ng SOS ng pahintulot sa SMS (pagte-text).';
 
   @override
   String get sosDisabled => 'Hindi ma-access ang lokasyon (na-disable)';
@@ -58,8 +57,7 @@ class LangFil extends Lang {
       'Ang pinakabagong update ay napakalaki, tiyaking handa na ang lahat sa ibaba.';
 
   @override
-  String get hsYourApp =>
-      'Maaari mong baguhin ang iyong isip/mga pahintulot anumang oras.';
+  String get hsYourApp => 'Maaari mong baguhin ang iyong isip/mga pahintulot anumang oras.';
 
   @override
   String get hsHybridTranslation =>
@@ -88,12 +86,10 @@ class LangFil extends Lang {
   String get hsContacts => 'Mga Contact';
 
   @override
-  String get hsAddContacts =>
-      'Unang bahagi ng pag-enable sa mga alerto sa emergency contact.';
+  String get hsAddContacts => 'Unang bahagi ng pag-enable sa mga alerto sa emergency contact.';
 
   @override
-  String get hsAddContactsIOS =>
-      'Pina-enable ang mga alerto sa emergency contact.';
+  String get hsAddContactsIOS => 'Pina-enable ang mga alerto sa emergency contact.';
 
   @override
   String get hsContactsReady => 'Handa na ang mga contact';
@@ -127,8 +123,7 @@ class LangFil extends Lang {
   String get hsUnable => 'Hindi matukoy';
 
   @override
-  String get hsAddLocation =>
-      'Pina-enable ang pagbahagi ng lokasyon sa mga emergency contact.';
+  String get hsAddLocation => 'Pina-enable ang pagbahagi ng lokasyon sa mga emergency contact.';
 
   @override
   String get hsAddAlways =>
@@ -192,8 +187,7 @@ class LangFil extends Lang {
   String get hsEndSOS => 'Nagbo-broadcast ang SOS. I-activate para ihinto.';
 
   @override
-  String get hsSafeCloseHint =>
-      'Ligtas na ang lahat. Isara ang app nang walang SOS.';
+  String get hsSafeCloseHint => 'Ligtas na ang lahat. Isara ang app nang walang SOS.';
 
   @override
   String get hsBroadcasting => 'Nagbo-broadcast';
@@ -221,8 +215,7 @@ class LangFil extends Lang {
   String get hsEndRecord => 'Tapusin ang recording.';
 
   @override
-  String get hsFlashOff =>
-      'Naka-off ang flash. I-activate para i-on ang auto flash.';
+  String get hsFlashOff => 'Naka-off ang flash. I-activate para i-on ang auto flash.';
 
   @override
   String get hsFlashAuto => 'Auto flash. I-activate para i-on ang flash.';
@@ -311,8 +304,7 @@ class LangFil extends Lang {
   String get ssSupport => 'Suporta';
 
   @override
-  String get pmOnlyAdd =>
-      'Nakakatulong lamang ang tool na ito na magdagdag ng mga pahintulot.';
+  String get pmOnlyAdd => 'Nakakatulong lamang ang tool na ito na magdagdag ng mga pahintulot.';
 
   @override
   String get pmRemoveIn => 'Maaari mong alisin ang mga pahintulot sa ';
@@ -328,12 +320,10 @@ class LangFil extends Lang {
   String get rmGov => 'Mga mapagkukunan ng gobyerno ng US';
 
   @override
-  String get rmAffiliate =>
-      'Wala sa mga ito ang may kaugnayan sa Empathetech LLC';
+  String get rmAffiliate => 'Wala sa mga ito ang may kaugnayan sa Empathetech LLC';
 
   @override
-  String get rmAffiliateFix =>
-      'Wala sa mga ito ang may kaugnayan sa Empathetic LLC';
+  String get rmAffiliateFix => 'Wala sa mga ito ang may kaugnayan sa Empathetic LLC';
 
   @override
   String get faqName => 'Mga FAQ';
@@ -369,8 +359,7 @@ class LangFil extends Lang {
       ' kung may nagre-record na video at nawalan ng focus ang Insta-SOS, magsisimula ang isang SOS broadcast. Ang pagkawala ng focus ay: pag-minimize sa app, paglipat ng mga app, at/o pag-lock sa screen. Inirerekomendang i-enable ito o ang \"SOS on close\" (o pareho).';
 
   @override
-  String get faqUnavailable =>
-      'Sinasabi ng SOS na \"Hindi available ang lokasyon\"?';
+  String get faqUnavailable => 'Sinasabi ng SOS na \"Hindi available ang lokasyon\"?';
 
   @override
   String get faqReliability =>
@@ -404,8 +393,7 @@ class LangFil extends Lang {
       'Ang pagbibigay ng access sa isang contact ay hindi ginagawa silang emergency contact. Tanging ang mga numerong nakalista sa ';
 
   @override
-  String get faqSplitClarity2 =>
-      ' ang kokontakin sa panahon ng isang SOS broadcast.';
+  String get faqSplitClarity2 => ' ang kokontakin sa panahon ng isang SOS broadcast.';
 
   @override
   String get faqMissing => 'Bakit nawawala ang ilang mga feature sa Android?';
@@ -429,8 +417,7 @@ class LangFil extends Lang {
   String get faqContributing => 'pag-ambag';
 
   @override
-  String get faqExpand =>
-      ' upang makatulong na palawakin ang mga opsyon sa wika.';
+  String get faqExpand => ' upang makatulong na palawakin ang mga opsyon sa wika.';
 
   @override
   String get faqReset => 'I-reset ang tutorial';
@@ -460,8 +447,7 @@ class LangFil extends Lang {
   String get bsSnackRequest => 'Mangyaring magdagdag ng mga emergency contact';
 
   @override
-  String get bsNeedPermission =>
-      'Hindi makapagdagdag ng mga contact nang walang pahintulot';
+  String get bsNeedPermission => 'Hindi makapagdagdag ng mga contact nang walang pahintulot';
 
   @override
   String get bsPartialContacts =>
@@ -472,8 +458,7 @@ class LangFil extends Lang {
       'Ipapakita ng Apple ang lahat ng contact, hindi lang ang mga ibinahagi sa Insta-SOS.\nUpang magbahagi ng higit pang mga contact, buksan ang ';
 
   @override
-  String get bsNumError =>
-      'Ang contact na ito ay pribado o walang numero ng telepono.';
+  String get bsNumError => 'Ang contact na ito ay pribado o walang numero ng telepono.';
 
   @override
   String get bsSOSOnOpen => 'SOS pagkabukas';

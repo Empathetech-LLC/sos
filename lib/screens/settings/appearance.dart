@@ -168,9 +168,8 @@ class _RightsOpacity extends StatelessWidget {
   Widget build(BuildContext context) {
     return EzElevatedIconButton(
       onPressed: () async {
-        double opacity = EzConfig.get(EzConfig.isDark
-            ? darkTextBackgroundOpacityKey
-            : lightTextBackgroundOpacityKey);
+        double opacity = EzConfig.get(
+            EzConfig.isDark ? darkTextBackgroundOpacityKey : lightTextBackgroundOpacityKey);
         final double backup = opacity;
 
         Color background = EzConfig.colors.surface.withValues(alpha: opacity);
@@ -218,17 +217,14 @@ class _RightsOpacity extends StatelessWidget {
                     // Slider functions
                     onChanged: (double value) => setModal(() {
                       opacity = value;
-                      background =
-                          EzConfig.colors.surface.withValues(alpha: opacity);
+                      background = EzConfig.colors.surface.withValues(alpha: opacity);
                     }),
                     onChangeEnd: (double value) async {
                       if (EzConfig.updateBoth || EzConfig.isDark) {
-                        await EzConfig.setDouble(
-                            darkTextBackgroundOpacityKey, value);
+                        await EzConfig.setDouble(darkTextBackgroundOpacityKey, value);
                       }
                       if (EzConfig.updateBoth || !EzConfig.isDark) {
-                        await EzConfig.setDouble(
-                            lightTextBackgroundOpacityKey, value);
+                        await EzConfig.setDouble(lightTextBackgroundOpacityKey, value);
                       }
                     },
                   ),
@@ -253,8 +249,7 @@ class _RightsOpacity extends StatelessWidget {
                           opacity = EzConfig.getDefault(EzConfig.isDark
                               ? darkTextBackgroundOpacityKey
                               : lightTextBackgroundOpacityKey);
-                          background = EzConfig.colors.surface
-                              .withValues(alpha: opacity);
+                          background = EzConfig.colors.surface.withValues(alpha: opacity);
                         });
                       },
                       icon: const Icon(Icons.refresh),

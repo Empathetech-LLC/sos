@@ -57,8 +57,7 @@ class LangFr extends Lang {
       'La dernière mise à jour était importante, assurons-nous que tout est prêt ci-dessous.';
 
   @override
-  String get hsYourApp =>
-      'Vous pouvez changer d\'avis/d\'autorisations à tout moment.';
+  String get hsYourApp => 'Vous pouvez changer d\'avis/d\'autorisations à tout moment.';
 
   @override
   String get hsHybridTranslation =>
@@ -87,8 +86,7 @@ class LangFr extends Lang {
   String get hsContacts => 'Contacts';
 
   @override
-  String get hsAddContacts =>
-      'Partie 1 de l\'activation des alertes aux contacts d\'urgence.';
+  String get hsAddContacts => 'Partie 1 de l\'activation des alertes aux contacts d\'urgence.';
 
   @override
   String get hsAddContactsIOS => 'Active les alertes aux contacts d\'urgence.';
@@ -108,8 +106,7 @@ class LangFr extends Lang {
   String get hsTexting => 'SMS';
 
   @override
-  String get hsAddTexting =>
-      'Partie 2 de l\'activation des alertes aux contacts d\'urgence.';
+  String get hsAddTexting => 'Partie 2 de l\'activation des alertes aux contacts d\'urgence.';
 
   @override
   String get hsTextingReady => 'Les SMS sont prêts';
@@ -125,8 +122,7 @@ class LangFr extends Lang {
   String get hsUnable => 'Impossible de déterminer';
 
   @override
-  String get hsAddLocation =>
-      'Active le partage de position avec les contacts d\'urgence.';
+  String get hsAddLocation => 'Active le partage de position avec les contacts d\'urgence.';
 
   @override
   String get hsAddAlways =>
@@ -217,8 +213,7 @@ class LangFr extends Lang {
   String get hsEndRecord => 'Terminer l\'enregistrement.';
 
   @override
-  String get hsFlashOff =>
-      'Flash désactivé. Activez pour allumer le flash automatique.';
+  String get hsFlashOff => 'Flash désactivé. Activez pour allumer le flash automatique.';
 
   @override
   String get hsFlashAuto => 'Flash automatique. Activez pour allumer le flash.';
@@ -308,8 +303,7 @@ class LangFr extends Lang {
   String get ssSupport => 'Assistance';
 
   @override
-  String get pmOnlyAdd =>
-      'Cet outil aide uniquement à ajouter des autorisations.';
+  String get pmOnlyAdd => 'Cet outil aide uniquement à ajouter des autorisations.';
 
   @override
   String get pmRemoveIn => 'Vous pouvez supprimer les autorisations dans les ';
@@ -401,8 +395,7 @@ class LangFr extends Lang {
   String get faqSplitClarity2 => ' seront contactés lors d\'une diffusion SOS.';
 
   @override
-  String get faqMissing =>
-      'Pourquoi certaines fonctionnalités Android sont-elles manquantes ?';
+  String get faqMissing => 'Pourquoi certaines fonctionnalités Android sont-elles manquantes ?';
 
   @override
   String get faqRestricted =>
@@ -413,8 +406,7 @@ class LangFr extends Lang {
       'Qu\'en est-il des raccourcis iOS ?\nIl existe également des restrictions sur l\'accès aux raccourcis utilisateur, ce qui briserait des fonctionnalités cruciales. Principalement : cela interromprait les enregistrements vidéo.';
 
   @override
-  String get faqLanguages =>
-      'Pourquoi la langue X n\'est-elle pas disponible ?';
+  String get faqLanguages => 'Pourquoi la langue X n\'est-elle pas disponible ?';
 
   @override
   String get faqResponsible =>
@@ -454,8 +446,7 @@ class LangFr extends Lang {
   String get bsSnackRequest => 'Veuillez ajouter des contacts d\'urgence';
 
   @override
-  String get bsNeedPermission =>
-      'Impossible d\'ajouter des contacts sans autorisation';
+  String get bsNeedPermission => 'Impossible d\'ajouter des contacts sans autorisation';
 
   @override
   String get bsPartialContacts =>
@@ -466,8 +457,7 @@ class LangFr extends Lang {
       'Apple affichera tous les contacts, pas seulement ceux partagés avec Insta-SOS.\nPour partager plus de contacts, ouvrez les ';
 
   @override
-  String get bsNumError =>
-      'Ce contact est privé ou n\'a pas de numéro de téléphone.';
+  String get bsNumError => 'Ce contact est privé ou n\'a pas de numéro de téléphone.';
 
   @override
   String get bsSOSOnOpen => 'SOS à l\'ouverture';

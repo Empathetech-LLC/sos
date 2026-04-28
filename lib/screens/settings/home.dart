@@ -106,8 +106,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                 context: context,
                 builder: (BuildContext mCon) => StatefulBuilder(
                   builder: (_, StateSetter setModal) => Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
+                    padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
                     child: EzScrollView(
                       children: <Widget>[
                         // Intro
@@ -151,24 +150,21 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                         // Setup cards
                         ContactsSetup(
                           locked: locked,
-                          setLock: (bool active) =>
-                              setModal(() => locked = active),
+                          setLock: (bool active) => setModal(() => locked = active),
                         ),
                         EzConfig.spacer,
 
                         if (!isIOS) ...<Widget>[
                           SMSSetup(
                             locked: locked,
-                            setLock: (bool active) =>
-                                setModal(() => locked = active),
+                            setLock: (bool active) => setModal(() => locked = active),
                           ),
                           EzConfig.spacer,
                         ],
 
                         LocationSetup(
                           locked: locked,
-                          setLock: (bool active) =>
-                              setModal(() => locked = active),
+                          setLock: (bool active) => setModal(() => locked = active),
                         ),
                         EzConfig.spacer,
 
@@ -178,8 +174,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                           textStyle: EzConfig.styles.bodyLarge
                               ?.copyWith(color: EzConfig.colors.primary),
                           textAlign: TextAlign.center,
-                          style: TextButton.styleFrom(
-                              backgroundColor: Colors.transparent),
+                          style: TextButton.styleFrom(backgroundColor: Colors.transparent),
                           onPressed: () => Navigator.of(mCon).pop(true),
                         ),
                         EzConfig.separator,
@@ -493,8 +488,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                                 style: question,
                               ),
                               EzPlainText(
-                                text:
-                                    ' ${l10n.bsSOSOnCloseHint.replaceAll('\n', ' ')}',
+                                text: ' ${l10n.bsSOSOnCloseHint.replaceAll('\n', ' ')}',
                                 style: answer,
                               ),
                             ],
@@ -639,8 +633,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                       // Private contact?
                       ExpansionTile(
                         title: Text(
-                          l10n.bsNumError.replaceRange(
-                              l10n.bsNumError.length - 1, null, '?'),
+                          l10n.bsNumError.replaceRange(l10n.bsNumError.length - 1, null, '?'),
                           style: answer,
                           textAlign: TextAlign.start,
                         ),

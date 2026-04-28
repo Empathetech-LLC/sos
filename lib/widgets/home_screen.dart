@@ -33,11 +33,9 @@ class _FlashButtonState extends State<FlashButton> {
       enabled: working.values.contains(true),
       icon: switch (widget.camera.value.flashMode) {
         FlashMode.off => Icon(Icons.flash_off, semanticLabel: l10n.hsFlashOff),
-        FlashMode.auto =>
-          Icon(Icons.flash_auto, semanticLabel: l10n.hsFlashAuto),
+        FlashMode.auto => Icon(Icons.flash_auto, semanticLabel: l10n.hsFlashAuto),
         FlashMode.always => Icon(Icons.flash_on, semanticLabel: l10n.hsFlashOn),
-        FlashMode.torch =>
-          Icon(Icons.flashlight_on, semanticLabel: l10n.hsFlashTorch),
+        FlashMode.torch => Icon(Icons.flashlight_on, semanticLabel: l10n.hsFlashTorch),
       },
       onPressed: () async {
         bool hasResult = false;
@@ -128,8 +126,7 @@ class SOSIcon extends StatefulWidget {
   State<SOSIcon> createState() => _PulsingIconWidgetState();
 }
 
-class _PulsingIconWidgetState extends State<SOSIcon>
-    with SingleTickerProviderStateMixin {
+class _PulsingIconWidgetState extends State<SOSIcon> with SingleTickerProviderStateMixin {
   // Define the animation data //
 
   late AnimationController controller;

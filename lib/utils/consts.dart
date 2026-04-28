@@ -276,8 +276,7 @@ const String acluLink = 'https://www.aclu.org/know-your-rights';
 const String contributeLink = 'https://www.empathetech.net/#/contribute';
 
 /// https://dunkthevote4ever.org/project/the-black-book-know-your-rights/
-const String dunkLink =
-    'https://dunkthevote4ever.org/project/the-black-book-know-your-rights/';
+const String dunkLink = 'https://dunkthevote4ever.org/project/the-black-book-know-your-rights/';
 
 /// https://lab.witness.org/projects/eyes-on-ice/
 const String howToLink = 'https://lab.witness.org/projects/eyes-on-ice/';

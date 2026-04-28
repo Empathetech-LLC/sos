@@ -18,8 +18,7 @@ class SOSSettingsScreen extends StatefulWidget {
   State<SOSSettingsScreen> createState() => _SOSSettingsScreenState();
 }
 
-class _SOSSettingsScreenState extends State<SOSSettingsScreen>
-    with WidgetsBindingObserver {
+class _SOSSettingsScreenState extends State<SOSSettingsScreen> with WidgetsBindingObserver {
   // Define the build data //
 
   bool canSMS = isIOS || emc.isNotEmpty;
@@ -103,11 +102,10 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen>
               EzDropdownMenu<LLType>(
                 widthEntries: <String>[LLType.google.label],
                 dropdownMenuEntries: LLType.values
-                    .map<DropdownMenuEntry<LLType>>(
-                        (LLType type) => DropdownMenuEntry<LLType>(
-                              value: type,
-                              label: type.label,
-                            ))
+                    .map<DropdownMenuEntry<LLType>>((LLType type) => DropdownMenuEntry<LLType>(
+                          value: type,
+                          label: type.label,
+                        ))
                     .toList(),
                 enableSearch: false,
                 initialSelection: _linkType,

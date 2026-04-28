@@ -46,9 +46,9 @@ class SOSCache extends EzAppCache {
   }
 
   void _setVideoColors({bool? darkInit}) {
-    _videoColor = Color(EzConfig.get((darkInit ?? EzConfig.isDark)
-        ? darkVideoColorKey
-        : lightVideoColorKey) as int);
+    _videoColor = Color(
+        EzConfig.get((darkInit ?? EzConfig.isDark) ? darkVideoColorKey : lightVideoColorKey)
+            as int);
     _videoTextColor = getTextColor(_videoColor);
   }
 }

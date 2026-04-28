@@ -146,9 +146,8 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
       }
     } else {
       // We have a valid contact, gather the phones with numbers
-      final List<c.Phone> phones = contact.phones
-          .where((c.Phone phone) => phone.number.isNotEmpty)
-          .toList();
+      final List<c.Phone> phones =
+          contact.phones.where((c.Phone phone) => phone.number.isNotEmpty).toList();
 
       if (phones.isEmpty) {
         // No valid numbers, warn the user and optionally retry
@@ -304,8 +303,7 @@ Future<void> appSetupModal(
             // Finish/leave
             EzTextButton(
               text: l10n.gDone,
-              textStyle: EzConfig.styles.bodyLarge
-                  ?.copyWith(color: EzConfig.colors.primary),
+              textStyle: EzConfig.styles.bodyLarge?.copyWith(color: EzConfig.colors.primary),
               textAlign: TextAlign.center,
               style: TextButton.styleFrom(backgroundColor: Colors.transparent),
               onPressed: () => Navigator.of(mCon).pop(true),
@@ -337,9 +335,8 @@ Future<void> backgroundSOS() async {
   final List<String> currEMC = List<String>.from(emc);
   if (currEMC.isEmpty) return;
 
-  final List<String> numbers = currEMC
-      .map((String contact) => contact.split(contactSplit).last)
-      .toList();
+  final List<String> numbers =
+      currEMC.map((String contact) => contact.split(contactSplit).last).toList();
 
   try {
     await platform.invokeMethod<void>(
@@ -366,9 +363,7 @@ Future<void> stopBackgroundSOS(BuildContext context) async {
     // Improvement: check the error code
     // The most likely error is that the task is already stopped
     // But there could be scenarios where taskRunningKey should remain true
-    context.mounted
-        ? await ezLogAlert(context, message: e.toString())
-        : ezLog(e.toString());
+    context.mounted ? await ezLogAlert(context, message: e.toString()) : ezLog(e.toString());
   }
   await EzConfig.setBool(taskRunningKey, false);
 }
@@ -380,9 +375,8 @@ Future<bool> foregroundSOS() async {
   final List<String> currEMC = List<String>.from(emc);
   if (currEMC.isEmpty) return false;
 
-  final List<String> numbers = currEMC
-      .map((String contact) => contact.split(contactSplit).last)
-      .toList();
+  final List<String> numbers =
+      currEMC.map((String contact) => contact.split(contactSplit).last).toList();
 
   final Map<String, dynamic> mapData = <String, dynamic>{
     'message': 'SOS\n${await getCoordinates(linkType.base)}',

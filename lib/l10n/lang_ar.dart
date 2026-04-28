@@ -24,8 +24,7 @@ class LangAr extends Lang {
   String get gNotAgain => 'لا تظهر مرة أخرى';
 
   @override
-  String get gOnCloseWarning =>
-      '\"طلب الاستغاثة عند الإغلاق\" مفعل. سيبدأ هذا بثاً.';
+  String get gOnCloseWarning => '\"طلب الاستغاثة عند الإغلاق\" مفعل. سيبدأ هذا بثاً.';
 
   @override
   String get sosLastKnown => 'آخر موقع معروف:';
@@ -53,8 +52,7 @@ class LangAr extends Lang {
       'للبدء، هذا مجرد تطبيق لمعرفة حقوقك.\nيمكنك تفعيل المزيد من الأدوات من خلال منحها الإذن في القائمة أدناه.';
 
   @override
-  String get hsAppIntroAlt =>
-      'التحديث الأخير كان كبيراً، لنتأكد من أن كل شيء جاهز أدناه.';
+  String get hsAppIntroAlt => 'التحديث الأخير كان كبيراً، لنتأكد من أن كل شيء جاهز أدناه.';
 
   @override
   String get hsYourApp => 'يمكنك تغيير رأيك/أذوناتك في أي وقت.';
@@ -79,8 +77,7 @@ class LangAr extends Lang {
   String get hsCameraReady => 'الكاميرا جاهزة';
 
   @override
-  String get hsCameraSetupHint =>
-      'قم بالتفعيل لمنح Insta-SOS إذن الوصول إلى الكاميرا.';
+  String get hsCameraSetupHint => 'قم بالتفعيل لمنح Insta-SOS إذن الوصول إلى الكاميرا.';
 
   @override
   String get hsContacts => 'جهات الاتصال';
@@ -112,8 +109,7 @@ class LangAr extends Lang {
   String get hsTextingReady => 'المراسلة النصية جاهزة';
 
   @override
-  String get hsTextingSetupHint =>
-      'قم بالتفعيل لمنح Insta-SOS إذن إرسال الرسائل.';
+  String get hsTextingSetupHint => 'قم بالتفعيل لمنح Insta-SOS إذن إرسال الرسائل.';
 
   @override
   String get hsLocation => 'الموقع';
@@ -125,8 +121,7 @@ class LangAr extends Lang {
   String get hsAddLocation => 'يفعّل مشاركة الموقع مع جهات اتصال الطوارئ.';
 
   @override
-  String get hsAddAlways =>
-      'يوصى بتفعيله دائماً. اضغط مرة أخرى لفتح إعدادات النظام.';
+  String get hsAddAlways => 'يوصى بتفعيله دائماً. اضغط مرة أخرى لفتح إعدادات النظام.';
 
   @override
   String get hsLocationReady => 'الموقع جاهز';
@@ -185,8 +180,7 @@ class LangAr extends Lang {
   String get hsEndSOS => 'طلب الاستغاثة (SOS) قيد البث. قم بالتفعيل للإيقاف.';
 
   @override
-  String get hsSafeCloseHint =>
-      'الوضع آمن. أغلق التطبيق بدون طلب الاستغاثة (SOS).';
+  String get hsSafeCloseHint => 'الوضع آمن. أغلق التطبيق بدون طلب الاستغاثة (SOS).';
 
   @override
   String get hsBroadcasting => 'جاري البث';
@@ -219,8 +213,7 @@ class LangAr extends Lang {
   String get hsFlashAuto => 'فلاش تلقائي. قم بالتفعيل لتشغيل الفلاش.';
 
   @override
-  String get hsFlashOn =>
-      'الفلاش قيد التشغيل. قم بالتفعيل لإيقاف تشغيل الفلاش.';
+  String get hsFlashOn => 'الفلاش قيد التشغيل. قم بالتفعيل لإيقاف تشغيل الفلاش.';
 
   @override
   String get hsFlashTorch => 'وضع المصباح. قم بالتفعيل لإيقاف تشغيل الفلاش.';
@@ -241,8 +234,7 @@ class LangAr extends Lang {
   String get rvAtHome => 'في البيت';
 
   @override
-  String get rvSharedRemainSilent =>
-      'التزم الصمت. لا تكذب، ولكن ليس عليك الإجابة على الأسئلة.';
+  String get rvSharedRemainSilent => 'التزم الصمت. لا تكذب، ولكن ليس عليك الإجابة على الأسئلة.';
 
   @override
   String get rvSharedDocument =>
@@ -262,8 +254,7 @@ class LangAr extends Lang {
   String get rvDriveSearch => 'ارفض تفتيش سيارتك.';
 
   @override
-  String get rvDriveID =>
-      'ارفض إبراز بطاقة هوية كراكب. السائق فقط هو المطلوب منه إبرازها.';
+  String get rvDriveID => 'ارفض إبراز بطاقة هوية كراكب. السائق فقط هو المطلوب منه إبرازها.';
 
   @override
   String get rvDriveWarrant =>
@@ -383,8 +374,7 @@ class LangAr extends Lang {
       'إذا ظهرت لك هذه الرسالة عند إضافة جهة اتصال للطوارئ، فإن Insta-SOS ليس لديه إذن بالوصول إلى جهة الاتصال المحددة هذه.';
 
   @override
-  String get faqUpdateContacts =>
-      'يمكنك منح الوصول إلى المزيد (أو جميع) جهات الاتصال في ';
+  String get faqUpdateContacts => 'يمكنك منح الوصول إلى المزيد (أو جميع) جهات الاتصال في ';
 
   @override
   String get faqSplitClarity1 =>
@@ -473,8 +463,7 @@ class LangAr extends Lang {
       'سيظهر زر إغلاق آمن (علامة الإعجاب) على الصفحة الرئيسية، مقابل الإعدادات.\nإذا فقد Insta-SOS التركيز لأي سبب باستثناء زر الإغلاق الآمن (تصغير التطبيق، التبديل بين التطبيقات، إيقاف الشاشة)، سيبدأ بث طلب الاستغاثة (SOS).';
 
   @override
-  String get bsCloseOffWarning =>
-      'سيتم إغلاق التطبيق تلقائياً لمنع عمليات البث غير المقصودة.';
+  String get bsCloseOffWarning => 'سيتم إغلاق التطبيق تلقائياً لمنع عمليات البث غير المقصودة.';
 
   @override
   String get bsSOSOnVideo => 'طلب الاستغاثة عند مقاطعة التسجيل';
@@ -506,8 +495,7 @@ class LangArEg extends LangAr {
   String get gNotAgain => 'لا تظهر مرة أخرى';
 
   @override
-  String get gOnCloseWarning =>
-      '\"طلب الاستغاثة عند الإغلاق\" مفعل. سيبدأ هذا بثاً.';
+  String get gOnCloseWarning => '\"طلب الاستغاثة عند الإغلاق\" مفعل. سيبدأ هذا بثاً.';
 
   @override
   String get sosLastKnown => 'آخر موقع معروف:';
@@ -535,8 +523,7 @@ class LangArEg extends LangAr {
       'للبدء، هذا مجرد تطبيق لمعرفة حقوقك.\nيمكنك تفعيل المزيد من الأدوات من خلال منحها الإذن في القائمة أدناه.';
 
   @override
-  String get hsAppIntroAlt =>
-      'التحديث الأخير كان كبيراً، لنتأكد من أن كل شيء جاهز أدناه.';
+  String get hsAppIntroAlt => 'التحديث الأخير كان كبيراً، لنتأكد من أن كل شيء جاهز أدناه.';
 
   @override
   String get hsYourApp => 'يمكنك تغيير رأيك/أذوناتك في أي وقت.';
@@ -561,8 +548,7 @@ class LangArEg extends LangAr {
   String get hsCameraReady => 'الكاميرا جاهزة';
 
   @override
-  String get hsCameraSetupHint =>
-      'قم بالتفعيل لمنح Insta-SOS إذن الوصول إلى الكاميرا.';
+  String get hsCameraSetupHint => 'قم بالتفعيل لمنح Insta-SOS إذن الوصول إلى الكاميرا.';
 
   @override
   String get hsContacts => 'جهات الاتصال';
@@ -594,8 +580,7 @@ class LangArEg extends LangAr {
   String get hsTextingReady => 'المراسلة النصية جاهزة';
 
   @override
-  String get hsTextingSetupHint =>
-      'قم بالتفعيل لمنح Insta-SOS إذن إرسال الرسائل.';
+  String get hsTextingSetupHint => 'قم بالتفعيل لمنح Insta-SOS إذن إرسال الرسائل.';
 
   @override
   String get hsLocation => 'الموقع';
@@ -607,8 +592,7 @@ class LangArEg extends LangAr {
   String get hsAddLocation => 'يفعّل مشاركة الموقع مع جهات اتصال الطوارئ.';
 
   @override
-  String get hsAddAlways =>
-      'يوصى بتفعيله دائماً. اضغط مرة أخرى لفتح إعدادات النظام.';
+  String get hsAddAlways => 'يوصى بتفعيله دائماً. اضغط مرة أخرى لفتح إعدادات النظام.';
 
   @override
   String get hsLocationReady => 'الموقع جاهز';
@@ -667,8 +651,7 @@ class LangArEg extends LangAr {
   String get hsEndSOS => 'طلب الاستغاثة (SOS) قيد البث. قم بالتفعيل للإيقاف.';
 
   @override
-  String get hsSafeCloseHint =>
-      'الوضع آمن. أغلق التطبيق بدون طلب الاستغاثة (SOS).';
+  String get hsSafeCloseHint => 'الوضع آمن. أغلق التطبيق بدون طلب الاستغاثة (SOS).';
 
   @override
   String get hsBroadcasting => 'جاري البث';
@@ -701,8 +684,7 @@ class LangArEg extends LangAr {
   String get hsFlashAuto => 'فلاش تلقائي. قم بالتفعيل لتشغيل الفلاش.';
 
   @override
-  String get hsFlashOn =>
-      'الفلاش قيد التشغيل. قم بالتفعيل لإيقاف تشغيل الفلاش.';
+  String get hsFlashOn => 'الفلاش قيد التشغيل. قم بالتفعيل لإيقاف تشغيل الفلاش.';
 
   @override
   String get hsFlashTorch => 'وضع المصباح. قم بالتفعيل لإيقاف تشغيل الفلاش.';
@@ -723,8 +705,7 @@ class LangArEg extends LangAr {
   String get rvAtHome => 'في البيت';
 
   @override
-  String get rvSharedRemainSilent =>
-      'التزم الصمت. لا تكذب، ولكن ليس عليك الإجابة على الأسئلة.';
+  String get rvSharedRemainSilent => 'التزم الصمت. لا تكذب، ولكن ليس عليك الإجابة على الأسئلة.';
 
   @override
   String get rvSharedDocument =>
@@ -744,8 +725,7 @@ class LangArEg extends LangAr {
   String get rvDriveSearch => 'ارفض تفتيش سيارتك.';
 
   @override
-  String get rvDriveID =>
-      'ارفض إبراز بطاقة هوية كراكب. السائق فقط هو المطلوب منه إبرازها.';
+  String get rvDriveID => 'ارفض إبراز بطاقة هوية كراكب. السائق فقط هو المطلوب منه إبرازها.';
 
   @override
   String get rvDriveWarrant =>
@@ -865,8 +845,7 @@ class LangArEg extends LangAr {
       'إذا ظهرت لك هذه الرسالة عند إضافة جهة اتصال للطوارئ، فإن Insta-SOS ليس لديه إذن بالوصول إلى جهة الاتصال المحددة هذه.';
 
   @override
-  String get faqUpdateContacts =>
-      'يمكنك منح الوصول إلى المزيد (أو جميع) جهات الاتصال في ';
+  String get faqUpdateContacts => 'يمكنك منح الوصول إلى المزيد (أو جميع) جهات الاتصال في ';
 
   @override
   String get faqSplitClarity1 =>
@@ -955,8 +934,7 @@ class LangArEg extends LangAr {
       'سيظهر زر إغلاق آمن (علامة الإعجاب) على الصفحة الرئيسية، مقابل الإعدادات.\nإذا فقد Insta-SOS التركيز لأي سبب باستثناء زر الإغلاق الآمن (تصغير التطبيق، التبديل بين التطبيقات، إيقاف الشاشة)، سيبدأ بث طلب الاستغاثة (SOS).';
 
   @override
-  String get bsCloseOffWarning =>
-      'سيتم إغلاق التطبيق تلقائياً لمنع عمليات البث غير المقصودة.';
+  String get bsCloseOffWarning => 'سيتم إغلاق التطبيق تلقائياً لمنع عمليات البث غير المقصودة.';
 
   @override
   String get bsSOSOnVideo => 'طلب الاستغاثة عند مقاطعة التسجيل';

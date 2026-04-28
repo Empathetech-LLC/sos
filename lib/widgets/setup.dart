@@ -164,9 +164,7 @@ class _CameraSetupState extends State<CameraSetup> {
             child: Semantics(
               button: galStatus != true,
               readOnly: galStatus == true,
-              hint: (galStatus == true)
-                  ? l10n.hsCameraReady
-                  : l10n.hsCameraSetupHint,
+              hint: (galStatus == true) ? l10n.hsCameraReady : l10n.hsCameraSetupHint,
               child: ExcludeSemantics(
                 child: Card(
                   shape: cardShape,
@@ -200,8 +198,7 @@ class _CameraSetupState extends State<CameraSetup> {
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                        padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
                         child: boolIcon(galStatus),
                       ),
                     ],
@@ -257,8 +254,7 @@ class _CameraSetupState extends State<CameraSetup> {
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                        padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
                         child: pStatusIcon(camStatus),
                       ),
                     ],
@@ -338,8 +334,8 @@ class _ContactsSetupState extends State<ContactsSetup> {
             );
           }
 
-          final c.PermissionStatus result = await c.FlutterContacts.permissions
-              .request(c.PermissionType.read);
+          final c.PermissionStatus result =
+              await c.FlutterContacts.permissions.request(c.PermissionType.read);
           if (allowed != result) if (mounted) setState(() => allowed = result);
           widget.setLock(false);
         },
@@ -371,9 +367,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                                   textAlign: TextAlign.start,
                                 ),
                                 Text(
-                                  isIOS
-                                      ? l10n.hsAddContactsIOS
-                                      : l10n.hsAddContacts,
+                                  isIOS ? l10n.hsAddContactsIOS : l10n.hsAddContacts,
                                   style: EzConfig.styles.labelLarge,
                                   textAlign: TextAlign.start,
                                 ),
@@ -504,8 +498,7 @@ class LocationSetup extends StatefulWidget {
   State<LocationSetup> createState() => _LocationSetupState();
 }
 
-class _LocationSetupState extends State<LocationSetup>
-    with WidgetsBindingObserver {
+class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserver {
   // Define the build data //
 
   LocationPermission? status;
@@ -547,8 +540,7 @@ class _LocationSetupState extends State<LocationSetup>
               widget.setLock(true);
 
               // Make it so
-              final bool serviceEnabled =
-                  await Geolocator.isLocationServiceEnabled();
+              final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
               if (!serviceEnabled) {
                 (context.mounted)
                     ? await ezLogAlert(context, message: l10n.sosDisabled)
@@ -556,8 +548,7 @@ class _LocationSetupState extends State<LocationSetup>
                 return;
               }
 
-              final LocationPermission result =
-                  await Geolocator.requestPermission();
+              final LocationPermission result = await Geolocator.requestPermission();
               if (status != result) {
                 if (mounted) setState(() => status = result);
               }
@@ -605,8 +596,7 @@ class _LocationSetupState extends State<LocationSetup>
                                     textAlign: TextAlign.start,
                                   )
                                 : EzCol(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
                                         l10n.hsLocation,
@@ -623,8 +613,7 @@ class _LocationSetupState extends State<LocationSetup>
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: EzConfig.padding),
+                          padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
                           child: lStatusIcon(status),
                         ),
                       ],
@@ -652,8 +641,7 @@ class _LocationSetupState extends State<LocationSetup>
                                     textAlign: TextAlign.start,
                                   )
                                 : EzCol(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
                                         l10n.hsLocation,
@@ -672,8 +660,7 @@ class _LocationSetupState extends State<LocationSetup>
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: EzConfig.padding),
+                          padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
                           child: lStatusIcon(status),
                         ),
                       ],

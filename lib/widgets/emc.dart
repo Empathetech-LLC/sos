@@ -70,8 +70,8 @@ class _ContactListState extends State<ContactList> {
                 padding: EdgeInsets.all(EzConfig.marginVal),
                 side: widget.fauxDisabled
                     ? null
-                    : EzConfig.borderSide(EzConfig.colors.primaryContainer
-                        .withValues(alpha: focusOpacity)),
+                    : EzConfig.borderSide(
+                        EzConfig.colors.primaryContainer.withValues(alpha: focusOpacity)),
               ),
               textStyle: EzConfig.styles.bodyLarge,
               textAlign: TextAlign.center,
@@ -114,9 +114,7 @@ class _ContactListState extends State<ContactList> {
                           widget.onUpdate.call();
                         },
                       ),
-                      EzSpacer(
-                          space: max(
-                              0, EzConfig.spacing - EzConfig.marginVal * 2)),
+                      EzSpacer(space: max(0, EzConfig.spacing - EzConfig.marginVal * 2)),
                     ]);
 
                     return acc;
@@ -186,8 +184,7 @@ class _ContactTile extends StatelessWidget {
               child: Text(
                 number,
                 style: fauxDisabled
-                    ? EzConfig.styles.bodyLarge
-                        ?.copyWith(color: EzConfig.colors.outline)
+                    ? EzConfig.styles.bodyLarge?.copyWith(color: EzConfig.colors.outline)
                     : EzConfig.styles.bodyLarge,
                 textAlign: TextAlign.center,
               ),
