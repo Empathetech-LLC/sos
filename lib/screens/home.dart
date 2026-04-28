@@ -222,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen>
                     ? EzAnimVis(
                         mod: 0.5,
                         visible: showRights,
-                        force: EzTransitionType.zoom,
+                        forceType: EzTransitionType.zoom,
                         child: const RightsView(),
                       )
                     : Stack(children: <Widget>[
@@ -236,7 +236,7 @@ class _HomeScreenState extends State<HomeScreen>
                         EzAnimVis(
                           mod: 0.5,
                           visible: showRights,
-                          force: EzTransitionType.zoom,
+                          forceType: EzTransitionType.zoom,
                           child: Container(
                             height: double.infinity,
                             width: double.infinity,
@@ -261,7 +261,7 @@ class _HomeScreenState extends State<HomeScreen>
             child: EzAnimVis(
               mod: 0.5,
               visible: recording,
-              force: EzTransitionType.zoom,
+              forceType: EzTransitionType.zoom,
               child: Center(
                 child: StreamBuilder<int>(
                   stream: Stream<int>.periodic(
