@@ -252,7 +252,6 @@ Future<void> appSetupModal(
 
             // Locale setting
             EzLocaleSetting(
-              doNothing,
               locales: Lang.supportedLocales,
               skip: <Locale>{arabic, english, chinese}, // Dupes
             ),
@@ -410,8 +409,7 @@ Future<String?> getCoordinates(String linkBase, {bool nullable = false}) async {
     // Changeably denied, ask again
     permission = await Geolocator.requestPermission();
 
-    if (permission == LocationPermission.denied ||
-        permission == LocationPermission.deniedForever) {
+    if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
       return denied;
     }
   }

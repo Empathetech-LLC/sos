@@ -13,14 +13,9 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-class SettingsHomeScreen extends StatefulWidget {
+class SettingsHomeScreen extends StatelessWidget {
   SettingsHomeScreen() : super(key: ValueKey<int>(EzConfig.seed));
 
-  @override
-  State<SettingsHomeScreen> createState() => _SettingsHomeScreenState();
-}
-
-class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
   // Define custom functions //
 
   Future<void> followLink(
@@ -68,9 +63,6 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
           child: EzScrollView(children: <Widget>[
             // Language
             EzLocaleSetting(
-              () {
-                if (mounted) setState(() {});
-              },
               locales: Lang.supportedLocales,
               skip: <Locale>{arabic, english, chinese}, // Dupes
             ),
@@ -170,8 +162,8 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                           // Finish/leave
                           EzTextButton(
                             text: l10n.gDone,
-                            textStyle: EzConfig.styles.bodyLarge
-                                ?.copyWith(color: EzConfig.colors.primary),
+                            textStyle:
+                                EzConfig.styles.bodyLarge?.copyWith(color: EzConfig.colors.primary),
                             textAlign: TextAlign.center,
                             style: TextButton.styleFrom(backgroundColor: Colors.transparent),
                             onPressed: () => Navigator.of(mCon).pop(true),
@@ -339,8 +331,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
             EzElevatedIconButton(
               onPressed: () async {
                 final TextStyle? answer = EzConfig.styles.bodyLarge;
-                final TextStyle? question =
-                    answer?.copyWith(decoration: TextDecoration.underline);
+                final TextStyle? question = answer?.copyWith(decoration: TextDecoration.underline);
 
                 await ezModal(
                   context: context,
@@ -632,8 +623,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                         // Private contact?
                         ExpansionTile(
                           title: Text(
-                            l10n.bsNumError
-                                .replaceRange(l10n.bsNumError.length - 1, null, '?'),
+                            l10n.bsNumError.replaceRange(l10n.bsNumError.length - 1, null, '?'),
                             style: answer,
                             textAlign: TextAlign.start,
                           ),
@@ -793,8 +783,7 @@ class _SettingsHomeScreenState extends State<SettingsHomeScreen> {
                                   if (mCon.mounted) {
                                     Navigator.of(mCon).pop();
                                   }
-
-                                  await EzConfig.redrawUI(doNothing);
+                                  await EzConfig.redrawUI();
                                 },
                               ),
                             ],

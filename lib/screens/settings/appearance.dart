@@ -66,7 +66,6 @@ class AppearanceSettingsScreen extends StatelessWidget {
                     : EzSubSetting.qckColor,
                 build: (EzSubSetting subSec) => EzColorSettings(
                   target: subSec,
-                  onUpdate: doNothing,
                   appName: appName,
                   androidPackage: androidPackage,
                   darkStarterSet: const <String>[
@@ -104,7 +103,6 @@ class AppearanceSettingsScreen extends StatelessWidget {
                     : EzSubSetting.butDesign,
                 build: (EzSubSetting subSec) => EzDesignSettings(
                   target: subSec,
-                  onUpdate: doNothing,
                   appName: appName,
                   androidPackage: androidPackage,
                   prependPage: <Widget>[
@@ -132,7 +130,6 @@ class AppearanceSettingsScreen extends StatelessWidget {
                     : EzSubSetting.qckText,
                 build: (EzSubSetting subSec) => EzTextSettings(
                   target: subSec,
-                  onUpdate: doNothing,
                   appName: appName,
                   androidPackage: androidPackage,
                 ),
@@ -144,7 +141,7 @@ class AppearanceSettingsScreen extends StatelessWidget {
             // Rebuild (conditional)
             if (config.needsRebuild) ...<Widget>[
               config.layout.spacer,
-              const EzRebuildFAB(doNothing),
+              const EzRebuildFAB(),
             ],
 
             // Save/upload config
@@ -268,9 +265,7 @@ class _RightsOpacity extends StatelessWidget {
             ),
           );
 
-          if (opacity != backup) {
-            await EzConfig.rebuildUI(doNothing);
-          }
+          if (opacity != backup) await EzConfig.rebuildUI();
         },
         icon: const Icon(Icons.opacity),
         label: EzConfig.l10n.tsTextBackground,
