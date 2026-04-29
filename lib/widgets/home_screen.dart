@@ -28,95 +28,93 @@ class _FlashButtonState extends State<FlashButton> {
   };
 
   @override
-  Widget build(BuildContext context) {
-    return EzIconButton(
-      enabled: working.values.contains(true),
-      icon: switch (widget.camera.value.flashMode) {
-        FlashMode.off => Icon(Icons.flash_off, semanticLabel: l10n.hsFlashOff),
-        FlashMode.auto => Icon(Icons.flash_auto, semanticLabel: l10n.hsFlashAuto),
-        FlashMode.always => Icon(Icons.flash_on, semanticLabel: l10n.hsFlashOn),
-        FlashMode.torch => Icon(Icons.flashlight_on, semanticLabel: l10n.hsFlashTorch),
-      },
-      onPressed: () async {
-        bool hasResult = false;
+  Widget build(BuildContext context) => EzIconButton(
+        enabled: working.values.contains(true),
+        icon: switch (widget.camera.value.flashMode) {
+          FlashMode.off => Icon(Icons.flash_off, semanticLabel: l10n.hsFlashOff),
+          FlashMode.auto => Icon(Icons.flash_auto, semanticLabel: l10n.hsFlashAuto),
+          FlashMode.always => Icon(Icons.flash_on, semanticLabel: l10n.hsFlashOn),
+          FlashMode.torch => Icon(Icons.flashlight_on, semanticLabel: l10n.hsFlashTorch),
+        },
+        onPressed: () async {
+          bool hasResult = false;
 
-        while (!hasResult) {
-          switch (widget.camera.value.flashMode) {
-            case FlashMode.off:
-              try {
-                if (working[FlashMode.auto] == true) {
-                  await widget.camera.setFlashMode(FlashMode.auto);
-                  hasResult = true;
-                  break;
-                }
-                // else: continue
-              } catch (_) {
-                working[FlashMode.auto] = false;
+          while (!hasResult) {
+            switch (widget.camera.value.flashMode) {
+              case FlashMode.off:
+                try {
+                  if (working[FlashMode.auto] == true) {
+                    await widget.camera.setFlashMode(FlashMode.auto);
+                    hasResult = true;
+                    break;
+                  }
+                  // else: continue
+                } catch (_) {
+                  working[FlashMode.auto] = false;
 
-                if (!working.values.contains(true)) {
-                  hasResult = true;
-                  break;
+                  if (!working.values.contains(true)) {
+                    hasResult = true;
+                    break;
+                  }
+                  // ditto
                 }
-                // ditto
-              }
-            case FlashMode.auto:
-              try {
-                if (working[FlashMode.always] == true) {
-                  await widget.camera.setFlashMode(FlashMode.always);
-                  hasResult = true;
-                  break;
-                }
-                // else: continue
-              } catch (_) {
-                working[FlashMode.always] = false;
+              case FlashMode.auto:
+                try {
+                  if (working[FlashMode.always] == true) {
+                    await widget.camera.setFlashMode(FlashMode.always);
+                    hasResult = true;
+                    break;
+                  }
+                  // else: continue
+                } catch (_) {
+                  working[FlashMode.always] = false;
 
-                if (!working.values.contains(true)) {
-                  hasResult = true;
-                  break;
+                  if (!working.values.contains(true)) {
+                    hasResult = true;
+                    break;
+                  }
+                  // ditto
                 }
-                // ditto
-              }
-            case FlashMode.always:
-              try {
-                if (working[FlashMode.torch] == true) {
-                  await widget.camera.setFlashMode(FlashMode.torch);
-                  hasResult = true;
-                  break;
-                }
-                // else: continue
-              } catch (_) {
-                working[FlashMode.torch] = false;
+              case FlashMode.always:
+                try {
+                  if (working[FlashMode.torch] == true) {
+                    await widget.camera.setFlashMode(FlashMode.torch);
+                    hasResult = true;
+                    break;
+                  }
+                  // else: continue
+                } catch (_) {
+                  working[FlashMode.torch] = false;
 
-                if (!working.values.contains(true)) {
-                  hasResult = true;
-                  break;
+                  if (!working.values.contains(true)) {
+                    hasResult = true;
+                    break;
+                  }
+                  // ditto
                 }
-                // ditto
-              }
-            case FlashMode.torch:
-              try {
-                if (working[FlashMode.off] == true) {
-                  await widget.camera.setFlashMode(FlashMode.off);
-                  hasResult = true;
-                  break;
-                }
-                // else: continue
-              } catch (_) {
-                working[FlashMode.off] = false;
+              case FlashMode.torch:
+                try {
+                  if (working[FlashMode.off] == true) {
+                    await widget.camera.setFlashMode(FlashMode.off);
+                    hasResult = true;
+                    break;
+                  }
+                  // else: continue
+                } catch (_) {
+                  working[FlashMode.off] = false;
 
-                if (!working.values.contains(true)) {
-                  hasResult = true;
-                  break;
+                  if (!working.values.contains(true)) {
+                    hasResult = true;
+                    break;
+                  }
+                  // ditto
                 }
-                // ditto
-              }
+            }
           }
-        }
 
-        if (mounted) setState(() {});
-      },
-    );
-  }
+          if (mounted) setState(() {});
+        },
+      );
 }
 
 class SOSIcon extends StatefulWidget {

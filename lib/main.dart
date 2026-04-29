@@ -18,8 +18,7 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  await SystemChrome.setPreferredOrientations(
-      <DeviceOrientation>[DeviceOrientation.portraitUp]);
+  await SystemChrome.setPreferredOrientations(<DeviceOrientation>[DeviceOrientation.portraitUp]);
 
   EzConfig.init(
     assetPaths: assetPaths,
@@ -58,61 +57,59 @@ class SOS extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return EzConfigurableApp(
-      localizationsDelegates: <LocalizationsDelegate<dynamic>>{
-        const LocaleNamesLocalizationsDelegate(),
-        ...EFUILang.localizationsDelegates,
-        ...Lang.localizationsDelegates,
-        CreoleMaterialLocalizations.delegate,
-        CreoleCupertinoLocalizations.delegate,
-        const CreoleWidgetsLocalizationsDelegate(),
-      },
-      supportedLocales: Lang.supportedLocales,
-      locale: storedLocale,
-      el10n: storedEFUILang,
-      appCache: SOSCache(storedLocale, storedLang),
-      appName: appName,
-      routerConfig: GoRouter(
-        navigatorKey: ezRootNav,
-        initialLocation: homePath,
-        errorBuilder: (_, GoRouterState state) => ErrorScreen(state.error),
-        routes: <RouteBase>[
-          // Home
-          GoRoute(
-            path: homePath,
-            name: homePath,
-            pageBuilder: (BuildContext context, GoRouterState state) =>
-                ezPageBuilder(context, state, HomeScreen()),
-            routes: <RouteBase>[
-              // Settings home
-              GoRoute(
-                path: settingsHomePath,
-                name: settingsHomePath,
-                pageBuilder: (BuildContext context, GoRouterState state) =>
-                    ezPageBuilder(context, state, SettingsHomeScreen()),
-                routes: <RouteBase>[
-                  // SOS settings
-                  GoRoute(
-                    path: sosSettingsPath,
-                    name: sosSettingsPath,
-                    pageBuilder: (BuildContext context, GoRouterState state) =>
-                        ezPageBuilder(context, state, SOSSettingsScreen()),
-                  ),
+  Widget build(BuildContext context) => EzConfigurableApp(
+        localizationsDelegates: <LocalizationsDelegate<dynamic>>{
+          const LocaleNamesLocalizationsDelegate(),
+          ...EFUILang.localizationsDelegates,
+          ...Lang.localizationsDelegates,
+          CreoleMaterialLocalizations.delegate,
+          CreoleCupertinoLocalizations.delegate,
+          const CreoleWidgetsLocalizationsDelegate(),
+        },
+        supportedLocales: Lang.supportedLocales,
+        locale: storedLocale,
+        el10n: storedEFUILang,
+        appCache: SOSCache(storedLocale, storedLang),
+        appName: appName,
+        routerConfig: GoRouter(
+          navigatorKey: ezRootNav,
+          initialLocation: homePath,
+          errorBuilder: (_, GoRouterState state) => ErrorScreen(state.error),
+          routes: <RouteBase>[
+            // Home
+            GoRoute(
+              path: homePath,
+              name: homePath,
+              pageBuilder: (BuildContext context, GoRouterState state) =>
+                  ezPageBuilder(context, state, HomeScreen()),
+              routes: <RouteBase>[
+                // Settings home
+                GoRoute(
+                  path: settingsHomePath,
+                  name: settingsHomePath,
+                  pageBuilder: (BuildContext context, GoRouterState state) =>
+                      ezPageBuilder(context, state, SettingsHomeScreen()),
+                  routes: <RouteBase>[
+                    // SOS settings
+                    GoRoute(
+                      path: sosSettingsPath,
+                      name: sosSettingsPath,
+                      pageBuilder: (BuildContext context, GoRouterState state) =>
+                          ezPageBuilder(context, state, SOSSettingsScreen()),
+                    ),
 
-                  // Appearance settings
-                  GoRoute(
-                    path: appearanceSettingsPath,
-                    name: appearanceSettingsPath,
-                    pageBuilder: (BuildContext context, GoRouterState state) =>
-                        ezPageBuilder(context, state, AppearanceSettingsScreen()),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
+                    // Appearance settings
+                    GoRoute(
+                      path: appearanceSettingsPath,
+                      name: appearanceSettingsPath,
+                      pageBuilder: (BuildContext context, GoRouterState state) =>
+                          ezPageBuilder(context, state, AppearanceSettingsScreen()),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
 }

@@ -143,127 +143,125 @@ class _CameraSetupState extends State<CameraSetup> {
   // Return the build //
 
   @override
-  Widget build(BuildContext context) {
-    return allowedPermCheck(camStatus)
-        ? GestureDetector(
-            onTap: () async {
-              // Do nothing if already complete
-              if (galStatus == true) return;
+  Widget build(BuildContext context) => allowedPermCheck(camStatus)
+      ? GestureDetector(
+          onTap: () async {
+            // Do nothing if already complete
+            if (galStatus == true) return;
 
-              // Check permission(s) race
-              if (widget.locked) return;
-              widget.setLock(true);
+            // Check permission(s) race
+            if (widget.locked) return;
+            widget.setLock(true);
 
-              // Make it so
-              final bool result = await Gal.requestAccess();
-              if (galStatus != result) {
-                if (mounted) setState(() => galStatus = result);
-              }
-              widget.setLock(false);
-            },
-            child: Semantics(
-              button: galStatus != true,
-              readOnly: galStatus == true,
-              hint: (galStatus == true) ? l10n.hsCameraReady : l10n.hsCameraSetupHint,
-              child: ExcludeSemantics(
-                child: Card(
-                  shape: cardShape,
-                  child: EzRow(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.all(EzConfig.marginVal),
-                          child: galStatus == true
-                              ? Text(
-                                  l10n.hsCameraReady,
-                                  style: EzConfig.styles.bodyLarge,
-                                  textAlign: TextAlign.start,
-                                )
-                              : EzCol(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text(
-                                      l10n.hsGallery,
-                                      style: EzConfig.styles.bodyLarge,
-                                      textAlign: TextAlign.start,
-                                    ),
-                                    Text(
-                                      l10n.hsAddSave,
-                                      style: EzConfig.styles.labelLarge,
-                                      textAlign: TextAlign.start,
-                                    ),
-                                  ],
-                                ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
-                        child: boolIcon(galStatus),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          )
-        : GestureDetector(
-            onTap: () async {
-              // Do nothing if already complete
-              if (allowedPermCheck(camStatus)) return;
-
-              // Check permission(s) race
-              if (widget.locked) return;
-              widget.setLock(true);
-
-              // Make it so
-              final PermissionStatus result = await widget.initCamera();
-              if (camStatus != result) {
-                if (mounted) setState(() => camStatus = result);
-              }
-              widget.setLock(false);
-            },
-            child: Semantics(
-              button: true,
-              readOnly: false,
-              hint: l10n.hsCameraSetupHint,
-              child: ExcludeSemantics(
-                child: Card(
-                  shape: cardShape,
-                  child: EzRow(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.all(EzConfig.marginVal),
-                          child: EzCol(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                l10n.hsCamMic,
+            // Make it so
+            final bool result = await Gal.requestAccess();
+            if (galStatus != result) {
+              if (mounted) setState(() => galStatus = result);
+            }
+            widget.setLock(false);
+          },
+          child: Semantics(
+            button: galStatus != true,
+            readOnly: galStatus == true,
+            hint: (galStatus == true) ? l10n.hsCameraReady : l10n.hsCameraSetupHint,
+            child: ExcludeSemantics(
+              child: Card(
+                shape: cardShape,
+                child: EzRow(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.all(EzConfig.marginVal),
+                        child: galStatus == true
+                            ? Text(
+                                l10n.hsCameraReady,
                                 style: EzConfig.styles.bodyLarge,
                                 textAlign: TextAlign.start,
+                              )
+                            : EzCol(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    l10n.hsGallery,
+                                    style: EzConfig.styles.bodyLarge,
+                                    textAlign: TextAlign.start,
+                                  ),
+                                  Text(
+                                    l10n.hsAddSave,
+                                    style: EzConfig.styles.labelLarge,
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ],
                               ),
-                              Text(
-                                l10n.hsAddRecording,
-                                style: EzConfig.styles.labelLarge,
-                                textAlign: TextAlign.start,
-                              ),
-                            ],
-                          ),
-                        ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
-                        child: pStatusIcon(camStatus),
-                      ),
-                    ],
-                  ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                      child: boolIcon(galStatus),
+                    ),
+                  ],
                 ),
               ),
             ),
-          );
-  }
+          ),
+        )
+      : GestureDetector(
+          onTap: () async {
+            // Do nothing if already complete
+            if (allowedPermCheck(camStatus)) return;
+
+            // Check permission(s) race
+            if (widget.locked) return;
+            widget.setLock(true);
+
+            // Make it so
+            final PermissionStatus result = await widget.initCamera();
+            if (camStatus != result) {
+              if (mounted) setState(() => camStatus = result);
+            }
+            widget.setLock(false);
+          },
+          child: Semantics(
+            button: true,
+            readOnly: false,
+            hint: l10n.hsCameraSetupHint,
+            child: ExcludeSemantics(
+              child: Card(
+                shape: cardShape,
+                child: EzRow(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.all(EzConfig.marginVal),
+                        child: EzCol(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              l10n.hsCamMic,
+                              style: EzConfig.styles.bodyLarge,
+                              textAlign: TextAlign.start,
+                            ),
+                            Text(
+                              l10n.hsAddRecording,
+                              style: EzConfig.styles.labelLarge,
+                              textAlign: TextAlign.start,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                      child: pStatusIcon(camStatus),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
 }
 
 class ContactsSetup extends StatefulWidget {
