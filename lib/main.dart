@@ -75,7 +75,7 @@ class SOS extends StatelessWidget {
         routerConfig: GoRouter(
           navigatorKey: ezRootNav,
           initialLocation: homePath,
-          errorBuilder: (_, GoRouterState state) => ErrorScreen(state.error),
+          errorBuilder: (_, __) => ErrorScreen(),
           routes: <RouteBase>[
             // Home
             GoRoute(
