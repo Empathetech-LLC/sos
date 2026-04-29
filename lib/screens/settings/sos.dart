@@ -153,7 +153,6 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> with WidgetsBindi
                                   textAlign: TextAlign.center,
                                 ),
                                 actions: ezActionPair(
-                                  context: context,
                                   confirmMsg: l10n.gOk,
                                   confirmIsDefault: true,
                                   onConfirm: () => Navigator.of(dCon).pop(true),
@@ -179,7 +178,6 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> with WidgetsBindi
                                   textAlign: TextAlign.center,
                                 ),
                                 actions: ezActionPair(
-                                  context: context,
                                   confirmMsg: l10n.gOk,
                                   confirmIsDefault: true,
                                   onConfirm: () => Navigator.of(dCon).pop(true),

@@ -39,7 +39,6 @@ class SettingsHomeScreen extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           actions: ezActionPair(
-            context: parentContext,
             confirmMsg: EzConfig.l10n.gContinue,
             confirmIsDestructive: true,
             onConfirm: () => Navigator.of(dCon).pop(true),

@@ -88,7 +88,6 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
             textAlign: TextAlign.center,
           ),
           actions: ezActionPair(
-            context: context,
             confirmMsg: l10n.gOk,
             onConfirm: () => Navigator.of(dCon).pop(false),
             confirmIsDefault: true,
