@@ -21,6 +21,8 @@ void main() async {
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[DeviceOrientation.portraitUp]);
 
   EzConfig.init(
+    appName: appName,
+    androidPackage: androidPackage,
     assetPaths: assetPaths,
     localeFallback: americanEnglish,
     l10nFallback: await EFUILang.delegate.load(americanEnglish),
@@ -70,7 +72,6 @@ class SOS extends StatelessWidget {
         locale: storedLocale,
         el10n: storedEFUILang,
         appCache: SOSCache(storedLocale, storedLang),
-        appName: appName,
         routerConfig: GoRouter(
           navigatorKey: ezRootNav,
           initialLocation: homePath,
