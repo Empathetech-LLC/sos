@@ -21,7 +21,7 @@ void main() async {
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[DeviceOrientation.portraitUp]);
 
   EzConfig.init(
-    appName: appName,
+    appName: 'InstaSOS',
     androidPackage: androidPackage,
     assetPaths: assetPaths,
     localeFallback: americanEnglish,

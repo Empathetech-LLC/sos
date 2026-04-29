@@ -122,9 +122,6 @@ extension SituationConfig on Situation {
 //* App config *//
 // Naming/ID //
 
-/// InstaSOS
-const String appName = 'InstaSOS';
-
 /// net.empathetech.sos
 const String androidPackage = 'net.empathetech.sos';
 
