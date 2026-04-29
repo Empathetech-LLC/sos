@@ -99,7 +99,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> with WidgetsBindi
                 ),
                 EzConfig.margin,
                 EzDropdownMenu<LLType>(
-                  widthEntries: <String>[LLType.google.label],
+                  widthEntry: LLType.google.label,
                   dropdownMenuEntries: LLType.values
                       .map<DropdownMenuEntry<LLType>>((LLType type) => DropdownMenuEntry<LLType>(
                             value: type,
