@@ -24,7 +24,8 @@ class LangEn extends Lang {
   String get gNotAgain => 'Don\'t show again';
 
   @override
-  String get gOnCloseWarning => '\"SOS on close\" is enabled. This will start a broadcast.';
+  String get gOnCloseWarning =>
+      '\"SOS on close\" is enabled. This will start a broadcast.';
 
   @override
   String get sosLastKnown => 'last known location:';
@@ -78,7 +79,8 @@ class LangEn extends Lang {
   String get hsCameraReady => 'Camera is ready';
 
   @override
-  String get hsCameraSetupHint => 'Activate to give Insta-SOS permission to the camera.';
+  String get hsCameraSetupHint =>
+      'Activate to give Insta-SOS permission to the camera.';
 
   @override
   String get hsContacts => 'Contacts';
@@ -110,7 +112,8 @@ class LangEn extends Lang {
   String get hsTextingReady => 'Texting is ready';
 
   @override
-  String get hsTextingSetupHint => 'Activate to give Insta-SOS permission to send messages.';
+  String get hsTextingSetupHint =>
+      'Activate to give Insta-SOS permission to send messages.';
 
   @override
   String get hsLocation => 'Location';
@@ -119,7 +122,8 @@ class LangEn extends Lang {
   String get hsUnable => 'Unable to determine';
 
   @override
-  String get hsAddLocation => 'Enables location sharing with emergency contacts.';
+  String get hsAddLocation =>
+      'Enables location sharing with emergency contacts.';
 
   @override
   String get hsAddAlways =>
@@ -249,7 +253,8 @@ class LangEn extends Lang {
       'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
 
   @override
-  String get rvMobileQuestion => 'Ask questions. Find out why you are being stopped.';
+  String get rvMobileQuestion =>
+      'Ask questions. Find out why you are being stopped.';
 
   @override
   String get rvMobileLeave => 'Leave if you are not being detained.';
@@ -380,7 +385,8 @@ class LangEn extends Lang {
       'If you get this message when adding an emergency contact, Insta-SOS does not have permission to access that specific contact.';
 
   @override
-  String get faqUpdateContacts => 'You can give access to more (or all) contacts in the ';
+  String get faqUpdateContacts =>
+      'You can give access to more (or all) contacts in the ';
 
   @override
   String get faqSplitClarity1 =>
@@ -452,7 +458,8 @@ class LangEn extends Lang {
       'Apple will display all contacts, not just those shared with Insta-SOS.\nTo share more contacts, open the ';
 
   @override
-  String get bsNumError => 'This contact is private or does not have a phone number.';
+  String get bsNumError =>
+      'This contact is private or does not have a phone number.';
 
   @override
   String get bsSOSOnOpen => 'SOS on open';
@@ -503,7 +510,8 @@ class LangEnUs extends LangEn {
   String get gNotAgain => 'Don\'t show again';
 
   @override
-  String get gOnCloseWarning => '\"SOS on close\" is enabled. This will start a broadcast.';
+  String get gOnCloseWarning =>
+      '\"SOS on close\" is enabled. This will start a broadcast.';
 
   @override
   String get sosLastKnown => 'last known location:';
@@ -557,7 +565,8 @@ class LangEnUs extends LangEn {
   String get hsCameraReady => 'Camera is ready';
 
   @override
-  String get hsCameraSetupHint => 'Activate to give Insta-SOS permission to the camera.';
+  String get hsCameraSetupHint =>
+      'Activate to give Insta-SOS permission to the camera.';
 
   @override
   String get hsContacts => 'Contacts';
@@ -589,7 +598,8 @@ class LangEnUs extends LangEn {
   String get hsTextingReady => 'Texting is ready';
 
   @override
-  String get hsTextingSetupHint => 'Activate to give Insta-SOS permission to send messages.';
+  String get hsTextingSetupHint =>
+      'Activate to give Insta-SOS permission to send messages.';
 
   @override
   String get hsLocation => 'Location';
@@ -598,7 +608,8 @@ class LangEnUs extends LangEn {
   String get hsUnable => 'Unable to determine';
 
   @override
-  String get hsAddLocation => 'Enables location sharing with emergency contacts.';
+  String get hsAddLocation =>
+      'Enables location sharing with emergency contacts.';
 
   @override
   String get hsAddAlways =>
@@ -728,7 +739,8 @@ class LangEnUs extends LangEn {
       'Refuse a search of your pockets. ICE can give a pat-down, but not a search.';
 
   @override
-  String get rvMobileQuestion => 'Ask questions. Find out why you are being stopped.';
+  String get rvMobileQuestion =>
+      'Ask questions. Find out why you are being stopped.';
 
   @override
   String get rvMobileLeave => 'Leave if you are not being detained.';
@@ -859,7 +871,8 @@ class LangEnUs extends LangEn {
       'If you get this message when adding an emergency contact, Insta-SOS does not have permission to access that specific contact.';
 
   @override
-  String get faqUpdateContacts => 'You can give access to more (or all) contacts in the ';
+  String get faqUpdateContacts =>
+      'You can give access to more (or all) contacts in the ';
 
   @override
   String get faqSplitClarity1 =>
@@ -931,7 +944,8 @@ class LangEnUs extends LangEn {
       'Apple will display all contacts, not just those shared with Insta-SOS.\nTo share more contacts, open the ';
 
   @override
-  String get bsNumError => 'This contact is private or does not have a phone number.';
+  String get bsNumError =>
+      'This contact is private or does not have a phone number.';
 
   @override
   String get bsSOSOnOpen => 'SOS on open';

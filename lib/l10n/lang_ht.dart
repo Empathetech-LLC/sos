@@ -24,7 +24,8 @@ class LangHt extends Lang {
   String get gNotAgain => 'Pa montre sa ankò';
 
   @override
-  String get gOnCloseWarning => '\"SOS lè ou fèmen\" aktive. Sa pral kòmanse yon difizyon.';
+  String get gOnCloseWarning =>
+      '\"SOS lè ou fèmen\" aktive. Sa pral kòmanse yon difizyon.';
 
   @override
   String get sosLastKnown => 'dènye kote ou te ye a:';
@@ -78,7 +79,8 @@ class LangHt extends Lang {
   String get hsCameraReady => 'Kamera a pare';
 
   @override
-  String get hsCameraSetupHint => 'Aktive pou bay Insta-SOS pèmisyon pou kamera a.';
+  String get hsCameraSetupHint =>
+      'Aktive pou bay Insta-SOS pèmisyon pou kamera a.';
 
   @override
   String get hsContacts => 'Kontak yo';
@@ -93,7 +95,8 @@ class LangHt extends Lang {
   String get hsContactsReady => 'Kontak yo pare';
 
   @override
-  String get hsContactsSetupHint => 'Aktive pou bay Insta-SOS pèmisyon pou wè kontak ou yo.';
+  String get hsContactsSetupHint =>
+      'Aktive pou bay Insta-SOS pèmisyon pou wè kontak ou yo.';
 
   @override
   String get hsAppleContacts =>
@@ -109,7 +112,8 @@ class LangHt extends Lang {
   String get hsTextingReady => 'Voye tèks pare';
 
   @override
-  String get hsTextingSetupHint => 'Aktive pou bay Insta-SOS pèmisyon pou voye mesaj.';
+  String get hsTextingSetupHint =>
+      'Aktive pou bay Insta-SOS pèmisyon pou voye mesaj.';
 
   @override
   String get hsLocation => 'Pozisyon';
@@ -118,7 +122,8 @@ class LangHt extends Lang {
   String get hsUnable => 'Pa kapab detèmine';
 
   @override
-  String get hsAddLocation => 'Pèmèt pataje kote ou ye a ak kontak ijans ou yo.';
+  String get hsAddLocation =>
+      'Pèmèt pataje kote ou ye a ak kontak ijans ou yo.';
 
   @override
   String get hsAddAlways =>
@@ -128,7 +133,8 @@ class LangHt extends Lang {
   String get hsLocationReady => 'Pozisyon an pare';
 
   @override
-  String get hsLocationSetupHint => 'Aktive pou bay Insta-SOS pèmisyon pou wè kote ou ye a.';
+  String get hsLocationSetupHint =>
+      'Aktive pou bay Insta-SOS pèmisyon pou wè kote ou ye a.';
 
   @override
   String get hsOneOfFour => 'Premye sou kat. Kontinye...';
@@ -181,7 +187,8 @@ class LangHt extends Lang {
   String get hsEndSOS => 'SOS la ap difize. Aktive pou w kanpe l.';
 
   @override
-  String get hsSafeCloseHint => 'Tout bagay anfòm. Fèmen aplikasyon an san SOS.';
+  String get hsSafeCloseHint =>
+      'Tout bagay anfòm. Fèmen aplikasyon an san SOS.';
 
   @override
   String get hsBroadcasting => 'Ap difize';
@@ -247,7 +254,8 @@ class LangHt extends Lang {
       'Refize ke yo fouye pòch ou. ICE ka fè yon manyen rapid, men yo pa ka fouye.';
 
   @override
-  String get rvMobileQuestion => 'Poze kesyon. Chèche konnen poukisa yo kanpe ou.';
+  String get rvMobileQuestion =>
+      'Poze kesyon. Chèche konnen poukisa yo kanpe ou.';
 
   @override
   String get rvMobileLeave => 'Ale si yo pa arete ou.';
@@ -256,7 +264,8 @@ class LangHt extends Lang {
   String get rvDriveSearch => 'Refize ke yo fouye machin ou.';
 
   @override
-  String get rvDriveID => 'Refize bay ID antan ke pasaje. Sèlman chofè a oblije bay ID.';
+  String get rvDriveID =>
+      'Refize bay ID antan ke pasaje. Sèlman chofè a oblije bay ID.';
 
   @override
   String get rvDriveWarrant =>
@@ -270,7 +279,8 @@ class LangHt extends Lang {
   String get rvSharedSign => 'Refize siyen anyen.';
 
   @override
-  String get rvSharedFingerprint => 'Refize ke ICE pran anprent ou sòf si yo deja arete ou.';
+  String get rvSharedFingerprint =>
+      'Refize ke ICE pran anprent ou sòf si yo deja arete ou.';
 
   @override
   String get rvSharedLawyer =>
@@ -375,7 +385,8 @@ class LangHt extends Lang {
       'Si w jwenn mesaj sa a lè w ap ajoute yon kontak ijans, Insta-SOS pa gen pèmisyon pou jwenn aksè ak kontak sa a.';
 
   @override
-  String get faqUpdateContacts => 'Ou ka bay aksè ak plis (oswa tout) kontak nan ';
+  String get faqUpdateContacts =>
+      'Ou ka bay aksè ak plis (oswa tout) kontak nan ';
 
   @override
   String get faqSplitClarity1 =>
@@ -447,7 +458,8 @@ class LangHt extends Lang {
       'Apple ap montre tout kontak yo, pa sèlman sa ki pataje ak Insta-SOS yo.\nPou pataje plis kontak, louvri ';
 
   @override
-  String get bsNumError => 'Kontak sa a prive oswa li pa genyen yon nimewo telefòn.';
+  String get bsNumError =>
+      'Kontak sa a prive oswa li pa genyen yon nimewo telefòn.';
 
   @override
   String get bsSOSOnOpen => 'SOS lè aplikasyon an louvri';
@@ -471,7 +483,8 @@ class LangHt extends Lang {
   String get bsSOSOnVideo => 'SOS lè anrejistreman entèwonp';
 
   @override
-  String get dsLadyLiberty => 'Yon foto Estati Libète a, avèk yon previzyalizasyon lis dwa yo.';
+  String get dsLadyLiberty =>
+      'Yon foto Estati Libète a, avèk yon previzyalizasyon lis dwa yo.';
 
   @override
   String get dsShowBack => 'Montre bouton tounen an?';
