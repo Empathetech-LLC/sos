@@ -41,8 +41,6 @@ class AppearanceSettingsScreen extends StatelessWidget {
                 subSettings: <EzSubSetting>[],
                 fromStorage: () => EzSubSetting.blank,
                 build: (_) => EzGlobalSettings(
-                  appName: appName,
-                  androidPackage: androidPackage,
                   excludeLocaleSetting: true,
                   resetTitle: () => EzConfig.l10n.ssResetAppearance,
                 ),
@@ -66,8 +64,6 @@ class AppearanceSettingsScreen extends StatelessWidget {
                     : EzSubSetting.qckColor,
                 build: (EzSubSetting subSec) => EzColorSettings(
                   target: subSec,
-                  appName: appName,
-                  androidPackage: androidPackage,
                   darkStarterSet: const <String>[
                     darkPrimaryKey,
                     darkSurfaceKey,
@@ -103,8 +99,6 @@ class AppearanceSettingsScreen extends StatelessWidget {
                     : EzSubSetting.butDesign,
                 build: (EzSubSetting subSec) => EzDesignSettings(
                   target: subSec,
-                  appName: appName,
-                  androidPackage: androidPackage,
                   prependPage: <Widget>[
                     const _RightsOpacity(),
                     EzConfig.separator,
@@ -128,11 +122,7 @@ class AppearanceSettingsScreen extends StatelessWidget {
                 fromStorage: () => EzConfig.get(advancedTextKey) == true
                     ? EzSubSetting.advText
                     : EzSubSetting.qckText,
-                build: (EzSubSetting subSec) => EzTextSettings(
-                  target: subSec,
-                  appName: appName,
-                  androidPackage: androidPackage,
-                ),
+                build: (EzSubSetting subSec) => EzTextSettings(target: subSec),
               ),
             ],
             target: targetPass,
