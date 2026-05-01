@@ -235,10 +235,7 @@ class _HomeScreenState extends State<HomeScreen>
                             kid: Container(
                               height: double.infinity,
                               width: double.infinity,
-                              color: Theme.of(context)
-                                  .textButtonTheme
-                                  .style!
-                                  .backgroundColor!
+                              color: EzConfig.theme.textButtonTheme.style!.backgroundColor!
                                   .resolve(<WidgetState>{WidgetState.focused}),
                               child: const RightsView(),
                             ),
