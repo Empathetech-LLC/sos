@@ -95,82 +95,77 @@ class SettingsHomeScreen extends StatelessWidget {
                 await ezModal(
                   context: context,
                   builder: (BuildContext mCon) => StatefulBuilder(
-                    builder: (_, StateSetter setModal) => Padding(
-                      padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
-                      child: EzScrollView(
-                        children: <Widget>[
-                          // Intro
-                          EzRichText(
-                            <InlineSpan>[
-                              EzPlainText(
-                                text: '${l10n.pmOnlyAdd}\n',
-                                style: EzConfig.styles.bodyLarge,
-                              ),
-                              EzPlainText(
-                                text: l10n.pmRemoveIn,
-                                style: EzConfig.styles.bodyLarge,
-                              ),
-                              EzInlineLink(
-                                l10n.gSystem.toLowerCase(),
-                                onTap: () async {
-                                  await openAppSettings();
-                                  if (mCon.mounted) {
-                                    Navigator.of(mCon).pop();
-                                  }
-                                },
-                                hint: EzConfig.l10n.gOpenLink,
-                              ),
-                              EzPlainText(
-                                text: '.',
-                                style: EzConfig.styles.bodyLarge,
-                              ),
-                            ],
-                            textBackground: false,
+                    builder: (_, StateSetter setModal) => ezModalScroll(<Widget>[
+                      // Intro
+                      EzRichText(
+                        <InlineSpan>[
+                          EzPlainText(
+                            text: '${l10n.pmOnlyAdd}\n',
                             style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.center,
                           ),
-                          EzConfig.centerLine,
-                          Text(
-                            l10n.pmManualPermission,
+                          EzPlainText(
+                            text: l10n.pmRemoveIn,
                             style: EzConfig.styles.bodyLarge,
-                            textAlign: TextAlign.center,
                           ),
-                          EzConfig.divider,
-
-                          // Setup cards
-                          ContactsSetup(
-                            locked: locked,
-                            setLock: (bool active) => setModal(() => locked = active),
+                          EzInlineLink(
+                            l10n.gSystem.toLowerCase(),
+                            onTap: () async {
+                              await openAppSettings();
+                              if (mCon.mounted) {
+                                Navigator.of(mCon).pop();
+                              }
+                            },
+                            hint: EzConfig.l10n.gOpenLink,
                           ),
-                          EzConfig.spacer,
-
-                          if (!isIOS) ...<Widget>[
-                            SMSSetup(
-                              locked: locked,
-                              setLock: (bool active) => setModal(() => locked = active),
-                            ),
-                            EzConfig.spacer,
-                          ],
-
-                          LocationSetup(
-                            locked: locked,
-                            setLock: (bool active) => setModal(() => locked = active),
+                          EzPlainText(
+                            text: '.',
+                            style: EzConfig.styles.bodyLarge,
                           ),
-                          EzConfig.spacer,
-
-                          // Finish/leave
-                          EzTextButton(
-                            text: l10n.gDone,
-                            textStyle:
-                                EzConfig.styles.bodyLarge?.copyWith(color: EzConfig.colors.primary),
-                            textAlign: TextAlign.center,
-                            style: TextButton.styleFrom(backgroundColor: Colors.transparent),
-                            onPressed: () => Navigator.of(mCon).pop(true),
-                          ),
-                          EzConfig.separator,
                         ],
+                        textBackground: false,
+                        style: EzConfig.styles.bodyLarge,
+                        textAlign: TextAlign.center,
                       ),
-                    ),
+                      EzConfig.centerLine,
+                      Text(
+                        l10n.pmManualPermission,
+                        style: EzConfig.styles.bodyLarge,
+                        textAlign: TextAlign.center,
+                      ),
+                      EzConfig.divider,
+
+                      // Setup cards
+                      ContactsSetup(
+                        locked: locked,
+                        setLock: (bool active) => setModal(() => locked = active),
+                      ),
+                      EzConfig.spacer,
+
+                      if (!isIOS) ...<Widget>[
+                        SMSSetup(
+                          locked: locked,
+                          setLock: (bool active) => setModal(() => locked = active),
+                        ),
+                        EzConfig.spacer,
+                      ],
+
+                      LocationSetup(
+                        locked: locked,
+                        setLock: (bool active) => setModal(() => locked = active),
+                      ),
+                      EzConfig.spacer,
+
+                      // Finish/leave
+                      EzTextButton(
+                        text: l10n.gDone,
+                        textStyle:
+                            EzConfig.styles.bodyLarge?.copyWith(color: EzConfig.colors.primary),
+                        textAlign: TextAlign.center,
+                        style: TextButton.styleFrom(backgroundColor: Colors.transparent),
+                        onPressed: () => Navigator.of(mCon).pop(true),
+                      ),
+                      EzConfig.separator,
+                    ]),
                   ),
                 );
               },
@@ -183,143 +178,141 @@ class SettingsHomeScreen extends StatelessWidget {
             EzElevatedIconButton(
               onPressed: () => ezModal(
                 context: context,
-                builder: (BuildContext mCon) => EzScrollView(
-                  children: <Widget>[
-                    // Community resources //
-                    Center(
-                      child: Text(
-                        l10n.rmCommunity,
-                        style: EzConfig.styles.titleLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    EzConfig.spacer,
-
-                    // ACLU
-                    EzLink(
-                      'ACLU Know Your Rights',
-                      onTap: () => followLink(
-                        acluLink,
-                        parentContext: context,
-                        modalContext: mCon,
-                      ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
-                      backgroundColor: Colors.transparent,
+                builder: (BuildContext mCon) => ezModalScroll(<Widget>[
+                  // Community resources //
+                  Center(
+                    child: Text(
+                      l10n.rmCommunity,
+                      style: EzConfig.styles.titleLarge,
                       textAlign: TextAlign.center,
                     ),
-                    EzConfig.spacer,
+                  ),
+                  EzConfig.spacer,
 
-                    // Dunk the Vote
-                    EzLink(
-                      'Dunk the Vote: The Black Book',
-                      onTap: () => followLink(
-                        dunkLink,
-                        parentContext: context,
-                        modalContext: mCon,
-                      ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
-                      backgroundColor: Colors.transparent,
+                  // ACLU
+                  EzLink(
+                    'ACLU Know Your Rights',
+                    onTap: () => followLink(
+                      acluLink,
+                      parentContext: context,
+                      modalContext: mCon,
+                    ),
+                    hint: EzConfig.l10n.gOpenLink,
+                    style: EzConfig.styles.bodyLarge,
+                    backgroundColor: Colors.transparent,
+                    textAlign: TextAlign.center,
+                  ),
+                  EzConfig.spacer,
+
+                  // Dunk the Vote
+                  EzLink(
+                    'Dunk the Vote: The Black Book',
+                    onTap: () => followLink(
+                      dunkLink,
+                      parentContext: context,
+                      modalContext: mCon,
+                    ),
+                    hint: EzConfig.l10n.gOpenLink,
+                    style: EzConfig.styles.bodyLarge,
+                    backgroundColor: Colors.transparent,
+                    textAlign: TextAlign.center,
+                  ),
+                  EzConfig.spacer,
+
+                  // How to document
+                  EzLink(
+                    'How to document ICE',
+                    onTap: () => followLink(
+                      howToLink,
+                      parentContext: context,
+                      modalContext: mCon,
+                    ),
+                    hint: EzConfig.l10n.gOpenLink,
+                    style: EzConfig.styles.bodyLarge,
+                    backgroundColor: Colors.transparent,
+                    textAlign: TextAlign.center,
+                  ),
+                  EzConfig.spacer,
+
+                  // ICERR
+                  EzLink(
+                    'ICERR (Rapid Response)',
+                    onTap: () => followLink(
+                      icerrLink,
+                      parentContext: context,
+                      modalContext: mCon,
+                    ),
+                    hint: EzConfig.l10n.gOpenLink,
+                    style: EzConfig.styles.bodyLarge,
+                    backgroundColor: Colors.transparent,
+                    textAlign: TextAlign.center,
+                  ),
+                  EzConfig.spacer,
+
+                  // IMMDEF
+                  EzLink(
+                    'IMMDEF Resources',
+                    onTap: () => followLink(
+                      immdefLink,
+                      parentContext: context,
+                      modalContext: mCon,
+                    ),
+                    hint: EzConfig.l10n.gOpenLink,
+                    style: EzConfig.styles.bodyLarge,
+                    backgroundColor: Colors.transparent,
+                    textAlign: TextAlign.center,
+                  ),
+                  EzConfig.spacer,
+
+                  // NNiRR
+                  EzLink(
+                    'NNiRR Immigration Hotlines',
+                    onTap: () => followLink(
+                      nirrHotlinesLink,
+                      parentContext: context,
+                      modalContext: mCon,
+                    ),
+                    hint: EzConfig.l10n.gOpenLink,
+                    style: EzConfig.styles.bodyLarge,
+                    backgroundColor: Colors.transparent,
+                    textAlign: TextAlign.center,
+                  ),
+                  EzConfig.divider,
+
+                  // Gov resources //
+                  Center(
+                    child: Text(
+                      l10n.rmGov,
+                      style: EzConfig.styles.titleLarge,
                       textAlign: TextAlign.center,
                     ),
-                    EzConfig.spacer,
+                  ),
+                  EzConfig.spacer,
 
-                    // How to document
-                    EzLink(
-                      'How to document ICE',
-                      onTap: () => followLink(
-                        howToLink,
-                        parentContext: context,
-                        modalContext: mCon,
-                      ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
-                      backgroundColor: Colors.transparent,
-                      textAlign: TextAlign.center,
+                  // Detainee Locator
+                  EzLink(
+                    'ICE Detainee Locator',
+                    onTap: () => followLink(
+                      iceLocatorLink,
+                      parentContext: context,
+                      modalContext: mCon,
                     ),
-                    EzConfig.spacer,
+                    hint: EzConfig.l10n.gOpenLink,
+                    style: EzConfig.styles.bodyLarge,
+                    backgroundColor: Colors.transparent,
+                    textAlign: TextAlign.center,
+                  ),
+                  EzConfig.divider,
 
-                    // ICERR
-                    EzLink(
-                      'ICERR (Rapid Response)',
-                      onTap: () => followLink(
-                        icerrLink,
-                        parentContext: context,
-                        modalContext: mCon,
-                      ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
-                      backgroundColor: Colors.transparent,
-                      textAlign: TextAlign.center,
-                    ),
-                    EzConfig.spacer,
-
-                    // IMMDEF
-                    EzLink(
-                      'IMMDEF Resources',
-                      onTap: () => followLink(
-                        immdefLink,
-                        parentContext: context,
-                        modalContext: mCon,
-                      ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
-                      backgroundColor: Colors.transparent,
-                      textAlign: TextAlign.center,
-                    ),
-                    EzConfig.spacer,
-
-                    // NNiRR
-                    EzLink(
-                      'NNiRR Immigration Hotlines',
-                      onTap: () => followLink(
-                        nirrHotlinesLink,
-                        parentContext: context,
-                        modalContext: mCon,
-                      ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
-                      backgroundColor: Colors.transparent,
-                      textAlign: TextAlign.center,
-                    ),
-                    EzConfig.divider,
-
-                    // Gov resources //
-                    Center(
-                      child: Text(
-                        l10n.rmGov,
-                        style: EzConfig.styles.titleLarge,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    EzConfig.spacer,
-
-                    // Detainee Locator
-                    EzLink(
-                      'ICE Detainee Locator',
-                      onTap: () => followLink(
-                        iceLocatorLink,
-                        parentContext: context,
-                        modalContext: mCon,
-                      ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
-                      backgroundColor: Colors.transparent,
-                      textAlign: TextAlign.center,
-                    ),
-                    EzConfig.divider,
-
-                    // Disclaimers
-                    Text(
-                      l10n.rmAffiliate,
-                      semanticsLabel: l10n.rmAffiliateFix,
-                      style: EzConfig.styles.labelLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    EzConfig.separator,
-                  ],
-                ),
+                  // Disclaimers
+                  Text(
+                    l10n.rmAffiliate,
+                    semanticsLabel: l10n.rmAffiliateFix,
+                    style: EzConfig.styles.labelLarge,
+                    textAlign: TextAlign.center,
+                  ),
+                  EzConfig.separator,
+                ]),
               ),
               icon: const Icon(Icons.search),
               label: l10n.ssResources,
@@ -334,9 +327,8 @@ class SettingsHomeScreen extends StatelessWidget {
 
                 await ezModal(
                   context: context,
-                  builder: (BuildContext mCon) => EzScrollView(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
+                  builder: (BuildContext mCon) => ezModalScroll(
+                    <Widget>[
                       //* Expandable FAQ *//
 
                       Center(
@@ -791,6 +783,7 @@ class SettingsHomeScreen extends StatelessWidget {
                       ),
                       EzConfig.separator,
                     ],
+                    crossAxisAlignment: CrossAxisAlignment.start,
                   ),
                 );
               },

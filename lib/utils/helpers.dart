@@ -235,88 +235,83 @@ Future<void> appSetupModal(
     isDismissible: false,
     showDragHandle: false,
     builder: (BuildContext mCon) => StatefulBuilder(
-      builder: (_, StateSetter setModal) => Padding(
-        padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
-        child: EzScrollView(
-          children: <Widget>[
-            // Title
-            EzConfig.margin,
-            Text(
-              l10n.hsWelcome,
-              semanticsLabel: l10n.hsWelcomeFix,
-              style: EzConfig.styles.titleLarge,
-              textAlign: TextAlign.center,
-            ),
-            EzConfig.spacer,
-
-            // Locale setting
-            EzLocaleSetting(
-              locales: Lang.supportedLocales,
-              skip: <Locale>{arabic, english, chinese}, // Dupes
-            ),
-            EzConfig.spacer,
-
-            // Have it your way
-            Text(
-              showTutorial ? l10n.hsAppIntro : l10n.hsAppIntroAlt,
-              style: EzConfig.styles.bodyLarge,
-              textAlign: TextAlign.center,
-            ),
-            EzConfig.centerLine,
-            Text(
-              l10n.hsYourApp,
-              style: EzConfig.styles.bodyLarge,
-              textAlign: TextAlign.center,
-            ),
-            EzConfig.divider,
-
-            // Permission checklist
-            CameraSetup(
-              initCamera: initCamera,
-              locked: locked,
-              setLock: (bool active) => setModal(() => locked = active),
-            ),
-            EzConfig.spacer,
-
-            ContactsSetup(
-              locked: locked,
-              setLock: (bool active) => setModal(() => locked = active),
-            ),
-            EzConfig.spacer,
-
-            if (!isIOS) ...<Widget>[
-              SMSSetup(
-                locked: locked,
-                setLock: (bool active) => setModal(() => locked = active),
-              ),
-              EzConfig.spacer,
-            ],
-
-            LocationSetup(
-              locked: locked,
-              setLock: (bool active) => setModal(() => locked = active),
-            ),
-            EzConfig.spacer,
-
-            // Finish/leave
-            EzTextButton(
-              text: l10n.gDone,
-              textStyle: EzConfig.styles.bodyLarge?.copyWith(color: EzConfig.colors.primary),
-              textAlign: TextAlign.center,
-              style: TextButton.styleFrom(backgroundColor: Colors.transparent),
-              onPressed: () => Navigator.of(mCon).pop(true),
-            ),
-
-            // Hybrid translations notice (conditional)
-            EzTranslationsPendingNotice(
-              message: l10n.hsHybridTranslation,
-              header: EzConfig.spacer,
-              footer: const SizedBox.shrink(),
-            ),
-            EzConfig.separator,
-          ],
+      builder: (_, StateSetter setModal) => ezModalScroll(<Widget>[
+        // Title
+        EzConfig.margin,
+        Text(
+          l10n.hsWelcome,
+          semanticsLabel: l10n.hsWelcomeFix,
+          style: EzConfig.styles.titleLarge,
+          textAlign: TextAlign.center,
         ),
-      ),
+        EzConfig.spacer,
+
+        // Locale setting
+        EzLocaleSetting(
+          locales: Lang.supportedLocales,
+          skip: <Locale>{arabic, english, chinese}, // Dupes
+        ),
+        EzConfig.spacer,
+
+        // Have it your way
+        Text(
+          showTutorial ? l10n.hsAppIntro : l10n.hsAppIntroAlt,
+          style: EzConfig.styles.bodyLarge,
+          textAlign: TextAlign.center,
+        ),
+        EzConfig.centerLine,
+        Text(
+          l10n.hsYourApp,
+          style: EzConfig.styles.bodyLarge,
+          textAlign: TextAlign.center,
+        ),
+        EzConfig.divider,
+
+        // Permission checklist
+        CameraSetup(
+          initCamera: initCamera,
+          locked: locked,
+          setLock: (bool active) => setModal(() => locked = active),
+        ),
+        EzConfig.spacer,
+
+        ContactsSetup(
+          locked: locked,
+          setLock: (bool active) => setModal(() => locked = active),
+        ),
+        EzConfig.spacer,
+
+        if (!isIOS) ...<Widget>[
+          SMSSetup(
+            locked: locked,
+            setLock: (bool active) => setModal(() => locked = active),
+          ),
+          EzConfig.spacer,
+        ],
+
+        LocationSetup(
+          locked: locked,
+          setLock: (bool active) => setModal(() => locked = active),
+        ),
+        EzConfig.spacer,
+
+        // Finish/leave
+        EzTextButton(
+          text: l10n.gDone,
+          textStyle: EzConfig.styles.bodyLarge?.copyWith(color: EzConfig.colors.primary),
+          textAlign: TextAlign.center,
+          style: TextButton.styleFrom(backgroundColor: Colors.transparent),
+          onPressed: () => Navigator.of(mCon).pop(true),
+        ),
+
+        // Hybrid translations notice (conditional)
+        EzTranslationsPendingNotice(
+          message: l10n.hsHybridTranslation,
+          header: EzConfig.spacer,
+          footer: const SizedBox.shrink(),
+        ),
+        EzConfig.separator,
+      ]),
     ),
   );
 

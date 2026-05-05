@@ -153,97 +153,95 @@ class _RightsOpacity extends StatelessWidget {
           await ezModal(
             context: context,
             builder: (_) => StatefulBuilder(
-              builder: (BuildContext mCon, StateSetter setModal) => EzScrollView(
-                children: <Widget>[
-                  // Preview
-                  Container(
-                    width: double.infinity,
-                    height: heightOf(context) * 0.667,
-                    color: EzConfig.colors.surface,
-                    child: Stack(
-                      children: <Widget>[
-                        Center(
-                          child: EzImage(
-                            image: const AssetImage(ladyLiberty),
-                            semanticLabel: l10n.dsLadyLiberty,
-                          ),
-                        ),
-                        Container(
-                          height: double.infinity,
-                          width: double.infinity,
-                          color: background,
-                          child: const RightsView(),
-                        ),
-                      ],
-                    ),
-                  ),
-                  EzConfig.spacer,
-
-                  // Slider
-                  ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: ScreenSize.small.size),
-                    child: Slider(
-                      // Slider values
-                      value: opacity,
-                      min: minOpacity,
-                      max: maxOpacity,
-                      divisions: 20,
-                      label: opacity.toStringAsFixed(2),
-
-                      // Slider functions
-                      onChanged: (double value) => setModal(() {
-                        opacity = value;
-                        background = EzConfig.colors.surface.withValues(alpha: opacity);
-                      }),
-                      onChangeEnd: (double value) async {
-                        if (EzConfig.updateBoth || EzConfig.isDark) {
-                          await EzConfig.setDouble(darkTextBackgroundOpacityKey, value);
-                        }
-                        if (EzConfig.updateBoth || !EzConfig.isDark) {
-                          await EzConfig.setDouble(lightTextBackgroundOpacityKey, value);
-                        }
-                      },
-                    ),
-                  ),
-                  EzConfig.spacer,
-
-                  // Footer
-                  EzRow(
-                    mainAxisAlignment: MainAxisAlignment.center,
+              builder: (BuildContext mCon, StateSetter setModal) => ezModalScroll(<Widget>[
+                // Preview
+                Container(
+                  width: double.infinity,
+                  height: heightOf(context) * 0.667,
+                  color: EzConfig.colors.surface,
+                  child: Stack(
                     children: <Widget>[
-                      // Local reset
-                      EzElevatedIconButton(
-                        onPressed: () async {
-                          if (EzConfig.updateBoth || EzConfig.isDark) {
-                            await EzConfig.remove(darkTextBackgroundOpacityKey);
-                          }
-                          if (EzConfig.updateBoth || !EzConfig.isDark) {
-                            await EzConfig.remove(lightTextBackgroundOpacityKey);
-                          }
-
-                          setModal(() {
-                            opacity = EzConfig.getDefault(EzConfig.isDark
-                                ? darkTextBackgroundOpacityKey
-                                : lightTextBackgroundOpacityKey);
-                            background = EzConfig.colors.surface.withValues(alpha: opacity);
-                          });
-                        },
-                        icon: const Icon(Icons.refresh),
-                        label: EzConfig.l10n.gReset,
+                      Center(
+                        child: EzImage(
+                          image: const AssetImage(ladyLiberty),
+                          semanticLabel: l10n.dsLadyLiberty,
+                        ),
                       ),
-                      EzConfig.rowSpacer,
-
-                      // Done/submit
-                      EzElevatedIconButton(
-                        onPressed: Navigator.of(mCon).pop,
-                        icon: const Icon(Icons.done),
-                        label: l10n.gDone,
+                      Container(
+                        height: double.infinity,
+                        width: double.infinity,
+                        color: background,
+                        child: const RightsView(),
                       ),
                     ],
                   ),
-                  EzConfig.separator,
-                ],
-              ),
+                ),
+                EzConfig.spacer,
+
+                // Slider
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: ScreenSize.small.size),
+                  child: Slider(
+                    // Slider values
+                    value: opacity,
+                    min: minOpacity,
+                    max: maxOpacity,
+                    divisions: 20,
+                    label: opacity.toStringAsFixed(2),
+
+                    // Slider functions
+                    onChanged: (double value) => setModal(() {
+                      opacity = value;
+                      background = EzConfig.colors.surface.withValues(alpha: opacity);
+                    }),
+                    onChangeEnd: (double value) async {
+                      if (EzConfig.updateBoth || EzConfig.isDark) {
+                        await EzConfig.setDouble(darkTextBackgroundOpacityKey, value);
+                      }
+                      if (EzConfig.updateBoth || !EzConfig.isDark) {
+                        await EzConfig.setDouble(lightTextBackgroundOpacityKey, value);
+                      }
+                    },
+                  ),
+                ),
+                EzConfig.spacer,
+
+                // Footer
+                EzRow(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    // Local reset
+                    EzElevatedIconButton(
+                      onPressed: () async {
+                        if (EzConfig.updateBoth || EzConfig.isDark) {
+                          await EzConfig.remove(darkTextBackgroundOpacityKey);
+                        }
+                        if (EzConfig.updateBoth || !EzConfig.isDark) {
+                          await EzConfig.remove(lightTextBackgroundOpacityKey);
+                        }
+
+                        setModal(() {
+                          opacity = EzConfig.getDefault(EzConfig.isDark
+                              ? darkTextBackgroundOpacityKey
+                              : lightTextBackgroundOpacityKey);
+                          background = EzConfig.colors.surface.withValues(alpha: opacity);
+                        });
+                      },
+                      icon: const Icon(Icons.refresh),
+                      label: EzConfig.l10n.gReset,
+                    ),
+                    EzConfig.rowSpacer,
+
+                    // Done/submit
+                    EzElevatedIconButton(
+                      onPressed: Navigator.of(mCon).pop,
+                      icon: const Icon(Icons.done),
+                      label: l10n.gDone,
+                    ),
+                  ],
+                ),
+                EzConfig.separator,
+              ]),
             ),
           );
 
