@@ -70,7 +70,7 @@ class _ContactListState extends State<ContactList> {
                   side: widget.fauxDisabled
                       ? null
                       : EzConfig.borderSide(
-                          EzConfig.colors.primaryContainer.withValues(alpha: focusOpacity)),
+                          color: EzConfig.colors.primaryContainer.withValues(alpha: focusOpacity)),
                 ),
                 textStyle: EzConfig.styles.bodyLarge,
                 textAlign: TextAlign.center,

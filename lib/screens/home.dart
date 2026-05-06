@@ -492,7 +492,7 @@ class _HomeScreenState extends State<HomeScreen>
                           ? EzIconButton(
                               style: IconButton.styleFrom(
                                 foregroundColor: videoColor,
-                                side: EzConfig.borderSide(videoTextColor),
+                                side: EzConfig.borderSide(color: videoTextColor),
                               ),
                               icon: Icon(
                                 Icons.stop,
@@ -563,7 +563,7 @@ class _HomeScreenState extends State<HomeScreen>
                               fauxDisabled: camera == null,
                               style: IconButton.styleFrom(
                                 foregroundColor: videoColor,
-                                side: EzConfig.borderSide(EzConfig.colors.onSurface),
+                                side: EzConfig.borderSide(color: EzConfig.colors.onSurface),
                               ),
                               icon: Icon(
                                 Icons.circle,
