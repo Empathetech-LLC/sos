@@ -60,20 +60,8 @@ class AppearanceSettingsScreen extends StatelessWidget {
                     : EzSubSetting.qckColor,
                 build: (EzSubSetting subSec) => EzColorSettings(
                   target: subSec,
-                  darkStarterSet: const <String>[
-                    darkPrimaryKey,
-                    darkSurfaceKey,
-                    darkOnSurfaceKey,
-                    darkSurfaceContainerKey,
-                    darkVideoColorKey,
-                  ],
-                  lightStarterSet: const <String>[
-                    lightPrimaryKey,
-                    lightSurfaceKey,
-                    lightOnSurfaceKey,
-                    lightSurfaceContainerKey,
-                    lightVideoColorKey,
-                  ],
+                  extraDark: <String>[darkVideoColorKey],
+                  extraLight: <String>[lightVideoColorKey],
                 ),
               ),
 
