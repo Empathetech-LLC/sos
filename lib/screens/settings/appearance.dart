@@ -132,10 +132,7 @@ class _RightsOpacity extends StatelessWidget {
   @override
   Widget build(BuildContext context) => EzElevatedIconButton(
         onPressed: () async {
-          double opacity = EzConfig.get(
-              EzConfig.isDark ? darkTextBackgroundOpacityKey : lightTextBackgroundOpacityKey);
-          final double backup = opacity;
-
+          double opacity = EzConfig.textBackgroundOpacity;
           Color background = EzConfig.colors.surface.withValues(alpha: opacity);
 
           await ezModal(
@@ -233,7 +230,7 @@ class _RightsOpacity extends StatelessWidget {
             ),
           );
 
-          if (opacity != backup) await EzConfig.rebuildUI();
+          if (opacity != EzConfig.textBackgroundOpacity) await EzConfig.rebuildUI();
         },
         icon: const Icon(Icons.opacity),
         label: EzConfig.l10n.tsTextBackground,
