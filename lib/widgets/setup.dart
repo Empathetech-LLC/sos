@@ -14,95 +14,39 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 // Icon generators //
 
-Widget boolIcon(bool? status) {
-  switch (status) {
-    case true:
-      return EzIcon(
-        Icons.check,
-        color: EzConfig.colors.primary,
-      );
-    case false:
-      return EzIcon(
-        Icons.cancel_outlined,
-        color: EzConfig.colors.error,
-      );
-    case null:
-      return EzIcon(
-        Icons.help_outline,
-        color: EzConfig.colors.primary,
-      );
-  }
-}
+Widget boolIcon(bool? status) => switch (status) {
+      true => EzIcon(Icons.check, color: EzConfig.colors.primary),
+      false => EzIcon(Icons.cancel_outlined, color: EzConfig.colors.error),
+      null => EzIcon(Icons.help_outline, color: EzConfig.colors.primary),
+    };
 
-Widget pStatusIcon(PermissionStatus? status) {
-  switch (status) {
-    case PermissionStatus.granted:
-    case PermissionStatus.limited:
-    case PermissionStatus.provisional:
-      return EzIcon(
-        Icons.check,
-        color: EzConfig.colors.primary,
-      );
-    case PermissionStatus.restricted:
-      return EzIcon(
-        Icons.cancel_outlined,
-        color: EzConfig.colors.outline,
-      );
-    case PermissionStatus.denied:
-    case PermissionStatus.permanentlyDenied:
-      return EzIcon(
-        Icons.cancel_outlined,
-        color: EzConfig.colors.error,
-      );
-    case null:
-      return EzIcon(
-        Icons.help_outline,
-        color: EzConfig.colors.primary,
-      );
-  }
-}
+Widget pStatusIcon(PermissionStatus? status) => switch (status) {
+      PermissionStatus.granted ||
+      PermissionStatus.limited ||
+      PermissionStatus.provisional =>
+        EzIcon(Icons.check, color: EzConfig.colors.primary),
+      PermissionStatus.restricted => EzIcon(Icons.cancel_outlined, color: EzConfig.colors.outline),
+      PermissionStatus.denied ||
+      PermissionStatus.permanentlyDenied =>
+        EzIcon(Icons.cancel_outlined, color: EzConfig.colors.error),
+      null => EzIcon(Icons.help_outline, color: EzConfig.colors.primary),
+    };
 
-Widget lStatusIcon(LocationPermission? status) {
-  switch (status) {
-    case LocationPermission.always:
-      return EzIcon(
-        Icons.check,
-        color: EzConfig.colors.primary,
-      );
-
-    case LocationPermission.denied:
-    case LocationPermission.deniedForever:
-      return EzIcon(
-        Icons.cancel_outlined,
-        color: EzConfig.colors.error,
-      );
-
-    case null:
-      return EzIcon(
-        Icons.help_outline,
-        color: EzConfig.colors.primary,
-      );
-
-    case LocationPermission.unableToDetermine:
-      return EzIcon(
-        Icons.check,
-        color: EzConfig.colors.secondary,
-      );
-
-    case LocationPermission.whileInUse:
-      return EzIcon(
-        Icons.check,
-        color: isIOS ? EzConfig.colors.primary : EzConfig.colors.secondary,
-      );
-  }
-}
+Widget lStatusIcon(LocationPermission? status) => switch (status) {
+      LocationPermission.always => EzIcon(Icons.check, color: EzConfig.colors.primary),
+      LocationPermission.denied ||
+      LocationPermission.deniedForever =>
+        EzIcon(Icons.cancel_outlined, color: EzConfig.colors.error),
+      null => EzIcon(Icons.help_outline, color: EzConfig.colors.primary),
+      LocationPermission.unableToDetermine => EzIcon(Icons.check, color: EzConfig.colors.secondary),
+      LocationPermission.whileInUse =>
+        EzIcon(Icons.check, color: isIOS ? EzConfig.colors.primary : EzConfig.colors.secondary),
+    };
 
 // Setting cards //
 
-OutlinedBorder get cardShape => RoundedRectangleBorder(
-      side: EzConfig.borderSide(),
-      borderRadius: ezRoundEdge,
-    );
+OutlinedBorder get cardShape =>
+    RoundedRectangleBorder(side: EzConfig.borderSide(), borderRadius: ezRoundEdge);
 
 class CameraSetup extends StatefulWidget {
   final Future<PermissionStatus> Function() initCamera;
