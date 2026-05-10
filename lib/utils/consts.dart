@@ -3,6 +3,8 @@
  * See LICENSE for distribution and usage details.
  */
 
+import './export.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
@@ -12,22 +14,29 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 enum LLType { google, apple, waze, raw }
 
-const String _google = 'google';
-const String _apple = 'apple';
-const String _waze = 'waze';
-const String _raw = 'raw';
+/// enum [String] 'google'
+const String esGoogle = 'google';
+
+/// enum [String] 'apple'
+const String esApple = 'apple';
+
+/// enum [String] 'waze'
+const String esWaze = 'waze';
+
+/// enum [String] 'raw'
+const String esRaw = 'raw';
 
 extension LLTypeConfig on LLType {
   String get name {
     switch (this) {
       case LLType.google:
-        return _google;
+        return esGoogle;
       case LLType.apple:
-        return _apple;
+        return esApple;
       case LLType.waze:
-        return _waze;
+        return esWaze;
       case LLType.raw:
-        return _raw;
+        return esRaw;
     }
   }
 
@@ -59,12 +68,13 @@ extension LLTypeConfig on LLType {
 
   static LLType lookup(String name) {
     switch (name) {
-      case _apple:
+      case esApple:
         return LLType.apple;
-      case _waze:
+      case esWaze:
         return LLType.waze;
-      case _raw:
+      case esRaw:
         return LLType.raw;
+      case esGoogle:
       default:
         return LLType.google;
     }
@@ -75,48 +85,45 @@ extension LLTypeConfig on LLType {
 
 enum Situation { walking, driving, home }
 
-/// atHome
-const String atHomeTab = 'atHome';
+/// enum [String] 'walking'
+const String esWalking = 'walking';
 
-/// driving
-const String drivingTab = 'driving';
+/// enum [String] 'driving'
+const String esDriving = 'driving';
 
-/// walking
-const String walkingTab = 'walking';
+/// enum [String] 'home'
+const String esHome = 'home';
 
 extension SituationConfig on Situation {
-  IconData get icon {
-    switch (this) {
-      case Situation.walking:
-        return Icons.directions_walk;
-      case Situation.driving:
-        return Icons.drive_eta;
-      case Situation.home:
-        return Icons.home;
-    }
-  }
+  IconData get icon => switch (this) {
+        Situation.walking => Icons.directions_walk,
+        Situation.driving => Icons.drive_eta,
+        Situation.home => Icons.home,
+      };
 
-  String get name {
-    switch (this) {
-      case Situation.walking:
-        return walkingTab;
-      case Situation.driving:
-        return drivingTab;
-      case Situation.home:
-        return atHomeTab;
-    }
-  }
+  String get value => switch (this) {
+        Situation.walking => esWalking,
+        Situation.driving => esDriving,
+        Situation.home => esHome,
+      };
 
-  static Situation lookup(String? tab) {
-    switch (tab) {
-      case drivingTab:
-        return Situation.driving;
-      case atHomeTab:
-        return Situation.home;
-      default:
-        return Situation.walking;
-    }
-  }
+  int get position => switch (this) {
+        Situation.walking => 0,
+        Situation.driving => 1,
+        Situation.home => 2,
+      };
+
+  String get tooltip => switch (this) {
+        Situation.walking => l10n.rvOnFoot,
+        Situation.driving => l10n.rvWhileDriving,
+        Situation.home => l10n.rvAtHome,
+      };
+
+  static Situation lookup(String? tab) => switch (tab) {
+        esDriving => Situation.driving,
+        esHome => Situation.home,
+        esWalking || _ => Situation.walking,
+      };
 }
 
 //* App config *//
@@ -224,7 +231,7 @@ final Map<String, Object> sosConfig = <String, Object>{
   lightTextBackgroundOpacityKey: 0.8,
 
   // BTS
-  savedTabKey: walkingTab,
+  savedTabKey: esWalking,
   setupCompleteKey: false,
   showContactsMsgKey: true,
   showTutorialKey: true,
