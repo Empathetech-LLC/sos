@@ -27,58 +27,33 @@ const String esWaze = 'waze';
 const String esRaw = 'raw';
 
 extension LLTypeConfig on LLType {
-  String get name {
-    switch (this) {
-      case LLType.google:
-        return esGoogle;
-      case LLType.apple:
-        return esApple;
-      case LLType.waze:
-        return esWaze;
-      case LLType.raw:
-        return esRaw;
-    }
-  }
+  String get name => switch (this) {
+        LLType.google => esGoogle,
+        LLType.apple => esApple,
+        LLType.waze => esWaze,
+        LLType.raw => esRaw,
+      };
 
-  String get label {
-    switch (this) {
-      case LLType.google:
-        return 'Google Maps';
-      case LLType.apple:
-        return 'Apple Maps';
-      case LLType.waze:
-        return 'Waze';
-      case LLType.raw:
-        return 'Coordinates';
-    }
-  }
+  String get label => switch (this) {
+        LLType.google => 'Google Maps',
+        LLType.apple => 'Apple Maps',
+        LLType.waze => 'Waze',
+        LLType.raw => 'Coordinates',
+      };
 
-  String get base {
-    switch (this) {
-      case LLType.google:
-        return 'https://www.google.com/maps?q=';
-      case LLType.apple:
-        return 'https://maps.apple.com/?ll=';
-      case LLType.waze:
-        return 'https://waze.com/ul?ll=';
-      case LLType.raw:
-        return '';
-    }
-  }
+  String get base => switch (this) {
+        LLType.google => 'https://www.google.com/maps?q=',
+        LLType.apple => 'https://maps.apple.com/?ll=',
+        LLType.waze => 'https://waze.com/ul?ll=',
+        LLType.raw => '',
+      };
 
-  static LLType lookup(String name) {
-    switch (name) {
-      case esApple:
-        return LLType.apple;
-      case esWaze:
-        return LLType.waze;
-      case esRaw:
-        return LLType.raw;
-      case esGoogle:
-      default:
-        return LLType.google;
-    }
-  }
+  static LLType lookup(String name) => switch (name) {
+        esApple => LLType.apple,
+        esWaze => LLType.waze,
+        esRaw => LLType.raw,
+        esGoogle || _ => LLType.google,
+      };
 }
 
 // Situation //

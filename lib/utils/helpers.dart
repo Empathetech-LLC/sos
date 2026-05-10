@@ -186,39 +186,22 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
 
 /// I can't believe you've done this @flutter_contacts
 /// Even if `notDetermined` is a necessary addition, naming the enum the SAME THING is NOT!
-PermissionStatus? cPermMirror(c.PermissionStatus? status) {
-  switch (status) {
-    case c.PermissionStatus.granted:
-      return PermissionStatus.granted;
-    case c.PermissionStatus.limited:
-      return PermissionStatus.limited;
-    case c.PermissionStatus.denied:
-      return PermissionStatus.denied;
-    case c.PermissionStatus.permanentlyDenied:
-      return PermissionStatus.permanentlyDenied;
-    case c.PermissionStatus.restricted:
-      return PermissionStatus.restricted;
-    case c.PermissionStatus.notDetermined:
-    case null:
-      return null;
-  }
-}
+PermissionStatus? cPermMirror(c.PermissionStatus? status) => switch (status) {
+      c.PermissionStatus.granted => PermissionStatus.granted,
+      c.PermissionStatus.limited => PermissionStatus.limited,
+      c.PermissionStatus.denied => PermissionStatus.denied,
+      c.PermissionStatus.permanentlyDenied => PermissionStatus.permanentlyDenied,
+      c.PermissionStatus.restricted => PermissionStatus.restricted,
+      c.PermissionStatus.notDetermined || null => null,
+    };
 
 /// See what I mean?
-PermissionStatus? lPermMirror(LocationPermission? status) {
-  switch (status) {
-    case LocationPermission.always:
-    case LocationPermission.whileInUse:
-      return PermissionStatus.granted;
-    case LocationPermission.denied:
-      return PermissionStatus.denied;
-    case LocationPermission.deniedForever:
-      return PermissionStatus.permanentlyDenied;
-    case LocationPermission.unableToDetermine:
-    case null:
-      return null;
-  }
-}
+PermissionStatus? lPermMirror(LocationPermission? status) => switch (status) {
+      LocationPermission.always || LocationPermission.whileInUse => PermissionStatus.granted,
+      LocationPermission.denied => PermissionStatus.denied,
+      LocationPermission.deniedForever => PermissionStatus.permanentlyDenied,
+      LocationPermission.unableToDetermine || null => null,
+    };
 
 // Fresh install //
 
