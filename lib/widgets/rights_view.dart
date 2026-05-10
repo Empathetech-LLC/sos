@@ -23,6 +23,15 @@ class _RightsViewState extends State<RightsView> {
 
   // Define custom functions //
 
+  Future<void> _nav(Situation choice) async {
+    delta = choice.position - currTab.position;
+
+    await EzConfig.setString(savedTabKey, choice.name);
+
+    currTab = choice;
+    if (mounted) setState(() {});
+  }
+
   List<Widget> _unique() => switch (currTab) {
         Situation.walking => <Widget>[
             _rightsText(l10n.rvMobilePockets),
@@ -70,15 +79,7 @@ class _RightsViewState extends State<RightsView> {
                     .toList(),
                 selected: <Situation>{currTab},
                 showSelectedIcon: false,
-                onSelectionChanged: (Set<Situation> selected) async {
-                  final Situation choice = selected.first;
-                  delta = choice.position - currTab.position;
-
-                  await EzConfig.setString(savedTabKey, choice.name);
-
-                  currTab = choice;
-                  if (mounted) setState(() {});
-                },
+                onSelectionChanged: (Set<Situation> selected) => _nav(selected.first),
               ),
             ),
             EzConfig.separator,
@@ -88,6 +89,21 @@ class _RightsViewState extends State<RightsView> {
               position: currTab.position,
               delta: delta,
               child: GestureDetector(
+                onHorizontalDragEnd: (DragEndDetails details) async {
+                  if (details.primaryVelocity == null) return;
+
+                  if (details.primaryVelocity! < -200) {
+                    // RTL -> nav right
+                    if (currTab.position >= (Situation.values.length - 1)) return;
+                    await _nav(Situation.values[currTab.position + 1]);
+                  }
+
+                  if (details.primaryVelocity! > 200) {
+                    // LTR -> nav left
+                    if (currTab.position <= 0) return;
+                    await _nav(Situation.values[currTab.position - 1]);
+                  }
+                },
                 child: EzCol(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
