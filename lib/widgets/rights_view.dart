@@ -86,6 +86,7 @@ class _RightsViewState extends State<RightsView> {
 
             // Core
             EzFauxCarousel(
+              animMod: 0.5,
               position: currTab.position,
               delta: delta,
               child: GestureDetector(
