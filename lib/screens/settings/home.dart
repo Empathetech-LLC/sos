@@ -161,7 +161,8 @@ class SettingsHomeScreen extends StatelessWidget {
                         textStyle:
                             EzConfig.styles.bodyLarge?.copyWith(color: EzConfig.colors.primary),
                         textAlign: TextAlign.center,
-                        style: TextButton.styleFrom(backgroundColor: Colors.transparent),
+                        style:
+                            TextButton.styleFrom(backgroundColor: EzConfig.colors.surfaceContainer),
                         onPressed: () => Navigator.of(mCon).pop(true),
                       ),
                       EzConfig.separator,
