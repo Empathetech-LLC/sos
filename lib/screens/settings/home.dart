@@ -74,7 +74,7 @@ class SettingsHomeScreen extends StatelessWidget {
             // GoTo SOS
             EzElevatedIconButton(
               onPressed: () => context.goNamed(sosSettingsPath),
-              icon: const Icon(Icons.navigate_next),
+              icon: EzIcon(Icons.navigate_next),
               label: l10n.ssSOS,
             ),
             EzConfig.spacer,
@@ -82,7 +82,7 @@ class SettingsHomeScreen extends StatelessWidget {
             // GoTo Appearance
             EzElevatedIconButton(
               onPressed: () => context.goNamed(appearanceSettingsPath),
-              icon: const Icon(Icons.navigate_next),
+              icon: EzIcon(Icons.navigate_next),
               label: l10n.ssAppearance,
             ),
             EzConfig.divider,
@@ -170,7 +170,7 @@ class SettingsHomeScreen extends StatelessWidget {
                   ),
                 );
               },
-              icon: const Icon(Icons.list),
+              icon: EzIcon(Icons.list),
               label: l10n.ssPermissions,
             ),
             EzConfig.spacer,
@@ -315,7 +315,7 @@ class SettingsHomeScreen extends StatelessWidget {
                   EzConfig.separator,
                 ]),
               ),
-              icon: const Icon(Icons.search),
+              icon: EzIcon(Icons.search),
               label: l10n.ssResources,
             ),
             EzConfig.spacer,
@@ -788,7 +788,7 @@ class SettingsHomeScreen extends StatelessWidget {
                   ),
                 );
               },
-              icon: const Icon(Icons.help_outline),
+              icon: EzIcon(Icons.help_outline),
               label: l10n.ssSupport,
             ),
           ]),

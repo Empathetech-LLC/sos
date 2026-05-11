@@ -26,7 +26,7 @@ class AppearanceSettingsScreen extends StatelessWidget {
               EzSettingsSection(
                 position: 0,
                 title: EzConfig.l10n.gGlobal,
-                icon: Icon(
+                icon: EzIcon(
                   config.onMobile
                       ? config.platform == TargetPlatform.iOS
                           ? Icons.phone_iphone
@@ -47,7 +47,7 @@ class AppearanceSettingsScreen extends StatelessWidget {
               EzSettingsSection(
                 position: 1,
                 title: EzConfig.l10n.gColor,
-                icon: Icon(
+                icon: EzIcon(
                   Icons.palette,
                   semanticLabel: EzConfig.l10n.gColor,
                 ),
@@ -70,7 +70,7 @@ class AppearanceSettingsScreen extends StatelessWidget {
               EzSettingsSection(
                 position: 2,
                 title: EzConfig.l10n.gDesign,
-                icon: Icon(
+                icon: EzIcon(
                   Icons.design_services,
                   semanticLabel: EzConfig.l10n.gDesign,
                 ),
@@ -95,7 +95,7 @@ class AppearanceSettingsScreen extends StatelessWidget {
               EzSettingsSection(
                 position: 3,
                 title: EzConfig.l10n.gText,
-                icon: Icon(
+                icon: EzIcon(
                   Icons.text_format,
                   semanticLabel: EzConfig.l10n.gText,
                 ),
@@ -212,7 +212,7 @@ class _RightsOpacity extends StatelessWidget {
                           background = EzConfig.colors.surface.withValues(alpha: opacity);
                         });
                       },
-                      icon: const Icon(Icons.refresh),
+                      icon: EzIcon(Icons.refresh),
                       label: EzConfig.l10n.gReset,
                     ),
                     EzConfig.rowSpacer,
@@ -220,7 +220,7 @@ class _RightsOpacity extends StatelessWidget {
                     // Done/submit
                     EzElevatedIconButton(
                       onPressed: Navigator.of(mCon).pop,
-                      icon: const Icon(Icons.done),
+                      icon: EzIcon(Icons.done),
                       label: l10n.gDone,
                     ),
                   ],
@@ -232,7 +232,7 @@ class _RightsOpacity extends StatelessWidget {
 
           if (opacity != EzConfig.textBackgroundOpacity) await EzConfig.rebuildUI();
         },
-        icon: const Icon(Icons.opacity),
+        icon: EzIcon(Icons.opacity),
         label: EzConfig.l10n.tsTextBackground,
       );
 }

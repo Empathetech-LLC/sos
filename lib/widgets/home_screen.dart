@@ -31,10 +31,10 @@ class _FlashButtonState extends State<FlashButton> {
   Widget build(BuildContext context) => EzIconButton(
         enabled: working.values.contains(true),
         icon: switch (widget.camera.value.flashMode) {
-          FlashMode.off => Icon(Icons.flash_off, semanticLabel: l10n.hsFlashOff),
-          FlashMode.auto => Icon(Icons.flash_auto, semanticLabel: l10n.hsFlashAuto),
-          FlashMode.always => Icon(Icons.flash_on, semanticLabel: l10n.hsFlashOn),
-          FlashMode.torch => Icon(Icons.flashlight_on, semanticLabel: l10n.hsFlashTorch),
+          FlashMode.off => EzIcon(Icons.flash_off, semanticLabel: l10n.hsFlashOff),
+          FlashMode.auto => EzIcon(Icons.flash_auto, semanticLabel: l10n.hsFlashAuto),
+          FlashMode.always => EzIcon(Icons.flash_on, semanticLabel: l10n.hsFlashOn),
+          FlashMode.torch => EzIcon(Icons.flashlight_on, semanticLabel: l10n.hsFlashTorch),
         },
         onPressed: () async {
           bool hasResult = false;
@@ -150,7 +150,7 @@ class _PulsingIconWidgetState extends State<SOSIcon> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) => AnimatedBuilder(
         animation: ping,
-        builder: (_, __) => Icon(
+        builder: (_, __) => EzIcon(
           ping.value < 0.5 ? Icons.notifications : Icons.notifications_active,
           semanticLabel: l10n.hsEndSOS,
         ),

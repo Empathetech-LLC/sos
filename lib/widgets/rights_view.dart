@@ -73,7 +73,7 @@ class _RightsViewState extends State<RightsView> {
                 segments: Situation.values
                     .map((Situation sitch) => ButtonSegment<Situation>(
                           value: sitch,
-                          label: Icon(sitch.icon),
+                          label: EzIcon(sitch.icon),
                           tooltip: sitch.tooltip,
                         ))
                     .toList(),

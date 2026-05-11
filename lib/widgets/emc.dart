@@ -48,7 +48,7 @@ class _ContactListState extends State<ContactList> {
             EzConfig.rowMargin,
             EzIconButton(
               fauxDisabled: widget.fauxDisabled,
-              icon: Icon(
+              icon: EzIcon(
                 Icons.add_circle_outline,
                 semanticLabel: l10n.bsAddHint,
               ),
@@ -191,7 +191,7 @@ class _ContactTile extends StatelessWidget {
             // Remove button
             EzConfig.rowSpacer,
             EzIconButton(
-              icon: Icon(
+              icon: EzIcon(
                 Icons.remove_circle_outline,
                 semanticLabel: l10n.bsRemoveHint,
               ),

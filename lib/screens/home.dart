@@ -286,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen>
                         EzConfig.marginVal,
                     left: 0,
                     right: 0,
-                    title: Icon(
+                    title: EzIcon(
                       Icons.arrow_upward,
                       color: EzConfig.colors.onSurface,
                     ),
@@ -311,7 +311,7 @@ class _HomeScreenState extends State<HomeScreen>
                         )
                       : EzIconButton(
                           fauxDisabled: emc.isEmpty,
-                          icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
+                          icon: EzIcon(Icons.sos, semanticLabel: l10n.hsStartSOS),
                           iconSize: EzConfig.iconSize * 1.5,
                           onPressed: startForegroundSOS,
                         ),
@@ -337,7 +337,7 @@ class _HomeScreenState extends State<HomeScreen>
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      Icon(
+                      EzIcon(
                         Icons.arrow_forward,
                         color: EzConfig.colors.onSurface,
                       ),
@@ -353,7 +353,7 @@ class _HomeScreenState extends State<HomeScreen>
                   },
                 ),
                 child: EzIconButton(
-                  icon: Icon(
+                  icon: EzIcon(
                     Icons.settings,
                     semanticLabel: EzConfig.l10n.gSettings,
                   ),
@@ -370,7 +370,7 @@ class _HomeScreenState extends State<HomeScreen>
                 right: EzConfig.isLefty ? EzConfig.marginVal : null,
                 left: EzConfig.isLefty ? null : EzConfig.marginVal,
                 child: EzIconButton(
-                  icon: Icon(
+                  icon: EzIcon(
                     Icons.thumb_up,
                     semanticLabel: l10n.hsSafeCloseHint,
                   ),
@@ -398,11 +398,11 @@ class _HomeScreenState extends State<HomeScreen>
                     (camera == null || recording)
                         ? EzIconButton(
                             icon: showRights
-                                ? Icon(
+                                ? EzIcon(
                                     Icons.visibility_off,
                                     semanticLabel: l10n.hsHideRights,
                                   )
-                                : Icon(
+                                : EzIcon(
                                     Icons.gavel,
                                     semanticLabel: l10n.hsShowRights,
                                   ),
@@ -413,7 +413,7 @@ class _HomeScreenState extends State<HomeScreen>
                             },
                           )
                         : EzIconButton(
-                            icon: Icon(
+                            icon: EzIcon(
                               Icons.camera_alt,
                               semanticLabel: l10n.hsCameraHint,
                             ),
@@ -460,7 +460,7 @@ class _HomeScreenState extends State<HomeScreen>
                             EzConfig.marginVal,
                         left: 0,
                         right: 0,
-                        title: Icon(
+                        title: EzIcon(
                           Icons.arrow_downward,
                           color: EzConfig.colors.onSurface,
                         ),
@@ -494,7 +494,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 foregroundColor: videoColor,
                                 side: EzConfig.borderSide(color: videoTextColor),
                               ),
-                              icon: Icon(
+                              icon: EzIcon(
                                 Icons.stop,
                                 semanticLabel: l10n.hsEndRecord,
                               ),
@@ -565,7 +565,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 foregroundColor: videoColor,
                                 side: EzConfig.borderSide(color: EzConfig.colors.onSurface),
                               ),
-                              icon: Icon(
+                              icon: EzIcon(
                                 Icons.circle,
                                 semanticLabel: l10n.hsStartRecord,
                               ),
@@ -602,7 +602,7 @@ class _HomeScreenState extends State<HomeScreen>
                     camera == null
                         ? EzIconButton(
                             fauxDisabled: true,
-                            icon: const Icon(Icons.flash_off),
+                            icon: EzIcon(Icons.flash_off),
                             onPressed: () async {
                               final PermissionStatus cameraPerm = await initCamera();
 
