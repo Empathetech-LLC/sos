@@ -113,15 +113,11 @@ const MethodChannel platform = MethodChannel('$androidPackage/broadcast');
 // Local assets //
 
 /// assets/images/og-baddie.jpg
+/// Public domain image; CC0 1.0 Universal
 const String ladyLiberty = 'assets/images/og-baddie.jpg';
 
 /// [ladyLiberty]
 const Set<String> assetPaths = <String>{ladyLiberty};
-
-/// [ladyLiberty]
-const Map<String, String> credits = <String, String>{
-  ladyLiberty: 'Public domain; CC0 1.0 Universal',
-};
 
 //* EzConfig *//
 // BTS settings //
