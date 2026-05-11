@@ -286,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen>
                         EzConfig.marginVal,
                     left: 0,
                     right: 0,
-                    title: EzIcon(
+                    title: Icon(
                       Icons.arrow_upward,
                       color: EzConfig.colors.onSurface,
                     ),
@@ -337,7 +337,7 @@ class _HomeScreenState extends State<HomeScreen>
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      EzIcon(
+                      Icon(
                         Icons.arrow_forward,
                         color: EzConfig.colors.onSurface,
                       ),
@@ -460,7 +460,7 @@ class _HomeScreenState extends State<HomeScreen>
                             EzConfig.marginVal,
                         left: 0,
                         right: 0,
-                        title: EzIcon(
+                        title: Icon(
                           Icons.arrow_downward,
                           color: EzConfig.colors.onSurface,
                         ),

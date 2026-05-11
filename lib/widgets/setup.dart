@@ -15,32 +15,32 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 // Icon generators //
 
 Widget boolIcon(bool? status) => switch (status) {
-      true => EzIcon(Icons.check, color: EzConfig.colors.primary),
-      false => EzIcon(Icons.cancel_outlined, color: EzConfig.colors.error),
-      null => EzIcon(Icons.help_outline, color: EzConfig.colors.primary),
+      true => Icon(Icons.check, color: EzConfig.colors.primary),
+      false => Icon(Icons.cancel_outlined, color: EzConfig.colors.error),
+      null => Icon(Icons.help_outline, color: EzConfig.colors.primary),
     };
 
 Widget pStatusIcon(PermissionStatus? status) => switch (status) {
       PermissionStatus.granted ||
       PermissionStatus.limited ||
       PermissionStatus.provisional =>
-        EzIcon(Icons.check, color: EzConfig.colors.primary),
-      PermissionStatus.restricted => EzIcon(Icons.cancel_outlined, color: EzConfig.colors.outline),
+        Icon(Icons.check, color: EzConfig.colors.primary),
+      PermissionStatus.restricted => Icon(Icons.cancel_outlined, color: EzConfig.colors.outline),
       PermissionStatus.denied ||
       PermissionStatus.permanentlyDenied =>
-        EzIcon(Icons.cancel_outlined, color: EzConfig.colors.error),
-      null => EzIcon(Icons.help_outline, color: EzConfig.colors.primary),
+        Icon(Icons.cancel_outlined, color: EzConfig.colors.error),
+      null => Icon(Icons.help_outline, color: EzConfig.colors.primary),
     };
 
 Widget lStatusIcon(LocationPermission? status) => switch (status) {
-      LocationPermission.always => EzIcon(Icons.check, color: EzConfig.colors.primary),
+      LocationPermission.always => Icon(Icons.check, color: EzConfig.colors.primary),
       LocationPermission.denied ||
       LocationPermission.deniedForever =>
-        EzIcon(Icons.cancel_outlined, color: EzConfig.colors.error),
-      null => EzIcon(Icons.help_outline, color: EzConfig.colors.primary),
-      LocationPermission.unableToDetermine => EzIcon(Icons.check, color: EzConfig.colors.secondary),
+        Icon(Icons.cancel_outlined, color: EzConfig.colors.error),
+      null => Icon(Icons.help_outline, color: EzConfig.colors.primary),
+      LocationPermission.unableToDetermine => Icon(Icons.check, color: EzConfig.colors.secondary),
       LocationPermission.whileInUse =>
-        EzIcon(Icons.check, color: isIOS ? EzConfig.colors.primary : EzConfig.colors.secondary),
+        Icon(Icons.check, color: isIOS ? EzConfig.colors.primary : EzConfig.colors.secondary),
     };
 
 // Setting cards //

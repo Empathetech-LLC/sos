@@ -788,7 +788,7 @@ class SettingsHomeScreen extends StatelessWidget {
                   ),
                 );
               },
-              icon: EzIcon(Icons.help_outline),
+              icon: const Icon(Icons.help_outline),
               label: l10n.ssSupport,
             ),
           ]),
