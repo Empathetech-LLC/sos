@@ -34,7 +34,7 @@ class SosScaffold extends StatelessWidget {
                 github: 'https://github.com/Empathetech-LLC/sos/releases',
               ),
               if (fabs != null) ...fabs!,
-              ...EzConfig.backFAB,
+              ...EzConfig.backFABs,
             ]),
             floatingActionButtonLocation: EzConfig.isLefty
                 ? FloatingActionButtonLocation.startFloat
