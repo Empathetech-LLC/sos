@@ -31,7 +31,7 @@ class SosScaffold extends StatelessWidget {
         small: Consumer<EzConfigProvider>(
           builder: (_, EzConfigProvider config, __) => EzScaffold(
             seed: config.seed,
-            body: SafeArea(child: body),
+            body: body,
             fabs: <Widget>[
               const EzUpdaterFAB(
                 appVersion: '2.0.3',
