@@ -775,7 +775,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                   if (mCon.mounted) {
                                     Navigator.of(mCon).pop();
                                   }
-                                  await EzConfig.redrawUI();
+                                  await EzConfig.rebuildUI();
                                 },
                               ),
                             ],
