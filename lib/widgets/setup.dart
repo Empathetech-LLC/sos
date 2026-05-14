@@ -116,7 +116,7 @@ class _CameraSetupState extends State<CameraSetup> {
                   children: <Widget>[
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.all(EzConfig.marginVal),
+                        padding: EdgeInsets.all(EzConfig.padding),
                         child: galStatus == true
                             ? Text(
                                 l10n.hsCameraReady,
@@ -141,7 +141,7 @@ class _CameraSetupState extends State<CameraSetup> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                      padding: EdgeInsets.all(EzConfig.padding),
                       child: boolIcon(galStatus),
                     ),
                   ],
@@ -178,7 +178,7 @@ class _CameraSetupState extends State<CameraSetup> {
                   children: <Widget>[
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.all(EzConfig.marginVal),
+                        padding: EdgeInsets.all(EzConfig.padding),
                         child: EzCol(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -197,7 +197,7 @@ class _CameraSetupState extends State<CameraSetup> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                      padding: EdgeInsets.all(EzConfig.padding),
                       child: pStatusIcon(camStatus),
                     ),
                   ],
@@ -293,7 +293,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                 children: <Widget>[
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.all(EzConfig.marginVal),
+                      padding: EdgeInsets.all(EzConfig.padding),
                       child: allowedPermCheck(cPermMirror(allowed))
                           ? Text(
                               l10n.hsContactsReady,
@@ -318,7 +318,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                    padding: EdgeInsets.all(EzConfig.padding),
                     child: pStatusIcon(cPermMirror(allowed)),
                   ),
                 ],
@@ -390,7 +390,7 @@ class _SMSSetupState extends State<SMSSetup> {
                 children: <Widget>[
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.all(EzConfig.marginVal),
+                      padding: EdgeInsets.all(EzConfig.padding),
                       child: allowedPermCheck(status)
                           ? Text(
                               l10n.hsTextingReady,
@@ -415,7 +415,7 @@ class _SMSSetupState extends State<SMSSetup> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                    padding: EdgeInsets.all(EzConfig.padding),
                     child: pStatusIcon(status),
                   ),
                 ],
@@ -530,7 +530,7 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                       children: <Widget>[
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(EzConfig.marginVal),
+                            padding: EdgeInsets.all(EzConfig.padding),
                             child: allowedPermCheck(lPermMirror(status))
                                 ? Text(
                                     l10n.hsLocationReady,
@@ -555,7 +555,7 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                          padding: EdgeInsets.all(EzConfig.padding),
                           child: lStatusIcon(status),
                         ),
                       ],
@@ -575,7 +575,7 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                       children: <Widget>[
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(EzConfig.marginVal),
+                            padding: EdgeInsets.all(EzConfig.padding),
                             child: status == LocationPermission.always
                                 ? Text(
                                     l10n.hsLocationReady,
@@ -602,7 +602,7 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                          padding: EdgeInsets.all(EzConfig.padding),
                           child: lStatusIcon(status),
                         ),
                       ],
