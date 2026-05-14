@@ -12,25 +12,28 @@ class ErrorScreen extends StatelessWidget {
   ErrorScreen() : super(key: ValueKey<int>(EzConfig.seed));
 
   @override
-  Widget build(BuildContext context) => SosScaffold(EzScreen(Center(
-        child: EzScrollView(children: <Widget>[
-          EzText(
-            EzConfig.l10n.g404Wonder,
-            style: EzConfig.styles.headlineLarge,
-            textAlign: TextAlign.center,
-          ),
-          EzConfig.separator,
-          EzText(
-            EzConfig.l10n.g404,
-            style: ezSubTitleStyle(),
-            textAlign: TextAlign.center,
-          ),
-          EzConfig.separator,
-          EzText(
-            EzConfig.l10n.g404Note,
-            style: EzConfig.styles.labelLarge,
-            textAlign: TextAlign.center,
-          ),
-        ]),
-      )));
+  Widget build(BuildContext context) => SosScaffold(EzScreen(
+        Center(
+          child: EzScrollView(children: <Widget>[
+            EzText(
+              EzConfig.l10n.g404Wonder,
+              style: EzConfig.styles.headlineLarge,
+              textAlign: TextAlign.center,
+            ),
+            EzConfig.separator,
+            EzText(
+              EzConfig.l10n.g404,
+              style: ezSubTitleStyle(),
+              textAlign: TextAlign.center,
+            ),
+            EzConfig.separator,
+            EzText(
+              EzConfig.l10n.g404Note,
+              style: EzConfig.styles.labelLarge,
+              textAlign: TextAlign.center,
+            ),
+          ]),
+        ),
+        safeArea: true,
+      ));
 }

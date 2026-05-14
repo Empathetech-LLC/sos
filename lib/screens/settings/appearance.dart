@@ -19,98 +19,101 @@ class AppearanceSettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Consumer<EzConfigProvider>(
         builder: (_, EzConfigProvider config, __) => SosScaffold(
-          EzScreen(EzSettingsHub(
-            pages: <EzSettingsSection>[
-              // Global //
+          EzScreen(
+            EzSettingsHub(
+              pages: <EzSettingsSection>[
+                // Global //
 
-              EzSettingsSection(
-                position: 0,
-                title: EzConfig.l10n.gGlobal,
-                icon: EzIcon(
-                  config.onMobile
-                      ? config.platform == TargetPlatform.iOS
-                          ? Icons.phone_iphone
-                          : Icons.phone_android
-                      : Icons.computer,
-                  semanticLabel: EzConfig.l10n.gGlobal,
+                EzSettingsSection(
+                  position: 0,
+                  title: EzConfig.l10n.gGlobal,
+                  icon: EzIcon(
+                    config.onMobile
+                        ? config.platform == TargetPlatform.iOS
+                            ? Icons.phone_iphone
+                            : Icons.phone_android
+                        : Icons.computer,
+                    semanticLabel: EzConfig.l10n.gGlobal,
+                  ),
+                  subSettings: <EzSubSetting>[],
+                  fromStorage: () => EzSubSetting.blank,
+                  build: (_) => EzGlobalSettings(
+                    excludeLocaleSetting: true,
+                    resetTitle: () => EzConfig.l10n.ssResetAppearance,
+                  ),
                 ),
-                subSettings: <EzSubSetting>[],
-                fromStorage: () => EzSubSetting.blank,
-                build: (_) => EzGlobalSettings(
-                  excludeLocaleSetting: true,
-                  resetTitle: () => EzConfig.l10n.ssResetAppearance,
-                ),
-              ),
 
-              // Color //
+                // Color //
 
-              EzSettingsSection(
-                position: 1,
-                title: EzConfig.l10n.gColor,
-                icon: EzIcon(
-                  Icons.palette,
-                  semanticLabel: EzConfig.l10n.gColor,
-                ),
-                subSettings: <EzSubSetting>[
-                  EzSubSetting.qckColor,
-                  EzSubSetting.advColor,
-                ],
-                fromStorage: () => EzConfig.get(advancedColorsKey) == true
-                    ? EzSubSetting.advColor
-                    : EzSubSetting.qckColor,
-                build: (EzSubSetting subSec) => EzColorSettings(
-                  target: subSec,
-                  extraDark: <String>[darkVideoColorKey],
-                  extraLight: <String>[lightVideoColorKey],
-                ),
-              ),
-
-              // Design //
-
-              EzSettingsSection(
-                position: 2,
-                title: EzConfig.l10n.gDesign,
-                icon: EzIcon(
-                  Icons.design_services,
-                  semanticLabel: EzConfig.l10n.gDesign,
-                ),
-                subSettings: <EzSubSetting>[
-                  EzSubSetting.butDesign,
-                  EzSubSetting.pagDesign,
-                ],
-                fromStorage: () => EzConfig.get(pageTabKey) == true
-                    ? EzSubSetting.pagDesign
-                    : EzSubSetting.butDesign,
-                build: (EzSubSetting subSec) => EzDesignSettings(
-                  target: subSec,
-                  prependPage: <Widget>[
-                    const _RightsOpacity(),
-                    EzConfig.separator,
+                EzSettingsSection(
+                  position: 1,
+                  title: EzConfig.l10n.gColor,
+                  icon: EzIcon(
+                    Icons.palette,
+                    semanticLabel: EzConfig.l10n.gColor,
+                  ),
+                  subSettings: <EzSubSetting>[
+                    EzSubSetting.qckColor,
+                    EzSubSetting.advColor,
                   ],
+                  fromStorage: () => EzConfig.get(advancedColorsKey) == true
+                      ? EzSubSetting.advColor
+                      : EzSubSetting.qckColor,
+                  build: (EzSubSetting subSec) => EzColorSettings(
+                    target: subSec,
+                    extraDark: <String>[darkVideoColorKey],
+                    extraLight: <String>[lightVideoColorKey],
+                  ),
                 ),
-              ),
 
-              // Text //
+                // Design //
 
-              EzSettingsSection(
-                position: 3,
-                title: EzConfig.l10n.gText,
-                icon: EzIcon(
-                  Icons.text_format,
-                  semanticLabel: EzConfig.l10n.gText,
+                EzSettingsSection(
+                  position: 2,
+                  title: EzConfig.l10n.gDesign,
+                  icon: EzIcon(
+                    Icons.design_services,
+                    semanticLabel: EzConfig.l10n.gDesign,
+                  ),
+                  subSettings: <EzSubSetting>[
+                    EzSubSetting.butDesign,
+                    EzSubSetting.pagDesign,
+                  ],
+                  fromStorage: () => EzConfig.get(pageTabKey) == true
+                      ? EzSubSetting.pagDesign
+                      : EzSubSetting.butDesign,
+                  build: (EzSubSetting subSec) => EzDesignSettings(
+                    target: subSec,
+                    prependPage: <Widget>[
+                      const _RightsOpacity(),
+                      EzConfig.separator,
+                    ],
+                  ),
                 ),
-                subSettings: <EzSubSetting>[
-                  EzSubSetting.qckText,
-                  EzSubSetting.advText,
-                ],
-                fromStorage: () => EzConfig.get(advancedTextKey) == true
-                    ? EzSubSetting.advText
-                    : EzSubSetting.qckText,
-                build: (EzSubSetting subSec) => EzTextSettings(target: subSec),
-              ),
-            ],
-            target: targetPass,
-          )),
+
+                // Text //
+
+                EzSettingsSection(
+                  position: 3,
+                  title: EzConfig.l10n.gText,
+                  icon: EzIcon(
+                    Icons.text_format,
+                    semanticLabel: EzConfig.l10n.gText,
+                  ),
+                  subSettings: <EzSubSetting>[
+                    EzSubSetting.qckText,
+                    EzSubSetting.advText,
+                  ],
+                  fromStorage: () => EzConfig.get(advancedTextKey) == true
+                      ? EzSubSetting.advText
+                      : EzSubSetting.qckText,
+                  build: (EzSubSetting subSec) => EzTextSettings(target: subSec),
+                ),
+              ],
+              target: targetPass,
+            ),
+            safeArea: true,
+          ),
           fabs: <Widget>[
             // Rebuild (conditional)
             if (config.needsRebuild) ...<Widget>[
