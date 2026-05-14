@@ -21,10 +21,10 @@ class SosScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) => EzAdaptiveParent(
         small: Consumer<EzConfigProvider>(
-          builder: (_, EzConfigProvider config, __) => Scaffold(
-            key: ValueKey<int>(config.seed),
+          builder: (_, EzConfigProvider config, __) => EzScaffold(
+            seed: config.seed,
             body: SafeArea(child: body),
-            floatingActionButton: EzCol(children: <Widget>[
+            fabs: <Widget>[
               const EzUpdaterFAB(
                 appVersion: '2.0.3',
                 versionSource:
@@ -35,11 +35,7 @@ class SosScaffold extends StatelessWidget {
               ),
               if (fabs != null) ...fabs!,
               ...EzConfig.backFABs,
-            ]),
-            floatingActionButtonLocation: EzConfig.isLefty
-                ? FloatingActionButtonLocation.startFloat
-                : FloatingActionButtonLocation.endFloat,
-            resizeToAvoidBottomInset: false,
+            ],
           ),
         ),
       );
