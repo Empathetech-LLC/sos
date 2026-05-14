@@ -15,8 +15,16 @@ class SosScaffold extends StatelessWidget {
   /// BYO spacing widgets
   final List<Widget>? fabs;
 
+  /// For [EzConfig.backFABs]
+  final bool home;
+
   /// Standardized [Scaffold] for all screens
-  const SosScaffold(this.body, {super.key, this.fabs});
+  const SosScaffold(
+    this.body, {
+    super.key,
+    this.fabs,
+    this.home = false,
+  });
 
   @override
   Widget build(BuildContext context) => EzAdaptiveParent(
@@ -34,7 +42,7 @@ class SosScaffold extends StatelessWidget {
                 github: 'https://github.com/Empathetech-LLC/sos/releases',
               ),
               if (fabs != null) ...fabs!,
-              ...EzConfig.backFABs,
+              ...EzConfig.backFABs(home),
             ],
           ),
         ),
