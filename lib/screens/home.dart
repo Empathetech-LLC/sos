@@ -311,7 +311,7 @@ class _HomeScreenState extends State<HomeScreen>
                         )
                       : EzIconButton(
                           fauxDisabled: emc.isEmpty,
-                          icon: EzIcon(Icons.sos, semanticLabel: l10n.hsStartSOS),
+                          icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
                           iconSize: EzConfig.iconSize * 1.5,
                           onPressed: startForegroundSOS,
                         ),
@@ -494,10 +494,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 foregroundColor: videoColor,
                                 side: EzConfig.borderSide(color: videoTextColor),
                               ),
-                              icon: EzIcon(
-                                Icons.stop,
-                                semanticLabel: l10n.hsEndRecord,
-                              ),
+                              icon: Icon(Icons.stop, semanticLabel: l10n.hsEndRecord),
                               iconSize: EzConfig.iconSize * 2,
                               onPressed: () async {
                                 late final XFile? video;
@@ -565,10 +562,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 foregroundColor: videoColor,
                                 side: EzConfig.borderSide(color: EzConfig.colors.onSurface),
                               ),
-                              icon: EzIcon(
-                                Icons.circle,
-                                semanticLabel: l10n.hsStartRecord,
-                              ),
+                              icon: Icon(Icons.circle, semanticLabel: l10n.hsStartRecord),
                               iconSize: EzConfig.iconSize * 2,
                               onLongPress: camera == null ? openAppSettings : null,
                               onPressed: () async {
