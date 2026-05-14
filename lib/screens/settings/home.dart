@@ -369,7 +369,6 @@ class SettingsHomeScreen extends StatelessWidget {
                             ),
                             hint: EzConfig.l10n.gOpenLink,
                             textAlign: TextAlign.start,
-                            padding: EdgeInsets.only(left: EzConfig.marginVal),
                           ),
                           EzLink(
                             'IMMDEF Resources',
@@ -380,7 +379,6 @@ class SettingsHomeScreen extends StatelessWidget {
                             ),
                             hint: EzConfig.l10n.gOpenLink,
                             textAlign: TextAlign.start,
-                            padding: EdgeInsets.only(left: EzConfig.marginVal),
                           ),
                           EzLink(
                             'Dunk the Vote: The Black Book',
@@ -391,7 +389,6 @@ class SettingsHomeScreen extends StatelessWidget {
                             ),
                             hint: EzConfig.l10n.gOpenLink,
                             textAlign: TextAlign.start,
-                            padding: EdgeInsets.only(left: EzConfig.marginVal),
                           ),
                         ],
                       ),
