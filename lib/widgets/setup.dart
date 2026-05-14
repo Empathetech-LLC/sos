@@ -46,7 +46,7 @@ Widget lStatusIcon(LocationPermission? status) => switch (status) {
 // Setting cards //
 
 OutlinedBorder get cardShape =>
-    RoundedRectangleBorder(side: EzConfig.borderSide(), borderRadius: ezRoundEdge);
+    RoundedRectangleBorder(side: EzConfig.borderSide(), borderRadius: EzConfig.textRadius);
 
 class CameraSetup extends StatefulWidget {
   final Future<PermissionStatus> Function() initCamera;
