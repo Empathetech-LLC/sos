@@ -150,7 +150,7 @@ class _PulsingIconWidgetState extends State<SOSIcon> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) => AnimatedBuilder(
         animation: ping,
-        builder: (_, __) => EzIcon(
+        builder: (_, __) => Icon(
           ping.value < 0.5 ? Icons.notifications : Icons.notifications_active,
           semanticLabel: l10n.hsEndSOS,
         ),
