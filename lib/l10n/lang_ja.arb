@@ -1,0 +1,199 @@
+{
+  "@@locale": "ja",
+
+  "gOk": "OK",
+  "gDone": "完了",
+  "gReminder": "リマインダー",
+  "gSystem": "システム設定",
+  "gNotAgain": "次回から表示しない",
+  "gOnCloseWarning": "「閉じる時にSOS」が有効になっています。これによりSOS発信が開始されます。",
+
+
+
+  "sosLastKnown": "最終確認位置:",
+  "sosNeedSMS": "SOSにはSMS（テキストメッセージ）の権限が必要です。",
+  "sosDisabled": "位置情報にアクセスできません（無効）",
+  "sosDenied": "位置情報にアクセスできません（拒否）",
+  "sosError": "位置情報にアクセスできません（エラー）",
+
+
+
+  "hsWelcome": "InstaSOSへようこそ",
+  "hsWelcomeFix": "Insta-SOSへようこそ",
+  "hsAppIntro": "はじめに、これは「自分の権利を知る」ためのアプリです。\n以下のリストで権限を付与することで、さらに多くのツールを有効にできます。",
+  "hsAppIntroAlt": "最新の大型アップデートがありました。以下で準備が整っているか確認しましょう。",
+  "hsYourApp": "権限はいつでも変更可能です。",
+  "hsHybridTranslation": "チュートリアルと設定は機械翻訳されています。\n権利リストは人間によって翻訳されています。",
+
+  "hsCamMic": "カメラとマイク",
+  "hsAddRecording": "動画の録画を有効にします。",
+  "hsGallery": "ギャラリー",
+  "hsAddSave": "録画を保存するために必要です。",
+  "hsCameraReady": "カメラの準備が完了しました",
+  "hsCameraSetupHint": "有効にしてInsta-SOSにカメラの権限を付与します。",
+
+  "hsContacts": "連絡先",
+  "hsAddContacts": "緊急連絡先アラートを有効にする手順のパート1。",
+  "hsAddContactsIOS": "緊急連絡先アラートを有効にします。",
+  "hsContactsReady": "連絡先の準備が完了しました",
+  "hsContactsSetupHint": "有効にしてInsta-SOSに連絡先へのアクセス権限を付与します。",
+  "hsAppleContacts": "この手順はアプリの権限付与のみです。\nまだ緊急連絡先を選択するわけではありません。\n\nトラブルを避けるため、「すべて許可」にすることをお勧めします。",
+
+  "hsTexting": "テキスト送信",
+  "hsAddTexting": "緊急連絡先アラートを有効にする手順のパート2。",
+  "hsTextingReady": "テキスト送信の準備が完了しました",
+  "hsTextingSetupHint": "有効にしてInsta-SOSにメッセージ送信の権限を付与します。",
+
+  "hsLocation": "位置情報",
+  "hsUnable": "特定できません",
+  "hsAddLocation": "緊急連絡先との位置情報の共有を有効にします。",
+  "hsAddAlways": "常に許可にすることをお勧めします。もう一度押すとシステム設定が開きます。",
+  "hsLocationReady": "位置情報の準備が完了しました",
+  "hsLocationSetupHint": "有効にしてInsta-SOSに位置情報へのアクセス権限を付与します。",
+
+  "hsOneOfFour": "4つのうちの1つ目。次へ...",
+  "hsBroadcastTutorial": "SOSを有効にすると、緊急連絡先に自動でメッセージが送信されます。\n\nInstaSOSが位置情報にアクセスできる場合、メッセージに位置情報が含まれます。",
+  "hsBroadcastTutorialFix": "SOSを有効にすると、緊急連絡先に自動でメッセージが送信されます。\n\nInsta-SOSが位置情報にアクセスできる場合、メッセージに位置情報が含まれます。",
+  "hsBroadcastTutorialAndroid": "スマートフォンがロックされていてもメッセージ送信は継続されます。\n\n送信を停止するには、手動でSOSを無効にするか、アプリを完全に閉じてください。",
+  "hsTwoOfFour": "4つのうちの2つ目。次へ...",
+  "hsSettingsTutorial": "設定で以下のことができます：\n- SOS発信の設定\n- アプリの外観のカスタマイズ\n- その他のリソースやサポートへのアクセス",
+  "hsSettingsTutorialFix": "設定から、SOS発信の設定、アプリの外観のカスタマイズ、その他のリソースやサポートへのアクセスが可能です。",
+  "hsThreeOfFour": "4つのうちの3つ目。次へ...",
+  "hsVideoTutorial": "写真や動画を撮影すると、すぐに共有できます。\n\nデフォルトでは、録画が中断された場合、SOS発信が自動的に開始されます。\n\nカメラのプレビューを長押しすると、あなたの権利の表示/非表示を切り替えられます。",
+  "hsIOSVideoTutorial": "写真や動画を撮影すると、すぐに共有できます。\n\nカメラのプレビューを長押しすると、あなたの権利の表示/非表示を切り替えられます。",
+  "hsTutorialComplete": "チュートリアル完了",
+  "hsAddEMC": "SOSアラートを使用する場合は、設定ページで緊急連絡先を追加してください。",
+
+  "hsStartSOS": "有効にしてSOS発信を開始します。",
+  "hsEndSOS": "SOSを発信中です。有効にして停止します。",
+  "hsSafeCloseHint": "異常なし。SOSを発信せずにアプリを閉じます。",
+
+  "hsBroadcasting": "発信中",
+  "hsStop": "停止",
+
+  "hsCameraHint": "写真を撮ります。",
+  "hsPreviewHint": "長押しであなたの権利を表示/非表示にします。",
+  "hsShowRights": "権利を表示します。",
+  "hsHideRights": "権利を非表示にします。",
+  "hsStartRecord": "動画を録画します。",
+  "hsEndRecord": "録画を終了します。",
+  "hsFlashOff": "フラッシュオフ。有効にしてオートフラッシュをオンにします。",
+  "hsFlashAuto": "オートフラッシュ。有効にしてフラッシュをオンにします。",
+  "hsFlashOn": "フラッシュオン。有効にしてフラッシュをオフにします。",
+  "hsFlashTorch": "トーチモード。有効にしてフラッシュをオフにします。",
+  "hsNoFlash": "カメラのフラッシュが機能していません",
+
+  
+  
+  "rvSharedHeader": "",
+
+  "rvOnFoot": "",
+  "rvWhileDriving": "",
+  "rvAtHome": "",
+  
+  "rvSharedRemainSilent": "",
+  "rvSharedDocument": "",
+
+  "rvMobilePockets": "",
+  "rvMobileQuestion": "",
+  "rvMobileLeave": "",
+
+  "rvDriveSearch": "",
+  "rvDriveID": "",
+  "rvDriveWarrant": "",
+  
+  "rvHomeWarrant": "",
+
+  "rvSharedSign": "",
+  "rvSharedFingerprint": "",
+  "rvSharedLawyer": "",
+
+
+  
+  "ssAutoShare": "写真/動画の自動共有",
+
+  "ssSOS": "SOS設定",
+  "ssAppearance": "外観設定",
+
+  "ssPermissions": "権限",
+  "ssResources": "リソース",
+  "ssSupport": "サポート",
+
+
+  
+  "pmOnlyAdd": "このツールは権限の追加のみをサポートします。",
+  "pmRemoveIn": "権限を削除するには、次の場所で行えます： ",
+  "pmManualPermission": "システム設定で権限を削除した場合、復元する際もシステム設定で行う必要があります。",
+
+
+
+  "rmCommunity": "コミュニティリソース",
+  "rmGov": "米国政府のリソース",
+  "rmAffiliate": "いずれもEmpathetech LLCとは提携していません",
+  "rmAffiliateFix": "いずれもEmpathetic LLCとは提携していません",
+
+
+
+  "faqName": "よくある質問 (FAQ)",
+
+  "faqListQ": "権利リストはどのように作成されましたか？",
+  "faqListA": "権利リストは、以下を含むいくつかの公開リソースから引用されました：",
+
+  "faqSettings": "設定はどのように機能しますか？",
+  "faqAutoShareA": " はスマートフォンの組み込みの共有機能を使用します。保存された緊急連絡先（ある場合）は使用しません。共有は任意であり、いつでもキャンセルできます。",
+  "faqLinkA": " は、緊急連絡先に位置情報を送信する方法です。「Googleマップ」、「Appleマップ」、「Waze」は、各サービスのクリック可能なリンクを送信します。「座標」は、緯度と経度をプレーンテキストで送信します。",
+  "faqOnOpenA": " アプリの起動時に即座にSOS発信が開始されます。誤発信につながる可能性があるため、ほとんどのユーザーには推奨されません。",
+  "faqOnInterruptA": " 動画の録画中にInstaSOSがフォーカスを失うと、SOS発信が開始されます。フォーカスを失うとは、アプリの最小化、アプリの切り替え、画面のロックなどを指します。これか「閉じる時にSOS」のいずれか（または両方）を有効にすることをお勧めします。",
+  "faqOnInterruptAFix": " 動画の録画中にInsta-SOSがフォーカスを失うと、SOS発信が開始されます。フォーカスを失うとは、アプリの最小化、アプリの切り替え、画面のロックなどを指します。これか「閉じる時にSOS」のいずれか（または両方）を有効にすることをお勧めします。",
+
+  "faqUnavailable": "SOSで「位置情報が利用できません」と表示されますか？",
+  "faqReliability": "SOSの信頼性を向上させるには、次の場所で「常に許可」を有効にしてください： ",
+  "faqLocationPermissions": "位置情報の権限",
+  "faqLocationTrust": "このアプリは、SOS発信がアクティブな間のみ位置情報を使用します。InstaSOSもEmpathetech LLCも、ユーザーデータの追跡、保存、販売は行いません。",
+  "faqLocationTrustFix": "このアプリは、SOS発信がアクティブな間のみ位置情報を使用します。Insta-SOSもEmpathetic LLCも、ユーザーデータの追跡、保存、販売は行いません。",
+
+  "faqContactPermissions": "緊急連絡先の追加時にこのメッセージが表示される場合、InstaSOSにはその特定の連絡先にアクセスする権限がありません。",
+  "faqContactPermissionsFix": "緊急連絡先の追加時にこのメッセージが表示される場合、Insta-SOSにはその特定の連絡先にアクセスする権限がありません。",
+  "faqUpdateContacts": "次の場所で、さらに多く（またはすべて）の連絡先へのアクセスを許可できます： ",
+  "faqSplitClarity1": "連絡先へのアクセスを許可しても、その人が緊急連絡先になるわけではありません。次の場所に記載された番号のみが",
+  "faqSplitClarity2": " SOS発信中に連絡されます。",
+
+  "faqMissing": "一部のAndroid機能が不足しているのはなぜですか？",
+  "faqRestricted": "不足している機能にはSMSの自動化が必要ですが、Appleは開発者が（有料サービスなしで）テキストメッセージを自動化することを許可していません。",
+  "faqShortcuts": "iOSショートカットについてはどうですか？\nユーザーショートカットへのアクセスにも制限があり、重要な機能が損なわれるためです。主に、動画の録画が中断されるという問題があります。",
+
+  "faqLanguages": "X言語が利用できないのはなぜですか？",
+  "faqResponsible": "権利リストに機械翻訳を使用するのは無責任であると考えます。以下のことをご検討ください： ",
+  "faqContributing": "翻訳への貢献",
+  "faqExpand": " （言語オプションを増やすためのご協力をお願いします。）",
+
+  "faqReset": "チュートリアルをリセット",
+  "faqContact": "サポートに連絡",
+  "faqContactHint": "Empathetic LLCにメールを送信",
+
+
+
+  "bsEMC": "緊急連絡先",
+  "bsAddSomeone": "追加してSOSを有効にする",
+  "bsRemoveHint": "連絡先を削除",
+  "bsAddHint": "別の連絡先を追加",
+  "bsLinkType": "位置情報リンクのタイプ",
+
+  "bsSnackRequest": "緊急連絡先を追加してください",
+  "bsNeedPermission": "権限がないと連絡先を追加できません",
+  "bsPartialContacts": "AppleではInstaSOSと共有されている連絡先だけでなく、すべての連絡先が表示されます。\nさらに多くの連絡先を共有するには、次を開いてください： ",
+  "bsPartialContactsFix": "AppleではInsta-SOSと共有されている連絡先だけでなく、すべての連絡先が表示されます。\nさらに多くの連絡先を共有するには、次を開いてください： ",
+  "bsNumError": "この連絡先は非公開であるか、電話番号がありません。",
+
+  "bsSOSOnOpen": "開く時にSOS",
+  "bsSOSOnClose": "閉じる時にSOS",
+  "bsSOSOnCloseHint": "ホーム画面の設定の反対側に、安全な終了（親指を立てたマーク）ボタンが表示されます。\n安全な終了ボタンを使用せずにInstaSOSがフォーカスを失った場合（最小化、アプリ切り替え、画面オフなど）、SOS発信が開始されます。",
+  "bsSOSOnCloseHintFix": "ホーム画面の設定の反対側に、安全な終了（親指を立てたマーク）ボタンが表示されます。\n安全な終了ボタンを使用せずにInsta-SOSがフォーカスを失った場合（最小化、アプリ切り替え、画面オフなど）、SOS発信が開始されます。",
+  "bsCloseOffWarning": "意図しない発信を防ぐため、アプリは自動的に閉じます。",
+  "bsSOSOnVideo": "録画中断時にSOS",
+  
+  
+
+  "dsLadyLiberty": "自由の女神の写真と、権利リストのプレビュー。",
+  "dsShowBack": "戻るボタンを表示しますか？"
+}

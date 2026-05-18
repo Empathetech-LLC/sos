@@ -1,0 +1,199 @@
+{
+  "@@locale": "de",
+
+  "gOk": "Ok",
+  "gDone": "Fertig",
+  "gReminder": "Erinnerung",
+  "gSystem": "Systemeinstellungen",
+  "gNotAgain": "Nicht mehr anzeigen",
+  "gOnCloseWarning": "\"SOS beim Schließen\" ist aktiviert. Dies startet einen Notruf.",
+
+
+
+  "sosLastKnown": "Letzter bekannter Standort:",
+  "sosNeedSMS": "SOS benötigt SMS-Berechtigung.",
+  "sosDisabled": "Kein Zugriff auf Standort (deaktiviert)",
+  "sosDenied": "Kein Zugriff auf Standort (abgelehnt)",
+  "sosError": "Kein Zugriff auf Standort (Fehler)",
+
+
+
+  "hsWelcome": "Willkommen bei InstaSOS",
+  "hsWelcomeFix": "Willkommen bei Insta-SOS",
+  "hsAppIntro": "Zu Beginn: Dies ist nur eine App zum Kennen deiner Rechte.\nDu kannst weitere Tools aktivieren, indem du ihnen in der Liste unten die Berechtigung erteilst.",
+  "hsAppIntroAlt": "Das letzte Update war umfangreich, lass uns unten sicherstellen, dass alles bereit ist.",
+  "hsYourApp": "Du kannst deine Meinung/Berechtigungen jederzeit ändern.",
+  "hsHybridTranslation": "Das Tutorial und die Einstellungen sind maschinell übersetzt.\nDie Rechte-Liste ist menschlich übersetzt.",
+
+  "hsCamMic": "Kamera & Mikrofon",
+  "hsAddRecording": "Ermöglicht Videoaufnahmen.",
+  "hsGallery": "Galerie",
+  "hsAddSave": "Erforderlich, um deine Aufnahmen zu speichern.",
+  "hsCameraReady": "Kamera ist bereit",
+  "hsCameraSetupHint": "Aktivieren, um Insta-SOS die Berechtigung für die Kamera zu erteilen.",
+
+  "hsContacts": "Kontakte",
+  "hsAddContacts": "Teil 1 zur Aktivierung von Notfallkontakt-Warnungen.",
+  "hsAddContactsIOS": "Aktiviert Notfallkontakt-Warnungen.",
+  "hsContactsReady": "Kontakte sind bereit",
+  "hsContactsSetupHint": "Aktivieren, um Insta-SOS die Berechtigung zur Anzeige deiner Kontakte zu erteilen.",
+  "hsAppleContacts": "Dieser Schritt dient nur den App-Berechtigungen.\nDu wählst hier noch keine Notfallkontakte aus.\n\nEs wird empfohlen, alle zuzulassen, um Probleme zu vermeiden.",
+
+  "hsTexting": "SMS",
+  "hsAddTexting": "Teil 2 zur Aktivierung von Notfallkontakt-Warnungen.",
+  "hsTextingReady": "SMS ist bereit",
+  "hsTextingSetupHint": "Aktivieren, um Insta-SOS die Berechtigung zum Senden von Nachrichten zu erteilen.",
+
+  "hsLocation": "Standort",
+  "hsUnable": "Kann nicht ermittelt werden",
+  "hsAddLocation": "Ermöglicht die Standortfreigabe an Notfallkontakte.",
+  "hsAddAlways": "Es wird empfohlen, dies auf 'Immer' zu stellen. Erneut drücken, um die Systemeinstellungen zu öffnen.",
+  "hsLocationReady": "Standort ist bereit",
+  "hsLocationSetupHint": "Aktivieren, um Insta-SOS die Berechtigung zur Anzeige deines Standorts zu erteilen.",
+
+  "hsOneOfFour": "Erster von vier Schritten. Weiter...",
+  "hsBroadcastTutorial": "Aktiviere SOS, um deinen Notfallkontakten automatisch eine SMS zu senden.\n\nWenn InstaSOS Zugriff auf deinen Standort hat, wird dieser in die SMS aufgenommen.",
+  "hsBroadcastTutorialFix": "Aktiviere SOS, um deinen Notfallkontakten automatisch eine SMS zu senden.\n\nWenn Insta-SOS Zugriff auf deinen Standort hat, wird dieser in die SMS aufgenommen.",
+  "hsBroadcastTutorialAndroid": "Die SMS werden weiterhin gesendet, wenn das Telefon gesperrt ist.\n\nDeaktiviere SOS manuell oder schließe die App vollständig, um die SMS zu stoppen.",
+  "hsTwoOfFour": "Zweiter von vier Schritten. Weiter...",
+  "hsSettingsTutorial": "- Konfiguriere deinen SOS-Notruf\n- Passe das Aussehen der App an\n- Greife auf weitere Ressourcen und Support zu\n\nin den Einstellungen.",
+  "hsSettingsTutorialFix": "Du kannst deinen SOS-Notruf konfigurieren, das Aussehen der App anpassen und auf weitere Ressourcen/Support in den Einstellungen zugreifen.",
+  "hsThreeOfFour": "Dritter von vier Schritten. Weiter...",
+  "hsVideoTutorial": "Wenn du ein Foto oder Video aufnimmst, kannst du es sofort teilen.\n\nWenn eine Aufnahme unterbrochen wird, startet standardmäßig automatisch ein SOS-Notruf.\n\nHalte die Kameravorschau gedrückt, um deine Rechte ein-/auszublenden.",
+  "hsIOSVideoTutorial": "Wenn du ein Foto oder Video aufnimmst, kannst du es sofort teilen.\n\nHalte die Kameravorschau gedrückt, um deine Rechte ein-/auszublenden.",
+  "hsTutorialComplete": "Tutorial abgeschlossen",
+  "hsAddEMC": "Wenn du SOS-Warnungen verwendest, gehe bitte zu den Einstellungen und füge deine Notfallkontakte hinzu.",
+
+  "hsStartSOS": "Aktivieren, um den SOS-Notruf zu starten.",
+  "hsEndSOS": "SOS wird gesendet. Aktivieren, um zu stoppen.",
+  "hsSafeCloseHint": "Alles in Ordnung. App ohne SOS schließen.",
+
+  "hsBroadcasting": "Senden läuft",
+  "hsStop": "Stopp",
+
+  "hsCameraHint": "Mache ein Foto.",
+  "hsPreviewHint": "Gedrückt halten, um deine Rechte ein-/auszublenden.",
+  "hsShowRights": "Zeige deine Rechte.",
+  "hsHideRights": "Verberge deine Rechte.",
+  "hsStartRecord": "Ein Video aufnehmen.",
+  "hsEndRecord": "Die Aufnahme beenden.",
+  "hsFlashOff": "Blitz aus. Aktivieren, um den Auto-Blitz einzuschalten.",
+  "hsFlashAuto": "Auto-Blitz. Aktivieren, um den Blitz einzuschalten.",
+  "hsFlashOn": "Blitz an. Aktivieren, um den Blitz auszuschalten.",
+  "hsFlashTorch": "Taschenlampe. Aktivieren, um den Blitz auszuschalten.",
+  "hsNoFlash": "Kamerablitz funktioniert nicht",
+
+
+  
+  "rvSharedHeader": "",
+
+  "rvOnFoot": "",
+  "rvWhileDriving": "",
+  "rvAtHome": "",
+  
+  "rvSharedRemainSilent": "",
+  "rvSharedDocument": "",
+
+  "rvMobilePockets": "",
+  "rvMobileQuestion": "",
+  "rvMobileLeave": "",
+
+  "rvDriveSearch": "",
+  "rvDriveID": "",
+  "rvDriveWarrant": "",
+  
+  "rvHomeWarrant": "",
+
+  "rvSharedSign": "",
+  "rvSharedFingerprint": "",
+  "rvSharedLawyer": "",
+
+
+  
+  "ssAutoShare": "Bilder/Videos automatisch teilen",
+
+  "ssSOS": "SOS-Einstellungen",
+  "ssAppearance": "Darstellungseinstellungen",
+
+  "ssPermissions": "Berechtigungen",
+  "ssResources": "Ressourcen",
+  "ssSupport": "Support",
+
+
+  
+  "pmOnlyAdd": "Dieses Tool hilft nur beim Hinzufügen von Berechtigungen.",
+  "pmRemoveIn": "Du kannst Berechtigungen entfernen in den ",
+  "pmManualPermission": "Wenn du Berechtigungen in den Systemeinstellungen entfernst, müssen sie auch dort wiederhergestellt werden.",
+
+
+
+  "rmCommunity": "Community-Ressourcen",
+  "rmGov": "US-Regierungsressourcen",
+  "rmAffiliate": "Keine davon ist mit Empathetech LLC verbunden",
+  "rmAffiliateFix": "Keine davon ist mit Empathetic LLC verbunden",
+
+
+
+  "faqName": "FAQ",
+
+  "faqListQ": "Wie wurde die Rechte-Liste erstellt?",
+  "faqListA": "Die Liste der Rechte wurde aus mehreren öffentlichen Ressourcen entnommen, darunter:",
+
+  "faqSettings": "Wie funktionieren die Einstellungen?",
+  "faqAutoShareA": " verwendet die integrierte Teilen-Funktion deines Telefons. Es verwendet nicht deine gespeicherten Notfallkontakte (falls vorhanden). Das Teilen ist optional und kann jederzeit abgebrochen werden.",
+  "faqLinkA": " wie dein Standort an deine Notfallkontakte gesendet wird. \"Google Maps\", \"Apple Maps\" und \"Waze\" senden einen klickbaren Link für den entsprechenden Dienst. \"Koordinaten\" senden deinen Breiten- und Längengrad als reinen Text.",
+  "faqOnOpenA": " Ein SOS-Notruf beginnt sofort beim Start der App. Für die meisten Benutzer nicht empfohlen, da dies zu versehentlichen Notrufen führen könnte.",
+  "faqOnInterruptA": " Wenn ein Video aufgenommen wird und InstaSOS den Fokus verliert, beginnt ein SOS-Notruf. Fokusverlust bedeutet: Minimieren der App, Wechseln der App und/oder Sperren des Bildschirms. Es wird empfohlen, entweder dies oder \"SOS beim Schließen\" (oder beides) zu aktivieren.",
+  "faqOnInterruptAFix": " Wenn ein Video aufgenommen wird und Insta-SOS den Fokus verliert, beginnt ein SOS-Notruf. Fokusverlust bedeutet: Minimieren der App, Wechseln der App und/oder Sperren des Bildschirms. Es wird empfohlen, entweder dies oder \"SOS beim Schließen\" (oder beides) zu aktivieren.",
+
+  "faqUnavailable": "SOS meldet \"Standort nicht verfügbar\"?",
+  "faqReliability": "Um die SOS-Zuverlässigkeit zu verbessern, aktiviere bitte \"Immer zulassen\" in den ",
+  "faqLocationPermissions": "Standortberechtigungen",
+  "faqLocationTrust": "Die App verwendet deinen Standort nur, während ein SOS-Notruf aktiv ist. Weder InstaSOS noch Empathetech LLC verfolgen, speichern oder verkaufen Benutzerdaten.",
+  "faqLocationTrustFix": "Die App verwendet deinen Standort nur, während ein SOS-Notruf aktiv ist. Weder Insta-SOS noch Empathetic LLC verfolgen, speichern oder verkaufen Benutzerdaten.",
+
+  "faqContactPermissions": "Wenn du diese Nachricht erhältst, während du einen Notfallkontakt hinzufügst, hat InstaSOS keine Berechtigung, auf diesen bestimmten Kontakt zuzugreifen.",
+  "faqContactPermissionsFix": "Wenn du diese Nachricht erhältst, während du einen Notfallkontakt hinzufügst, hat Insta-SOS keine Berechtigung, auf diesen bestimmten Kontakt zuzugreifen.",
+  "faqUpdateContacts": "Du kannst den Zugriff auf weitere (oder alle) Kontakte gewähren in den ",
+  "faqSplitClarity1": "Den Zugriff auf einen Kontakt zu gewähren, macht ihn nicht zu einem Notfallkontakt. Nur die Nummern, die aufgeführt sind in den ",
+  "faqSplitClarity2": " werden während eines SOS-Notrufs kontaktiert.",
+
+  "faqMissing": "Warum fehlen einige Android-Funktionen?",
+  "faqRestricted": "Die fehlenden Funktionen erfordern SMS-Automatisierung, und Apple erlaubt Entwicklern nicht, Textnachrichten zu automatisieren (ohne einen kostenpflichtigen Dienst).",
+  "faqShortcuts": "Was ist mit iOS-Kurzbefehlen?\nEs gibt auch Einschränkungen für den Zugriff auf Benutzerkurzbefehle, was wichtige Funktionen beeinträchtigen würde. Vor allem: Es würde Videoaufnahmen unterbrechen.",
+
+  "faqLanguages": "Warum ist die Sprache X nicht verfügbar?",
+  "faqResponsible": "Es wäre unverantwortlich, maschinelle Übersetzung für die Rechte-Liste zu verwenden. Bitte ziehe in Betracht, ",
+  "faqContributing": "dazu beizutragen",
+  "faqExpand": " , um zu helfen, die Sprachoptionen zu erweitern.",
+
+  "faqReset": "Tutorial zurücksetzen",
+  "faqContact": "Support kontaktieren",
+  "faqContactHint": "E-Mail an Empathetic LLC senden",
+
+
+
+  "bsEMC": "Notfallkontakte",
+  "bsAddSomeone": "Jemanden hinzufügen, um SOS zu aktivieren",
+  "bsRemoveHint": "Kontakt entfernen",
+  "bsAddHint": "Weiteren Kontakt hinzufügen",
+  "bsLinkType": "Standort-Link-Typ",
+
+  "bsSnackRequest": "Bitte füge Notfallkontakte hinzu",
+  "bsNeedPermission": "Kontakte können ohne Berechtigung nicht hinzugefügt werden",
+  "bsPartialContacts": "Apple zeigt alle Kontakte an, nicht nur die, die für InstaSOS freigegeben sind.\nUm weitere Kontakte freizugeben, öffne die ",
+  "bsPartialContactsFix": "Apple zeigt alle Kontakte an, nicht nur die, die für Insta-SOS freigegeben sind.\nUm weitere Kontakte freizugeben, öffne die ",
+  "bsNumError": "Dieser Kontakt ist privat oder hat keine Telefonnummer.",
+
+  "bsSOSOnOpen": "SOS beim Öffnen",
+  "bsSOSOnClose": "SOS beim Schließen",
+  "bsSOSOnCloseHint": "Eine Schaltfläche für sicheres Schließen (Daumen hoch) wird auf der Startseite gegenüber den Einstellungen angezeigt.\nWenn InstaSOS den Fokus aus einem anderen Grund als der Schaltfläche zum sicheren Schließen verliert (minimiert, Apps gewechselt, Bildschirm aus), beginnt ein SOS-Notruf.",
+  "bsSOSOnCloseHintFix": "Eine Schaltfläche für sicheres Schließen (Daumen hoch) wird auf der Startseite gegenüber den Einstellungen angezeigt.\nWenn Insta-SOS den Fokus aus einem anderen Grund als der Schaltfläche zum sicheren Schließen verliert (minimiert, Apps gewechselt, Bildschirm aus), beginnt ein SOS-Notruf.",
+  "bsCloseOffWarning": "Die App wird automatisch geschlossen, um unbeabsichtigte Notrufe zu verhindern.",
+  "bsSOSOnVideo": "SOS bei unterbrochener Aufnahme",
+  
+  
+
+  "dsLadyLiberty": "Ein Bild der Freiheitsstatue mit einer Vorschau der Rechte-Liste.",
+  "dsShowBack": "Zurück-Button anzeigen?"
+}

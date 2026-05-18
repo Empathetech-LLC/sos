@@ -1,0 +1,199 @@
+{
+  "@@locale": "sw",
+
+  "gOk": "Sawa",
+  "gDone": "Tayari",
+  "gReminder": "Kikumbusho",
+  "gSystem": "Mipangilio ya mfumo",
+  "gNotAgain": "Usionyeshe tena",
+  "gOnCloseWarning": "\"SOS unapofunga\" imewashwa. Hii itaanzisha tangazo.",
+
+
+
+  "sosLastKnown": "eneo la mwisho linalojulikana:",
+  "sosNeedSMS": "SOS inahitaji ruhusa ya SMS (kutuma ujumbe).",
+  "sosDisabled": "Haiwezi kufikia eneo (imezimwa)",
+  "sosDenied": "Haiwezi kufikia eneo (imekataliwa)",
+  "sosError": "Haiwezi kufikia eneo (hitilafu)",
+
+
+
+  "hsWelcome": "Karibu kwenye InstaSOS",
+  "hsWelcomeFix": "Karibu kwenye Insta-SOS",
+  "hsAppIntro": "Kuanza, hii ni programu ya Jua Haki Zako pekee.\nUnaweza kuwezesha zana zaidi kwa kuzipa ruhusa katika orodha iliyo hapa chini.",
+  "hsAppIntroAlt": "Sasisho la hivi karibuni lilikuwa kubwa, hebu tuhakikishe kila kitu kiko tayari hapa chini.",
+  "hsYourApp": "Unaweza kubadilisha nia/ruhusa zako wakati wowote.",
+  "hsHybridTranslation": "Mafunzo na mipangilio imetafsiriwa na mashine.\nOrodha ya haki imetafsiriwa na binadamu.",
+
+  "hsCamMic": "Kamera na Maikrofoni",
+  "hsAddRecording": "Huwezesha kurekodi video.",
+  "hsGallery": "Matunzio",
+  "hsAddSave": "Inahitajika ili kuhifadhi rekodi zako.",
+  "hsCameraReady": "Kamera iko tayari",
+  "hsCameraSetupHint": "Washa ili kupa Insta-SOS ruhusa kwenye kamera.",
+
+  "hsContacts": "Wasiliani",
+  "hsAddContacts": "Sehemu ya 1 ya kuwezesha arifa za dharura kwa wasiliani.",
+  "hsAddContactsIOS": "Huwezesha arifa za dharura kwa wasiliani.",
+  "hsContactsReady": "Wasiliani wako tayari",
+  "hsContactsSetupHint": "Washa ili kupa Insta-SOS ruhusa ya kutazama wasiliani wako.",
+  "hsAppleContacts": "Hatua hii ni kwa ajili ya ruhusa za programu pekee.\nBado huchagui wasiliani wa dharura.\n\nInapendekezwa kuruhusu wote ili kupunguza usumbufu.",
+
+  "hsTexting": "Kutuma ujumbe",
+  "hsAddTexting": "Sehemu ya 2 ya kuwezesha arifa za dharura kwa wasiliani.",
+  "hsTextingReady": "Kutuma ujumbe kuko tayari",
+  "hsTextingSetupHint": "Washa ili kupa Insta-SOS ruhusa ya kutuma ujumbe.",
+
+  "hsLocation": "Eneo",
+  "hsUnable": "Imeshindwa kutambua",
+  "hsAddLocation": "Huwezesha kushiriki eneo na wasiliani wa dharura.",
+  "hsAddAlways": "Inapendekezwa kuwezesha kila wakati. Bonyeza tena ili kufungua Mipangilio ya Mfumo.",
+  "hsLocationReady": "Eneo liko tayari",
+  "hsLocationSetupHint": "Washa ili kupa Insta-SOS ruhusa ya kutazama eneo lako.",
+
+  "hsOneOfFour": "Ya kwanza kati ya nne. Endelea...",
+  "hsBroadcastTutorial": "Washa SOS ili kutuma ujumbe kiotomatiki kwa wasiliani wako wa dharura.\n\nWakati InstaSOS ina idhini ya kufikia eneo lako, litajumuishwa kwenye ujumbe.",
+  "hsBroadcastTutorialFix": "Washa SOS ili kutuma ujumbe kiotomatiki kwa wasiliani wako wa dharura.\n\nWakati Insta-SOS ina idhini ya kufikia eneo lako, litajumuishwa kwenye ujumbe.",
+  "hsBroadcastTutorialAndroid": "Ujumbe utaendelea wakati simu imefungwa.\n\nZima SOS wewe mwenyewe au funga programu kabisa ili kusimamisha ujumbe.",
+  "hsTwoOfFour": "Ya pili kati ya nne. Endelea...",
+  "hsSettingsTutorial": "- Sanidi utangazaji wako wa SOS\n- Geuza kukufaa mwonekano wa programu\n- Fikia nyenzo na usaidizi zaidi\n\nkwenye mipangilio.",
+  "hsSettingsTutorialFix": "Unaweza kusanidi utangazaji wako wa SOS, kugeuza kukufaa mwonekano wa programu, na kufikia nyenzo/usaidizi zaidi kwenye mipangilio.",
+  "hsThreeOfFour": "Ya tatu kati ya nne. Endelea...",
+  "hsVideoTutorial": "Unapopiga picha au kurekodi video, unaweza kuishiriki mara moja.\n\nKwa chaguo-msingi, ikiwa kurekodi kutakatizwa, tangazo la SOS litaanza kiotomatiki.\n\nBonyeza kwa muda mrefu onyesho la kukagua la kamera ili kuonyesha/kuficha haki zako.",
+  "hsIOSVideoTutorial": "Unapopiga picha au kurekodi video, unaweza kuishiriki mara moja.\n\nBonyeza kwa muda mrefu onyesho la kukagua la kamera ili kuonyesha/kuficha haki zako.",
+  "hsTutorialComplete": "Mafunzo yamekamilika",
+  "hsAddEMC": "Ikiwa unatumia arifa za SOS, tafadhali nenda kwenye ukurasa wa mipangilio na uongeze wasiliani wako wa dharura.",
+
+  "hsStartSOS": "Washa ili kuanzisha tangazo la SOS.",
+  "hsEndSOS": "SOS inatangaza. Washa ili kusimamisha.",
+  "hsSafeCloseHint": "Shwari kabisa. Funga programu bila SOS.",
+
+  "hsBroadcasting": "Inatangaza",
+  "hsStop": "Simamisha",
+
+  "hsCameraHint": "Piga picha.",
+  "hsPreviewHint": "Bonyeza kwa muda mrefu ili kuonyesha/kuficha haki zako.",
+  "hsShowRights": "Onyesha haki zako.",
+  "hsHideRights": "Ficha haki zako.",
+  "hsStartRecord": "Rekodi video.",
+  "hsEndRecord": "Maliza kurekodi.",
+  "hsFlashOff": "Mwangaza Umezimwa. Washa ili kuwasha mwangaza kiotomatiki.",
+  "hsFlashAuto": "Mwangaza kiotomatiki. Washa ili kuwasha mwangaza.",
+  "hsFlashOn": "Mwangaza umewashwa. Washa ili kuzima mwangaza.",
+  "hsFlashTorch": "Hali ya tochi. Washa ili kuzima mwangaza.",
+  "hsNoFlash": "Mwangaza wa kamera haufanyi kazi",
+
+
+  
+  "rvSharedHeader": "",
+
+  "rvOnFoot": "",
+  "rvWhileDriving": "",
+  "rvAtHome": "",
+  
+  "rvSharedRemainSilent": "",
+  "rvSharedDocument": "",
+
+  "rvMobilePockets": "",
+  "rvMobileQuestion": "",
+  "rvMobileLeave": "",
+
+  "rvDriveSearch": "",
+  "rvDriveID": "",
+  "rvDriveWarrant": "",
+  
+  "rvHomeWarrant": "",
+
+  "rvSharedSign": "",
+  "rvSharedFingerprint": "",
+  "rvSharedLawyer": "",
+
+
+  
+  "ssAutoShare": "Shiriki picha/video kiotomatiki",
+
+  "ssSOS": "Mipangilio ya SOS",
+  "ssAppearance": "Mipangilio ya mwonekano",
+
+  "ssPermissions": "Ruhusa",
+  "ssResources": "Nyenzo",
+  "ssSupport": "Usaidizi",
+
+
+  
+  "pmOnlyAdd": "Zana hii inasaidia tu kuongeza ruhusa.",
+  "pmRemoveIn": "Unaweza kuondoa ruhusa katika ",
+  "pmManualPermission": "Ukiondoa ruhusa katika mipangilio ya mfumo, lazima zirejeshwe hapo pia.",
+
+
+
+  "rmCommunity": "Nyenzo za jamii",
+  "rmGov": "Nyenzo za serikali ya Marekani",
+  "rmAffiliate": "Hakuna inayohusishwa na Empathetech LLC",
+  "rmAffiliateFix": "Hakuna inayohusishwa na Empathetic LLC",
+
+
+
+  "faqName": "Maswali Yanayoulizwa Mara kwa Mara",
+
+  "faqListQ": "Orodha ya haki ilitengenezwaje?",
+  "faqListA": "Orodha ya haki ilichukuliwa kutoka kwa nyenzo kadhaa za umma, ikiwa ni pamoja na:",
+
+  "faqSettings": "Mipangilio inafanyaje kazi?",
+  "faqAutoShareA": " inatumia kipengele cha kushiriki kilichojengewa ndani ya simu yako. Haitumii wasiliani wako wa dharura uliohifadhiwa (kama wapo). Kushiriki ni kwa hiari na kunaweza kufutwa wakati wowote.",
+  "faqLinkA": " jinsi eneo lako litakavyowasilishwa kwa wasiliani wako wa dharura. \"Google Maps\", \"Apple Maps\", na \"Waze\" zitatuma kiungo kinachoweza kubofanywa kwa huduma husika. \"Coordinates\" itatuma latitudo na longitudo yako kama maandishi ya kawaida.",
+  "faqOnOpenA": " tangazo la SOS litaanza mara moja unapofungua programu. Haipendekezwi kwa watumiaji wengi, kwani inaweza kusababisha matangazo kwa bahati mbaya.",
+  "faqOnInterruptA": " ikiwa video inarekodiwa na InstaSOS inakatizwa, tangazo la SOS litaanza. Kukatizwa maana yake ni: kupunguza programu, kubadilisha programu, na/au kufunga skrini. Inapendekezwa kuwezesha hii au \"SOS unapofunga\" (au zote mbili).",
+  "faqOnInterruptAFix": " ikiwa video inarekodiwa na Insta-SOS inakatizwa, tangazo la SOS litaanza. Kukatizwa maana yake ni: kupunguza programu, kubadilisha programu, na/au kufunga skrini. Inapendekezwa kuwezesha hii au \"SOS unapofunga\" (au zote mbili).",
+
+  "faqUnavailable": "SOS inasema \"Eneo halipatikani\"?",
+  "faqReliability": "Ili kuboresha utegemezi wa SOS, tafadhali wezesha \"Ruhusu wakati wote\" katika ",
+  "faqLocationPermissions": "ruhusa za eneo",
+  "faqLocationTrust": "Programu inatumia tu eneo lako wakati tangazo la SOS linaendelea. Wala InstaSOS au Empathetech LLC haifuatilii, haihifadhi, au kuuza data ya mtumiaji.",
+  "faqLocationTrustFix": "Programu inatumia tu eneo lako wakati tangazo la SOS linaendelea. Wala Insta-SOS au Empathetic LLC haifuatilii, haihifadhi, au kuuza data ya mtumiaji.",
+
+  "faqContactPermissions": "Ukipata ujumbe huu wakati wa kuongeza mwasiliani wa dharura, InstaSOS haina ruhusa ya kufikia mwasiliani huyo mahususi.",
+  "faqContactPermissionsFix": "Ukipata ujumbe huu wakati wa kuongeza mwasiliani wa dharura, Insta-SOS haina ruhusa ya kufikia mwasiliani huyo mahususi.",
+  "faqUpdateContacts": "Unaweza kutoa idhini ya kufikia wasiliani zaidi (au wote) katika ",
+  "faqSplitClarity1": "Kutoa idhini ya kufikia mwasiliani hakumfanyi kuwa mwasiliani wa dharura. Ni nambari tu zilizoorodheshwa katika ",
+  "faqSplitClarity2": " zitawasiliana nazo wakati wa tangazo la SOS.",
+
+  "faqMissing": "Kwa nini baadhi ya vipengele vya Android havipo?",
+  "faqRestricted": "Vipengele ambavyo havipo vinahitaji otomatiki ya SMS, na Apple hairuhusu wasanidi programu kufanya ujumbe wa maandishi kuwa wa kiotomatiki (bila huduma ya kulipia).",
+  "faqShortcuts": "Vipi kuhusu njia za mkato za iOS?\nPia kuna vizuizi vya kufikia njia za mkato za mtumiaji, ambazo zingeharibu vipengele muhimu. Kimsingi: ingekatiza kurekodi video.",
+
+  "faqLanguages": "Kwa nini lugha X haipatikani?",
+  "faqResponsible": "Ingekuwa kutowajibika kutumia tafsiri ya mashine kwa orodha ya haki. Tafadhali fikiria ",
+  "faqContributing": "kuchangia",
+  "faqExpand": " ili kusaidia kupanua chaguo za lugha.",
+
+  "faqReset": "Weka upya mafunzo",
+  "faqContact": "Wasiliana na usaidizi",
+  "faqContactHint": "Tuma barua pepe kwa Empathetic LLC",
+
+
+
+  "bsEMC": "Wasiliani wa dharura",
+  "bsAddSomeone": "Ongeza mtu ili kuwezesha SOS",
+  "bsRemoveHint": "Ondoa mwasiliani",
+  "bsAddHint": "Ongeza mwasiliani mwingine",
+  "bsLinkType": "Aina ya kiungo cha eneo",
+
+  "bsSnackRequest": "Tafadhali ongeza wasiliani wa dharura",
+  "bsNeedPermission": "Huwezi kuongeza wasiliani bila ruhusa",
+  "bsPartialContacts": "Apple itaonyesha wasiliani wote, si tu wale walioshirikiwa na InstaSOS.\nIli kushiriki wasiliani zaidi, fungua ",
+  "bsPartialContactsFix": "Apple itaonyesha wasiliani wote, si tu wale walioshirikiwa na Insta-SOS.\nIli kushiriki wasiliani zaidi, fungua ",
+  "bsNumError": "Mwasiliani huyu ni wa faragha au hana nambari ya simu.",
+
+  "bsSOSOnOpen": "SOS unapofungua",
+  "bsSOSOnClose": "SOS unapofunga",
+  "bsSOSOnCloseHint": "Kitufe salama cha kufunga (kidole gumba juu) kitaonekana kwenye ukurasa wa nyumbani, kinyume na mipangilio.\nIkiwa InstaSOS itakatizwa kwa sababu yoyote isipokuwa kitufe salama cha kufunga (kupunguzwa, kubadilishwa programu, skrini kuzima), tangazo la SOS litaanza.",
+  "bsSOSOnCloseHintFix": "Kitufe salama cha kufunga (kidole gumba juu) kitaonekana kwenye ukurasa wa nyumbani, kinyume na mipangilio.\nIkiwa Insta-SOS itakatizwa kwa sababu yoyote isipokuwa kitufe salama cha kufunga (kupunguzwa, kubadilishwa programu, skrini kuzima), tangazo la SOS litaanza.",
+  "bsCloseOffWarning": "Programu itajifunga yenyewe ili kuzuia matangazo yasiyokusudiwa.",
+  "bsSOSOnVideo": "SOS kwenye kurekodi kulikokatizwa",
+  
+  
+
+  "dsLadyLiberty": "Picha ya Sanamu ya Uhuru, na onyesho la kukagua la orodha ya haki.",
+  "dsShowBack": "Onyesha kitufe cha nyuma?"
+}
