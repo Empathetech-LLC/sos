@@ -1,8 +1,6 @@
 {
   "@@locale": "ht",
 
-
-
   "gOk": "Ok",
   "gDone": "Fini",
   "gReminder": "Rapèl",
@@ -121,6 +119,8 @@
   "ssResources": "Resous yo",
   "ssSupport": "Sipò",
 
+
+  
   "pmOnlyAdd": "Zouti sa a sèlman ede ajoute pèmisyon.",
   "pmRemoveIn": "Ou ka retire pèmisyon nan ",
   "pmManualPermission": "Si w retire pèmisyon nan anviwònman sistèm nan, ou dwe remete yo la tou.",

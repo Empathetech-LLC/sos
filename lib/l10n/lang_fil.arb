@@ -1,8 +1,6 @@
 {
   "@@locale": "fil",
 
-
-
   "gOk": "Ok",
   "gDone": "Tapos na",
   "gReminder": "Paalala",
@@ -134,6 +132,8 @@
   "rmAffiliate": "Wala sa mga ito ang may kaugnayan sa Empathetech LLC",
   "rmAffiliateFix": "Wala sa mga ito ang may kaugnayan sa Empathetic LLC",
 
+
+  
   "faqName": "Mga FAQ",
 
   "faqListQ": "Paano ginawa ang listahan ng mga karapatan?",

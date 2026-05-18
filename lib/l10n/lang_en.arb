@@ -1,8 +1,6 @@
 {
   "@@locale": "en",
 
-  
-  
   "gOk": "Ok",
   "gDone": "Done",
   "gReminder": "Reminder",
@@ -85,6 +83,8 @@
   "hsFlashTorch": "Torch mode. Activate to turn flash off.",
   "hsNoFlash": "Camera flash not working",
 
+
+  
   "rvSharedHeader": "You have the right to...",
 
   "rvOnFoot": "On foot",

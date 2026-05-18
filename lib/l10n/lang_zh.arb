@@ -1,7 +1,5 @@
 {
   "@@locale": "zh",
-
-  
   
   "gOk": "确定",
   "gDone": "完成",
@@ -121,6 +119,8 @@
   "ssResources": "资源",
   "ssSupport": "支持",
 
+
+  
   "pmOnlyAdd": "此工具仅用于添加权限。",
   "pmRemoveIn": "您可以在以下位置移除权限：",
   "pmManualPermission": "如果您在系统设置中移除了权限，也必须在那里恢复它们。",
