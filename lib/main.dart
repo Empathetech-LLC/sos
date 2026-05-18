@@ -11,7 +11,6 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
-import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 
 void main() async {
   // Configure the app //
@@ -60,14 +59,7 @@ class SOS extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => EzConfigurableApp(
-        localizationsDelegates: <LocalizationsDelegate<dynamic>>{
-          const LocaleNamesLocalizationsDelegate(),
-          ...EFUILang.localizationsDelegates,
-          ...Lang.localizationsDelegates,
-          CreoleMaterialLocalizations.delegate,
-          CreoleCupertinoLocalizations.delegate,
-          const CreoleWidgetsLocalizationsDelegate(),
-        },
+        localizationsDelegates: ezLocalizationsDelegates(Lang.localizationsDelegates),
         supportedLocales: Lang.supportedLocales,
         locale: storedLocale,
         el10n: storedEFUILang,

@@ -62,10 +62,7 @@ class SettingsHomeScreen extends StatelessWidget {
           Center(
             child: EzScrollView(children: <Widget>[
               // Language
-              EzLocaleSetting(
-                locales: Lang.supportedLocales,
-                skip: <Locale>{arabic, english, chinese}, // Dupes
-              ),
+              const EzLocaleSetting(),
               EzConfig.separator,
 
               // Auto-share media
