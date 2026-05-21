@@ -230,52 +230,61 @@ class LangHi extends Lang {
   String get hsNoFlash => 'कैमरा फ़्लैश काम नहीं कर रहा है';
 
   @override
-  String get rvSharedHeader => '';
+  String get rvSharedHeader => 'आपको यह अधिकार है कि...';
 
   @override
-  String get rvOnFoot => '';
+  String get rvOnFoot => 'पैदल चलते समय';
 
   @override
-  String get rvWhileDriving => '';
+  String get rvWhileDriving => 'गाड़ी चलाते समय';
 
   @override
-  String get rvAtHome => '';
+  String get rvAtHome => 'घर पर';
 
   @override
-  String get rvSharedRemainSilent => '';
+  String get rvSharedRemainSilent =>
+      'चुप रहें। झूठ न बोलें, लेकिन आपके लिए सवालों का जवाब देना ज़रूरी नहीं है।';
 
   @override
-  String get rvSharedDocument => '';
+  String get rvSharedDocument =>
+      'हर चीज़ का रिकॉर्ड रखें। आपको तस्वीरें लेने, वीडियो रिकॉर्ड करने और ऑडियो रिकॉर्ड करने का अधिकार है।';
 
   @override
-  String get rvMobilePockets => '';
+  String get rvMobilePockets =>
+      'अपनी जेबों की तलाशी लेने देने से मना करें। ICE केवल ऊपर से तलाशी ले सकता है, लेकिन पूरी तलाशी नहीं।';
 
   @override
-  String get rvMobileQuestion => '';
+  String get rvMobileQuestion => 'सवाल पूछें। जानें कि आपको क्यों रोका गया है।';
 
   @override
-  String get rvMobileLeave => '';
+  String get rvMobileLeave =>
+      'अगर आपको हिरासत में नहीं लिया गया है, तो वहाँ से चले जाएँ।';
 
   @override
-  String get rvDriveSearch => '';
+  String get rvDriveSearch => 'अपनी गाड़ी की तलाशी देने से मना करें।';
 
   @override
-  String get rvDriveID => '';
+  String get rvDriveID =>
+      'अगर आप यात्री हैं, तो पहचान पत्र देने से मना करें। केवल ड्राइवर के लिए पहचान पत्र देना ज़रूरी है।';
 
   @override
-  String get rvDriveWarrant => '';
+  String get rvDriveWarrant =>
+      'पूछें कि क्या अधिकारियों के पास वारंट है। अगर है, तो आपको उसे देखने का अधिकार है। अगर किसी \"वारंट\" पर जज के हस्ताक्षर नहीं हैं, तो वह मान्य नहीं है।';
 
   @override
-  String get rvHomeWarrant => '';
+  String get rvHomeWarrant =>
+      'दरवाज़ा बंद रखें। अगर उनके पास वारंट है, तो पहले उसे दरवाज़े के नीचे से सरकाने के लिए कहें। अगर किसी \"वारंट\" पर जज के हस्ताक्षर नहीं हैं, तो वह मान्य नहीं है। दरवाज़ा बंद रखें।';
 
   @override
-  String get rvSharedSign => '';
+  String get rvSharedSign => 'किसी भी दस्तावेज़ पर हस्ताक्षर करने से मना करें।';
 
   @override
-  String get rvSharedFingerprint => '';
+  String get rvSharedFingerprint =>
+      'जब तक आपको गिरफ्तार नहीं किया गया है, तब तक ICE को अपनी उंगलियों के निशान देने से मना करें।';
 
   @override
-  String get rvSharedLawyer => '';
+  String get rvSharedLawyer =>
+      'वकील से सलाह लेने का अधिकार। अगर आपको औपचारिक रूप से गिरफ्तार किया गया है, तो आपको अदालत द्वारा नियुक्त वकील पाने का अधिकार है।';
 
   @override
   String get ssAutoShare => 'चित्र/वीडियो ऑटो-शेयर करें';

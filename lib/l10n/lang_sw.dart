@@ -233,52 +233,60 @@ class LangSw extends Lang {
   String get hsNoFlash => 'Mwangaza wa kamera haufanyi kazi';
 
   @override
-  String get rvSharedHeader => '';
+  String get rvSharedHeader => 'Una haki ya...';
 
   @override
-  String get rvOnFoot => '';
+  String get rvOnFoot => 'Kwa miguu';
 
   @override
-  String get rvWhileDriving => '';
+  String get rvWhileDriving => 'Wakati wa kuendesha gari';
 
   @override
-  String get rvAtHome => '';
+  String get rvAtHome => 'Nyumbani';
 
   @override
-  String get rvSharedRemainSilent => '';
+  String get rvSharedRemainSilent =>
+      'Kaa kimya. Usidanganye, lakini sio lazima ujibu maswali.';
 
   @override
-  String get rvSharedDocument => '';
+  String get rvSharedDocument =>
+      'Andika kila kitu. Una haki ya kupiga picha, kurekodi video na kurekodi sauti.';
 
   @override
-  String get rvMobilePockets => '';
+  String get rvMobilePockets =>
+      'Kataa utafutaji wa mifuko yako. ICE inaweza kujibu, lakini sio utafutaji.';
 
   @override
-  String get rvMobileQuestion => '';
+  String get rvMobileQuestion => 'Uliza maswali. Jua kwa nini unazuiwa.';
 
   @override
-  String get rvMobileLeave => '';
+  String get rvMobileLeave => 'Ondoka ikiwa huna kizuizini.';
 
   @override
-  String get rvDriveSearch => '';
+  String get rvDriveSearch => 'Kataa utafutaji wa gari lako.';
 
   @override
-  String get rvDriveID => '';
+  String get rvDriveID =>
+      'Kataa kutoa kitambulisho kama abiria. Dereva pekee ndiye anayehitajika kutoa kitambulisho.';
 
   @override
-  String get rvDriveWarrant => '';
+  String get rvDriveWarrant =>
+      'Uliza ikiwa maafisa wana hati. Una haki ya kuiona ikiwa watafanya. Ikiwa \"hati\" haijatiwa saini na hakimu, si halali.';
 
   @override
-  String get rvHomeWarrant => '';
+  String get rvHomeWarrant =>
+      'Ufunge mlango. Ikiwa wana hati, waambie waiteremshe chini ya mlango kwanza. Ikiwa \"hati\" haijatiwa saini na hakimu, si halali. Funga mlango wako.';
 
   @override
-  String get rvSharedSign => '';
+  String get rvSharedSign => 'Kataa kusaini chochote.';
 
   @override
-  String get rvSharedFingerprint => '';
+  String get rvSharedFingerprint =>
+      'Kataa kuchukuliwa alama za vidole na ICE isipokuwa kama umekamatwa.';
 
   @override
-  String get rvSharedLawyer => '';
+  String get rvSharedLawyer =>
+      'Kushauriana na mwanasheria. Ikiwa umekamatwa rasmi, una haki ya kuwa na wakili aliyeteuliwa na mahakama.';
 
   @override
   String get ssAutoShare => 'Shiriki picha/video kiotomatiki';

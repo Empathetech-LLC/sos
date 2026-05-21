@@ -85,28 +85,28 @@
 
   
   
-  "rvSharedHeader": "",
+  "rvSharedHeader": "あなたには以下の権利があります...",
 
-  "rvOnFoot": "",
-  "rvWhileDriving": "",
-  "rvAtHome": "",
+  "rvOnFoot": "徒歩中",
+  "rvWhileDriving": "運転中",
+  "rvAtHome": "自宅にいるとき",
   
-  "rvSharedRemainSilent": "",
-  "rvSharedDocument": "",
+  "rvSharedRemainSilent": "黙秘する。嘘をつく必要はありませんが、質問に答える義務もありません。",
+  "rvSharedDocument": "すべてを記録する。写真撮影、動画録画、音声録音を行う権利があります。",
 
-  "rvMobilePockets": "",
-  "rvMobileQuestion": "",
-  "rvMobileLeave": "",
+  "rvMobilePockets": "ポケットの捜索を拒否する。ICEはボディチェックはできますが、ポケットの中を捜索することはできません。",
+  "rvMobileQuestion": "質問する。なぜ停止させられているのか確認しましょう。",
+  "rvMobileLeave": "拘束されていない場合は立ち去ることができます。",
 
-  "rvDriveSearch": "",
-  "rvDriveID": "",
-  "rvDriveWarrant": "",
-  
-  "rvHomeWarrant": "",
+  "rvDriveSearch": "車の捜索を拒否する。",
+  "rvDriveID": "同乗者としてIDの提示を拒否する。IDの提示が義務付けられているのは運転者のみです。",
+  "rvDriveWarrant": "令状を持っているか確認する。持っている場合は提示を求める権利があります。裁判官の署名がない「令状」は無効です。",
 
-  "rvSharedSign": "",
-  "rvSharedFingerprint": "",
-  "rvSharedLawyer": "",
+  "rvHomeWarrant": "ドアを閉めたままにする。令状がある場合は、先にドアの下から滑り込ませるよう求めてください。裁判官の署名がない「令状」は無効です。ドアは閉めたままにしてください。",
+
+  "rvSharedSign": "何にも署名しない。",
+  "rvSharedFingerprint": "逮捕されていない限り、ICEによる指紋採取を拒否する。",
+  "rvSharedLawyer": "弁護士に相談する。正式に逮捕された場合、国選弁護人が付く権利があります。",
 
 
   

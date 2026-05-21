@@ -239,52 +239,61 @@ class LangRu extends Lang {
   String get hsNoFlash => 'Вспышка камеры не работает';
 
   @override
-  String get rvSharedHeader => '';
+  String get rvSharedHeader => 'У вас есть право...';
 
   @override
-  String get rvOnFoot => '';
+  String get rvOnFoot => 'Пешком';
 
   @override
-  String get rvWhileDriving => '';
+  String get rvWhileDriving => 'За рулём';
 
   @override
-  String get rvAtHome => '';
+  String get rvAtHome => 'Дома';
 
   @override
-  String get rvSharedRemainSilent => '';
+  String get rvSharedRemainSilent =>
+      'Хранить молчание. Не лгите, но вы не обязаны отвечать на вопросы.';
 
   @override
-  String get rvSharedDocument => '';
+  String get rvSharedDocument =>
+      'Документировать всё. Вы имеете право фотографировать, снимать видео и записывать аудио.';
 
   @override
-  String get rvMobilePockets => '';
+  String get rvMobilePockets =>
+      'Отказаться от обыска ваших карманов. ICE может провести поверхностный досмотр, но не обыск.';
 
   @override
-  String get rvMobileQuestion => '';
+  String get rvMobileQuestion =>
+      'Задавать вопросы. Узнайте, почему вас остановили.';
 
   @override
-  String get rvMobileLeave => '';
+  String get rvMobileLeave => 'Уйти, если вы не задержаны.';
 
   @override
-  String get rvDriveSearch => '';
+  String get rvDriveSearch => 'Отказаться от обыска вашего автомобиля.';
 
   @override
-  String get rvDriveID => '';
+  String get rvDriveID =>
+      'Отказаться предоставлять удостоверение личности как пассажир. Только водитель обязан предоставить ID.';
 
   @override
-  String get rvDriveWarrant => '';
+  String get rvDriveWarrant =>
+      'Спросить, есть ли у офицеров ордер. Вы имеете право его увидеть. Если «ордер» не подписан судьёй, он недействителен.';
 
   @override
-  String get rvHomeWarrant => '';
+  String get rvHomeWarrant =>
+      'Держать дверь закрытой. Если у них есть ордер, попросите просунуть его под дверь. Если «ордер» не подписан судьёй, он недействителен. Держите дверь закрытой.';
 
   @override
-  String get rvSharedSign => '';
+  String get rvSharedSign => 'Отказаться что-либо подписывать.';
 
   @override
-  String get rvSharedFingerprint => '';
+  String get rvSharedFingerprint =>
+      'Отказаться сдавать отпечатки пальцев ICE, если вы не арестованы.';
 
   @override
-  String get rvSharedLawyer => '';
+  String get rvSharedLawyer =>
+      'На консультацию с адвокатом. Если вы официально арестованы, вам положен назначенный судом адвокат.';
 
   @override
   String get ssAutoShare => 'Авто-отправка фото/видео';

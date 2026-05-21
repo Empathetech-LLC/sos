@@ -85,28 +85,28 @@
 
 
   
-  "rvSharedHeader": "",
+  "rvSharedHeader": "Una haki ya...",
 
-  "rvOnFoot": "",
-  "rvWhileDriving": "",
-  "rvAtHome": "",
+  "rvOnFoot": "Kwa miguu",
+  "rvWhileDriving": "Wakati wa kuendesha gari",
+  "rvAtHome": "Nyumbani",
   
-  "rvSharedRemainSilent": "",
-  "rvSharedDocument": "",
+  "rvSharedRemainSilent": "Kaa kimya. Usidanganye, lakini sio lazima ujibu maswali.",
+  "rvSharedDocument": "Andika kila kitu. Una haki ya kupiga picha, kurekodi video na kurekodi sauti.",
 
-  "rvMobilePockets": "",
-  "rvMobileQuestion": "",
-  "rvMobileLeave": "",
+  "rvMobilePockets": "Kataa utafutaji wa mifuko yako. ICE inaweza kujibu, lakini sio utafutaji.",
+  "rvMobileQuestion": "Uliza maswali. Jua kwa nini unazuiwa.",
+  "rvMobileLeave": "Ondoka ikiwa huna kizuizini.",
 
-  "rvDriveSearch": "",
-  "rvDriveID": "",
-  "rvDriveWarrant": "",
+  "rvDriveSearch": "Kataa utafutaji wa gari lako.",
+  "rvDriveID": "Kataa kutoa kitambulisho kama abiria. Dereva pekee ndiye anayehitajika kutoa kitambulisho.",
+  "rvDriveWarrant": "Uliza ikiwa maafisa wana hati. Una haki ya kuiona ikiwa watafanya. Ikiwa \"hati\" haijatiwa saini na hakimu, si halali.",
   
-  "rvHomeWarrant": "",
+  "rvHomeWarrant": "Ufunge mlango. Ikiwa wana hati, waambie waiteremshe chini ya mlango kwanza. Ikiwa \"hati\" haijatiwa saini na hakimu, si halali. Funga mlango wako.",
 
-  "rvSharedSign": "",
-  "rvSharedFingerprint": "",
-  "rvSharedLawyer": "",
+  "rvSharedSign": "Kataa kusaini chochote.",
+  "rvSharedFingerprint": "Kataa kuchukuliwa alama za vidole na ICE isipokuwa kama umekamatwa.",
+  "rvSharedLawyer": "Kushauriana na mwanasheria. Ikiwa umekamatwa rasmi, una haki ya kuwa na wakili aliyeteuliwa na mahakama.",
 
 
   

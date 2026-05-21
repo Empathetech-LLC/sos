@@ -220,52 +220,55 @@ class LangJa extends Lang {
   String get hsNoFlash => 'カメラのフラッシュが機能していません';
 
   @override
-  String get rvSharedHeader => '';
+  String get rvSharedHeader => 'あなたには以下の権利があります...';
 
   @override
-  String get rvOnFoot => '';
+  String get rvOnFoot => '徒歩中';
 
   @override
-  String get rvWhileDriving => '';
+  String get rvWhileDriving => '運転中';
 
   @override
-  String get rvAtHome => '';
+  String get rvAtHome => '自宅にいるとき';
 
   @override
-  String get rvSharedRemainSilent => '';
+  String get rvSharedRemainSilent => '黙秘する。嘘をつく必要はありませんが、質問に答える義務もありません。';
 
   @override
-  String get rvSharedDocument => '';
+  String get rvSharedDocument => 'すべてを記録する。写真撮影、動画録画、音声録音を行う権利があります。';
 
   @override
-  String get rvMobilePockets => '';
+  String get rvMobilePockets =>
+      'ポケットの捜索を拒否する。ICEはボディチェックはできますが、ポケットの中を捜索することはできません。';
 
   @override
-  String get rvMobileQuestion => '';
+  String get rvMobileQuestion => '質問する。なぜ停止させられているのか確認しましょう。';
 
   @override
-  String get rvMobileLeave => '';
+  String get rvMobileLeave => '拘束されていない場合は立ち去ることができます。';
 
   @override
-  String get rvDriveSearch => '';
+  String get rvDriveSearch => '車の捜索を拒否する。';
 
   @override
-  String get rvDriveID => '';
+  String get rvDriveID => '同乗者としてIDの提示を拒否する。IDの提示が義務付けられているのは運転者のみです。';
 
   @override
-  String get rvDriveWarrant => '';
+  String get rvDriveWarrant =>
+      '令状を持っているか確認する。持っている場合は提示を求める権利があります。裁判官の署名がない「令状」は無効です。';
 
   @override
-  String get rvHomeWarrant => '';
+  String get rvHomeWarrant =>
+      'ドアを閉めたままにする。令状がある場合は、先にドアの下から滑り込ませるよう求めてください。裁判官の署名がない「令状」は無効です。ドアは閉めたままにしてください。';
 
   @override
-  String get rvSharedSign => '';
+  String get rvSharedSign => '何にも署名しない。';
 
   @override
-  String get rvSharedFingerprint => '';
+  String get rvSharedFingerprint => '逮捕されていない限り、ICEによる指紋採取を拒否する。';
 
   @override
-  String get rvSharedLawyer => '';
+  String get rvSharedLawyer => '弁護士に相談する。正式に逮捕された場合、国選弁護人が付く権利があります。';
 
   @override
   String get ssAutoShare => '写真/動画の自動共有';
