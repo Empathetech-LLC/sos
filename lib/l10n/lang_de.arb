@@ -85,28 +85,28 @@
 
 
   
-  "rvSharedHeader": "",
+  "rvSharedHeader": "Sie haben das Recht, ...",
 
-  "rvOnFoot": "",
-  "rvWhileDriving": "",
-  "rvAtHome": "",
+  "rvOnFoot": "Zu Fuß",
+  "rvWhileDriving": "Beim Fahren",
+  "rvAtHome": "Zuhause",
   
-  "rvSharedRemainSilent": "",
-  "rvSharedDocument": "",
+  "rvSharedRemainSilent": "Zu schweigen. Sie dürfen nicht lügen, müssen aber keine Fragen beantworten.",
+  "rvSharedDocument": "Alles zu dokumentieren. Sie haben das Recht, Fotos zu machen, Videos aufzunehmen und Tonaufnahmen zu erstellen.",
 
-  "rvMobilePockets": "",
-  "rvMobileQuestion": "",
-  "rvMobileLeave": "",
+  "rvMobilePockets": "Die Durchsuchung Ihrer Taschen zu verweigern. Die ICE-Beamten dürfen Sie abtasten, aber nicht durchsuchen.",
+  "rvMobileQuestion": "Fragen zu stellen. Finden Sie heraus, warum Sie angehalten werden.",
+  "rvMobileLeave": "Sich zu entfernen, wenn Sie nicht festgesetzt werden",
 
-  "rvDriveSearch": "",
-  "rvDriveID": "",
-  "rvDriveWarrant": "",
+  "rvDriveSearch": "Die Durchsuchung Ihres Fahrzeugs zu verhindern.",
+  "rvDriveID": "Sich zu weigern, als Fahrgast einen Ausweis vorzulegen. Nur der Fahrer ist verpflichtet, einen Ausweis vorzulegen.",
+  "rvDriveWarrant": "Zu fragen, ob die Beamten einen Durchsuchungsbefehl haben. In diesem Fall haben Sie das Recht, ihn einzusehen. Wenn ein „Durchsuchungsbefehl“ nicht von einem Richter unterzeichnet ist, ist er ungültig.",
   
-  "rvHomeWarrant": "",
+  "rvHomeWarrant": "Die Türen geschlossen zu halten. Falls sie einen Durchsuchungsbefehl haben, bitten Sie sie, diesen zunächst unter der Tür hindurchzuschieben. Wenn ein „Durchsuchungsbefehl“ nicht von einem Richter unterzeichnet ist, ist er ungültig. Halten Sie Ihre Tür geschlossen.",
 
-  "rvSharedSign": "",
-  "rvSharedFingerprint": "",
-  "rvSharedLawyer": "",
+  "rvSharedSign": "Sich zu weigern, irgendetwas zu unterschreiben.",
+  "rvSharedFingerprint": "Sich zu weigern, sich von der ICE Fingerabdrücke abnehmen zu lassen, es sei denn, Sie befinden sich in Gewahrsam.",
+  "rvSharedLawyer": "Einen Anwalt zu konsultieren. Wenn Sie offiziell festgenommen wurden, haben Sie Anspruch auf einen Pflichtverteidiger.",
 
 
   

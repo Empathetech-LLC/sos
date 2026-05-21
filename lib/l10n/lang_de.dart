@@ -236,52 +236,62 @@ class LangDe extends Lang {
   String get hsNoFlash => 'Kamerablitz funktioniert nicht';
 
   @override
-  String get rvSharedHeader => '';
+  String get rvSharedHeader => 'Sie haben das Recht, ...';
 
   @override
-  String get rvOnFoot => '';
+  String get rvOnFoot => 'Zu Fuß';
 
   @override
-  String get rvWhileDriving => '';
+  String get rvWhileDriving => 'Beim Fahren';
 
   @override
-  String get rvAtHome => '';
+  String get rvAtHome => 'Zuhause';
 
   @override
-  String get rvSharedRemainSilent => '';
+  String get rvSharedRemainSilent =>
+      'Zu schweigen. Sie dürfen nicht lügen, müssen aber keine Fragen beantworten.';
 
   @override
-  String get rvSharedDocument => '';
+  String get rvSharedDocument =>
+      'Alles zu dokumentieren. Sie haben das Recht, Fotos zu machen, Videos aufzunehmen und Tonaufnahmen zu erstellen.';
 
   @override
-  String get rvMobilePockets => '';
+  String get rvMobilePockets =>
+      'Die Durchsuchung Ihrer Taschen zu verweigern. Die ICE-Beamten dürfen Sie abtasten, aber nicht durchsuchen.';
 
   @override
-  String get rvMobileQuestion => '';
+  String get rvMobileQuestion =>
+      'Fragen zu stellen. Finden Sie heraus, warum Sie angehalten werden.';
 
   @override
-  String get rvMobileLeave => '';
+  String get rvMobileLeave =>
+      'Sich zu entfernen, wenn Sie nicht festgesetzt werden';
 
   @override
-  String get rvDriveSearch => '';
+  String get rvDriveSearch => 'Die Durchsuchung Ihres Fahrzeugs zu verhindern.';
 
   @override
-  String get rvDriveID => '';
+  String get rvDriveID =>
+      'Sich zu weigern, als Fahrgast einen Ausweis vorzulegen. Nur der Fahrer ist verpflichtet, einen Ausweis vorzulegen.';
 
   @override
-  String get rvDriveWarrant => '';
+  String get rvDriveWarrant =>
+      'Zu fragen, ob die Beamten einen Durchsuchungsbefehl haben. In diesem Fall haben Sie das Recht, ihn einzusehen. Wenn ein „Durchsuchungsbefehl“ nicht von einem Richter unterzeichnet ist, ist er ungültig.';
 
   @override
-  String get rvHomeWarrant => '';
+  String get rvHomeWarrant =>
+      'Die Türen geschlossen zu halten. Falls sie einen Durchsuchungsbefehl haben, bitten Sie sie, diesen zunächst unter der Tür hindurchzuschieben. Wenn ein „Durchsuchungsbefehl“ nicht von einem Richter unterzeichnet ist, ist er ungültig. Halten Sie Ihre Tür geschlossen.';
 
   @override
-  String get rvSharedSign => '';
+  String get rvSharedSign => 'Sich zu weigern, irgendetwas zu unterschreiben.';
 
   @override
-  String get rvSharedFingerprint => '';
+  String get rvSharedFingerprint =>
+      'Sich zu weigern, sich von der ICE Fingerabdrücke abnehmen zu lassen, es sei denn, Sie befinden sich in Gewahrsam.';
 
   @override
-  String get rvSharedLawyer => '';
+  String get rvSharedLawyer =>
+      'Einen Anwalt zu konsultieren. Wenn Sie offiziell festgenommen wurden, haben Sie Anspruch auf einen Pflichtverteidiger.';
 
   @override
   String get ssAutoShare => 'Bilder/Videos automatisch teilen';
