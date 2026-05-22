@@ -85,28 +85,28 @@
 
 
 
-  "rvSharedHeader": "",
+  "rvSharedHeader": "여러분은 다음과 같은 권리를 가집니다.",
 
-  "rvOnFoot": "",
-  "rvWhileDriving": "",
-  "rvAtHome": "",
+  "rvOnFoot": "도보 이동 중",
+  "rvWhileDriving": "운전 중",
+  "rvAtHome": "집에 있을 때",
 
-  "rvSharedRemainSilent": "",
-  "rvSharedDocument": "",
+  "rvSharedRemainSilent": "침묵할 권리가 있습니다. 거짓말은 하지 마세요. 하지만 질문에 답할 필요는 없습니다.",
+  "rvSharedDocument": "모든 상황을 기록하세요. 사진을 찍고, 영상을 촬영하고, 음성을 녹음할 권리가 있습니다.",
 
-  "rvMobilePockets": "",
-  "rvMobileQuestion": "",
-  "rvMobileLeave": "",
+  "rvMobilePockets": "주머니 수색을 거부할 수 있습니다. ICE는 몸수색은 할 수 있지만, 주머니를 뒤질 수는 없습니다.",
+  "rvMobileQuestion": "질문하세요. 왜 멈춰 세웠는지 확인하세요.",
+  "rvMobileLeave": "구금된 상태가 아니라면 떠날 수 있습니다.",
 
-  "rvDriveSearch": "",
-  "rvDriveID": "",
-  "rvDriveWarrant": "",
+  "rvDriveSearch": "차량 수색을 거부할 수 있습니다.",
+  "rvDriveID": "승객이라면 신분증 제시를 거부할 수 있습니다. 신분증 제시는 운전자에게만 요구됩니다.",
+  "rvDriveWarrant": "경찰관에게 영장이 있는지 물어보세요. 영장이 있다면 확인할 권리가 있습니다. 판사 서명이 없는 \"영장\"은 유효하지 않습니다.",
 
-  "rvHomeWarrant": "",
+  "rvHomeWarrant": "문을 닫아두세요. 영장이 있다고 하면 먼저 문 아래로 넣어달라고 요청하세요. 판사 서명이 없는 \"영장\"은 유효하지 않습니다. 문은 계속 닫아두세요.",
 
-  "rvSharedSign": "",
-  "rvSharedFingerprint": "",
-  "rvSharedLawyer": "",
+  "rvSharedSign": "어떤 서류에도 서명하지 않을 수 있습니다.",
+  "rvSharedFingerprint": "체포되지 않은 상태라면 ICE의 지문 채취를 거부할 수 있습니다.",
+  "rvSharedLawyer": "변호사와 상담할 권리가 있습니다. 정식으로 체포된 경우에는 국선 변호인을 요청할 수 있습니다.",
 
 
 

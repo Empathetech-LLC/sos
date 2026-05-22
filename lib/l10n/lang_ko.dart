@@ -221,52 +221,58 @@ class LangKo extends Lang {
   String get hsNoFlash => '카메라 플래시가 작동하지 않음';
 
   @override
-  String get rvSharedHeader => '';
+  String get rvSharedHeader => '여러분은 다음과 같은 권리를 가집니다.';
 
   @override
-  String get rvOnFoot => '';
+  String get rvOnFoot => '도보 이동 중';
 
   @override
-  String get rvWhileDriving => '';
+  String get rvWhileDriving => '운전 중';
 
   @override
-  String get rvAtHome => '';
+  String get rvAtHome => '집에 있을 때';
 
   @override
-  String get rvSharedRemainSilent => '';
+  String get rvSharedRemainSilent =>
+      '침묵할 권리가 있습니다. 거짓말은 하지 마세요. 하지만 질문에 답할 필요는 없습니다.';
 
   @override
-  String get rvSharedDocument => '';
+  String get rvSharedDocument =>
+      '모든 상황을 기록하세요. 사진을 찍고, 영상을 촬영하고, 음성을 녹음할 권리가 있습니다.';
 
   @override
-  String get rvMobilePockets => '';
+  String get rvMobilePockets =>
+      '주머니 수색을 거부할 수 있습니다. ICE는 몸수색은 할 수 있지만, 주머니를 뒤질 수는 없습니다.';
 
   @override
-  String get rvMobileQuestion => '';
+  String get rvMobileQuestion => '질문하세요. 왜 멈춰 세웠는지 확인하세요.';
 
   @override
-  String get rvMobileLeave => '';
+  String get rvMobileLeave => '구금된 상태가 아니라면 떠날 수 있습니다.';
 
   @override
-  String get rvDriveSearch => '';
+  String get rvDriveSearch => '차량 수색을 거부할 수 있습니다.';
 
   @override
-  String get rvDriveID => '';
+  String get rvDriveID => '승객이라면 신분증 제시를 거부할 수 있습니다. 신분증 제시는 운전자에게만 요구됩니다.';
 
   @override
-  String get rvDriveWarrant => '';
+  String get rvDriveWarrant =>
+      '경찰관에게 영장이 있는지 물어보세요. 영장이 있다면 확인할 권리가 있습니다. 판사 서명이 없는 \"영장\"은 유효하지 않습니다.';
 
   @override
-  String get rvHomeWarrant => '';
+  String get rvHomeWarrant =>
+      '문을 닫아두세요. 영장이 있다고 하면 먼저 문 아래로 넣어달라고 요청하세요. 판사 서명이 없는 \"영장\"은 유효하지 않습니다. 문은 계속 닫아두세요.';
 
   @override
-  String get rvSharedSign => '';
+  String get rvSharedSign => '어떤 서류에도 서명하지 않을 수 있습니다.';
 
   @override
-  String get rvSharedFingerprint => '';
+  String get rvSharedFingerprint => '체포되지 않은 상태라면 ICE의 지문 채취를 거부할 수 있습니다.';
 
   @override
-  String get rvSharedLawyer => '';
+  String get rvSharedLawyer =>
+      '변호사와 상담할 권리가 있습니다. 정식으로 체포된 경우에는 국선 변호인을 요청할 수 있습니다.';
 
   @override
   String get ssAutoShare => '사진/비디오 자동 공유';
