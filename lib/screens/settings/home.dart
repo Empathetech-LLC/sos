@@ -787,6 +787,7 @@ class SettingsHomeScreen extends StatelessWidget {
                 icon: EzIcon(Icons.help_outline),
                 label: l10n.ssSupport,
               ),
+              const EzFooter(),
             ]),
           ),
           safeArea: true,

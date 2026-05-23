@@ -208,6 +208,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> with WidgetsBindi
                   canChange: (bool choice) => canSet(sosOnInterruptKey, choice),
                 ),
               ],
+              const EzFooter(),
             ]),
           ),
           safeArea: true,
