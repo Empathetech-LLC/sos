@@ -107,23 +107,12 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
   }
 
   while (true) {
-    final String? contactID = await c.FlutterContacts.native.showPicker();
-
-    // Check for user cancel
-    if (contactID == null) {
-      if (loop) continue;
-      return;
-    }
-
     try {
-      contact = await c.FlutterContacts.get(
-        contactID,
-        properties: <c.ContactProperty>{
-          c.ContactProperty.name,
-          c.ContactProperty.identifiers,
-          c.ContactProperty.phone,
-        },
-      );
+      contact = await c.FlutterContacts.native.showPicker(properties: <c.ContactProperty>{
+        c.ContactProperty.name,
+        c.ContactProperty.identifiers,
+        c.ContactProperty.phone,
+      });
     } catch (_) {
       if (context.mounted) {
         await ezSnackBar(context, message: l10n.bsNumError).closed;
