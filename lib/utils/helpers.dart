@@ -283,12 +283,12 @@ Future<void> appSetupModal(
           style: TextButton.styleFrom(backgroundColor: EzConfig.colors.surfaceContainer),
           onPressed: () => Navigator.of(mCon).pop(true),
         ),
+        EzConfig.spacer,
 
-        // Hybrid translations notice (conditional)
-        EzTranslationsPendingNotice(
-          message: l10n.hsHybridTranslation,
-          header: EzConfig.spacer,
-          footer: const SizedBox.shrink(),
+        Text(
+          l10n.hsHybridTranslation,
+          style: EzConfig.styles.bodyLarge,
+          textAlign: TextAlign.center,
         ),
         EzConfig.separator,
       ]),
