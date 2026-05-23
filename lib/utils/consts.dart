@@ -112,9 +112,9 @@ const MethodChannel platform = MethodChannel('$androidPackage/broadcast');
 
 // Local assets //
 
-/// assets/images/og-baddie.jpg
+/// assets/og-baddie.jpg
 /// Public domain image; CC0 1.0 Universal
-const String ladyLiberty = 'assets/images/og-baddie.jpg';
+const String ladyLiberty = 'assets/og-baddie.jpg';
 
 /// [ladyLiberty]
 const Set<String> assetPaths = <String>{ladyLiberty};
