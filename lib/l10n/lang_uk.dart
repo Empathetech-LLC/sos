@@ -493,7 +493,4 @@ class LangUk extends Lang {
   @override
   String get dsLadyLiberty =>
       'Зображення Статуї Свободи з попереднім переглядом списку прав.';
-
-  @override
-  String get dsShowBack => 'Показати кнопку \"Назад\"?';
 }

@@ -486,7 +486,4 @@ class LangHi extends Lang {
   @override
   String get dsLadyLiberty =>
       'स्टैच्यू ऑफ लिबर्टी की एक तस्वीर, जिसमें अधिकारों की सूची का पूर्वावलोकन है।';
-
-  @override
-  String get dsShowBack => 'बैक बटन दिखाएं?';
 }

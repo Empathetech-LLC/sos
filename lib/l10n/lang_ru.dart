@@ -495,7 +495,4 @@ class LangRu extends Lang {
   @override
   String get dsLadyLiberty =>
       'Изображение Статуи Свободы с предварительным просмотром списка прав.';
-
-  @override
-  String get dsShowBack => 'Показывать кнопку \"назад\"?';
 }

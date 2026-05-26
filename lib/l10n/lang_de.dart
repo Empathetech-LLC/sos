@@ -496,7 +496,4 @@ class LangDe extends Lang {
   @override
   String get dsLadyLiberty =>
       'Ein Bild der Freiheitsstatue mit einer Vorschau der Rechte-Liste.';
-
-  @override
-  String get dsShowBack => 'Zurück-Button anzeigen?';
 }

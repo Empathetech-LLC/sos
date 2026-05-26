@@ -468,7 +468,4 @@ class LangKo extends Lang {
 
   @override
   String get dsLadyLiberty => '자유의 여신상 사진 및 권리 목록 미리보기.';
-
-  @override
-  String get dsShowBack => '뒤로 가기 버튼을 표시할까요?';
 }

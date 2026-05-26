@@ -493,7 +493,4 @@ class LangFr extends Lang {
   @override
   String get dsLadyLiberty =>
       'Une photo de la Statue de la Liberté, avec un aperçu de la liste des droits.';
-
-  @override
-  String get dsShowBack => 'Afficher le bouton de retour ?';
 }

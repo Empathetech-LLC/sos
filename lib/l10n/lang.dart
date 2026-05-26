@@ -974,12 +974,6 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'A picture of the Statue of Liberty, with a preview of the rights list.'**
   String get dsLadyLiberty;
-
-  /// No description provided for @dsShowBack.
-  ///
-  /// In en, this message translates to:
-  /// **'Show back button?'**
-  String get dsShowBack;
 }
 
 class _LangDelegate extends LocalizationsDelegate<Lang> {

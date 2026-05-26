@@ -462,7 +462,4 @@ class LangJa extends Lang {
 
   @override
   String get dsLadyLiberty => '自由の女神の写真と、権利リストのプレビュー。';
-
-  @override
-  String get dsShowBack => '戻るボタンを表示しますか？';
 }

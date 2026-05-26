@@ -489,7 +489,4 @@ class LangSw extends Lang {
   @override
   String get dsLadyLiberty =>
       'Picha ya Sanamu ya Uhuru, na onyesho la kukagua la orodha ya haki.';
-
-  @override
-  String get dsShowBack => 'Onyesha kitufe cha nyuma?';
 }

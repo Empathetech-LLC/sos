@@ -499,7 +499,4 @@ class LangFil extends Lang {
   @override
   String get dsLadyLiberty =>
       'Isang litrato ng Statue of Liberty, na may preview ng listahan ng mga karapatan.';
-
-  @override
-  String get dsShowBack => 'Ipakita ang back button?';
 }

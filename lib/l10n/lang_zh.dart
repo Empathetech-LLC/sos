@@ -455,9 +455,6 @@ class LangZh extends Lang {
 
   @override
   String get dsLadyLiberty => '自由女神像的照片，带有权利列表的预览。';
-
-  @override
-  String get dsShowBack => '显示返回按钮？';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -911,7 +908,4 @@ class LangZhCn extends LangZh {
 
   @override
   String get dsLadyLiberty => '自由女神像的照片，带有权利列表的预览。';
-
-  @override
-  String get dsShowBack => '显示返回按钮？';
 }
