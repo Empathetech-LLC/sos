@@ -73,7 +73,8 @@ import 'lang_zh.dart' deferred as lang_zh;
 /// be consistent with the languages listed in the Lang.supportedLocales
 /// property.
 abstract class Lang {
-  Lang(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  Lang(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -1012,7 +1013,9 @@ Future<Lang> lookupLang(Locale locale) {
       {
         switch (locale.countryCode) {
           case 'EG':
-            return lang_ar.loadLibrary().then((dynamic _) => lang_ar.LangArEg());
+            return lang_ar
+                .loadLibrary()
+                .then((dynamic _) => lang_ar.LangArEg());
         }
         break;
       }
@@ -1020,7 +1023,9 @@ Future<Lang> lookupLang(Locale locale) {
       {
         switch (locale.countryCode) {
           case 'US':
-            return lang_en.loadLibrary().then((dynamic _) => lang_en.LangEnUs());
+            return lang_en
+                .loadLibrary()
+                .then((dynamic _) => lang_en.LangEnUs());
         }
         break;
       }
@@ -1028,7 +1033,9 @@ Future<Lang> lookupLang(Locale locale) {
       {
         switch (locale.countryCode) {
           case 'CN':
-            return lang_zh.loadLibrary().then((dynamic _) => lang_zh.LangZhCn());
+            return lang_zh
+                .loadLibrary()
+                .then((dynamic _) => lang_zh.LangZhCn());
         }
         break;
       }
@@ -1066,7 +1073,8 @@ Future<Lang> lookupLang(Locale locale) {
       return lang_zh.loadLibrary().then((dynamic _) => lang_zh.LangZh());
   }
 
-  throw FlutterError('Lang.delegate failed to load unsupported locale "$locale". This is likely '
+  throw FlutterError(
+      'Lang.delegate failed to load unsupported locale "$locale". This is likely '
       'an issue with the localizations generation tool. Please file an issue '
       'on GitHub with a reproducible sample app and the gen-l10n configuration '
       'that was used.');
