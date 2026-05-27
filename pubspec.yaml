@@ -46,12 +46,12 @@ flutter:
 
   assets:
     - assets/
-    - assets/icon.png
+    - assets/app-icon.png
     - assets/og-baddie.jpg
 
 flutter_launcher_icons:
-  image_path: assets/icon.png
-  adaptive_icon_foreground: assets/icon.png
+  image_path: assets/app-icon.png
+  adaptive_icon_foreground: assets/app-icon.png
   adaptive_icon_background: "#A520DA"
   android: true
   ios: true
@@ -64,7 +64,7 @@ flutter_launcher_icons:
     generate: false
 
 flutter_native_splash:
-  image: assets/icon.png
+  image: assets/app-icon.png
   color: "#A520DA"
   android: true
   ios: true
