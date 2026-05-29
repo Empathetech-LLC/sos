@@ -219,7 +219,9 @@ Future<void> appSetupModal(
         EzConfig.spacer,
 
         // Locale setting
-        const EzLocaleSetting(),
+        EzLocaleSetting(
+          skip: <Locale>{arabic, english, chinese}, // dupes
+        ),
         EzConfig.spacer,
 
         // Have it your way
