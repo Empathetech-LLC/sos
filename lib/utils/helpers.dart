@@ -272,13 +272,16 @@ Future<void> appSetupModal(
           style: TextButton.styleFrom(backgroundColor: EzConfig.colors.surfaceContainer),
           onPressed: () => Navigator.of(mCon).pop(true),
         ),
-        EzConfig.spacer,
 
-        Text(
-          l10n.hsHybridTranslation,
-          style: EzConfig.styles.bodyLarge,
-          textAlign: TextAlign.center,
-        ),
+        if (EzConfig.locale.languageCode != english.languageCode) ...<Widget>[
+          EzConfig.spacer,
+          Text(
+            l10n.hsHybridTranslation,
+            style: EzConfig.styles.bodyLarge,
+            textAlign: TextAlign.center,
+          ),
+        ],
+
         EzConfig.separator,
       ]),
     ),
