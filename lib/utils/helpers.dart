@@ -62,7 +62,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
     if (show && context.mounted) {
       final bool leaving = await showDialog(
         context: context,
-        builder: (BuildContext dContext) => EzAlertDialog(
+        builder: (BuildContext dCon) => EzAlertDialog(
           title: Text(l10n.gReminder, textAlign: TextAlign.center),
           content: EzRichText(
             <InlineSpan>[
@@ -73,7 +73,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
               EzInlineLink(
                 l10n.gSystem.toLowerCase(),
                 onTap: () async {
-                  Navigator.of(dContext).pop(true);
+                  Navigator.of(dCon).pop(true);
                   await openAppSettings();
                 },
                 hint: EzConfig.l10n.gOpenLink,
@@ -88,14 +88,13 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
             textAlign: TextAlign.center,
           ),
           actions: ezActionPair(
-            context: context,
             confirmMsg: l10n.gOk,
-            onConfirm: () => Navigator.of(dContext).pop(false),
+            onConfirm: () => Navigator.of(dCon).pop(false),
             confirmIsDefault: true,
             denyMsg: l10n.gNotAgain,
             onDeny: () async {
               await EzConfig.setBool(showContactsMsgKey, false);
-              if (dContext.mounted) Navigator.of(dContext).pop(false);
+              if (dCon.mounted) Navigator.of(dCon).pop(false);
             },
             denyIsDestructive: true,
           ),
@@ -108,23 +107,12 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
   }
 
   while (true) {
-    final String? contactID = await c.FlutterContacts.native.showPicker();
-
-    // Check for user cancel
-    if (contactID == null) {
-      if (loop) continue;
-      return;
-    }
-
     try {
-      contact = await c.FlutterContacts.get(
-        contactID,
-        properties: <c.ContactProperty>{
-          c.ContactProperty.name,
-          c.ContactProperty.identifiers,
-          c.ContactProperty.phone,
-        },
-      );
+      contact = await c.FlutterContacts.native.showPicker(properties: <c.ContactProperty>{
+        c.ContactProperty.name,
+        c.ContactProperty.identifiers,
+        c.ContactProperty.phone,
+      });
     } catch (_) {
       if (context.mounted) {
         await ezSnackBar(context, message: l10n.bsNumError).closed;
@@ -146,9 +134,8 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
       }
     } else {
       // We have a valid contact, gather the phones with numbers
-      final List<c.Phone> phones = contact.phones
-          .where((c.Phone phone) => phone.number.isNotEmpty)
-          .toList();
+      final List<c.Phone> phones =
+          contact.phones.where((c.Phone phone) => phone.number.isNotEmpty).toList();
 
       if (phones.isEmpty) {
         // No valid numbers, warn the user and optionally retry
@@ -188,39 +175,22 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
 
 /// I can't believe you've done this @flutter_contacts
 /// Even if `notDetermined` is a necessary addition, naming the enum the SAME THING is NOT!
-PermissionStatus? cPermMirror(c.PermissionStatus? status) {
-  switch (status) {
-    case c.PermissionStatus.granted:
-      return PermissionStatus.granted;
-    case c.PermissionStatus.limited:
-      return PermissionStatus.limited;
-    case c.PermissionStatus.denied:
-      return PermissionStatus.denied;
-    case c.PermissionStatus.permanentlyDenied:
-      return PermissionStatus.permanentlyDenied;
-    case c.PermissionStatus.restricted:
-      return PermissionStatus.restricted;
-    case c.PermissionStatus.notDetermined:
-    case null:
-      return null;
-  }
-}
+PermissionStatus? cPermMirror(c.PermissionStatus? status) => switch (status) {
+      c.PermissionStatus.granted => PermissionStatus.granted,
+      c.PermissionStatus.limited => PermissionStatus.limited,
+      c.PermissionStatus.denied => PermissionStatus.denied,
+      c.PermissionStatus.permanentlyDenied => PermissionStatus.permanentlyDenied,
+      c.PermissionStatus.restricted => PermissionStatus.restricted,
+      c.PermissionStatus.notDetermined || null => null,
+    };
 
 /// See what I mean?
-PermissionStatus? lPermMirror(LocationPermission? status) {
-  switch (status) {
-    case LocationPermission.always:
-    case LocationPermission.whileInUse:
-      return PermissionStatus.granted;
-    case LocationPermission.denied:
-      return PermissionStatus.denied;
-    case LocationPermission.deniedForever:
-      return PermissionStatus.permanentlyDenied;
-    case LocationPermission.unableToDetermine:
-    case null:
-      return null;
-  }
-}
+PermissionStatus? lPermMirror(LocationPermission? status) => switch (status) {
+      LocationPermission.always || LocationPermission.whileInUse => PermissionStatus.granted,
+      LocationPermission.denied => PermissionStatus.denied,
+      LocationPermission.deniedForever => PermissionStatus.permanentlyDenied,
+      LocationPermission.unableToDetermine || null => null,
+    };
 
 // Fresh install //
 
@@ -236,92 +206,86 @@ Future<void> appSetupModal(
     enableDrag: false,
     isDismissible: false,
     showDragHandle: false,
-    builder: (BuildContext mContext) => StatefulBuilder(
-      builder: (_, StateSetter setModal) => Padding(
-        padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
-        child: EzScrollView(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            // Title
-            EzConfig.margin,
-            Text(
-              l10n.hsWelcome,
-              semanticsLabel: l10n.hsWelcomeFix,
-              style: EzConfig.styles.titleLarge,
-              textAlign: TextAlign.center,
-            ),
-            EzConfig.spacer,
-
-            // Locale setting
-            EzLocaleSetting(
-              doNothing,
-              locales: Lang.supportedLocales,
-              skip: <Locale>{arabic, english, chinese}, // Dupes
-            ),
-            EzConfig.spacer,
-
-            // Have it your way
-            Text(
-              showTutorial ? l10n.hsAppIntro : l10n.hsAppIntroAlt,
-              style: EzConfig.styles.bodyLarge,
-              textAlign: TextAlign.center,
-            ),
-            EzConfig.centerLine,
-            Text(
-              l10n.hsYourApp,
-              style: EzConfig.styles.bodyLarge,
-              textAlign: TextAlign.center,
-            ),
-            EzConfig.divider,
-
-            // Permission checklist
-            CameraSetup(
-              initCamera: initCamera,
-              locked: locked,
-              setLock: (bool active) => setModal(() => locked = active),
-            ),
-            EzConfig.spacer,
-
-            ContactsSetup(
-              locked: locked,
-              setLock: (bool active) => setModal(() => locked = active),
-            ),
-            EzConfig.spacer,
-
-            if (!isIOS) ...<Widget>[
-              SMSSetup(
-                locked: locked,
-                setLock: (bool active) => setModal(() => locked = active),
-              ),
-              EzConfig.spacer,
-            ],
-
-            LocationSetup(
-              locked: locked,
-              setLock: (bool active) => setModal(() => locked = active),
-            ),
-            EzConfig.spacer,
-
-            // Finish/leave
-            EzTextButton(
-              text: l10n.gDone,
-              textStyle: EzConfig.styles.bodyLarge
-                  ?.copyWith(color: EzConfig.colors.primary),
-              textAlign: TextAlign.center,
-              style: TextButton.styleFrom(backgroundColor: Colors.transparent),
-              onPressed: () => Navigator.of(mContext).pop(true),
-            ),
-
-            // Hybrid translations notice (conditional)
-            EzTranslationsPendingNotice(
-              message: l10n.hsHybridTranslation,
-              header: EzConfig.spacer,
-              footer: const SizedBox.shrink(),
-            ),
-            EzSpacer(space: EzConfig.spargin),
-          ],
+    builder: (BuildContext mCon) => StatefulBuilder(
+      builder: (_, StateSetter setModal) => ezModalScroll(<Widget>[
+        // Title
+        EzConfig.margin,
+        Text(
+          l10n.hsWelcome,
+          semanticsLabel: l10n.hsWelcomeFix,
+          style: EzConfig.styles.titleLarge,
+          textAlign: TextAlign.center,
         ),
-      ),
+        EzConfig.spacer,
+
+        // Locale setting
+        EzLocaleSetting(
+          skip: <Locale>{arabic, english, chinese}, // dupes
+        ),
+        EzConfig.spacer,
+
+        // Have it your way
+        Text(
+          showTutorial ? l10n.hsAppIntro : l10n.hsAppIntroAlt,
+          style: EzConfig.styles.bodyLarge,
+          textAlign: TextAlign.center,
+        ),
+        EzConfig.centerLine,
+        Text(
+          l10n.hsYourApp,
+          style: EzConfig.styles.bodyLarge,
+          textAlign: TextAlign.center,
+        ),
+        EzConfig.divider,
+
+        // Permission checklist
+        CameraSetup(
+          initCamera: initCamera,
+          locked: locked,
+          setLock: (bool active) => setModal(() => locked = active),
+        ),
+        EzConfig.spacer,
+
+        ContactsSetup(
+          locked: locked,
+          setLock: (bool active) => setModal(() => locked = active),
+        ),
+        EzConfig.spacer,
+
+        if (!isIOS) ...<Widget>[
+          SMSSetup(
+            locked: locked,
+            setLock: (bool active) => setModal(() => locked = active),
+          ),
+          EzConfig.spacer,
+        ],
+
+        LocationSetup(
+          locked: locked,
+          setLock: (bool active) => setModal(() => locked = active),
+        ),
+        EzConfig.spacer,
+
+        // Finish/leave
+        EzTextButton(
+          text: l10n.gDone,
+          textStyle: EzConfig.styles.bodyLarge?.copyWith(color: EzConfig.colors.primary),
+          textAlign: TextAlign.center,
+          style: TextButton.styleFrom(backgroundColor: EzConfig.colors.surfaceContainer),
+          onPressed: () => Navigator.of(mCon).pop(true),
+        ),
+
+        if (EzConfig.locale.languageCode != english.languageCode) ...<Widget>[
+          EzConfig.spacer,
+          Text(
+            l10n.hsHybridTranslation,
+            style: EzConfig.styles.bodyLarge,
+            textAlign: TextAlign.center,
+          ),
+        ],
+
+        EzConfig.separator,
+      ]),
     ),
   );
 
@@ -338,9 +302,8 @@ Future<void> backgroundSOS() async {
   final List<String> currEMC = List<String>.from(emc);
   if (currEMC.isEmpty) return;
 
-  final List<String> numbers = currEMC
-      .map((String contact) => contact.split(contactSplit).last)
-      .toList();
+  final List<String> numbers =
+      currEMC.map((String contact) => contact.split(contactSplit).last).toList();
 
   try {
     await platform.invokeMethod<void>(
@@ -367,9 +330,7 @@ Future<void> stopBackgroundSOS(BuildContext context) async {
     // Improvement: check the error code
     // The most likely error is that the task is already stopped
     // But there could be scenarios where taskRunningKey should remain true
-    context.mounted
-        ? await ezLogAlert(context, message: e.toString())
-        : ezLog(e.toString());
+    context.mounted ? await ezLogAlert(context, message: e.toString()) : ezLog(e.toString());
   }
   await EzConfig.setBool(taskRunningKey, false);
 }
@@ -381,9 +342,8 @@ Future<bool> foregroundSOS() async {
   final List<String> currEMC = List<String>.from(emc);
   if (currEMC.isEmpty) return false;
 
-  final List<String> numbers = currEMC
-      .map((String contact) => contact.split(contactSplit).last)
-      .toList();
+  final List<String> numbers =
+      currEMC.map((String contact) => contact.split(contactSplit).last).toList();
 
   final Map<String, dynamic> mapData = <String, dynamic>{
     'message': 'SOS\n${await getCoordinates(linkType.base)}',
@@ -417,8 +377,7 @@ Future<String?> getCoordinates(String linkBase, {bool nullable = false}) async {
     // Changeably denied, ask again
     permission = await Geolocator.requestPermission();
 
-    if (permission == LocationPermission.denied ||
-        permission == LocationPermission.deniedForever) {
+    if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
       return denied;
     }
   }

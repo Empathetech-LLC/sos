@@ -492,7 +492,4 @@ class LangEs extends Lang {
   @override
   String get dsLadyLiberty =>
       'Una imagen de la Estatua de la Libertad, con una vista previa de la lista de derechos.';
-
-  @override
-  String get dsShowBack => '¿Mostrar botón de retroceso?';
 }

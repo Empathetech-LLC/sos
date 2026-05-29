@@ -11,163 +11,137 @@ import 'package:provider/provider.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class AppearanceSettingsScreen extends StatelessWidget {
-  /// [EzSettingsHub.target] passthrough
-  final int? target;
+  /// Optionally override the starting position
+  final int? targetPass;
 
-  /// [EzColorSettings.advanced] and/or [EzTextSettings.advanced] passthrough
-  final bool? advanced;
-
-  AppearanceSettingsScreen({this.target, this.advanced})
-      : super(key: ValueKey<int>(EzConfig.seed));
+  AppearanceSettingsScreen({this.targetPass}) : super(key: ValueKey<int>(EzConfig.seed));
 
   @override
-  Widget build(BuildContext context) {
-    return Consumer<EzConfigProvider>(
-      builder: (_, EzConfigProvider config, __) => SosScaffold(
-        EzScreen(EzSettingsHub(
-          pages: <EzSettingsSection>[
-            // Global
-            EzSettingsSection(
-              position: 0,
-              title: EzConfig.l10n.gGlobal,
-              icon: Icon(
-                config.onMobile
-                    ? config.platform == TargetPlatform.iOS
-                        ? Icons.phone_iphone
-                        : Icons.phone_android
-                    : Icons.computer,
-                semanticLabel: EzConfig.l10n.gGlobal,
-              ),
-              build: const EzGlobalSettings(
-                excludeLocaleSetting: true,
-                appName: appName,
-                androidPackage: androidPackage,
-              ),
-            ),
+  Widget build(BuildContext context) => Consumer<EzConfigProvider>(
+        builder: (_, EzConfigProvider config, __) => SosScaffold(
+          EzScreen(
+            EzSettingsHub(
+              pages: <EzSettingsSection>[
+                // Global //
 
-            // Color
-            EzSettingsSection(
-              position: 1,
-              title: EzConfig.l10n.gColor,
-              icon: Icon(
-                Icons.palette,
-                semanticLabel: EzConfig.l10n.gColor,
-              ),
-              build: EzColorSettings(
-                advanced: advanced,
-                onUpdate: doNothing,
-                appName: appName,
-                androidPackage: androidPackage,
-                darkStarterSet: const <String>[
-                  darkPrimaryKey,
-                  darkSurfaceKey,
-                  darkOnSurfaceKey,
-                  darkSurfaceContainerKey,
-                  darkVideoColorKey,
-                ],
-                lightStarterSet: const <String>[
-                  lightPrimaryKey,
-                  lightSurfaceKey,
-                  lightOnSurfaceKey,
-                  lightSurfaceContainerKey,
-                  lightVideoColorKey,
-                ],
-              ),
-            ),
+                EzSettingsSection(
+                  position: 0,
+                  title: EzConfig.l10n.gGlobal,
+                  icon: EzIcon(
+                    config.onMobile
+                        ? config.platform == TargetPlatform.iOS
+                            ? Icons.phone_iphone
+                            : Icons.phone_android
+                        : Icons.computer,
+                    semanticLabel: EzConfig.l10n.gGlobal,
+                  ),
+                  subSettings: <EzSubSetting>[],
+                  fromStorage: () => EzSubSetting.blank,
+                  build: (_) => EzGlobalSettings(
+                    excludeLocaleSetting: true,
+                    resetTitle: () => EzConfig.l10n.ssResetAppearance,
+                  ),
+                ),
 
-            // Design
-            EzSettingsSection(
-              position: 2,
-              title: EzConfig.l10n.gDesign,
-              icon: Icon(
-                Icons.design_services,
-                semanticLabel: EzConfig.l10n.gDesign,
-              ),
-              build: EzDesignSettings(
-                onUpdate: doNothing,
-                appName: appName,
-                androidPackage: androidPackage,
-                beforeDesign: <Widget>[
-                  const _RightsOpacity(),
-                  EzConfig.separator,
-                ],
-              ),
-            ),
+                // Color //
 
-            // Layout
-            EzSettingsSection(
-              position: 3,
-              title: EzConfig.l10n.gLayout,
-              icon: Icon(
-                Icons.grid_3x3,
-                semanticLabel: EzConfig.l10n.gLayout,
-              ),
-              build: const EzLayoutSettings(
-                onUpdate: doNothing,
-                appName: appName,
-                androidPackage: androidPackage,
-              ),
-            ),
+                EzSettingsSection(
+                  position: 1,
+                  title: EzConfig.l10n.gColor,
+                  icon: EzIcon(
+                    Icons.palette,
+                    semanticLabel: EzConfig.l10n.gColor,
+                  ),
+                  subSettings: <EzSubSetting>[
+                    EzSubSetting.qckColor,
+                    EzSubSetting.advColor,
+                  ],
+                  fromStorage: () => EzConfig.get(advancedColorsKey) == true
+                      ? EzSubSetting.advColor
+                      : EzSubSetting.qckColor,
+                  build: (EzSubSetting subSec) => EzColorSettings(
+                    target: subSec,
+                    extraDark: <String>[darkVideoColorKey],
+                    extraLight: <String>[lightVideoColorKey],
+                  ),
+                ),
 
-            // Text
-            EzSettingsSection(
-              position: 4,
-              title: EzConfig.l10n.gText,
-              icon: Icon(
-                Icons.text_format,
-                semanticLabel: EzConfig.l10n.gText,
-              ),
-              build: EzTextSettings(
-                advanced: advanced,
-                onUpdate: doNothing,
-                appName: appName,
-                androidPackage: androidPackage,
-              ),
-            ),
-          ],
-          target: target,
-        )),
-        fabs: <Widget>[
-          // Rebuild (conditional)
-          if (config.needsRebuild) ...<Widget>[
-            config.layout.spacer,
-            const EzRebuildFAB(doNothing),
-          ],
+                // Design //
 
-          // Save/upload config
-          config.layout.spacer,
-          EzConfigFAB(
-            context,
-            appName: appName,
-            androidPackage: androidPackage,
+                EzSettingsSection(
+                  position: 2,
+                  title: EzConfig.l10n.gDesign,
+                  icon: EzIcon(
+                    Icons.design_services,
+                    semanticLabel: EzConfig.l10n.gDesign,
+                  ),
+                  subSettings: <EzSubSetting>[
+                    EzSubSetting.butDesign,
+                    EzSubSetting.pagDesign,
+                  ],
+                  fromStorage: () => EzConfig.get(pageTabKey) == true
+                      ? EzSubSetting.pagDesign
+                      : EzSubSetting.butDesign,
+                  build: (EzSubSetting subSec) => EzDesignSettings(
+                    target: subSec,
+                    prependPage: <Widget>[
+                      const _RightsOpacity(),
+                      EzConfig.separator,
+                    ],
+                  ),
+                ),
+
+                // Text //
+
+                EzSettingsSection(
+                  position: 3,
+                  title: EzConfig.l10n.gText,
+                  icon: EzIcon(
+                    Icons.text_format,
+                    semanticLabel: EzConfig.l10n.gText,
+                  ),
+                  subSettings: <EzSubSetting>[
+                    EzSubSetting.qckText,
+                    EzSubSetting.advText,
+                  ],
+                  fromStorage: () => EzConfig.get(advancedTextKey) == true
+                      ? EzSubSetting.advText
+                      : EzSubSetting.qckText,
+                  build: (EzSubSetting subSec) => EzTextSettings(target: subSec),
+                ),
+              ],
+              target: targetPass,
+            ),
+            safeArea: true,
           ),
-        ],
-      ),
-    );
-  }
+          fabs: <Widget>[
+            // Rebuild (conditional)
+            if (config.needsRebuild) ...<Widget>[
+              config.layout.spacer,
+              const EzRebuildFAB(),
+            ],
+
+            // Save/upload config
+            config.layout.spacer,
+            const EzConfigFAB(),
+          ],
+        ),
+      );
 }
 
 class _RightsOpacity extends StatelessWidget {
   const _RightsOpacity();
 
   @override
-  Widget build(BuildContext context) {
-    return EzElevatedIconButton(
-      onPressed: () async {
-        double opacity = EzConfig.get(EzConfig.isDark
-            ? darkTextBackgroundOpacityKey
-            : lightTextBackgroundOpacityKey);
-        final double backup = opacity;
+  Widget build(BuildContext context) => EzElevatedIconButton(
+        onPressed: () async {
+          double opacity = EzConfig.textBackgroundOpacity;
+          Color background = EzConfig.colors.surface.withValues(alpha: opacity);
 
-        Color background = EzConfig.colors.surface.withValues(alpha: opacity);
-
-        await ezModal(
-          context: context,
-          builder: (_) => StatefulBuilder(
-            builder: (BuildContext mContext, StateSetter setModal) =>
-                EzScrollView(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
+          await ezModal(
+            context: context,
+            builder: (_) => StatefulBuilder(
+              builder: (BuildContext mCon, StateSetter setModal) => ezModalScroll(<Widget>[
                 // Preview
                 Container(
                   width: double.infinity,
@@ -206,17 +180,14 @@ class _RightsOpacity extends StatelessWidget {
                     // Slider functions
                     onChanged: (double value) => setModal(() {
                       opacity = value;
-                      background =
-                          EzConfig.colors.surface.withValues(alpha: opacity);
+                      background = EzConfig.colors.surface.withValues(alpha: opacity);
                     }),
                     onChangeEnd: (double value) async {
                       if (EzConfig.updateBoth || EzConfig.isDark) {
-                        await EzConfig.setDouble(
-                            darkTextBackgroundOpacityKey, value);
+                        await EzConfig.setDouble(darkTextBackgroundOpacityKey, value);
                       }
                       if (EzConfig.updateBoth || !EzConfig.isDark) {
-                        await EzConfig.setDouble(
-                            lightTextBackgroundOpacityKey, value);
+                        await EzConfig.setDouble(lightTextBackgroundOpacityKey, value);
                       }
                     },
                   ),
@@ -225,7 +196,6 @@ class _RightsOpacity extends StatelessWidget {
 
                 // Footer
                 EzRow(
-                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     // Local reset
@@ -242,35 +212,30 @@ class _RightsOpacity extends StatelessWidget {
                           opacity = EzConfig.getDefault(EzConfig.isDark
                               ? darkTextBackgroundOpacityKey
                               : lightTextBackgroundOpacityKey);
-                          background = EzConfig.colors.surface
-                              .withValues(alpha: opacity);
+                          background = EzConfig.colors.surface.withValues(alpha: opacity);
                         });
                       },
-                      icon: const Icon(Icons.refresh),
+                      icon: EzIcon(Icons.refresh),
                       label: EzConfig.l10n.gReset,
                     ),
                     EzConfig.rowSpacer,
 
                     // Done/submit
                     EzElevatedIconButton(
-                      onPressed: Navigator.of(mContext).pop,
-                      icon: const Icon(Icons.done),
+                      onPressed: Navigator.of(mCon).pop,
+                      icon: EzIcon(Icons.done),
                       label: l10n.gDone,
                     ),
                   ],
                 ),
-                EzSpacer(space: EzConfig.spargin),
-              ],
+                EzConfig.separator,
+              ]),
             ),
-          ),
-        );
+          );
 
-        if (opacity != backup) {
-          await EzConfig.rebuildUI(doNothing);
-        }
-      },
-      icon: const Icon(Icons.opacity),
-      label: EzConfig.l10n.tsTextBackground,
-    );
-  }
+          if (opacity != EzConfig.textBackgroundOpacity) await EzConfig.rebuildUI();
+        },
+        icon: EzIcon(Icons.opacity),
+        label: EzConfig.l10n.tsTextBackground,
+      );
 }

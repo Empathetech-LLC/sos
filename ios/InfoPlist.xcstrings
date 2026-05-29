@@ -5,400 +5,365 @@
       "comment" : "Bundle display name",
       "extractionState" : "extracted_with_value",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "InstaSOS"
-          }
-        }
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "en" : { "stringUnit" : { "state" : "new", "value" : "InstaSOS" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } }
       }
     },
     "CFBundleName" : {
       "comment" : "Bundle name",
       "extractionState" : "extracted_with_value",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "InstaSOS"
-          }
-        }
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "en" : { "stringUnit" : { "state" : "new", "value" : "InstaSOS" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } }
       }
     },
     "NSCameraUsageDescription" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS needs access to your camera to share photos/videos with your emergency contacts."
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يحتاج InstaSOS إلى الوصول إلى كاميرتك لمشاركة الصور/الفيديوهات مع جهات اتصال الطوارئ لديك."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS necesita acceso a la cámara para compartir fotos y vídeos con tus contactos de emergencia."
-          }
-        },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kailangan ng InstaSOS ng access sa iyong camera upang maibahagi ang mga larawan/video sa iyong mga emergency contact."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS a besoin d'accéder à votre appareil photo pour partager des photos/vidéos avec vos contacts d'urgence."
-          }
-        },
-        "ht" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS bezwen aksè a kamera a pou pataje foto/videyo avèk kontak ijans ou yo."
-          }
-        },
-        "zh" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS 需要访问您的相机，以便将照片/视频分享给紧急联系人。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى كاميرتك لمشاركة الصور/الفيديوهات مع جهات اتصال الطوارئ لديك." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihre Kamera, um Fotos/Videos mit Ihren Notfallkontakten zu teilen." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your camera to share photos/videos with your emergency contacts." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso a la cámara para compartir fotos y vídeos con tus contactos de emergencia." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong camera upang maibahagi ang mga larawan/video sa iyong mga emergency contact." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre appareil photo pour partager des photos/vidéos avec vos contacts d'urgence." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS को आपके आपातकालीन संपर्कों के साथ फ़ोटो/वीडियो साझा करने के लिए आपके कैमरे तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè a kamera a pou pataje foto/videyo avèk kontak ijans ou yo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOSが緊急連絡先と写真やビデオを共有するには、カメラへのアクセスが必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 비상 연락처와 사진/동영상을 공유하기 위해 카메라 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к камере, чтобы делиться фото и видео с вашими экстренными контактами." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa kamera yako ili kushiriki picha/video na unaowasiliana nao wakati wa dharura." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до вашої камери, щоб ділитися фото/відео з вашими екстренними контактами." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的相机，以便将照片/视频分享给紧急联系人。" } }
       }
     },
     "NSContactsUsageDescription" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS needs to be able to save your emergency contacts."
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يحتاج InstaSOS إلى حفظ جهات اتصال الطوارئ لديك."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS necesita poder guardar tus contactos de emergencia."
-          }
-        },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kailangan ng permiso ng InstaSOS para ma-save ang iyong mga emergency contact."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS doit pouvoir enregistrer vos contacts d'urgence."
-          }
-        },
-        "ht" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS bezwen kapab anrejistre kontak ijans ou yo."
-          }
-        },
-        "zh" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS 需要保存您的紧急联系人信息。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى حفظ جهات اتصال الطوارئ لديك." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS muss Ihre Notfallkontakte speichern können." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs to be able to save your emergency contacts." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita poder guardar tus contactos de emergencia." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng permiso ng InstaSOS para ma-save ang iyong mga emergency contact." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS doit pouvoir enregistrer vos contacts d'urgence." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS को आपके आपातकालीन संपर्कों को सहेजने में सक्षम होने की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen kapab anrejistre kontak ijans ou yo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOSが緊急連絡先を保存できるようにする必要があります。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 비상 연락처를 저장할 수 있어야 합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS должен иметь возможность сохранять ваши экстренные контакты." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji kuweza kuhifadhi unaowasiliana nao wakati wa dharura." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS має мати можливість зберігати ваші контакти для екстрених випадків." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要保存您的紧急联系人信息。" } }
       }
     },
     "NSLocationAlwaysAndWhenInUseUsageDescription" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS needs access to your location to share it with your emergency contacts."
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia."
-          }
-        },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence."
-          }
-        },
-        "ht" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo."
-          }
-        },
-        "zh" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihren Standort, um ihn mit Ihren Notfallkontakten zu teilen." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your location to share it with your emergency contacts." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS को आपके स्थान को आपके आपातकालीन संपर्कों के साथ साझा करने के लिए उस तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOSが緊急連絡先と現在地を共有するには、位置情報へのアクセスが必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 비상 연락처와 위치를 공유하기 위해 위치 정보 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к вашему местоположению, чтобы делиться им с вашими экстренными контактами." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa eneo lako ili kulishiriki na unaowasiliana nao wakati wa dharura." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до вашого місцезнаходження, щоб ділитися ним з вашими екстренними контактами." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。" } }
       }
     },
     "NSLocationAlwaysUsageDescription" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS needs access to your location to share it with your emergency contacts."
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia."
-          }
-        },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence."
-          }
-        },
-        "ht" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo."
-          }
-        },
-        "zh" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihren Standort, um ihn mit Ihren Notfallkontakten zu teilen." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your location to share it with your emergency contacts." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS को आपके स्थान को आपके आपातकालीन संपर्कों के साथ साझा करने के लिए उस तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOSが緊急連絡先と現在地を共有するには、位置情報へのアクセスが必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 비상 연락처와 위치를 공유하기 위해 위치 정보 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к вашему местоположению, чтобы делиться им с вашими экстренными контактами." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa eneo lako ili kulishiriki na unaowasiliana nao wakati wa dharura." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до вашого місцезнаходження, щоб ділитися ним з вашими екстренними контактами." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。" } }
       }
     },
     "NSLocationUsageDescription" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS needs access to your location to share it with your emergency contacts."
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia."
-          }
-        },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence."
-          }
-        },
-        "ht" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo."
-          }
-        },
-        "zh" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihren Standort, um ihn mit Ihren Notfallkontakten zu teilen." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your location to share it with your emergency contacts." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS को आपके स्थान को आपके आपातकालीन संपर्कों के साथ साझा करने के लिए उस तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOSが緊急連絡先と現在地を共有するには、位置情報へのアクセスが必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 비상 연락처와 위치를 공유하기 위해 위치 정보 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к вашему местоположению, чтобы делиться им с вашими экстренными контактами." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa eneo lako ili kulishiriki na unaowasiliana nao wakati wa dharura." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до вашого місцезнаходження, щоб ділитися ним з вашими екстренними контактами." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。" } }
       }
     },
     "NSLocationWhenInUseUsageDescription" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS needs access to your location to share it with your emergency contacts."
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia."
-          }
-        },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence."
-          }
-        },
-        "ht" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo."
-          }
-        },
-        "zh" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihren Standort, um ihn mit Ihren Notfallkontakten zu teilen." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your location to share it with your emergency contacts." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS को आपके स्थान को आपके आपातकालीन संपर्कों के साथ साझा करने के लिए उस तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOSが緊急連絡先と現在地を共有するには、位置情報へのアクセスが必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 비상 연락처와 위치를 공유하기 위해 위치 정보 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к вашему местоположению, чтобы делиться им с вашими экстренними контактами." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa eneo lako ili kulishiriki na unaowasiliana nao wakati wa dharura." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до вашого місцезнаходження, щоб ділитися ним з вашими екстренними контактами." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。" } }
       }
     },
     "NSMicrophoneUsageDescription" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS needs access to your microphone to record videos with audio."
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يحتاج InstaSOS إلى الوصول إلى الميكروفون لتسجيل الفيديوهات مع الصوت."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS necesita acceso al micrófono para grabar vídeos con audio."
-          }
-        },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kailangan ng InstaSOS ng access sa iyong microphone para mag-record ang mga video na may audio."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS a besoin d'accéder à votre microphone pour enregistrer des vidéos avec audio."
-          }
-        },
-        "ht" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS bezwen aksè a mikwofòn ou an pou anrejistre videyo ak odyo."
-          }
-        },
-        "zh" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS 需要访问您的麦克风，以便录制带音频的视频。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى الميكروفون لتسجيل الفيديوهات مع الصوت." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihr Mikrofon, um Videos mit Ton aufzunehmen." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your microphone to record videos with audio." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso al micrófono para grabar vídeos con audio." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong microphone para mag-record ang mga video na may audio." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre microphone pour enregistrer des vidéos avec audio." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "ऑडियो के साथ वीडियो रिकॉर्ड करने के लिए InstaSOS को आपके माइक्रोफ़ोन तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè a mikwofòn ou an pou anrejistre videyo ak odyo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "音声付きのビデオを録画するには、InstaSOSにマイクへのアクセス権限が必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 오디오와 함께 동영상을 녹화하기 위해 마이크 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к микрофону для записи видео со звуком." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa maikrofoni yako ili kurekodi video zenye sauti." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до мікрофона для запису відео зі звуком." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的麦克风，以便录制带音频的视频。" } }
       }
     },
     "NSPhotoLibraryUsageDescription" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS needs access to your photo library to save photos/videos."
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يحتاج InstaSOS إلى الوصول إلى مكتبة الصور لديك لحفظ الصور/الفيديوهات."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS necesita acceso a tu galería para guardar fotos y vídeos."
-          }
-        },
-        "fil" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kailangan ng InstaSOS ng access sa iyong photo library para mai-save ang mga photo/video."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS a besoin d'accéder à votre galerie pour enregistrer des photos/vidéos."
-          }
-        },
-        "ht" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS bezwen aksè ak fichye foto ou yo pou anrejistre foto/videyo."
-          }
-        },
-        "zh" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "InstaSOS 需要访问您的照片库，以便保存照片/视频。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى مكتبة الصور لديك لحفظ الصور/الفيديوهات." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihre Fotomediathek, um Fotos/Videos zu speichern." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your photo library to save photos/videos." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso a tu galería para guardar fotos y vídeos." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong photo library para mai-save ang mga photo/video." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre galerie pour enregistrer des photos/vidéos." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "फ़ोटो/वीडियो सहेजने के लिए InstaSOS को आपकी फ़ोटो लाइब्रेरी तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè ak fichye foto ou yo pou anrejistre foto/videyo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "写真やビデオを保存するには、InstaSOSに写真ライブラリへのアクセス権限が必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 사진/동영상을 저장하기 위해 사진 라이브러리 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к вашей медиатеке для сохранения фото и видео." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa maktaba yako ya picha ili kuhifadhi picha/video." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до вашої фототеки для збереження фото/відео." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的照片库，以便保存照片/视频。" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CFBundleDisplayName" : {
+      "comment" : "Bundle display name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "en" : { "stringUnit" : { "state" : "new", "value" : "InstaSOS" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } }
+      }
+    },
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "en" : { "stringUnit" : { "state" : "new", "value" : "InstaSOS" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS" } }
+      }
+    },
+    "NSCameraUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى كاميرتك لمشاركة الصور/الفيديوهات مع جهات اتصال الطوارئ لديك." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihre Kamera, um Fotos/Videos mit Ihren Notfallkontakten zu teilen." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your camera to share photos/videos with your emergency contacts." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso a la cámara para compartir fotos y vídeos con tus contactos de emergencia." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong camera upang maibahagi ang mga larawan/video sa iyong mga emergency contact." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre appareil photo pour partager des photos/vidéos avec vos contacts d'urgence." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS को आपके आपातकालीन संपर्कों के साथ फ़ोटो/वीडियो साझा करने के लिए आपके कैमरे तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè a kamera a pou pataje foto/videyo avèk kontak ijans ou yo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOSが緊急連絡先と写真やビデオを共有するには、カメラへのアクセスが必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 비상 연락처와 사진/동영상을 공유하기 위해 카메라 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к камере, чтобы делиться фото и видео с вашими экстренными контактами." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa kamera yako ili kushiriki picha/video na unaowasiliana nao wakati wa dharura." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до вашої камери, щоб ділитися фото/відео з вашими екстренними контактами." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的相机，以便将照片/视频分享给紧急联系人。" } }
+      }
+    },
+    "NSContactsUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى حفظ جهات اتصال الطوارئ لديك." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS muss Ihre Notfallkontakte speichern können." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs to be able to save your emergency contacts." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita poder guardar tus contactos de emergencia." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng permiso ng InstaSOS para ma-save ang iyong mga emergency contact." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS doit pouvoir enregistrer vos contacts d'urgence." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS को आपके आपातकालीन संपर्कों को सहेजने में सक्षम होने की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen kapab anrejistre kontak ijans ou yo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOSが緊急連絡先を保存できるようにする必要があります。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 비상 연락처를 저장할 수 있어야 합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS должен иметь возможность сохранять ваши экстренные контакты." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji kuweza kuhifadhi unaowasiliana nao wakati wa dharura." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS має мати можливість зберігати ваші контакти для екстрених випадків." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要保存您的紧急联系人信息。" } }
+      }
+    },
+    "NSLocationAlwaysAndWhenInUseUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihren Standort, um ihn mit Ihren Notfallkontakten zu teilen." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your location to share it with your emergency contacts." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS को आपके स्थान को आपके आपातकालीन संपर्कों के साथ साझा करने के लिए उस तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOSが緊急連絡先と現在地を共有するには、位置情報へのアクセスが必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 비상 연락처와 위치를 공유하기 위해 위치 정보 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к вашему местоположению, чтобы делиться им с вашими экстренными контактами." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa eneo lako ili kulishiriki na unaowasiliana nao wakati wa dharura." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до вашого місцезнаходження, щоб ділитися ним з вашими екстренними контактами." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。" } }
+      }
+    },
+    "NSLocationAlwaysUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihren Standort, um ihn mit Ihren Notfallkontakten zu teilen." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your location to share it with your emergency contacts." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS को आपके स्थान को आपके आपातकालीन संपर्कों के साथ साझा करने के लिए उस तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOSが緊急連絡先と現在地を共有するには、位置情報へのアクセスが必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 비상 연락처와 위치를 공유하기 위해 위치 정보 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к вашему местоположению, чтобы делиться им с вашими экстренными контактами." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa eneo lako ili kulishiriki na unaowasiliana nao wakati wa dharura." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до вашого місцезнаходження, щоб ділитися ним з вашими екстренними контактами." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。" } }
+      }
+    },
+    "NSLocationUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihren Standort, um ihn mit Ihren Notfallkontakten zu teilen." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your location to share it with your emergency contacts." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS को आपके स्थान को आपके आपातकालीन संपर्कों के साथ साझा करने के लिए उस तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOSが緊急連絡先と現在地を共有するには、位置情報へのアクセスが必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 비상 연락처와 위치를 공유하기 위해 위치 정보 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к вашему местоположению, чтобы делиться им с вашими экстренными контактами." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa eneo lako ili kulishiriki na unaowasiliana nao wakati wa dharura." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до вашого місцезнаходження, щоб ділитися ним з вашими екстренними контактами." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。" } }
+      }
+    },
+    "NSLocationWhenInUseUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى موقعك لمشاركته مع جهات اتصال الطوارئ لديك." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihren Standort, um ihn mit Ihren Notfallkontakten zu teilen." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your location to share it with your emergency contacts." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso a tu ubicación para compartirla con tus contactos de emergencia." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong lokasyon upang maibahagi ito sa iyong mga emergency contact." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre localisation pour la partager avec vos contacts d'urgence." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS को आपके स्थान को आपके आपातकालीन संपर्कों के साथ साझा करने के लिए उस तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè a pozisyon ou pou pataje yo avèk kontak ijans ou yo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOSが緊急連絡先と現在地を共有するには、位置情報へのアクセスが必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 비상 연락처와 위치를 공유하기 위해 위치 정보 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к вашему местоположению, чтобы делиться им с вашими экстренними контактами." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa eneo lako ili kulishiriki na unaowasiliana nao wakati wa dharura." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до вашого місцезнаходження, щоб ділитися ним з вашими екстренними контактами." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的位置，以便将位置信息分享给紧急联系人。" } }
+      }
+    },
+    "NSMicrophoneUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى الميكروفون لتسجيل الفيديوهات مع الصوت." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihr Mikrofon, um Videos mit Ton aufzunehmen." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your microphone to record videos with audio." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso al micrófono para grabar vídeos con audio." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong microphone para mag-record ang mga video na may audio." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre microphone pour enregistrer des vidéos avec audio." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "ऑडियो के साथ वीडियो रिकॉर्ड करने के लिए InstaSOS को आपके माइक्रोफ़ोन तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè a mikwofòn ou an pou anrejistre videyo ak odyo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "音声付きのビデオを録画するには、InstaSOSにマイクへのアクセス権限が必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 오디오와 함께 동영상을 녹화하기 위해 마이크 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к микрофону для записи видео со звуком." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa maikrofoni yako ili kurekodi video zenye sauti." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до мікрофона для запису відео зі звуком." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的麦克风，以便录制带音频的视频。" } }
+      }
+    },
+    "NSPhotoLibraryUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يحتاج InstaSOS إلى الوصول إلى مكتبة الصور لديك لحفظ الصور/الفيديوهات." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS benötigt Zugriff auf Ihre Fotomediathek, um Fotos/Videos zu speichern." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS needs access to your photo library to save photos/videos." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS necesita acceso a tu galería para guardar fotos y vídeos." } },
+        "fil" : { "stringUnit" : { "state" : "translated", "value" : "Kailangan ng InstaSOS ng access sa iyong photo library para mai-save ang mga photo/video." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS a besoin d'accéder à votre galerie pour enregistrer des photos/vidéos." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "फ़ोटो/वीडियो सहेजने के लिए InstaSOS को आपकी फ़ोटो लाइब्रेरी तक पहुंच की आवश्यकता है।" } },
+        "ht" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS bezwen aksè ak fichye foto ou yo pou anrejistre foto/videyo." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "写真やビデオを保存するには、InstaSOSに写真ライブラリへのアクセス権限が必要です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS는 사진/동영상을 저장하기 위해 사진 라이브러리 접근 권한이 필요합니다." } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS требуется доступ к вашей медиатеке для сохранения фото и видео." } },
+        "sw" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS inahitaji ufikiaji wa maktaba yako ya picha ili kuhifadhi picha/video." } },
+        "uk" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS потрібен доступ до вашої фототеки для збереження фото/відео." } },
+        "zh" : { "stringUnit" : { "state" : "translated", "value" : "InstaSOS 需要访问您的照片库，以便保存照片/视频。" } }
       }
     }
   },

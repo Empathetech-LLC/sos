@@ -1,8 +1,6 @@
 {
   "@@locale": "fr",
 
-
-
   "gOk": "Ok",
   "gDone": "Terminé",
   "gReminder": "Rappel",
@@ -134,6 +132,8 @@
   "rmAffiliate": "Aucune n'est affiliée à Empathetech LLC",
   "rmAffiliateFix": "Aucune n'est affiliée à Empathetic LLC",
 
+
+  
   "faqName": "FAQ",
 
   "faqListQ": "Comment la liste des droits a-t-elle été élaborée ?",
@@ -194,6 +194,5 @@
 
 
 
-  "dsLadyLiberty": "Une photo de la Statue de la Liberté, avec un aperçu de la liste des droits.",
-  "dsShowBack": "Afficher le bouton de retour ?"
+  "dsLadyLiberty": "Une photo de la Statue de la Liberté, avec un aperçu de la liste des droits."
 }

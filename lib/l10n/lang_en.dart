@@ -485,9 +485,6 @@ class LangEn extends Lang {
   @override
   String get dsLadyLiberty =>
       'A picture of the Statue of Liberty, with a preview of the rights list.';
-
-  @override
-  String get dsShowBack => 'Show back button?';
 }
 
 /// The translations for English, as used in the United States (`en_US`).
@@ -971,7 +968,4 @@ class LangEnUs extends LangEn {
   @override
   String get dsLadyLiberty =>
       'A picture of the Statue of Liberty, with a preview of the rights list.';
-
-  @override
-  String get dsShowBack => 'Show back button?';
 }

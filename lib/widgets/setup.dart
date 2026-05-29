@@ -14,95 +14,39 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 // Icon generators //
 
-Widget boolIcon(bool? status) {
-  switch (status) {
-    case true:
-      return EzIcon(
-        Icons.check,
-        color: EzConfig.colors.primary,
-      );
-    case false:
-      return EzIcon(
-        Icons.cancel_outlined,
-        color: EzConfig.colors.error,
-      );
-    case null:
-      return EzIcon(
-        Icons.help_outline,
-        color: EzConfig.colors.primary,
-      );
-  }
-}
+Widget boolIcon(bool? status) => switch (status) {
+      true => EzIcon(Icons.check, color: EzConfig.colors.primary),
+      false => EzIcon(Icons.cancel_outlined, color: EzConfig.colors.error),
+      null => EzIcon(Icons.help_outline, color: EzConfig.colors.primary),
+    };
 
-Widget pStatusIcon(PermissionStatus? status) {
-  switch (status) {
-    case PermissionStatus.granted:
-    case PermissionStatus.limited:
-    case PermissionStatus.provisional:
-      return EzIcon(
-        Icons.check,
-        color: EzConfig.colors.primary,
-      );
-    case PermissionStatus.restricted:
-      return EzIcon(
-        Icons.cancel_outlined,
-        color: EzConfig.colors.outline,
-      );
-    case PermissionStatus.denied:
-    case PermissionStatus.permanentlyDenied:
-      return EzIcon(
-        Icons.cancel_outlined,
-        color: EzConfig.colors.error,
-      );
-    case null:
-      return EzIcon(
-        Icons.help_outline,
-        color: EzConfig.colors.primary,
-      );
-  }
-}
+Widget pStatusIcon(PermissionStatus? status) => switch (status) {
+      PermissionStatus.granted ||
+      PermissionStatus.limited ||
+      PermissionStatus.provisional =>
+        EzIcon(Icons.check, color: EzConfig.colors.primary),
+      PermissionStatus.restricted => EzIcon(Icons.cancel_outlined, color: EzConfig.colors.outline),
+      PermissionStatus.denied ||
+      PermissionStatus.permanentlyDenied =>
+        EzIcon(Icons.cancel_outlined, color: EzConfig.colors.error),
+      null => EzIcon(Icons.help_outline, color: EzConfig.colors.primary),
+    };
 
-Widget lStatusIcon(LocationPermission? status) {
-  switch (status) {
-    case LocationPermission.always:
-      return EzIcon(
-        Icons.check,
-        color: EzConfig.colors.primary,
-      );
-
-    case LocationPermission.denied:
-    case LocationPermission.deniedForever:
-      return EzIcon(
-        Icons.cancel_outlined,
-        color: EzConfig.colors.error,
-      );
-
-    case null:
-      return EzIcon(
-        Icons.help_outline,
-        color: EzConfig.colors.primary,
-      );
-
-    case LocationPermission.unableToDetermine:
-      return EzIcon(
-        Icons.check,
-        color: EzConfig.colors.secondary,
-      );
-
-    case LocationPermission.whileInUse:
-      return EzIcon(
-        Icons.check,
-        color: isIOS ? EzConfig.colors.primary : EzConfig.colors.secondary,
-      );
-  }
-}
+Widget lStatusIcon(LocationPermission? status) => switch (status) {
+      LocationPermission.always => EzIcon(Icons.check, color: EzConfig.colors.primary),
+      LocationPermission.denied ||
+      LocationPermission.deniedForever =>
+        EzIcon(Icons.cancel_outlined, color: EzConfig.colors.error),
+      null => EzIcon(Icons.help_outline, color: EzConfig.colors.primary),
+      LocationPermission.unableToDetermine => EzIcon(Icons.check, color: EzConfig.colors.secondary),
+      LocationPermission.whileInUse =>
+        EzIcon(Icons.check, color: isIOS ? EzConfig.colors.primary : EzConfig.colors.secondary),
+    };
 
 // Setting cards //
 
-OutlinedBorder get cardShape => RoundedRectangleBorder(
-      side: EzConfig.borderSide(EzConfig.colors.primaryContainer),
-      borderRadius: ezRoundEdge,
-    );
+OutlinedBorder get cardShape =>
+    RoundedRectangleBorder(side: EzConfig.borderSide(), borderRadius: EzConfig.textRadius);
 
 class CameraSetup extends StatefulWidget {
   final Future<PermissionStatus> Function() initCamera;
@@ -143,135 +87,125 @@ class _CameraSetupState extends State<CameraSetup> {
   // Return the build //
 
   @override
-  Widget build(BuildContext context) {
-    return allowedPermCheck(camStatus)
-        ? GestureDetector(
-            onTap: () async {
-              // Do nothing if already complete
-              if (galStatus == true) return;
+  Widget build(BuildContext context) => allowedPermCheck(camStatus)
+      ? GestureDetector(
+          onTap: () async {
+            // Do nothing if already complete
+            if (galStatus == true) return;
 
-              // Check permission(s) race
-              if (widget.locked) return;
-              widget.setLock(true);
+            // Check permission(s) race
+            if (widget.locked) return;
+            widget.setLock(true);
 
-              // Make it so
-              final bool result = await Gal.requestAccess();
-              if (galStatus != result) {
-                if (mounted) setState(() => galStatus = result);
-              }
-              widget.setLock(false);
-            },
-            child: Semantics(
-              button: galStatus != true,
-              readOnly: galStatus == true,
-              hint: (galStatus == true)
-                  ? l10n.hsCameraReady
-                  : l10n.hsCameraSetupHint,
-              child: ExcludeSemantics(
-                child: Card(
-                  shape: cardShape,
-                  child: EzRow(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.all(EzConfig.marginVal),
-                          child: galStatus == true
-                              ? Text(
-                                  l10n.hsCameraReady,
-                                  style: EzConfig.styles.bodyLarge,
-                                  textAlign: TextAlign.start,
-                                )
-                              : Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text(
-                                      l10n.hsGallery,
-                                      style: EzConfig.styles.bodyLarge,
-                                      textAlign: TextAlign.start,
-                                    ),
-                                    Text(
-                                      l10n.hsAddSave,
-                                      style: EzConfig.styles.labelLarge,
-                                      textAlign: TextAlign.start,
-                                    ),
-                                  ],
-                                ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: EzConfig.padding),
-                        child: boolIcon(galStatus),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          )
-        : GestureDetector(
-            onTap: () async {
-              // Do nothing if already complete
-              if (allowedPermCheck(camStatus)) return;
-
-              // Check permission(s) race
-              if (widget.locked) return;
-              widget.setLock(true);
-
-              // Make it so
-              final PermissionStatus result = await widget.initCamera();
-              if (camStatus != result) {
-                if (mounted) setState(() => camStatus = result);
-              }
-              widget.setLock(false);
-            },
-            child: Semantics(
-              button: true,
-              readOnly: false,
-              hint: l10n.hsCameraSetupHint,
-              child: ExcludeSemantics(
-                child: Card(
-                  shape: cardShape,
-                  child: EzRow(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.all(EzConfig.marginVal),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                l10n.hsCamMic,
+            // Make it so
+            final bool result = await Gal.requestAccess();
+            if (galStatus != result) {
+              if (mounted) setState(() => galStatus = result);
+            }
+            widget.setLock(false);
+          },
+          child: Semantics(
+            button: galStatus != true,
+            readOnly: galStatus == true,
+            hint: (galStatus == true) ? l10n.hsCameraReady : l10n.hsCameraSetupHint,
+            child: ExcludeSemantics(
+              child: Card(
+                shape: cardShape,
+                child: EzRow(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.all(EzConfig.padding),
+                        child: galStatus == true
+                            ? Text(
+                                l10n.hsCameraReady,
                                 style: EzConfig.styles.bodyLarge,
                                 textAlign: TextAlign.start,
+                              )
+                            : EzCol(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    l10n.hsGallery,
+                                    style: EzConfig.styles.bodyLarge,
+                                    textAlign: TextAlign.start,
+                                  ),
+                                  Text(
+                                    l10n.hsAddSave,
+                                    style: EzConfig.styles.labelLarge,
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ],
                               ),
-                              Text(
-                                l10n.hsAddRecording,
-                                style: EzConfig.styles.labelLarge,
-                                textAlign: TextAlign.start,
-                              ),
-                            ],
-                          ),
-                        ),
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: EzConfig.padding),
-                        child: pStatusIcon(camStatus),
-                      ),
-                    ],
-                  ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(EzConfig.padding),
+                      child: boolIcon(galStatus),
+                    ),
+                  ],
                 ),
               ),
             ),
-          );
-  }
+          ),
+        )
+      : GestureDetector(
+          onTap: () async {
+            // Do nothing if already complete
+            if (allowedPermCheck(camStatus)) return;
+
+            // Check permission(s) race
+            if (widget.locked) return;
+            widget.setLock(true);
+
+            // Make it so
+            final PermissionStatus result = await widget.initCamera();
+            if (camStatus != result) {
+              if (mounted) setState(() => camStatus = result);
+            }
+            widget.setLock(false);
+          },
+          child: Semantics(
+            button: true,
+            readOnly: false,
+            hint: l10n.hsCameraSetupHint,
+            child: ExcludeSemantics(
+              child: Card(
+                shape: cardShape,
+                child: EzRow(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.all(EzConfig.padding),
+                        child: EzCol(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              l10n.hsCamMic,
+                              style: EzConfig.styles.bodyLarge,
+                              textAlign: TextAlign.start,
+                            ),
+                            Text(
+                              l10n.hsAddRecording,
+                              style: EzConfig.styles.labelLarge,
+                              textAlign: TextAlign.start,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(EzConfig.padding),
+                      child: pStatusIcon(camStatus),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
 }
 
 class ContactsSetup extends StatefulWidget {
@@ -324,7 +258,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
           if (isIOS) {
             await showDialog(
               context: context,
-              builder: (BuildContext dContext) => EzAlertDialog(
+              builder: (BuildContext dCon) => EzAlertDialog(
                 title: Text(l10n.gReminder, textAlign: TextAlign.center),
                 content: Text(
                   l10n.hsAppleContacts,
@@ -334,7 +268,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                 actions: <EzMaterialAction>[
                   EzMaterialAction(
                     text: l10n.gOk,
-                    onPressed: () => Navigator.of(dContext).pop(),
+                    onPressed: () => Navigator.of(dCon).pop(),
                   ),
                 ],
                 needsClose: false,
@@ -342,8 +276,8 @@ class _ContactsSetupState extends State<ContactsSetup> {
             );
           }
 
-          final c.PermissionStatus result = await c.FlutterContacts.permissions
-              .request(c.PermissionType.read);
+          final c.PermissionStatus result =
+              await c.FlutterContacts.permissions.request(c.PermissionType.read);
           if (allowed != result) if (mounted) setState(() => allowed = result);
           widget.setLock(false);
         },
@@ -355,20 +289,18 @@ class _ContactsSetupState extends State<ContactsSetup> {
             child: Card(
               shape: cardShape,
               child: EzRow(
-                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.all(EzConfig.marginVal),
+                      padding: EdgeInsets.all(EzConfig.padding),
                       child: allowedPermCheck(cPermMirror(allowed))
                           ? Text(
                               l10n.hsContactsReady,
                               style: EzConfig.styles.bodyLarge,
                               textAlign: TextAlign.start,
                             )
-                          : Column(
-                              mainAxisSize: MainAxisSize.min,
+                          : EzCol(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
@@ -377,9 +309,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                                   textAlign: TextAlign.start,
                                 ),
                                 Text(
-                                  isIOS
-                                      ? l10n.hsAddContactsIOS
-                                      : l10n.hsAddContacts,
+                                  isIOS ? l10n.hsAddContactsIOS : l10n.hsAddContacts,
                                   style: EzConfig.styles.labelLarge,
                                   textAlign: TextAlign.start,
                                 ),
@@ -388,7 +318,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                    padding: EdgeInsets.all(EzConfig.padding),
                     child: pStatusIcon(cPermMirror(allowed)),
                   ),
                 ],
@@ -456,20 +386,18 @@ class _SMSSetupState extends State<SMSSetup> {
             child: Card(
               shape: cardShape,
               child: EzRow(
-                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.all(EzConfig.marginVal),
+                      padding: EdgeInsets.all(EzConfig.padding),
                       child: allowedPermCheck(status)
                           ? Text(
                               l10n.hsTextingReady,
                               style: EzConfig.styles.bodyLarge,
                               textAlign: TextAlign.start,
                             )
-                          : Column(
-                              mainAxisSize: MainAxisSize.min,
+                          : EzCol(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
@@ -487,7 +415,7 @@ class _SMSSetupState extends State<SMSSetup> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: EzConfig.padding),
+                    padding: EdgeInsets.all(EzConfig.padding),
                     child: pStatusIcon(status),
                   ),
                 ],
@@ -512,8 +440,7 @@ class LocationSetup extends StatefulWidget {
   State<LocationSetup> createState() => _LocationSetupState();
 }
 
-class _LocationSetupState extends State<LocationSetup>
-    with WidgetsBindingObserver {
+class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserver {
   // Define the build data //
 
   LocationPermission? status;
@@ -555,8 +482,7 @@ class _LocationSetupState extends State<LocationSetup>
               widget.setLock(true);
 
               // Make it so
-              final bool serviceEnabled =
-                  await Geolocator.isLocationServiceEnabled();
+              final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
               if (!serviceEnabled) {
                 (context.mounted)
                     ? await ezLogAlert(context, message: l10n.sosDisabled)
@@ -564,8 +490,7 @@ class _LocationSetupState extends State<LocationSetup>
                 return;
               }
 
-              final LocationPermission result =
-                  await Geolocator.requestPermission();
+              final LocationPermission result = await Geolocator.requestPermission();
               if (status != result) {
                 if (mounted) setState(() => status = result);
               }
@@ -601,22 +526,19 @@ class _LocationSetupState extends State<LocationSetup>
                   child: Card(
                     shape: cardShape,
                     child: EzRow(
-                      mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(EzConfig.marginVal),
+                            padding: EdgeInsets.all(EzConfig.padding),
                             child: allowedPermCheck(lPermMirror(status))
                                 ? Text(
                                     l10n.hsLocationReady,
                                     style: EzConfig.styles.bodyLarge,
                                     textAlign: TextAlign.start,
                                   )
-                                : Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                : EzCol(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
                                         l10n.hsLocation,
@@ -633,8 +555,7 @@ class _LocationSetupState extends State<LocationSetup>
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: EzConfig.padding),
+                          padding: EdgeInsets.all(EzConfig.padding),
                           child: lStatusIcon(status),
                         ),
                       ],
@@ -650,22 +571,19 @@ class _LocationSetupState extends State<LocationSetup>
                   child: Card(
                     shape: cardShape,
                     child: EzRow(
-                      mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(EzConfig.marginVal),
+                            padding: EdgeInsets.all(EzConfig.padding),
                             child: status == LocationPermission.always
                                 ? Text(
                                     l10n.hsLocationReady,
                                     style: EzConfig.styles.bodyLarge,
                                     textAlign: TextAlign.start,
                                   )
-                                : Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                : EzCol(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
                                         l10n.hsLocation,
@@ -684,8 +602,7 @@ class _LocationSetupState extends State<LocationSetup>
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: EzConfig.padding),
+                          padding: EdgeInsets.all(EzConfig.padding),
                           child: lStatusIcon(status),
                         ),
                       ],

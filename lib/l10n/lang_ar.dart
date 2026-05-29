@@ -481,9 +481,6 @@ class LangAr extends Lang {
 
   @override
   String get dsLadyLiberty => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';
-
-  @override
-  String get dsShowBack => 'إظهار زر الرجوع؟';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -963,7 +960,4 @@ class LangArEg extends LangAr {
 
   @override
   String get dsLadyLiberty => 'صورة لتمثال الحرية، مع معاينة لقائمة الحقوق.';
-
-  @override
-  String get dsShowBack => 'إظهار زر الرجوع؟';
 }

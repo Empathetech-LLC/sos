@@ -485,7 +485,4 @@ class LangHt extends Lang {
   @override
   String get dsLadyLiberty =>
       'Yon foto Estati Libète a, avèk yon previzyalizasyon lis dwa yo.';
-
-  @override
-  String get dsShowBack => 'Montre bouton tounen an?';
 }
