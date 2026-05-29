@@ -209,6 +209,7 @@ class _HomeScreenState extends State<HomeScreen>
                     if (mounted) setState(() => showRights = !showRights);
                   },
                   child: Container(
+                    alignment: Alignment.topCenter,
                     height: heightOf(context) * 0.667,
                     width: double.infinity,
                     color: EzConfig.colors.surface,
