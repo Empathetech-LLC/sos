@@ -19,32 +19,27 @@ class SosScaffold extends StatelessWidget {
   final bool home;
 
   /// Standardized [Scaffold] for all screens
-  const SosScaffold(
-    this.body, {
-    super.key,
-    this.fabs,
-    this.home = false,
-  });
+  const SosScaffold(this.body, {super.key, this.fabs, this.home = false});
 
   @override
   Widget build(BuildContext context) => EzAdaptiveParent(
-        small: Consumer<EzConfigProvider>(
-          builder: (_, EzConfigProvider config, __) => EzScaffold(
-            seed: config.seed,
-            body: body,
-            fabs: <Widget>[
-              const EzUpdaterFAB(
-                appVersion: '2.0.3',
-                versionSource:
-                    'https://raw.githubusercontent.com/Empathetech-LLC/sos/refs/heads/main/APP_VERSION',
-                gPlay: 'https://play.google.com/store/apps/details?id=net.empathetech.sos',
-                appStore: 'https://apps.apple.com/us/app/instasos/id6744280817',
-                github: 'https://github.com/Empathetech-LLC/sos/releases',
-              ),
-              if (fabs != null) ...fabs!,
-              ...EzConfig.backFABs(home),
-            ],
+    small: Consumer<EzConfigProvider>(
+      builder: (_, EzConfigProvider config, __) => EzScaffold(
+        seed: config.seed,
+        body: body,
+        fabs: <Widget>[
+          const EzUpdaterFAB(
+            appVersion: '3.0.0',
+            versionSource:
+                'https://raw.githubusercontent.com/Empathetech-LLC/sos/refs/heads/main/APP_VERSION',
+            gPlay: 'https://play.google.com/store/apps/details?id=net.empathetech.sos',
+            appStore: 'https://apps.apple.com/us/app/instasos/id6744280817',
+            github: 'https://github.com/Empathetech-LLC/sos/releases',
           ),
-        ),
-      );
+          if (fabs != null) ...fabs!,
+          ...EzConfig.backFABs(home),
+        ],
+      ),
+    ),
+  );
 }

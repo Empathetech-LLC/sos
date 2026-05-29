@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.0] - 2026-05-29
+### Updated
+- EFUI aka appearance settings
+  - Animations on the home page/rights view
+    - Swipe controls too
+- 7 more languages
+
 ## [2.0.3] - 2026-04-01
 ### Updated
 - EFUI aka appearance settings
