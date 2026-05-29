@@ -55,31 +55,34 @@ class _RightsViewState extends State<RightsView> {
   Widget build(BuildContext context) => Padding(
         padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
         child: EzScrollView(
+          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           // Header
           children: <Widget>[
             Center(
-              child: Text(
-                l10n.rvSharedHeader,
-                textAlign: TextAlign.center,
-                style: EzConfig.styles.titleLarge,
-              ),
-            ),
-            EzConfig.spacer,
+              child: EzCol(
+                children: <Widget>[
+                  Text(
+                    l10n.rvSharedHeader,
+                    textAlign: TextAlign.center,
+                    style: EzConfig.styles.titleLarge,
+                  ),
+                  EzConfig.spacer,
 
-            // Switcher
-            Center(
-              child: SegmentedButton<Situation>(
-                segments: Situation.values
-                    .map((Situation sitch) => ButtonSegment<Situation>(
-                          value: sitch,
-                          label: EzIcon(sitch.icon),
-                          tooltip: sitch.tooltip,
-                        ))
-                    .toList(),
-                selected: <Situation>{currTab},
-                showSelectedIcon: false,
-                onSelectionChanged: (Set<Situation> selected) => _nav(selected.first),
+                  // Switcher
+                  SegmentedButton<Situation>(
+                    segments: Situation.values
+                        .map((Situation sitch) => ButtonSegment<Situation>(
+                              value: sitch,
+                              label: EzIcon(sitch.icon),
+                              tooltip: sitch.tooltip,
+                            ))
+                        .toList(),
+                    selected: <Situation>{currTab},
+                    showSelectedIcon: false,
+                    onSelectionChanged: (Set<Situation> selected) => _nav(selected.first),
+                  ),
+                ],
               ),
             ),
             EzConfig.separator,
