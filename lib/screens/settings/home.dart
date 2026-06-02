@@ -8,6 +8,7 @@ import '../../utils/export.dart';
 import '../../widgets/export.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -57,7 +58,9 @@ class SettingsHomeScreen extends StatelessWidget {
   // Return the build //
 
   @override
-  Widget build(BuildContext context) => SosScaffold(
+  Widget build(BuildContext context) {
+    return Consumer<EzConfigProvider>(
+      builder: (_, EzConfigProvider config, __) => SosScaffold(
         EzScreen(
           Center(
             child: EzScrollView(children: <Widget>[
@@ -65,11 +68,11 @@ class SettingsHomeScreen extends StatelessWidget {
               EzLocaleSetting(
                 skip: <Locale>{arabic, english, chinese}, // dupes
               ),
-              EzConfig.separator,
+              config.layout.separator,
 
               // Auto-share media
               EzSwitchPair(text: l10n.ssAutoShare, valueKey: autoShareMediaKey),
-              EzConfig.separator,
+              config.layout.separator,
 
               // GoTo SOS
               EzElevatedIconButton(
@@ -77,7 +80,7 @@ class SettingsHomeScreen extends StatelessWidget {
                 icon: EzIcon(Icons.navigate_next),
                 label: l10n.ssSOS,
               ),
-              EzConfig.spacer,
+              config.layout.spacer,
 
               // GoTo Appearance
               EzElevatedIconButton(
@@ -85,7 +88,7 @@ class SettingsHomeScreen extends StatelessWidget {
                 icon: EzIcon(Icons.navigate_next),
                 label: l10n.ssAppearance,
               ),
-              EzConfig.divider,
+              config.layout.divider,
 
               // Permissions
               EzElevatedIconButton(
@@ -101,11 +104,11 @@ class SettingsHomeScreen extends StatelessWidget {
                           <InlineSpan>[
                             EzPlainText(
                               text: '${l10n.pmOnlyAdd}\n',
-                              style: EzConfig.styles.bodyLarge,
+                              style: config.theme.textTheme.bodyLarge,
                             ),
                             EzPlainText(
                               text: l10n.pmRemoveIn,
-                              style: EzConfig.styles.bodyLarge,
+                              style: config.theme.textTheme.bodyLarge,
                             ),
                             EzInlineLink(
                               l10n.gSystem.toLowerCase(),
@@ -115,57 +118,57 @@ class SettingsHomeScreen extends StatelessWidget {
                                   Navigator.of(mCon).pop();
                                 }
                               },
-                              hint: EzConfig.l10n.gOpenLink,
+                              hint: config.l10n.gOpenLink,
                             ),
                             EzPlainText(
                               text: '.',
-                              style: EzConfig.styles.bodyLarge,
+                              style: config.theme.textTheme.bodyLarge,
                             ),
                           ],
                           textBackground: false,
-                          style: EzConfig.styles.bodyLarge,
+                          style: config.theme.textTheme.bodyLarge,
                           textAlign: TextAlign.center,
                         ),
-                        EzConfig.centerLine,
+                        config.layout.centerLine,
                         Text(
                           l10n.pmManualPermission,
-                          style: EzConfig.styles.bodyLarge,
+                          style: config.theme.textTheme.bodyLarge,
                           textAlign: TextAlign.center,
                         ),
-                        EzConfig.divider,
+                        config.layout.divider,
 
                         // Setup cards
                         ContactsSetup(
                           locked: locked,
                           setLock: (bool active) => setModal(() => locked = active),
                         ),
-                        EzConfig.spacer,
+                        config.layout.spacer,
 
                         if (!isIOS) ...<Widget>[
                           SMSSetup(
                             locked: locked,
                             setLock: (bool active) => setModal(() => locked = active),
                           ),
-                          EzConfig.spacer,
+                          config.layout.spacer,
                         ],
 
                         LocationSetup(
                           locked: locked,
                           setLock: (bool active) => setModal(() => locked = active),
                         ),
-                        EzConfig.spacer,
+                        config.layout.spacer,
 
                         // Finish/leave
                         EzTextButton(
                           text: l10n.gDone,
-                          textStyle:
-                              EzConfig.styles.bodyLarge?.copyWith(color: EzConfig.colors.primary),
+                          textStyle: config.theme.textTheme.bodyLarge
+                              ?.copyWith(color: config.theme.colorScheme.primary),
                           textAlign: TextAlign.center,
                           style: TextButton.styleFrom(
-                              backgroundColor: EzConfig.colors.surfaceContainer),
+                              backgroundColor: config.theme.colorScheme.surfaceContainer),
                           onPressed: () => Navigator.of(mCon).pop(true),
                         ),
-                        EzConfig.separator,
+                        config.layout.separator,
                       ]),
                     ),
                   );
@@ -173,7 +176,7 @@ class SettingsHomeScreen extends StatelessWidget {
                 icon: EzIcon(Icons.list),
                 label: l10n.ssPermissions,
               ),
-              EzConfig.spacer,
+              config.layout.spacer,
 
               // Resources
               EzElevatedIconButton(
@@ -184,11 +187,11 @@ class SettingsHomeScreen extends StatelessWidget {
                     Center(
                       child: Text(
                         l10n.rmCommunity,
-                        style: EzConfig.styles.titleLarge,
+                        style: config.theme.textTheme.titleLarge,
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    EzConfig.spacer,
+                    config.layout.spacer,
 
                     // ACLU
                     EzLink(
@@ -198,12 +201,12 @@ class SettingsHomeScreen extends StatelessWidget {
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
+                      hint: config.l10n.gOpenLink,
+                      style: config.theme.textTheme.bodyLarge,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    EzConfig.spacer,
+                    config.layout.spacer,
 
                     // Dunk the Vote
                     EzLink(
@@ -213,12 +216,12 @@ class SettingsHomeScreen extends StatelessWidget {
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
+                      hint: config.l10n.gOpenLink,
+                      style: config.theme.textTheme.bodyLarge,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    EzConfig.spacer,
+                    config.layout.spacer,
 
                     // How to document
                     EzLink(
@@ -228,12 +231,12 @@ class SettingsHomeScreen extends StatelessWidget {
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
+                      hint: config.l10n.gOpenLink,
+                      style: config.theme.textTheme.bodyLarge,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    EzConfig.spacer,
+                    config.layout.spacer,
 
                     // ICERR
                     EzLink(
@@ -243,12 +246,12 @@ class SettingsHomeScreen extends StatelessWidget {
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
+                      hint: config.l10n.gOpenLink,
+                      style: config.theme.textTheme.bodyLarge,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    EzConfig.spacer,
+                    config.layout.spacer,
 
                     // IMMDEF
                     EzLink(
@@ -258,12 +261,12 @@ class SettingsHomeScreen extends StatelessWidget {
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
+                      hint: config.l10n.gOpenLink,
+                      style: config.theme.textTheme.bodyLarge,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    EzConfig.spacer,
+                    config.layout.spacer,
 
                     // NNiRR
                     EzLink(
@@ -273,22 +276,22 @@ class SettingsHomeScreen extends StatelessWidget {
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
+                      hint: config.l10n.gOpenLink,
+                      style: config.theme.textTheme.bodyLarge,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    EzConfig.divider,
+                    config.layout.divider,
 
                     // Gov resources //
                     Center(
                       child: Text(
                         l10n.rmGov,
-                        style: EzConfig.styles.titleLarge,
+                        style: config.theme.textTheme.titleLarge,
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    EzConfig.spacer,
+                    config.layout.spacer,
 
                     // Detainee Locator
                     EzLink(
@@ -298,32 +301,32 @@ class SettingsHomeScreen extends StatelessWidget {
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: EzConfig.l10n.gOpenLink,
-                      style: EzConfig.styles.bodyLarge,
+                      hint: config.l10n.gOpenLink,
+                      style: config.theme.textTheme.bodyLarge,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    EzConfig.divider,
+                    config.layout.divider,
 
                     // Disclaimers
                     Text(
                       l10n.rmAffiliate,
                       semanticsLabel: l10n.rmAffiliateFix,
-                      style: EzConfig.styles.labelLarge,
+                      style: config.theme.textTheme.labelLarge,
                       textAlign: TextAlign.center,
                     ),
-                    EzConfig.separator,
+                    config.layout.separator,
                   ]),
                 ),
                 icon: EzIcon(Icons.search),
                 label: l10n.ssResources,
               ),
-              EzConfig.spacer,
+              config.layout.spacer,
 
               // App support
               EzElevatedIconButton(
                 onPressed: () async {
-                  final TextStyle? answer = EzConfig.styles.bodyLarge;
+                  final TextStyle? answer = config.theme.textTheme.bodyLarge;
                   final TextStyle? question =
                       answer?.copyWith(decoration: TextDecoration.underline);
 
@@ -336,11 +339,11 @@ class SettingsHomeScreen extends StatelessWidget {
                         Center(
                           child: Text(
                             l10n.faqName,
-                            style: EzConfig.styles.titleLarge,
+                            style: config.theme.textTheme.titleLarge,
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        EzConfig.margin,
+                        config.layout.margin,
 
                         // Rights list source? - shared //
 
@@ -358,7 +361,7 @@ class SettingsHomeScreen extends StatelessWidget {
                               style: answer,
                               textAlign: TextAlign.start,
                             ),
-                            EzConfig.startLine,
+                            config.layout.startLine,
 
                             // Links
                             EzLink(
@@ -368,7 +371,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                 parentContext: context,
                                 modalContext: mCon,
                               ),
-                              hint: EzConfig.l10n.gOpenLink,
+                              hint: config.l10n.gOpenLink,
                               textAlign: TextAlign.start,
                             ),
                             EzLink(
@@ -378,7 +381,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                 parentContext: context,
                                 modalContext: mCon,
                               ),
-                              hint: EzConfig.l10n.gOpenLink,
+                              hint: config.l10n.gOpenLink,
                               textAlign: TextAlign.start,
                             ),
                             EzLink(
@@ -388,7 +391,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                 parentContext: context,
                                 modalContext: mCon,
                               ),
-                              hint: EzConfig.l10n.gOpenLink,
+                              hint: config.l10n.gOpenLink,
                               textAlign: TextAlign.start,
                             ),
                           ],
@@ -422,7 +425,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
-                              EzConfig.startLine,
+                              config.layout.startLine,
 
                               // Location link
                               EzRichText(
@@ -440,7 +443,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
-                              EzConfig.startLine,
+                              config.layout.startLine,
 
                               // On open
                               EzRichText(
@@ -458,7 +461,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
-                              EzConfig.startLine,
+                              config.layout.startLine,
 
                               // On close
                               EzRichText(
@@ -476,7 +479,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
-                              EzConfig.startLine,
+                              config.layout.startLine,
 
                               // On interrupt
                               EzRichText(
@@ -521,7 +524,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                         Navigator.of(mCon).pop();
                                       }
                                     },
-                                    hint: EzConfig.l10n.gOpenLink,
+                                    hint: config.l10n.gOpenLink,
                                   ),
                                   EzPlainText(
                                     text: '.',
@@ -532,7 +535,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
-                              EzConfig.startLine,
+                              config.layout.startLine,
                               Text(
                                 l10n.faqLocationTrust,
                                 semanticsLabel: l10n.faqLocationTrustFix,
@@ -571,7 +574,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
-                              EzConfig.startLine,
+                              config.layout.startLine,
 
                               // Location link
                               EzRichText(
@@ -589,7 +592,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
-                              EzConfig.startLine,
+                              config.layout.startLine,
 
                               // On open
                               EzRichText(
@@ -626,7 +629,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
-                              EzConfig.startLine,
+                              config.layout.startLine,
 
                               // Fix here
                               EzRichText(
@@ -643,7 +646,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                         Navigator.of(mCon).pop();
                                       }
                                     },
-                                    hint: EzConfig.l10n.gOpenLink,
+                                    hint: config.l10n.gOpenLink,
                                   ),
                                   EzPlainText(
                                     text: '.',
@@ -654,7 +657,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
-                              EzConfig.startLine,
+                              config.layout.startLine,
 
                               // Two part-er
                               EzRichText(
@@ -669,7 +672,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                       Navigator.of(mCon).pop();
                                       context.goNamed(sosSettingsPath);
                                     },
-                                    hint: EzConfig.l10n.gOpenLink,
+                                    hint: config.l10n.gOpenLink,
                                   ),
                                   EzPlainText(
                                     text: l10n.faqSplitClarity2,
@@ -697,7 +700,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
-                              EzConfig.startLine,
+                              config.layout.startLine,
                               Text(
                                 l10n.faqShortcuts,
                                 style: answer,
@@ -730,7 +733,7 @@ class SettingsHomeScreen extends StatelessWidget {
                                     parentContext: context,
                                     modalContext: mCon,
                                   ),
-                                  hint: EzConfig.l10n.gOpenLink,
+                                  hint: config.l10n.gOpenLink,
                                 ),
                                 EzPlainText(
                                   text: l10n.faqExpand,
@@ -743,7 +746,7 @@ class SettingsHomeScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        EzConfig.spacer,
+                        config.layout.spacer,
 
                         // Reset tutorial/contact support //
 
@@ -765,7 +768,7 @@ class SettingsHomeScreen extends StatelessWidget {
 
                               // Tutorial
                               if (!showTutorial) ...<Widget>[
-                                EzConfig.rowSpacer,
+                                config.layout.rowSpacer,
                                 EzElevatedButton(
                                   text: l10n.faqReset,
                                   onPressed: () async {
@@ -773,14 +776,14 @@ class SettingsHomeScreen extends StatelessWidget {
                                     if (mCon.mounted) {
                                       Navigator.of(mCon).pop();
                                     }
-                                    await EzConfig.rebuildUI();
+                                    await config.rebuildUI();
                                   },
                                 ),
                               ],
                             ],
                           ),
                         ),
-                        EzConfig.separator,
+                        config.layout.separator,
                       ],
                       crossAxisAlignment: CrossAxisAlignment.start,
                     ),
@@ -794,5 +797,7 @@ class SettingsHomeScreen extends StatelessWidget {
           ),
           safeArea: true,
         ),
-      );
+      ),
+    );
+  }
 }
