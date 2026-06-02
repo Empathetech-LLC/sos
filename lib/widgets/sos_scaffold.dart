@@ -23,23 +23,29 @@ class SosScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => EzAdaptiveParent(
-    small: Consumer<EzConfigProvider>(
-      builder: (_, EzConfigProvider config, __) => EzScaffold(
-        seed: config.seed,
-        body: body,
-        fabs: <Widget>[
-          const EzUpdaterFAB(
-            appVersion: '3.0.0',
-            versionSource:
-                'https://raw.githubusercontent.com/Empathetech-LLC/sos/refs/heads/main/APP_VERSION',
-            gPlay: 'https://play.google.com/store/apps/details?id=net.empathetech.sos',
-            appStore: 'https://apps.apple.com/us/app/instasos/id6744280817',
-            github: 'https://github.com/Empathetech-LLC/sos/releases',
+        small: Consumer<EzConfigProvider>(
+          builder: (_, EzConfigProvider config, __) => Scaffold(
+            key: ValueKey<int>(config.seed),
+            body: body,
+            floatingActionButton: EzCol(
+              children: <Widget>[
+                const EzUpdaterFAB(
+                  appVersion: '3.0.0',
+                  versionSource:
+                      'https://raw.githubusercontent.com/Empathetech-LLC/sos/refs/heads/main/APP_VERSION',
+                  gPlay: 'https://play.google.com/store/apps/details?id=net.empathetech.sos',
+                  appStore: 'https://apps.apple.com/us/app/instasos/id6744280817',
+                  github: 'https://github.com/Empathetech-LLC/sos/releases',
+                ),
+                if (fabs != null) ...fabs!,
+                ...EzConfig.backFABs(home),
+              ],
+            ),
+            floatingActionButtonLocation: EzConfig.isLefty
+                ? FloatingActionButtonLocation.startFloat
+                : FloatingActionButtonLocation.endFloat,
+            resizeToAvoidBottomInset: false,
           ),
-          if (fabs != null) ...fabs!,
-          ...EzConfig.backFABs(home),
-        ],
-      ),
-    ),
-  );
+        ),
+      );
 }
