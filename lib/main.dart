@@ -23,6 +23,7 @@ void main() async {
     appName: 'InstaSOS',
     androidPackage: androidPackage,
     assetPaths: assetPaths,
+    orientations: <DeviceOrientation>[DeviceOrientation.portraitUp],
     localeFallback: americanEnglish,
     l10nFallback: await EFUILang.delegate.load(americanEnglish),
     preferences: await SharedPreferencesWithCache.create(

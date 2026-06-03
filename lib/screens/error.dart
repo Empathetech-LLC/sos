@@ -32,7 +32,7 @@ class ErrorScreen extends StatelessWidget {
               style: EzConfig.styles.labelLarge,
               textAlign: TextAlign.center,
             ),
-            const EzFooter(spacing: 0)
+            const EzFooter(spacing: 0),
           ]),
         ),
         safeArea: true,
