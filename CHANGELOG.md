@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.1] - 2026-06-03
+### Updated
+- EFUI
+- Language selection setting(s)
+
 ## [3.0.0] - 2026-05-29
 ### Updated
 - EFUI aka appearance settings
