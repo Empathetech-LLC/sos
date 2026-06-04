@@ -84,7 +84,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
               ),
             ],
             textBackground: false,
-            style: EzConfig.styles.bodyLarge,
+            style: EzConfig.bodyStyle,
             textAlign: TextAlign.center,
           ),
           actions: ezActionPair(
@@ -213,7 +213,7 @@ Future<void> appSetupModal(
         Text(
           l10n.hsWelcome,
           semanticsLabel: l10n.hsWelcomeFix,
-          style: EzConfig.styles.titleLarge,
+          style: EzConfig.titleStyle,
           textAlign: TextAlign.center,
         ),
         EzConfig.spacer,
@@ -227,13 +227,13 @@ Future<void> appSetupModal(
         // Have it your way
         Text(
           showTutorial ? l10n.hsAppIntro : l10n.hsAppIntroAlt,
-          style: EzConfig.styles.bodyLarge,
+          style: EzConfig.bodyStyle,
           textAlign: TextAlign.center,
         ),
         EzConfig.centerLine,
         Text(
           l10n.hsYourApp,
-          style: EzConfig.styles.bodyLarge,
+          style: EzConfig.bodyStyle,
           textAlign: TextAlign.center,
         ),
         EzConfig.divider,
@@ -269,7 +269,7 @@ Future<void> appSetupModal(
         // Finish/leave
         EzTextButton(
           text: l10n.gDone,
-          textStyle: EzConfig.styles.bodyLarge?.copyWith(color: EzConfig.colors.primary),
+          textStyle: EzConfig.bodyStyle?.copyWith(color: EzConfig.colors.primary),
           textAlign: TextAlign.center,
           style: TextButton.styleFrom(backgroundColor: EzConfig.colors.surfaceContainer),
           onPressed: () => Navigator.of(mCon).pop(true),
@@ -279,7 +279,7 @@ Future<void> appSetupModal(
           EzConfig.spacer,
           Text(
             l10n.hsHybridTranslation,
-            style: EzConfig.styles.bodyLarge,
+            style: EzConfig.bodyStyle,
             textAlign: TextAlign.center,
           ),
         ],

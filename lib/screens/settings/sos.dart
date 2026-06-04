@@ -66,7 +66,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> with WidgetsBindi
               if (!canSMS) ...<Widget>[
                 EzText(
                   l10n.sosNeedSMS,
-                  style: EzConfig.styles.bodyLarge,
+                  style: EzConfig.bodyStyle,
                   textAlign: TextAlign.center,
                 ),
                 EzLink(
@@ -95,7 +95,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> with WidgetsBindi
                   // Label
                   EzText(
                     l10n.bsLinkType,
-                    style: EzConfig.styles.bodyLarge,
+                    style: EzConfig.bodyStyle,
                     textAlign: TextAlign.center,
                   ),
                   EzConfig.margin,

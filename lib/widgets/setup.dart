@@ -120,7 +120,7 @@ class _CameraSetupState extends State<CameraSetup> {
                         child: galStatus == true
                             ? Text(
                                 l10n.hsCameraReady,
-                                style: EzConfig.styles.bodyLarge,
+                                style: EzConfig.bodyStyle,
                                 textAlign: TextAlign.start,
                               )
                             : EzCol(
@@ -128,12 +128,12 @@ class _CameraSetupState extends State<CameraSetup> {
                                 children: <Widget>[
                                   Text(
                                     l10n.hsGallery,
-                                    style: EzConfig.styles.bodyLarge,
+                                    style: EzConfig.bodyStyle,
                                     textAlign: TextAlign.start,
                                   ),
                                   Text(
                                     l10n.hsAddSave,
-                                    style: EzConfig.styles.labelLarge,
+                                    style: EzConfig.labelStyle,
                                     textAlign: TextAlign.start,
                                   ),
                                 ],
@@ -184,12 +184,12 @@ class _CameraSetupState extends State<CameraSetup> {
                           children: <Widget>[
                             Text(
                               l10n.hsCamMic,
-                              style: EzConfig.styles.bodyLarge,
+                              style: EzConfig.bodyStyle,
                               textAlign: TextAlign.start,
                             ),
                             Text(
                               l10n.hsAddRecording,
-                              style: EzConfig.styles.labelLarge,
+                              style: EzConfig.labelStyle,
                               textAlign: TextAlign.start,
                             ),
                           ],
@@ -263,7 +263,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                 content: Text(
                   l10n.hsAppleContacts,
                   textAlign: TextAlign.center,
-                  style: EzConfig.styles.bodyLarge,
+                  style: EzConfig.bodyStyle,
                 ),
                 actions: <EzMaterialAction>[
                   EzMaterialAction(
@@ -297,7 +297,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                       child: allowedPermCheck(cPermMirror(allowed))
                           ? Text(
                               l10n.hsContactsReady,
-                              style: EzConfig.styles.bodyLarge,
+                              style: EzConfig.bodyStyle,
                               textAlign: TextAlign.start,
                             )
                           : EzCol(
@@ -305,12 +305,12 @@ class _ContactsSetupState extends State<ContactsSetup> {
                               children: <Widget>[
                                 Text(
                                   l10n.hsContacts,
-                                  style: EzConfig.styles.bodyLarge,
+                                  style: EzConfig.bodyStyle,
                                   textAlign: TextAlign.start,
                                 ),
                                 Text(
                                   isIOS ? l10n.hsAddContactsIOS : l10n.hsAddContacts,
-                                  style: EzConfig.styles.labelLarge,
+                                  style: EzConfig.labelStyle,
                                   textAlign: TextAlign.start,
                                 ),
                               ],
@@ -394,7 +394,7 @@ class _SMSSetupState extends State<SMSSetup> {
                       child: allowedPermCheck(status)
                           ? Text(
                               l10n.hsTextingReady,
-                              style: EzConfig.styles.bodyLarge,
+                              style: EzConfig.bodyStyle,
                               textAlign: TextAlign.start,
                             )
                           : EzCol(
@@ -402,12 +402,12 @@ class _SMSSetupState extends State<SMSSetup> {
                               children: <Widget>[
                                 Text(
                                   l10n.hsTexting,
-                                  style: EzConfig.styles.bodyLarge,
+                                  style: EzConfig.bodyStyle,
                                   textAlign: TextAlign.start,
                                 ),
                                 Text(
                                   l10n.hsAddTexting,
-                                  style: EzConfig.styles.labelLarge,
+                                  style: EzConfig.labelStyle,
                                   textAlign: TextAlign.start,
                                 ),
                               ],
@@ -534,7 +534,7 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                             child: allowedPermCheck(lPermMirror(status))
                                 ? Text(
                                     l10n.hsLocationReady,
-                                    style: EzConfig.styles.bodyLarge,
+                                    style: EzConfig.bodyStyle,
                                     textAlign: TextAlign.start,
                                   )
                                 : EzCol(
@@ -542,12 +542,12 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                                     children: <Widget>[
                                       Text(
                                         l10n.hsLocation,
-                                        style: EzConfig.styles.bodyLarge,
+                                        style: EzConfig.bodyStyle,
                                         textAlign: TextAlign.start,
                                       ),
                                       Text(
                                         l10n.hsAddLocation,
-                                        style: EzConfig.styles.labelLarge,
+                                        style: EzConfig.labelStyle,
                                         textAlign: TextAlign.start,
                                       ),
                                     ],
@@ -579,7 +579,7 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                             child: status == LocationPermission.always
                                 ? Text(
                                     l10n.hsLocationReady,
-                                    style: EzConfig.styles.bodyLarge,
+                                    style: EzConfig.bodyStyle,
                                     textAlign: TextAlign.start,
                                   )
                                 : EzCol(
@@ -587,14 +587,14 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                                     children: <Widget>[
                                       Text(
                                         l10n.hsLocation,
-                                        style: EzConfig.styles.bodyLarge,
+                                        style: EzConfig.bodyStyle,
                                         textAlign: TextAlign.start,
                                       ),
                                       Text(
                                         status == LocationPermission.whileInUse
                                             ? l10n.hsAddAlways
                                             : l10n.hsAddLocation,
-                                        style: EzConfig.styles.labelLarge,
+                                        style: EzConfig.labelStyle,
                                         textAlign: TextAlign.start,
                                       ),
                                     ],

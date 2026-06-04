@@ -65,7 +65,7 @@ class _RightsViewState extends State<RightsView> {
                   Text(
                     l10n.rvSharedHeader,
                     textAlign: TextAlign.center,
-                    style: EzConfig.styles.titleLarge,
+                    style: EzConfig.titleStyle,
                   ),
                   EzConfig.spacer,
 
@@ -127,4 +127,4 @@ class _RightsViewState extends State<RightsView> {
 }
 
 Text _rightsText(String text) =>
-    Text('$text\n', textAlign: TextAlign.start, style: EzConfig.styles.bodyLarge);
+    Text('$text\n', textAlign: TextAlign.start, style: EzConfig.bodyStyle);

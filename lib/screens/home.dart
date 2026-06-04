@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen>
                 EzMaterialAction(
                     text: EzConfig.l10n.gSettings,
                     onPressed: openAppSettings,
-                    style: EzConfig.styles.bodyLarge?.copyWith(
+                    style: EzConfig.bodyStyle?.copyWith(
                       color: EzConfig.colors.primary,
                     )),
               ],
@@ -266,7 +266,7 @@ class _HomeScreenState extends State<HomeScreen>
                       builder: (_, AsyncSnapshot<int> snapshot) => EzText(
                         Duration(seconds: snapshot.data ?? 0).toString().split('.').first,
                         backgroundColor: videoColor,
-                        style: EzConfig.styles.labelLarge?.copyWith(color: videoTextColor),
+                        style: EzConfig.labelStyle?.copyWith(color: videoTextColor),
                       ),
                     ),
                   ),
@@ -482,7 +482,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 ),
                                 content: Text(
                                   l10n.hsAddEMC,
-                                  style: EzConfig.styles.bodyLarge,
+                                  style: EzConfig.bodyStyle,
                                   textAlign: TextAlign.center,
                                 ),
                               ),

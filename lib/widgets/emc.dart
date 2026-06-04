@@ -44,7 +44,7 @@ class _ContactListState extends State<ContactList> {
           reverseHands: true,
           scrollDirection: Axis.horizontal,
           children: <Widget>[
-            Text(l10n.bsEMC, style: EzConfig.styles.titleLarge),
+            Text(l10n.bsEMC, style: EzConfig.titleStyle),
             EzConfig.rowMargin,
             EzIconButton(
               fauxDisabled: widget.fauxDisabled,
@@ -72,7 +72,7 @@ class _ContactListState extends State<ContactList> {
                       : EzConfig.borderSide(
                           color: EzConfig.colors.primaryContainer.withValues(alpha: focusOpacity)),
                 ),
-                textStyle: EzConfig.styles.bodyLarge,
+                textStyle: EzConfig.bodyStyle,
                 textAlign: TextAlign.center,
               )
             : ConstrainedBox(
@@ -154,7 +154,7 @@ class _ContactTile extends StatelessWidget {
                       backgroundColor: EzConfig.colors.outline,
                       child: Text(
                         initials!,
-                        style: EzConfig.styles.bodyLarge?.copyWith(
+                        style: EzConfig.bodyStyle?.copyWith(
                           color: EzConfig.colors.onSurface,
                           fontWeight: FontWeight.bold,
                         ),
@@ -167,7 +167,7 @@ class _ContactTile extends StatelessWidget {
                       backgroundColor: EzConfig.colors.secondary,
                       child: Text(
                         initials!,
-                        style: EzConfig.styles.bodyLarge?.copyWith(
+                        style: EzConfig.bodyStyle?.copyWith(
                           color: EzConfig.colors.onSecondary,
                           fontWeight: FontWeight.bold,
                         ),
@@ -182,8 +182,8 @@ class _ContactTile extends StatelessWidget {
               child: Text(
                 number,
                 style: fauxDisabled
-                    ? EzConfig.styles.bodyLarge?.copyWith(color: EzConfig.colors.outline)
-                    : EzConfig.styles.bodyLarge,
+                    ? EzConfig.bodyStyle?.copyWith(color: EzConfig.colors.outline)
+                    : EzConfig.bodyStyle,
                 textAlign: TextAlign.center,
               ),
             ),
