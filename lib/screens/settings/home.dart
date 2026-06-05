@@ -792,7 +792,7 @@ class SettingsHomeScreen extends StatelessWidget {
                 icon: EzIcon(Icons.help_outline),
                 label: l10n.ssSupport,
               ),
-              const EzFooter(),
+              EzFooter(currCode: config.locale.languageCode),
             ]),
           ),
           safeArea: true,
