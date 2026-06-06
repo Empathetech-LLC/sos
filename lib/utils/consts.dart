@@ -192,7 +192,7 @@ const Map<String, Type> sosColorKeys = <String, Type>{
 
 // EzConfig default //
 
-/// defaults for [EzConfig.init]
+/// defaults for [EzCM.init]
 final Map<String, Object> sosConfig = <String, Object>{
   // EFUI
   ...empathMobileConfig,
@@ -221,7 +221,7 @@ final Map<String, Object> sosConfig = <String, Object>{
   lightVideoColorKey: 0xFFFF0000,
 };
 
-/// For [EzConfig.init]
+/// For [EzCM.init]
 const Map<String, Type> allSOSKeys = <String, Type>{
   ...allEZConfigKeys,
   ...sosBTSKeys,
