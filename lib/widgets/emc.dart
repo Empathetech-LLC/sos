@@ -11,11 +11,13 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class ContactList extends StatefulWidget {
+  final EzCP config;
   final void Function() onUpdate;
   final bool fauxDisabled;
 
   const ContactList({
     super.key,
+    required this.config,
     required this.onUpdate,
     required this.fauxDisabled,
   });
@@ -44,8 +46,8 @@ class _ContactListState extends State<ContactList> {
           reverseHands: true,
           scrollDirection: Axis.horizontal,
           children: <Widget>[
-            Text(l10n.bsEMC, style: EzConfig.titleStyle),
-            EzConfig.rowMargin,
+            Text(l10n.bsEMC, style: widget.config.titleStyle),
+            widget.config.rowMargin,
             EzIconButton(
               fauxDisabled: widget.fauxDisabled,
               icon: EzIcon(
@@ -58,7 +60,7 @@ class _ContactListState extends State<ContactList> {
             ),
           ],
         ),
-        EzConfig.margin,
+        widget.config.margin,
 
         // List of numbers (with remove buttons)
         emc.isEmpty
@@ -66,13 +68,14 @@ class _ContactListState extends State<ContactList> {
                 text: l10n.bsAddSomeone,
                 onPressed: addContact,
                 style: TextButton.styleFrom(
-                  padding: EdgeInsets.all(EzConfig.marginVal),
+                  padding: EdgeInsets.all(widget.config.marginVal),
                   side: widget.fauxDisabled
                       ? null
-                      : EzConfig.borderSide(
-                          color: EzConfig.colors.primaryContainer.withValues(alpha: focusOpacity)),
+                      : widget.config.borderSide(
+                          color: widget.config.colors.primaryContainer
+                              .withValues(alpha: focusOpacity)),
                 ),
-                textStyle: EzConfig.bodyStyle,
+                textStyle: widget.config.bodyStyle,
                 textAlign: TextAlign.center,
               )
             : ConstrainedBox(
@@ -103,17 +106,19 @@ class _ContactListState extends State<ContactList> {
                       acc.addAll(<Widget>[
                         _ContactTile(
                           key: ValueKey<String>(contact),
+                          config: widget.config,
                           initials: initials,
                           number: number,
                           fauxDisabled: widget.fauxDisabled,
                           onRemove: () async {
                             currEMC.remove(contact);
-                            await EzConfig.setStringList(emcKey, currEMC);
+                            await EzCM.setStringList(emcKey, currEMC);
                             if (mounted) setState(() => currEMC = emc);
                             widget.onUpdate.call();
                           },
                         ),
-                        EzSpacer(space: max(0, EzConfig.spacing - EzConfig.marginVal * 2)),
+                        EzSpacer(
+                            space: max(0, widget.config.spacing - widget.config.marginVal * 2)),
                       ]);
 
                       return acc;
@@ -126,6 +131,7 @@ class _ContactListState extends State<ContactList> {
 }
 
 class _ContactTile extends StatelessWidget {
+  final EzCP config;
   final String? initials;
   final String number;
   final bool fauxDisabled;
@@ -133,6 +139,7 @@ class _ContactTile extends StatelessWidget {
 
   const _ContactTile({
     super.key,
+    required this.config,
     required this.initials,
     required this.number,
     required this.fauxDisabled,
@@ -141,7 +148,7 @@ class _ContactTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: EdgeInsets.all(EzConfig.marginVal),
+        padding: EdgeInsets.all(config.marginVal),
         child: EzRow(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -149,32 +156,32 @@ class _ContactTile extends StatelessWidget {
             if (initials != null) ...<Widget>[
               fauxDisabled
                   ? CircleAvatar(
-                      radius: EzConfig.padding + EzConfig.iconSize / 2,
-                      foregroundColor: EzConfig.colors.onSurface,
-                      backgroundColor: EzConfig.colors.outline,
+                      radius: config.padding + config.iconSize / 2,
+                      foregroundColor: config.colors.onSurface,
+                      backgroundColor: config.colors.outline,
                       child: Text(
                         initials!,
-                        style: EzConfig.bodyStyle?.copyWith(
-                          color: EzConfig.colors.onSurface,
+                        style: config.bodyStyle?.copyWith(
+                          color: config.colors.onSurface,
                           fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.start,
                       ),
                     )
                   : CircleAvatar(
-                      radius: EzConfig.padding + EzConfig.iconSize / 2,
-                      foregroundColor: EzConfig.colors.onSecondary,
-                      backgroundColor: EzConfig.colors.secondary,
+                      radius: config.padding + config.iconSize / 2,
+                      foregroundColor: config.colors.onSecondary,
+                      backgroundColor: config.colors.secondary,
                       child: Text(
                         initials!,
-                        style: EzConfig.bodyStyle?.copyWith(
-                          color: EzConfig.colors.onSecondary,
+                        style: config.bodyStyle?.copyWith(
+                          color: config.colors.onSecondary,
                           fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.start,
                       ),
                     ),
-              EzConfig.rowMargin,
+              config.rowMargin,
             ],
 
             // Number
@@ -182,14 +189,14 @@ class _ContactTile extends StatelessWidget {
               child: Text(
                 number,
                 style: fauxDisabled
-                    ? EzConfig.bodyStyle?.copyWith(color: EzConfig.colors.outline)
-                    : EzConfig.bodyStyle,
+                    ? config.bodyStyle?.copyWith(color: config.colors.outline)
+                    : config.bodyStyle,
                 textAlign: TextAlign.center,
               ),
             ),
 
             // Remove button
-            EzConfig.rowSpacer,
+            config.rowSpacer,
             EzIconButton(
               icon: EzIcon(
                 Icons.remove_circle_outline,
