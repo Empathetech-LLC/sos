@@ -19,7 +19,7 @@ void main() async {
 
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[DeviceOrientation.portraitUp]);
 
-  EzConfig.init(
+  EzCM.init(
     appName: 'InstaSOS',
     androidPackage: androidPackage,
     assetPaths: assetPaths,
@@ -68,28 +68,28 @@ class SOS extends StatelessWidget {
         routerConfig: GoRouter(
           navigatorKey: ezRootNav,
           initialLocation: homePath,
-          errorBuilder: (_, __) => ErrorScreen(),
+          errorBuilder: (_, __) => const ErrorScreen(),
           routes: <RouteBase>[
             // Home
             GoRoute(
               path: homePath,
               name: homePath,
               pageBuilder: (BuildContext context, GoRouterState state) =>
-                  ezPageBuilder(context, state, HomeScreen()),
+                  ezPageBuilder(context, state, const HomeScreen()),
               routes: <RouteBase>[
                 // Settings home
                 GoRoute(
                   path: settingsHomePath,
                   name: settingsHomePath,
                   pageBuilder: (BuildContext context, GoRouterState state) =>
-                      ezPageBuilder(context, state, SettingsHomeScreen()),
+                      ezPageBuilder(context, state, const SettingsHomeScreen()),
                   routes: <RouteBase>[
                     // SOS settings
                     GoRoute(
                       path: sosSettingsPath,
                       name: sosSettingsPath,
                       pageBuilder: (BuildContext context, GoRouterState state) =>
-                          ezPageBuilder(context, state, SOSSettingsScreen()),
+                          ezPageBuilder(context, state, const SOSSettingsScreen()),
                     ),
 
                     // Appearance settings
@@ -97,7 +97,7 @@ class SOS extends StatelessWidget {
                       path: appearanceSettingsPath,
                       name: appearanceSettingsPath,
                       pageBuilder: (BuildContext context, GoRouterState state) =>
-                          ezPageBuilder(context, state, AppearanceSettingsScreen()),
+                          ezPageBuilder(context, state, const AppearanceSettingsScreen()),
                     ),
                   ],
                 ),
