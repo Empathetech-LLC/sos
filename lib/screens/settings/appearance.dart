@@ -28,20 +28,20 @@ class AppearanceSettingsScreen extends StatelessWidget {
 
               EzSettingsSection(
                 position: 0,
-                title: config.l10n.gGlobal,
+                title: config.efuiL10n.gGlobal,
                 icon: EzIcon(
                   EzCM.onMobile
                       ? EzCM.platform == TargetPlatform.iOS
                           ? Icons.phone_iphone
                           : Icons.phone_android
                       : Icons.computer,
-                  semanticLabel: config.l10n.gGlobal,
+                  semanticLabel: config.efuiL10n.gGlobal,
                 ),
                 subSettings: <EzSubSetting>[],
                 fromStorage: () => EzSubSetting.blank,
                 build: (_) => EzGlobalSettings(
                   excludeLocaleSetting: true,
-                  resetTitle: () => config.l10n.ssResetAppearance,
+                  resetTitle: () => config.efuiL10n.ssResetAppearance,
                 ),
               ),
 
@@ -49,10 +49,10 @@ class AppearanceSettingsScreen extends StatelessWidget {
 
               EzSettingsSection(
                 position: 1,
-                title: config.l10n.gColor,
+                title: config.efuiL10n.gColor,
                 icon: EzIcon(
                   Icons.palette,
-                  semanticLabel: config.l10n.gColor,
+                  semanticLabel: config.efuiL10n.gColor,
                 ),
                 subSettings: <EzSubSetting>[
                   EzSubSetting.qckColor,
@@ -72,10 +72,10 @@ class AppearanceSettingsScreen extends StatelessWidget {
 
               EzSettingsSection(
                 position: 2,
-                title: config.l10n.gDesign,
+                title: config.efuiL10n.gDesign,
                 icon: EzIcon(
                   Icons.design_services,
-                  semanticLabel: config.l10n.gDesign,
+                  semanticLabel: config.efuiL10n.gDesign,
                 ),
                 subSettings: <EzSubSetting>[
                   EzSubSetting.butDesign,
@@ -93,10 +93,10 @@ class AppearanceSettingsScreen extends StatelessWidget {
 
               EzSettingsSection(
                 position: 3,
-                title: config.l10n.gText,
+                title: config.efuiL10n.gText,
                 icon: EzIcon(
                   Icons.text_format,
-                  semanticLabel: config.l10n.gText,
+                  semanticLabel: config.efuiL10n.gText,
                 ),
                 subSettings: <EzSubSetting>[
                   EzSubSetting.qckText,
@@ -153,7 +153,7 @@ class _RightsOpacity extends StatelessWidget {
                     Center(
                       child: EzImage(
                         image: const AssetImage(ladyLiberty),
-                        semanticLabel: l10n.dsLadyLiberty,
+                        semanticLabel: l10n(config).dsLadyLiberty,
                       ),
                     ),
                     Container(
@@ -217,7 +217,7 @@ class _RightsOpacity extends StatelessWidget {
                       });
                     },
                     icon: EzIcon(Icons.refresh),
-                    label: config.l10n.gReset,
+                    label: config.efuiL10n.gReset,
                   ),
                   config.rowSpacer,
 
@@ -225,7 +225,7 @@ class _RightsOpacity extends StatelessWidget {
                   EzElevatedIconButton(
                     onPressed: Navigator.of(mCon).pop,
                     icon: EzIcon(Icons.done),
-                    label: l10n.gDone,
+                    label: l10n(config).gDone,
                   ),
                 ],
               ),
@@ -237,7 +237,7 @@ class _RightsOpacity extends StatelessWidget {
         if (opacity != config.textBackgroundOpacity) await config.rebuildUI();
       },
       icon: EzIcon(Icons.opacity),
-      label: config.l10n.tsTextBackground,
+      label: config.efuiL10n.tsTextBackground,
     );
   }
 }
