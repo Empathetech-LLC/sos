@@ -7,25 +7,26 @@ import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class SosScaffold extends StatelessWidget {
-  /// [Scaffold.body] passthrough
+  final EzCP config;
   final Widget body;
-
-  /// [FloatingActionButton]s to add on top of the [EzUpdaterFAB]
-  /// BYO spacing widgets
   final List<Widget>? fabs;
+  final bool isHome;
 
-  /// For [EzConfig.backFABs]
-  final bool home;
-
-  /// Standardized [Scaffold] for all screens
-  const SosScaffold(this.body, {super.key, this.fabs, this.home = false});
+  const SosScaffold(
+    this.config, {
+    super.key,
+    required this.body,
+    this.fabs,
+    this.isHome = false,
+  });
 
   @override
   Widget build(BuildContext context) => EzAdaptiveParent(
         small: EzScaffold(
           body: body,
           fabs: <Widget>[
-            const EzUpdaterFAB(
+            EzUpdaterFAB(
+              config,
               appVersion: '3.0.1',
               versionSource:
                   'https://raw.githubusercontent.com/Empathetech-LLC/sos/refs/heads/main/APP_VERSION',
@@ -34,7 +35,7 @@ class SosScaffold extends StatelessWidget {
               github: 'https://github.com/Empathetech-LLC/sos/releases',
             ),
             if (fabs != null) ...fabs!,
-            ...EzConfig.backFABs(home),
+            ...config.backFABs(isHome),
           ],
         ),
       );

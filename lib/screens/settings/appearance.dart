@@ -20,7 +20,8 @@ class AppearanceSettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<EzCP>(
       builder: (_, EzCP config, __) => SosScaffold(
-        EzScreen(
+        config,
+        body: EzScreen(
           EzSettingsHub(
             pages: <EzSettingsSection>[
               // Global //
@@ -114,12 +115,12 @@ class AppearanceSettingsScreen extends StatelessWidget {
           // Rebuild (conditional)
           if (config.needsRebuild) ...<Widget>[
             config.spacer,
-            const EzRebuildFAB(),
+            EzRebuildFAB(config),
           ],
 
           // Save/upload config
           config.spacer,
-          const EzConfigFAB(),
+          EzConfigFAB(config),
         ],
       ),
     );
