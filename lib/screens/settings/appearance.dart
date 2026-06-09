@@ -22,26 +22,31 @@ class AppearanceSettingsScreen extends StatelessWidget {
       builder: (_, EzCP config, __) => SosScaffold(
         config,
         body: EzScreen(
-          EzSettingsHub(
+          config,
+          safeArea: true,
+          child: EzSettingsHub(
+            config,
             pages: <EzSettingsSection>[
               // Global //
 
               EzSettingsSection(
                 position: 0,
-                title: config.efuiL10n.gGlobal,
+                title: config.ezL10n.gGlobal,
                 icon: EzIcon(
+                  config,
                   EzCM.onMobile
                       ? EzCM.platform == TargetPlatform.iOS
                           ? Icons.phone_iphone
                           : Icons.phone_android
                       : Icons.computer,
-                  semanticLabel: config.efuiL10n.gGlobal,
+                  semanticLabel: config.ezL10n.gGlobal,
                 ),
                 subSettings: <EzSubSetting>[],
                 fromStorage: () => EzSubSetting.blank,
                 build: (_) => EzGlobalSettings(
+                  config,
                   excludeLocaleSetting: true,
-                  resetTitle: () => config.efuiL10n.ssResetAppearance,
+                  resetTitle: () => config.ezL10n.ssResetAppearance,
                 ),
               ),
 
@@ -49,10 +54,11 @@ class AppearanceSettingsScreen extends StatelessWidget {
 
               EzSettingsSection(
                 position: 1,
-                title: config.efuiL10n.gColor,
+                title: config.ezL10n.gColor,
                 icon: EzIcon(
+                  config,
                   Icons.palette,
-                  semanticLabel: config.efuiL10n.gColor,
+                  semanticLabel: config.ezL10n.gColor,
                 ),
                 subSettings: <EzSubSetting>[
                   EzSubSetting.qckColor,
@@ -62,6 +68,7 @@ class AppearanceSettingsScreen extends StatelessWidget {
                     ? EzSubSetting.advColor
                     : EzSubSetting.qckColor,
                 build: (EzSubSetting subSec) => EzColorSettings(
+                  config,
                   target: subSec,
                   extraDark: <String>[darkVideoColorKey],
                   extraLight: <String>[lightVideoColorKey],
@@ -72,10 +79,11 @@ class AppearanceSettingsScreen extends StatelessWidget {
 
               EzSettingsSection(
                 position: 2,
-                title: config.efuiL10n.gDesign,
+                title: config.ezL10n.gDesign,
                 icon: EzIcon(
+                  config,
                   Icons.design_services,
-                  semanticLabel: config.efuiL10n.gDesign,
+                  semanticLabel: config.ezL10n.gDesign,
                 ),
                 subSettings: <EzSubSetting>[
                   EzSubSetting.butDesign,
@@ -84,6 +92,7 @@ class AppearanceSettingsScreen extends StatelessWidget {
                 fromStorage: () =>
                     EzCM.get(pageTabKey) == true ? EzSubSetting.pagDesign : EzSubSetting.butDesign,
                 build: (EzSubSetting subSec) => EzDesignSettings(
+                  config,
                   target: subSec,
                   prependPage: <Widget>[_RightsOpacity(config), config.separator],
                 ),
@@ -93,10 +102,11 @@ class AppearanceSettingsScreen extends StatelessWidget {
 
               EzSettingsSection(
                 position: 3,
-                title: config.efuiL10n.gText,
+                title: config.ezL10n.gText,
                 icon: EzIcon(
+                  config,
                   Icons.text_format,
-                  semanticLabel: config.efuiL10n.gText,
+                  semanticLabel: config.ezL10n.gText,
                 ),
                 subSettings: <EzSubSetting>[
                   EzSubSetting.qckText,
@@ -104,12 +114,11 @@ class AppearanceSettingsScreen extends StatelessWidget {
                 ],
                 fromStorage: () =>
                     EzCM.get(advancedTextKey) == true ? EzSubSetting.advText : EzSubSetting.qckText,
-                build: (EzSubSetting subSec) => EzTextSettings(target: subSec),
+                build: (EzSubSetting subSec) => EzTextSettings(config, target: subSec),
               ),
             ],
             target: targetPass,
           ),
-          safeArea: true,
         ),
         fabs: <Widget>[
           // Rebuild (conditional)
@@ -135,14 +144,17 @@ class _RightsOpacity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EzElevatedIconButton(
+      config,
       onPressed: () async {
         double opacity = config.textBackgroundOpacity;
         Color background = config.colors.surface.withValues(alpha: opacity);
 
         await ezModal(
+          config,
           context: context,
           builder: (_) => StatefulBuilder(
-            builder: (BuildContext mCon, StateSetter setModal) => ezModalScroll(<Widget>[
+            builder: (BuildContext mCon, StateSetter setModal) =>
+                ezModalScroll(config, children: <Widget>[
               // Preview
               Container(
                 width: double.infinity,
@@ -160,7 +172,7 @@ class _RightsOpacity extends StatelessWidget {
                       height: double.infinity,
                       width: double.infinity,
                       color: background,
-                      child: const RightsView(),
+                      child: RightsView(config),
                     ),
                   ],
                 ),
@@ -197,10 +209,12 @@ class _RightsOpacity extends StatelessWidget {
 
               // Footer
               EzRow(
+                config,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   // Local reset
                   EzElevatedIconButton(
+                    config,
                     onPressed: () async {
                       if (EzCM.updateBoth || config.isDark) {
                         await EzCM.remove(darkTextBackgroundOpacityKey);
@@ -216,15 +230,16 @@ class _RightsOpacity extends StatelessWidget {
                         background = config.colors.surface.withValues(alpha: opacity);
                       });
                     },
-                    icon: EzIcon(Icons.refresh),
-                    label: config.efuiL10n.gReset,
+                    icon: EzIcon(config, Icons.refresh),
+                    label: config.ezL10n.gReset,
                   ),
                   config.rowSpacer,
 
                   // Done/submit
                   EzElevatedIconButton(
+                    config,
                     onPressed: Navigator.of(mCon).pop,
-                    icon: EzIcon(Icons.done),
+                    icon: EzIcon(config, Icons.done),
                     label: l10n(config).gDone,
                   ),
                 ],
@@ -234,10 +249,12 @@ class _RightsOpacity extends StatelessWidget {
           ),
         );
 
-        if (opacity != config.textBackgroundOpacity) await config.rebuildUI();
+        if (opacity != config.textBackgroundOpacity) {
+          await config.rebuildUI(<EzSettingType>{EzSettingType.text});
+        }
       },
-      icon: EzIcon(Icons.opacity),
-      label: config.efuiL10n.tsTextBackground,
+      icon: EzIcon(config, Icons.opacity),
+      label: config.ezL10n.tsTextBackground,
     );
   }
 }

@@ -9,7 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class RightsView extends StatefulWidget {
-  const RightsView({super.key});
+  final EzCP config;
+
+  const RightsView(this.config, {super.key});
 
   @override
   State<RightsView> createState() => _RightsViewState();
@@ -18,7 +20,7 @@ class RightsView extends StatefulWidget {
 class _RightsViewState extends State<RightsView> {
   // Define the build data //
 
-  Situation currTab = SituationConfig.lookup(EzConfig.get(savedTabKey));
+  Situation currTab = SituationConfig.lookup(EzCM.get(savedTabKey));
   int delta = 0;
 
   // Define custom functions //
@@ -26,105 +28,111 @@ class _RightsViewState extends State<RightsView> {
   Future<void> _nav(Situation choice) async {
     delta = choice.position - currTab.position;
 
-    await EzConfig.setString(savedTabKey, choice.name);
+    await EzCM.setString(savedTabKey, choice.name);
 
     currTab = choice;
     if (mounted) setState(() {});
   }
 
-  List<Widget> _unique() => switch (currTab) {
+  List<Widget> _unique(EzCP config) => switch (currTab) {
         Situation.walking => <Widget>[
-            _rightsText(l10n.rvMobilePockets),
-            _rightsText(l10n.rvMobileQuestion),
-            _rightsText(l10n.rvMobileLeave),
+            _rightsText(config, l10n(config).rvMobilePockets),
+            _rightsText(config, l10n(config).rvMobileQuestion),
+            _rightsText(config, l10n(config).rvMobileLeave),
           ],
         Situation.driving => <Widget>[
-            _rightsText(l10n.rvMobilePockets),
-            _rightsText(l10n.rvMobileQuestion),
-            _rightsText(l10n.rvMobileLeave),
-            _rightsText(l10n.rvDriveSearch),
-            _rightsText(l10n.rvDriveID),
-            _rightsText(l10n.rvDriveWarrant),
+            _rightsText(config, l10n(config).rvMobilePockets),
+            _rightsText(config, l10n(config).rvMobileQuestion),
+            _rightsText(config, l10n(config).rvMobileLeave),
+            _rightsText(config, l10n(config).rvDriveSearch),
+            _rightsText(config, l10n(config).rvDriveID),
+            _rightsText(config, l10n(config).rvDriveWarrant),
           ],
-        Situation.home => <Widget>[_rightsText(l10n.rvHomeWarrant)],
+        Situation.home => <Widget>[_rightsText(config, l10n(config).rvHomeWarrant)],
       };
 
   // Return the build //
 
   @override
-  Widget build(BuildContext context) => Padding(
-        padding: EdgeInsets.symmetric(horizontal: EzConfig.marginVal),
-        child: EzScrollView(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          // Header
-          children: <Widget>[
-            Center(
-              child: EzCol(
-                children: <Widget>[
-                  Text(
-                    l10n.rvSharedHeader,
-                    textAlign: TextAlign.center,
-                    style: EzConfig.titleStyle,
-                  ),
-                  EzConfig.spacer,
+  Widget build(BuildContext context) {
+    final Lang sosL10n = l10n(widget.config);
 
-                  // Switcher
-                  SegmentedButton<Situation>(
-                    segments: Situation.values
-                        .map((Situation sitch) => ButtonSegment<Situation>(
-                              value: sitch,
-                              label: EzIcon(sitch.icon),
-                              tooltip: sitch.tooltip,
-                            ))
-                        .toList(),
-                    selected: <Situation>{currTab},
-                    showSelectedIcon: false,
-                    onSelectionChanged: (Set<Situation> selected) => _nav(selected.first),
-                  ),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: widget.config.marginVal),
+      child: EzScrollView(
+        widget.config,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        // Header
+        children: <Widget>[
+          Center(
+            child: EzCol(
+              children: <Widget>[
+                Text(
+                  sosL10n.rvSharedHeader,
+                  textAlign: TextAlign.center,
+                  style: widget.config.titleStyle,
+                ),
+                widget.config.spacer,
+
+                // Switcher
+                SegmentedButton<Situation>(
+                  segments: Situation.values
+                      .map((Situation sitch) => ButtonSegment<Situation>(
+                            value: sitch,
+                            label: EzIcon(widget.config, sitch.icon),
+                            tooltip: sitch.tooltip(sosL10n),
+                          ))
+                      .toList(),
+                  selected: <Situation>{currTab},
+                  showSelectedIcon: false,
+                  onSelectionChanged: (Set<Situation> selected) => _nav(selected.first),
+                ),
+              ],
+            ),
+          ),
+          widget.config.separator,
+
+          // Core
+          EzFauxCarousel(
+            widget.config,
+            animMod: 0.5,
+            position: currTab.position,
+            delta: delta,
+            child: GestureDetector(
+              onHorizontalDragEnd: (DragEndDetails details) async {
+                if (details.primaryVelocity == null) return;
+
+                if (details.primaryVelocity! < -100) {
+                  // RTL -> nav right
+                  if (currTab.position >= (Situation.values.length - 1)) return;
+                  await _nav(Situation.values[currTab.position + 1]);
+                }
+
+                if (details.primaryVelocity! > 100) {
+                  // LTR -> nav left
+                  if (currTab.position <= 0) return;
+                  await _nav(Situation.values[currTab.position - 1]);
+                }
+              },
+              child: EzCol(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  _rightsText(widget.config, sosL10n.rvSharedRemainSilent),
+                  _rightsText(widget.config, sosL10n.rvSharedDocument),
+                  ..._unique(widget.config),
+                  _rightsText(widget.config, sosL10n.rvSharedSign),
+                  _rightsText(widget.config, sosL10n.rvSharedFingerprint),
+                  _rightsText(widget.config, sosL10n.rvSharedLawyer),
                 ],
               ),
             ),
-            EzConfig.separator,
-
-            // Core
-            EzFauxCarousel(
-              animMod: 0.5,
-              position: currTab.position,
-              delta: delta,
-              child: GestureDetector(
-                onHorizontalDragEnd: (DragEndDetails details) async {
-                  if (details.primaryVelocity == null) return;
-
-                  if (details.primaryVelocity! < -100) {
-                    // RTL -> nav right
-                    if (currTab.position >= (Situation.values.length - 1)) return;
-                    await _nav(Situation.values[currTab.position + 1]);
-                  }
-
-                  if (details.primaryVelocity! > 100) {
-                    // LTR -> nav left
-                    if (currTab.position <= 0) return;
-                    await _nav(Situation.values[currTab.position - 1]);
-                  }
-                },
-                child: EzCol(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    _rightsText(l10n.rvSharedRemainSilent),
-                    _rightsText(l10n.rvSharedDocument),
-                    ..._unique(),
-                    _rightsText(l10n.rvSharedSign),
-                    _rightsText(l10n.rvSharedFingerprint),
-                    _rightsText(l10n.rvSharedLawyer),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
+          ),
+        ],
+      ),
+    );
+  }
 }
 
-Text _rightsText(String text) =>
-    Text('$text\n', textAlign: TextAlign.start, style: EzConfig.bodyStyle);
+Text _rightsText(EzCP config, String text) =>
+    Text('$text\n', textAlign: TextAlign.start, style: config.bodyStyle);

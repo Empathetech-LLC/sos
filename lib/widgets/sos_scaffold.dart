@@ -23,6 +23,7 @@ class SosScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) => EzAdaptiveParent(
         small: EzScaffold(
+          config,
           body: body,
           fabs: <Widget>[
             EzUpdaterFAB(

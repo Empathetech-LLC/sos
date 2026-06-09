@@ -88,7 +88,7 @@ extension SituationConfig on Situation {
         Situation.home => 2,
       };
 
-  String get tooltip => switch (this) {
+  String tooltip(Lang l10n) => switch (this) {
         Situation.walking => l10n.rvOnFoot,
         Situation.driving => l10n.rvWhileDriving,
         Situation.home => l10n.rvAtHome,

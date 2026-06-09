@@ -14,46 +14,50 @@ import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 // Icon generators //
 
-Widget boolIcon(bool? status) => switch (status) {
-      true => EzIcon(Icons.check, color: EzConfig.colors.primary),
-      false => EzIcon(Icons.cancel_outlined, color: EzConfig.colors.error),
-      null => EzIcon(Icons.help_outline, color: EzConfig.colors.primary),
+Widget boolIcon(EzCP config, bool? status) => switch (status) {
+      true => EzIcon(config, Icons.check, color: config.colors.primary),
+      false => EzIcon(config, Icons.cancel_outlined, color: config.colors.error),
+      null => EzIcon(config, Icons.help_outline, color: config.colors.primary),
     };
 
-Widget pStatusIcon(PermissionStatus? status) => switch (status) {
+Widget pStatusIcon(EzCP config, PermissionStatus? status) => switch (status) {
       PermissionStatus.granted ||
       PermissionStatus.limited ||
       PermissionStatus.provisional =>
-        EzIcon(Icons.check, color: EzConfig.colors.primary),
-      PermissionStatus.restricted => EzIcon(Icons.cancel_outlined, color: EzConfig.colors.outline),
+        EzIcon(config, Icons.check, color: config.colors.primary),
+      PermissionStatus.restricted =>
+        EzIcon(config, Icons.cancel_outlined, color: config.colors.outline),
       PermissionStatus.denied ||
       PermissionStatus.permanentlyDenied =>
-        EzIcon(Icons.cancel_outlined, color: EzConfig.colors.error),
-      null => EzIcon(Icons.help_outline, color: EzConfig.colors.primary),
+        EzIcon(config, Icons.cancel_outlined, color: config.colors.error),
+      null => EzIcon(config, Icons.help_outline, color: config.colors.primary),
     };
 
-Widget lStatusIcon(LocationPermission? status) => switch (status) {
-      LocationPermission.always => EzIcon(Icons.check, color: EzConfig.colors.primary),
+Widget lStatusIcon(EzCP config, LocationPermission? status) => switch (status) {
+      LocationPermission.always => EzIcon(config, Icons.check, color: config.colors.primary),
       LocationPermission.denied ||
       LocationPermission.deniedForever =>
-        EzIcon(Icons.cancel_outlined, color: EzConfig.colors.error),
-      null => EzIcon(Icons.help_outline, color: EzConfig.colors.primary),
-      LocationPermission.unableToDetermine => EzIcon(Icons.check, color: EzConfig.colors.secondary),
+        EzIcon(config, Icons.cancel_outlined, color: config.colors.error),
+      null => EzIcon(config, Icons.help_outline, color: config.colors.primary),
+      LocationPermission.unableToDetermine =>
+        EzIcon(config, Icons.check, color: config.colors.secondary),
       LocationPermission.whileInUse =>
-        EzIcon(Icons.check, color: isIOS ? EzConfig.colors.primary : EzConfig.colors.secondary),
+        EzIcon(config, Icons.check, color: isIOS ? config.colors.primary : config.colors.secondary),
     };
 
 // Setting cards //
 
-OutlinedBorder get cardShape =>
-    RoundedRectangleBorder(side: EzConfig.borderSide(), borderRadius: EzConfig.textRadius);
+OutlinedBorder cardShape(EzCP config) =>
+    RoundedRectangleBorder(side: config.borderSide(), borderRadius: config.textRadius);
 
 class CameraSetup extends StatefulWidget {
-  final Future<PermissionStatus> Function() initCamera;
+  final EzCP config;
+  final Future<PermissionStatus> Function(EzCP config) initCamera;
   final bool locked;
   final void Function(bool) setLock;
 
-  const CameraSetup({
+  const CameraSetup(
+    this.config, {
     super.key,
     required this.initCamera,
     required this.locked,
@@ -107,33 +111,36 @@ class _CameraSetupState extends State<CameraSetup> {
           child: Semantics(
             button: galStatus != true,
             readOnly: galStatus == true,
-            hint: (galStatus == true) ? l10n.hsCameraReady : l10n.hsCameraSetupHint,
+            hint: (galStatus == true)
+                ? l10n(widget.config).hsCameraReady
+                : l10n(widget.config).hsCameraSetupHint,
             child: ExcludeSemantics(
               child: Card(
-                shape: cardShape,
+                shape: cardShape(widget.config),
                 child: EzRow(
+                  widget.config,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.all(EzConfig.padding),
+                        padding: EdgeInsets.all(widget.config.padding),
                         child: galStatus == true
                             ? Text(
-                                l10n.hsCameraReady,
-                                style: EzConfig.bodyStyle,
+                                l10n(widget.config).hsCameraReady,
+                                style: widget.config.bodyStyle,
                                 textAlign: TextAlign.start,
                               )
                             : EzCol(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    l10n.hsGallery,
-                                    style: EzConfig.bodyStyle,
+                                    l10n(widget.config).hsGallery,
+                                    style: widget.config.bodyStyle,
                                     textAlign: TextAlign.start,
                                   ),
                                   Text(
-                                    l10n.hsAddSave,
-                                    style: EzConfig.labelStyle,
+                                    l10n(widget.config).hsAddSave,
+                                    style: widget.config.labelStyle,
                                     textAlign: TextAlign.start,
                                   ),
                                 ],
@@ -141,8 +148,8 @@ class _CameraSetupState extends State<CameraSetup> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(EzConfig.padding),
-                      child: boolIcon(galStatus),
+                      padding: EdgeInsets.all(widget.config.padding),
+                      child: boolIcon(widget.config, galStatus),
                     ),
                   ],
                 ),
@@ -160,7 +167,7 @@ class _CameraSetupState extends State<CameraSetup> {
             widget.setLock(true);
 
             // Make it so
-            final PermissionStatus result = await widget.initCamera();
+            final PermissionStatus result = await widget.initCamera(widget.config);
             if (camStatus != result) {
               if (mounted) setState(() => camStatus = result);
             }
@@ -169,27 +176,28 @@ class _CameraSetupState extends State<CameraSetup> {
           child: Semantics(
             button: true,
             readOnly: false,
-            hint: l10n.hsCameraSetupHint,
+            hint: l10n(widget.config).hsCameraSetupHint,
             child: ExcludeSemantics(
               child: Card(
-                shape: cardShape,
+                shape: cardShape(widget.config),
                 child: EzRow(
+                  widget.config,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.all(EzConfig.padding),
+                        padding: EdgeInsets.all(widget.config.padding),
                         child: EzCol(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              l10n.hsCamMic,
-                              style: EzConfig.bodyStyle,
+                              l10n(widget.config).hsCamMic,
+                              style: widget.config.bodyStyle,
                               textAlign: TextAlign.start,
                             ),
                             Text(
-                              l10n.hsAddRecording,
-                              style: EzConfig.labelStyle,
+                              l10n(widget.config).hsAddRecording,
+                              style: widget.config.labelStyle,
                               textAlign: TextAlign.start,
                             ),
                           ],
@@ -197,8 +205,8 @@ class _CameraSetupState extends State<CameraSetup> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(EzConfig.padding),
-                      child: pStatusIcon(camStatus),
+                      padding: EdgeInsets.all(widget.config.padding),
+                      child: pStatusIcon(widget.config, camStatus),
                     ),
                   ],
                 ),
@@ -209,10 +217,12 @@ class _CameraSetupState extends State<CameraSetup> {
 }
 
 class ContactsSetup extends StatefulWidget {
+  final EzCP config;
   final bool locked;
   final void Function(bool) setLock;
 
-  const ContactsSetup({
+  const ContactsSetup(
+    this.config, {
     super.key,
     required this.locked,
     required this.setLock,
@@ -259,15 +269,17 @@ class _ContactsSetupState extends State<ContactsSetup> {
             await showDialog(
               context: context,
               builder: (BuildContext dCon) => EzAlertDialog(
-                title: Text(l10n.gReminder, textAlign: TextAlign.center),
+                widget.config,
+                title: Text(l10n(widget.config).gReminder, textAlign: TextAlign.center),
                 content: Text(
-                  l10n.hsAppleContacts,
+                  l10n(widget.config).hsAppleContacts,
                   textAlign: TextAlign.center,
-                  style: EzConfig.bodyStyle,
+                  style: widget.config.bodyStyle,
                 ),
                 actions: <EzMaterialAction>[
                   EzMaterialAction(
-                    text: l10n.gOk,
+                    widget.config,
+                    text: l10n(widget.config).gOk,
                     onPressed: () => Navigator.of(dCon).pop(),
                   ),
                 ],
@@ -284,33 +296,36 @@ class _ContactsSetupState extends State<ContactsSetup> {
         child: Semantics(
           button: !allowedPermCheck(cPermMirror(allowed)),
           readOnly: allowedPermCheck(cPermMirror(allowed)),
-          hint: l10n.hsContactsSetupHint,
+          hint: l10n(widget.config).hsContactsSetupHint,
           child: ExcludeSemantics(
             child: Card(
-              shape: cardShape,
+              shape: cardShape(widget.config),
               child: EzRow(
+                widget.config,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.all(EzConfig.padding),
+                      padding: EdgeInsets.all(widget.config.padding),
                       child: allowedPermCheck(cPermMirror(allowed))
                           ? Text(
-                              l10n.hsContactsReady,
-                              style: EzConfig.bodyStyle,
+                              l10n(widget.config).hsContactsReady,
+                              style: widget.config.bodyStyle,
                               textAlign: TextAlign.start,
                             )
                           : EzCol(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  l10n.hsContacts,
-                                  style: EzConfig.bodyStyle,
+                                  l10n(widget.config).hsContacts,
+                                  style: widget.config.bodyStyle,
                                   textAlign: TextAlign.start,
                                 ),
                                 Text(
-                                  isIOS ? l10n.hsAddContactsIOS : l10n.hsAddContacts,
-                                  style: EzConfig.labelStyle,
+                                  isIOS
+                                      ? l10n(widget.config).hsAddContactsIOS
+                                      : l10n(widget.config).hsAddContacts,
+                                  style: widget.config.labelStyle,
                                   textAlign: TextAlign.start,
                                 ),
                               ],
@@ -318,8 +333,8 @@ class _ContactsSetupState extends State<ContactsSetup> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(EzConfig.padding),
-                    child: pStatusIcon(cPermMirror(allowed)),
+                    padding: EdgeInsets.all(widget.config.padding),
+                    child: pStatusIcon(widget.config, cPermMirror(allowed)),
                   ),
                 ],
               ),
@@ -330,10 +345,12 @@ class _ContactsSetupState extends State<ContactsSetup> {
 }
 
 class SMSSetup extends StatefulWidget {
+  final EzCP config;
   final bool locked;
   final void Function(bool) setLock;
 
-  const SMSSetup({
+  const SMSSetup(
+    this.config, {
     super.key,
     required this.locked,
     required this.setLock,
@@ -381,33 +398,34 @@ class _SMSSetupState extends State<SMSSetup> {
         child: Semantics(
           button: !allowedPermCheck(status),
           readOnly: allowedPermCheck(status),
-          hint: l10n.hsTextingSetupHint,
+          hint: l10n(widget.config).hsTextingSetupHint,
           child: ExcludeSemantics(
             child: Card(
-              shape: cardShape,
+              shape: cardShape(widget.config),
               child: EzRow(
+                widget.config,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.all(EzConfig.padding),
+                      padding: EdgeInsets.all(widget.config.padding),
                       child: allowedPermCheck(status)
                           ? Text(
-                              l10n.hsTextingReady,
-                              style: EzConfig.bodyStyle,
+                              l10n(widget.config).hsTextingReady,
+                              style: widget.config.bodyStyle,
                               textAlign: TextAlign.start,
                             )
                           : EzCol(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  l10n.hsTexting,
-                                  style: EzConfig.bodyStyle,
+                                  l10n(widget.config).hsTexting,
+                                  style: widget.config.bodyStyle,
                                   textAlign: TextAlign.start,
                                 ),
                                 Text(
-                                  l10n.hsAddTexting,
-                                  style: EzConfig.labelStyle,
+                                  l10n(widget.config).hsAddTexting,
+                                  style: widget.config.labelStyle,
                                   textAlign: TextAlign.start,
                                 ),
                               ],
@@ -415,8 +433,8 @@ class _SMSSetupState extends State<SMSSetup> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(EzConfig.padding),
-                    child: pStatusIcon(status),
+                    padding: EdgeInsets.all(widget.config.padding),
+                    child: pStatusIcon(widget.config, status),
                   ),
                 ],
               ),
@@ -427,10 +445,12 @@ class _SMSSetupState extends State<SMSSetup> {
 }
 
 class LocationSetup extends StatefulWidget {
+  final EzCP config;
   final bool locked;
   final void Function(bool) setLock;
 
-  const LocationSetup({
+  const LocationSetup(
+    this.config, {
     super.key,
     required this.locked,
     required this.setLock,
@@ -485,8 +505,12 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
               final bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
               if (!serviceEnabled) {
                 (context.mounted)
-                    ? await ezLogAlert(context, message: l10n.sosDisabled)
-                    : ezLog(l10n.sosDisabled);
+                    ? await ezLogAlert(
+                        widget.config,
+                        context: context,
+                        message: l10n(widget.config).sosDisabled,
+                      )
+                    : ezLog(l10n(widget.config).sosDisabled);
                 return;
               }
 
@@ -501,7 +525,7 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
               return;
 
             case LocationPermission.unableToDetermine:
-              ezSnackBar(context, message: l10n.hsUnable);
+              ezSnackBar(widget.config, context: context, message: l10n(widget.config).hsUnable);
               return;
 
             case LocationPermission.whileInUse:
@@ -521,33 +545,34 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
             ? Semantics(
                 button: !allowedPermCheck(lPermMirror(status)),
                 readOnly: allowedPermCheck(lPermMirror(status)),
-                hint: l10n.hsLocationSetupHint,
+                hint: l10n(widget.config).hsLocationSetupHint,
                 child: ExcludeSemantics(
                   child: Card(
-                    shape: cardShape,
+                    shape: cardShape(widget.config),
                     child: EzRow(
+                      widget.config,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(EzConfig.padding),
+                            padding: EdgeInsets.all(widget.config.padding),
                             child: allowedPermCheck(lPermMirror(status))
                                 ? Text(
-                                    l10n.hsLocationReady,
-                                    style: EzConfig.bodyStyle,
+                                    l10n(widget.config).hsLocationReady,
+                                    style: widget.config.bodyStyle,
                                     textAlign: TextAlign.start,
                                   )
                                 : EzCol(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
-                                        l10n.hsLocation,
-                                        style: EzConfig.bodyStyle,
+                                        l10n(widget.config).hsLocation,
+                                        style: widget.config.bodyStyle,
                                         textAlign: TextAlign.start,
                                       ),
                                       Text(
-                                        l10n.hsAddLocation,
-                                        style: EzConfig.labelStyle,
+                                        l10n(widget.config).hsAddLocation,
+                                        style: widget.config.labelStyle,
                                         textAlign: TextAlign.start,
                                       ),
                                     ],
@@ -555,8 +580,8 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(EzConfig.padding),
-                          child: lStatusIcon(status),
+                          padding: EdgeInsets.all(widget.config.padding),
+                          child: lStatusIcon(widget.config, status),
                         ),
                       ],
                     ),
@@ -566,35 +591,36 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
             : Semantics(
                 button: status != LocationPermission.always,
                 readOnly: status == LocationPermission.always,
-                hint: l10n.hsLocationSetupHint,
+                hint: l10n(widget.config).hsLocationSetupHint,
                 child: ExcludeSemantics(
                   child: Card(
-                    shape: cardShape,
+                    shape: cardShape(widget.config),
                     child: EzRow(
+                      widget.config,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(EzConfig.padding),
+                            padding: EdgeInsets.all(widget.config.padding),
                             child: status == LocationPermission.always
                                 ? Text(
-                                    l10n.hsLocationReady,
-                                    style: EzConfig.bodyStyle,
+                                    l10n(widget.config).hsLocationReady,
+                                    style: widget.config.bodyStyle,
                                     textAlign: TextAlign.start,
                                   )
                                 : EzCol(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
-                                        l10n.hsLocation,
-                                        style: EzConfig.bodyStyle,
+                                        l10n(widget.config).hsLocation,
+                                        style: widget.config.bodyStyle,
                                         textAlign: TextAlign.start,
                                       ),
                                       Text(
                                         status == LocationPermission.whileInUse
-                                            ? l10n.hsAddAlways
-                                            : l10n.hsAddLocation,
-                                        style: EzConfig.labelStyle,
+                                            ? l10n(widget.config).hsAddAlways
+                                            : l10n(widget.config).hsAddLocation,
+                                        style: widget.config.labelStyle,
                                         textAlign: TextAlign.start,
                                       ),
                                     ],
@@ -602,8 +628,8 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(EzConfig.padding),
-                          child: lStatusIcon(status),
+                          padding: EdgeInsets.all(widget.config.padding),
+                          child: lStatusIcon(widget.config, status),
                         ),
                       ],
                     ),

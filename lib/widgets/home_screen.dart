@@ -10,10 +10,11 @@ import 'package:flutter/material.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class FlashButton extends StatefulWidget {
+  final EzCP config;
   final CameraController camera;
 
   /// [EzIconButton] for toggling the [camera]s [FlashMode]
-  const FlashButton(this.camera, {super.key});
+  const FlashButton(this.config, {super.key, required this.camera});
 
   @override
   State<FlashButton> createState() => _FlashButtonState();
@@ -29,12 +30,17 @@ class _FlashButtonState extends State<FlashButton> {
 
   @override
   Widget build(BuildContext context) => EzIconButton(
+        widget.config,
         enabled: working.values.contains(true),
         icon: switch (widget.camera.value.flashMode) {
-          FlashMode.off => EzIcon(Icons.flash_off, semanticLabel: l10n.hsFlashOff),
-          FlashMode.auto => EzIcon(Icons.flash_auto, semanticLabel: l10n.hsFlashAuto),
-          FlashMode.always => EzIcon(Icons.flash_on, semanticLabel: l10n.hsFlashOn),
-          FlashMode.torch => EzIcon(Icons.flashlight_on, semanticLabel: l10n.hsFlashTorch),
+          FlashMode.off =>
+            EzIcon(widget.config, Icons.flash_off, semanticLabel: l10n(widget.config).hsFlashOff),
+          FlashMode.auto =>
+            EzIcon(widget.config, Icons.flash_auto, semanticLabel: l10n(widget.config).hsFlashAuto),
+          FlashMode.always =>
+            EzIcon(widget.config, Icons.flash_on, semanticLabel: l10n(widget.config).hsFlashOn),
+          FlashMode.torch => EzIcon(widget.config, Icons.flashlight_on,
+              semanticLabel: l10n(widget.config).hsFlashTorch),
         },
         onPressed: () async {
           bool hasResult = false;
@@ -118,7 +124,9 @@ class _FlashButtonState extends State<FlashButton> {
 }
 
 class SOSIcon extends StatefulWidget {
-  const SOSIcon({super.key});
+  final EzCP config;
+
+  const SOSIcon(this.config, {super.key});
 
   @override
   State<SOSIcon> createState() => _PulsingIconWidgetState();
@@ -152,7 +160,7 @@ class _PulsingIconWidgetState extends State<SOSIcon> with SingleTickerProviderSt
         animation: ping,
         builder: (_, __) => Icon(
           ping.value < 0.5 ? Icons.notifications : Icons.notifications_active,
-          semanticLabel: l10n.hsEndSOS,
+          semanticLabel: l10n(widget.config).hsEndSOS,
         ),
       );
 

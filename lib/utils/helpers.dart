@@ -35,7 +35,7 @@ Future<void> saveToGallery(String path, bool image) async {
 // Contacts //
 
 /// Open a native contact picker and updates [emc] accordingly
-Future<void> addEMC(BuildContext context, {bool loop = true}) async {
+Future<void> addEMC(EzCP config, {required BuildContext context, bool loop = true}) async {
   final List<String> currEMC = List<String>.from(emc);
 
   // Check contact permissions
@@ -44,7 +44,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
 
   if (!allowedPermCheck(cPermMirror(contactsGranted))) {
     if (context.mounted) {
-      ezSnackBar(context, message: l10n.bsNeedPermission);
+      ezSnackBar(config, context: context, message: l10n(config).bsNeedPermission);
     }
     return;
   }
@@ -56,44 +56,48 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
 
   // The way iOS handles partial contacts is hot garbage
   // Best thing we can do is remind users that they will see all contacts, not just the shared ones
-  if (isIOS && EzConfig.get(showContactsMsgKey) == true) {
+  if (isIOS && EzCM.get(showContactsMsgKey) == true) {
     final bool show = await Permission.contacts.isLimited;
 
     if (show && context.mounted) {
       final bool leaving = await showDialog(
         context: context,
         builder: (BuildContext dCon) => EzAlertDialog(
-          title: Text(l10n.gReminder, textAlign: TextAlign.center),
+          config,
+          title: Text(l10n(config).gReminder, textAlign: TextAlign.center),
           content: EzRichText(
-            <InlineSpan>[
+            config,
+            children: <InlineSpan>[
               EzPlainText(
-                text: l10n.bsPartialContacts,
-                semanticsLabel: l10n.bsPartialContactsFix,
+                text: l10n(config).bsPartialContacts,
+                semanticsLabel: l10n(config).bsPartialContactsFix,
               ),
               EzInlineLink(
-                l10n.gSystem.toLowerCase(),
+                config,
+                text: l10n(config).gSystem.toLowerCase(),
                 onTap: () async {
                   Navigator.of(dCon).pop(true);
                   await openAppSettings();
                 },
-                hint: EzConfig.l10n.gOpenLink,
+                hint: config.ezL10n.gOpenLink,
               ),
               EzPlainText(
                 text: '.',
-                semanticsLabel: l10n.bsPartialContactsFix,
+                semanticsLabel: l10n(config).bsPartialContactsFix,
               ),
             ],
             textBackground: false,
-            style: EzConfig.bodyStyle,
+            style: config.bodyStyle,
             textAlign: TextAlign.center,
           ),
           actions: ezActionPair(
-            confirmMsg: l10n.gOk,
+            config,
+            confirmMsg: l10n(config).gOk,
             onConfirm: () => Navigator.of(dCon).pop(false),
             confirmIsDefault: true,
-            denyMsg: l10n.gNotAgain,
+            denyMsg: l10n(config).gNotAgain,
             onDeny: () async {
-              await EzConfig.setBool(showContactsMsgKey, false);
+              await EzCM.setBool(showContactsMsgKey, false);
               if (dCon.mounted) Navigator.of(dCon).pop(false);
             },
             denyIsDestructive: true,
@@ -115,7 +119,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
       });
     } catch (_) {
       if (context.mounted) {
-        await ezSnackBar(context, message: l10n.bsNumError).closed;
+        await ezSnackBar(config, context: context, message: l10n(config).bsNumError).closed;
       }
       if (loop) continue;
       return;
@@ -130,7 +134,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
     if (contact.phones.isEmpty) {
       // Invalid contact, warn the user and optionally retry
       if (context.mounted) {
-        await ezSnackBar(context, message: l10n.bsNumError).closed;
+        await ezSnackBar(config, context: context, message: l10n(config).bsNumError).closed;
       }
     } else {
       // We have a valid contact, gather the phones with numbers
@@ -140,7 +144,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
       if (phones.isEmpty) {
         // No valid numbers, warn the user and optionally retry
         if (context.mounted) {
-          await ezSnackBar(context, message: l10n.bsNumError).closed;
+          await ezSnackBar(config, context: context, message: l10n(config).bsNumError).closed;
         }
       } else {
         // We have at least one valid number, proceed
@@ -170,7 +174,7 @@ Future<void> addEMC(BuildContext context, {bool loop = true}) async {
     currEMC.add(initials + number);
   }
 
-  await EzConfig.setStringList(emcKey, currEMC);
+  await EzCM.setStringList(emcKey, currEMC);
 }
 
 /// I can't believe you've done this @flutter_contacts
@@ -196,100 +200,108 @@ PermissionStatus? lPermMirror(LocationPermission? status) => switch (status) {
 
 /// Allow the user to enable what parts of InstaSOS they want
 Future<void> appSetupModal(
-  BuildContext context, {
-  required Future<PermissionStatus> Function() initCamera,
+  EzCP config, {
+  required BuildContext context,
+  required Future<PermissionStatus> Function(EzCP config) initCamera,
 }) async {
   bool locked = false;
 
   final bool? setup = await ezModal(
+    config,
     context: context,
     enableDrag: false,
     isDismissible: false,
     showDragHandle: false,
     builder: (BuildContext mCon) => StatefulBuilder(
-      builder: (_, StateSetter setModal) => ezModalScroll(<Widget>[
+      builder: (_, StateSetter setModal) => ezModalScroll(config, children: <Widget>[
         // Title
-        EzConfig.margin,
+        config.margin,
         Text(
-          l10n.hsWelcome,
-          semanticsLabel: l10n.hsWelcomeFix,
-          style: EzConfig.titleStyle,
+          l10n(config).hsWelcome,
+          semanticsLabel: l10n(config).hsWelcomeFix,
+          style: config.titleStyle,
           textAlign: TextAlign.center,
         ),
-        EzConfig.spacer,
+        config.spacer,
 
         // Locale setting
         EzLocaleSetting(
+          config,
           skip: <Locale>{arabic, english, chinese}, // dupes
         ),
-        EzConfig.spacer,
+        config.spacer,
 
         // Have it your way
         Text(
-          showTutorial ? l10n.hsAppIntro : l10n.hsAppIntroAlt,
-          style: EzConfig.bodyStyle,
+          showTutorial ? l10n(config).hsAppIntro : l10n(config).hsAppIntroAlt,
+          style: config.bodyStyle,
           textAlign: TextAlign.center,
         ),
-        EzConfig.centerLine,
+        config.centerLine,
         Text(
-          l10n.hsYourApp,
-          style: EzConfig.bodyStyle,
+          l10n(config).hsYourApp,
+          style: config.bodyStyle,
           textAlign: TextAlign.center,
         ),
-        EzConfig.divider,
+        config.divider,
 
         // Permission checklist
         CameraSetup(
+          config,
           initCamera: initCamera,
           locked: locked,
           setLock: (bool active) => setModal(() => locked = active),
         ),
-        EzConfig.spacer,
+        config.spacer,
 
         ContactsSetup(
+          config,
           locked: locked,
           setLock: (bool active) => setModal(() => locked = active),
         ),
-        EzConfig.spacer,
+        config.spacer,
 
         if (!isIOS) ...<Widget>[
           SMSSetup(
+            config,
             locked: locked,
             setLock: (bool active) => setModal(() => locked = active),
           ),
-          EzConfig.spacer,
+          config.spacer,
         ],
 
         LocationSetup(
+          config,
           locked: locked,
           setLock: (bool active) => setModal(() => locked = active),
         ),
-        EzConfig.spacer,
+        config.spacer,
 
         // Finish/leave
         EzTextButton(
-          text: l10n.gDone,
-          textStyle: EzConfig.bodyStyle?.copyWith(color: EzConfig.colors.primary),
+          config,
+          text: l10n(config).gDone,
+          textStyle: config.bodyStyle?.copyWith(color: config.colors.primary),
           textAlign: TextAlign.center,
-          style: TextButton.styleFrom(backgroundColor: EzConfig.colors.surfaceContainer),
+          style: TextButton.styleFrom(backgroundColor: config.colors.surfaceContainer),
           onPressed: () => Navigator.of(mCon).pop(true),
         ),
 
-        if (EzConfig.locale.languageCode != english.languageCode) ...<Widget>[
-          EzConfig.spacer,
+        if (config.locale.languageCode != english.languageCode) ...<Widget>[
+          config.spacer,
           Text(
-            l10n.hsHybridTranslation,
-            style: EzConfig.bodyStyle,
+            l10n(config).hsHybridTranslation,
+            style: config.bodyStyle,
             textAlign: TextAlign.center,
           ),
         ],
 
-        EzConfig.separator,
+        config.separator,
       ]),
     ),
   );
 
-  if (setup == true) await EzConfig.setBool(setupCompleteKey, true);
+  if (setup == true) await EzCM.setBool(setupCompleteKey, true);
 }
 
 // SOS //
@@ -298,7 +310,7 @@ Future<void> appSetupModal(
 /// Call a custom worker factory to send periodic SOS messages
 /// Assumes [emc] and permission checks have already been done
 /// Handles platform errors
-Future<void> backgroundSOS() async {
+Future<void> backgroundSOS(Lang l10n) async {
   final List<String> currEMC = List<String>.from(emc);
   if (currEMC.isEmpty) return;
 
@@ -317,28 +329,30 @@ Future<void> backgroundSOS() async {
     ezLog(e.toString());
     // We still want to continue. Could be a partial success
   }
-  await EzConfig.setBool(taskRunningKey, true);
+  await EzCM.setBool(taskRunningKey, true);
 }
 
 /// For Android only
 /// Safe to send [context], a mounted check is included
 /// Handles platform errors, no other checks are required
-Future<void> stopBackgroundSOS(BuildContext context) async {
+Future<void> stopBackgroundSOS(EzCP config, {required BuildContext context}) async {
   try {
     await platform.invokeMethod<void>('cancelBackgroundSOS');
   } catch (e) {
     // Improvement: check the error code
     // The most likely error is that the task is already stopped
     // But there could be scenarios where taskRunningKey should remain true
-    context.mounted ? await ezLogAlert(context, message: e.toString()) : ezLog(e.toString());
+    context.mounted
+        ? await ezLogAlert(config, context: context, message: e.toString())
+        : ezLog(e.toString());
   }
-  await EzConfig.setBool(taskRunningKey, false);
+  await EzCM.setBool(taskRunningKey, false);
 }
 
 /// Call the [MethodChannel] to send a foregroundSOS
 /// Assumes [emc] and permission checks have already been done
 /// Handles platform errors
-Future<bool> foregroundSOS() async {
+Future<bool> foregroundSOS(Lang l10n) async {
   final List<String> currEMC = List<String>.from(emc);
   if (currEMC.isEmpty) return false;
 
@@ -346,7 +360,7 @@ Future<bool> foregroundSOS() async {
       currEMC.map((String contact) => contact.split(contactSplit).last).toList();
 
   final Map<String, dynamic> mapData = <String, dynamic>{
-    'message': 'SOS\n${await getCoordinates(linkType.base)}',
+    'message': 'SOS\n${await getCoordinates(l10n, linkBase: linkType.base)}',
     'recipients': isIOS ? numbers : numbers.join(';'),
   };
 
@@ -362,7 +376,7 @@ Future<bool> foregroundSOS() async {
 /// Gets coordinates from [Geolocator]
 /// Returns the coordinates injected into a Google Maps URL
 /// Includes error handling
-Future<String?> getCoordinates(String linkBase, {bool nullable = false}) async {
+Future<String?> getCoordinates(Lang l10n, {required String linkBase, bool nullable = false}) async {
   late final String? disabled = nullable ? null : l10n.sosDisabled;
   late final String? denied = nullable ? null : l10n.sosDenied;
   late final String? errored = nullable ? null : l10n.sosError;
