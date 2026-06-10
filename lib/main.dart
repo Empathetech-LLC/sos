@@ -8,7 +8,6 @@ import './utils/export.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
@@ -75,46 +74,30 @@ class SOS extends StatelessWidget {
             GoRoute(
               path: homePath,
               name: homePath,
-              pageBuilder: (BuildContext context, GoRouterState state) => ezPageBuilder(
-                Provider.of<EzCP>(context, listen: false),
-                context,
-                state,
-                const HomeScreen(),
-              ),
+              pageBuilder: (BuildContext pbc, GoRouterState pbs) =>
+                  ezPageBuilder(configWatcher(pbc), pbc, pbs, const HomeScreen()),
               routes: <RouteBase>[
                 // Settings home
                 GoRoute(
                   path: settingsHomePath,
                   name: settingsHomePath,
-                  pageBuilder: (BuildContext context, GoRouterState state) => ezPageBuilder(
-                    Provider.of<EzCP>(context, listen: false),
-                    context,
-                    state,
-                    const SettingsHomeScreen(),
-                  ),
+                  pageBuilder: (BuildContext pbc, GoRouterState pbs) =>
+                      ezPageBuilder(configWatcher(pbc), pbc, pbs, const SettingsHomeScreen()),
                   routes: <RouteBase>[
                     // SOS settings
                     GoRoute(
                       path: sosSettingsPath,
                       name: sosSettingsPath,
-                      pageBuilder: (BuildContext context, GoRouterState state) => ezPageBuilder(
-                        Provider.of<EzCP>(context, listen: false),
-                        context,
-                        state,
-                        const SOSSettingsScreen(),
-                      ),
+                      pageBuilder: (BuildContext pbc, GoRouterState pbs) =>
+                          ezPageBuilder(configWatcher(pbc), pbc, pbs, const SOSSettingsScreen()),
                     ),
 
                     // Appearance settings
                     GoRoute(
                       path: appearanceSettingsPath,
                       name: appearanceSettingsPath,
-                      pageBuilder: (BuildContext context, GoRouterState state) => ezPageBuilder(
-                        Provider.of<EzCP>(context, listen: false),
-                        context,
-                        state,
-                        const AppearanceSettingsScreen(),
-                      ),
+                      pageBuilder: (BuildContext pbc, GoRouterState pbs) => ezPageBuilder(
+                          configWatcher(pbc), pbc, pbs, const AppearanceSettingsScreen()),
                     ),
                   ],
                 ),
