@@ -682,7 +682,7 @@ class _HomeScreenState extends State<HomeScreen>
         break; // Do nothing
 
       case AppLifecycleState.hidden:
-        final EzCP config = configWatcher(context); // TODO: test!!!
+        final EzCP config = configWatcher(context);
 
         final bool alreadyRunning = EzCM.get(taskRunningKey);
         final bool active = sosTimer?.isActive == true;
@@ -731,7 +731,7 @@ class _HomeScreenState extends State<HomeScreen>
         break;
 
       case AppLifecycleState.resumed:
-        final EzCP config = configWatcher(context); // TODO: test!!!
+        final EzCP config = configWatcher(context);
 
         // Restore camera
         if (cameraDesc != null) {
