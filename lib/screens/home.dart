@@ -181,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void afterFirstLayout(BuildContext context) async {
-    final EzCP config = Provider.of<EzCP>(context, listen: false);
+    final EzCP config = configWatcher(context);
 
     // Check for fresh installs
     if (EzCM.get(setupCompleteKey) != true) {
@@ -682,7 +682,7 @@ class _HomeScreenState extends State<HomeScreen>
         break; // Do nothing
 
       case AppLifecycleState.hidden:
-        final EzCP config = Provider.of<EzCP>(context, listen: false); // TODO: test!!!
+        final EzCP config = configWatcher(context); // TODO: test!!!
 
         final bool alreadyRunning = EzCM.get(taskRunningKey);
         final bool active = sosTimer?.isActive == true;
@@ -731,7 +731,7 @@ class _HomeScreenState extends State<HomeScreen>
         break;
 
       case AppLifecycleState.resumed:
-        final EzCP config = Provider.of<EzCP>(context, listen: false); // TODO: test!!!
+        final EzCP config = configWatcher(context); // TODO: test!!!
 
         // Restore camera
         if (cameraDesc != null) {
