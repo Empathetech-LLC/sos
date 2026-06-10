@@ -250,7 +250,7 @@ class _RightsOpacity extends StatelessWidget {
         );
 
         if (opacity != config.textBackgroundOpacity) {
-          await config.rebuildUI(<EzSettingType>{EzSettingType.text});
+          await config.rebuildUI(<EzCacheType>{EzCacheType.text});
         }
       },
       icon: EzIcon(config, Icons.opacity),
