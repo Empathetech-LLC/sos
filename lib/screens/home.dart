@@ -19,6 +19,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
+// TODO: check all positions - who needs onLeft, and when should it be null vs 0?
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
