@@ -19,8 +19,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
-// TODO: check all positions - who needs onLeft, and when should it be null vs 0?
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -357,8 +355,8 @@ class _HomeScreenState extends State<HomeScreen>
                   overlayChildBuilder: (_) => EzTutorial(
                     config,
                     top: safeTop(context) + config.marginVal,
-                    right: config.isLefty ? 0 : config.spacing + config.marginVal + config.iconSize,
-                    left: config.isLefty ? config.spacing + config.marginVal + config.iconSize : 0,
+                    right: config.isLefty ? null : config.spargin + config.iconSize,
+                    left: config.isLefty ? config.spargin + config.iconSize : null,
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
