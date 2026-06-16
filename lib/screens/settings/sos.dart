@@ -53,7 +53,7 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> with WidgetsBindi
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) async {
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
     if (state == AppLifecycleState.resumed) await initPerm();
   }
 

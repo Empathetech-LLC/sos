@@ -185,8 +185,6 @@ class _RightsOpacity extends StatelessWidget {
                 child: Slider(
                   // Slider values
                   value: opacity,
-                  min: minOpacity,
-                  max: maxOpacity,
                   divisions: 20,
                   label: opacity.toStringAsFixed(2),
 

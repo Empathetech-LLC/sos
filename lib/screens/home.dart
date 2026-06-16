@@ -180,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   @override
-  void afterFirstLayout(BuildContext context) async {
+  Future<void> afterFirstLayout(BuildContext context) async {
     final EzCP config = configWatcher(context);
 
     // Check for fresh installs
@@ -674,7 +674,7 @@ class _HomeScreenState extends State<HomeScreen>
   // Cleanup //
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) async {
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
     switch (state) {
       case AppLifecycleState.detached:
       case AppLifecycleState.inactive:

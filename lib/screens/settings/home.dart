@@ -471,7 +471,6 @@ class SettingsHomeScreen extends StatelessWidget {
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                               config.startLine,
 
@@ -490,7 +489,6 @@ class SettingsHomeScreen extends StatelessWidget {
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                               config.startLine,
 
@@ -509,7 +507,6 @@ class SettingsHomeScreen extends StatelessWidget {
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                               config.startLine,
 
@@ -528,7 +525,6 @@ class SettingsHomeScreen extends StatelessWidget {
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                               config.startLine,
 
@@ -548,7 +544,6 @@ class SettingsHomeScreen extends StatelessWidget {
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                             ],
                           ),
@@ -587,7 +582,6 @@ class SettingsHomeScreen extends StatelessWidget {
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                               config.startLine,
                               Text(
@@ -627,7 +621,6 @@ class SettingsHomeScreen extends StatelessWidget {
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                               config.startLine,
 
@@ -646,7 +639,6 @@ class SettingsHomeScreen extends StatelessWidget {
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                               config.startLine,
 
@@ -665,7 +657,6 @@ class SettingsHomeScreen extends StatelessWidget {
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                             ],
                           ),
@@ -716,7 +707,6 @@ class SettingsHomeScreen extends StatelessWidget {
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                               config.startLine,
 
@@ -744,7 +734,6 @@ class SettingsHomeScreen extends StatelessWidget {
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                             ],
                           ),
@@ -808,7 +797,6 @@ class SettingsHomeScreen extends StatelessWidget {
                               ],
                               textBackground: false,
                               style: answer,
-                              textAlign: TextAlign.start,
                             ),
                           ],
                         ),
