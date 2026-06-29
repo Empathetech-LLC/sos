@@ -104,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen>
               context: context,
               message: l10n(config).sosNeedSMS,
               customActions: <Widget>[
-                EzMaterialAction(config,
+                EzAction(config,
                     text: config.ezL10n.gSettings,
                     onPressed: openAppSettings,
                     style: config.bodyStyle?.copyWith(

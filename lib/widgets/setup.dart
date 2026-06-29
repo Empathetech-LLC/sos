@@ -276,8 +276,8 @@ class _ContactsSetupState extends State<ContactsSetup> {
                   textAlign: TextAlign.center,
                   style: widget.config.bodyStyle,
                 ),
-                actions: <EzMaterialAction>[
-                  EzMaterialAction(
+                actions: <EzAction>[
+                  EzAction(
                     widget.config,
                     text: l10n(widget.config).gOk,
                     onPressed: () => Navigator.of(dCon).pop(),
