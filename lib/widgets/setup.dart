@@ -5,6 +5,7 @@
 
 // TODO: get the camera card to be one click per permission, like location
 // TODO: update the location permission message
+// TODO: lots of l10n - including the removal of punctuation in the setup cards
 
 import '../utils/export.dart';
 
@@ -105,7 +106,8 @@ class _CameraSetupState extends State<CameraSetup> {
 
           // Make it so
           final PermissionStatus result = await Permission.camera.request();
-          if (camStatus != result) if (mounted) setState(() => camStatus = result);
+          if (camStatus != result) camStatus = result;
+          if (mounted) setState(() {});
           widget.setLock(false);
         },
         child: Semantics(
@@ -126,12 +128,12 @@ class _CameraSetupState extends State<CameraSetup> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            l10n(widget.config).hsCamMic,
+                            'Camera',
                             style: widget.config.bodyStyle,
                             textAlign: TextAlign.start,
                           ),
                           Text(
-                            l10n(widget.config).hsAddRecording,
+                            'Enables video recording',
                             style: widget.config.labelStyle,
                             textAlign: TextAlign.start,
                           ),
@@ -142,6 +144,63 @@ class _CameraSetupState extends State<CameraSetup> {
                   Padding(
                     padding: EdgeInsets.all(widget.config.padding),
                     child: pStatusIcon(widget.config, camStatus),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+
+  Widget micCard() => GestureDetector(
+        onTap: () async {
+          // Do nothing if already complete
+          if (allowedPermCheck(micStatus)) return;
+
+          // Check permission(s) race
+          if (widget.locked) return;
+          widget.setLock(true);
+
+          // Make it so
+          final PermissionStatus result = await Permission.microphone.request();
+          if (micStatus != result) micStatus = result;
+          if (mounted) setState(() {});
+          widget.setLock(false);
+        },
+        child: Semantics(
+          button: !allowedPermCheck(micStatus),
+          readOnly: allowedPermCheck(micStatus),
+          hint: l10n(widget.config).hsCameraSetupHint,
+          child: ExcludeSemantics(
+            child: Card(
+              shape: cardShape(widget.config),
+              child: EzRow(
+                widget.config,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(widget.config.padding),
+                      child: EzCol(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Microphone',
+                            style: widget.config.bodyStyle,
+                            textAlign: TextAlign.start,
+                          ),
+                          Text(
+                            'Videos will be silent without it',
+                            style: widget.config.labelStyle,
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(widget.config.padding),
+                    child: pStatusIcon(widget.config, micStatus),
                   ),
                 ],
               ),
@@ -161,17 +220,14 @@ class _CameraSetupState extends State<CameraSetup> {
 
           // Make it so
           final bool result = await Gal.requestAccess();
-          if (galStatus != result) {
-            if (mounted) setState(() => galStatus = result);
-          }
+          if (galStatus != result) galStatus = result;
+          if (mounted) setState(() {});
           widget.setLock(false);
         },
         child: Semantics(
           button: galStatus != true,
           readOnly: galStatus == true,
-          hint: (galStatus == true)
-              ? l10n(widget.config).hsCameraReady
-              : l10n(widget.config).hsCameraSetupHint,
+          hint: l10n(widget.config).hsCameraSetupHint,
           child: ExcludeSemantics(
             child: Card(
               shape: cardShape(widget.config),
@@ -182,27 +238,21 @@ class _CameraSetupState extends State<CameraSetup> {
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(widget.config.padding),
-                      child: galStatus == true
-                          ? Text(
-                              l10n(widget.config).hsCameraReady,
-                              style: widget.config.bodyStyle,
-                              textAlign: TextAlign.start,
-                            )
-                          : EzCol(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  l10n(widget.config).hsGallery,
-                                  style: widget.config.bodyStyle,
-                                  textAlign: TextAlign.start,
-                                ),
-                                Text(
-                                  l10n(widget.config).hsAddSave,
-                                  style: widget.config.labelStyle,
-                                  textAlign: TextAlign.start,
-                                ),
-                              ],
-                            ),
+                      child: EzCol(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            l10n(widget.config).hsGallery,
+                            style: widget.config.bodyStyle,
+                            textAlign: TextAlign.start,
+                          ),
+                          Text(
+                            l10n(widget.config).hsAddSave,
+                            style: widget.config.labelStyle,
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Padding(
@@ -216,13 +266,39 @@ class _CameraSetupState extends State<CameraSetup> {
         ),
       );
 
-  Widget micCard() => const SizedBox.shrink();
-
-  Widget finCard() => const SizedBox.shrink();
+  Widget finCard() => Semantics(
+        readOnly: true,
+        hint: l10n(widget.config).hsCameraReady,
+        child: ExcludeSemantics(
+          child: Card(
+            shape: cardShape(widget.config),
+            child: EzRow(
+              widget.config,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.all(widget.config.padding),
+                    child: Text(
+                      l10n(widget.config).hsCameraReady,
+                      style: widget.config.bodyStyle,
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(widget.config.padding),
+                  child: boolIcon(widget.config, true),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) => allowedPermCheck(camStatus)
-      ? ((galStatus ?? false) ? (allowedPermCheck(micStatus) ? finCard() : micCard()) : galCard())
+      ? (allowedPermCheck(micStatus) ? ((galStatus ?? false) ? finCard() : galCard()) : micCard())
       : camCard();
 }
 
@@ -302,7 +378,8 @@ class _SOSSetupState extends State<SOSSetup> {
 
           final fc.PermissionStatus result =
               await fc.FlutterContacts.permissions.request(fc.PermissionType.read);
-          if (conStatus != result) if (mounted) setState(() => conStatus = result);
+          if (conStatus != result) conStatus = result;
+          if (mounted) setState(() {});
           widget.setLock(false);
         },
         child: Semantics(
@@ -319,29 +396,21 @@ class _SOSSetupState extends State<SOSSetup> {
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(widget.config.padding),
-                      child: allowedPermCheck(cPermMirror(conStatus))
-                          ? Text(
-                              l10n(widget.config).hsContactsReady,
-                              style: widget.config.bodyStyle,
-                              textAlign: TextAlign.start,
-                            )
-                          : EzCol(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  l10n(widget.config).hsContacts,
-                                  style: widget.config.bodyStyle,
-                                  textAlign: TextAlign.start,
-                                ),
-                                Text(
-                                  isIOS
-                                      ? l10n(widget.config).hsAddContactsIOS
-                                      : l10n(widget.config).hsAddContacts,
-                                  style: widget.config.labelStyle,
-                                  textAlign: TextAlign.start,
-                                ),
-                              ],
-                            ),
+                      child: EzCol(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            l10n(widget.config).hsContacts,
+                            style: widget.config.bodyStyle,
+                            textAlign: TextAlign.start,
+                          ),
+                          Text(
+                            'Enables SOS messages',
+                            style: widget.config.labelStyle,
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Padding(
@@ -355,6 +424,7 @@ class _SOSSetupState extends State<SOSSetup> {
         ),
       );
 
+  /// Skipped entirely on iOS
   Widget smsCard() => GestureDetector(
         onTap: () async {
           // Do nothing if already complete
@@ -366,7 +436,8 @@ class _SOSSetupState extends State<SOSSetup> {
 
           // Make it so
           final PermissionStatus result = await Permission.sms.request();
-          if (smsStatus != result) if (mounted) setState(() => smsStatus = result);
+          if (smsStatus != result) smsStatus = result;
+          if (mounted) setState(() {});
           widget.setLock(false);
         },
         child: Semantics(
@@ -383,27 +454,21 @@ class _SOSSetupState extends State<SOSSetup> {
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(widget.config.padding),
-                      child: allowedPermCheck(smsStatus)
-                          ? Text(
-                              l10n(widget.config).hsTextingReady,
-                              style: widget.config.bodyStyle,
-                              textAlign: TextAlign.start,
-                            )
-                          : EzCol(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  l10n(widget.config).hsTexting,
-                                  style: widget.config.bodyStyle,
-                                  textAlign: TextAlign.start,
-                                ),
-                                Text(
-                                  l10n(widget.config).hsAddTexting,
-                                  style: widget.config.labelStyle,
-                                  textAlign: TextAlign.start,
-                                ),
-                              ],
-                            ),
+                      child: EzCol(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'SMS',
+                            style: widget.config.bodyStyle,
+                            textAlign: TextAlign.start,
+                          ),
+                          Text(
+                            'Android requires permission for both who & how to text',
+                            style: widget.config.labelStyle,
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Padding(
@@ -417,7 +482,35 @@ class _SOSSetupState extends State<SOSSetup> {
         ),
       );
 
-  Widget finCard() => const SizedBox.shrink();
+  Widget finCard() => Semantics(
+        readOnly: true,
+        hint: 'SOS is ready',
+        child: ExcludeSemantics(
+          child: Card(
+            shape: cardShape(widget.config),
+            child: EzRow(
+              widget.config,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.all(widget.config.padding),
+                    child: Text(
+                      'SOS is ready',
+                      style: widget.config.bodyStyle,
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(widget.config.padding),
+                  child: boolIcon(widget.config, true),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) => allowedPermCheck(cPermMirror(conStatus))
@@ -552,7 +645,7 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                                         textAlign: TextAlign.start,
                                       ),
                                       Text(
-                                        l10n(widget.config).hsAddLocation,
+                                        'Adds your location to SOS messages',
                                         style: widget.config.labelStyle,
                                         textAlign: TextAlign.start,
                                       ),
@@ -600,7 +693,7 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                                       Text(
                                         status == LocationPermission.whileInUse
                                             ? l10n(widget.config).hsAddAlways
-                                            : l10n(widget.config).hsAddLocation,
+                                            : 'Adds your location to SOS messages',
                                         style: widget.config.labelStyle,
                                         textAlign: TextAlign.start,
                                       ),
