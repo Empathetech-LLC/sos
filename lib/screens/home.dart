@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen>
       }
     }
 
-    if (deniedPermCheck(await Permission.camera.request())) return false;
+    if (!(await Permission.camera.isGranted)) return false;
 
     final List<CameraDescription> cameras = await availableCameras();
     cameraDesc =
@@ -183,6 +183,7 @@ class _HomeScreenState extends State<HomeScreen>
         // While loop re-opens the dialog on locale change
         await appSetupModal(config, context);
       }
+      await initCamera(config);
     } else {
       // Check for auto SOS
       final bool taskRunning = EzCM.get(taskRunningKey);
@@ -610,9 +611,21 @@ class _HomeScreenState extends State<HomeScreen>
                                 onLongPress: camera == null ? openAppSettings : null,
                                 onPressed: () async {
                                   if (camera == null) {
-                                    if (await initCamera(config) && mounted) {
-                                      setState(() {});
+                                    final bool worked = await initCamera(config);
+
+                                    if (worked) {
+                                      if (mounted) setState(() {});
+                                    } else {
+                                      if (context.mounted) {
+                                        ezSnackBar(
+                                          config,
+                                          context: context,
+                                          message:
+                                              'Please enable the camera in the settings (above)', // TODO: l10n
+                                        );
+                                      }
                                     }
+
                                     return;
                                   }
 
@@ -641,10 +654,20 @@ class _HomeScreenState extends State<HomeScreen>
                               fauxDisabled: true,
                               icon: EzIcon(config, Icons.flash_off),
                               onPressed: () async {
-                                if (await initCamera(config) && mounted) {
-                                  setState(() {});
+                                final bool worked = await initCamera(config);
+
+                                if (worked) {
+                                  if (mounted) setState(() {});
+                                } else {
+                                  if (context.mounted) {
+                                    ezSnackBar(
+                                      config,
+                                      context: context,
+                                      message:
+                                          'Please enable the camera in the settings (above)', // TODO: l10n
+                                    );
+                                  }
                                 }
-                                return;
                               },
                               onLongPress: openAppSettings,
                             )
