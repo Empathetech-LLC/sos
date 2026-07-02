@@ -30,53 +30,47 @@ class _HomeScreenState extends State<HomeScreen>
     with AfterLayoutMixin<HomeScreen>, WidgetsBindingObserver {
   // Define the build data //
 
-  // Core
+  bool showRights = false;
+
   CameraDescription? cameraDesc;
   CameraController? camera;
 
   bool recording = false;
-  final Stopwatch watch = Stopwatch();
-
-  bool showRights = false;
+  final Stopwatch stopwatch = Stopwatch();
 
   Timer? sosTimer;
 
-  // Tutorial(s)
   final OverlayPortalController sosTutorial = OverlayPortalController(debugLabel: 'sos');
   final OverlayPortalController cameraTutorial = OverlayPortalController(debugLabel: 'camera');
   final OverlayPortalController settingsTutorial = OverlayPortalController(debugLabel: 'settings');
 
   // Define custom functions //
 
-  /// Initialize the [camera]
-  Future<PermissionStatus> initCamera(EzCP config) async {
-    if (camera != null) return PermissionStatus.granted;
+  Future<bool> initCamera(EzCP config) async {
+    if (camera != null) return true;
 
     if (cameraDesc != null) {
       try {
         camera = CameraController(cameraDesc!, ResolutionPreset.max);
         await camera!.initialize();
-        return PermissionStatus.granted;
+        return true;
       } catch (_) {
-        // Continue/try again, might be a permissions thing
+        // Continue/try again
         // Actual catch happens below
       }
     }
 
-    final PermissionStatus status = await Permission.camera.request();
-    if (deniedPermCheck(status)) return status;
-
-    await Permission.microphone.request(); // Not required
+    if (deniedPermCheck(await Permission.camera.request())) return false;
 
     final List<CameraDescription> cameras = await availableCameras();
     cameraDesc =
         cameras.firstWhere((CameraDescription c) => c.lensDirection == CameraLensDirection.back);
-    if (cameraDesc == null) return PermissionStatus.denied;
+    if (cameraDesc == null) return false;
 
     try {
       camera = CameraController(cameraDesc!, ResolutionPreset.max);
       await camera!.initialize();
-      return PermissionStatus.granted;
+      return true;
     } catch (e) {
       final String message = e.toString();
 
@@ -91,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen>
       } else {
         ezLog('CameraException from initCamera.../n$message');
       }
-      return PermissionStatus.denied;
+      return false;
     }
   }
 
@@ -187,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen>
     if (EzCM.get(setupCompleteKey) != true) {
       while (EzCM.get(setupCompleteKey) != true) {
         // While loop re-opens the dialog on locale change
-        await appSetupModal(config, context: context, initCamera: initCamera);
+        await appSetupModal(config, context);
       }
     } else {
       // Check for auto SOS
@@ -280,7 +274,7 @@ class _HomeScreenState extends State<HomeScreen>
                     child: StreamBuilder<int>(
                       stream: Stream<int>.periodic(
                         const Duration(seconds: 1),
-                        (_) => watch.elapsed.inSeconds,
+                        (_) => stopwatch.elapsed.inSeconds,
                       ),
                       builder: (_, AsyncSnapshot<int> snapshot) => EzText(
                         config,
@@ -553,11 +547,11 @@ class _HomeScreenState extends State<HomeScreen>
                                           )
                                         : ezLog(e.toString());
                                   }
-                                  watch.stop();
+                                  stopwatch.stop();
 
                                   // Update the UI
                                   if (mounted) setState(() => recording = false);
-                                  watch.reset();
+                                  stopwatch.reset();
 
                                   if (video == null) return;
                                   try {
@@ -616,17 +610,15 @@ class _HomeScreenState extends State<HomeScreen>
                                 onLongPress: camera == null ? openAppSettings : null,
                                 onPressed: () async {
                                   if (camera == null) {
-                                    final PermissionStatus cameraPerm = await initCamera(config);
-
-                                    if (allowedPermCheck(cameraPerm)) {
-                                      if (mounted) setState(() {});
+                                    if (await initCamera(config) && mounted) {
+                                      setState(() {});
                                     }
                                     return;
                                   }
 
                                   try {
                                     await camera!.startVideoRecording();
-                                    watch.start();
+                                    stopwatch.start();
                                     if (mounted) setState(() => recording = true);
                                   } catch (e) {
                                     (context.mounted)
@@ -649,10 +641,8 @@ class _HomeScreenState extends State<HomeScreen>
                               fauxDisabled: true,
                               icon: EzIcon(config, Icons.flash_off),
                               onPressed: () async {
-                                final PermissionStatus cameraPerm = await initCamera(config);
-
-                                if (allowedPermCheck(cameraPerm)) {
-                                  if (mounted) setState(() {});
+                                if (await initCamera(config) && mounted) {
+                                  setState(() {});
                                 }
                                 return;
                               },
@@ -717,8 +707,8 @@ class _HomeScreenState extends State<HomeScreen>
             ezLog(e.toString());
           }
 
-          watch.stop();
-          watch.reset();
+          stopwatch.stop();
+          stopwatch.reset();
           if (mounted) setState(() => recording = false);
         } else {
           // Not recording
