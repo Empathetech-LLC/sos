@@ -27,7 +27,7 @@ dependencies:
   gal: ^2.3.2
   geolocator: ^14.0.3
   provider: ^6.1.5+1
-  share_plus: ^13.1.0
+  share_plus: ^13.2.0
 
   # Empathetech
   empathetech_flutter_ui: 
