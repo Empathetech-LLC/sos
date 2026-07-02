@@ -178,14 +178,13 @@ class SettingsHomeScreen extends StatelessWidget {
                         config.spacer,
 
                         // Finish/leave
-                        EzTextButton(
+                        EzTextIconButton(
                           config,
-                          text: l10n(config).gDone,
-                          textStyle:
-                              config.bodyStyle?.copyWith(color: config.theme.colorScheme.primary),
+                          label: l10n(config).gDone,
+                          icon: EzIcon(config, Icons.check),
                           textAlign: TextAlign.center,
-                          style: TextButton.styleFrom(
-                              backgroundColor: config.theme.colorScheme.surfaceContainer),
+                          style:
+                              TextButton.styleFrom(backgroundColor: config.colors.surfaceContainer),
                           onPressed: () => Navigator.of(mCon).pop(true),
                         ),
                         config.separator,
