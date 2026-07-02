@@ -249,21 +249,12 @@ Future<void> appSetupModal(EzCP config, BuildContext context) async {
         ),
         config.spacer,
 
-        ContactsSetup(
+        SOSSetup(
           config,
           locked: locked,
           setLock: (bool active) => setModal(() => locked = active),
         ),
         config.spacer,
-
-        if (!isIOS) ...<Widget>[
-          SMSSetup(
-            config,
-            locked: locked,
-            setLock: (bool active) => setModal(() => locked = active),
-          ),
-          config.spacer,
-        ],
 
         LocationSetup(
           config,
