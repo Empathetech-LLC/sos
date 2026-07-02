@@ -51,8 +51,10 @@ Widget lStatusIcon(EzCP config, LocationPermission? status) => switch (status) {
 
 // Setting cards //
 
-OutlinedBorder cardShape(EzCP config) =>
-    RoundedRectangleBorder(side: config.borderSide(), borderRadius: config.textRadius);
+OutlinedBorder cardShape(EzCP config) => RoundedRectangleBorder(
+      side: config.borderSide(),
+      borderRadius: EzButtonShape.roundRect.radius,
+    );
 
 class CameraSetup extends StatefulWidget {
   final EzCP config;
@@ -129,12 +131,12 @@ class _CameraSetupState extends State<CameraSetup> {
                         children: <Widget>[
                           Text(
                             'Camera',
-                            style: widget.config.bodyStyle,
+                            style: widget.config.titleStyle,
                             textAlign: TextAlign.start,
                           ),
                           Text(
                             'Enables video recording',
-                            style: widget.config.labelStyle,
+                            style: widget.config.bodyStyle,
                             textAlign: TextAlign.start,
                           ),
                         ],
@@ -186,12 +188,12 @@ class _CameraSetupState extends State<CameraSetup> {
                         children: <Widget>[
                           Text(
                             'Microphone',
-                            style: widget.config.bodyStyle,
+                            style: widget.config.titleStyle,
                             textAlign: TextAlign.start,
                           ),
                           Text(
                             'Videos will be silent without it',
-                            style: widget.config.labelStyle,
+                            style: widget.config.bodyStyle,
                             textAlign: TextAlign.start,
                           ),
                         ],
@@ -243,12 +245,12 @@ class _CameraSetupState extends State<CameraSetup> {
                         children: <Widget>[
                           Text(
                             l10n(widget.config).hsGallery,
-                            style: widget.config.bodyStyle,
+                            style: widget.config.titleStyle,
                             textAlign: TextAlign.start,
                           ),
                           Text(
                             l10n(widget.config).hsAddSave,
-                            style: widget.config.labelStyle,
+                            style: widget.config.bodyStyle,
                             textAlign: TextAlign.start,
                           ),
                         ],
@@ -359,11 +361,7 @@ class _SOSSetupState extends State<SOSSetup> {
               builder: (BuildContext dCon) => EzAlertDialog(
                 widget.config,
                 title: Text(l10n(widget.config).gReminder, textAlign: TextAlign.center),
-                content: Text(
-                  l10n(widget.config).hsAppleContacts,
-                  textAlign: TextAlign.center,
-                  style: widget.config.bodyStyle,
-                ),
+                content: Text(l10n(widget.config).hsAppleContacts, textAlign: TextAlign.center),
                 actions: <EzAction>[
                   EzAction(
                     widget.config,
@@ -401,12 +399,12 @@ class _SOSSetupState extends State<SOSSetup> {
                         children: <Widget>[
                           Text(
                             l10n(widget.config).hsContacts,
-                            style: widget.config.bodyStyle,
+                            style: widget.config.titleStyle,
                             textAlign: TextAlign.start,
                           ),
                           Text(
                             'Enables SOS messages',
-                            style: widget.config.labelStyle,
+                            style: widget.config.bodyStyle,
                             textAlign: TextAlign.start,
                           ),
                         ],
@@ -459,12 +457,12 @@ class _SOSSetupState extends State<SOSSetup> {
                         children: <Widget>[
                           Text(
                             'SMS',
-                            style: widget.config.bodyStyle,
+                            style: widget.config.titleStyle,
                             textAlign: TextAlign.start,
                           ),
                           Text(
                             'Android requires permission for both who & how to text',
-                            style: widget.config.labelStyle,
+                            style: widget.config.bodyStyle,
                             textAlign: TextAlign.start,
                           ),
                         ],
@@ -641,12 +639,12 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                                     children: <Widget>[
                                       Text(
                                         l10n(widget.config).hsLocation,
-                                        style: widget.config.bodyStyle,
+                                        style: widget.config.titleStyle,
                                         textAlign: TextAlign.start,
                                       ),
                                       Text(
                                         'Adds your location to SOS messages',
-                                        style: widget.config.labelStyle,
+                                        style: widget.config.bodyStyle,
                                         textAlign: TextAlign.start,
                                       ),
                                     ],
@@ -687,14 +685,14 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                                     children: <Widget>[
                                       Text(
                                         l10n(widget.config).hsLocation,
-                                        style: widget.config.bodyStyle,
+                                        style: widget.config.titleStyle,
                                         textAlign: TextAlign.start,
                                       ),
                                       Text(
                                         status == LocationPermission.whileInUse
                                             ? l10n(widget.config).hsAddAlways
                                             : 'Adds your location to SOS messages',
-                                        style: widget.config.labelStyle,
+                                        style: widget.config.bodyStyle,
                                         textAlign: TextAlign.start,
                                       ),
                                     ],
