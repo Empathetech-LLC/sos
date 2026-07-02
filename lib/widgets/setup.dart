@@ -3,10 +3,6 @@
  * See LICENSE for distribution and usage details.
  */
 
-// TODO: get the camera card to be one click per permission, like location
-// TODO: update the location permission message
-// TODO: lots of l10n - including the removal of punctuation in the setup cards
-
 import '../utils/export.dart';
 
 import 'package:gal/gal.dart';
@@ -44,9 +40,9 @@ Widget lStatusIcon(EzCP config, LocationPermission? status) => switch (status) {
         EzIcon(config, Icons.cancel_outlined, color: config.colors.error),
       null => EzIcon(config, Icons.help_outline, color: config.colors.primary),
       LocationPermission.unableToDetermine =>
-        EzIcon(config, Icons.check, color: config.colors.secondary),
+        EzIcon(config, Icons.check, color: config.colors.outline),
       LocationPermission.whileInUse =>
-        EzIcon(config, Icons.check, color: isIOS ? config.colors.primary : config.colors.secondary),
+        EzIcon(config, isIOS ? Icons.check : Icons.help_outline, color: config.colors.primary),
     };
 
 // Setting cards //
@@ -130,12 +126,12 @@ class _CameraSetupState extends State<CameraSetup> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            'Camera',
+                            l10n(widget.config).hsCamera,
                             style: widget.config.titleStyle,
                             textAlign: TextAlign.start,
                           ),
                           Text(
-                            'Enables video recording',
+                            l10n(widget.config).hsAddRecording,
                             style: widget.config.bodyStyle,
                             textAlign: TextAlign.start,
                           ),
@@ -187,12 +183,12 @@ class _CameraSetupState extends State<CameraSetup> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            'Microphone',
+                            l10n(widget.config).hsMic,
                             style: widget.config.titleStyle,
                             textAlign: TextAlign.start,
                           ),
                           Text(
-                            'Videos will be silent without it',
+                            l10n(widget.config).hsSilent,
                             style: widget.config.bodyStyle,
                             textAlign: TextAlign.start,
                           ),
@@ -403,7 +399,7 @@ class _SOSSetupState extends State<SOSSetup> {
                             textAlign: TextAlign.start,
                           ),
                           Text(
-                            'Enables SOS messages',
+                            l10n(widget.config).hsAddContacts,
                             style: widget.config.bodyStyle,
                             textAlign: TextAlign.start,
                           ),
@@ -461,7 +457,7 @@ class _SOSSetupState extends State<SOSSetup> {
                             textAlign: TextAlign.start,
                           ),
                           Text(
-                            'Android requires permission for both who & how to text',
+                            l10n(widget.config).hsSMS,
                             style: widget.config.bodyStyle,
                             textAlign: TextAlign.start,
                           ),
@@ -482,7 +478,7 @@ class _SOSSetupState extends State<SOSSetup> {
 
   Widget finCard() => Semantics(
         readOnly: true,
-        hint: 'SOS is ready',
+        hint: l10n(widget.config).hsSOSReady,
         child: ExcludeSemantics(
           child: Card(
             shape: cardShape(widget.config),
@@ -494,7 +490,7 @@ class _SOSSetupState extends State<SOSSetup> {
                   child: Padding(
                     padding: EdgeInsets.all(widget.config.padding),
                     child: Text(
-                      'SOS is ready',
+                      l10n(widget.config).hsSOSReady,
                       style: widget.config.bodyStyle,
                       textAlign: TextAlign.start,
                     ),
@@ -643,7 +639,7 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                                         textAlign: TextAlign.start,
                                       ),
                                       Text(
-                                        'Adds your location to SOS messages',
+                                        l10n(widget.config).hsAddLocation,
                                         style: widget.config.bodyStyle,
                                         textAlign: TextAlign.start,
                                       ),
@@ -691,7 +687,7 @@ class _LocationSetupState extends State<LocationSetup> with WidgetsBindingObserv
                                       Text(
                                         status == LocationPermission.whileInUse
                                             ? l10n(widget.config).hsAddAlways
-                                            : 'Adds your location to SOS messages',
+                                            : l10n(widget.config).hsAddLocation,
                                         style: widget.config.bodyStyle,
                                         textAlign: TextAlign.start,
                                       ),

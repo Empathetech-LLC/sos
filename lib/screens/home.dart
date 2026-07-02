@@ -626,8 +626,7 @@ class _HomeScreenState extends State<HomeScreen>
                                         ezSnackBar(
                                           config,
                                           context: context,
-                                          message:
-                                              'Please enable the camera in the settings (above)\nthen try again', // TODO: l10n
+                                          message: l10n(config).hsCameraSnack,
                                         );
                                       }
                                     }
@@ -669,8 +668,7 @@ class _HomeScreenState extends State<HomeScreen>
                                     ezSnackBar(
                                       config,
                                       context: context,
-                                      message:
-                                          'Please enable the camera in the settings (above)\nthen try again', // TODO: l10n
+                                      message: l10n(config).hsCameraSnack,
                                     );
                                   }
                                 }
