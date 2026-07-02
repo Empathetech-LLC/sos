@@ -215,10 +215,10 @@ Future<void> appSetupModal(EzCP config, BuildContext context) async {
         Text(
           l10n(config).hsWelcome,
           semanticsLabel: l10n(config).hsWelcomeFix,
-          style: config.titleStyle,
+          style: config.headlineStyle,
           textAlign: TextAlign.center,
         ),
-        config.spacer,
+        config.margin,
 
         // Locale setting
         EzLocaleSetting(
@@ -264,10 +264,10 @@ Future<void> appSetupModal(EzCP config, BuildContext context) async {
         config.spacer,
 
         // Finish/leave
-        EzTextButton(
+        EzTextIconButton(
           config,
-          text: l10n(config).gDone,
-          textStyle: config.bodyStyle?.copyWith(color: config.colors.primary),
+          label: l10n(config).gDone,
+          icon: EzIcon(config, Icons.check),
           textAlign: TextAlign.center,
           style: TextButton.styleFrom(backgroundColor: config.colors.surfaceContainer),
           onPressed: () => Navigator.of(mCon).pop(true),
