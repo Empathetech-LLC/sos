@@ -64,72 +64,77 @@ class LangAr extends Lang {
       'تمت ترجمة البرنامج التعليمي والإعدادات آلياً.\nقائمة الحقوق تمت ترجمتها بشرياً.';
 
   @override
-  String get hsCamMic => 'الكاميرا والميكروفون';
+  String get hsCamera => 'الكاميرا';
 
   @override
-  String get hsAddRecording => 'يفعّل تسجيل الفيديو.';
+  String get hsAddRecording => 'يتيح تسجيل الفيديو';
+
+  @override
+  String get hsMic => 'الميكروفون';
+
+  @override
+  String get hsSilent => 'ستكون مقاطع الفيديو صامتة بدونه';
 
   @override
   String get hsGallery => 'المعرض';
 
   @override
-  String get hsAddSave => 'مطلوب لحفظ تسجيلاتك.';
+  String get hsAddSave => 'مطلوب لحفظ تسجيلاتك';
 
   @override
   String get hsCameraReady => 'الكاميرا جاهزة';
 
   @override
   String get hsCameraSetupHint =>
-      'قم بالتفعيل لمنح Insta-SOS إذن الوصول إلى الكاميرا.';
+      'قم بالتفعيل لمنح Insta-SOS إذن الوصول إلى الكاميرا';
+
+  @override
+  String get hsCameraSnack =>
+      'يرجى تمكين الكاميرا في الإعدادات (أعلاه)\nثم حاول مرة أخرى';
 
   @override
   String get hsContacts => 'جهات الاتصال';
 
   @override
-  String get hsAddContacts => 'يفعّل تنبيهات جهات اتصال الطوارئ.';
+  String get hsAddContacts => 'يتيح رسائل الطوارئ (SOS)';
 
   @override
-  String get hsContactsReady => 'جهات الاتصال جاهزة';
+  String get hsAppleContacts =>
+      'هذه الخطوة لأذونات التطبيق فقط.\nأنت لا تختار جهات اتصال الطوارئ بعد.\n\nيوصى بالسماح للجميع لتجنب أي مشاكل.';
 
   @override
   String get hsContactsSetupHint =>
       'قم بالتفعيل لمنح Insta-SOS إذن عرض جهات الاتصال الخاصة بك.';
 
   @override
-  String get hsAppleContacts =>
-      'تُخصَّص هذه الخطوة لأذونات التطبيق فقط.\nأنت لا تقوم باختيار جهات اتصال الطوارئ في هذه المرحلة.\n\nيُوصى بالسماح بجميع الأذونات لتجنب أي متاعب لاحقاً.';
-
-  @override
-  String get hsTexting => 'المراسلة النصية';
-
-  @override
-  String get hsAddTexting => 'الجزء 2 من تفعيل تنبيهات جهات اتصال الطوارئ.';
-
-  @override
-  String get hsTextingReady => 'المراسلة النصية جاهزة';
+  String get hsSMS =>
+      'يتطلب نظام أندرويد الإذن لتحديد لمن يتم إرسال الرسائل وكيفية ذلك';
 
   @override
   String get hsTextingSetupHint =>
       'قم بالتفعيل لمنح Insta-SOS إذن إرسال الرسائل.';
 
   @override
+  String get hsSOSReady => 'SOS جاهز';
+
+  @override
   String get hsLocation => 'الموقع';
 
   @override
-  String get hsUnable => 'غير قادر على التحديد';
-
-  @override
-  String get hsAddLocation => 'يفعّل مشاركة الموقع مع جهات اتصال الطوارئ.';
+  String get hsAddLocation => 'يضيف موقعك إلى رسائل الطوارئ (SOS)';
 
   @override
   String get hsAddAlways =>
-      'يوصى بتفعيله دائماً. اضغط مرة أخرى لفتح إعدادات النظام.';
+      'يوصى بتمكينه دائمًا. اضغط مرة أخرى لفتح إعدادات النظام.';
 
   @override
   String get hsLocationReady => 'الموقع جاهز';
 
   @override
   String get hsLocationSetupHint => 'قم بالتفعيل لمنح Insta-SOS إذن عرض موقعك.';
+
+  @override
+  String get hsUnable => 'غير قادر على التحديد';
 
   @override
   String get hsOneOfFour => 'الأول من أربعة. متابعة...';
@@ -540,72 +545,77 @@ class LangArEg extends LangAr {
       'تمت ترجمة البرنامج التعليمي والإعدادات آلياً.\nقائمة الحقوق تمت ترجمتها بشرياً.';
 
   @override
-  String get hsCamMic => 'الكاميرا والميكروفون';
+  String get hsCamera => 'الكاميرا';
 
   @override
-  String get hsAddRecording => 'يفعّل تسجيل الفيديو.';
+  String get hsAddRecording => 'يتيح تسجيل الفيديو';
+
+  @override
+  String get hsMic => 'الميكروفون';
+
+  @override
+  String get hsSilent => 'ستكون مقاطع الفيديو صامتة بدونه';
 
   @override
   String get hsGallery => 'المعرض';
 
   @override
-  String get hsAddSave => 'مطلوب لحفظ تسجيلاتك.';
+  String get hsAddSave => 'مطلوب لحفظ تسجيلاتك';
 
   @override
   String get hsCameraReady => 'الكاميرا جاهزة';
 
   @override
   String get hsCameraSetupHint =>
-      'قم بالتفعيل لمنح Insta-SOS إذن الوصول إلى الكاميرا.';
+      'قم بالتفعيل لمنح Insta-SOS إذن الوصول إلى الكاميرا';
+
+  @override
+  String get hsCameraSnack =>
+      'يرجى تمكين الكاميرا في الإعدادات (أعلاه)\nثم حاول مرة أخرى';
 
   @override
   String get hsContacts => 'جهات الاتصال';
 
   @override
-  String get hsAddContacts => 'يفعّل تنبيهات جهات اتصال الطوارئ.';
+  String get hsAddContacts => 'يتيح رسائل الطوارئ (SOS)';
 
   @override
-  String get hsContactsReady => 'جهات الاتصال جاهزة';
+  String get hsAppleContacts =>
+      'هذه الخطوة لأذونات التطبيق فقط.\nأنت لا تختار جهات اتصال الطوارئ بعد.\n\nيوصى بالسماح للجميع لتجنب أي مشاكل.';
 
   @override
   String get hsContactsSetupHint =>
       'قم بالتفعيل لمنح Insta-SOS إذن عرض جهات الاتصال الخاصة بك.';
 
   @override
-  String get hsAppleContacts =>
-      'تُخصَّص هذه الخطوة لأذونات التطبيق فقط.\nأنت لا تقوم باختيار جهات اتصال الطوارئ في هذه المرحلة.\n\nيُوصى بالسماح بجميع الأذونات لتجنب أي متاعب لاحقاً.';
-
-  @override
-  String get hsTexting => 'المراسلة النصية';
-
-  @override
-  String get hsAddTexting => 'الجزء 2 من تفعيل تنبيهات جهات اتصال الطوارئ.';
-
-  @override
-  String get hsTextingReady => 'المراسلة النصية جاهزة';
+  String get hsSMS =>
+      'يتطلب نظام أندرويد الإذن لتحديد لمن يتم إرسال الرسائل وكيفية ذلك';
 
   @override
   String get hsTextingSetupHint =>
       'قم بالتفعيل لمنح Insta-SOS إذن إرسال الرسائل.';
 
   @override
+  String get hsSOSReady => 'SOS جاهز';
+
+  @override
   String get hsLocation => 'الموقع';
 
   @override
-  String get hsUnable => 'غير قادر على التحديد';
-
-  @override
-  String get hsAddLocation => 'يفعّل مشاركة الموقع مع جهات اتصال الطوارئ.';
+  String get hsAddLocation => 'يضيف موقعك إلى رسائل الطوارئ (SOS)';
 
   @override
   String get hsAddAlways =>
-      'يوصى بتفعيله دائماً. اضغط مرة أخرى لفتح إعدادات النظام.';
+      'يوصى بتمكينه دائمًا. اضغط مرة أخرى لفتح إعدادات النظام.';
 
   @override
   String get hsLocationReady => 'الموقع جاهز';
 
   @override
   String get hsLocationSetupHint => 'قم بالتفعيل لمنح Insta-SOS إذن عرض موقعك.';
+
+  @override
+  String get hsUnable => 'غير قادر على التحديد';
 
   @override
   String get hsOneOfFour => 'الأول من أربعة. متابعة...';

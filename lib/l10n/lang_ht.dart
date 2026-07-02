@@ -64,74 +64,78 @@ class LangHt extends Lang {
       'Leson an ak anviwònman yo tradui pa machin.\nLis dwa yo tradui pa moun.';
 
   @override
-  String get hsCamMic => 'Kamera ak Mikwofòn';
+  String get hsCamera => 'Kamera';
 
   @override
-  String get hsAddRecording => 'Pèmèt anrejistreman videyo.';
+  String get hsAddRecording => 'Pèmèt anrejistreman videyo';
 
   @override
-  String get hsGallery => 'Galri';
+  String get hsMic => 'Mikwofòn';
 
   @override
-  String get hsAddSave => 'Obligatwa pou sove anrejistreman ou yo.';
+  String get hsSilent => 'Videyo yo ap an silans san li';
+
+  @override
+  String get hsGallery => 'Galeri';
+
+  @override
+  String get hsAddSave => 'Nesesè pou sove anrejistreman ou yo';
 
   @override
   String get hsCameraReady => 'Kamera a pare';
 
   @override
   String get hsCameraSetupHint =>
-      'Aktive pou bay Insta-SOS pèmisyon pou kamera a.';
+      'Aktive pou bay Insta-SOS pèmisyon pou kamera a';
 
   @override
-  String get hsContacts => 'Kontak yo';
+  String get hsCameraSnack =>
+      'Tanpri aktive kamera a nan paramèt yo (anwo a)\nepi eseye ankò';
 
   @override
-  String get hsAddContacts => 'Aktive alèt pou kontak ijans.';
+  String get hsContacts => 'Kontak';
 
   @override
-  String get hsContactsReady => 'Kontak yo pare';
+  String get hsAddContacts => 'Pèmèt mesaj SOS';
+
+  @override
+  String get hsAppleContacts =>
+      'Etap sa a se sèlman pou pèmisyon aplikasyon an.\nOu poko ap chwazi kontak ijans ou yo.\n\nNou rekòmande pou pèmèt tout pou evite tèt fè mal.';
 
   @override
   String get hsContactsSetupHint =>
       'Aktive pou bay Insta-SOS pèmisyon pou wè kontak ou yo.';
 
   @override
-  String get hsAppleContacts =>
-      'Etap sa a se sèlman pou pèmisyon aplikasyon yo.\nOu poko chwazi kontak ijans yo.\n\nLi rekòmande pou pèmèt tout moun pou diminye tèt fè mal.';
-
-  @override
-  String get hsTexting => 'Voye tèks';
-
-  @override
-  String get hsAddTexting => 'Pati 2 pou aktive alèt pou kontak ijans.';
-
-  @override
-  String get hsTextingReady => 'Voye tèks pare';
+  String get hsSMS =>
+      'Android mande pèmisyon pou ni ki moun ni kijan pou voye tèks';
 
   @override
   String get hsTextingSetupHint =>
       'Aktive pou bay Insta-SOS pèmisyon pou voye mesaj.';
 
   @override
-  String get hsLocation => 'Pozisyon';
+  String get hsSOSReady => 'SOS la pare';
 
   @override
-  String get hsUnable => 'Pa kapab detèmine';
+  String get hsLocation => 'Lokalizasyon';
 
   @override
-  String get hsAddLocation =>
-      'Pèmèt pataje kote ou ye a ak kontak ijans ou yo.';
+  String get hsAddLocation => 'Ajoute lokalizasyon ou nan mesaj SOS yo';
 
   @override
   String get hsAddAlways =>
-      'Rekòmande pou aktive toujou. Peze ankò pou louvri Anviwònman Sistèm nan.';
+      'Li rekòmande pou aktive l tout tan. Peze ankò pou ouvri Paramèt Sistèm nan.';
 
   @override
-  String get hsLocationReady => 'Pozisyon an pare';
+  String get hsLocationReady => 'Lokalizasyon an pare';
 
   @override
   String get hsLocationSetupHint =>
-      'Aktive pou bay Insta-SOS pèmisyon pou wè kote ou ye a.';
+      'Aktive pou bay Insta-SOS pèmisyon pou wè lokalizasyon ou.';
+
+  @override
+  String get hsUnable => 'Pa ka detèmine';
 
   @override
   String get hsOneOfFour => 'Premye sou kat. Kontinye...';

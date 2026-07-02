@@ -65,75 +65,78 @@ class LangDe extends Lang {
       'Das Tutorial und die Einstellungen sind maschinell übersetzt.\nDie Rechte-Liste ist menschlich übersetzt.';
 
   @override
-  String get hsCamMic => 'Kamera & Mikrofon';
+  String get hsCamera => 'Kamera';
 
   @override
-  String get hsAddRecording => 'Ermöglicht Videoaufnahmen.';
+  String get hsAddRecording => 'Ermöglicht Videoaufnahmen';
+
+  @override
+  String get hsMic => 'Mikrofon';
+
+  @override
+  String get hsSilent => 'Ohne dies sind die Videos stumm';
 
   @override
   String get hsGallery => 'Galerie';
 
   @override
-  String get hsAddSave => 'Erforderlich, um deine Aufnahmen zu speichern.';
+  String get hsAddSave => 'Erforderlich, um Ihre Aufnahmen zu speichern';
 
   @override
   String get hsCameraReady => 'Kamera ist bereit';
 
   @override
   String get hsCameraSetupHint =>
-      'Aktivieren, um Insta-SOS die Berechtigung für die Kamera zu erteilen.';
+      'Aktivieren, um Insta-SOS die Berechtigung für die Kamera zu erteilen';
+
+  @override
+  String get hsCameraSnack =>
+      'Bitte aktivieren Sie die Kamera in den Einstellungen (oben)\nund versuchen Sie es dann erneut';
 
   @override
   String get hsContacts => 'Kontakte';
 
   @override
-  String get hsAddContacts => 'Aktiviert Notfallkontakt-Warnungen.';
-
-  @override
-  String get hsContactsReady => 'Kontakte sind bereit';
-
-  @override
-  String get hsContactsSetupHint =>
-      'Aktivieren, um Insta-SOS die Berechtigung zur Anzeige deiner Kontakte zu erteilen.';
+  String get hsAddContacts => 'Ermöglicht SOS-Nachrichten';
 
   @override
   String get hsAppleContacts =>
-      'Dieser Schritt dient nur den App-Berechtigungen.\nDu wählst hier noch keine Notfallkontakte aus.\n\nEs wird empfohlen, alle zuzulassen, um Probleme zu vermeiden.';
+      'Dieser Schritt betrifft nur App-Berechtigungen.\nSie wählen noch keine Notfallkontakte aus.\n\nEs wird empfohlen, alle zuzulassen, um Probleme zu vermeiden.';
 
   @override
-  String get hsTexting => 'SMS';
+  String get hsContactsSetupHint =>
+      'Aktivieren, um Insta-SOS die Berechtigung zum Anzeigen Ihrer Kontakte zu erteilen.';
 
   @override
-  String get hsAddTexting =>
-      'Teil 2 zur Aktivierung von Notfallkontakt-Warnungen.';
-
-  @override
-  String get hsTextingReady => 'SMS ist bereit';
+  String get hsSMS =>
+      'Android erfordert die Berechtigung sowohl dafür, wem als auch wie Nachrichten gesendet werden';
 
   @override
   String get hsTextingSetupHint =>
       'Aktivieren, um Insta-SOS die Berechtigung zum Senden von Nachrichten zu erteilen.';
 
   @override
+  String get hsSOSReady => 'SOS ist bereit';
+
+  @override
   String get hsLocation => 'Standort';
 
   @override
-  String get hsUnable => 'Kann nicht ermittelt werden';
-
-  @override
-  String get hsAddLocation =>
-      'Ermöglicht die Standortfreigabe an Notfallkontakte.';
+  String get hsAddLocation => 'Fügt Ihren Standort zu SOS-Nachrichten hinzu';
 
   @override
   String get hsAddAlways =>
-      'Es wird empfohlen, dies auf \'Immer\' zu stellen. Erneut drücken, um die Systemeinstellungen zu öffnen.';
+      'Es wird empfohlen, dies immer zu aktivieren. Erneut drücken, um die Systemeinstellungen zu öffnen.';
 
   @override
   String get hsLocationReady => 'Standort ist bereit';
 
   @override
   String get hsLocationSetupHint =>
-      'Aktivieren, um Insta-SOS die Berechtigung zur Anzeige deines Standorts zu erteilen.';
+      'Aktivieren, um Insta-SOS die Berechtigung zum Anzeigen Ihres Standorts zu erteilen.';
+
+  @override
+  String get hsUnable => 'Kann nicht ermittelt werden';
 
   @override
   String get hsOneOfFour => 'Erster von vier Schritten. Weiter...';

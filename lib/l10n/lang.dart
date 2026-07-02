@@ -225,17 +225,29 @@ abstract class Lang {
   /// **'The tutorial and settings are machine translated.\nThe rights list is human translated.'**
   String get hsHybridTranslation;
 
-  /// No description provided for @hsCamMic.
+  /// No description provided for @hsCamera.
   ///
   /// In en, this message translates to:
-  /// **'Camera & Microphone'**
-  String get hsCamMic;
+  /// **'Camera'**
+  String get hsCamera;
 
   /// No description provided for @hsAddRecording.
   ///
   /// In en, this message translates to:
-  /// **'Enables video recording.'**
+  /// **'Enables video recording'**
   String get hsAddRecording;
+
+  /// No description provided for @hsMic.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone'**
+  String get hsMic;
+
+  /// No description provided for @hsSilent.
+  ///
+  /// In en, this message translates to:
+  /// **'Videos will be silent without it'**
+  String get hsSilent;
 
   /// No description provided for @hsGallery.
   ///
@@ -246,7 +258,7 @@ abstract class Lang {
   /// No description provided for @hsAddSave.
   ///
   /// In en, this message translates to:
-  /// **'Required to save your recordings.'**
+  /// **'Required to save your recordings'**
   String get hsAddSave;
 
   /// No description provided for @hsCameraReady.
@@ -258,8 +270,14 @@ abstract class Lang {
   /// No description provided for @hsCameraSetupHint.
   ///
   /// In en, this message translates to:
-  /// **'Activate to give Insta-SOS permission to the camera.'**
+  /// **'Activate to give Insta-SOS permission to the camera'**
   String get hsCameraSetupHint;
+
+  /// No description provided for @hsCameraSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enable the camera in the settings (above)\nthen try again'**
+  String get hsCameraSnack;
 
   /// No description provided for @hsContacts.
   ///
@@ -270,20 +288,8 @@ abstract class Lang {
   /// No description provided for @hsAddContacts.
   ///
   /// In en, this message translates to:
-  /// **'Enables emergency contact alerts.'**
+  /// **'Enables SOS messages'**
   String get hsAddContacts;
-
-  /// No description provided for @hsContactsReady.
-  ///
-  /// In en, this message translates to:
-  /// **'Contacts are ready'**
-  String get hsContactsReady;
-
-  /// No description provided for @hsContactsSetupHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Activate to give Insta-SOS permission to view your contacts.'**
-  String get hsContactsSetupHint;
 
   /// No description provided for @hsAppleContacts.
   ///
@@ -291,23 +297,17 @@ abstract class Lang {
   /// **'This step is for app permissions only.\nYou are not choosing emergency contacts yet.\n\nIt is recommended to allow all to reduce headaches.'**
   String get hsAppleContacts;
 
-  /// No description provided for @hsTexting.
+  /// No description provided for @hsContactsSetupHint.
   ///
   /// In en, this message translates to:
-  /// **'Texting'**
-  String get hsTexting;
+  /// **'Activate to give Insta-SOS permission to view your contacts.'**
+  String get hsContactsSetupHint;
 
-  /// No description provided for @hsAddTexting.
+  /// No description provided for @hsSMS.
   ///
   /// In en, this message translates to:
-  /// **'Part 2 of enabling emergency contact alerts.'**
-  String get hsAddTexting;
-
-  /// No description provided for @hsTextingReady.
-  ///
-  /// In en, this message translates to:
-  /// **'Texting is ready'**
-  String get hsTextingReady;
+  /// **'Android requires permission for both who & how to text'**
+  String get hsSMS;
 
   /// No description provided for @hsTextingSetupHint.
   ///
@@ -315,22 +315,22 @@ abstract class Lang {
   /// **'Activate to give Insta-SOS permission to send messages.'**
   String get hsTextingSetupHint;
 
+  /// No description provided for @hsSOSReady.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS is ready'**
+  String get hsSOSReady;
+
   /// No description provided for @hsLocation.
   ///
   /// In en, this message translates to:
   /// **'Location'**
   String get hsLocation;
 
-  /// No description provided for @hsUnable.
-  ///
-  /// In en, this message translates to:
-  /// **'Unable to determine'**
-  String get hsUnable;
-
   /// No description provided for @hsAddLocation.
   ///
   /// In en, this message translates to:
-  /// **'Enables location sharing with emergency contacts.'**
+  /// **'Adds your location to SOS messages'**
   String get hsAddLocation;
 
   /// No description provided for @hsAddAlways.
@@ -350,6 +350,12 @@ abstract class Lang {
   /// In en, this message translates to:
   /// **'Activate to give Insta-SOS permission to view your location.'**
   String get hsLocationSetupHint;
+
+  /// No description provided for @hsUnable.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to determine'**
+  String get hsUnable;
 
   /// No description provided for @hsOneOfFour.
   ///

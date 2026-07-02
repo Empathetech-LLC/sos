@@ -61,68 +61,70 @@ class LangZh extends Lang {
   String get hsHybridTranslation => '教程和设置是机器翻译的。\n权利列表是人工翻译的。';
 
   @override
-  String get hsCamMic => '相机和麦克风';
+  String get hsCamera => '相机';
 
   @override
-  String get hsAddRecording => '启用视频录制。';
+  String get hsAddRecording => '启用视频录制';
 
   @override
-  String get hsGallery => '图库';
+  String get hsMic => '麦克风';
 
   @override
-  String get hsAddSave => '保存您的录像所需。';
+  String get hsSilent => '未开启此权限，视频将静音';
+
+  @override
+  String get hsGallery => '相册';
+
+  @override
+  String get hsAddSave => '保存您的录像所需';
 
   @override
   String get hsCameraReady => '相机已准备就绪';
 
   @override
-  String get hsCameraSetupHint => '激活以授予 Insta-SOS 访问相机的权限。';
+  String get hsCameraSetupHint => '激活以授予 Insta-SOS 相机权限';
+
+  @override
+  String get hsCameraSnack => '请在设置中（上方）启用相机\n然后重试';
 
   @override
   String get hsContacts => '联系人';
 
   @override
-  String get hsAddContacts => '启用紧急联系人警报。';
+  String get hsAddContacts => '启用 SOS 消息';
 
   @override
-  String get hsContactsReady => '联系人已准备就绪';
+  String get hsAppleContacts => '此步骤仅用于应用权限。\n您还未选择紧急联系人。\n\n建议允许全部以减少麻烦。';
 
   @override
-  String get hsContactsSetupHint => '激活以授予 Insta-SOS 查看您联系人的权限。';
+  String get hsContactsSetupHint => '激活以授予 Insta-SOS 查看联系人的权限。';
 
   @override
-  String get hsAppleContacts =>
-      '此步骤仅用于设置应用权限。\n您目前尚未选择紧急联系人。\n\n建议允许所有权限，以免后续产生不必要的麻烦。';
-
-  @override
-  String get hsTexting => '发短信';
-
-  @override
-  String get hsAddTexting => '启用紧急联系人警报的第 2 部分。';
-
-  @override
-  String get hsTextingReady => '短信功能已准备就绪';
+  String get hsSMS => 'Android 系统需要发短信给谁以及如何发送的权限';
 
   @override
   String get hsTextingSetupHint => '激活以授予 Insta-SOS 发送消息的权限。';
 
   @override
+  String get hsSOSReady => 'SOS 已准备就绪';
+
+  @override
   String get hsLocation => '位置';
 
   @override
+  String get hsAddLocation => '在 SOS 消息中添加您的位置信息';
+
+  @override
+  String get hsAddAlways => '建议设为始终允许。再次点击以打开系统设置。';
+
+  @override
+  String get hsLocationReady => '位置信息已准备就绪';
+
+  @override
+  String get hsLocationSetupHint => '激活以授予 Insta-SOS 查看您的位置的权限。';
+
+  @override
   String get hsUnable => '无法确定';
-
-  @override
-  String get hsAddLocation => '启用与紧急联系人的位置共享。';
-
-  @override
-  String get hsAddAlways => '建议设为“始终允许”。再次按下以打开系统设置。';
-
-  @override
-  String get hsLocationReady => '位置已准备就绪';
-
-  @override
-  String get hsLocationSetupHint => '激活以授予 Insta-SOS 查看您位置的权限。';
 
   @override
   String get hsOneOfFour => '四分之一。继续...';
@@ -511,68 +513,70 @@ class LangZhCn extends LangZh {
   String get hsHybridTranslation => '教程和设置是机器翻译的。\n权利列表是人工翻译的。';
 
   @override
-  String get hsCamMic => '相机和麦克风';
+  String get hsCamera => '相机';
 
   @override
-  String get hsAddRecording => '启用视频录制。';
+  String get hsAddRecording => '启用视频录制';
 
   @override
-  String get hsGallery => '图库';
+  String get hsMic => '麦克风';
 
   @override
-  String get hsAddSave => '保存您的录像所需。';
+  String get hsSilent => '未开启此权限，视频将静音';
+
+  @override
+  String get hsGallery => '相册';
+
+  @override
+  String get hsAddSave => '保存您的录像所需';
 
   @override
   String get hsCameraReady => '相机已准备就绪';
 
   @override
-  String get hsCameraSetupHint => '激活以授予 Insta-SOS 访问相机的权限。';
+  String get hsCameraSetupHint => '激活以授予 Insta-SOS 相机权限';
+
+  @override
+  String get hsCameraSnack => '请在设置中（上方）启用相机\n然后重试';
 
   @override
   String get hsContacts => '联系人';
 
   @override
-  String get hsAddContacts => '启用紧急联系人警报。';
+  String get hsAddContacts => '启用 SOS 消息';
 
   @override
-  String get hsContactsReady => '联系人已准备就绪';
+  String get hsAppleContacts => '此步骤仅用于应用权限。\n您还未选择紧急联系人。\n\n建议允许全部以减少麻烦。';
 
   @override
-  String get hsContactsSetupHint => '激活以授予 Insta-SOS 查看您联系人的权限。';
+  String get hsContactsSetupHint => '激活以授予 Insta-SOS 查看联系人的权限。';
 
   @override
-  String get hsAppleContacts =>
-      '此步骤仅用于设置应用权限。\n您目前尚未选择紧急联系人。\n\n建议允许所有权限，以免后续产生不必要的麻烦。';
-
-  @override
-  String get hsTexting => '发短信';
-
-  @override
-  String get hsAddTexting => '启用紧急联系人警报的第 2 部分。';
-
-  @override
-  String get hsTextingReady => '短信功能已准备就绪';
+  String get hsSMS => 'Android 系统需要发短信给谁以及如何发送的权限';
 
   @override
   String get hsTextingSetupHint => '激活以授予 Insta-SOS 发送消息的权限。';
 
   @override
+  String get hsSOSReady => 'SOS 已准备就绪';
+
+  @override
   String get hsLocation => '位置';
 
   @override
+  String get hsAddLocation => '在 SOS 消息中添加您的位置信息';
+
+  @override
+  String get hsAddAlways => '建议设为始终允许。再次点击以打开系统设置。';
+
+  @override
+  String get hsLocationReady => '位置信息已准备就绪';
+
+  @override
+  String get hsLocationSetupHint => '激活以授予 Insta-SOS 查看您的位置的权限。';
+
+  @override
   String get hsUnable => '无法确定';
-
-  @override
-  String get hsAddLocation => '启用与紧急联系人的位置共享。';
-
-  @override
-  String get hsAddAlways => '建议设为“始终允许”。再次按下以打开系统设置。';
-
-  @override
-  String get hsLocationReady => '位置已准备就绪';
-
-  @override
-  String get hsLocationSetupHint => '激活以授予 Insta-SOS 查看您位置的权限。';
 
   @override
   String get hsOneOfFour => '四分之一。继续...';
