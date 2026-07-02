@@ -52,14 +52,12 @@ OutlinedBorder cardShape(EzCP config) =>
 
 class CameraSetup extends StatefulWidget {
   final EzCP config;
-  final Future<PermissionStatus> Function(EzCP config) initCamera;
   final bool locked;
   final void Function(bool) setLock;
 
   const CameraSetup(
     this.config, {
     super.key,
-    required this.initCamera,
     required this.locked,
     required this.setLock,
   });
@@ -71,14 +69,203 @@ class CameraSetup extends StatefulWidget {
 class _CameraSetupState extends State<CameraSetup> {
   // Define the build data //
 
-  PermissionStatus? camStatus;
-  bool? galStatus;
+  PermissionStatus? status;
 
   // Init //
 
   Future<void> backgroundCheck() async {
-    camStatus = await Permission.camera.status;
-    galStatus = await Gal.hasAccess();
+    status = await Permission.camera.status;
+    if (mounted) setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    backgroundCheck();
+  }
+
+  // Return the build //
+
+  @override
+  Widget build(BuildContext context) => GestureDetector(
+        onTap: () async {
+          // Do nothing if already complete
+          if (allowedPermCheck(status)) return;
+
+          // Check permission(s) race
+          if (widget.locked) return;
+          widget.setLock(true);
+
+          // Make it so
+          final PermissionStatus result = await Permission.camera.request();
+          if (status != result) if (mounted) setState(() => status = result);
+          widget.setLock(false);
+        },
+        child: Semantics(
+          button: !allowedPermCheck(status),
+          readOnly: allowedPermCheck(status),
+          hint: l10n(widget.config).hsCameraSetupHint,
+          child: ExcludeSemantics(
+            child: Card(
+              shape: cardShape(widget.config),
+              child: EzRow(
+                widget.config,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(widget.config.padding),
+                      child: EzCol(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            l10n(widget.config).hsCamMic,
+                            style: widget.config.bodyStyle,
+                            textAlign: TextAlign.start,
+                          ),
+                          Text(
+                            l10n(widget.config).hsAddRecording,
+                            style: widget.config.labelStyle,
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(widget.config.padding),
+                    child: pStatusIcon(widget.config, status),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+}
+
+class MicSetup extends StatefulWidget {
+  final EzCP config;
+  final bool locked;
+  final void Function(bool) setLock;
+
+  const MicSetup(
+    this.config, {
+    super.key,
+    required this.locked,
+    required this.setLock,
+  });
+
+  @override
+  State<MicSetup> createState() => _MicSetupState();
+}
+
+class _MicSetupState extends State<MicSetup> {
+  // Define the build data //
+
+  PermissionStatus? status;
+
+  // Init //
+
+  Future<void> backgroundCheck() async {
+    status = await Permission.microphone.status;
+    if (mounted) setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    backgroundCheck();
+  }
+
+  // Return the build //
+
+  @override
+  Widget build(BuildContext context) => GestureDetector(
+        onTap: () async {
+          // Do nothing if already complete
+          if (allowedPermCheck(camStatus)) return;
+
+          // Check permission(s) race
+          if (widget.locked) return;
+          widget.setLock(true);
+
+          // Make it so
+          final PermissionStatus result = await widget.initCamera(widget.config);
+          if (camStatus != result) {
+            if (mounted) setState(() => camStatus = result);
+          }
+          widget.setLock(false);
+        },
+        child: Semantics(
+          button: true,
+          readOnly: false,
+          hint: l10n(widget.config).hsCameraSetupHint,
+          child: ExcludeSemantics(
+            child: Card(
+              shape: cardShape(widget.config),
+              child: EzRow(
+                widget.config,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(widget.config.padding),
+                      child: EzCol(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            l10n(widget.config).hsCamMic,
+                            style: widget.config.bodyStyle,
+                            textAlign: TextAlign.start,
+                          ),
+                          Text(
+                            l10n(widget.config).hsAddRecording,
+                            style: widget.config.labelStyle,
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(widget.config.padding),
+                    child: pStatusIcon(widget.config, camStatus),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+}
+
+class GallerySetup extends StatefulWidget {
+  final EzCP config;
+
+  final bool locked;
+  final void Function(bool) setLock;
+
+  const GallerySetup(
+    this.config, {
+    super.key,
+    required this.locked,
+    required this.setLock,
+  });
+
+  @override
+  State<GallerySetup> createState() => _GallerySetupState();
+}
+
+class _GallerySetupState extends State<GallerySetup> {
+  // Define the build data //
+
+  bool? status;
+
+  // Init //
+
+  Future<void> backgroundCheck() async {
+    status = await Gal.hasAccess();
     if (mounted) setState(() {});
   }
 
@@ -235,12 +422,12 @@ class ContactsSetup extends StatefulWidget {
 class _ContactsSetupState extends State<ContactsSetup> {
   // Define the build data //
 
-  c.PermissionStatus? allowed;
+  c.PermissionStatus? status;
 
   // Init //
 
   Future<void> backgroundCheck() async {
-    allowed = await c.FlutterContacts.permissions.check(c.PermissionType.read);
+    status = await c.FlutterContacts.permissions.check(c.PermissionType.read);
     if (mounted) setState(() {});
   }
 
