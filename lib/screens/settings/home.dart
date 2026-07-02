@@ -156,21 +156,19 @@ class SettingsHomeScreen extends StatelessWidget {
                         config.divider,
 
                         // Setup cards
-                        ContactsSetup(
+                        CameraSetup(
                           config,
                           locked: locked,
                           setLock: (bool active) => setModal(() => locked = active),
                         ),
                         config.spacer,
 
-                        if (!isIOS) ...<Widget>[
-                          SMSSetup(
-                            config,
-                            locked: locked,
-                            setLock: (bool active) => setModal(() => locked = active),
-                          ),
-                          config.spacer,
-                        ],
+                        SOSSetup(
+                          config,
+                          locked: locked,
+                          setLock: (bool active) => setModal(() => locked = active),
+                        ),
+                        config.spacer,
 
                         LocationSetup(
                           config,
