@@ -379,7 +379,10 @@ class _HomeScreenState extends State<HomeScreen>
                       semanticLabel: config.ezL10n.gSettings,
                     ),
                     enabled: !recording,
-                    onPressed: () => context.goNamed(settingsHomePath),
+                    onPressed: () async {
+                      await context.pushNamed(settingsHomePath);
+                      if (camera == null && mounted) await initCamera(config);
+                    },
                   ),
                 ),
               ),
