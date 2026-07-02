@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+# [3.0.2] - 2026-07-02
+### Updated
+- Better intro/permissions requesting
+
 ## [3.0.1] - 2026-06-03
 ### Updated
 - EFUI

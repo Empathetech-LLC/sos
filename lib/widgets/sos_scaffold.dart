@@ -28,7 +28,7 @@ class SosScaffold extends StatelessWidget {
           fabs: <Widget>[
             EzUpdaterFAB(
               config,
-              appVersion: '3.0.1',
+              appVersion: '3.0.2',
               versionSource:
                   'https://raw.githubusercontent.com/Empathetech-LLC/sos/refs/heads/main/APP_VERSION',
               gPlay: 'https://play.google.com/store/apps/details?id=net.empathetech.sos',
