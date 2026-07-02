@@ -3,12 +3,15 @@
  * See LICENSE for distribution and usage details.
  */
 
+// TODO: get the camera card to be one click per permission, like location
+// TODO: update the location permission message
+
 import '../utils/export.dart';
 
 import 'package:gal/gal.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:flutter_contacts/flutter_contacts.dart' as c;
+import 'package:flutter_contacts/flutter_contacts.dart' as fc;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
@@ -69,12 +72,17 @@ class CameraSetup extends StatefulWidget {
 class _CameraSetupState extends State<CameraSetup> {
   // Define the build data //
 
-  PermissionStatus? status;
+  PermissionStatus? camStatus;
+  bool? galStatus;
+  PermissionStatus? micStatus;
 
   // Init //
 
   Future<void> backgroundCheck() async {
-    status = await Permission.camera.status;
+    camStatus = await Permission.camera.status;
+    galStatus = await Gal.hasAccess();
+    micStatus = await Permission.microphone.status;
+
     if (mounted) setState(() {});
   }
 
@@ -86,102 +94,7 @@ class _CameraSetupState extends State<CameraSetup> {
 
   // Return the build //
 
-  @override
-  Widget build(BuildContext context) => GestureDetector(
-        onTap: () async {
-          // Do nothing if already complete
-          if (allowedPermCheck(status)) return;
-
-          // Check permission(s) race
-          if (widget.locked) return;
-          widget.setLock(true);
-
-          // Make it so
-          final PermissionStatus result = await Permission.camera.request();
-          if (status != result) if (mounted) setState(() => status = result);
-          widget.setLock(false);
-        },
-        child: Semantics(
-          button: !allowedPermCheck(status),
-          readOnly: allowedPermCheck(status),
-          hint: l10n(widget.config).hsCameraSetupHint,
-          child: ExcludeSemantics(
-            child: Card(
-              shape: cardShape(widget.config),
-              child: EzRow(
-                widget.config,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.all(widget.config.padding),
-                      child: EzCol(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            l10n(widget.config).hsCamMic,
-                            style: widget.config.bodyStyle,
-                            textAlign: TextAlign.start,
-                          ),
-                          Text(
-                            l10n(widget.config).hsAddRecording,
-                            style: widget.config.labelStyle,
-                            textAlign: TextAlign.start,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(widget.config.padding),
-                    child: pStatusIcon(widget.config, status),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      );
-}
-
-class MicSetup extends StatefulWidget {
-  final EzCP config;
-  final bool locked;
-  final void Function(bool) setLock;
-
-  const MicSetup(
-    this.config, {
-    super.key,
-    required this.locked,
-    required this.setLock,
-  });
-
-  @override
-  State<MicSetup> createState() => _MicSetupState();
-}
-
-class _MicSetupState extends State<MicSetup> {
-  // Define the build data //
-
-  PermissionStatus? status;
-
-  // Init //
-
-  Future<void> backgroundCheck() async {
-    status = await Permission.microphone.status;
-    if (mounted) setState(() {});
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    backgroundCheck();
-  }
-
-  // Return the build //
-
-  @override
-  Widget build(BuildContext context) => GestureDetector(
+  Widget camCard() => GestureDetector(
         onTap: () async {
           // Do nothing if already complete
           if (allowedPermCheck(camStatus)) return;
@@ -191,15 +104,13 @@ class _MicSetupState extends State<MicSetup> {
           widget.setLock(true);
 
           // Make it so
-          final PermissionStatus result = await widget.initCamera(widget.config);
-          if (camStatus != result) {
-            if (mounted) setState(() => camStatus = result);
-          }
+          final PermissionStatus result = await Permission.camera.request();
+          if (camStatus != result) if (mounted) setState(() => camStatus = result);
           widget.setLock(false);
         },
         child: Semantics(
-          button: true,
-          readOnly: false,
+          button: !allowedPermCheck(camStatus),
+          readOnly: allowedPermCheck(camStatus),
           hint: l10n(widget.config).hsCameraSetupHint,
           child: ExcludeSemantics(
             child: Card(
@@ -238,177 +149,89 @@ class _MicSetupState extends State<MicSetup> {
           ),
         ),
       );
-}
 
-class GallerySetup extends StatefulWidget {
-  final EzCP config;
+  Widget galCard() => GestureDetector(
+        onTap: () async {
+          // Do nothing if already complete
+          if (galStatus == true) return;
 
-  final bool locked;
-  final void Function(bool) setLock;
+          // Check permission(s) race
+          if (widget.locked) return;
+          widget.setLock(true);
 
-  const GallerySetup(
-    this.config, {
-    super.key,
-    required this.locked,
-    required this.setLock,
-  });
+          // Make it so
+          final bool result = await Gal.requestAccess();
+          if (galStatus != result) {
+            if (mounted) setState(() => galStatus = result);
+          }
+          widget.setLock(false);
+        },
+        child: Semantics(
+          button: galStatus != true,
+          readOnly: galStatus == true,
+          hint: (galStatus == true)
+              ? l10n(widget.config).hsCameraReady
+              : l10n(widget.config).hsCameraSetupHint,
+          child: ExcludeSemantics(
+            child: Card(
+              shape: cardShape(widget.config),
+              child: EzRow(
+                widget.config,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(widget.config.padding),
+                      child: galStatus == true
+                          ? Text(
+                              l10n(widget.config).hsCameraReady,
+                              style: widget.config.bodyStyle,
+                              textAlign: TextAlign.start,
+                            )
+                          : EzCol(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  l10n(widget.config).hsGallery,
+                                  style: widget.config.bodyStyle,
+                                  textAlign: TextAlign.start,
+                                ),
+                                Text(
+                                  l10n(widget.config).hsAddSave,
+                                  style: widget.config.labelStyle,
+                                  textAlign: TextAlign.start,
+                                ),
+                              ],
+                            ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(widget.config.padding),
+                    child: boolIcon(widget.config, galStatus),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
 
-  @override
-  State<GallerySetup> createState() => _GallerySetupState();
-}
+  Widget micCard() => const SizedBox.shrink();
 
-class _GallerySetupState extends State<GallerySetup> {
-  // Define the build data //
-
-  bool? status;
-
-  // Init //
-
-  Future<void> backgroundCheck() async {
-    status = await Gal.hasAccess();
-    if (mounted) setState(() {});
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    backgroundCheck();
-  }
-
-  // Return the build //
+  Widget finCard() => const SizedBox.shrink();
 
   @override
   Widget build(BuildContext context) => allowedPermCheck(camStatus)
-      ? GestureDetector(
-          onTap: () async {
-            // Do nothing if already complete
-            if (galStatus == true) return;
-
-            // Check permission(s) race
-            if (widget.locked) return;
-            widget.setLock(true);
-
-            // Make it so
-            final bool result = await Gal.requestAccess();
-            if (galStatus != result) {
-              if (mounted) setState(() => galStatus = result);
-            }
-            widget.setLock(false);
-          },
-          child: Semantics(
-            button: galStatus != true,
-            readOnly: galStatus == true,
-            hint: (galStatus == true)
-                ? l10n(widget.config).hsCameraReady
-                : l10n(widget.config).hsCameraSetupHint,
-            child: ExcludeSemantics(
-              child: Card(
-                shape: cardShape(widget.config),
-                child: EzRow(
-                  widget.config,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.all(widget.config.padding),
-                        child: galStatus == true
-                            ? Text(
-                                l10n(widget.config).hsCameraReady,
-                                style: widget.config.bodyStyle,
-                                textAlign: TextAlign.start,
-                              )
-                            : EzCol(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    l10n(widget.config).hsGallery,
-                                    style: widget.config.bodyStyle,
-                                    textAlign: TextAlign.start,
-                                  ),
-                                  Text(
-                                    l10n(widget.config).hsAddSave,
-                                    style: widget.config.labelStyle,
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ],
-                              ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(widget.config.padding),
-                      child: boolIcon(widget.config, galStatus),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        )
-      : GestureDetector(
-          onTap: () async {
-            // Do nothing if already complete
-            if (allowedPermCheck(camStatus)) return;
-
-            // Check permission(s) race
-            if (widget.locked) return;
-            widget.setLock(true);
-
-            // Make it so
-            final PermissionStatus result = await widget.initCamera(widget.config);
-            if (camStatus != result) {
-              if (mounted) setState(() => camStatus = result);
-            }
-            widget.setLock(false);
-          },
-          child: Semantics(
-            button: true,
-            readOnly: false,
-            hint: l10n(widget.config).hsCameraSetupHint,
-            child: ExcludeSemantics(
-              child: Card(
-                shape: cardShape(widget.config),
-                child: EzRow(
-                  widget.config,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.all(widget.config.padding),
-                        child: EzCol(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              l10n(widget.config).hsCamMic,
-                              style: widget.config.bodyStyle,
-                              textAlign: TextAlign.start,
-                            ),
-                            Text(
-                              l10n(widget.config).hsAddRecording,
-                              style: widget.config.labelStyle,
-                              textAlign: TextAlign.start,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(widget.config.padding),
-                      child: pStatusIcon(widget.config, camStatus),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        );
+      ? ((galStatus ?? false) ? (allowedPermCheck(micStatus) ? finCard() : micCard()) : galCard())
+      : camCard();
 }
 
-class ContactsSetup extends StatefulWidget {
+class SOSSetup extends StatefulWidget {
   final EzCP config;
   final bool locked;
   final void Function(bool) setLock;
 
-  const ContactsSetup(
+  const SOSSetup(
     this.config, {
     super.key,
     required this.locked,
@@ -416,18 +239,21 @@ class ContactsSetup extends StatefulWidget {
   });
 
   @override
-  State<ContactsSetup> createState() => _ContactsSetupState();
+  State<SOSSetup> createState() => _SOSSetupState();
 }
 
-class _ContactsSetupState extends State<ContactsSetup> {
+class _SOSSetupState extends State<SOSSetup> {
   // Define the build data //
 
-  c.PermissionStatus? status;
+  fc.PermissionStatus? conStatus;
+  PermissionStatus? smsStatus;
 
   // Init //
 
   Future<void> backgroundCheck() async {
-    status = await c.FlutterContacts.permissions.check(c.PermissionType.read);
+    conStatus = await fc.FlutterContacts.permissions.check(fc.PermissionType.read);
+    smsStatus = isIOS ? PermissionStatus.granted : await Permission.sms.status;
+
     if (mounted) setState(() {});
   }
 
@@ -439,11 +265,10 @@ class _ContactsSetupState extends State<ContactsSetup> {
 
   // Return the build //
 
-  @override
-  Widget build(BuildContext context) => GestureDetector(
+  Widget conCard() => GestureDetector(
         onTap: () async {
           // Do nothing if already complete
-          if (allowedPermCheck(cPermMirror(allowed))) return;
+          if (allowedPermCheck(cPermMirror(conStatus))) return;
 
           // Check permission(s) race
           if (widget.locked) return;
@@ -475,14 +300,14 @@ class _ContactsSetupState extends State<ContactsSetup> {
             );
           }
 
-          final c.PermissionStatus result =
-              await c.FlutterContacts.permissions.request(c.PermissionType.read);
-          if (allowed != result) if (mounted) setState(() => allowed = result);
+          final fc.PermissionStatus result =
+              await fc.FlutterContacts.permissions.request(fc.PermissionType.read);
+          if (conStatus != result) if (mounted) setState(() => conStatus = result);
           widget.setLock(false);
         },
         child: Semantics(
-          button: !allowedPermCheck(cPermMirror(allowed)),
-          readOnly: allowedPermCheck(cPermMirror(allowed)),
+          button: !allowedPermCheck(cPermMirror(conStatus)),
+          readOnly: allowedPermCheck(cPermMirror(conStatus)),
           hint: l10n(widget.config).hsContactsSetupHint,
           child: ExcludeSemantics(
             child: Card(
@@ -494,7 +319,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(widget.config.padding),
-                      child: allowedPermCheck(cPermMirror(allowed))
+                      child: allowedPermCheck(cPermMirror(conStatus))
                           ? Text(
                               l10n(widget.config).hsContactsReady,
                               style: widget.config.bodyStyle,
@@ -521,7 +346,7 @@ class _ContactsSetupState extends State<ContactsSetup> {
                   ),
                   Padding(
                     padding: EdgeInsets.all(widget.config.padding),
-                    child: pStatusIcon(widget.config, cPermMirror(allowed)),
+                    child: pStatusIcon(widget.config, cPermMirror(conStatus)),
                   ),
                 ],
               ),
@@ -529,49 +354,11 @@ class _ContactsSetupState extends State<ContactsSetup> {
           ),
         ),
       );
-}
 
-class SMSSetup extends StatefulWidget {
-  final EzCP config;
-  final bool locked;
-  final void Function(bool) setLock;
-
-  const SMSSetup(
-    this.config, {
-    super.key,
-    required this.locked,
-    required this.setLock,
-  });
-
-  @override
-  State<SMSSetup> createState() => _SMSSetupState();
-}
-
-class _SMSSetupState extends State<SMSSetup> {
-  // Define the build data //
-
-  PermissionStatus? status;
-
-  // Init //
-
-  Future<void> backgroundCheck() async {
-    status = await Permission.sms.status;
-    if (mounted) setState(() {});
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    backgroundCheck();
-  }
-
-  // Return the build //
-
-  @override
-  Widget build(BuildContext context) => GestureDetector(
+  Widget smsCard() => GestureDetector(
         onTap: () async {
           // Do nothing if already complete
-          if (allowedPermCheck(status)) return;
+          if (allowedPermCheck(smsStatus)) return;
 
           // Check permission(s) race
           if (widget.locked) return;
@@ -579,12 +366,12 @@ class _SMSSetupState extends State<SMSSetup> {
 
           // Make it so
           final PermissionStatus result = await Permission.sms.request();
-          if (status != result) if (mounted) setState(() => status = result);
+          if (smsStatus != result) if (mounted) setState(() => smsStatus = result);
           widget.setLock(false);
         },
         child: Semantics(
-          button: !allowedPermCheck(status),
-          readOnly: allowedPermCheck(status),
+          button: !allowedPermCheck(smsStatus),
+          readOnly: allowedPermCheck(smsStatus),
           hint: l10n(widget.config).hsTextingSetupHint,
           child: ExcludeSemantics(
             child: Card(
@@ -596,7 +383,7 @@ class _SMSSetupState extends State<SMSSetup> {
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(widget.config.padding),
-                      child: allowedPermCheck(status)
+                      child: allowedPermCheck(smsStatus)
                           ? Text(
                               l10n(widget.config).hsTextingReady,
                               style: widget.config.bodyStyle,
@@ -621,7 +408,7 @@ class _SMSSetupState extends State<SMSSetup> {
                   ),
                   Padding(
                     padding: EdgeInsets.all(widget.config.padding),
-                    child: pStatusIcon(widget.config, status),
+                    child: pStatusIcon(widget.config, smsStatus),
                   ),
                 ],
               ),
@@ -629,6 +416,13 @@ class _SMSSetupState extends State<SMSSetup> {
           ),
         ),
       );
+
+  Widget finCard() => const SizedBox.shrink();
+
+  @override
+  Widget build(BuildContext context) => allowedPermCheck(cPermMirror(conStatus))
+      ? (allowedPermCheck(smsStatus) ? finCard() : smsCard())
+      : conCard();
 }
 
 class LocationSetup extends StatefulWidget {
