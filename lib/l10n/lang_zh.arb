@@ -33,8 +33,7 @@
   "hsCameraSetupHint": "激活以授予 Insta-SOS 访问相机的权限。",
 
   "hsContacts": "联系人",
-  "hsAddContacts": "启用紧急联系人警报的第 1 部分。",
-  "hsAddContactsIOS": "启用紧急联系人警报。",
+  "hsAddContacts": "启用紧急联系人警报。",
   "hsContactsReady": "联系人已准备就绪",
   "hsContactsSetupHint": "激活以授予 Insta-SOS 查看您联系人的权限。",
   "hsAppleContacts": "此步骤仅用于设置应用权限。\n您目前尚未选择紧急联系人。\n\n建议允许所有权限，以免后续产生不必要的麻烦。",

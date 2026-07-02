@@ -88,11 +88,7 @@ class LangUk extends Lang {
   String get hsContacts => 'Контакти';
 
   @override
-  String get hsAddContacts =>
-      'Частина 1 для ввімкнення сповіщень екстреним контактам.';
-
-  @override
-  String get hsAddContactsIOS => 'Вмикає сповіщення екстреним контактам.';
+  String get hsAddContacts => 'Вмикає сповіщення екстреним контактам.';
 
   @override
   String get hsContactsReady => 'Контакти готові';

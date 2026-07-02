@@ -82,10 +82,7 @@ class LangZh extends Lang {
   String get hsContacts => '联系人';
 
   @override
-  String get hsAddContacts => '启用紧急联系人警报的第 1 部分。';
-
-  @override
-  String get hsAddContactsIOS => '启用紧急联系人警报。';
+  String get hsAddContacts => '启用紧急联系人警报。';
 
   @override
   String get hsContactsReady => '联系人已准备就绪';
@@ -535,10 +532,7 @@ class LangZhCn extends LangZh {
   String get hsContacts => '联系人';
 
   @override
-  String get hsAddContacts => '启用紧急联系人警报的第 1 部分。';
-
-  @override
-  String get hsAddContactsIOS => '启用紧急联系人警报。';
+  String get hsAddContacts => '启用紧急联系人警报。';
 
   @override
   String get hsContactsReady => '联系人已准备就绪';

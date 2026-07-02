@@ -86,10 +86,7 @@ class LangHt extends Lang {
   String get hsContacts => 'Kontak yo';
 
   @override
-  String get hsAddContacts => 'Pati 1 pou aktive alèt pou kontak ijans.';
-
-  @override
-  String get hsAddContactsIOS => 'Aktive alèt pou kontak ijans.';
+  String get hsAddContacts => 'Aktive alèt pou kontak ijans.';
 
   @override
   String get hsContactsReady => 'Kontak yo pare';

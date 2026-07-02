@@ -33,8 +33,7 @@
   "hsCameraSetupHint": "Aktivieren, um Insta-SOS die Berechtigung für die Kamera zu erteilen.",
 
   "hsContacts": "Kontakte",
-  "hsAddContacts": "Teil 1 zur Aktivierung von Notfallkontakt-Warnungen.",
-  "hsAddContactsIOS": "Aktiviert Notfallkontakt-Warnungen.",
+  "hsAddContacts": "Aktiviert Notfallkontakt-Warnungen.",
   "hsContactsReady": "Kontakte sind bereit",
   "hsContactsSetupHint": "Aktivieren, um Insta-SOS die Berechtigung zur Anzeige deiner Kontakte zu erteilen.",
   "hsAppleContacts": "Dieser Schritt dient nur den App-Berechtigungen.\nDu wählst hier noch keine Notfallkontakte aus.\n\nEs wird empfohlen, alle zuzulassen, um Probleme zu vermeiden.",

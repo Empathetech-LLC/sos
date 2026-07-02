@@ -86,10 +86,7 @@ class LangEn extends Lang {
   String get hsContacts => 'Contacts';
 
   @override
-  String get hsAddContacts => 'Part 1 of enabling emergency contact alerts.';
-
-  @override
-  String get hsAddContactsIOS => 'Enables emergency contact alerts.';
+  String get hsAddContacts => 'Enables emergency contact alerts.';
 
   @override
   String get hsContactsReady => 'Contacts are ready';
@@ -569,10 +566,7 @@ class LangEnUs extends LangEn {
   String get hsContacts => 'Contacts';
 
   @override
-  String get hsAddContacts => 'Part 1 of enabling emergency contact alerts.';
-
-  @override
-  String get hsAddContactsIOS => 'Enables emergency contact alerts.';
+  String get hsAddContacts => 'Enables emergency contact alerts.';
 
   @override
   String get hsContactsReady => 'Contacts are ready';

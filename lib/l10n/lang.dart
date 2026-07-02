@@ -270,14 +270,8 @@ abstract class Lang {
   /// No description provided for @hsAddContacts.
   ///
   /// In en, this message translates to:
-  /// **'Part 1 of enabling emergency contact alerts.'**
-  String get hsAddContacts;
-
-  /// No description provided for @hsAddContactsIOS.
-  ///
-  /// In en, this message translates to:
   /// **'Enables emergency contact alerts.'**
-  String get hsAddContactsIOS;
+  String get hsAddContacts;
 
   /// No description provided for @hsContactsReady.
   ///

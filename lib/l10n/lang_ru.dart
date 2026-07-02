@@ -88,12 +88,7 @@ class LangRu extends Lang {
   String get hsContacts => 'Контакты';
 
   @override
-  String get hsAddContacts =>
-      'Часть 1: включение оповещений для экстренных контактов.';
-
-  @override
-  String get hsAddContactsIOS =>
-      'Включает оповещения для экстренных контактов.';
+  String get hsAddContacts => 'Включает оповещения для экстренных контактов.';
 
   @override
   String get hsContactsReady => 'Контакты готовы';

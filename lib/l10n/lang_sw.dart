@@ -86,11 +86,7 @@ class LangSw extends Lang {
   String get hsContacts => 'Wasiliani';
 
   @override
-  String get hsAddContacts =>
-      'Sehemu ya 1 ya kuwezesha arifa za dharura kwa wasiliani.';
-
-  @override
-  String get hsAddContactsIOS => 'Huwezesha arifa za dharura kwa wasiliani.';
+  String get hsAddContacts => 'Huwezesha arifa za dharura kwa wasiliani.';
 
   @override
   String get hsContactsReady => 'Wasiliani wako tayari';

@@ -89,10 +89,6 @@ class LangFil extends Lang {
 
   @override
   String get hsAddContacts =>
-      'Unang bahagi ng pag-enable sa mga alerto sa emergency contact.';
-
-  @override
-  String get hsAddContactsIOS =>
       'Pina-enable ang mga alerto sa emergency contact.';
 
   @override

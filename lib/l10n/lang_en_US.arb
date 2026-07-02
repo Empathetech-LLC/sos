@@ -33,8 +33,7 @@
   "hsCameraSetupHint": "Activate to give Insta-SOS permission to the camera.",
 
   "hsContacts": "Contacts",
-  "hsAddContacts": "Part 1 of enabling emergency contact alerts.",
-  "hsAddContactsIOS": "Enables emergency contact alerts.",
+  "hsAddContacts": "Enables emergency contact alerts.",
   "hsContactsReady": "Contacts are ready",
   "hsContactsSetupHint": "Activate to give Insta-SOS permission to view your contacts.",
   "hsAppleContacts": "This step is for app permissions only.\nYou are not choosing emergency contacts yet.\n\nIt is recommended to allow all to reduce headaches.",

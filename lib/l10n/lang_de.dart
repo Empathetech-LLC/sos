@@ -87,11 +87,7 @@ class LangDe extends Lang {
   String get hsContacts => 'Kontakte';
 
   @override
-  String get hsAddContacts =>
-      'Teil 1 zur Aktivierung von Notfallkontakt-Warnungen.';
-
-  @override
-  String get hsAddContactsIOS => 'Aktiviert Notfallkontakt-Warnungen.';
+  String get hsAddContacts => 'Aktiviert Notfallkontakt-Warnungen.';
 
   @override
   String get hsContactsReady => 'Kontakte sind bereit';

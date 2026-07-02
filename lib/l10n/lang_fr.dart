@@ -87,11 +87,7 @@ class LangFr extends Lang {
   String get hsContacts => 'Contacts';
 
   @override
-  String get hsAddContacts =>
-      'Partie 1 de l\'activation des alertes aux contacts d\'urgence.';
-
-  @override
-  String get hsAddContactsIOS => 'Active les alertes aux contacts d\'urgence.';
+  String get hsAddContacts => 'Active les alertes aux contacts d\'urgence.';
 
   @override
   String get hsContactsReady => 'Les contacts sont prêts';

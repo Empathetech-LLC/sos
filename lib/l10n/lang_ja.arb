@@ -33,8 +33,7 @@
   "hsCameraSetupHint": "有効にしてInsta-SOSにカメラの権限を付与します。",
 
   "hsContacts": "連絡先",
-  "hsAddContacts": "緊急連絡先アラートを有効にする手順のパート1。",
-  "hsAddContactsIOS": "緊急連絡先アラートを有効にします。",
+  "hsAddContacts": "緊急連絡先アラートを有効にします。",
   "hsContactsReady": "連絡先の準備が完了しました",
   "hsContactsSetupHint": "有効にしてInsta-SOSに連絡先へのアクセス権限を付与します。",
   "hsAppleContacts": "この手順はアプリの権限付与のみです。\nまだ緊急連絡先を選択するわけではありません。\n\nトラブルを避けるため、「すべて許可」にすることをお勧めします。",

@@ -33,8 +33,7 @@
   "hsCameraSetupHint": "활성화하여 Insta-SOS에 카메라 권한을 부여하세요.",
 
   "hsContacts": "연락처",
-  "hsAddContacts": "비상 연락처 알림 활성화 1단계.",
-  "hsAddContactsIOS": "비상 연락처 알림을 활성화합니다.",
+  "hsAddContacts": "비상 연락처 알림을 활성화합니다.",
   "hsContactsReady": "연락처가 준비되었습니다",
   "hsContactsSetupHint": "활성화하여 Insta-SOS에 연락처 보기 권한을 부여하세요.",
   "hsAppleContacts": "이 단계는 앱 권한만을 위한 것입니다.\n아직 비상 연락처를 선택하는 것이 아닙니다.\n\n문제를 줄이기 위해 모두 허용하는 것을 권장합니다.",

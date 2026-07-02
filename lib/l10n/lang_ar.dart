@@ -86,10 +86,7 @@ class LangAr extends Lang {
   String get hsContacts => 'جهات الاتصال';
 
   @override
-  String get hsAddContacts => 'الجزء 1 من تفعيل تنبيهات جهات اتصال الطوارئ.';
-
-  @override
-  String get hsAddContactsIOS => 'يفعّل تنبيهات جهات اتصال الطوارئ.';
+  String get hsAddContacts => 'يفعّل تنبيهات جهات اتصال الطوارئ.';
 
   @override
   String get hsContactsReady => 'جهات الاتصال جاهزة';
@@ -565,10 +562,7 @@ class LangArEg extends LangAr {
   String get hsContacts => 'جهات الاتصال';
 
   @override
-  String get hsAddContacts => 'الجزء 1 من تفعيل تنبيهات جهات اتصال الطوارئ.';
-
-  @override
-  String get hsAddContactsIOS => 'يفعّل تنبيهات جهات اتصال الطوارئ.';
+  String get hsAddContacts => 'يفعّل تنبيهات جهات اتصال الطوارئ.';
 
   @override
   String get hsContactsReady => 'جهات الاتصال جاهزة';

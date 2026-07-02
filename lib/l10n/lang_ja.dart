@@ -83,10 +83,7 @@ class LangJa extends Lang {
   String get hsContacts => '連絡先';
 
   @override
-  String get hsAddContacts => '緊急連絡先アラートを有効にする手順のパート1。';
-
-  @override
-  String get hsAddContactsIOS => '緊急連絡先アラートを有効にします。';
+  String get hsAddContacts => '緊急連絡先アラートを有効にします。';
 
   @override
   String get hsContactsReady => '連絡先の準備が完了しました';

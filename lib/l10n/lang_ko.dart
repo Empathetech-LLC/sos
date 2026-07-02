@@ -84,10 +84,7 @@ class LangKo extends Lang {
   String get hsContacts => '연락처';
 
   @override
-  String get hsAddContacts => '비상 연락처 알림 활성화 1단계.';
-
-  @override
-  String get hsAddContactsIOS => '비상 연락처 알림을 활성화합니다.';
+  String get hsAddContacts => '비상 연락처 알림을 활성화합니다.';
 
   @override
   String get hsContactsReady => '연락처가 준비되었습니다';

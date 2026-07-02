@@ -86,10 +86,7 @@ class LangHi extends Lang {
   String get hsContacts => 'संपर्क';
 
   @override
-  String get hsAddContacts => 'आपातकालीन संपर्क अलर्ट सक्षम करने का भाग 1।';
-
-  @override
-  String get hsAddContactsIOS => 'आपातकालीन संपर्क अलर्ट सक्षम करता है।';
+  String get hsAddContacts => 'आपातकालीन संपर्क अलर्ट सक्षम करता है।';
 
   @override
   String get hsContactsReady => 'संपर्क तैयार हैं';
