@@ -627,7 +627,7 @@ class _HomeScreenState extends State<HomeScreen>
                                           config,
                                           context: context,
                                           message:
-                                              'Please enable the camera in the settings (above)', // TODO: l10n
+                                              'Please enable the camera in the settings (above)\nthen try again', // TODO: l10n
                                         );
                                       }
                                     }
@@ -670,7 +670,7 @@ class _HomeScreenState extends State<HomeScreen>
                                       config,
                                       context: context,
                                       message:
-                                          'Please enable the camera in the settings (above)', // TODO: l10n
+                                          'Please enable the camera in the settings (above)\nthen try again', // TODO: l10n
                                     );
                                   }
                                 }
