@@ -64,79 +64,76 @@ class LangSw extends Lang {
       'Mafunzo na mipangilio imetafsiriwa na mashine.\nOrodha ya haki imetafsiriwa na binadamu.';
 
   @override
-  String get hsCamMic => 'Kamera na Maikrofoni';
+  String get hsCamera => 'Kamera';
 
   @override
-  String get hsAddRecording => 'Huwezesha kurekodi video.';
+  String get hsAddRecording => 'Huwezesha kurekodi video';
+
+  @override
+  String get hsMic => 'Maikrofoni';
+
+  @override
+  String get hsSilent => 'Video hazitakuwa na sauti bila hii';
 
   @override
   String get hsGallery => 'Matunzio';
 
   @override
-  String get hsAddSave => 'Inahitajika ili kuhifadhi rekodi zako.';
+  String get hsAddSave => 'Inahitajika ili kuhifadhi rekodi zako';
 
   @override
   String get hsCameraReady => 'Kamera iko tayari';
 
   @override
-  String get hsCameraSetupHint =>
-      'Washa ili kupa Insta-SOS ruhusa kwenye kamera.';
+  String get hsCameraSetupHint => 'Washa ili kuruhusu Insta-SOS kutumia kamera';
 
   @override
-  String get hsContacts => 'Wasiliani';
+  String get hsCameraSnack =>
+      'Tafadhali washa kamera kwenye mipangilio (hapo juu)\nkisha ujaribu tena';
 
   @override
-  String get hsAddContacts =>
-      'Sehemu ya 1 ya kuwezesha arifa za dharura kwa wasiliani.';
+  String get hsContacts => 'Anwani';
 
   @override
-  String get hsAddContactsIOS => 'Huwezesha arifa za dharura kwa wasiliani.';
-
-  @override
-  String get hsContactsReady => 'Wasiliani wako tayari';
-
-  @override
-  String get hsContactsSetupHint =>
-      'Washa ili kupa Insta-SOS ruhusa ya kutazama wasiliani wako.';
+  String get hsAddContacts => 'Huwezesha jumbe za SOS';
 
   @override
   String get hsAppleContacts =>
-      'Hatua hii ni kwa ajili ya ruhusa za programu pekee.\nBado huchagui wasiliani wa dharura.\n\nInapendekezwa kuruhusu wote ili kupunguza usumbufu.';
+      'Hatua hii ni kwa ruhusa za programu pekee.\nHujachagua anwani za dharura bado.\n\nInapendekezwa kuruhusu zote ili kupunguza usumbufu.';
 
   @override
-  String get hsTexting => 'Kutuma ujumbe';
+  String get hsContactsSetupHint =>
+      'Washa ili kuruhusu Insta-SOS kutazama anwani zako.';
 
   @override
-  String get hsAddTexting =>
-      'Sehemu ya 2 ya kuwezesha arifa za dharura kwa wasiliani.';
+  String get hsSMS =>
+      'Android inahitaji ruhusa kwa nani wa kumtumia ujumbe na jinsi ya kufanya hivyo';
 
   @override
-  String get hsTextingReady => 'Kutuma ujumbe kuko tayari';
+  String get hsTextingSetupHint => 'Washa ili kuruhusu Insta-SOS kutuma jumbe.';
 
   @override
-  String get hsTextingSetupHint =>
-      'Washa ili kupa Insta-SOS ruhusa ya kutuma ujumbe.';
+  String get hsSOSReady => 'SOS iko tayari';
 
   @override
-  String get hsLocation => 'Eneo';
+  String get hsLocation => 'Mahali';
 
   @override
-  String get hsUnable => 'Imeshindwa kutambua';
-
-  @override
-  String get hsAddLocation =>
-      'Huwezesha kushiriki eneo na wasiliani wa dharura.';
+  String get hsAddLocation => 'Huongeza mahali ulipo kwenye jumbe za SOS';
 
   @override
   String get hsAddAlways =>
-      'Inapendekezwa kuwezesha kila wakati. Bonyeza tena ili kufungua Mipangilio ya Mfumo.';
+      'Inapendekezwa kuwasha kila wakati. Bonyeza tena ili kufungua Mipangilio ya Mfumo.';
 
   @override
   String get hsLocationReady => 'Eneo liko tayari';
 
   @override
   String get hsLocationSetupHint =>
-      'Washa ili kupa Insta-SOS ruhusa ya kutazama eneo lako.';
+      'Washa ili kuruhusu Insta-SOS kutazama mahali ulipo.';
+
+  @override
+  String get hsUnable => 'Imeshindwa kutambua';
 
   @override
   String get hsOneOfFour => 'Ya kwanza kati ya nne. Endelea...';

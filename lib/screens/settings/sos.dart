@@ -8,11 +8,12 @@ import '../../widgets/export.dart';
 
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class SOSSettingsScreen extends StatefulWidget {
-  SOSSettingsScreen() : super(key: ValueKey<int>(EzConfig.seed));
+  const SOSSettingsScreen({super.key});
 
   @override
   State<SOSSettingsScreen> createState() => _SOSSettingsScreenState();
@@ -52,54 +53,65 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> with WidgetsBindi
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) async {
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
     if (state == AppLifecycleState.resumed) await initPerm();
   }
 
   // Return the build //
 
   @override
-  Widget build(BuildContext context) => SosScaffold(
-        EzScreen(
-          Center(
-            child: EzScrollView(children: <Widget>[
+  Widget build(BuildContext context) {
+    return Consumer<EzCP>(
+      builder: (_, EzCP config, __) => SosScaffold(
+        config,
+        body: EzScreen(
+          config,
+          safeArea: true,
+          child: Center(
+            child: EzScrollView(config, children: <Widget>[
               if (!canSMS) ...<Widget>[
                 EzText(
-                  l10n.sosNeedSMS,
-                  style: EzConfig.styles.bodyLarge,
+                  config,
+                  text: l10n(config).sosNeedSMS,
+                  style: config.bodyStyle,
                   textAlign: TextAlign.center,
                 ),
                 EzLink(
-                  l10n.gSystem,
+                  config,
+                  text: l10n(config).gSystem,
                   onTap: openAppSettings,
-                  hint: EzConfig.l10n.gOpenLink,
-                  backgroundColor: EzConfig.colors.surfaceContainer,
+                  hint: config.ezL10n.gOpenLink,
+                  backgroundColor: config.colors.surfaceContainer,
                 ),
-                EzConfig.separator,
+                config.separator,
               ],
 
               // EMC
               ContactList(
+                config,
                 onUpdate: () {
                   if (mounted) setState(() {});
                 },
                 fauxDisabled: !canSMS,
               ),
-              EzConfig.separator,
+              config.separator,
 
               // Link type
               EzScrollView(
+                config,
                 scrollDirection: Axis.horizontal,
                 reverseHands: true,
                 children: <Widget>[
                   // Label
                   EzText(
-                    l10n.bsLinkType,
-                    style: EzConfig.styles.bodyLarge,
+                    config,
+                    text: l10n(config).bsLinkType,
+                    style: config.bodyStyle,
                     textAlign: TextAlign.center,
                   ),
-                  EzConfig.margin,
+                  config.margin,
                   EzDropdownMenu<LLType>(
+                    config,
                     widthEntry: LLType.google.label,
                     dropdownMenuEntries: LLType.values
                         .map<DropdownMenuEntry<LLType>>((LLType type) => DropdownMenuEntry<LLType>(
@@ -112,30 +124,32 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> with WidgetsBindi
                     onSelected: (LLType? selection) async {
                       if (selection == null || selection == _linkType) return;
 
-                      await EzConfig.setString(linkTypeKey, selection.name);
+                      await EzCM.setString(linkTypeKey, selection.name);
                       if (mounted) setState(() => _linkType = selection);
                     },
                   ),
                 ],
               ),
-              EzConfig.divider,
+              config.divider,
 
               // SOS on open
               EzSwitchPair(
+                config,
                 enabled: emc.isNotEmpty,
                 fauxDisabled: !canSMS,
-                text: l10n.bsSOSOnOpen,
+                text: l10n(config).bsSOSOnOpen,
                 valueKey: sosOnOpenKey,
                 canChange: (bool choice) => canSet(sosOnOpenKey, choice),
               ),
 
               if (!isIOS) ...<Widget>[
                 // SOS on close
-                EzConfig.spacer,
+                config.spacer,
                 EzSwitchPair(
+                  config,
                   enabled: emc.isNotEmpty,
                   fauxDisabled: !canSMS,
-                  text: l10n.bsSOSOnClose,
+                  text: l10n(config).bsSOSOnClose,
                   valueKey: sosOnCloseKey,
                   canChange: (bool choice) async {
                     final bool check1 = await canSet(sosOnCloseKey, choice);
@@ -145,19 +159,21 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> with WidgetsBindi
                             ? await showDialog<bool>(
                                 context: context,
                                 builder: (BuildContext dCon) => EzAlertDialog(
+                                  config,
                                   title: Text(
-                                    EzConfig.l10n.gAttention,
+                                    config.ezL10n.gAttention,
                                     textAlign: TextAlign.center,
                                   ),
                                   content: Text(
-                                    l10n.bsCloseOffWarning,
+                                    l10n(config).bsCloseOffWarning,
                                     textAlign: TextAlign.center,
                                   ),
                                   actions: ezActionPair(
-                                    confirmMsg: l10n.gOk,
+                                    config,
+                                    confirmMsg: l10n(config).gOk,
                                     confirmIsDefault: true,
                                     onConfirm: () => Navigator.of(dCon).pop(true),
-                                    denyMsg: EzConfig.l10n.gCancel,
+                                    denyMsg: config.ezL10n.gCancel,
                                     onDeny: () => Navigator.of(dCon).pop(false),
                                   ),
                                   needsClose: false,
@@ -169,20 +185,22 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> with WidgetsBindi
                             ? await showDialog<bool>(
                                 context: context,
                                 builder: (BuildContext dCon) => EzAlertDialog(
+                                  config,
                                   title: Text(
-                                    EzConfig.l10n.gAttention,
+                                    config.ezL10n.gAttention,
                                     textAlign: TextAlign.center,
                                   ),
                                   content: Text(
-                                    l10n.bsSOSOnCloseHint,
-                                    semanticsLabel: l10n.bsSOSOnCloseHintFix,
+                                    l10n(config).bsSOSOnCloseHint,
+                                    semanticsLabel: l10n(config).bsSOSOnCloseHintFix,
                                     textAlign: TextAlign.center,
                                   ),
                                   actions: ezActionPair(
-                                    confirmMsg: l10n.gOk,
+                                    config,
+                                    confirmMsg: l10n(config).gOk,
                                     confirmIsDefault: true,
                                     onConfirm: () => Navigator.of(dCon).pop(true),
-                                    denyMsg: EzConfig.l10n.gCancel,
+                                    denyMsg: config.ezL10n.gCancel,
                                     onDeny: () => Navigator.of(dCon).pop(false),
                                   ),
                                   needsClose: false,
@@ -197,23 +215,25 @@ class _SOSSettingsScreenState extends State<SOSSettingsScreen> with WidgetsBindi
                     if (value == false) exit(0);
                   },
                 ),
-                EzConfig.spacer,
+                config.spacer,
 
                 // SOS on interrupt
                 EzSwitchPair(
+                  config,
                   enabled: emc.isNotEmpty,
                   fauxDisabled: !canSMS,
-                  text: l10n.bsSOSOnVideo,
+                  text: l10n(config).bsSOSOnVideo,
                   valueKey: sosOnInterruptKey,
                   canChange: (bool choice) => canSet(sosOnInterruptKey, choice),
                 ),
               ],
-              const EzFooter(),
+              EzFooter(config),
             ]),
           ),
-          safeArea: true,
         ),
-      );
+      ),
+    );
+  }
 
   // Cleanup //
 

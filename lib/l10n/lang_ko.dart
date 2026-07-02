@@ -63,71 +63,71 @@ class LangKo extends Lang {
       '튜토리얼과 설정은 기계 번역되었습니다.\n권리 목록은 사람이 직접 번역했습니다.';
 
   @override
-  String get hsCamMic => '카메라 및 마이크';
+  String get hsCamera => '카메라';
 
   @override
-  String get hsAddRecording => '비디오 녹화를 활성화합니다.';
+  String get hsAddRecording => '동영상 녹화 활성화';
+
+  @override
+  String get hsMic => '마이크';
+
+  @override
+  String get hsSilent => '허용하지 않으면 동영상에 소리가 녹음되지 않습니다';
 
   @override
   String get hsGallery => '갤러리';
 
   @override
-  String get hsAddSave => '녹화물을 저장하는 데 필요합니다.';
+  String get hsAddSave => '녹화된 영상을 저장하기 위해 필요합니다';
 
   @override
-  String get hsCameraReady => '카메라가 준비되었습니다';
+  String get hsCameraReady => '카메라 준비 완료';
 
   @override
-  String get hsCameraSetupHint => '활성화하여 Insta-SOS에 카메라 권한을 부여하세요.';
+  String get hsCameraSetupHint => '활성화하여 Insta-SOS에 카메라 권한을 부여하세요';
+
+  @override
+  String get hsCameraSnack => '(위의) 설정에서 카메라를 활성화한 후\n다시 시도해주세요';
 
   @override
   String get hsContacts => '연락처';
 
   @override
-  String get hsAddContacts => '비상 연락처 알림 활성화 1단계.';
+  String get hsAddContacts => 'SOS 메시지 활성화';
 
   @override
-  String get hsAddContactsIOS => '비상 연락처 알림을 활성화합니다.';
-
-  @override
-  String get hsContactsReady => '연락처가 준비되었습니다';
+  String get hsAppleContacts =>
+      '이 단계는 앱 권한만을 위한 것입니다.\n아직 긴급 연락처를 선택하는 것이 아닙니다.\n\n번거로움을 줄이려면 모든 권한을 허용하는 것을 권장합니다.';
 
   @override
   String get hsContactsSetupHint => '활성화하여 Insta-SOS에 연락처 보기 권한을 부여하세요.';
 
   @override
-  String get hsAppleContacts =>
-      '이 단계는 앱 권한만을 위한 것입니다.\n아직 비상 연락처를 선택하는 것이 아닙니다.\n\n문제를 줄이기 위해 모두 허용하는 것을 권장합니다.';
-
-  @override
-  String get hsTexting => '문자 메시지';
-
-  @override
-  String get hsAddTexting => '비상 연락처 알림 활성화 2단계.';
-
-  @override
-  String get hsTextingReady => '문자 메시지가 준비되었습니다';
+  String get hsSMS => 'Android는 문자를 보낼 대상과 방법에 대한 권한이 모두 필요합니다';
 
   @override
   String get hsTextingSetupHint => '활성화하여 Insta-SOS에 메시지 전송 권한을 부여하세요.';
 
   @override
+  String get hsSOSReady => 'SOS 준비 완료';
+
+  @override
   String get hsLocation => '위치';
 
   @override
+  String get hsAddLocation => 'SOS 메시지에 내 위치 추가';
+
+  @override
+  String get hsAddAlways => '항상 허용으로 설정하는 것을 권장합니다. 시스템 설정을 열려면 다시 누르세요.';
+
+  @override
+  String get hsLocationReady => '위치 준비 완료';
+
+  @override
+  String get hsLocationSetupHint => '활성화하여 Insta-SOS에 위치 정보 보기 권한을 부여하세요.';
+
+  @override
   String get hsUnable => '확인할 수 없음';
-
-  @override
-  String get hsAddLocation => '비상 연락처와 위치 공유를 활성화합니다.';
-
-  @override
-  String get hsAddAlways => '항상 허용을 권장합니다. 시스템 설정을 열려면 다시 누르세요.';
-
-  @override
-  String get hsLocationReady => '위치가 준비되었습니다';
-
-  @override
-  String get hsLocationSetupHint => '활성화하여 Insta-SOS에 위치 보기 권한을 부여하세요.';
 
   @override
   String get hsOneOfFour => '4개 중 첫 번째. 계속...';

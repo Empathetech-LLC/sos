@@ -6,35 +6,47 @@
 import '../widgets/export.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class ErrorScreen extends StatelessWidget {
-  ErrorScreen() : super(key: ValueKey<int>(EzConfig.seed));
+  const ErrorScreen({super.key});
 
   @override
-  Widget build(BuildContext context) => SosScaffold(EzScreen(
-        Center(
-          child: EzScrollView(children: <Widget>[
-            EzText(
-              EzConfig.l10n.g404Wonder,
-              style: EzConfig.styles.headlineLarge,
-              textAlign: TextAlign.center,
-            ),
-            EzConfig.separator,
-            EzText(
-              EzConfig.l10n.g404,
-              style: ezSubTitleStyle(),
-              textAlign: TextAlign.center,
-            ),
-            EzConfig.separator,
-            EzText(
-              EzConfig.l10n.g404Note,
-              style: EzConfig.styles.labelLarge,
-              textAlign: TextAlign.center,
-            ),
-            const EzFooter(spacing: 0),
-          ]),
+  Widget build(BuildContext context) {
+    return Consumer<EzCP>(
+      builder: (_, EzCP config, __) => SosScaffold(
+        config,
+        body: EzScreen(
+          config,
+          safeArea: true,
+          child: Center(
+            child: EzScrollView(config, children: <Widget>[
+              EzText(
+                config,
+                text: config.ezL10n.g404Wonder,
+                style: config.headlineStyle,
+                textAlign: TextAlign.center,
+              ),
+              config.separator,
+              EzText(
+                config,
+                text: config.ezL10n.g404,
+                style: ezSubTitleStyle(config.styles),
+                textAlign: TextAlign.center,
+              ),
+              config.separator,
+              EzText(
+                config,
+                text: config.ezL10n.g404Note,
+                style: config.labelStyle,
+                textAlign: TextAlign.center,
+              ),
+              EzFooter(config, spacing: 0),
+            ]),
+          ),
         ),
-        safeArea: true,
-      ));
+      ),
+    );
+  }
 }

@@ -66,80 +66,79 @@ class LangFil extends Lang {
       'Ang tutorial at mga setting ay isinalin ng makina.\nAng listahan ng mga karapatan ay isinalin ng tao.';
 
   @override
-  String get hsCamMic => 'Camera at Mikropono';
+  String get hsCamera => 'Kamera';
 
   @override
-  String get hsAddRecording => 'Pina-enable ang pag-record ng video.';
+  String get hsAddRecording => 'Pinapagana ang pag-record ng video';
+
+  @override
+  String get hsMic => 'Mikropono';
+
+  @override
+  String get hsSilent => 'Walang tunog ang mga video kapag wala ito';
 
   @override
   String get hsGallery => 'Gallery';
 
   @override
-  String get hsAddSave => 'Kinakailangan upang i-save ang iyong mga recording.';
+  String get hsAddSave => 'Kinakailangan para i-save ang iyong mga recording';
 
   @override
-  String get hsCameraReady => 'Handa na ang camera';
+  String get hsCameraReady => 'Handa na ang kamera';
 
   @override
   String get hsCameraSetupHint =>
-      'I-activate para bigyan ang Insta-SOS ng pahintulot sa camera.';
+      'I-activate para bigyan ng pahintulot ang Insta-SOS sa kamera';
+
+  @override
+  String get hsCameraSnack =>
+      'Mangyaring i-enable ang kamera sa settings (sa itaas)\npagkatapos ay subukan muli';
 
   @override
   String get hsContacts => 'Mga Contact';
 
   @override
-  String get hsAddContacts =>
-      'Unang bahagi ng pag-enable sa mga alerto sa emergency contact.';
-
-  @override
-  String get hsAddContactsIOS =>
-      'Pina-enable ang mga alerto sa emergency contact.';
-
-  @override
-  String get hsContactsReady => 'Handa na ang mga contact';
-
-  @override
-  String get hsContactsSetupHint =>
-      'I-activate para bigyan ang Insta-SOS ng pahintulot na tingnan ang iyong mga contact.';
+  String get hsAddContacts => 'Pinapagana ang mga SOS message';
 
   @override
   String get hsAppleContacts =>
-      'Ang hakbang na ito ay para lamang sa mga pahintulot sa app.\nHindi ka pa pumipili ng mga pang-emergency na contact.\n\nInirerekomenda na pahintulutan ang lahat upang mabawasan ang sakit ng ulo.';
+      'Ang hakbang na ito ay para sa mga pahintulot ng app lamang.\nHindi ka pa pumipili ng mga emergency contact.\n\nInirerekomendang payagan ang lahat upang iwasan ang abala.';
 
   @override
-  String get hsTexting => 'Pagte-text';
+  String get hsContactsSetupHint =>
+      'I-activate para bigyan ng pahintulot ang Insta-SOS na tingnan ang iyong mga contact.';
 
   @override
-  String get hsAddTexting =>
-      'Ikalawang bahagi ng pag-enable sa mga alerto sa emergency contact.';
-
-  @override
-  String get hsTextingReady => 'Handa na ang pagte-text';
+  String get hsSMS =>
+      'Kinakailangan ng Android ang pahintulot para sa kung sino at paano mag-text';
 
   @override
   String get hsTextingSetupHint =>
-      'I-activate para bigyan ang Insta-SOS ng pahintulot na magpadala ng mga mensahe.';
+      'I-activate para bigyan ng pahintulot ang Insta-SOS na magpadala ng mga mensahe.';
+
+  @override
+  String get hsSOSReady => 'Handa na ang SOS';
 
   @override
   String get hsLocation => 'Lokasyon';
 
   @override
-  String get hsUnable => 'Hindi matukoy';
-
-  @override
   String get hsAddLocation =>
-      'Pina-enable ang pagbahagi ng lokasyon sa mga emergency contact.';
+      'Idinadagdag ang iyong lokasyon sa mga SOS message';
 
   @override
   String get hsAddAlways =>
-      'Inirerekomendang i-enable palagi. Pindutin muli para buksan ang Mga Setting ng System.';
+      'Inirerekomendang i-enable palagi. Pindutin muli para buksan ang System Settings.';
 
   @override
   String get hsLocationReady => 'Handa na ang lokasyon';
 
   @override
   String get hsLocationSetupHint =>
-      'I-activate para bigyan ang Insta-SOS ng pahintulot na tingnan ang iyong lokasyon.';
+      'I-activate para bigyan ng pahintulot ang Insta-SOS na makita ang iyong lokasyon.';
+
+  @override
+  String get hsUnable => 'Hindi matukoy';
 
   @override
   String get hsOneOfFour => 'Una sa apat. Magpatuloy...';

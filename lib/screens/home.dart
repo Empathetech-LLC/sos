@@ -11,6 +11,7 @@ import 'dart:io';
 import 'dart:async';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:after_layout/after_layout.dart';
@@ -19,7 +20,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen() : super(key: ValueKey<int>(EzConfig.seed));
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -29,82 +30,83 @@ class _HomeScreenState extends State<HomeScreen>
     with AfterLayoutMixin<HomeScreen>, WidgetsBindingObserver {
   // Define the build data //
 
-  // Core
+  bool showRights = false;
+
   CameraDescription? cameraDesc;
   CameraController? camera;
 
   bool recording = false;
-  final Stopwatch watch = Stopwatch();
-
-  bool showRights = false;
+  final Stopwatch stopwatch = Stopwatch();
 
   Timer? sosTimer;
 
-  // Tutorial(s)
   final OverlayPortalController sosTutorial = OverlayPortalController(debugLabel: 'sos');
   final OverlayPortalController cameraTutorial = OverlayPortalController(debugLabel: 'camera');
   final OverlayPortalController settingsTutorial = OverlayPortalController(debugLabel: 'settings');
 
   // Define custom functions //
 
-  /// Initialize the [camera]
-  Future<PermissionStatus> initCamera() async {
-    if (camera != null) return PermissionStatus.granted;
+  Future<bool> initCamera(EzCP config) async {
+    if (camera != null) return true;
 
     if (cameraDesc != null) {
       try {
         camera = CameraController(cameraDesc!, ResolutionPreset.max);
         await camera!.initialize();
-        return PermissionStatus.granted;
+        return true;
       } catch (_) {
-        // Continue/try again, might be a permissions thing
+        // Continue/try again
         // Actual catch happens below
       }
     }
 
-    final PermissionStatus status = await Permission.camera.request();
-    if (deniedPermCheck(status)) return status;
-
-    await Permission.microphone.request(); // Not required
+    if (!(await Permission.camera.isGranted)) return false;
 
     final List<CameraDescription> cameras = await availableCameras();
     cameraDesc =
         cameras.firstWhere((CameraDescription c) => c.lensDirection == CameraLensDirection.back);
-    if (cameraDesc == null) return PermissionStatus.denied;
+    if (cameraDesc == null) return false;
 
     try {
       camera = CameraController(cameraDesc!, ResolutionPreset.max);
       await camera!.initialize();
-      return PermissionStatus.granted;
+      return true;
     } catch (e) {
       final String message = e.toString();
 
       if (e is! CameraException || e.code != 'CameraAccessDenied') {
-        (mounted) ? await ezLogAlert(context, message: message) : ezLog(message);
+        (mounted)
+            ? await ezLogAlert(
+                config,
+                context: context,
+                message: message,
+              )
+            : ezLog(message);
       } else {
         ezLog('CameraException from initCamera.../n$message');
       }
-      return PermissionStatus.denied;
+      return false;
     }
   }
 
-  Future<bool> sosChecks() async {
+  Future<bool> sosChecks(EzCP config) async {
     // Check permissions
     if (!isIOS && deniedPermCheck(await Permission.sms.status)) {
       mounted
           ? await ezLogAlert(
-              context,
-              message: l10n.sosNeedSMS,
+              config,
+              context: context,
+              message: l10n(config).sosNeedSMS,
               customActions: <Widget>[
-                EzMaterialAction(
-                    text: EzConfig.l10n.gSettings,
+                EzAction(config,
+                    text: config.ezL10n.gSettings,
                     onPressed: openAppSettings,
-                    style: EzConfig.styles.bodyLarge?.copyWith(
-                      color: EzConfig.colors.primary,
+                    style: config.bodyStyle?.copyWith(
+                      color: config.colors.primary,
                     )),
               ],
             )
-          : ezLog(l10n.sosNeedSMS);
+          : ezLog(l10n(config).sosNeedSMS);
       return false;
     }
 
@@ -112,8 +114,9 @@ class _HomeScreenState extends State<HomeScreen>
     if (emc.isEmpty) {
       if (mounted) {
         ezSnackBar(
-          context,
-          message: l10n.bsSnackRequest,
+          config,
+          context: context,
+          message: l10n(config).bsSnackRequest,
         );
         await context.pushNamed(sosSettingsPath);
         if (mounted) setState(() {});
@@ -125,32 +128,34 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   /// Runs [backgroundSOS] on successful [sosChecks]
-  Future<void> startBackgroundSOS() async {
-    if (await sosChecks() == true) await backgroundSOS();
+  Future<void> startBackgroundSOS(EzCP config) async {
+    if (await sosChecks(config) == true) await backgroundSOS(l10n(config));
   }
 
   /// [foregroundSOS] every 5 minutes on successful [sosChecks]
-  Future<void> startForegroundSOS({bool showSnack = false}) async {
+  Future<void> startForegroundSOS(EzCP config, {bool showSnack = false}) async {
     // Cleanup any existing timer and run checks
     sosTimer?.cancel();
-    if (await sosChecks() == false) return;
+    if (await sosChecks(config) == false) return;
 
     // Make it so (immediate SOS)
-    final bool started = await foregroundSOS();
+    final bool started = await foregroundSOS(l10n(config));
     if (!started) return;
 
     // Make it so (periodic SOS)
     if (mounted) {
-      setState(() => sosTimer = Timer.periodic(const Duration(minutes: 5), (_) => foregroundSOS()));
+      setState(() => sosTimer =
+          Timer.periodic(const Duration(minutes: 5), (_) => foregroundSOS(l10n(config))));
     }
 
     // Double reminder/option to cancel
     if (showSnack && mounted) {
       ezSnackBar(
-        context,
-        message: l10n.hsBroadcasting,
+        config,
+        context: context,
+        message: l10n(config).hsBroadcasting,
         undo: () async => stopForegroundSOS(),
-        undoMessage: l10n.hsStop,
+        undoMessage: l10n(config).hsStop,
       );
     }
   }
@@ -169,22 +174,25 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   @override
-  void afterFirstLayout(BuildContext context) async {
+  Future<void> afterFirstLayout(BuildContext context) async {
+    final EzCP config = configWatcher(context);
+
     // Check for fresh installs
-    if (EzConfig.get(setupCompleteKey) != true) {
-      while (EzConfig.get(setupCompleteKey) != true) {
+    if (EzCM.get(setupCompleteKey) != true) {
+      while (EzCM.get(setupCompleteKey) != true) {
         // While loop re-opens the dialog on locale change
-        await appSetupModal(context, initCamera: initCamera);
+        await appSetupModal(config, context);
       }
+      await initCamera(config);
     } else {
       // Check for auto SOS
-      final bool taskRunning = EzConfig.get(taskRunningKey);
+      final bool taskRunning = EzCM.get(taskRunningKey);
 
-      if (taskRunning) await stopBackgroundSOS(context);
-      if (sosOnOpen || taskRunning) await startForegroundSOS(showSnack: true);
+      if (taskRunning) await stopBackgroundSOS(config, context: context);
+      if (sosOnOpen || taskRunning) await startForegroundSOS(config, showSnack: true);
 
       // Setup the camera/preview
-      await initCamera();
+      await initCamera(config);
     }
 
     // Run the tutorial (if unfinished)
@@ -198,8 +206,11 @@ class _HomeScreenState extends State<HomeScreen>
   //* Return the build *//
 
   @override
-  Widget build(BuildContext context) => SosScaffold(
-        SafeArea(
+  Widget build(BuildContext context) {
+    return Consumer<EzCP>(
+      builder: (_, EzCP config, __) => SosScaffold(
+        config,
+        body: SafeArea(
           child: Stack(
             children: <Widget>[
               // Camera preview and rights view
@@ -212,24 +223,26 @@ class _HomeScreenState extends State<HomeScreen>
                     alignment: Alignment.topCenter,
                     height: heightOf(context) * 0.667,
                     width: double.infinity,
-                    color: EzConfig.colors.surface,
+                    color: config.colors.surface,
                     child: camera == null
                         ? EzAnimVis(
+                            config,
                             mod: 0.5,
                             visible: showRights,
                             forceType: EzTransitionType.none,
                             forceFade: true,
-                            kid: const RightsView(),
+                            kid: RightsView(config),
                           )
                         : Stack(children: <Widget>[
                             Center(
                               child: Semantics(
-                                hint: l10n.hsPreviewHint,
+                                hint: l10n(config).hsPreviewHint,
                                 excludeSemantics: showRights,
                                 child: CameraPreview(camera!),
                               ),
                             ),
                             EzAnimVis(
+                              config,
                               mod: 0.5,
                               visible: showRights,
                               forceType: EzTransitionType.none,
@@ -237,9 +250,9 @@ class _HomeScreenState extends State<HomeScreen>
                               kid: Container(
                                 height: double.infinity,
                                 width: double.infinity,
-                                color: EzConfig.colors.surfaceContainer
-                                    .withValues(alpha: EzConfig.textBackgroundOpacity),
-                                child: const RightsView(),
+                                color: config.colors.surfaceContainer
+                                    .withValues(alpha: config.textBackgroundOpacity),
+                                child: RightsView(config),
                               ),
                             ),
                           ]),
@@ -253,6 +266,7 @@ class _HomeScreenState extends State<HomeScreen>
                 left: 0,
                 right: 0,
                 child: EzAnimVis(
+                  config,
                   mod: 0.5,
                   visible: recording,
                   forceType: EzTransitionType.none,
@@ -261,12 +275,13 @@ class _HomeScreenState extends State<HomeScreen>
                     child: StreamBuilder<int>(
                       stream: Stream<int>.periodic(
                         const Duration(seconds: 1),
-                        (_) => watch.elapsed.inSeconds,
+                        (_) => stopwatch.elapsed.inSeconds,
                       ),
                       builder: (_, AsyncSnapshot<int> snapshot) => EzText(
-                        Duration(seconds: snapshot.data ?? 0).toString().split('.').first,
-                        backgroundColor: videoColor,
-                        style: EzConfig.styles.labelLarge?.copyWith(color: videoTextColor),
+                        config,
+                        text: Duration(seconds: snapshot.data ?? 0).toString().split('.').first,
+                        backgroundColor: videoColor(config),
+                        style: config.labelStyle?.copyWith(color: videoTextColor(config)),
                       ),
                     ),
                   ),
@@ -275,31 +290,33 @@ class _HomeScreenState extends State<HomeScreen>
 
               // SOS/broadcast button
               Positioned(
-                top: EzConfig.spacing + EzConfig.marginVal,
+                top: config.spacing + config.marginVal,
                 left: 0,
                 right: 0,
                 child: Center(
                   child: OverlayPortal(
                     controller: sosTutorial,
                     overlayChildBuilder: (_) => EzTutorial(
+                      config,
                       top: safeTop(context) +
-                          EzConfig.spacing * 2 +
-                          EzConfig.iconSize * 1.5 +
-                          EzConfig.marginVal,
+                          config.spacing * 2 +
+                          config.iconSize * 1.5 +
+                          config.marginVal,
                       left: 0,
                       right: 0,
                       title: EzIcon(
+                        config,
                         Icons.arrow_upward,
-                        color: EzConfig.colors.onSurface,
+                        color: config.colors.onSurface,
                       ),
                       content: isIOS
-                          ? l10n.hsBroadcastTutorial
-                          : '${l10n.hsBroadcastTutorial}\n\n${l10n.hsBroadcastTutorialAndroid}',
+                          ? l10n(config).hsBroadcastTutorial
+                          : '${l10n(config).hsBroadcastTutorial}\n\n${l10n(config).hsBroadcastTutorialAndroid}',
                       contentSemantics: isIOS
-                          ? l10n.hsBroadcastTutorialFix
-                          : '${l10n.hsBroadcastTutorialFix}\n\n${l10n.hsBroadcastTutorialAndroid}',
+                          ? l10n(config).hsBroadcastTutorialFix
+                          : '${l10n(config).hsBroadcastTutorialFix}\n\n${l10n(config).hsBroadcastTutorialAndroid}',
                       acceptMessage: '1/4\t>>',
-                      acceptSemantics: l10n.hsOneOfFour,
+                      acceptSemantics: l10n(config).hsOneOfFour,
                       onAccept: () {
                         sosTutorial.hide();
                         settingsTutorial.show();
@@ -307,15 +324,17 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                     child: sosTimer?.isActive == true
                         ? EzIconButton(
-                            icon: const SOSIcon(),
-                            iconSize: EzConfig.iconSize * 1.5,
+                            config,
+                            icon: SOSIcon(config),
+                            iconSize: config.iconSize * 1.5,
                             onPressed: stopForegroundSOS,
                           )
                         : EzIconButton(
+                            config,
                             fauxDisabled: emc.isEmpty,
-                            icon: Icon(Icons.sos, semanticLabel: l10n.hsStartSOS),
-                            iconSize: EzConfig.iconSize * 1.5,
-                            onPressed: startForegroundSOS,
+                            icon: Icon(Icons.sos, semanticLabel: l10n(config).hsStartSOS),
+                            iconSize: config.iconSize * 1.5,
+                            onPressed: () => startForegroundSOS(config),
                           ),
                   ),
                 ),
@@ -323,41 +342,41 @@ class _HomeScreenState extends State<HomeScreen>
 
               // Settings
               Positioned(
-                top: EzConfig.marginVal,
-                right: EzConfig.isLefty ? null : EzConfig.marginVal,
-                left: EzConfig.isLefty ? EzConfig.marginVal : null,
+                top: config.marginVal,
+                right: config.isLefty ? null : config.marginVal,
+                left: config.isLefty ? config.marginVal : null,
                 child: OverlayPortal(
                   controller: settingsTutorial,
                   overlayChildBuilder: (_) => EzTutorial(
-                    top: safeTop(context) + EzConfig.marginVal,
-                    right: EzConfig.isLefty
-                        ? 0
-                        : EzConfig.spacing + EzConfig.marginVal + EzConfig.iconSize,
-                    left: EzConfig.isLefty
-                        ? EzConfig.spacing + EzConfig.marginVal + EzConfig.iconSize
-                        : 0,
+                    config,
+                    top: safeTop(context) + config.marginVal,
+                    right: config.isLefty ? null : config.spargin + config.iconSize,
+                    left: config.isLefty ? config.spargin + config.iconSize : null,
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
                         EzIcon(
+                          config,
                           Icons.arrow_forward,
-                          color: EzConfig.colors.onSurface,
+                          color: config.colors.onSurface,
                         ),
                       ],
                     ),
-                    content: l10n.hsSettingsTutorial,
-                    contentSemantics: l10n.hsSettingsTutorialFix,
+                    content: l10n(config).hsSettingsTutorial,
+                    contentSemantics: l10n(config).hsSettingsTutorialFix,
                     acceptMessage: '2/4\t>>',
-                    acceptSemantics: l10n.hsTwoOfFour,
+                    acceptSemantics: l10n(config).hsTwoOfFour,
                     onAccept: () {
                       settingsTutorial.hide();
                       cameraTutorial.show();
                     },
                   ),
                   child: EzIconButton(
+                    config,
                     icon: EzIcon(
+                      config,
                       Icons.settings,
-                      semanticLabel: EzConfig.l10n.gSettings,
+                      semanticLabel: config.ezL10n.gSettings,
                     ),
                     enabled: !recording,
                     onPressed: () => context.goNamed(settingsHomePath),
@@ -368,13 +387,15 @@ class _HomeScreenState extends State<HomeScreen>
               // Safe close (conditional)
               if (sosOnClose)
                 Positioned(
-                  top: EzConfig.marginVal,
-                  right: EzConfig.isLefty ? EzConfig.marginVal : null,
-                  left: EzConfig.isLefty ? null : EzConfig.marginVal,
+                  top: config.marginVal,
+                  right: config.isLefty ? config.marginVal : null,
+                  left: config.isLefty ? null : config.marginVal,
                   child: EzIconButton(
+                    config,
                     icon: EzIcon(
+                      config,
                       Icons.thumb_up,
-                      semanticLabel: l10n.hsSafeCloseHint,
+                      semanticLabel: l10n(config).hsSafeCloseHint,
                     ),
                     enabled: !recording,
                     onPressed: () {
@@ -386,11 +407,12 @@ class _HomeScreenState extends State<HomeScreen>
 
               // Controls
               Positioned(
-                bottom: EzConfig.spacing,
+                bottom: config.spacing,
                 left: 0,
                 right: 0,
                 child: Center(
                   child: EzScrollView(
+                    config,
                     scrollDirection: Axis.horizontal,
                     reverseHands: true,
                     startCentered: true,
@@ -399,14 +421,17 @@ class _HomeScreenState extends State<HomeScreen>
                       // Take picture/know your rights
                       (camera == null || recording)
                           ? EzIconButton(
+                              config,
                               icon: showRights
                                   ? EzIcon(
+                                      config,
                                       Icons.visibility_off,
-                                      semanticLabel: l10n.hsHideRights,
+                                      semanticLabel: l10n(config).hsHideRights,
                                     )
                                   : EzIcon(
+                                      config,
                                       Icons.gavel,
-                                      semanticLabel: l10n.hsShowRights,
+                                      semanticLabel: l10n(config).hsShowRights,
                                     ),
                               onPressed: () {
                                 if (mounted) {
@@ -415,9 +440,11 @@ class _HomeScreenState extends State<HomeScreen>
                               },
                             )
                           : EzIconButton(
+                              config,
                               icon: EzIcon(
+                                config,
                                 Icons.camera_alt,
-                                semanticLabel: l10n.hsCameraHint,
+                                semanticLabel: l10n(config).hsCameraHint,
                               ),
                               onPressed: () async {
                                 try {
@@ -433,7 +460,8 @@ class _HomeScreenState extends State<HomeScreen>
 
                                     await SharePlus.instance.share(ShareParams(
                                       text: await getCoordinates(
-                                        linkType.base,
+                                        l10n(config),
+                                        linkBase: linkType.base,
                                         nullable: true,
                                       ),
                                       files: <XFile>[image],
@@ -444,61 +472,68 @@ class _HomeScreenState extends State<HomeScreen>
                                 } catch (e) {
                                   (context.mounted)
                                       ? await ezLogAlert(
-                                          context,
+                                          config,
+                                          context: context,
                                           message: e.toString(),
                                         )
                                       : ezLog(e.toString());
                                 }
                               },
                             ),
-                      EzConfig.separator,
+                      config.separator,
 
                       // Record
                       OverlayPortal(
                         controller: cameraTutorial,
                         overlayChildBuilder: (_) => EzTutorial(
+                          config,
                           bottom: safeBottom(context) +
-                              EzConfig.spacing * 2 +
-                              EzConfig.iconSize * 2 +
-                              EzConfig.marginVal,
+                              config.spacing * 2 +
+                              config.iconSize * 2 +
+                              config.marginVal,
                           left: 0,
                           right: 0,
                           title: EzIcon(
+                            config,
                             Icons.arrow_downward,
-                            color: EzConfig.colors.onSurface,
+                            color: config.colors.onSurface,
                           ),
-                          content: isIOS ? l10n.hsIOSVideoTutorial : l10n.hsVideoTutorial,
+                          content: isIOS
+                              ? l10n(config).hsIOSVideoTutorial
+                              : l10n(config).hsVideoTutorial,
                           acceptMessage: '3/4\t>>',
-                          acceptSemantics: l10n.hsThreeOfFour,
+                          acceptSemantics: l10n(config).hsThreeOfFour,
                           onAccept: () async {
                             cameraTutorial.hide();
 
                             await showDialog(
                               context: context,
                               builder: (_) => EzAlertDialog(
+                                config,
                                 title: Text(
-                                  l10n.hsTutorialComplete,
+                                  l10n(config).hsTutorialComplete,
                                   textAlign: TextAlign.center,
                                 ),
                                 content: Text(
-                                  l10n.hsAddEMC,
-                                  style: EzConfig.styles.bodyLarge,
+                                  l10n(config).hsAddEMC,
+                                  style: config.bodyStyle,
                                   textAlign: TextAlign.center,
                                 ),
                               ),
                             );
-                            await EzConfig.setBool(showTutorialKey, false);
+                            await EzCM.setBool(showTutorialKey, false);
                             if (mounted) setState(() => showRights = true);
                           },
                         ),
                         child: recording
                             ? EzIconButton(
+                                config,
                                 style: IconButton.styleFrom(
-                                  foregroundColor: videoColor,
-                                  side: EzConfig.borderSide(color: videoTextColor),
+                                  foregroundColor: videoColor(config),
+                                  side: config.borderSide(color: videoTextColor(config)),
                                 ),
-                                icon: Icon(Icons.stop, semanticLabel: l10n.hsEndRecord),
-                                iconSize: EzConfig.iconSize * 2,
+                                icon: Icon(Icons.stop, semanticLabel: l10n(config).hsEndRecord),
+                                iconSize: config.iconSize * 2,
                                 onPressed: () async {
                                   late final XFile? video;
                                   try {
@@ -507,16 +542,17 @@ class _HomeScreenState extends State<HomeScreen>
                                   } catch (e) {
                                     (context.mounted)
                                         ? await ezLogAlert(
-                                            context,
+                                            config,
+                                            context: context,
                                             message: e.toString(),
                                           )
                                         : ezLog(e.toString());
                                   }
-                                  watch.stop();
+                                  stopwatch.stop();
 
                                   // Update the UI
                                   if (mounted) setState(() => recording = false);
-                                  watch.reset();
+                                  stopwatch.reset();
 
                                   if (video == null) return;
                                   try {
@@ -543,7 +579,8 @@ class _HomeScreenState extends State<HomeScreen>
 
                                       await SharePlus.instance.share(ShareParams(
                                         text: await getCoordinates(
-                                          linkType.base,
+                                          l10n(config),
+                                          linkBase: linkType.base,
                                           nullable: true,
                                         ),
                                         files: <XFile>[XFile(mp4Path)],
@@ -554,7 +591,8 @@ class _HomeScreenState extends State<HomeScreen>
                                   } catch (e) {
                                     (context.mounted)
                                         ? await ezLogAlert(
-                                            context,
+                                            config,
+                                            context: context,
                                             message: e.toString(),
                                           )
                                         : ezLog(e.toString());
@@ -562,32 +600,49 @@ class _HomeScreenState extends State<HomeScreen>
                                 },
                               )
                             : EzIconButton(
-                                fauxDisabled: camera == null,
-                                style: IconButton.styleFrom(
-                                  foregroundColor: videoColor,
-                                  side: EzConfig.borderSide(color: EzConfig.colors.onSurface),
-                                ),
-                                icon: Icon(Icons.circle, semanticLabel: l10n.hsStartRecord),
-                                iconSize: EzConfig.iconSize * 2,
-                                onLongPress: camera == null ? openAppSettings : null,
+                                config,
+                                style: (camera == null)
+                                    ? IconButton.styleFrom(
+                                        foregroundColor: config.colors.outline,
+                                        side:
+                                            config.borderSide(color: config.colors.outlineVariant),
+                                      )
+                                    : IconButton.styleFrom(
+                                        foregroundColor: videoColor(config),
+                                        side: config.borderSide(color: config.colors.onSurface),
+                                      ),
+                                icon: Icon(Icons.circle, semanticLabel: l10n(config).hsStartRecord),
+                                iconSize: config.iconSize * 2,
+                                onLongPress:
+                                    camera == null ? () => context.goNamed(settingsHomePath) : null,
                                 onPressed: () async {
                                   if (camera == null) {
-                                    final PermissionStatus cameraPerm = await initCamera();
+                                    final bool worked = await initCamera(config);
 
-                                    if (allowedPermCheck(cameraPerm)) {
+                                    if (worked) {
                                       if (mounted) setState(() {});
+                                    } else {
+                                      if (context.mounted) {
+                                        ezSnackBar(
+                                          config,
+                                          context: context,
+                                          message: l10n(config).hsCameraSnack,
+                                        );
+                                      }
                                     }
+
                                     return;
                                   }
 
                                   try {
                                     await camera!.startVideoRecording();
-                                    watch.start();
+                                    stopwatch.start();
                                     if (mounted) setState(() => recording = true);
                                   } catch (e) {
                                     (context.mounted)
                                         ? await ezLogAlert(
-                                            context,
+                                            config,
+                                            context: context,
                                             message: e.toString(),
                                           )
                                         : ezLog(e.toString());
@@ -595,24 +650,32 @@ class _HomeScreenState extends State<HomeScreen>
                                 },
                               ),
                       ),
-                      EzConfig.separator,
+                      config.separator,
 
                       // Flash
                       camera == null
                           ? EzIconButton(
+                              config,
                               fauxDisabled: true,
-                              icon: EzIcon(Icons.flash_off),
+                              icon: EzIcon(config, Icons.flash_off),
                               onPressed: () async {
-                                final PermissionStatus cameraPerm = await initCamera();
+                                final bool worked = await initCamera(config);
 
-                                if (allowedPermCheck(cameraPerm)) {
+                                if (worked) {
                                   if (mounted) setState(() {});
+                                } else {
+                                  if (context.mounted) {
+                                    ezSnackBar(
+                                      config,
+                                      context: context,
+                                      message: l10n(config).hsCameraSnack,
+                                    );
+                                  }
                                 }
-                                return;
                               },
-                              onLongPress: openAppSettings,
+                              onLongPress: () => context.goNamed(settingsHomePath),
                             )
-                          : FlashButton(camera!),
+                          : FlashButton(config, camera: camera!),
                     ],
                   ),
                 ),
@@ -620,13 +683,15 @@ class _HomeScreenState extends State<HomeScreen>
             ],
           ),
         ),
-        home: true,
-      );
+        isHome: true,
+      ),
+    );
+  }
 
   // Cleanup //
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) async {
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
     switch (state) {
       case AppLifecycleState.detached:
       case AppLifecycleState.inactive:
@@ -634,14 +699,16 @@ class _HomeScreenState extends State<HomeScreen>
         break; // Do nothing
 
       case AppLifecycleState.hidden:
-        final bool alreadyRunning = EzConfig.get(taskRunningKey);
+        final EzCP config = configWatcher(context);
+
+        final bool alreadyRunning = EzCM.get(taskRunningKey);
         final bool active = sosTimer?.isActive == true;
 
         if (recording) {
           // SOS based on user state/settings
           if (!isIOS && !alreadyRunning && (active || sosOnClose || sosOnInterrupt)) {
             if (active) stopForegroundSOS();
-            await startBackgroundSOS();
+            await startBackgroundSOS(config);
           }
 
           // Attempt to save the partial recording
@@ -667,20 +734,22 @@ class _HomeScreenState extends State<HomeScreen>
             ezLog(e.toString());
           }
 
-          watch.stop();
-          watch.reset();
+          stopwatch.stop();
+          stopwatch.reset();
           if (mounted) setState(() => recording = false);
         } else {
           // Not recording
           // SOS based on user state/settings
           if (!isIOS && !alreadyRunning && (active || sosOnClose)) {
             if (active) stopForegroundSOS();
-            await startBackgroundSOS();
+            await startBackgroundSOS(config);
           }
         }
         break;
 
       case AppLifecycleState.resumed:
+        final EzCP config = configWatcher(context);
+
         // Restore camera
         if (cameraDesc != null) {
           try {
@@ -688,18 +757,24 @@ class _HomeScreenState extends State<HomeScreen>
             await camera!.initialize();
           } catch (e) {
             if (e is! CameraException || e.code != 'CameraAccessDenied') {
-              mounted ? await ezLogAlert(context, message: e.toString()) : ezLog(e.toString());
+              mounted
+                  ? await ezLogAlert(
+                      config,
+                      context: context,
+                      message: e.toString(),
+                    )
+                  : ezLog(e.toString());
             }
           }
           if (mounted) setState(() {});
         }
 
         // Check SOS state
-        if (EzConfig.get(taskRunningKey) == true) {
+        if (EzCM.get(taskRunningKey) == true) {
           // stopBackgroundSOS handles the async context
           // ignore: use_build_context_synchronously
-          await stopBackgroundSOS(context);
-          await startForegroundSOS(showSnack: true);
+          await stopBackgroundSOS(config, context: context);
+          await startForegroundSOS(config, showSnack: true);
         }
         break;
     }

@@ -65,80 +65,78 @@ class LangEs extends Lang {
       'El tutorial y la configuración están traducidos automáticamente.\nLa lista de derechos está traducida por humanos.';
 
   @override
-  String get hsCamMic => 'Cámara y Micrófono';
+  String get hsCamera => 'Cámara';
 
   @override
-  String get hsAddRecording => 'Habilita la grabación de video.';
+  String get hsAddRecording => 'Habilita la grabación de video';
+
+  @override
+  String get hsMic => 'Micrófono';
+
+  @override
+  String get hsSilent => 'Los videos no tendrán sonido sin él';
 
   @override
   String get hsGallery => 'Galería';
 
   @override
-  String get hsAddSave => 'Necesario para guardar tus grabaciones.';
+  String get hsAddSave => 'Requerido para guardar tus grabaciones';
 
   @override
   String get hsCameraReady => 'La cámara está lista';
 
   @override
   String get hsCameraSetupHint =>
-      'Activar para dar permiso a Insta-SOS para usar la cámara.';
+      'Activar para dar permiso a la cámara a Insta-SOS';
+
+  @override
+  String get hsCameraSnack =>
+      'Por favor, habilita la cámara en la configuración (arriba)\ny luego intenta nuevamente';
 
   @override
   String get hsContacts => 'Contactos';
 
   @override
-  String get hsAddContacts =>
-      'Parte 1 para habilitar las alertas a contactos de emergencia.';
-
-  @override
-  String get hsAddContactsIOS =>
-      'Habilita las alertas a contactos de emergencia.';
-
-  @override
-  String get hsContactsReady => 'Los contactos están listos';
-
-  @override
-  String get hsContactsSetupHint =>
-      'Activar para dar permiso a Insta-SOS para ver tus contactos.';
+  String get hsAddContacts => 'Habilita los mensajes de SOS';
 
   @override
   String get hsAppleContacts =>
-      'Este paso es únicamente para los permisos de la aplicación.\nAún no está seleccionando los contactos de emergencia.\n\nSe recomienda conceder todos los permisos para evitar complicaciones.';
+      'Este paso es solo para permisos de la aplicación.\nAún no estás eligiendo contactos de emergencia.\n\nSe recomienda permitir todos para evitar complicaciones.';
 
   @override
-  String get hsTexting => 'Mensajes de texto';
+  String get hsContactsSetupHint =>
+      'Activar para dar permiso a Insta-SOS de ver tus contactos.';
 
   @override
-  String get hsAddTexting =>
-      'Parte 2 para habilitar las alertas a contactos de emergencia.';
-
-  @override
-  String get hsTextingReady => 'Los mensajes de texto están listos';
+  String get hsSMS =>
+      'Android requiere permiso tanto para a quién como para cómo enviar mensajes de texto';
 
   @override
   String get hsTextingSetupHint =>
-      'Activar para dar permiso a Insta-SOS para enviar mensajes.';
+      'Activar para dar permiso a Insta-SOS de enviar mensajes.';
+
+  @override
+  String get hsSOSReady => 'SOS está listo';
 
   @override
   String get hsLocation => 'Ubicación';
 
   @override
-  String get hsUnable => 'No se puede determinar';
-
-  @override
-  String get hsAddLocation =>
-      'Habilita compartir la ubicación con los contactos de emergencia.';
+  String get hsAddLocation => 'Agrega tu ubicación a los mensajes de SOS';
 
   @override
   String get hsAddAlways =>
-      'Se recomienda habilitar siempre. Presiona de nuevo para abrir la Configuración del Sistema.';
+      'Se recomienda habilitar siempre. Presiona nuevamente para abrir la Configuración del sistema.';
 
   @override
   String get hsLocationReady => 'La ubicación está lista';
 
   @override
   String get hsLocationSetupHint =>
-      'Activar para dar permiso a Insta-SOS para ver tu ubicación.';
+      'Activar para dar permiso a Insta-SOS de ver tu ubicación.';
+
+  @override
+  String get hsUnable => 'No se puede determinar';
 
   @override
   String get hsOneOfFour => 'Primero de cuatro. Continuar...';

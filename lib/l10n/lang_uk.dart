@@ -66,79 +66,78 @@ class LangUk extends Lang {
       'Посібник і налаштування перекладено автоматично.\nСписок прав перекладено людиною.';
 
   @override
-  String get hsCamMic => 'Камера та мікрофон';
+  String get hsCamera => 'Камера';
 
   @override
-  String get hsAddRecording => 'Дозволяє запис відео.';
+  String get hsAddRecording => 'Дозволяє записувати відео';
+
+  @override
+  String get hsMic => 'Мікрофон';
+
+  @override
+  String get hsSilent => 'Без нього відео будуть без звуку';
 
   @override
   String get hsGallery => 'Галерея';
 
   @override
-  String get hsAddSave => 'Потрібно для збереження ваших записів.';
+  String get hsAddSave => 'Необхідно для збереження ваших записів';
 
   @override
   String get hsCameraReady => 'Камера готова';
 
   @override
   String get hsCameraSetupHint =>
-      'Активуйте, щоб надати Insta-SOS дозвіл на використання камери.';
+      'Активуйте, щоб надати Insta-SOS дозвіл на доступ до камери';
+
+  @override
+  String get hsCameraSnack =>
+      'Будь ласка, увімкніть камеру в налаштуваннях (вище),\nа потім спробуйте ще раз';
 
   @override
   String get hsContacts => 'Контакти';
 
   @override
-  String get hsAddContacts =>
-      'Частина 1 для ввімкнення сповіщень екстреним контактам.';
+  String get hsAddContacts => 'Дозволяє надсилати SOS-повідомлення';
 
   @override
-  String get hsAddContactsIOS => 'Вмикає сповіщення екстреним контактам.';
-
-  @override
-  String get hsContactsReady => 'Контакти готові';
+  String get hsAppleContacts =>
+      'Цей крок стосується лише дозволів програми.\nВи ще не вибираєте екстрені контакти.\n\nРекомендується дозволити всі, щоб уникнути зайвого клопоту.';
 
   @override
   String get hsContactsSetupHint =>
       'Активуйте, щоб надати Insta-SOS дозвіл на перегляд ваших контактів.';
 
   @override
-  String get hsAppleContacts =>
-      'Цей крок призначений лише для дозволів додатка.\nВи ще не вибираєте екстрені контакти.\n\nРекомендується дозволити всі, щоб уникнути проблем.';
-
-  @override
-  String get hsTexting => 'Обмін повідомленнями';
-
-  @override
-  String get hsAddTexting =>
-      'Частина 2 для ввімкнення сповіщень екстреним контактам.';
-
-  @override
-  String get hsTextingReady => 'Обмін повідомленнями готовий';
+  String get hsSMS =>
+      'Android вимагає дозволу на те, кому і як надсилати повідомлення';
 
   @override
   String get hsTextingSetupHint =>
       'Активуйте, щоб надати Insta-SOS дозвіл на надсилання повідомлень.';
 
   @override
-  String get hsLocation => 'Геодані';
+  String get hsSOSReady => 'SOS готовий';
 
   @override
-  String get hsUnable => 'Неможливо визначити';
+  String get hsLocation => 'Місцезнаходження';
 
   @override
-  String get hsAddLocation =>
-      'Дозволяє ділитися геоданими з екстреними контактами.';
+  String get hsAddLocation => 'Додає ваше місцезнаходження до SOS-повідомлень';
 
   @override
   String get hsAddAlways =>
-      'Рекомендується ввімкнути \"Завжди\". Натисніть ще раз, щоб відкрити Системні налаштування.';
+      'Рекомендується увімкнути \"Завжди\". Натисніть ще раз, щоб відкрити налаштування системи.';
 
   @override
-  String get hsLocationReady => 'Геодані готові';
+  String get hsLocationReady => 'Місцезнаходження готове';
 
   @override
   String get hsLocationSetupHint =>
-      'Активуйте, щоб надати Insta-SOS дозвіл на перегляд ваших геоданих.';
+      'Активуйте, щоб надати Insta-SOS дозвіл на перегляд вашого місцезнаходження.';
+
+  @override
+  String get hsUnable => 'Неможливо визначити';
 
   @override
   String get hsOneOfFour => 'Перше з чотирьох. Продовжити...';

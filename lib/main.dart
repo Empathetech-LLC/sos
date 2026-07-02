@@ -19,7 +19,7 @@ void main() async {
 
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[DeviceOrientation.portraitUp]);
 
-  EzConfig.init(
+  EzCM.init(
     appName: 'InstaSOS',
     androidPackage: androidPackage,
     assetPaths: assetPaths,
@@ -68,36 +68,36 @@ class SOS extends StatelessWidget {
         routerConfig: GoRouter(
           navigatorKey: ezRootNav,
           initialLocation: homePath,
-          errorBuilder: (_, __) => ErrorScreen(),
+          errorBuilder: (_, __) => const ErrorScreen(),
           routes: <RouteBase>[
             // Home
             GoRoute(
               path: homePath,
               name: homePath,
-              pageBuilder: (BuildContext context, GoRouterState state) =>
-                  ezPageBuilder(context, state, HomeScreen()),
+              pageBuilder: (BuildContext pbc, GoRouterState pbs) =>
+                  ezPageBuilder(configWatcher(pbc), pbc, pbs, const HomeScreen()),
               routes: <RouteBase>[
                 // Settings home
                 GoRoute(
                   path: settingsHomePath,
                   name: settingsHomePath,
-                  pageBuilder: (BuildContext context, GoRouterState state) =>
-                      ezPageBuilder(context, state, SettingsHomeScreen()),
+                  pageBuilder: (BuildContext pbc, GoRouterState pbs) =>
+                      ezPageBuilder(configWatcher(pbc), pbc, pbs, const SettingsHomeScreen()),
                   routes: <RouteBase>[
                     // SOS settings
                     GoRoute(
                       path: sosSettingsPath,
                       name: sosSettingsPath,
-                      pageBuilder: (BuildContext context, GoRouterState state) =>
-                          ezPageBuilder(context, state, SOSSettingsScreen()),
+                      pageBuilder: (BuildContext pbc, GoRouterState pbs) =>
+                          ezPageBuilder(configWatcher(pbc), pbc, pbs, const SOSSettingsScreen()),
                     ),
 
                     // Appearance settings
                     GoRoute(
                       path: appearanceSettingsPath,
                       name: appearanceSettingsPath,
-                      pageBuilder: (BuildContext context, GoRouterState state) =>
-                          ezPageBuilder(context, state, AppearanceSettingsScreen()),
+                      pageBuilder: (BuildContext pbc, GoRouterState pbs) => ezPageBuilder(
+                          configWatcher(pbc), pbc, pbs, const AppearanceSettingsScreen()),
                     ),
                   ],
                 ),

@@ -11,10 +11,12 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class ContactList extends StatefulWidget {
+  final EzCP config;
   final void Function() onUpdate;
   final bool fauxDisabled;
 
-  const ContactList({
+  const ContactList(
+    this.config, {
     super.key,
     required this.onUpdate,
     required this.fauxDisabled,
@@ -28,7 +30,7 @@ class _ContactListState extends State<ContactList> {
   // Define custom functions //
 
   Future<void> addContact() async {
-    await addEMC(context, loop: false);
+    await addEMC(widget.config, context: context, loop: false);
     if (mounted) setState(() => currEMC = emc);
     widget.onUpdate.call();
   }
@@ -41,38 +43,43 @@ class _ContactListState extends State<ContactList> {
   Widget build(BuildContext context) => EzCol(children: <Widget>[
         // Title && add button
         EzScrollView(
+          widget.config,
           reverseHands: true,
           scrollDirection: Axis.horizontal,
           children: <Widget>[
-            Text(l10n.bsEMC, style: EzConfig.styles.titleLarge),
-            EzConfig.rowMargin,
+            Text(l10n(widget.config).bsEMC, style: widget.config.titleStyle),
+            widget.config.rowMargin,
             EzIconButton(
+              widget.config,
               fauxDisabled: widget.fauxDisabled,
               icon: EzIcon(
+                widget.config,
                 Icons.add_circle_outline,
-                semanticLabel: l10n.bsAddHint,
+                semanticLabel: l10n(widget.config).bsAddHint,
               ),
               onPressed: addContact,
               onLongPress: widget.fauxDisabled ? openAppSettings : null,
-              tooltip: l10n.bsAddHint,
+              tooltip: l10n(widget.config).bsAddHint,
             ),
           ],
         ),
-        EzConfig.margin,
+        widget.config.margin,
 
         // List of numbers (with remove buttons)
         emc.isEmpty
             ? EzTextButton(
-                text: l10n.bsAddSomeone,
+                widget.config,
+                text: l10n(widget.config).bsAddSomeone,
                 onPressed: addContact,
                 style: TextButton.styleFrom(
-                  padding: EdgeInsets.all(EzConfig.marginVal),
+                  padding: EdgeInsets.all(widget.config.marginVal),
                   side: widget.fauxDisabled
                       ? null
-                      : EzConfig.borderSide(
-                          color: EzConfig.colors.primaryContainer.withValues(alpha: focusOpacity)),
+                      : widget.config.borderSide(
+                          color: widget.config.colors.primaryContainer
+                              .withValues(alpha: focusOpacity)),
                 ),
-                textStyle: EzConfig.styles.bodyLarge,
+                textStyle: widget.config.bodyStyle,
                 textAlign: TextAlign.center,
               )
             : ConstrainedBox(
@@ -82,6 +89,7 @@ class _ContactListState extends State<ContactList> {
                 ),
                 child: Card(
                   child: EzScrollView(
+                    widget.config,
                     mainAxisAlignment: MainAxisAlignment.center,
                     // Using fold w/ spacers bc map w/ padding looks weird with screen readers
                     children: currEMC.fold<List<Widget>>(<Widget>[], (
@@ -102,18 +110,19 @@ class _ContactListState extends State<ContactList> {
 
                       acc.addAll(<Widget>[
                         _ContactTile(
+                          widget.config,
                           key: ValueKey<String>(contact),
                           initials: initials,
                           number: number,
                           fauxDisabled: widget.fauxDisabled,
                           onRemove: () async {
                             currEMC.remove(contact);
-                            await EzConfig.setStringList(emcKey, currEMC);
+                            await EzCM.setStringList(emcKey, currEMC);
                             if (mounted) setState(() => currEMC = emc);
                             widget.onUpdate.call();
                           },
                         ),
-                        EzSpacer(space: max(0, EzConfig.spacing - EzConfig.marginVal * 2)),
+                        EzSpacer(max(0, widget.config.spacing - widget.config.marginVal * 2)),
                       ]);
 
                       return acc;
@@ -126,12 +135,14 @@ class _ContactListState extends State<ContactList> {
 }
 
 class _ContactTile extends StatelessWidget {
+  final EzCP config;
   final String? initials;
   final String number;
   final bool fauxDisabled;
   final VoidCallback onRemove;
 
-  const _ContactTile({
+  const _ContactTile(
+    this.config, {
     super.key,
     required this.initials,
     required this.number,
@@ -141,40 +152,41 @@ class _ContactTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: EdgeInsets.all(EzConfig.marginVal),
+        padding: EdgeInsets.all(config.marginVal),
         child: EzRow(
+          config,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             // Initials coin (if available)
             if (initials != null) ...<Widget>[
               fauxDisabled
                   ? CircleAvatar(
-                      radius: EzConfig.padding + EzConfig.iconSize / 2,
-                      foregroundColor: EzConfig.colors.onSurface,
-                      backgroundColor: EzConfig.colors.outline,
+                      radius: config.padding + config.iconSize / 2,
+                      foregroundColor: config.colors.onSurface,
+                      backgroundColor: config.colors.outline,
                       child: Text(
                         initials!,
-                        style: EzConfig.styles.bodyLarge?.copyWith(
-                          color: EzConfig.colors.onSurface,
+                        style: config.bodyStyle?.copyWith(
+                          color: config.colors.onSurface,
                           fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.start,
                       ),
                     )
                   : CircleAvatar(
-                      radius: EzConfig.padding + EzConfig.iconSize / 2,
-                      foregroundColor: EzConfig.colors.onSecondary,
-                      backgroundColor: EzConfig.colors.secondary,
+                      radius: config.padding + config.iconSize / 2,
+                      foregroundColor: config.colors.onSecondary,
+                      backgroundColor: config.colors.secondary,
                       child: Text(
                         initials!,
-                        style: EzConfig.styles.bodyLarge?.copyWith(
-                          color: EzConfig.colors.onSecondary,
+                        style: config.bodyStyle?.copyWith(
+                          color: config.colors.onSecondary,
                           fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.start,
                       ),
                     ),
-              EzConfig.rowMargin,
+              config.rowMargin,
             ],
 
             // Number
@@ -182,21 +194,23 @@ class _ContactTile extends StatelessWidget {
               child: Text(
                 number,
                 style: fauxDisabled
-                    ? EzConfig.styles.bodyLarge?.copyWith(color: EzConfig.colors.outline)
-                    : EzConfig.styles.bodyLarge,
+                    ? config.bodyStyle?.copyWith(color: config.colors.outline)
+                    : config.bodyStyle,
                 textAlign: TextAlign.center,
               ),
             ),
 
             // Remove button
-            EzConfig.rowSpacer,
+            config.rowSpacer,
             EzIconButton(
+              config,
               icon: EzIcon(
+                config,
                 Icons.remove_circle_outline,
-                semanticLabel: l10n.bsRemoveHint,
+                semanticLabel: l10n(config).bsRemoveHint,
               ),
               onPressed: onRemove,
-              tooltip: l10n.bsRemoveHint,
+              tooltip: l10n(config).bsRemoveHint,
             ),
           ],
         ),

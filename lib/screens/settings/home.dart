@@ -15,12 +15,13 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
 
 class SettingsHomeScreen extends StatelessWidget {
-  SettingsHomeScreen() : super(key: ValueKey<int>(EzConfig.seed));
+  const SettingsHomeScreen({super.key});
 
   // Define custom functions //
 
   Future<void> followLink(
-    String url, {
+    EzCP config, {
+    required String url,
     required BuildContext parentContext,
     required BuildContext modalContext,
   }) async {
@@ -31,19 +32,21 @@ class SettingsHomeScreen extends StatelessWidget {
       launch = await showDialog(
         context: parentContext,
         builder: (BuildContext dCon) => EzAlertDialog(
+          config,
           title: Text(
-            EzConfig.l10n.gAttention,
+            config.ezL10n.gAttention,
             textAlign: TextAlign.center,
           ),
           content: Text(
-            l10n.gOnCloseWarning,
+            l10n(config).gOnCloseWarning,
             textAlign: TextAlign.center,
           ),
           actions: ezActionPair(
-            confirmMsg: EzConfig.l10n.gContinue,
+            config,
+            confirmMsg: config.ezL10n.gContinue,
             confirmIsDestructive: true,
             onConfirm: () => Navigator.of(dCon).pop(true),
-            denyMsg: EzConfig.l10n.gCancel,
+            denyMsg: config.ezL10n.gCancel,
             denyIsDefault: true,
             onDeny: () => Navigator.of(dCon).pop(false),
           ),
@@ -59,297 +62,332 @@ class SettingsHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<EzConfigProvider>(
-      builder: (_, EzConfigProvider config, __) => SosScaffold(
-        EzScreen(
-          Center(
-            child: EzScrollView(children: <Widget>[
+    return Consumer<EzCP>(
+      builder: (_, EzCP config, __) => SosScaffold(
+        config,
+        body: EzScreen(
+          config,
+          safeArea: true,
+          child: Center(
+            child: EzScrollView(config, children: <Widget>[
               // Language
               EzLocaleSetting(
+                config,
                 skip: <Locale>{arabic, english, chinese}, // dupes
               ),
-              config.layout.separator,
+              config.separator,
 
               // Auto-share media
-              EzSwitchPair(text: l10n.ssAutoShare, valueKey: autoShareMediaKey),
-              config.layout.separator,
+              EzSwitchPair(
+                config,
+                text: l10n(config).ssAutoShare,
+                valueKey: autoShareMediaKey,
+              ),
+              config.separator,
 
               // GoTo SOS
               EzElevatedIconButton(
+                config,
                 onPressed: () => context.goNamed(sosSettingsPath),
-                icon: EzIcon(Icons.navigate_next),
-                label: l10n.ssSOS,
+                icon: EzIcon(config, Icons.navigate_next),
+                label: l10n(config).ssSOS,
               ),
-              config.layout.spacer,
+              config.spacer,
 
               // GoTo Appearance
               EzElevatedIconButton(
+                config,
                 onPressed: () => context.goNamed(appearanceSettingsPath),
-                icon: EzIcon(Icons.navigate_next),
-                label: l10n.ssAppearance,
+                icon: EzIcon(config, Icons.navigate_next),
+                label: l10n(config).ssAppearance,
               ),
-              config.layout.divider,
+              config.divider,
 
               // Permissions
               EzElevatedIconButton(
+                config,
                 onPressed: () async {
                   bool locked = false;
 
                   await ezModal(
+                    config,
                     context: context,
                     builder: (BuildContext mCon) => StatefulBuilder(
-                      builder: (_, StateSetter setModal) => ezModalScroll(<Widget>[
+                      builder: (_, StateSetter setModal) =>
+                          ezModalScroll(config, children: <Widget>[
                         // Intro
                         EzRichText(
-                          <InlineSpan>[
+                          config,
+                          children: <InlineSpan>[
                             EzPlainText(
-                              text: '${l10n.pmOnlyAdd}\n',
-                              style: config.theme.textTheme.bodyLarge,
+                              text: '${l10n(config).pmOnlyAdd}\n',
+                              style: config.bodyStyle,
                             ),
                             EzPlainText(
-                              text: l10n.pmRemoveIn,
-                              style: config.theme.textTheme.bodyLarge,
+                              text: l10n(config).pmRemoveIn,
+                              style: config.bodyStyle,
                             ),
                             EzInlineLink(
-                              l10n.gSystem.toLowerCase(),
+                              config,
+                              text: l10n(config).gSystem.toLowerCase(),
                               onTap: () async {
                                 await openAppSettings();
                                 if (mCon.mounted) {
                                   Navigator.of(mCon).pop();
                                 }
                               },
-                              hint: config.l10n.gOpenLink,
+                              hint: config.ezL10n.gOpenLink,
                             ),
                             EzPlainText(
                               text: '.',
-                              style: config.theme.textTheme.bodyLarge,
+                              style: config.bodyStyle,
                             ),
                           ],
                           textBackground: false,
-                          style: config.theme.textTheme.bodyLarge,
+                          style: config.bodyStyle,
                           textAlign: TextAlign.center,
                         ),
-                        config.layout.centerLine,
+                        config.centerLine,
                         Text(
-                          l10n.pmManualPermission,
-                          style: config.theme.textTheme.bodyLarge,
+                          l10n(config).pmManualPermission,
+                          style: config.bodyStyle,
                           textAlign: TextAlign.center,
                         ),
-                        config.layout.divider,
+                        config.divider,
 
                         // Setup cards
-                        ContactsSetup(
+                        CameraSetup(
+                          config,
                           locked: locked,
                           setLock: (bool active) => setModal(() => locked = active),
                         ),
-                        config.layout.spacer,
+                        config.spacer,
 
-                        if (!isIOS) ...<Widget>[
-                          SMSSetup(
-                            locked: locked,
-                            setLock: (bool active) => setModal(() => locked = active),
-                          ),
-                          config.layout.spacer,
-                        ],
+                        SOSSetup(
+                          config,
+                          locked: locked,
+                          setLock: (bool active) => setModal(() => locked = active),
+                        ),
+                        config.spacer,
 
                         LocationSetup(
+                          config,
                           locked: locked,
                           setLock: (bool active) => setModal(() => locked = active),
                         ),
-                        config.layout.spacer,
+                        config.spacer,
 
                         // Finish/leave
-                        EzTextButton(
-                          text: l10n.gDone,
-                          textStyle: config.theme.textTheme.bodyLarge
-                              ?.copyWith(color: config.theme.colorScheme.primary),
+                        EzTextIconButton(
+                          config,
+                          label: l10n(config).gDone,
+                          icon: EzIcon(config, Icons.check),
                           textAlign: TextAlign.center,
-                          style: TextButton.styleFrom(
-                              backgroundColor: config.theme.colorScheme.surfaceContainer),
+                          style:
+                              TextButton.styleFrom(backgroundColor: config.colors.surfaceContainer),
                           onPressed: () => Navigator.of(mCon).pop(true),
                         ),
-                        config.layout.separator,
+                        config.separator,
                       ]),
                     ),
                   );
                 },
-                icon: EzIcon(Icons.list),
-                label: l10n.ssPermissions,
+                icon: EzIcon(config, Icons.list),
+                label: l10n(config).ssPermissions,
               ),
-              config.layout.spacer,
+              config.spacer,
 
               // Resources
               EzElevatedIconButton(
+                config,
                 onPressed: () => ezModal(
+                  config,
                   context: context,
-                  builder: (BuildContext mCon) => ezModalScroll(<Widget>[
+                  builder: (BuildContext mCon) => ezModalScroll(config, children: <Widget>[
                     // Community resources //
                     Center(
                       child: Text(
-                        l10n.rmCommunity,
-                        style: config.theme.textTheme.titleLarge,
+                        l10n(config).rmCommunity,
+                        style: config.titleStyle,
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    config.layout.spacer,
+                    config.spacer,
 
                     // ACLU
                     EzLink(
-                      'ACLU Know Your Rights',
+                      config,
+                      text: 'ACLU Know Your Rights',
                       onTap: () => followLink(
-                        acluLink,
+                        config,
+                        url: acluLink,
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: config.l10n.gOpenLink,
-                      style: config.theme.textTheme.bodyLarge,
+                      hint: config.ezL10n.gOpenLink,
+                      style: config.bodyStyle,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    config.layout.spacer,
+                    config.spacer,
 
                     // Dunk the Vote
                     EzLink(
-                      'Dunk the Vote: The Black Book',
+                      config,
+                      text: 'Dunk the Vote: The Black Book',
                       onTap: () => followLink(
-                        dunkLink,
+                        config,
+                        url: dunkLink,
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: config.l10n.gOpenLink,
-                      style: config.theme.textTheme.bodyLarge,
+                      hint: config.ezL10n.gOpenLink,
+                      style: config.bodyStyle,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    config.layout.spacer,
+                    config.spacer,
 
                     // How to document
                     EzLink(
-                      'How to document ICE',
+                      config,
+                      text: 'How to document ICE',
                       onTap: () => followLink(
-                        howToLink,
+                        config,
+                        url: howToLink,
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: config.l10n.gOpenLink,
-                      style: config.theme.textTheme.bodyLarge,
+                      hint: config.ezL10n.gOpenLink,
+                      style: config.bodyStyle,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    config.layout.spacer,
+                    config.spacer,
 
                     // ICERR
                     EzLink(
-                      'ICERR (Rapid Response)',
+                      config,
+                      text: 'ICERR (Rapid Response)',
                       onTap: () => followLink(
-                        icerrLink,
+                        config,
+                        url: icerrLink,
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: config.l10n.gOpenLink,
-                      style: config.theme.textTheme.bodyLarge,
+                      hint: config.ezL10n.gOpenLink,
+                      style: config.bodyStyle,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    config.layout.spacer,
+                    config.spacer,
 
                     // IMMDEF
                     EzLink(
-                      'IMMDEF Resources',
+                      config,
+                      text: 'IMMDEF Resources',
                       onTap: () => followLink(
-                        immdefLink,
+                        config,
+                        url: immdefLink,
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: config.l10n.gOpenLink,
-                      style: config.theme.textTheme.bodyLarge,
+                      hint: config.ezL10n.gOpenLink,
+                      style: config.bodyStyle,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    config.layout.spacer,
+                    config.spacer,
 
                     // NNiRR
                     EzLink(
-                      'NNiRR Immigration Hotlines',
+                      config,
+                      text: 'NNiRR Immigration Hotlines',
                       onTap: () => followLink(
-                        nirrHotlinesLink,
+                        config,
+                        url: nirrHotlinesLink,
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: config.l10n.gOpenLink,
-                      style: config.theme.textTheme.bodyLarge,
+                      hint: config.ezL10n.gOpenLink,
+                      style: config.bodyStyle,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    config.layout.divider,
+                    config.divider,
 
                     // Gov resources //
                     Center(
                       child: Text(
-                        l10n.rmGov,
-                        style: config.theme.textTheme.titleLarge,
+                        l10n(config).rmGov,
+                        style: config.titleStyle,
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    config.layout.spacer,
+                    config.spacer,
 
                     // Detainee Locator
                     EzLink(
-                      'ICE Detainee Locator',
+                      config,
+                      text: 'ICE Detainee Locator',
                       onTap: () => followLink(
-                        iceLocatorLink,
+                        config,
+                        url: iceLocatorLink,
                         parentContext: context,
                         modalContext: mCon,
                       ),
-                      hint: config.l10n.gOpenLink,
-                      style: config.theme.textTheme.bodyLarge,
+                      hint: config.ezL10n.gOpenLink,
+                      style: config.bodyStyle,
                       backgroundColor: Colors.transparent,
                       textAlign: TextAlign.center,
                     ),
-                    config.layout.divider,
+                    config.divider,
 
                     // Disclaimers
                     Text(
-                      l10n.rmAffiliate,
-                      semanticsLabel: l10n.rmAffiliateFix,
-                      style: config.theme.textTheme.labelLarge,
+                      l10n(config).rmAffiliate,
+                      semanticsLabel: l10n(config).rmAffiliateFix,
+                      style: config.labelStyle,
                       textAlign: TextAlign.center,
                     ),
-                    config.layout.separator,
+                    config.separator,
                   ]),
                 ),
-                icon: EzIcon(Icons.search),
-                label: l10n.ssResources,
+                icon: EzIcon(config, Icons.search),
+                label: l10n(config).ssResources,
               ),
-              config.layout.spacer,
+              config.spacer,
 
               // App support
               EzElevatedIconButton(
+                config,
                 onPressed: () async {
-                  final TextStyle? answer = config.theme.textTheme.bodyLarge;
+                  final TextStyle? answer = config.bodyStyle;
                   final TextStyle? question =
                       answer?.copyWith(decoration: TextDecoration.underline);
 
                   await ezModal(
+                    config,
                     context: context,
                     builder: (BuildContext mCon) => ezModalScroll(
-                      <Widget>[
+                      config,
+                      children: <Widget>[
                         //* Expandable FAQ *//
 
                         Center(
                           child: Text(
-                            l10n.faqName,
-                            style: config.theme.textTheme.titleLarge,
+                            l10n(config).faqName,
+                            style: config.titleStyle,
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        config.layout.margin,
+                        config.margin,
 
                         // Rights list source? - shared //
 
                         ExpansionTile(
                           title: Text(
-                            l10n.faqListQ,
+                            l10n(config).faqListQ,
                             style: answer,
                             textAlign: TextAlign.start,
                           ),
@@ -357,41 +395,47 @@ class SettingsHomeScreen extends StatelessWidget {
                           children: <Widget>[
                             // From public...
                             Text(
-                              l10n.faqListA,
+                              l10n(config).faqListA,
                               style: answer,
                               textAlign: TextAlign.start,
                             ),
-                            config.layout.startLine,
+                            config.startLine,
 
                             // Links
                             EzLink(
-                              'ACLU Know Your Rights',
+                              config,
+                              text: 'ACLU Know Your Rights',
                               onTap: () => followLink(
-                                acluLink,
+                                config,
+                                url: acluLink,
                                 parentContext: context,
                                 modalContext: mCon,
                               ),
-                              hint: config.l10n.gOpenLink,
+                              hint: config.ezL10n.gOpenLink,
                               textAlign: TextAlign.start,
                             ),
                             EzLink(
-                              'IMMDEF Resources',
+                              config,
+                              text: 'IMMDEF Resources',
                               onTap: () => followLink(
-                                immdefLink,
+                                config,
+                                url: immdefLink,
                                 parentContext: context,
                                 modalContext: mCon,
                               ),
-                              hint: config.l10n.gOpenLink,
+                              hint: config.ezL10n.gOpenLink,
                               textAlign: TextAlign.start,
                             ),
                             EzLink(
-                              'Dunk the Vote: The Black Book',
+                              config,
+                              text: 'Dunk the Vote: The Black Book',
                               onTap: () => followLink(
-                                dunkLink,
+                                config,
+                                url: dunkLink,
                                 parentContext: context,
                                 modalContext: mCon,
                               ),
-                              hint: config.l10n.gOpenLink,
+                              hint: config.ezL10n.gOpenLink,
                               textAlign: TextAlign.start,
                             ),
                           ],
@@ -403,7 +447,7 @@ class SettingsHomeScreen extends StatelessWidget {
                           // Settings explanation
                           ExpansionTile(
                             title: Text(
-                              l10n.faqSettings,
+                              l10n(config).faqSettings,
                               style: answer,
                               textAlign: TextAlign.start,
                             ),
@@ -411,92 +455,92 @@ class SettingsHomeScreen extends StatelessWidget {
                             children: <Widget>[
                               // Auto share
                               EzRichText(
-                                <InlineSpan>[
+                                config,
+                                children: <InlineSpan>[
                                   EzPlainText(
-                                    text: '${l10n.ssAutoShare}:',
+                                    text: '${l10n(config).ssAutoShare}:',
                                     style: question,
                                   ),
                                   EzPlainText(
-                                    text: l10n.faqAutoShareA,
+                                    text: l10n(config).faqAutoShareA,
                                     style: answer,
                                   ),
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
-                              config.layout.startLine,
+                              config.startLine,
 
                               // Location link
                               EzRichText(
-                                <InlineSpan>[
+                                config,
+                                children: <InlineSpan>[
                                   EzPlainText(
-                                    text: '${l10n.bsLinkType}:',
+                                    text: '${l10n(config).bsLinkType}:',
                                     style: question,
                                   ),
                                   EzPlainText(
-                                    text: l10n.faqLinkA,
+                                    text: l10n(config).faqLinkA,
                                     style: answer,
                                   ),
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
-                              config.layout.startLine,
+                              config.startLine,
 
                               // On open
                               EzRichText(
-                                <InlineSpan>[
+                                config,
+                                children: <InlineSpan>[
                                   EzPlainText(
-                                    text: '${l10n.bsSOSOnOpen}:',
+                                    text: '${l10n(config).bsSOSOnOpen}:',
                                     style: question,
                                   ),
                                   EzPlainText(
-                                    text: l10n.faqOnOpenA,
+                                    text: l10n(config).faqOnOpenA,
                                     style: answer,
                                   ),
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
-                              config.layout.startLine,
+                              config.startLine,
 
                               // On close
                               EzRichText(
-                                <InlineSpan>[
+                                config,
+                                children: <InlineSpan>[
                                   EzPlainText(
-                                    text: '${l10n.bsSOSOnClose}:',
+                                    text: '${l10n(config).bsSOSOnClose}:',
                                     style: question,
                                   ),
                                   EzPlainText(
-                                    text: ' ${l10n.bsSOSOnCloseHint.replaceAll('\n', ' ')}',
+                                    text: ' ${l10n(config).bsSOSOnCloseHint.replaceAll('\n', ' ')}',
                                     style: answer,
                                   ),
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
-                              config.layout.startLine,
+                              config.startLine,
 
                               // On interrupt
                               EzRichText(
-                                <InlineSpan>[
+                                config,
+                                children: <InlineSpan>[
                                   EzPlainText(
-                                    text: '${l10n.bsSOSOnVideo}:',
+                                    text: '${l10n(config).bsSOSOnVideo}:',
                                     style: question,
                                   ),
                                   EzPlainText(
-                                    text: l10n.faqOnInterruptA,
-                                    semanticsLabel: l10n.faqOnInterruptAFix,
+                                    text: l10n(config).faqOnInterruptA,
+                                    semanticsLabel: l10n(config).faqOnInterruptAFix,
                                     style: answer,
                                   ),
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                             ],
                           ),
@@ -504,27 +548,29 @@ class SettingsHomeScreen extends StatelessWidget {
                           // Location unavailable?
                           ExpansionTile(
                             title: Text(
-                              l10n.faqUnavailable,
+                              l10n(config).faqUnavailable,
                               style: answer,
                               textAlign: TextAlign.start,
                             ),
                             expandedCrossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               EzRichText(
-                                <InlineSpan>[
+                                config,
+                                children: <InlineSpan>[
                                   EzPlainText(
-                                    text: l10n.faqReliability,
+                                    text: l10n(config).faqReliability,
                                     style: answer,
                                   ),
                                   EzInlineLink(
-                                    l10n.faqLocationPermissions,
+                                    config,
+                                    text: l10n(config).faqLocationPermissions,
                                     onTap: () async {
                                       await openAppSettings();
                                       if (mCon.mounted) {
                                         Navigator.of(mCon).pop();
                                       }
                                     },
-                                    hint: config.l10n.gOpenLink,
+                                    hint: config.ezL10n.gOpenLink,
                                   ),
                                   EzPlainText(
                                     text: '.',
@@ -533,12 +579,11 @@ class SettingsHomeScreen extends StatelessWidget {
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
-                              config.layout.startLine,
+                              config.startLine,
                               Text(
-                                l10n.faqLocationTrust,
-                                semanticsLabel: l10n.faqLocationTrustFix,
+                                l10n(config).faqLocationTrust,
+                                semanticsLabel: l10n(config).faqLocationTrustFix,
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
@@ -552,7 +597,7 @@ class SettingsHomeScreen extends StatelessWidget {
                           // Settings explanation
                           ExpansionTile(
                             title: Text(
-                              l10n.faqSettings,
+                              l10n(config).faqSettings,
                               style: answer,
                               textAlign: TextAlign.start,
                             ),
@@ -560,55 +605,55 @@ class SettingsHomeScreen extends StatelessWidget {
                             children: <Widget>[
                               // Auto share
                               EzRichText(
-                                <InlineSpan>[
+                                config,
+                                children: <InlineSpan>[
                                   EzPlainText(
-                                    text: '${l10n.ssAutoShare}:',
+                                    text: '${l10n(config).ssAutoShare}:',
                                     style: question,
                                   ),
                                   EzPlainText(
-                                    text: l10n.faqAutoShareA,
+                                    text: l10n(config).faqAutoShareA,
                                     style: answer,
                                   ),
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
-                              config.layout.startLine,
+                              config.startLine,
 
                               // Location link
                               EzRichText(
-                                <InlineSpan>[
+                                config,
+                                children: <InlineSpan>[
                                   EzPlainText(
-                                    text: '${l10n.bsLinkType}:',
+                                    text: '${l10n(config).bsLinkType}:',
                                     style: question,
                                   ),
                                   EzPlainText(
-                                    text: l10n.faqLinkA,
+                                    text: l10n(config).faqLinkA,
                                     style: answer,
                                   ),
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
-                              config.layout.startLine,
+                              config.startLine,
 
                               // On open
                               EzRichText(
-                                <InlineSpan>[
+                                config,
+                                children: <InlineSpan>[
                                   EzPlainText(
-                                    text: '${l10n.bsSOSOnOpen}:',
+                                    text: '${l10n(config).bsSOSOnOpen}:',
                                     style: question,
                                   ),
                                   EzPlainText(
-                                    text: l10n.faqOnOpenA,
+                                    text: l10n(config).faqOnOpenA,
                                     style: answer,
                                   ),
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                             ],
                           ),
@@ -616,7 +661,9 @@ class SettingsHomeScreen extends StatelessWidget {
                           // Private contact?
                           ExpansionTile(
                             title: Text(
-                              l10n.bsNumError.replaceRange(l10n.bsNumError.length - 1, null, '?'),
+                              l10n(config)
+                                  .bsNumError
+                                  .replaceRange(l10n(config).bsNumError.length - 1, null, '?'),
                               style: answer,
                               textAlign: TextAlign.start,
                             ),
@@ -624,29 +671,31 @@ class SettingsHomeScreen extends StatelessWidget {
                             children: <Widget>[
                               // Permission issue
                               Text(
-                                l10n.faqContactPermissions,
-                                semanticsLabel: l10n.faqContactPermissionsFix,
+                                l10n(config).faqContactPermissions,
+                                semanticsLabel: l10n(config).faqContactPermissionsFix,
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
-                              config.layout.startLine,
+                              config.startLine,
 
                               // Fix here
                               EzRichText(
-                                <InlineSpan>[
+                                config,
+                                children: <InlineSpan>[
                                   EzPlainText(
-                                    text: l10n.faqUpdateContacts,
+                                    text: l10n(config).faqUpdateContacts,
                                     style: answer,
                                   ),
                                   EzInlineLink(
-                                    l10n.gSystem.toLowerCase(),
+                                    config,
+                                    text: l10n(config).gSystem.toLowerCase(),
                                     onTap: () async {
                                       await openAppSettings();
                                       if (mCon.mounted) {
                                         Navigator.of(mCon).pop();
                                       }
                                     },
-                                    hint: config.l10n.gOpenLink,
+                                    hint: config.ezL10n.gOpenLink,
                                   ),
                                   EzPlainText(
                                     text: '.',
@@ -655,33 +704,33 @@ class SettingsHomeScreen extends StatelessWidget {
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
-                              config.layout.startLine,
+                              config.startLine,
 
                               // Two part-er
                               EzRichText(
-                                <InlineSpan>[
+                                config,
+                                children: <InlineSpan>[
                                   EzPlainText(
-                                    text: l10n.faqSplitClarity1,
+                                    text: l10n(config).faqSplitClarity1,
                                     style: answer,
                                   ),
                                   EzInlineLink(
-                                    l10n.ssSOS.toLowerCase(),
+                                    config,
+                                    text: l10n(config).ssSOS.toLowerCase(),
                                     onTap: () {
                                       Navigator.of(mCon).pop();
                                       context.goNamed(sosSettingsPath);
                                     },
-                                    hint: config.l10n.gOpenLink,
+                                    hint: config.ezL10n.gOpenLink,
                                   ),
                                   EzPlainText(
-                                    text: l10n.faqSplitClarity2,
+                                    text: l10n(config).faqSplitClarity2,
                                     style: answer,
                                   ),
                                 ],
                                 textBackground: false,
                                 style: answer,
-                                textAlign: TextAlign.start,
                               ),
                             ],
                           ),
@@ -689,20 +738,20 @@ class SettingsHomeScreen extends StatelessWidget {
                           // Fewer settings than Android?
                           ExpansionTile(
                             title: Text(
-                              l10n.faqMissing,
+                              l10n(config).faqMissing,
                               style: answer,
                               textAlign: TextAlign.start,
                             ),
                             expandedCrossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                l10n.faqRestricted,
+                                l10n(config).faqRestricted,
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
-                              config.layout.startLine,
+                              config.startLine,
                               Text(
-                                l10n.faqShortcuts,
+                                l10n(config).faqShortcuts,
                                 style: answer,
                                 textAlign: TextAlign.start,
                               ),
@@ -714,53 +763,58 @@ class SettingsHomeScreen extends StatelessWidget {
 
                         ExpansionTile(
                           title: Text(
-                            l10n.faqLanguages,
+                            l10n(config).faqLanguages,
                             style: answer,
                             textAlign: TextAlign.start,
                           ),
                           expandedCrossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             EzRichText(
-                              <InlineSpan>[
+                              config,
+                              children: <InlineSpan>[
                                 EzPlainText(
-                                  text: l10n.faqResponsible,
+                                  text: l10n(config).faqResponsible,
                                   style: answer,
                                 ),
                                 EzInlineLink(
-                                  l10n.faqContributing,
+                                  config,
+                                  text: l10n(config).faqContributing,
                                   onTap: () => followLink(
-                                    contributeLink,
+                                    config,
+                                    url: contributeLink,
                                     parentContext: context,
                                     modalContext: mCon,
                                   ),
-                                  hint: config.l10n.gOpenLink,
+                                  hint: config.ezL10n.gOpenLink,
                                 ),
                                 EzPlainText(
-                                  text: l10n.faqExpand,
+                                  text: l10n(config).faqExpand,
                                   style: answer,
                                 ),
                               ],
                               textBackground: false,
                               style: answer,
-                              textAlign: TextAlign.start,
                             ),
                           ],
                         ),
-                        config.layout.spacer,
+                        config.spacer,
 
                         // Reset tutorial/contact support //
 
                         Center(
                           child: EzScrollView(
+                            config,
                             reverseHands: true,
                             mainAxisAlignment: MainAxisAlignment.center,
                             scrollDirection: Axis.horizontal,
                             children: <Widget>[
                               // Support
                               EzElevatedButton(
-                                text: l10n.faqContact,
+                                config,
+                                text: l10n(config).faqContact,
                                 onPressed: () => followLink(
-                                  'mailto:support@empathetech.net?subject=InstaSOS%20support',
+                                  config,
+                                  url: 'mailto:support@empathetech.net?subject=InstaSOS%20support',
                                   parentContext: context,
                                   modalContext: mCon,
                                 ),
@@ -768,34 +822,32 @@ class SettingsHomeScreen extends StatelessWidget {
 
                               // Tutorial
                               if (!showTutorial) ...<Widget>[
-                                config.layout.rowSpacer,
+                                config.rowSpacer,
                                 EzElevatedButton(
-                                  text: l10n.faqReset,
+                                  config,
+                                  text: l10n(config).faqReset,
                                   onPressed: () async {
-                                    await EzConfig.setBool(showTutorialKey, true);
-                                    if (mCon.mounted) {
-                                      Navigator.of(mCon).pop();
-                                    }
-                                    await config.rebuildUI();
+                                    await EzCM.setBool(showTutorialKey, true);
+                                    if (mCon.mounted) Navigator.of(mCon).pop();
+                                    await config.rebuildUI(noECT);
                                   },
                                 ),
                               ],
                             ],
                           ),
                         ),
-                        config.layout.separator,
+                        config.separator,
                       ],
                       crossAxisAlignment: CrossAxisAlignment.start,
                     ),
                   );
                 },
-                icon: EzIcon(Icons.help_outline),
-                label: l10n.ssSupport,
+                icon: EzIcon(config, Icons.help_outline),
+                label: l10n(config).ssSupport,
               ),
-              const EzFooter(),
+              EzFooter(config),
             ]),
           ),
-          safeArea: true,
         ),
       ),
     );
