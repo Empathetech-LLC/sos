@@ -199,11 +199,7 @@ PermissionStatus? lPermMirror(LocationPermission? status) => switch (status) {
 // Fresh install //
 
 /// Allow the user to enable what parts of InstaSOS they want
-Future<void> appSetupModal(
-  EzCP config, {
-  required BuildContext context,
-  required Future<PermissionStatus> Function(EzCP config) initCamera,
-}) async {
+Future<void> appSetupModal(EzCP config, BuildContext context) async {
   bool locked = false;
 
   final bool? setup = await ezModal(
@@ -248,7 +244,6 @@ Future<void> appSetupModal(
         // Permission checklist
         CameraSetup(
           config,
-          initCamera: initCamera,
           locked: locked,
           setLock: (bool active) => setModal(() => locked = active),
         ),
