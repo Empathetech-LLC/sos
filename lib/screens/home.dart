@@ -601,14 +601,20 @@ class _HomeScreenState extends State<HomeScreen>
                               )
                             : EzIconButton(
                                 config,
-                                fauxDisabled: camera == null,
-                                style: IconButton.styleFrom(
-                                  foregroundColor: videoColor(config),
-                                  side: config.borderSide(color: config.colors.onSurface),
-                                ),
+                                style: (camera == null)
+                                    ? IconButton.styleFrom(
+                                        foregroundColor: config.colors.outline,
+                                        side:
+                                            config.borderSide(color: config.colors.outlineVariant),
+                                      )
+                                    : IconButton.styleFrom(
+                                        foregroundColor: videoColor(config),
+                                        side: config.borderSide(color: config.colors.onSurface),
+                                      ),
                                 icon: Icon(Icons.circle, semanticLabel: l10n(config).hsStartRecord),
                                 iconSize: config.iconSize * 2,
-                                onLongPress: camera == null ? openAppSettings : null,
+                                onLongPress:
+                                    camera == null ? () => context.goNamed(settingsHomePath) : null,
                                 onPressed: () async {
                                   if (camera == null) {
                                     final bool worked = await initCamera(config);
@@ -669,7 +675,7 @@ class _HomeScreenState extends State<HomeScreen>
                                   }
                                 }
                               },
-                              onLongPress: openAppSettings,
+                              onLongPress: () => context.goNamed(settingsHomePath),
                             )
                           : FlashButton(config, camera: camera!),
                     ],
