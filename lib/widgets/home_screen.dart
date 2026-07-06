@@ -33,14 +33,11 @@ class _FlashButtonState extends State<FlashButton> {
         widget.config,
         enabled: working.values.contains(true),
         icon: switch (widget.camera.value.flashMode) {
-          FlashMode.off =>
-            EzIcon(widget.config, Icons.flash_off, semanticLabel: l10n(widget.config).hsFlashOff),
-          FlashMode.auto =>
-            EzIcon(widget.config, Icons.flash_auto, semanticLabel: l10n(widget.config).hsFlashAuto),
-          FlashMode.always =>
-            EzIcon(widget.config, Icons.flash_on, semanticLabel: l10n(widget.config).hsFlashOn),
-          FlashMode.torch => EzIcon(widget.config, Icons.flashlight_on,
-              semanticLabel: l10n(widget.config).hsFlashTorch),
+          FlashMode.off => Icon(Icons.flash_off, semanticLabel: l10n(widget.config).hsFlashOff),
+          FlashMode.auto => Icon(Icons.flash_auto, semanticLabel: l10n(widget.config).hsFlashAuto),
+          FlashMode.always => Icon(Icons.flash_on, semanticLabel: l10n(widget.config).hsFlashOn),
+          FlashMode.torch =>
+            Icon(Icons.flashlight_on, semanticLabel: l10n(widget.config).hsFlashTorch),
         },
         onPressed: () async {
           bool hasResult = false;
