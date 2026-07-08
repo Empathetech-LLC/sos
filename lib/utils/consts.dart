@@ -48,11 +48,12 @@ extension LLTypeConfig on LLType {
         LLType.raw => '',
       };
 
-  static LLType lookup(String name) => switch (name) {
+  /// Defaults to [LLType.google]
+  static LLType safeLookup(String? name) => switch (name) {
         esApple => LLType.apple,
         esWaze => LLType.waze,
         esRaw => LLType.raw,
-        esGoogle || _ => LLType.google,
+        _ => LLType.google,
       };
 }
 
@@ -94,10 +95,11 @@ extension SituationConfig on Situation {
         Situation.home => l10n.rvAtHome,
       };
 
-  static Situation lookup(String? tab) => switch (tab) {
+  /// Defaults to [Situation.walking]
+  static Situation safeLookup(String? tab) => switch (tab) {
         esDriving => Situation.driving,
         esHome => Situation.home,
-        esWalking || _ => Situation.walking,
+        _ => Situation.walking,
       };
 }
 

@@ -20,7 +20,7 @@ class RightsView extends StatefulWidget {
 class _RightsViewState extends State<RightsView> {
   // Define the build data //
 
-  Situation currTab = SituationConfig.lookup(EzCM.get(savedTabKey));
+  Situation currTab = SituationConfig.safeLookup(EzCM.get(savedTabKey));
   int delta = 0;
 
   // Define custom functions //

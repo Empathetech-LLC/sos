@@ -53,7 +53,7 @@ bool get autoShareMedia => EzCM.get(autoShareMediaKey);
 
 List<String> get emc => EzCM.get(emcKey);
 
-LLType get linkType => LLTypeConfig.lookup(EzCM.get(linkTypeKey));
+LLType get linkType => LLTypeConfig.safeLookup(EzCM.get(linkTypeKey));
 
 bool get sosOnOpen => EzCM.get(sosOnOpenKey);
 bool get sosOnClose => EzCM.get(sosOnCloseKey);
