@@ -103,13 +103,13 @@ class _RightsViewState extends State<RightsView> {
               onHorizontalDragEnd: (DragEndDetails details) async {
                 if (details.primaryVelocity == null) return;
 
-                if (details.primaryVelocity! < -100) {
+                if (details.primaryVelocity! < -ezSwipeV) {
                   // RTL -> nav right
                   if (currTab.position >= (Situation.values.length - 1)) return;
                   await _nav(Situation.values[currTab.position + 1]);
                 }
 
-                if (details.primaryVelocity! > 100) {
+                if (details.primaryVelocity! > ezSwipeV) {
                   // LTR -> nav left
                   if (currTab.position <= 0) return;
                   await _nav(Situation.values[currTab.position - 1]);
