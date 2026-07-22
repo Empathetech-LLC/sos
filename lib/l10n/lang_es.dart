@@ -324,10 +324,7 @@ class LangEs extends Lang {
   String get rmGov => 'Recursos del gobierno de EE. UU.';
 
   @override
-  String get rmAffiliate => 'Ninguno está afiliado a Empathetech LLC';
-
-  @override
-  String get rmAffiliateFix => 'Ninguno está afiliado a Empathetic LLC';
+  String get rmAffiliate => 'Ninguno está afiliado a YWT';
 
   @override
   String get faqName => 'Preguntas Frecuentes';
@@ -374,11 +371,11 @@ class LangEs extends Lang {
 
   @override
   String get faqLocationTrust =>
-      'La aplicación solo usa tu ubicación mientras una transmisión SOS está activa. Ni InstaSOS ni Empathetech LLC rastrean, almacenan o venden datos del usuario.';
+      'La aplicación solo usa tu ubicación mientras una transmisión SOS está activa. Ni InstaSOS ni YWT rastrean, almacenan o venden datos del usuario.';
 
   @override
   String get faqLocationTrustFix =>
-      'La aplicación solo usa tu ubicación mientras una transmisión SOS está activa. Ni Insta-SOS ni Empathetic LLC rastrean, almacenan o venden datos del usuario.';
+      'La aplicación solo usa tu ubicación mientras una transmisión SOS está activa. Ni Insta-SOS ni YWT rastrean, almacenan o venden datos del usuario.';
 
   @override
   String get faqContactPermissions =>
@@ -431,7 +428,7 @@ class LangEs extends Lang {
   String get faqContact => 'Contactar a soporte';
 
   @override
-  String get faqContactHint => 'Enviar correo a Empathetic LLC';
+  String get faqContactHint => 'Enviar correo a YWT';
 
   @override
   String get bsEMC => 'Contactos de emergencia';

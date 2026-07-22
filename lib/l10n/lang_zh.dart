@@ -298,10 +298,7 @@ class LangZh extends Lang {
   String get rmGov => '美国政府资源';
 
   @override
-  String get rmAffiliate => '均不隶属于 Empathetech LLC';
-
-  @override
-  String get rmAffiliateFix => '均不隶属于 Empathetic LLC';
+  String get rmAffiliate => '均不隶属于 YWT';
 
   @override
   String get faqName => '常见问题 (FAQ)';
@@ -345,11 +342,11 @@ class LangZh extends Lang {
 
   @override
   String get faqLocationTrust =>
-      '该应用仅在激活 SOS 广播时使用您的位置。InstaSOS 和 Empathetech LLC 均不追踪、存储或出售用户数据。';
+      '该应用仅在激活 SOS 广播时使用您的位置。InstaSOS 和 YWT 均不追踪、存储或出售用户数据。';
 
   @override
   String get faqLocationTrustFix =>
-      '该应用仅在激活 SOS 广播时使用您的位置。Insta-SOS 和 Empathetic LLC 均不追踪、存储或出售用户数据。';
+      '该应用仅在激活 SOS 广播时使用您的位置。Insta-SOS 和 YWT 均不追踪、存储或出售用户数据。';
 
   @override
   String get faqContactPermissions =>
@@ -398,7 +395,7 @@ class LangZh extends Lang {
   String get faqContact => '联系支持';
 
   @override
-  String get faqContactHint => '给 Empathetic LLC 发送邮件';
+  String get faqContactHint => '给 YWT 发送邮件';
 
   @override
   String get bsEMC => '紧急联系人';
@@ -750,10 +747,7 @@ class LangZhCn extends LangZh {
   String get rmGov => '美国政府资源';
 
   @override
-  String get rmAffiliate => '均不隶属于 Empathetech LLC';
-
-  @override
-  String get rmAffiliateFix => '均不隶属于 Empathetic LLC';
+  String get rmAffiliate => '均不隶属于 YWT';
 
   @override
   String get faqName => '常见问题 (FAQ)';
@@ -797,11 +791,11 @@ class LangZhCn extends LangZh {
 
   @override
   String get faqLocationTrust =>
-      '该应用仅在激活 SOS 广播时使用您的位置。InstaSOS 和 Empathetech LLC 均不追踪、存储或出售用户数据。';
+      '该应用仅在激活 SOS 广播时使用您的位置。InstaSOS 和 YWT 均不追踪、存储或出售用户数据。';
 
   @override
   String get faqLocationTrustFix =>
-      '该应用仅在激活 SOS 广播时使用您的位置。Insta-SOS 和 Empathetic LLC 均不追踪、存储或出售用户数据。';
+      '该应用仅在激活 SOS 广播时使用您的位置。Insta-SOS 和 YWT 均不追踪、存储或出售用户数据。';
 
   @override
   String get faqContactPermissions =>
@@ -850,7 +844,7 @@ class LangZhCn extends LangZh {
   String get faqContact => '联系支持';
 
   @override
-  String get faqContactHint => '给 Empathetic LLC 发送邮件';
+  String get faqContactHint => '给 YWT 发送邮件';
 
   @override
   String get bsEMC => '紧急联系人';

@@ -320,10 +320,7 @@ class LangEn extends Lang {
   String get rmGov => 'US government resources';
 
   @override
-  String get rmAffiliate => 'None are affiliated with Empathetech LLC';
-
-  @override
-  String get rmAffiliateFix => 'None are affiliated with Empathetic LLC';
+  String get rmAffiliate => 'None are affiliated with YWT';
 
   @override
   String get faqName => 'FAQ';
@@ -370,11 +367,11 @@ class LangEn extends Lang {
 
   @override
   String get faqLocationTrust =>
-      'The app only uses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.';
+      'The app only uses your location while an SOS broadcast is active. Neither InstaSOS or YWT track, store, or sell user data.';
 
   @override
   String get faqLocationTrustFix =>
-      'The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or Empathetic LLC track, store, or sell user data.';
+      'The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or YWT track, store, or sell user data.';
 
   @override
   String get faqContactPermissions =>
@@ -426,7 +423,7 @@ class LangEn extends Lang {
   String get faqContact => 'Contact support';
 
   @override
-  String get faqContactHint => 'Email Empathetic LLC';
+  String get faqContactHint => 'Email YWT';
 
   @override
   String get bsEMC => 'Emergency contacts';
@@ -803,10 +800,7 @@ class LangEnUs extends LangEn {
   String get rmGov => 'US government resources';
 
   @override
-  String get rmAffiliate => 'None are affiliated with Empathetech LLC';
-
-  @override
-  String get rmAffiliateFix => 'None are affiliated with Empathetic LLC';
+  String get rmAffiliate => 'None are affiliated with YWT';
 
   @override
   String get faqName => 'FAQ';
@@ -853,11 +847,11 @@ class LangEnUs extends LangEn {
 
   @override
   String get faqLocationTrust =>
-      'The app only uses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.';
+      'The app only uses your location while an SOS broadcast is active. Neither InstaSOS or YWT track, store, or sell user data.';
 
   @override
   String get faqLocationTrustFix =>
-      'The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or Empathetic LLC track, store, or sell user data.';
+      'The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or YWT track, store, or sell user data.';
 
   @override
   String get faqContactPermissions =>
@@ -909,7 +903,7 @@ class LangEnUs extends LangEn {
   String get faqContact => 'Contact support';
 
   @override
-  String get faqContactHint => 'Email Empathetic LLC';
+  String get faqContactHint => 'Email YWT';
 
   @override
   String get bsEMC => 'Emergency contacts';

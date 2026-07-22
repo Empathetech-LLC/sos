@@ -128,8 +128,7 @@
   
   "rmCommunity": "Ressources communautaires",
   "rmGov": "Ressources du gouvernement américain",
-  "rmAffiliate": "Aucune n'est affiliée à Empathetech LLC",
-  "rmAffiliateFix": "Aucune n'est affiliée à Empathetic LLC",
+  "rmAffiliate": "Aucune n'est affiliée à YWT",
 
 
   
@@ -148,8 +147,8 @@
   "faqUnavailable": "SOS indique \"Position indisponible\" ?",
   "faqReliability": "Pour améliorer la fiabilité du SOS, veuillez activer \"Toujours autoriser\" dans les ",
   "faqLocationPermissions": "autorisations de localisation",
-  "faqLocationTrust": "L'application utilise uniquement votre position lorsqu'une diffusion SOS est active. Ni InstaSOS ni Empathetech LLC ne suivent, ne stockent ou ne vendent les données des utilisateurs.",
-  "faqLocationTrustFix": "L'application utilise uniquement votre position lorsqu'une diffusion SOS est active. Ni Insta-SOS ni Empathetic LLC ne suivent, ne stockent ou ne vendent les données des utilisateurs.",
+  "faqLocationTrust": "L'application utilise uniquement votre position lorsqu'une diffusion SOS est active. Ni InstaSOS ni YWT ne suivent, ne stockent ou ne vendent les données des utilisateurs.",
+  "faqLocationTrustFix": "L'application utilise uniquement votre position lorsqu'une diffusion SOS est active. Ni Insta-SOS ni YWT ne suivent, ne stockent ou ne vendent les données des utilisateurs.",
 
   "faqContactPermissions": "Si vous recevez ce message lors de l'ajout d'un contact d'urgence, InstaSOS n'a pas l'autorisation d'accéder à ce contact spécifique.",
   "faqContactPermissionsFix": "Si vous recevez ce message lors de l'ajout d'un contact d'urgence, Insta-SOS n'a pas l'autorisation d'accéder à ce contact spécifique.",
@@ -168,7 +167,7 @@
 
   "faqReset": "Réinitialiser le tutoriel",
   "faqContact": "Contacter l'assistance",
-  "faqContactHint": "Envoyer un e-mail à Empathetic LLC",
+  "faqContactHint": "Envoyer un e-mail à YWT",
 
 
 

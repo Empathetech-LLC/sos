@@ -327,12 +327,7 @@ class LangFil extends Lang {
   String get rmGov => 'Mga mapagkukunan ng gobyerno ng US';
 
   @override
-  String get rmAffiliate =>
-      'Wala sa mga ito ang may kaugnayan sa Empathetech LLC';
-
-  @override
-  String get rmAffiliateFix =>
-      'Wala sa mga ito ang may kaugnayan sa Empathetic LLC';
+  String get rmAffiliate => 'Wala sa mga ito ang may kaugnayan sa YWT';
 
   @override
   String get faqName => 'Mga FAQ';
@@ -380,11 +375,11 @@ class LangFil extends Lang {
 
   @override
   String get faqLocationTrust =>
-      'Ginagamit lamang ng app ang iyong lokasyon habang aktibo ang isang SOS broadcast. Hindi sinusubaybayan, iniimbak, o ibinebenta ng InstaSOS o ng Empathetech LLC ang data ng user.';
+      'Ginagamit lamang ng app ang iyong lokasyon habang aktibo ang isang SOS broadcast. Hindi sinusubaybayan, iniimbak, o ibinebenta ng InstaSOS o ng YWT ang data ng user.';
 
   @override
   String get faqLocationTrustFix =>
-      'Ginagamit lamang ng app ang iyong lokasyon habang aktibo ang isang SOS broadcast. Hindi sinusubaybayan, iniimbak, o ibinebenta ng Insta-SOS o ng Empathetic LLC ang data ng user.';
+      'Ginagamit lamang ng app ang iyong lokasyon habang aktibo ang isang SOS broadcast. Hindi sinusubaybayan, iniimbak, o ibinebenta ng Insta-SOS o ng YWT ang data ng user.';
 
   @override
   String get faqContactPermissions =>
@@ -438,7 +433,7 @@ class LangFil extends Lang {
   String get faqContact => 'Makipag-ugnayan sa suporta';
 
   @override
-  String get faqContactHint => 'I-email ang Empathetic LLC';
+  String get faqContactHint => 'I-email ang YWT';
 
   @override
   String get bsEMC => 'Mga emergency contact';

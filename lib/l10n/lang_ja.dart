@@ -304,10 +304,7 @@ class LangJa extends Lang {
   String get rmGov => '米国政府のリソース';
 
   @override
-  String get rmAffiliate => 'いずれもEmpathetech LLCとは提携していません';
-
-  @override
-  String get rmAffiliateFix => 'いずれもEmpathetic LLCとは提携していません';
+  String get rmAffiliate => 'いずれもYWTとは提携していません';
 
   @override
   String get faqName => 'よくある質問 (FAQ)';
@@ -352,11 +349,11 @@ class LangJa extends Lang {
 
   @override
   String get faqLocationTrust =>
-      'このアプリは、SOS発信がアクティブな間のみ位置情報を使用します。InstaSOSもEmpathetech LLCも、ユーザーデータの追跡、保存、販売は行いません。';
+      'このアプリは、SOS発信がアクティブな間のみ位置情報を使用します。InstaSOSもYWTも、ユーザーデータの追跡、保存、販売は行いません。';
 
   @override
   String get faqLocationTrustFix =>
-      'このアプリは、SOS発信がアクティブな間のみ位置情報を使用します。Insta-SOSもEmpathetic LLCも、ユーザーデータの追跡、保存、販売は行いません。';
+      'このアプリは、SOS発信がアクティブな間のみ位置情報を使用します。Insta-SOSもYWTも、ユーザーデータの追跡、保存、販売は行いません。';
 
   @override
   String get faqContactPermissions =>
@@ -406,7 +403,7 @@ class LangJa extends Lang {
   String get faqContact => 'サポートに連絡';
 
   @override
-  String get faqContactHint => 'Empathetic LLCにメールを送信';
+  String get faqContactHint => 'YWTにメールを送信';
 
   @override
   String get bsEMC => '緊急連絡先';

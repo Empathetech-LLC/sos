@@ -128,8 +128,7 @@
 
   "rmCommunity": "Resous kominote a",
   "rmGov": "Resous gouvènman ameriken an",
-  "rmAffiliate": "Okenn nan yo pa afilye ak Empathetech LLC",
-  "rmAffiliateFix": "Okenn nan yo pa afilye ak Empathetic LLC",
+  "rmAffiliate": "Okenn nan yo pa afilye ak YWT",
 
 
   
@@ -148,8 +147,8 @@
   "faqUnavailable": "SOS di \"Pozisyon pa disponib\"?",
   "faqReliability": "Pou amelyore fyabilite SOS la, tanpri aktive \"Pèmèt tout tan\" nan ",
   "faqLocationPermissions": "pèmisyon pozisyon yo",
-  "faqLocationTrust": "Aplikasyon an itilize kote w ye a sèlman lè yon difizyon SOS aktive. Ni InstaSOS ni Empathetech LLC pa swiv, ni konsève, ni vann done itilizatè yo.",
-  "faqLocationTrustFix": "Aplikasyon an itilize kote w ye a sèlman lè yon difizyon SOS aktive. Ni Insta-SOS ni Empathetic LLC pa swiv, ni konsève, ni vann done itilizatè yo.",
+  "faqLocationTrust": "Aplikasyon an itilize kote w ye a sèlman lè yon difizyon SOS aktive. Ni InstaSOS ni YWT pa swiv, ni konsève, ni vann done itilizatè yo.",
+  "faqLocationTrustFix": "Aplikasyon an itilize kote w ye a sèlman lè yon difizyon SOS aktive. Ni Insta-SOS ni YWT pa swiv, ni konsève, ni vann done itilizatè yo.",
 
   "faqContactPermissions": "Si w jwenn mesaj sa a lè w ap ajoute yon kontak ijans, InstaSOS pa gen pèmisyon pou jwenn aksè ak kontak sa a.",
   "faqContactPermissionsFix": "Si w jwenn mesaj sa a lè w ap ajoute yon kontak ijans, Insta-SOS pa gen pèmisyon pou jwenn aksè ak kontak sa a.",
@@ -168,7 +167,7 @@
 
   "faqReset": "Reyinisyalize leson an",
   "faqContact": "Kontakte sipò a",
-  "faqContactHint": "Voye imèl bay Empathetic LLC",
+  "faqContactHint": "Voye imèl bay YWT",
 
 
 

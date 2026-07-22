@@ -1,5 +1,5 @@
 /* sos
- * Copyright (c) 2025 Empathetech LLC. All rights reserved.
+ * Copyright (c) 2025 YWT (Empathetech LLC). All rights reserved.
  * See LICENSE for distribution and usage details.
  */
 
@@ -7,7 +7,7 @@ import './export.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
+import 'package:open_ui/open_ui.dart';
 
 //* Enums *//
 // Location Link Type //
@@ -106,8 +106,8 @@ extension SituationConfig on Situation {
 //* App config *//
 // Naming/ID //
 
-/// net.empathetech.sos
-const String androidPackage = 'net.empathetech.sos';
+/// llc.ywt.sos
+const String androidPackage = 'llc.ywt.sos';
 
 /// [androidPackage]/broadcast
 const MethodChannel platform = MethodChannel('$androidPackage/broadcast');
@@ -196,8 +196,8 @@ const Map<String, Type> sosColorKeys = <String, Type>{
 
 /// defaults for [EzCM.init]
 final Map<String, Object> sosConfig = <String, Object>{
-  // EFUI
-  ...empathMobileConfig,
+  // Base
+  ...ywtMobileConfig,
   darkShowBackFABKey: true,
   lightShowBackFABKey: true,
   darkTextBackgroundOpacityKey: 0.8,
@@ -232,10 +232,7 @@ const Map<String, Type> allSOSKeys = <String, Type>{
 };
 
 /// For [EzResetButton]s
-final Set<String> neverResetKeys = <String>{
-  ...sosBTSKeys.keys,
-  ...sosBroadcastKeys.keys,
-};
+final Set<String> neverResetKeys = <String>{...sosBTSKeys.keys, ...sosBroadcastKeys.keys};
 
 //* Runtime *//
 
@@ -249,8 +246,8 @@ const String contactSplit = ':';
 /// https://www.aclu.org/know-your-rights
 const String acluLink = 'https://www.aclu.org/know-your-rights';
 
-/// https://www.empathetech.net/#/contribute
-const String contributeLink = 'https://www.empathetech.net/#/contribute';
+/// https://www.ywt.llc/#/contribute
+const String contributeLink = 'https://www.ywt.llc/#/contribute';
 
 /// https://dunkthevote4ever.org/project/the-black-book-know-your-rights/
 const String dunkLink = 'https://dunkthevote4ever.org/project/the-black-book-know-your-rights/';

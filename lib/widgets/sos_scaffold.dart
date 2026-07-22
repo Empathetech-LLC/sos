@@ -1,10 +1,10 @@
 /* sos
- * Copyright (c) 2025 Empathetech LLC. All rights reserved.
+ * Copyright (c) 2025 YWT (Empathetech LLC). All rights reserved.
  * See LICENSE for distribution and usage details.
  */
 
 import 'package:flutter/material.dart';
-import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
+import 'package:open_ui/open_ui.dart';
 
 class SosScaffold extends StatelessWidget {
   final EzCP config;
@@ -12,13 +12,7 @@ class SosScaffold extends StatelessWidget {
   final List<Widget>? fabs;
   final bool isHome;
 
-  const SosScaffold(
-    this.config, {
-    super.key,
-    required this.body,
-    this.fabs,
-    this.isHome = false,
-  });
+  const SosScaffold(this.config, {super.key, required this.body, this.fabs, this.isHome = false});
 
   @override
   Widget build(BuildContext context) => EzAdaptiveParent(
@@ -30,10 +24,10 @@ class SosScaffold extends StatelessWidget {
               config,
               appVersion: '3.0.2',
               versionSource:
-                  'https://raw.githubusercontent.com/Empathetech-LLC/sos/refs/heads/main/APP_VERSION',
-              gPlay: 'https://play.google.com/store/apps/details?id=net.empathetech.sos',
+                  'https://raw.githubusercontent.com/YWT-LLC/sos/refs/heads/main/APP_VERSION',
+              gPlay: 'https://play.google.com/store/apps/details?id=llc.ywt.sos',
               appStore: 'https://apps.apple.com/us/app/instasos/id6744280817',
-              github: 'https://github.com/Empathetech-LLC/sos/releases',
+              github: 'https://github.com/YWT-LLC/sos/releases',
             ),
             if (fabs != null) ...fabs!,
             ...config.backFABs(isHome),

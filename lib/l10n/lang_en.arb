@@ -128,8 +128,7 @@
 
   "rmCommunity": "Community resources",
   "rmGov": "US government resources",
-  "rmAffiliate": "None are affiliated with Empathetech LLC",
-  "rmAffiliateFix": "None are affiliated with Empathetic LLC",
+  "rmAffiliate": "None are affiliated with YWT",
 
 
 
@@ -148,8 +147,8 @@
   "faqUnavailable": "SOS says \"Location unavailable\"?",
   "faqReliability": "To improve SOS reliability, please enable \"Allow all the time\" in the ",
   "faqLocationPermissions": "location permissions",
-  "faqLocationTrust": "The app only uses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.",
-  "faqLocationTrustFix": "The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or Empathetic LLC track, store, or sell user data.",
+  "faqLocationTrust": "The app only uses your location while an SOS broadcast is active. Neither InstaSOS or YWT track, store, or sell user data.",
+  "faqLocationTrustFix": "The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or YWT track, store, or sell user data.",
 
   "faqContactPermissions": "If you get this message when adding an emergency contact, InstaSOS does not have permission to access that specific contact.",
   "faqContactPermissionsFix": "If you get this message when adding an emergency contact, Insta-SOS does not have permission to access that specific contact.",
@@ -168,7 +167,7 @@
 
   "faqReset": "Reset tutorial",
   "faqContact": "Contact support",
-  "faqContactHint": "Email Empathetic LLC",
+  "faqContactHint": "Email YWT",
 
 
 

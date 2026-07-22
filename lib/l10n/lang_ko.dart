@@ -308,10 +308,7 @@ class LangKo extends Lang {
   String get rmGov => '미국 정부 리소스';
 
   @override
-  String get rmAffiliate => '어느 곳도 Empathetech LLC와 제휴하지 않았습니다';
-
-  @override
-  String get rmAffiliateFix => '어느 곳도 Empathetic LLC와 제휴하지 않았습니다';
+  String get rmAffiliate => '어느 곳도 YWT와 제휴하지 않았습니다';
 
   @override
   String get faqName => '자주 묻는 질문(FAQ)';
@@ -356,11 +353,11 @@ class LangKo extends Lang {
 
   @override
   String get faqLocationTrust =>
-      '앱은 SOS 브로드캐스트가 활성화된 동안에만 위치를 사용합니다. InstaSOS나 Empathetech LLC는 사용자 데이터를 추적, 저장 또는 판매하지 않습니다.';
+      '앱은 SOS 브로드캐스트가 활성화된 동안에만 위치를 사용합니다. InstaSOS나 YWT는 사용자 데이터를 추적, 저장 또는 판매하지 않습니다.';
 
   @override
   String get faqLocationTrustFix =>
-      '앱은 SOS 브로드캐스트가 활성화된 동안에만 위치를 사용합니다. Insta-SOS나 Empathetic LLC는 사용자 데이터를 추적, 저장 또는 판매하지 않습니다.';
+      '앱은 SOS 브로드캐스트가 활성화된 동안에만 위치를 사용합니다. Insta-SOS나 YWT는 사용자 데이터를 추적, 저장 또는 판매하지 않습니다.';
 
   @override
   String get faqContactPermissions =>
@@ -412,7 +409,7 @@ class LangKo extends Lang {
   String get faqContact => '고객 지원 문의';
 
   @override
-  String get faqContactHint => 'Empathetic LLC에 이메일 보내기';
+  String get faqContactHint => 'YWT에 이메일 보내기';
 
   @override
   String get bsEMC => '비상 연락처';

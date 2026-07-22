@@ -1,5 +1,5 @@
 /* sos
- * Copyright (c) 2025 Empathetech LLC. All rights reserved.
+ * Copyright (c) 2025 YWT (Empathetech LLC). All rights reserved.
  * See LICENSE for distribution and usage details.
  */
 
@@ -20,7 +20,7 @@ import MessageUI
     GeneratedPluginRegistrant.register(with: engineBridge.pluginRegistry)
 
     let broadcastChannel = FlutterMethodChannel(
-      name: "net.empathetech.sos/broadcast",
+      name: "llc.ywt.sos/broadcast",
       binaryMessenger: engineBridge.applicationRegistrar.messenger()
     )
 

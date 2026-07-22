@@ -1,9 +1,9 @@
 /* sos
- * Copyright (c) 2025 Empathetech LLC. All rights reserved.
+ * Copyright (c) 2025 YWT (Empathetech LLC). All rights reserved.
  * See LICENSE for distribution and usage details.
  */
 
-package net.empathetech.sos
+package llc.ywt.sos
 
 import android.app.Application
 import android.content.Context
@@ -31,7 +31,7 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
-  private val CHANNEL = "net.empathetech.sos/broadcast"
+  private val CHANNEL = "llc.ywt.sos/broadcast"
 
   // Init foreground SOS
   override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {

@@ -321,10 +321,7 @@ class LangAr extends Lang {
   String get rmGov => 'الموارد الحكومية الأمريكية';
 
   @override
-  String get rmAffiliate => 'لا يتبع أي منها لشركة Empathetech LLC';
-
-  @override
-  String get rmAffiliateFix => 'لا يتبع أي منها لشركة Empathetic LLC';
+  String get rmAffiliate => 'لا يتبع أي منها لشركة YWT';
 
   @override
   String get faqName => 'الأسئلة الشائعة';
@@ -370,11 +367,11 @@ class LangAr extends Lang {
 
   @override
   String get faqLocationTrust =>
-      'يستخدم التطبيق موقعك فقط أثناء نشاط بث طلب الاستغاثة (SOS). لا تقوم InstaSOS أو Empathetech LLC بتتبع أو تخزين أو بيع بيانات المستخدم.';
+      'يستخدم التطبيق موقعك فقط أثناء نشاط بث طلب الاستغاثة (SOS). لا تقوم InstaSOS أو YWT بتتبع أو تخزين أو بيع بيانات المستخدم.';
 
   @override
   String get faqLocationTrustFix =>
-      'يستخدم التطبيق موقعك فقط أثناء نشاط بث طلب الاستغاثة (SOS). لا تقوم Insta-SOS أو Empathetic LLC بتتبع أو تخزين أو بيع بيانات المستخدم.';
+      'يستخدم التطبيق موقعك فقط أثناء نشاط بث طلب الاستغاثة (SOS). لا تقوم Insta-SOS أو YWT بتتبع أو تخزين أو بيع بيانات المستخدم.';
 
   @override
   String get faqContactPermissions =>
@@ -426,7 +423,7 @@ class LangAr extends Lang {
   String get faqContact => 'الاتصال بالدعم';
 
   @override
-  String get faqContactHint => 'أرسل بريداً إلكترونياً إلى Empathetic LLC';
+  String get faqContactHint => 'أرسل بريداً إلكترونياً إلى YWT';
 
   @override
   String get bsEMC => 'جهات اتصال الطوارئ';
@@ -802,10 +799,7 @@ class LangArEg extends LangAr {
   String get rmGov => 'الموارد الحكومية الأمريكية';
 
   @override
-  String get rmAffiliate => 'لا يتبع أي منها لشركة Empathetech LLC';
-
-  @override
-  String get rmAffiliateFix => 'لا يتبع أي منها لشركة Empathetic LLC';
+  String get rmAffiliate => 'لا يتبع أي منها لشركة YWT';
 
   @override
   String get faqName => 'الأسئلة الشائعة';
@@ -851,11 +845,11 @@ class LangArEg extends LangAr {
 
   @override
   String get faqLocationTrust =>
-      'يستخدم التطبيق موقعك فقط أثناء نشاط بث طلب الاستغاثة (SOS). لا تقوم InstaSOS أو Empathetech LLC بتتبع أو تخزين أو بيع بيانات المستخدم.';
+      'يستخدم التطبيق موقعك فقط أثناء نشاط بث طلب الاستغاثة (SOS). لا تقوم InstaSOS أو YWT بتتبع أو تخزين أو بيع بيانات المستخدم.';
 
   @override
   String get faqLocationTrustFix =>
-      'يستخدم التطبيق موقعك فقط أثناء نشاط بث طلب الاستغاثة (SOS). لا تقوم Insta-SOS أو Empathetic LLC بتتبع أو تخزين أو بيع بيانات المستخدم.';
+      'يستخدم التطبيق موقعك فقط أثناء نشاط بث طلب الاستغاثة (SOS). لا تقوم Insta-SOS أو YWT بتتبع أو تخزين أو بيع بيانات المستخدم.';
 
   @override
   String get faqContactPermissions =>
@@ -907,7 +901,7 @@ class LangArEg extends LangAr {
   String get faqContact => 'الاتصال بالدعم';
 
   @override
-  String get faqContactHint => 'أرسل بريداً إلكترونياً إلى Empathetic LLC';
+  String get faqContactHint => 'أرسل بريداً إلكترونياً إلى YWT';
 
   @override
   String get bsEMC => 'جهات اتصال الطوارئ';

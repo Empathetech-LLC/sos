@@ -1,5 +1,5 @@
 /* sos
- * Copyright (c) 2025 Empathetech LLC. All rights reserved.
+ * Copyright (c) 2025 YWT (Empathetech LLC). All rights reserved.
  * See LICENSE for distribution and usage details.
  */
 
@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
+import 'package:open_ui/open_ui.dart';
 
 void main() async {
   // Configure the app //
@@ -25,11 +25,9 @@ void main() async {
     assetPaths: assetPaths,
     orientations: <DeviceOrientation>[DeviceOrientation.portraitUp],
     localeFallback: americanEnglish,
-    l10nFallback: await EFUILang.delegate.load(americanEnglish),
+    l10nFallback: await OUILang.delegate.load(americanEnglish),
     preferences: await SharedPreferencesWithCache.create(
-      cacheOptions: SharedPreferencesWithCacheOptions(
-        allowList: allSOSKeys.keys.toSet(),
-      ),
+      cacheOptions: SharedPreferencesWithCacheOptions(allowList: allSOSKeys.keys.toSet()),
     ),
     defaults: sosConfig,
     neverReset: neverResetKeys,
@@ -37,33 +35,24 @@ void main() async {
 
   // Run the app //
 
-  final (Locale storedLocale, EFUILang storedEFUILang) = await ezStoredL10n();
+  final (Locale storedLocale, OUILang storedOUILang) = await ezStoredL10n();
 
-  runApp(SOS(
-    storedLocale,
-    storedEFUILang,
-    await Lang.delegate.load(storedLocale),
-  ));
+  runApp(SOS(storedLocale, storedOUILang, await Lang.delegate.load(storedLocale)));
 }
 
 class SOS extends StatelessWidget {
   final Locale storedLocale;
-  final EFUILang storedEFUILang;
+  final OUILang storedOUILang;
   final Lang storedLang;
 
-  const SOS(
-    this.storedLocale,
-    this.storedEFUILang,
-    this.storedLang, {
-    super.key,
-  });
+  const SOS(this.storedLocale, this.storedOUILang, this.storedLang, {super.key});
 
   @override
   Widget build(BuildContext context) => EzConfigurableApp(
         localizationsDelegates: ezLocalizationsDelegates(Lang.localizationsDelegates),
         supportedLocales: Lang.supportedLocales,
         locale: storedLocale,
-        el10n: storedEFUILang,
+        el10n: storedOUILang,
         appCache: SOSCache(storedLocale, storedLang),
         routerConfig: GoRouter(
           navigatorKey: ezRootNav,

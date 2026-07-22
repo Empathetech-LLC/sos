@@ -128,8 +128,7 @@
 
   "rmCommunity": "Nyenzo za jamii",
   "rmGov": "Nyenzo za serikali ya Marekani",
-  "rmAffiliate": "Hakuna inayohusishwa na Empathetech LLC",
-  "rmAffiliateFix": "Hakuna inayohusishwa na Empathetic LLC",
+  "rmAffiliate": "Hakuna inayohusishwa na YWT",
 
 
 
@@ -148,8 +147,8 @@
   "faqUnavailable": "SOS inasema \"Eneo halipatikani\"?",
   "faqReliability": "Ili kuboresha utegemezi wa SOS, tafadhali wezesha \"Ruhusu wakati wote\" katika ",
   "faqLocationPermissions": "ruhusa za eneo",
-  "faqLocationTrust": "Programu inatumia tu eneo lako wakati tangazo la SOS linaendelea. Wala InstaSOS au Empathetech LLC haifuatilii, haihifadhi, au kuuza data ya mtumiaji.",
-  "faqLocationTrustFix": "Programu inatumia tu eneo lako wakati tangazo la SOS linaendelea. Wala Insta-SOS au Empathetic LLC haifuatilii, haihifadhi, au kuuza data ya mtumiaji.",
+  "faqLocationTrust": "Programu inatumia tu eneo lako wakati tangazo la SOS linaendelea. Wala InstaSOS au YWT haifuatilii, haihifadhi, au kuuza data ya mtumiaji.",
+  "faqLocationTrustFix": "Programu inatumia tu eneo lako wakati tangazo la SOS linaendelea. Wala Insta-SOS au YWT haifuatilii, haihifadhi, au kuuza data ya mtumiaji.",
 
   "faqContactPermissions": "Ukipata ujumbe huu wakati wa kuongeza mwasiliani wa dharura, InstaSOS haina ruhusa ya kufikia mwasiliani huyo mahususi.",
   "faqContactPermissionsFix": "Ukipata ujumbe huu wakati wa kuongeza mwasiliani wa dharura, Insta-SOS haina ruhusa ya kufikia mwasiliani huyo mahususi.",
@@ -168,7 +167,7 @@
 
   "faqReset": "Weka upya mafunzo",
   "faqContact": "Wasiliana na usaidizi",
-  "faqContactHint": "Tuma barua pepe kwa Empathetic LLC",
+  "faqContactHint": "Tuma barua pepe kwa YWT",
 
 
 

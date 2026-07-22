@@ -1,5 +1,5 @@
 /* sos
- * Copyright (c) 2025 Empathetech LLC. All rights reserved.
+ * Copyright (c) 2025 YWT (Empathetech LLC). All rights reserved.
  * See LICENSE for distribution and usage details.
  */
 
@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter_contacts/flutter_contacts.dart' as fc;
 import 'package:permission_handler/permission_handler.dart';
-import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
+import 'package:open_ui/open_ui.dart';
 
 // Icon generators //
 
@@ -25,44 +25,47 @@ Widget pStatusIcon(EzCP config, PermissionStatus? status) => switch (status) {
       PermissionStatus.limited ||
       PermissionStatus.provisional =>
         EzIcon(config, Icons.check, color: config.colors.primary),
-      PermissionStatus.restricted =>
-        EzIcon(config, Icons.cancel_outlined, color: config.colors.outline),
-      PermissionStatus.denied ||
-      PermissionStatus.permanentlyDenied =>
-        EzIcon(config, Icons.cancel_outlined, color: config.colors.error),
+      PermissionStatus.restricted => EzIcon(
+          config,
+          Icons.cancel_outlined,
+          color: config.colors.outline,
+        ),
+      PermissionStatus.denied || PermissionStatus.permanentlyDenied => EzIcon(
+          config,
+          Icons.cancel_outlined,
+          color: config.colors.error,
+        ),
       null => EzIcon(config, Icons.help_outline, color: config.colors.primary),
     };
 
 Widget lStatusIcon(EzCP config, LocationPermission? status) => switch (status) {
       LocationPermission.always => EzIcon(config, Icons.check, color: config.colors.primary),
-      LocationPermission.denied ||
-      LocationPermission.deniedForever =>
-        EzIcon(config, Icons.cancel_outlined, color: config.colors.error),
+      LocationPermission.denied || LocationPermission.deniedForever => EzIcon(
+          config,
+          Icons.cancel_outlined,
+          color: config.colors.error,
+        ),
       null => EzIcon(config, Icons.help_outline, color: config.colors.primary),
       LocationPermission.unableToDetermine =>
         EzIcon(config, Icons.check, color: config.colors.outline),
-      LocationPermission.whileInUse =>
-        EzIcon(config, isIOS ? Icons.check : Icons.help_outline, color: config.colors.primary),
+      LocationPermission.whileInUse => EzIcon(
+          config,
+          isIOS ? Icons.check : Icons.help_outline,
+          color: config.colors.primary,
+        ),
     };
 
 // Setting cards //
 
-OutlinedBorder cardShape(EzCP config) => RoundedRectangleBorder(
-      side: config.borderSide(),
-      borderRadius: EzButtonShape.roundRect.radius,
-    );
+OutlinedBorder cardShape(EzCP config) =>
+    RoundedRectangleBorder(side: config.borderSide(), borderRadius: EzButtonShape.roundRect.radius);
 
 class CameraSetup extends StatefulWidget {
   final EzCP config;
   final bool locked;
   final void Function(bool) setLock;
 
-  const CameraSetup(
-    this.config, {
-    super.key,
-    required this.locked,
-    required this.setLock,
-  });
+  const CameraSetup(this.config, {super.key, required this.locked, required this.setLock});
 
   @override
   State<CameraSetup> createState() => _CameraSetupState();
@@ -305,12 +308,7 @@ class SOSSetup extends StatefulWidget {
   final bool locked;
   final void Function(bool) setLock;
 
-  const SOSSetup(
-    this.config, {
-    super.key,
-    required this.locked,
-    required this.setLock,
-  });
+  const SOSSetup(this.config, {super.key, required this.locked, required this.setLock});
 
   @override
   State<SOSSetup> createState() => _SOSSetupState();
@@ -370,8 +368,9 @@ class _SOSSetupState extends State<SOSSetup> {
             );
           }
 
-          final fc.PermissionStatus result =
-              await fc.FlutterContacts.permissions.request(fc.PermissionType.read);
+          final fc.PermissionStatus result = await fc.FlutterContacts.permissions.request(
+            fc.PermissionType.read,
+          );
           if (conStatus != result) conStatus = result;
           if (mounted) setState(() {});
           widget.setLock(false);
@@ -451,11 +450,7 @@ class _SOSSetupState extends State<SOSSetup> {
                       child: EzCol(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(
-                            'SMS',
-                            style: widget.config.titleStyle,
-                            textAlign: TextAlign.start,
-                          ),
+                          Text('SMS', style: widget.config.titleStyle, textAlign: TextAlign.start),
                           Text(
                             l10n(widget.config).hsSMS,
                             style: widget.config.bodyStyle,
@@ -517,12 +512,7 @@ class LocationSetup extends StatefulWidget {
   final bool locked;
   final void Function(bool) setLock;
 
-  const LocationSetup(
-    this.config, {
-    super.key,
-    required this.locked,
-    required this.setLock,
-  });
+  const LocationSetup(this.config, {super.key, required this.locked, required this.setLock});
 
   @override
   State<LocationSetup> createState() => _LocationSetupState();

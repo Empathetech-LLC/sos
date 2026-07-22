@@ -128,8 +128,7 @@
 
   "rmCommunity": "Mga mapagkukunan ng komunidad",
   "rmGov": "Mga mapagkukunan ng gobyerno ng US",
-  "rmAffiliate": "Wala sa mga ito ang may kaugnayan sa Empathetech LLC",
-  "rmAffiliateFix": "Wala sa mga ito ang may kaugnayan sa Empathetic LLC",
+  "rmAffiliate": "Wala sa mga ito ang may kaugnayan sa YWT",
 
 
   
@@ -148,8 +147,8 @@
   "faqUnavailable": "Sinasabi ng SOS na \"Hindi available ang lokasyon\"?",
   "faqReliability": "Upang mapabuti ang pagiging maaasahan ng SOS, mangyaring i-enable ang \"Payagan sa lahat ng oras\" sa ",
   "faqLocationPermissions": "mga pahintulot sa lokasyon",
-  "faqLocationTrust": "Ginagamit lamang ng app ang iyong lokasyon habang aktibo ang isang SOS broadcast. Hindi sinusubaybayan, iniimbak, o ibinebenta ng InstaSOS o ng Empathetech LLC ang data ng user.",
-  "faqLocationTrustFix": "Ginagamit lamang ng app ang iyong lokasyon habang aktibo ang isang SOS broadcast. Hindi sinusubaybayan, iniimbak, o ibinebenta ng Insta-SOS o ng Empathetic LLC ang data ng user.",
+  "faqLocationTrust": "Ginagamit lamang ng app ang iyong lokasyon habang aktibo ang isang SOS broadcast. Hindi sinusubaybayan, iniimbak, o ibinebenta ng InstaSOS o ng YWT ang data ng user.",
+  "faqLocationTrustFix": "Ginagamit lamang ng app ang iyong lokasyon habang aktibo ang isang SOS broadcast. Hindi sinusubaybayan, iniimbak, o ibinebenta ng Insta-SOS o ng YWT ang data ng user.",
 
   "faqContactPermissions": "Kung makuha mo ang mensaheng ito kapag nagdadagdag ng emergency contact, walang pahintulot ang InstaSOS na i-access ang partikular na contact na iyon.",
   "faqContactPermissionsFix": "Kung makuha mo ang mensaheng ito kapag nagdadagdag ng emergency contact, walang pahintulot ang Insta-SOS na i-access ang partikular na contact na iyon.",
@@ -168,7 +167,7 @@
 
   "faqReset": "I-reset ang tutorial",
   "faqContact": "Makipag-ugnayan sa suporta",
-  "faqContactHint": "I-email ang Empathetic LLC",
+  "faqContactHint": "I-email ang YWT",
 
 
 

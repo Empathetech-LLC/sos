@@ -326,10 +326,7 @@ class LangUk extends Lang {
   String get rmGov => 'Урядові ресурси США';
 
   @override
-  String get rmAffiliate => 'Жоден з них не пов\'язаний з Empathetech LLC';
-
-  @override
-  String get rmAffiliateFix => 'Жоден з них не пов\'язаний з Empathetic LLC';
+  String get rmAffiliate => 'Жоден з них не пов\'язаний з YWT';
 
   @override
   String get faqName => 'FAQ';
@@ -376,11 +373,11 @@ class LangUk extends Lang {
 
   @override
   String get faqLocationTrust =>
-      'Додаток використовує ваші геодані лише під час активної розсилки SOS. Ані InstaSOS, ані Empathetech LLC не відстежують, не зберігають і не продають дані користувачів.';
+      'Додаток використовує ваші геодані лише під час активної розсилки SOS. Ані InstaSOS, ані YWT не відстежують, не зберігають і не продають дані користувачів.';
 
   @override
   String get faqLocationTrustFix =>
-      'Додаток використовує ваші геодані лише під час активної розсилки SOS. Ані Insta-SOS, ані Empathetic LLC не відстежують, не зберігають і не продають дані користувачів.';
+      'Додаток використовує ваші геодані лише під час активної розсилки SOS. Ані Insta-SOS, ані YWT не відстежують, не зберігають і не продають дані користувачів.';
 
   @override
   String get faqContactPermissions =>
@@ -433,7 +430,7 @@ class LangUk extends Lang {
   String get faqContact => 'Звернутися до служби підтримки';
 
   @override
-  String get faqContactHint => 'Надіслати email Empathetic LLC';
+  String get faqContactHint => 'Надіслати email YWT';
 
   @override
   String get bsEMC => 'Екстрені контакти';

@@ -128,8 +128,7 @@
   
   "rmCommunity": "社区资源",
   "rmGov": "美国政府资源",
-  "rmAffiliate": "均不隶属于 Empathetech LLC",
-  "rmAffiliateFix": "均不隶属于 Empathetic LLC",
+  "rmAffiliate": "均不隶属于 YWT",
 
 
 
@@ -148,8 +147,8 @@
   "faqUnavailable": "SOS 显示“位置不可用”？",
   "faqReliability": "为了提高 SOS 的可靠性，请在以下位置启用“始终允许”：",
   "faqLocationPermissions": "位置权限",
-  "faqLocationTrust": "该应用仅在激活 SOS 广播时使用您的位置。InstaSOS 和 Empathetech LLC 均不追踪、存储或出售用户数据。",
-  "faqLocationTrustFix": "该应用仅在激活 SOS 广播时使用您的位置。Insta-SOS 和 Empathetic LLC 均不追踪、存储或出售用户数据。",
+  "faqLocationTrust": "该应用仅在激活 SOS 广播时使用您的位置。InstaSOS 和 YWT 均不追踪、存储或出售用户数据。",
+  "faqLocationTrustFix": "该应用仅在激活 SOS 广播时使用您的位置。Insta-SOS 和 YWT 均不追踪、存储或出售用户数据。",
 
   "faqContactPermissions": "如果在添加紧急联系人时收到此消息，则表明 InstaSOS 没有访问该特定联系人的权限。",
   "faqContactPermissionsFix": "如果在添加紧急联系人时收到此消息，则表明 Insta-SOS 没有访问该特定联系人的权限。",
@@ -168,7 +167,7 @@
 
   "faqReset": "重置教程",
   "faqContact": "联系支持",
-  "faqContactHint": "给 Empathetic LLC 发送邮件",
+  "faqContactHint": "给 YWT 发送邮件",
 
 
 

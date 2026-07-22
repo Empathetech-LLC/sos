@@ -690,14 +690,8 @@ abstract class Lang {
   /// No description provided for @rmAffiliate.
   ///
   /// In en, this message translates to:
-  /// **'None are affiliated with Empathetech LLC'**
+  /// **'None are affiliated with YWT'**
   String get rmAffiliate;
-
-  /// No description provided for @rmAffiliateFix.
-  ///
-  /// In en, this message translates to:
-  /// **'None are affiliated with Empathetic LLC'**
-  String get rmAffiliateFix;
 
   /// No description provided for @faqName.
   ///
@@ -774,13 +768,13 @@ abstract class Lang {
   /// No description provided for @faqLocationTrust.
   ///
   /// In en, this message translates to:
-  /// **'The app only uses your location while an SOS broadcast is active. Neither InstaSOS or Empathetech LLC track, store, or sell user data.'**
+  /// **'The app only uses your location while an SOS broadcast is active. Neither InstaSOS or YWT track, store, or sell user data.'**
   String get faqLocationTrust;
 
   /// No description provided for @faqLocationTrustFix.
   ///
   /// In en, this message translates to:
-  /// **'The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or Empathetic LLC track, store, or sell user data.'**
+  /// **'The app only uses your location while an SOS broadcast is active. Neither Insta-SOS or YWT track, store, or sell user data.'**
   String get faqLocationTrustFix;
 
   /// No description provided for @faqContactPermissions.
@@ -870,7 +864,7 @@ abstract class Lang {
   /// No description provided for @faqContactHint.
   ///
   /// In en, this message translates to:
-  /// **'Email Empathetic LLC'**
+  /// **'Email YWT'**
   String get faqContactHint;
 
   /// No description provided for @bsEMC.

@@ -322,10 +322,7 @@ class LangHi extends Lang {
   String get rmGov => 'अमेरिकी सरकार के संसाधन';
 
   @override
-  String get rmAffiliate => 'कोई भी Empathetech LLC से संबद्ध नहीं है';
-
-  @override
-  String get rmAffiliateFix => 'कोई भी Empathetic LLC से संबद्ध नहीं है';
+  String get rmAffiliate => 'कोई भी YWT से संबद्ध नहीं है';
 
   @override
   String get faqName => 'सामान्य प्रश्न';
@@ -372,11 +369,11 @@ class LangHi extends Lang {
 
   @override
   String get faqLocationTrust =>
-      'ऐप केवल तभी आपके स्थान का उपयोग करता है जब SOS ब्रॉडकास्ट सक्रिय होता है। न तो InstaSOS और न ही Empathetech LLC उपयोगकर्ता डेटा को ट्रैक करते हैं, सहेजते हैं, या बेचते हैं।';
+      'ऐप केवल तभी आपके स्थान का उपयोग करता है जब SOS ब्रॉडकास्ट सक्रिय होता है। न तो InstaSOS और न ही YWT उपयोगकर्ता डेटा को ट्रैक करते हैं, सहेजते हैं, या बेचते हैं।';
 
   @override
   String get faqLocationTrustFix =>
-      'ऐप केवल तभी आपके स्थान का उपयोग करता है जब SOS ब्रॉडकास्ट सक्रिय होता है। न तो Insta-SOS और न ही Empathetic LLC उपयोगकर्ता डेटा को ट्रैक करते हैं, सहेजते हैं, या बेचते हैं।';
+      'ऐप केवल तभी आपके स्थान का उपयोग करता है जब SOS ब्रॉडकास्ट सक्रिय होता है। न तो Insta-SOS और न ही YWT उपयोगकर्ता डेटा को ट्रैक करते हैं, सहेजते हैं, या बेचते हैं।';
 
   @override
   String get faqContactPermissions =>
@@ -429,7 +426,7 @@ class LangHi extends Lang {
   String get faqContact => 'समर्थन से संपर्क करें';
 
   @override
-  String get faqContactHint => 'Empathetic LLC को ईमेल करें';
+  String get faqContactHint => 'YWT को ईमेल करें';
 
   @override
   String get bsEMC => 'आपातकालीन संपर्क';

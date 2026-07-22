@@ -128,8 +128,7 @@
 
   "rmCommunity": "コミュニティリソース",
   "rmGov": "米国政府のリソース",
-  "rmAffiliate": "いずれもEmpathetech LLCとは提携していません",
-  "rmAffiliateFix": "いずれもEmpathetic LLCとは提携していません",
+  "rmAffiliate": "いずれもYWTとは提携していません",
 
 
 
@@ -148,8 +147,8 @@
   "faqUnavailable": "SOSで「位置情報が利用できません」と表示されますか？",
   "faqReliability": "SOSの信頼性を向上させるには、次の場所で「常に許可」を有効にしてください： ",
   "faqLocationPermissions": "位置情報の権限",
-  "faqLocationTrust": "このアプリは、SOS発信がアクティブな間のみ位置情報を使用します。InstaSOSもEmpathetech LLCも、ユーザーデータの追跡、保存、販売は行いません。",
-  "faqLocationTrustFix": "このアプリは、SOS発信がアクティブな間のみ位置情報を使用します。Insta-SOSもEmpathetic LLCも、ユーザーデータの追跡、保存、販売は行いません。",
+  "faqLocationTrust": "このアプリは、SOS発信がアクティブな間のみ位置情報を使用します。InstaSOSもYWTも、ユーザーデータの追跡、保存、販売は行いません。",
+  "faqLocationTrustFix": "このアプリは、SOS発信がアクティブな間のみ位置情報を使用します。Insta-SOSもYWTも、ユーザーデータの追跡、保存、販売は行いません。",
 
   "faqContactPermissions": "緊急連絡先の追加時にこのメッセージが表示される場合、InstaSOSにはその特定の連絡先にアクセスする権限がありません。",
   "faqContactPermissionsFix": "緊急連絡先の追加時にこのメッセージが表示される場合、Insta-SOSにはその特定の連絡先にアクセスする権限がありません。",
@@ -168,7 +167,7 @@
 
   "faqReset": "チュートリアルをリセット",
   "faqContact": "サポートに連絡",
-  "faqContactHint": "Empathetic LLCにメールを送信",
+  "faqContactHint": "YWTにメールを送信",
 
 
 

@@ -322,10 +322,7 @@ class LangHt extends Lang {
   String get rmGov => 'Resous gouvènman ameriken an';
 
   @override
-  String get rmAffiliate => 'Okenn nan yo pa afilye ak Empathetech LLC';
-
-  @override
-  String get rmAffiliateFix => 'Okenn nan yo pa afilye ak Empathetic LLC';
+  String get rmAffiliate => 'Okenn nan yo pa afilye ak YWT';
 
   @override
   String get faqName => 'Keksyon yo Poze Souvan (FAQ)';
@@ -371,11 +368,11 @@ class LangHt extends Lang {
 
   @override
   String get faqLocationTrust =>
-      'Aplikasyon an itilize kote w ye a sèlman lè yon difizyon SOS aktive. Ni InstaSOS ni Empathetech LLC pa swiv, ni konsève, ni vann done itilizatè yo.';
+      'Aplikasyon an itilize kote w ye a sèlman lè yon difizyon SOS aktive. Ni InstaSOS ni YWT pa swiv, ni konsève, ni vann done itilizatè yo.';
 
   @override
   String get faqLocationTrustFix =>
-      'Aplikasyon an itilize kote w ye a sèlman lè yon difizyon SOS aktive. Ni Insta-SOS ni Empathetic LLC pa swiv, ni konsève, ni vann done itilizatè yo.';
+      'Aplikasyon an itilize kote w ye a sèlman lè yon difizyon SOS aktive. Ni Insta-SOS ni YWT pa swiv, ni konsève, ni vann done itilizatè yo.';
 
   @override
   String get faqContactPermissions =>
@@ -427,7 +424,7 @@ class LangHt extends Lang {
   String get faqContact => 'Kontakte sipò a';
 
   @override
-  String get faqContactHint => 'Voye imèl bay Empathetic LLC';
+  String get faqContactHint => 'Voye imèl bay YWT';
 
   @override
   String get bsEMC => 'Kontak ijans yo';

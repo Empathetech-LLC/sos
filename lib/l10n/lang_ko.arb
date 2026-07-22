@@ -128,8 +128,7 @@
 
   "rmCommunity": "커뮤니티 리소스",
   "rmGov": "미국 정부 리소스",
-  "rmAffiliate": "어느 곳도 Empathetech LLC와 제휴하지 않았습니다",
-  "rmAffiliateFix": "어느 곳도 Empathetic LLC와 제휴하지 않았습니다",
+  "rmAffiliate": "어느 곳도 YWT와 제휴하지 않았습니다",
 
 
 
@@ -148,8 +147,8 @@
   "faqUnavailable": "SOS에서 \"위치를 사용할 수 없음\"이라고 표시되나요?",
   "faqReliability": "SOS의 신뢰성을 높이려면 다음 설정에서 \"항상 허용\"을 활성화하세요: ",
   "faqLocationPermissions": "위치 권한",
-  "faqLocationTrust": "앱은 SOS 브로드캐스트가 활성화된 동안에만 위치를 사용합니다. InstaSOS나 Empathetech LLC는 사용자 데이터를 추적, 저장 또는 판매하지 않습니다.",
-  "faqLocationTrustFix": "앱은 SOS 브로드캐스트가 활성화된 동안에만 위치를 사용합니다. Insta-SOS나 Empathetic LLC는 사용자 데이터를 추적, 저장 또는 판매하지 않습니다.",
+  "faqLocationTrust": "앱은 SOS 브로드캐스트가 활성화된 동안에만 위치를 사용합니다. InstaSOS나 YWT는 사용자 데이터를 추적, 저장 또는 판매하지 않습니다.",
+  "faqLocationTrustFix": "앱은 SOS 브로드캐스트가 활성화된 동안에만 위치를 사용합니다. Insta-SOS나 YWT는 사용자 데이터를 추적, 저장 또는 판매하지 않습니다.",
 
   "faqContactPermissions": "비상 연락처를 추가할 때 이 메시지가 표시되면 InstaSOS가 해당 연락처에 액세스할 권한이 없는 것입니다.",
   "faqContactPermissionsFix": "비상 연락처를 추가할 때 이 메시지가 표시되면 Insta-SOS가 해당 연락처에 액세스할 권한이 없는 것입니다.",
@@ -168,7 +167,7 @@
 
   "faqReset": "튜토리얼 재설정",
   "faqContact": "고객 지원 문의",
-  "faqContactHint": "Empathetic LLC에 이메일 보내기",
+  "faqContactHint": "YWT에 이메일 보내기",
 
 
 

@@ -329,10 +329,7 @@ class LangRu extends Lang {
   String get rmGov => 'Государственные ресурсы США';
 
   @override
-  String get rmAffiliate => 'Ни один из них не связан с Empathetech LLC';
-
-  @override
-  String get rmAffiliateFix => 'Ни один из них не связан с Empathetic LLC';
+  String get rmAffiliate => 'Ни один из них не связан с YWT';
 
   @override
   String get faqName => 'FAQ';
@@ -379,11 +376,11 @@ class LangRu extends Lang {
 
   @override
   String get faqLocationTrust =>
-      'Приложение использует ваше местоположение только во время активной трансляции SOS. Ни InstaSOS, ни Empathetech LLC не отслеживают, не хранят и не продают пользовательские данные.';
+      'Приложение использует ваше местоположение только во время активной трансляции SOS. Ни InstaSOS, ни YWT не отслеживают, не хранят и не продают пользовательские данные.';
 
   @override
   String get faqLocationTrustFix =>
-      'Приложение использует ваше местоположение только во время активной трансляции SOS. Ни Insta-SOS, ни Empathetic LLC не отслеживают, не хранят и не продают пользовательские данные.';
+      'Приложение использует ваше местоположение только во время активной трансляции SOS. Ни Insta-SOS, ни YWT не отслеживают, не хранят и не продают пользовательские данные.';
 
   @override
   String get faqContactPermissions =>
@@ -435,7 +432,7 @@ class LangRu extends Lang {
   String get faqContact => 'Связаться с поддержкой';
 
   @override
-  String get faqContactHint => 'Написать в Empathetic LLC';
+  String get faqContactHint => 'Написать в YWT';
 
   @override
   String get bsEMC => 'Экстренные контакты';

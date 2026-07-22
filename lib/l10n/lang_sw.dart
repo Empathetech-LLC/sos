@@ -320,10 +320,7 @@ class LangSw extends Lang {
   String get rmGov => 'Nyenzo za serikali ya Marekani';
 
   @override
-  String get rmAffiliate => 'Hakuna inayohusishwa na Empathetech LLC';
-
-  @override
-  String get rmAffiliateFix => 'Hakuna inayohusishwa na Empathetic LLC';
+  String get rmAffiliate => 'Hakuna inayohusishwa na YWT';
 
   @override
   String get faqName => 'Maswali Yanayoulizwa Mara kwa Mara';
@@ -370,11 +367,11 @@ class LangSw extends Lang {
 
   @override
   String get faqLocationTrust =>
-      'Programu inatumia tu eneo lako wakati tangazo la SOS linaendelea. Wala InstaSOS au Empathetech LLC haifuatilii, haihifadhi, au kuuza data ya mtumiaji.';
+      'Programu inatumia tu eneo lako wakati tangazo la SOS linaendelea. Wala InstaSOS au YWT haifuatilii, haihifadhi, au kuuza data ya mtumiaji.';
 
   @override
   String get faqLocationTrustFix =>
-      'Programu inatumia tu eneo lako wakati tangazo la SOS linaendelea. Wala Insta-SOS au Empathetic LLC haifuatilii, haihifadhi, au kuuza data ya mtumiaji.';
+      'Programu inatumia tu eneo lako wakati tangazo la SOS linaendelea. Wala Insta-SOS au YWT haifuatilii, haihifadhi, au kuuza data ya mtumiaji.';
 
   @override
   String get faqContactPermissions =>
@@ -427,7 +424,7 @@ class LangSw extends Lang {
   String get faqContact => 'Wasiliana na usaidizi';
 
   @override
-  String get faqContactHint => 'Tuma barua pepe kwa Empathetic LLC';
+  String get faqContactHint => 'Tuma barua pepe kwa YWT';
 
   @override
   String get bsEMC => 'Wasiliani wa dharura';

@@ -1,5 +1,5 @@
 /* sos
- * Copyright (c) 2025 Empathetech LLC. All rights reserved.
+ * Copyright (c) 2025 YWT (Empathetech LLC). All rights reserved.
  * See LICENSE for distribution and usage details.
  */
 
@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter_contacts/flutter_contacts.dart' as c;
 import 'package:permission_handler/permission_handler.dart';
-import 'package:empathetech_flutter_ui/empathetech_flutter_ui.dart';
+import 'package:open_ui/open_ui.dart';
 
 // Camera //
 
@@ -39,8 +39,9 @@ Future<void> addEMC(EzCP config, {required BuildContext context, bool loop = tru
   final List<String> currEMC = List<String>.from(emc);
 
   // Check contact permissions
-  final c.PermissionStatus contactsGranted =
-      await c.FlutterContacts.permissions.request(c.PermissionType.read);
+  final c.PermissionStatus contactsGranted = await c.FlutterContacts.permissions.request(
+    c.PermissionType.read,
+  );
 
   if (!allowedPermCheck(cPermMirror(contactsGranted))) {
     if (context.mounted) {
@@ -81,10 +82,7 @@ Future<void> addEMC(EzCP config, {required BuildContext context, bool loop = tru
                 },
                 hint: config.ezL10n.gOpenLink,
               ),
-              EzPlainText(
-                text: '.',
-                semanticsLabel: l10n(config).bsPartialContactsFix,
-              ),
+              EzPlainText(text: '.', semanticsLabel: l10n(config).bsPartialContactsFix),
             ],
             textBackground: false,
             style: config.bodyStyle,
@@ -112,11 +110,13 @@ Future<void> addEMC(EzCP config, {required BuildContext context, bool loop = tru
 
   while (true) {
     try {
-      contact = await c.FlutterContacts.native.showPicker(properties: <c.ContactProperty>{
-        c.ContactProperty.name,
-        c.ContactProperty.identifiers,
-        c.ContactProperty.phone,
-      });
+      contact = await c.FlutterContacts.native.showPicker(
+        properties: <c.ContactProperty>{
+          c.ContactProperty.name,
+          c.ContactProperty.identifiers,
+          c.ContactProperty.phone,
+        },
+      );
     } catch (_) {
       if (context.mounted) {
         await ezSnackBar(config, context: context, message: l10n(config).bsNumError).closed;
@@ -209,81 +209,80 @@ Future<void> appSetupModal(EzCP config, BuildContext context) async {
     isDismissible: false,
     showDragHandle: false,
     builder: (BuildContext mCon) => StatefulBuilder(
-      builder: (_, StateSetter setModal) => ezModalScroll(config, children: <Widget>[
-        // Title
-        config.margin,
-        Text(
-          l10n(config).hsWelcome,
-          semanticsLabel: l10n(config).hsWelcomeFix,
-          style: config.headlineStyle,
-          textAlign: TextAlign.center,
-        ),
-        config.margin,
-
-        // Locale setting
-        EzLocaleSetting(
-          config,
-          skip: <Locale>{arabic, english, chinese}, // dupes
-        ),
-        config.spacer,
-
-        // Have it your way
-        Text(
-          showTutorial ? l10n(config).hsAppIntro : l10n(config).hsAppIntroAlt,
-          style: config.bodyStyle,
-          textAlign: TextAlign.center,
-        ),
-        config.centerLine,
-        Text(
-          l10n(config).hsYourApp,
-          style: config.bodyStyle,
-          textAlign: TextAlign.center,
-        ),
-        config.divider,
-
-        // Permission checklist
-        CameraSetup(
-          config,
-          locked: locked,
-          setLock: (bool active) => setModal(() => locked = active),
-        ),
-        config.spacer,
-
-        SOSSetup(
-          config,
-          locked: locked,
-          setLock: (bool active) => setModal(() => locked = active),
-        ),
-        config.spacer,
-
-        LocationSetup(
-          config,
-          locked: locked,
-          setLock: (bool active) => setModal(() => locked = active),
-        ),
-        config.spacer,
-
-        // Finish/leave
-        EzTextIconButton(
-          config,
-          label: l10n(config).gDone,
-          icon: EzIcon(config, Icons.check),
-          textAlign: TextAlign.center,
-          style: TextButton.styleFrom(backgroundColor: config.colors.surfaceContainer),
-          onPressed: () => Navigator.of(mCon).pop(true),
-        ),
-
-        if (config.locale.languageCode != english.languageCode) ...<Widget>[
-          config.spacer,
+      builder: (_, StateSetter setModal) => ezModalScroll(
+        config,
+        children: <Widget>[
+          // Title
+          config.margin,
           Text(
-            l10n(config).hsHybridTranslation,
+            l10n(config).hsWelcome,
+            semanticsLabel: l10n(config).hsWelcomeFix,
+            style: config.headlineStyle,
+            textAlign: TextAlign.center,
+          ),
+          config.margin,
+
+          // Locale setting
+          EzLocaleSetting(
+            config,
+            skip: <Locale>{arabic, english, chinese}, // dupes
+          ),
+          config.spacer,
+
+          // Have it your way
+          Text(
+            showTutorial ? l10n(config).hsAppIntro : l10n(config).hsAppIntroAlt,
             style: config.bodyStyle,
             textAlign: TextAlign.center,
           ),
-        ],
+          config.centerLine,
+          Text(l10n(config).hsYourApp, style: config.bodyStyle, textAlign: TextAlign.center),
+          config.divider,
 
-        config.separator,
-      ]),
+          // Permission checklist
+          CameraSetup(
+            config,
+            locked: locked,
+            setLock: (bool active) => setModal(() => locked = active),
+          ),
+          config.spacer,
+
+          SOSSetup(
+            config,
+            locked: locked,
+            setLock: (bool active) => setModal(() => locked = active),
+          ),
+          config.spacer,
+
+          LocationSetup(
+            config,
+            locked: locked,
+            setLock: (bool active) => setModal(() => locked = active),
+          ),
+          config.spacer,
+
+          // Finish/leave
+          EzTextIconButton(
+            config,
+            label: l10n(config).gDone,
+            icon: EzIcon(config, Icons.check),
+            textAlign: TextAlign.center,
+            style: TextButton.styleFrom(backgroundColor: config.colors.surfaceContainer),
+            onPressed: () => Navigator.of(mCon).pop(true),
+          ),
+
+          if (config.locale.languageCode != english.languageCode) ...<Widget>[
+            config.spacer,
+            Text(
+              l10n(config).hsHybridTranslation,
+              style: config.bodyStyle,
+              textAlign: TextAlign.center,
+            ),
+          ],
+
+          config.separator,
+        ],
+      ),
     ),
   );
 
@@ -304,13 +303,10 @@ Future<void> backgroundSOS(Lang l10n) async {
       currEMC.map((String contact) => contact.split(contactSplit).last).toList();
 
   try {
-    await platform.invokeMethod<void>(
-      'backgroundSOS',
-      <String, dynamic>{
-        'recipients': numbers.join(';'),
-        'heading': 'SOS - ${l10n.sosLastKnown}',
-      },
-    );
+    await platform.invokeMethod<void>('backgroundSOS', <String, dynamic>{
+      'recipients': numbers.join(';'),
+      'heading': 'SOS - ${l10n.sosLastKnown}',
+    });
   } catch (e) {
     ezLog(e.toString());
     // We still want to continue. Could be a partial success

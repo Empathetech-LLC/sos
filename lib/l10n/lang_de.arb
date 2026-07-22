@@ -128,8 +128,7 @@
 
   "rmCommunity": "Community-Ressourcen",
   "rmGov": "US-Regierungsressourcen",
-  "rmAffiliate": "Keine davon ist mit Empathetech LLC verbunden",
-  "rmAffiliateFix": "Keine davon ist mit Empathetic LLC verbunden",
+  "rmAffiliate": "Keine davon ist mit YWT verbunden",
 
 
 
@@ -148,8 +147,8 @@
   "faqUnavailable": "SOS meldet \"Standort nicht verfügbar\"?",
   "faqReliability": "Um die SOS-Zuverlässigkeit zu verbessern, aktiviere bitte \"Immer zulassen\" in den ",
   "faqLocationPermissions": "Standortberechtigungen",
-  "faqLocationTrust": "Die App verwendet deinen Standort nur, während ein SOS-Notruf aktiv ist. Weder InstaSOS noch Empathetech LLC verfolgen, speichern oder verkaufen Benutzerdaten.",
-  "faqLocationTrustFix": "Die App verwendet deinen Standort nur, während ein SOS-Notruf aktiv ist. Weder Insta-SOS noch Empathetic LLC verfolgen, speichern oder verkaufen Benutzerdaten.",
+  "faqLocationTrust": "Die App verwendet deinen Standort nur, während ein SOS-Notruf aktiv ist. Weder InstaSOS noch YWT verfolgen, speichern oder verkaufen Benutzerdaten.",
+  "faqLocationTrustFix": "Die App verwendet deinen Standort nur, während ein SOS-Notruf aktiv ist. Weder Insta-SOS noch YWT verfolgen, speichern oder verkaufen Benutzerdaten.",
 
   "faqContactPermissions": "Wenn du diese Nachricht erhältst, während du einen Notfallkontakt hinzufügst, hat InstaSOS keine Berechtigung, auf diesen bestimmten Kontakt zuzugreifen.",
   "faqContactPermissionsFix": "Wenn du diese Nachricht erhältst, während du einen Notfallkontakt hinzufügst, hat Insta-SOS keine Berechtigung, auf diesen bestimmten Kontakt zuzugreifen.",
@@ -168,7 +167,7 @@
 
   "faqReset": "Tutorial zurücksetzen",
   "faqContact": "Support kontaktieren",
-  "faqContactHint": "E-Mail an Empathetic LLC senden",
+  "faqContactHint": "E-Mail an YWT senden",
 
 
 

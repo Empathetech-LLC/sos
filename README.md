@@ -13,7 +13,7 @@ Stay safe out there.
 
 ## Time
 
-Please reach out to the [community](mailto:community@empathetech.net?subject=Becoming%20a%20contributor) contact about becoming a contributor. There's never a shortage of ideas, only time!
+Please reach out to the [community](mailto:community@ywt.llc?subject=Becoming%20a%20contributor) contact about becoming a contributor. There's never a shortage of ideas, only time!
 
 ### <br>Translations
 
@@ -23,9 +23,9 @@ If you speak English and a currently supported language, and see something wrong
 
 ## <br>Money
 
-Empathetech makes free and open source software as a public service. Please consider donating so the work can continue. 
+YWT makes free and open source software as a public service. Please consider donating so the work can continue. 
 
-&nbsp;&nbsp;&nbsp;[GoFundMe](https://gofund.me/c047d07e)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Throne](https://throne.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Patreon](https://patreon.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Buy Me a Coffee](https://www.buymeacoffee.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Ko-fi](https://ko-fi.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[PayPal](https://www.paypal.com/donate/?hosted_button_id=NGEL6AB5A6KNL)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Venmo](https://venmo.com/empathetech)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Cash App](https://cash.app/$empathetech)
+&nbsp;&nbsp;&nbsp;[Buy Me a Coffee](https://www.buymeacoffee.com/ywt.llc)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Ko-fi](https://ko-fi.com/ywt)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[Patreon](https://patreon.com/ywt_llc)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;[PayPal](https://www.paypal.com/donate/?hosted_button_id=NGEL6AB5A6KNL)&nbsp;&nbsp;&nbsp;
 
 <br>Many thanks for any and all contributions!
 

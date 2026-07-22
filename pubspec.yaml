@@ -29,9 +29,9 @@ dependencies:
   provider: ^6.1.5+1
   share_plus: ^13.2.0
 
-  # Empathetech
-  empathetech_flutter_ui: 
-    path: ../empathetech_flutter_ui
+  # YWT
+  open_ui: 
+    path: ../open_ui
 
 dev_dependencies:
   dependency_validator: ^5.0.5
